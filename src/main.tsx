@@ -1,10 +1,49 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import './index.css'
+import {createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import App from './App.tsx'
+import RootLayout from './components/layouts/RootLayout.tsx';
+import NotImplementedPage from './components/NotImplementedPage.tsx';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "traits",
+        element: <NotImplementedPage pageName='Traits' />
+      },
+      {
+        path: "rulebook",
+        element: <NotImplementedPage pageName='Rulebook' />,
+        children: [
+          {
+            path: "rulebook/stats",
+            element: <NotImplementedPage pageName='Stats' />
+          },
+          {
+            path: "rulebook/creating-a-character",
+            element: <NotImplementedPage pageName='Creating a Character' />
+          },
+          {
+            path: "rulebook/magic",
+            element: <NotImplementedPage pageName='Magic' />
+          },
+        ]
+      }
+    ]
+  }
+])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
