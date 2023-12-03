@@ -13,14 +13,14 @@ export class CreaturesService {
     /**
      * Creature Search
      * This method will eventually support filtering all values. Not just name.
-     * @returns any Successful Response
+     * @returns Creature Successful Response
      * @throws ApiError
      */
     public static creatureSearch({
         name,
     }: {
         name: string,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Creature> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/creature/',
@@ -56,14 +56,14 @@ export class CreaturesService {
 
     /**
      * Get Creature By Id
-     * @returns any Successful Response
+     * @returns Creature Successful Response
      * @throws ApiError
      */
     public static getCreatureById({
         id,
     }: {
         id: number,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Creature> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/creature/{id}',

@@ -13,14 +13,14 @@ export class SpellsService {
     /**
      * Spell Search
      * This method will eventually support filtering all values. Not just name.
-     * @returns any Successful Response
+     * @returns Spell Successful Response
      * @throws ApiError
      */
     public static spellSearch({
         name,
     }: {
         name: string,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Spell> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/spell/',
@@ -56,10 +56,10 @@ export class SpellsService {
 
     /**
      * Get All Spells
-     * @returns any Successful Response
+     * @returns Spell Successful Response
      * @throws ApiError
      */
-    public static getAllSpells(): CancelablePromise<any> {
+    public static getAllSpells(): CancelablePromise<Record<string, Spell>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/spells/',
@@ -68,14 +68,14 @@ export class SpellsService {
 
     /**
      * Get Spell By Id
-     * @returns any Successful Response
+     * @returns Spell Successful Response
      * @throws ApiError
      */
     public static getSpellById({
         id,
     }: {
         id: number,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Spell> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/spell/{id}',
@@ -138,7 +138,7 @@ export class SpellsService {
 
     /**
      * Filter Spells By Tags
-     * @returns any Successful Response
+     * @returns Spell Successful Response
      * @throws ApiError
      */
     public static filterSpellsByTags({
@@ -148,7 +148,7 @@ export class SpellsService {
          * csv
          */
         tags: string,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Record<string, Spell>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/filterspells/',

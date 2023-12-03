@@ -33,10 +33,10 @@ export class TraitsService {
 
     /**
      * Get All Traits
-     * @returns any Successful Response
+     * @returns Trait Successful Response
      * @throws ApiError
      */
-    public static getAllTraits(): CancelablePromise<any> {
+    public static getAllTraits(): CancelablePromise<Record<string, Trait>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/traits/',
@@ -93,7 +93,7 @@ export class TraitsService {
 
     /**
      * Filter Traits By Requirements
-     * @returns any Successful Response
+     * @returns Trait Successful Response
      * @throws ApiError
      */
     public static filterTraitsByRequirements({
@@ -103,7 +103,7 @@ export class TraitsService {
          * csv
          */
         requirements: string,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Record<string, Trait>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/filtertraits/',

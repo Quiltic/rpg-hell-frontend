@@ -2,6 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
+import type { Item } from '../models/Item';
+import type { Trait } from '../models/Trait';
+
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
@@ -10,7 +13,6 @@ export class ObjectsService {
 
     /**
      * Object Search
-     * This method will eventually support filtering all values. Not just name.
      * @returns any Successful Response
      * @throws ApiError
      */
@@ -18,7 +20,7 @@ export class ObjectsService {
         name,
     }: {
         name: string,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<(Trait | Item)> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/object/',
@@ -40,7 +42,7 @@ export class ObjectsService {
         id,
     }: {
         id: number,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<(Trait | Item)> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/object/{id}',

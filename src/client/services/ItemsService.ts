@@ -34,10 +34,10 @@ export class ItemsService {
 
     /**
      * Get All Items
-     * @returns any Successful Response
+     * @returns Item Successful Response
      * @throws ApiError
      */
-    public static getAllItems(): CancelablePromise<any> {
+    public static getAllItems(): CancelablePromise<Record<string, Item>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/items/',
@@ -94,7 +94,7 @@ export class ItemsService {
 
     /**
      * Filter Items By Tags Or Requirements
-     * @returns any Successful Response
+     * @returns Item Successful Response
      * @throws ApiError
      */
     public static filterItemsByTagsOrRequirements({
@@ -109,7 +109,7 @@ export class ItemsService {
          * csv
          */
         filters: string,
-    }): CancelablePromise<any> {
+    }): CancelablePromise<Record<string, Item>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/filteritems/{option}',
