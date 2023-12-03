@@ -1,11 +1,14 @@
 // import React from 'react'
 
-import {Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
+import { AuthProvider } from "../../context/AuthProvider";
 
 export default function RootLayout() {
-  return (
-    <>
-        <Outlet />
-    </>
-  )
+    return (
+        <>
+            <AuthProvider>
+                <Outlet />
+            </AuthProvider>
+        </>
+    );
 }

@@ -1,34 +1,46 @@
 import { createContext, useState, ReactNode } from "react";
 // import { Outlet } from "react-router-dom";
 
-type IAuthenticatedUser = {
-    authToken: string
-    discordId: string
-    avatarUrl: string
-    username: string
-    admin: boolean
+interface IAuthenticatedUser {
+    readonly discordId: string;
+    readonly avatarUrl: string;
+    readonly username: string;
+    readonly admin: boolean;
+    readonly isAuthenticated: true;
 }
 
-export type IAuthContext = {
-    auth: IAuthenticatedUser
-    setAuth: (auth: IAuthenticatedUser | object) => void
-    persist: string,
-    setPersist: (persist: string) => void
-
+interface IUnauthenticated {
+    readonly isAuthenticated: false;
 }
 
-const AuthContext = createContext<IAuthContext | object>({});
+type User = IAuthenticatedUser | IUnauthenticated;
 
-export function AuthProvider(children: ReactNode) {
-    const [auth, setAuth] = useState({});
-    // const [persist, setPersist] = useState(JSON.parse(localStorage.getItem('persist') || '{}')); 
-    // https://stackoverflow.com/questions/46915002/argument-of-type-string-null-is-not-assignable-to-parameter-of-type-string
+export interface IAuthContext {
+    readonly auth: User;
+    readonly setAuth: (auth: User) => void;
+}
+
+const initialAuth: IUnauthenticated = { isAuthenticated: false };
+
+const initialContext: IAuthContext = {
+    auth: initialAuth,
+    setAuth: () => {
+        throw new Error("Uninitialized Authentication Context");
+    },
+};
+
+export const AuthContext = createContext<IAuthContext>(initialContext);
+
+interface Props {
+    readonly children: ReactNode;
+}
+
+export function AuthProvider({ children }: Props) {
+    const [auth, setAuth] = useState<User>(initialAuth);
 
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
             {children}
         </AuthContext.Provider>
-    )
+    );
 }
-
-export default AuthContext;

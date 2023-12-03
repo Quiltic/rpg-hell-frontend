@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import AuthContext, { IAuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function Login() {
-    const { auth, setAuth } = useContext(AuthContext) as IAuthContext;
+    const { auth, setAuth } = useContext(AuthContext);
     // const {setAuth} = useContext(AuthContext) as IAuthContext;
 
     console.log(auth);
-    console.log(setAuth({}))
+    console.log(setAuth);
 
     // useEffect here that calls the soon to be made axios provider to run Login
 
