@@ -3,13 +3,19 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {},
+        fontFamily: {
+            serif: ["Heebo", "Georgia", "serif"],
+        },
+        container: {
+            center: true,
+        },
         colors: {
             transparent: "transparent",
             current: "currentColor",
-            light: "#fbf8f0",
-            dark: "#2e262d",
+            light: { DEFAULT: "rgb(251, 248, 240)", 100: "#f4ecd7" },
+            dark: { DEFAULT: "rgb(46, 38, 45)", 100: "#3b3039" },
             body: {
-                DEFAULT: "#cc7833",
+                DEFAULT: "rgb(204, 120, 51)",
                 100: "#29180a",
                 200: "#523014",
                 300: "#7a481f",
@@ -21,7 +27,7 @@ export default {
                 900: "#f5e4d6",
             },
             mind: {
-                DEFAULT: "#338fcc",
+                DEFAULT: "rgb(51, 143, 204)",
                 100: "#0a1d29",
                 200: "#143952",
                 300: "#1f567a",
@@ -33,7 +39,7 @@ export default {
                 900: "#d6e9f5",
             },
             soul: {
-                DEFAULT: "#5f32c8",
+                DEFAULT: "rgb(95, 50, 200)",
                 100: "#130a28",
                 200: "#261450",
                 300: "#391e78",
@@ -116,7 +122,10 @@ export default {
                 800: "#c1beac",
                 900: "#e0ded6",
             },
+            blurple: {
+                DEFAULT: "#5865F2",
+            },
         },
     },
-    plugins: [],
+    plugins: ["prettier-plugin-tailwindcss"],
 };
