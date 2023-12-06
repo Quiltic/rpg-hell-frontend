@@ -1,10 +1,11 @@
 import "./App.css";
-import style from './markdown-styles.module.css';
+import Login from "./components/auth/Login";
+import style from "./markdown-styles.module.css";
 
 // import { Button } from "./components/ui/Button/Button";
 
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const markdown = `A paragraph with *emphasis* and **strong importance**.
 
@@ -25,19 +26,21 @@ A table:![FIRE]()
 
 ![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg)
 
-`
+`;
 
 function App() {
     return (
         <>
             <div>
-            <Markdown remarkPlugins={[remarkGfm]} className={style.reactMarkDown}>{markdown}</Markdown>
+                <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    className={style.reactMarkDown}
+                >
+                    {markdown}
+                </Markdown>
             </div>
         </>
     );
 }
 
 export default App;
-
-
-

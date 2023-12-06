@@ -1,19 +1,6 @@
 import { createContext, useState, ReactNode } from "react";
+import { IUnauthenticated, User } from "../types/auth";
 // import { Outlet } from "react-router-dom";
-
-interface IAuthenticatedUser {
-    readonly discordId: string;
-    readonly avatarUrl: string;
-    readonly username: string;
-    readonly admin: boolean;
-    readonly isAuthenticated: true;
-}
-
-interface IUnauthenticated {
-    readonly isAuthenticated: false;
-}
-
-type User = IAuthenticatedUser | IUnauthenticated;
 
 export interface IAuthContext {
     readonly auth: User;
