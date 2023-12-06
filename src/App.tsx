@@ -4,40 +4,35 @@ import style from "./markdown-styles.module.css";
 
 // import { Button } from "./components/ui/Button/Button";
 
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw';
 
-const markdown = `A paragraph with *emphasis* and **strong importance**.
+import markdown from "./assets/test.md";
 
-> A block quote![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg) with ~strikethrough~ and a URL: https://reactjs.org.
-![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg)
-* Lists
-* [ ] t![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg)odo
-* [x] done![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg)
+function changeAll(text: string): string {
+    const colors: string[] = ["body", "mind", "soul"];
+    let updatedText: string = text;
 
+    for (const color of colors) {
+        updatedText = highlightWord(updatedText, color);
+    }
 
-A table:![FIRE]()
+    return updatedText;
+}
 
+function highlightWord(text: string, word: string): string {
+    const regex = new RegExp(`\\b(${word})\\b`, 'gi');
+    return text.replace(regex, `<span class=${word}>$1</span>`);
+}
 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text ![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg)|
-
-![FIRE](https://i.pngimg.me/thumb/f/720/m2i8A0d3m2b1G6b1.jpg)
-
-`;
+const md = changeAll(markdown);
 
 function App() {
     return (
         <>
             <div>
-                <Markdown
-                    remarkPlugins={[remarkGfm]}
-                    className={style.reactMarkDown}
-                >
-                    {markdown}
-                </Markdown>
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{md}</Markdown>
             </div>
         </>
     );
