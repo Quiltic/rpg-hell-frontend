@@ -13,7 +13,9 @@ export const Button = React.forwardRef<
         VariantProps<typeof buttonVariants>
 >(({ className, variant, ...props }, ref) => (
     <BaseButton
-        className={cn(buttonVariants({ variant, className }))}
+        className={cn(buttonVariants({ variant, className })).concat(
+            " focus:ring-2 focus:ring-light/75"
+        )}
         {...props}
         ref={ref}
     />

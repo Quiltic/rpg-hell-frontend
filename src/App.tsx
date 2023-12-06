@@ -2,11 +2,11 @@ import "./App.css";
 import Login from "./components/auth/Login";
 import style from "./markdown-styles.module.css";
 
-// import { Button } from "./components/ui/Button/Button";
+import { Button } from "./components/ui/Button/Button";
 
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw';
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 import markdown from "./assets/test.md";
 
@@ -22,7 +22,7 @@ function changeAll(text: string): string {
 }
 
 function highlightWord(text: string, word: string): string {
-    const regex = new RegExp(`\\b(${word})\\b`, 'gi');
+    const regex = new RegExp(`\\b(${word})\\b`, "gi");
     return text.replace(regex, `<span class=${word}>$1</span>`);
 }
 
@@ -32,7 +32,13 @@ function App() {
     return (
         <>
             <div>
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{md}</Markdown>
+                <Login />
+                <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
+                >
+                    {md}
+                </Markdown>
             </div>
         </>
     );
