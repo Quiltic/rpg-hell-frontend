@@ -7,14 +7,21 @@ A paragraph with *emphasis* and **strong importance**.
 * [ ] todo
 * [x] done
 
+Traits: 
+| Name | Requirements | Dice | Effect |
+| --- | --- | --- | --- |
+| Bobabo | Body | ## | bipbapbop |
 
-A table:
+Items: 
+| Name | Requirements | Effect | Tags | Cost | Craft |
+| --- | --- | --- | --- | --- | --- |
+| Box |  | An empty crate | bi, bim, bop | 0 | 0 |
 
+Spells: 
+| Name | Strain | Dice | Effect | Tags |
+| --- | --- | --- | --- | --- |
+| poprock | St 2 | ## | pop pop pop | attack |
 
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
 
 `
 export default markdown;

@@ -1,0 +1,92 @@
+{
+    "59": {
+      "id": 59,
+      "name": "weapon attack",
+      "effect": "Use your weapon to hit a target. To hit a target you must give 2 dice. Then when doing damage removing damage from the target based on its Armor and Ward.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 2,
+      "is_passive": false
+    },
+    "60": {
+      "id": 60,
+      "name": "spell casting",
+      "effect": "Gain Soul Strain to Cast a spell from your Spell list. Soul Strain cost and dice cost depend on spell.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 10,
+      "is_passive": false
+    },
+    "61": {
+      "id": 61,
+      "name": "use an item",
+      "effect": "Use an item from your bag, or is within 1 tile of you in the world.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 2,
+      "is_passive": false
+    },
+    "62": {
+      "id": 62,
+      "name": "move",
+      "effect": "Spend a dice to move your Speed. Swimming and Climbing use two tiles instead of 1.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 1,
+      "is_passive": false
+    },
+    "63": {
+      "id": 63,
+      "name": "hide",
+      "effect": "Roll Thieving, Pick the top 3 dice. A creature must meet or beat these 3 dice values to see you.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 3,
+      "is_passive": false
+    },
+    "64": {
+      "id": 64,
+      "name": "search",
+      "effect": "Roll your Core Skill. Pick the top 3 dice. If you meet or beat the dice values of the hidden creature they are no longer Hidden.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 2,
+      "is_passive": false
+    },
+    "65": {
+      "id": 65,
+      "name": "grapple",
+      "effect": "Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is Grappled.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 2,
+      "is_passive": false
+    },
+    "66": {
+      "id": 66,
+      "name": "push",
+      "effect": "Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is pushed 3 tiles away from you.",
+      "req": [
+        "base 1"
+      ],
+      "dice": 2,
+      "is_passive": false
+    },
+    "67": {
+      "id": 67,
+      "name": "overwatch",
+      "effect": "Make a Melee Attack at the first target that moves within your weapon range. ",
+      "req": [
+        "base 1"
+      ],
+      "dice": 1,
+      "is_passive": false
+    }
+}
