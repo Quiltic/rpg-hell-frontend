@@ -7,6 +7,7 @@ import App from "./App.tsx";
 import RootLayout from "./components/layouts/RootLayout.tsx";
 import NotImplementedPage from "./components/NotImplementedPage/NotImplementedPage.tsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
+import RulebookPage from "./components/RulebookPage/RulebookPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "rulebook",
-                element: <NotImplementedPage pageName="Rulebook" />,
+                element: <RulebookPage />,
                 children: [
                     {
                         path: "rulebook/stats",
