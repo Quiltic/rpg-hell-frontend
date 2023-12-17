@@ -1,4 +1,4 @@
-import { useContext, useEffect, Fragment } from "react";
+import { useContext, useEffect, Fragment, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { IAuthenticatedUser } from "../../types/auth";
 import { Button } from "../ui/Button/Button";
@@ -6,6 +6,8 @@ import { Button } from "../ui/Button/Button";
 import { Popover, Transition } from "@headlessui/react";
 
 import discordLogo from "../../assets/discord.svg";
+import useApi from "../../hooks/useApi";
+import { ApiError, DBUser } from "../../client";
 
 const arrowLeftOnRectangleIcon = (
     <svg
@@ -42,37 +44,84 @@ const userIcon = (
 );
 
 export default function Login() {
+    const [loginURL, setLoginURL] = useState("");
     const { auth, setAuth } = useContext(AuthContext);
+    const { UsersService } = useApi();
 
     console.log(auth);
     console.log(setAuth);
 
     useEffect(() => {
-        // api call to get the logged-in state
+        async function getAuthentication() {
+            const persistantUser: DBUser =
+                await UsersService.getOrCreateDatabaseUser();
+            setAuth({
+                discordId: persistantUser.discord_id,
+                avatarUrl: persistantUser.avatar_url ?? "",
+                username: persistantUser.username,
+                admin: persistantUser.is_admin ?? false,
+                isAuthenticated: true,
+            });
+        }
+
+        async function persistLogin() {
+            try {
+                getAuthentication();
+            } catch (e) {
+                if (e instanceof ApiError) {
+                    console.log("Attempting to refresh session...");
+                }
+                try {
+                    const refreshResponse = await UsersService.refresh();
+                    console.log(refreshResponse);
+                    if (refreshResponse.content == true) {
+                        getAuthentication();
+                    }
+                } catch {
+                    setAuth({ isAuthenticated: false });
+                }
+            }
+        }
+
+        persistLogin();
 
         // TEMP TEST VERSION
-        setAuth({
-            discordId: "12345",
-            avatarUrl:
-                "https://cdn.discordapp.com/emojis/679179726740258826.gif?size=96&quality=lossless",
-            username: "testddfg!",
-            isAuthenticated: true,
-            admin: true,
-        });
+        // setAuth({
+        //     discordId: 12345,
+        //     avatarUrl:
+        //         "https://cdn.discordapp.com/emojis/679179726740258826.gif?size=96&quality=lossless",
+        //     username: "testddfg!",
+        //     isAuthenticated: true,
+        //     admin: true,
+        // });
 
         // setAuth({ isAuthenticated: false });
-    }, [setAuth]);
+    }, [UsersService, setAuth]);
+
+    useEffect(() => {
+        async function fetchLoginURL() {
+            const res = await UsersService.login();
+            setLoginURL(res.url);
+        }
+        fetchLoginURL();
+    }, [UsersService]);
+
+    function handleLoginButtonClick() {
+        const location = window.location.pathname;
+        window.localStorage.setItem("loginCallbackDestination", location);
+        window.location.href = loginURL;
+    }
 
     // useEffect here that calls the soon to be made axios provider to run Login
 
     return (
         <>
-            <Popover className="h-16 w-48 px-4 rounded-full bg-blurple cursor-pointer ">
+            <Popover className="h-12 w-40 px-4 rounded-full bg-blurple cursor-pointer ">
                 {auth.isAuthenticated ? (
                     <>
                         <Popover.Button className="h-full w-full rounded-full grid grid-cols-3 items-center overflow-hidden">
                             <img
-                                className="h-12 w-12 flex-none rounded-full bg-light"
+                                className="h-10 w-10 flex-none rounded-full bg-light"
                                 src={(auth as IAuthenticatedUser).avatarUrl}
                                 alt="user's discord avatar"
                             ></img>
@@ -89,7 +138,7 @@ export default function Login() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                         >
-                            <Popover.Panel className="relative z-10 mt-3 right-3 px-2 w-48 h-20 rounded-lg bg-light-100 dark:bg-dark-100">
+                            <Popover.Panel className="relative z-10 mt-3 right-3 px-2 w-40 h-20 rounded-lg bg-light-100 dark:bg-dark-100">
                                 <div className="grid h-20 content-evenly grid-cols-1">
                                     <Button
                                         leftIcon={arrowLeftOnRectangleIcon}
@@ -111,9 +160,12 @@ export default function Login() {
                     </>
                 ) : (
                     <>
-                        <button className="h-full grid grid-cols-3 items-center overflow-hidden ">
+                        <button
+                            onClick={handleLoginButtonClick}
+                            className="h-full grid grid-cols-3 items-center overflow-hidden "
+                        >
                             <img
-                                className="h-12 w-12 flex-none"
+                                className="h-10 w-10 flex-none"
                                 src={discordLogo}
                                 alt="user's discord avatar"
                             ></img>

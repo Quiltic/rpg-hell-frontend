@@ -53,7 +53,6 @@ const subtleVariants = cva("", {
         variant: {
             default:
                 "text-dark bg-dark/20 hover:bg-dark/40 dark:text-light dark:hover:bg-light/40 dark:bg-light/20",
-            brand: "text-brand-500 bg-brand-400/20 hover:bg-brand-400/30 border-brand-500",
             mind: "text-mind bg-mind/20 hover:bg-mind/30 border-mind",
             body: "text-body bg-body/20 hover:bg-body/30 border-body",
             soul: "text-soul bg-soul/20 hover:bg-soul/30 border-soul",
@@ -66,10 +65,9 @@ const linkVariants = cva("", {
         variant: {
             default:
                 "bg-transparent underline-offset-4 underline hover:text-dark-100 text-dark dark:text-light hover:bg-transparent dark:hover:text-light-100 dark:hover:bg-transparent",
-            brand: "bg-transparent underline-offset-4 underline hover:text-brand-600 text-brand hover:bg-transparent",
-            mind: "bg-transparent underline-offset-4 underline hover:text-mind-600 text-mind hover:bg-transparent",
-            body: "bg-transparent underline-offset-4 underline hover:text-body-600 text-body hover:bg-transparent",
-            soul: "bg-transparent underline-offset-4 underline hover:text-soul-600 text-soul hover:bg-transparent",
+            mind: "bg-transparent underline-offset-4 underline hover:text-mind-700 text-mind-600 hover:bg-transparent",
+            body: "bg-transparent underline-offset-4 underline hover:text-body-700 text-body-600 hover:bg-transparent",
+            soul: "bg-transparent underline-offset-4 underline hover:text-soul-700 text-soul-600 hover:bg-transparent",
         },
     },
 });

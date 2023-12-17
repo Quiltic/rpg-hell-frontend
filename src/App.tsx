@@ -1,5 +1,5 @@
 import "./App.css";
-import Login from "./components/auth/Login";
+import Header from "./components/nav/Header";
 
 import { Button } from "./components/ui/Button/Button";
 
@@ -25,9 +25,8 @@ const bookOpenIcon = (
 function App() {
     return (
         <>
-            <div>
-                <Login />
-
+            <Header />
+            <div className="max-w-7xl mx-auto p-8 text-center">
                 <Link to={"rulebook"}>
                     <Button leftIcon={bookOpenIcon} variant="body">
                         Rulebook / Josh land

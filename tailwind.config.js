@@ -13,7 +13,11 @@ export default {
             transparent: "transparent",
             current: "currentColor",
             light: { DEFAULT: "rgb(251, 248, 240)", 100: "#f4ecd7" },
-            dark: { DEFAULT: "rgb(46, 38, 45)", 100: "#3b3039" },
+            dark: {
+                DEFAULT: "rgb(46, 38, 45)",
+                100: "#3b3039",
+                900: "#221C21",
+            },
             body: {
                 DEFAULT: "rgb(204, 120, 51)",
                 100: "#29180a",

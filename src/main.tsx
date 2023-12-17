@@ -8,6 +8,7 @@ import RootLayout from "./components/layouts/RootLayout.tsx";
 import NotImplementedPage from "./components/NotImplementedPage/NotImplementedPage.tsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import RulebookPage from "./components/RulebookPage/RulebookPage.tsx";
+import LoginCallbackPage from "./components/loginCallback/LoginCallbackPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
                         element: <NotImplementedPage pageName="Magic" />,
                     },
                 ],
+            },
+            {
+                path: "callback",
+                element: <LoginCallbackPage />,
             },
         ],
     },

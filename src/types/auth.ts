@@ -1,5 +1,5 @@
 export interface IAuthenticatedUser {
-    readonly discordId: string;
+    readonly discordId: number;
     readonly avatarUrl: string;
     readonly username: string;
     readonly admin: boolean;
