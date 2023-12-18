@@ -1,5 +1,6 @@
 import { Trait } from "../client";
 import { TraitDictionary } from "../types/TraitDictionary";
+import useApi from "../hooks/useApi";
 
 function makeTableLine_Trait(trait: Trait): string {
     if (trait.is_passive) {
@@ -37,4 +38,11 @@ function highlightWord(text: string, word: string): string {
     return text.replace(regex, `<span className="text-${word}-700">$1</span>`);
 }
 
-export {highlightKeywords, convertDictionaryToMD_Traits};
+function runList() {
+    const { TraitsService } = useApi();
+    const allTraits: TraitDictionary = TraitsService.getAllTraits();
+    console.log(allTraits);
+    // return highlightKeywords(convertDictionaryToMD_Traits(allTraits));
+}
+
+export {highlightKeywords, convertDictionaryToMD_Traits, runList};
