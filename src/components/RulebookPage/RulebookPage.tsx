@@ -8,9 +8,7 @@ import useApi from "../../hooks/useApi";
 // import markdown from "../../assets/test.md";
 import jsonfile from "../../assets/temp_trait.json";
 
-import { Trait } from "../../client";
-
-import { highlightKeywords, convertDictionaryToMD_Traits } from "../../util/markdownTools";
+import { convertDictionaryToMD_Traits } from "../../util/markdownTools";
 
 // function runList() {
     
@@ -32,7 +30,7 @@ export default function RulebookPage() {
         
         async function getTraitsMarkdown() {
             const traits = await TraitsService.getAllTraits();
-            const parsedmd = highlightKeywords(convertDictionaryToMD_Traits(traits));
+            const parsedmd = convertDictionaryToMD_Traits(traits);
             setMarkdown(parsedmd);
         }
         getTraitsMarkdown();
@@ -43,13 +41,25 @@ export default function RulebookPage() {
 
     return (
         <div className="max-w-7xl mx-auto p-8 text-center">
-            
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>
             {/* <span className="text-body-700">asssss</span> */}
             {/* <span className="text-mind-700">asssss</span> */}
             {/* <span className="text-soul-700">asssss</span> */}
+            {/* <span className="text-arcana-700">asssss</span> */}
+            {/* <span className="text-charm-700">asssss</span> */}
+            {/* <span className="text-crafting-700">asssss</span> */}
+            {/* <span className="text-nature-700">asssss</span> */}
+            {/* <span className="text-medicine-700">asssss</span> */}
+            {/* <span className="text-thieving-700">asssss</span> */}
+
+            {/* <span className="bg-arcana">asssss</span> */}
+            {/* <span className="bg-charm">asssss</span> */}
+            {/* <span className="bg-crafting">asssss</span> */}
+            {/* <span className="bg-nature">asssss</span> */}
+            {/* <span className="bg-medicine">asssss</span> */}
+            {/* <span className="bg-thieving">asssss</span> */}
         </div>
     );
 }
