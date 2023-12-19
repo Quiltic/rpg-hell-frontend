@@ -8,7 +8,8 @@ import useApi from "../../hooks/useApi";
 // import markdown from "../../assets/test.md";
 import jsonfile from "../../assets/temp_trait.json";
 
-import { convertDictionaryToMD_Traits } from "../../util/markdownTools";
+import { convertDictionaryToMD_Traits, convertDictionaryToMD_Spells, convertDictionaryToMD_Items } from "../../util/markdownTools";
+import { TraitsService, ItemsService, SpellsService } from '../../client';
 
 // function runList() {
     
@@ -34,6 +35,28 @@ export default function RulebookPage() {
             setMarkdown(parsedmd);
         }
         getTraitsMarkdown();
+
+        // async function getSpellsMarkdown() {
+        //     const spells = await SpellsService.getAllSpells();
+        //     const parsedmd = convertDictionaryToMD_Spells(spells);
+        //     console.log(parsedmd);
+        //     setMarkdown(parsedmd);
+        // }
+        // getSpellsMarkdown();
+
+        // Items are broken for some reason
+        
+        // async function getItemsMarkdown() {
+        //     const items = await ItemsService.getAllItems();
+        //     const parsedmd = convertDictionaryToMD_Items(items);
+        //     console.log(parsedmd);
+        //     setMarkdown(parsedmd);
+        // }
+        // getItemsMarkdown();
+
+        
+
+        
         
         // console.log(markdown)
 
