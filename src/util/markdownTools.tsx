@@ -21,7 +21,7 @@ function toPill(_string:string, splitter:string, ender:string) {
     }
     // Try to make the names, requirements, tags, ect. uppercase
     return _string.split(splitter).map((word) => { 
-        return `<div className="flex h-6 w-fit px-3 items-start justify-center rounded-full text-white bg-${word}">${word[0].toUpperCase() + word.substring(1)}</div>`;
+        return `<div className="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word}">${word[0].toUpperCase() + word.substring(1)}</div>`;
     }).join(ender);
 }
 
@@ -44,7 +44,7 @@ function makeTableLine_Trait(trait: Trait): string {
         }
     }   
 
-    return `| ${name} | ${requirements} | ${dice} | ${effect} |`;
+    return `| **${name}** | ${requirements} | ${dice} | ${effect} |`;
 }
 
 function convertDictionaryToMD_Traits(traits: TraitDictionary): string {
@@ -52,7 +52,7 @@ function convertDictionaryToMD_Traits(traits: TraitDictionary): string {
 
     // Push header row
     const txt =
-        `| Name | Requirements | Dice | Effect |\n| --- | --- | --- | --- |\n`.concat(
+        `| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`.concat(
             rows.join("\n")
         );
 

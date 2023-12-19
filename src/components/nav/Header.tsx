@@ -81,7 +81,7 @@ function classNames(...classes: string[]) {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="bg-dark-900">
+        <header className="bg-dark-600">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 p-6 md-px-8"
                 aria-label="Global"

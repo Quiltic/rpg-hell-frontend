@@ -12,12 +12,30 @@ export default {
         colors: {
             transparent: "transparent",
             current: "currentColor",
-            light: { DEFAULT: "rgb(251, 248, 240)", 100: "#f4ecd7" },
-            dark: {
-                DEFAULT: "rgb(46, 38, 45)",
-                100: "#3b3039",
-                900: "#221C21",
+            light: { 
+                DEFAULT: "rgb(251, 248, 240)", 
+                // 100: '#4d3e15', 
+                // 200: '#9b7c29', 
+                300: '#D8D0BF', 
+                400: '#f4ecd7', 
+                500: '#fbf8f0', 
+                600: '#FDFBF6', 
+                // 700: '#fcfbf5', 
+                // 800: '#fdfcf9', 
+                // 900: '#fefefc' 
             },
+        dark: { 
+            DEFAULT: "rgb(46, 38, 45)", 
+            // 100: '#090709', 
+            // 200: '#120f12', 
+            300: '#453842', 
+            400: '#3b3039', 
+            500: '#2e262d', 
+            600: '#221C21', 
+            700: '#1b161a', 
+            // 800: '#3B3039', 
+            // 900: '#d8d0d7' 
+        },
             body: {
                 DEFAULT: "rgb(204, 120, 51)",
                 100: "#29180a",

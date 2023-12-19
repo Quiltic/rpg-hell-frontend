@@ -46,8 +46,28 @@
    
   }
   th, td{
-    border: 1px solid #ccc;
+    border: 2px solid #453842;
     padding: 5px;
+    color: #f4ecd7;
+  }
+  thead tr{
+    /* border: 1px solid #3b3039; */
+    padding: 5px;
+    background-color: #1b161a;
+    color: #D8D0BF;
+  }
+  
+
+  tbody tr:nth-child(odd){
+    /* border: 1px solid #ccc; */
+    padding: 5px;
+    background-color: #2e262d;
+  }
+
+  tbody tr:nth-child(even){
+    /* border: 1px solid #ccc; */
+    padding: 5px;
+    background-color: #3b3039;
   }
 
 .body {
