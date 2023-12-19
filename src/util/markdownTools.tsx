@@ -1,13 +1,23 @@
 import { Trait } from "../client";
 import { TraitDictionary } from "../types/TraitDictionary";
-import useApi from "../hooks/useApi";
+
 
 function makeTableLine_Trait(trait: Trait): string {
+
+    // Try to make the requirements uppercase but doesent work for some reason
+    const requirements = trait.req?.toString().split(",");
+    requirements.map((word) => { 
+        return word[0].toUpperCase() + word.substring(1); 
+    }).join(", ");
+
+    let passiveNote: string = trait.dice.toString();
+    const effect: string = trait.effect.replace(/(?:\r\n|\r|\n)/g, '<br />');
+
     if (trait.is_passive) {
-        const passiveNote: string = `P,${trait.req}`;
-        return `| ${trait.name} | ${passiveNote} | ${trait.dice} | ${trait.effect} |`;
+        passiveNote = `P,${trait.dice}`;
     }
-    return `| ${trait.name} | ${trait.req} | ${trait.dice} | ${trait.effect} |`;
+
+    return `| ${trait.name} | ${requirements} | ${passiveNote} | ${effect} |`;
 }
 
 function convertDictionaryToMD_Traits(traits: TraitDictionary): string {
@@ -38,11 +48,5 @@ function highlightWord(text: string, word: string): string {
     return text.replace(regex, `<span className="text-${word}-700">$1</span>`);
 }
 
-function runList() {
-    const { TraitsService } = useApi();
-    const allTraits: TraitDictionary = TraitsService.getAllTraits();
-    console.log(allTraits);
-    // return highlightKeywords(convertDictionaryToMD_Traits(allTraits));
-}
 
-export {highlightKeywords, convertDictionaryToMD_Traits, runList};
+export {highlightKeywords, convertDictionaryToMD_Traits};
