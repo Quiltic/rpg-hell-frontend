@@ -1,23 +1,34 @@
 import { Trait } from "../client";
 import { TraitDictionary } from "../types/TraitDictionary";
 
+function firstLeterUppercase(_string:string, splitter: string, ender:string) {
+    // sometimes we might get a problem with an endspace existing, this culls it
+    if (_string.endsWith(" ")) {
+        _string = _string.slice(0, -1);
+    }
+    // Try to make the names, requirements, tags, ect. uppercase
+    return _string.split(splitter).map((word) => { 
+        return word[0].toUpperCase() + word.substring(1); 
+    }).join(ender);
+}
 
 function makeTableLine_Trait(trait: Trait): string {
+    const name = firstLeterUppercase(trait.name?.toString(), " ", " ");
+    const requirements = firstLeterUppercase(trait.req?.toString(), ",", ", ");
 
-    // Try to make the requirements uppercase but doesent work for some reason
-    const requirements = trait.req?.toString().split(",");
-    requirements.map((word) => { 
-        return word[0].toUpperCase() + word.substring(1); 
-    }).join(", ");
-
-    let passiveNote: string = trait.dice.toString();
+    let dice: string = "#".repeat(trait.dice);
     const effect: string = trait.effect.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
+    // Passives
     if (trait.is_passive) {
-        passiveNote = `P,${trait.dice}`;
-    }
+        if (dice == ""){
+            dice = "P"
+        } else {
+            dice = `P, ${dice}`;
+        }
+    }   
 
-    return `| ${trait.name} | ${requirements} | ${passiveNote} | ${effect} |`;
+    return `| ${name} | ${requirements} | ${dice} | ${effect} |`;
 }
 
 function convertDictionaryToMD_Traits(traits: TraitDictionary): string {

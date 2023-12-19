@@ -37,14 +37,13 @@ export default function RulebookPage() {
         }
         getTraitsMarkdown();
         
-        console.log(markdown)
+        // console.log(markdown)
 
     }, [TraitsService, markdown])
 
     return (
-        <div>
+        <div className="max-w-7xl mx-auto p-8 text-center">
             
-
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>
