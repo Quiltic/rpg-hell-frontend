@@ -1,4 +1,5 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect, useCallback } from "react";
+import { Spell } from "../../client";
 
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -10,28 +11,75 @@ import { convertDictionaryToMD, makeTableLine_Spells } from "../../util/markdown
 
 
 
+
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
 export default function SpellsTablePage() {
     const [markdown, setMarkdown] = useState("");
     const { SpellsService } = useApi();
 
+    const [searchValue, setSearchValue] = useState("");
+    const [spellsObject, setSpellsObject] = useState<Array<Spell>>([]);
+    const [spellsObjectFiltered, setSpellsObjectFiltered] = useState< Array<Spell> >([]);
+
+    const updateMarkdown = useCallback(() => {
+        const parsedmd = convertDictionaryToMD(
+            spellsObjectFiltered,
+            makeTableLine_Spells,
+            `| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`
+            );
+
+        // console.log(parsedmd);
+        setMarkdown(parsedmd);
+
+    }, [spellsObjectFiltered]);
+
+    useEffect(() => {
+        updateMarkdown()
+    },[spellsObjectFiltered, updateMarkdown])
+    
     // Runs on Render update (only on changes)
     useEffect(() => {
 
         async function getSpellsMarkdown() {
-            const spells = await SpellsService.getAllSpells();
-            const parsedmd = convertDictionaryToMD(spells,makeTableLine_Spells,`| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`);
-            console.log(parsedmd);
-            setMarkdown(parsedmd);
+            const spells_raw = await SpellsService.getAllSpells();
+            const spells = Object.values(spells_raw);
+            setSpellsObject(spells);
+            setSpellsObjectFiltered(spells);
+            
         }
         getSpellsMarkdown();
 
         // console.log(markdown)
 
-    }, [SpellsService, markdown])
+    }, [SpellsService])
+
+
+    function handleSearch() {
+        if (searchValue == "") {
+            setSpellsObjectFiltered(spellsObject);
+            return;
+        }
+
+        const filteredSpells = spellsObjectFiltered.filter((t) => {
+            console.log(t.name);
+            return (
+                t.name.toLowerCase().includes(searchValue) ||
+                t.effect?.toLowerCase().includes(searchValue)
+            );
+        });
+
+        setSpellsObjectFiltered(filteredSpells);
+    }
 
     return (
         <>
+            <span>Search:</span>
+            <input
+                type="text"
+                name="search"
+                onChange={(e) => setSearchValue(e.target.value)}
+                onKeyDown={(e) => {if (e.key === "Enter") {handleSearch()}}}
+            />
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>

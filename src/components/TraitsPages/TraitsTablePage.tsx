@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect, useCallback } from "react";
 
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -8,27 +8,74 @@ import useApi from "../../hooks/useApi";
 
 import { convertDictionaryToMD, makeTableLine_Trait } from "../../util/markdownTools";
 
+import { Trait } from "../../client";
+
+
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
 export default function TraitsTablePage() {
     const [markdown, setMarkdown] = useState("");
     const { TraitsService } = useApi();
 
-    // Runs on Render update (only on changes)
+    const [searchValue, setSearchValue] = useState("");
+    const [traitsObject, setTraitsObject] = useState<Array<Trait>>([]);
+    const [traitsObjectFiltered, setTraitsObjectFiltered] = useState< Array<Trait> >([]);
+
+    const updateMarkdown = useCallback(() => {
+        const parsedmd = convertDictionaryToMD(
+            traitsObjectFiltered,
+            makeTableLine_Trait,
+            `| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`
+        );
+        setMarkdown(parsedmd);
+    }, [traitsObjectFiltered]);
+
     useEffect(() => {
-        
+        updateMarkdown()
+    },[traitsObjectFiltered, updateMarkdown])
+
+    // Runs on Render update (only on changes)
+
+    useEffect(() => {
         async function getTraitsMarkdown() {
-            const traits = await TraitsService.getAllTraits();
-            const parsedmd = convertDictionaryToMD(traits,makeTableLine_Trait,`| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`);
-            setMarkdown(parsedmd);
+            const traits_raw = await TraitsService.getAllTraits();
+            const traits = Object.values(traits_raw);
+            setTraitsObject(traits);
+            setTraitsObjectFiltered(traits);
+            // traits.sort((trait_a, trait_b) => {trait_a.req} )
+
+            // value -> Arcana -> Charm -> Crafting -> Nature -> Medicine -> Thieving -> Body -> Mind -> Soul
         }
         getTraitsMarkdown();
-    
-        // console.log(markdown)
 
-    }, [TraitsService, markdown])
+        // console.log(traitsObject);
+    }, [TraitsService]);
+
+    function handleSearch() {
+        if (searchValue == "") {
+            setTraitsObjectFiltered(traitsObject);
+            return;
+        }
+
+        const filteredTraits = traitsObjectFiltered.filter((t) => {
+            console.log(t.name);
+            return (
+                t.name.toLowerCase().includes(searchValue) ||
+                t.effect?.toLowerCase().includes(searchValue)
+            );
+        });
+
+        setTraitsObjectFiltered(filteredTraits);
+    }
 
     return (
         <>
+            <span>Search:</span>
+            <input
+                type="text"
+                name="search"
+                onChange={(e) => setSearchValue(e.target.value)}
+                onKeyDown={(e) => {if (e.key === "Enter") {handleSearch()}}}
+            />
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>

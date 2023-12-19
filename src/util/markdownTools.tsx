@@ -1,3 +1,4 @@
+import { List } from "postcss/lib/list";
 import { Item, Spell, Trait } from "../client";
 // import Pill from "../../components/ui/Pill";
 
@@ -116,7 +117,7 @@ function makeTableLine_Spells(spell: Spell): string {
 
 function makeTableLine_Items(item: Item): string {
     const name = firstLeterUppercase(item.name?.toString(), " ", " ");
-    console.log(item.req);
+    // console.log(item.req);
 
     const requirements = toPill(item.req?.toString(), ",", "");
 
@@ -132,8 +133,8 @@ function makeTableLine_Items(item: Item): string {
 }
 
 
-function convertDictionaryToMD<T>(vals: Dictionary<T>, makeFunc: (x: T) => string, header: string): string {
-    const rows: string[] = Object.values(vals).map(makeFunc);
+function convertDictionaryToMD<T>(vals: Array<T>, makeFunc: (x: T) => string, header: string): string {
+    const rows: string[] = vals.map(makeFunc);
 
     // Push header row
     const txt = header.concat(rows.join("\n"));

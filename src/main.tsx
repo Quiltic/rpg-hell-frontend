@@ -12,7 +12,7 @@ import LoginCallbackPage from "./components/loginCallback/LoginCallbackPage.tsx"
 import RulebookPage from "./components/RulebookPages/RulebookPage.tsx";
 import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
 import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
-import ItemsTablePage from "./components/ItemPages/RulebookPage.tsx";
+import ItemsTablePage from "./components/ItemPages/ItemTablePage.tsx";
 
 
 const router = createBrowserRouter([

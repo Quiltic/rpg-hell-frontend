@@ -1,71 +1,63 @@
 import { useState, useEffect, useCallback } from "react";
+import { Item } from "../../client";
 
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import useApi from "../../hooks/useApi";
-// import markdown from "../../assets/test.md";
-import jsonfile from "../../assets/temp_trait.json";
 
-import {
-    convertDictionaryToMD,
-    makeTableLine_Trait,
-    makeTableLine_Spells,
-    makeTableLine_Items,
-} from "../../util/markdownTools";
-import { Trait } from "../../client";
-
-// runList()
-// // const md = highlightKeywords(markdown);
-// const md = highlightKeywords(convertDictionaryToMD_Traits(jsonfile));
+import { convertDictionaryToMD, makeTableLine_Items } from "../../util/markdownTools";
 
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
-export default function RulebookPage() {
+export default function ItemsTablePage() {
     const [markdown, setMarkdown] = useState("");
-    const { TraitsService } = useApi();
+    const { ItemsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
-    const [traitsObject, setTraitsObject] = useState<Array<Trait>>([]);
-    const [traitsObjectFiltered, setTraitsObjectFiltered] = useState< Array<Trait> >([]);
+    const [itemsObject, setItemsObject] = useState<Array<Item>>([]);
+    const [itemsObjectFiltered, setItemsObjectFiltered] = useState< Array<Item> >([]);
 
     const updateMarkdown = useCallback(() => {
         const parsedmd = convertDictionaryToMD(
-            traitsObjectFiltered,
-            makeTableLine_Trait,
-            `| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`
-        );
+            itemsObjectFiltered,
+            makeTableLine_Items,
+            `| **Name** | **Requirements** | **Effect** | **Tags** | **Cost** | **Craft** |\n| --- | --- | --- | --- | --- | --- |\n`
+            );
+
+        // console.log(parsedmd);
         setMarkdown(parsedmd);
-    }, [traitsObjectFiltered]);
+
+    }, [itemsObjectFiltered]);
 
     useEffect(() => {
         updateMarkdown()
-    },[traitsObjectFiltered, updateMarkdown])
-
+    },[itemsObjectFiltered, updateMarkdown])
+    
     // Runs on Render update (only on changes)
-
     useEffect(() => {
-        async function getTraitsMarkdown() {
-            const traits_raw = await TraitsService.getAllTraits();
-            const traits = Object.values(traits_raw);
-            setTraitsObject(traits);
-            setTraitsObjectFiltered(traits);
-            // traits.sort((trait_a, trait_b) => {trait_a.req} )
 
-            // value -> Arcana -> Charm -> Crafting -> Nature -> Medicine -> Thieving -> Body -> Mind -> Soul
+        async function getSpellsMarkdown() {
+            const items_raw = await ItemsService.getAllItems();
+            const items = Object.values(items_raw);
+            setItemsObject(items);
+            setItemsObjectFiltered(items);
+            
         }
-        getTraitsMarkdown();
+        getSpellsMarkdown();
 
-        // console.log(traitsObject);
-    }, [TraitsService]);
+        // console.log(markdown)
+
+    }, [ItemsService])
+
 
     function handleSearch() {
         if (searchValue == "") {
-            setTraitsObjectFiltered(traitsObject);
+            setItemsObjectFiltered(itemsObject);
             return;
         }
 
-        const filteredTraits = traitsObjectFiltered.filter((t) => {
+        const filteredItems = itemsObjectFiltered.filter((t) => {
             console.log(t.name);
             return (
                 t.name.toLowerCase().includes(searchValue) ||
@@ -73,12 +65,12 @@ export default function RulebookPage() {
             );
         });
 
-        setTraitsObjectFiltered(filteredTraits);
+        setItemsObjectFiltered(filteredItems);
     }
 
     return (
         <>
-            <span>Search</span>
+            <span>Search:</span>
             <input
                 type="text"
                 name="search"
@@ -107,21 +99,3 @@ export default function RulebookPage() {
         </>
     );
 }
-
-// useEffect(() => {
-//     if (searchValue == "") {
-//         setTraitsObjectFiltered(traitsObject);
-//         return;
-//     }
-
-//     const filteredTraits = traitsObjectFiltered.filter((t) => {
-//         console.log(t.name);
-//         return (
-//             t.name.toLowerCase().includes(searchValue) ||
-//             t.effect?.toLowerCase().includes(searchValue)
-//         );
-//     });
-
-//     setTraitsObjectFiltered(filteredTraits);
-//     updateMarkdown();
-// }, [searchValue, traitsObject, updateMarkdown, traitsObjectFiltered]);
