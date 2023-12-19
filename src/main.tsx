@@ -1,14 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 import App from "./App.tsx";
 import RootLayout from "./components/layouts/RootLayout.tsx";
 import NotImplementedPage from "./components/NotImplementedPage/NotImplementedPage.tsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
-import RulebookPage from "./components/RulebookPage/RulebookPage.tsx";
 import LoginCallbackPage from "./components/loginCallback/LoginCallbackPage.tsx";
+
+import RulebookPage from "./components/RulebookPages/RulebookPage.tsx";
+import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
+import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
+import ItemsTablePage from "./components/ItemPages/RulebookPage.tsx";
+
 
 const router = createBrowserRouter([
     {
@@ -26,21 +31,22 @@ const router = createBrowserRouter([
             },
             {
                 path: "rulebook",
-                element: <RulebookPage />,
                 children: [
                     {
-                        path: "rulebook/stats",
-                        element: <NotImplementedPage pageName="Stats" />,
+                        path: "",
+                        element: <RulebookPage />,
                     },
                     {
-                        path: "rulebook/creating-a-character",
-                        element: (
-                            <NotImplementedPage pageName="Creating a Character" />
-                        ),
+                        path: "spells",
+                        element: <SpellsTablePage />,
                     },
                     {
-                        path: "rulebook/magic",
-                        element: <NotImplementedPage pageName="Magic" />,
+                        path: "traits",
+                        element: <TraitsTablePage />,
+                    },
+                    {
+                        path: "items",
+                        element: <ItemsTablePage />,
                     },
                 ],
             },

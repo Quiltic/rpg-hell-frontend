@@ -1,14 +1,15 @@
 import { Item, Spell, Trait } from "../client";
-import Pill from "../../components/ui/Pill";
+// import Pill from "../../components/ui/Pill";
 
 type Dictionary<T> = {
     [key: string]: T;
 }
 
-function firstLeterUppercase(_string: string, splitter: string, ender: string) {
+function firstLeterUppercase(_string: string, splitter: string, ender: string) { 
+    // css class on table cell: first-letter:capitalize
     // console.log(_string);
     if (!_string) {
-        return;
+        return "";
     }
     // sometimes we might get a problem with an endspace existing, this culls it
     if (_string.endsWith(" ")) {
@@ -24,6 +25,10 @@ function firstLeterUppercase(_string: string, splitter: string, ender: string) {
 }
 
 function toPill(_string: string, splitter: string, ender: string) {
+    if (!_string) {
+        return "";
+    }
+
     // sometimes we might get a problem with an endspace existing, this culls it
     if (_string.endsWith(" ")) {
         _string = _string.slice(0, -1);
@@ -111,6 +116,7 @@ function makeTableLine_Spells(spell: Spell): string {
 
 function makeTableLine_Items(item: Item): string {
     const name = firstLeterUppercase(item.name?.toString(), " ", " ");
+    console.log(item.req);
 
     const requirements = toPill(item.req?.toString(), ",", "");
 

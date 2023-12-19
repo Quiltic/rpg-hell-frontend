@@ -5,46 +5,17 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import useApi from "../../hooks/useApi";
-// import markdown from "../../assets/test.md";
-import jsonfile from "../../assets/temp_trait.json";
 
-import { convertDictionaryToMD, makeTableLine_Trait, makeTableLine_Spells, makeTableLine_Items } from "../../util/markdownTools";
-import { TraitsService, ItemsService, SpellsService } from '../../client';
-
-// function runList() {
-    
-//     console.log(allTraits);
-//     // return highlightKeywords(convertDictionaryToMD_Traits(allTraits));
-// }
-
-// runList()
-// // const md = highlightKeywords(markdown);
-// const md = highlightKeywords(convertDictionaryToMD_Traits(jsonfile));
+import { convertDictionaryToMD, makeTableLine_Items } from "../../util/markdownTools";
 
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
-export default function RulebookPage() {
+export default function ItemsTablePage() {
     const [markdown, setMarkdown] = useState("");
-    const { TraitsService } = useApi();
+    const { ItemsService } = useApi();
 
     // Runs on Render update (only on changes)
     useEffect(() => {
         
-        // async function getTraitsMarkdown() {
-        //     const traits = await TraitsService.getAllTraits();
-        //     const parsedmd = convertDictionaryToMD(traits,makeTableLine_Trait,`| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`);
-        //     setMarkdown(parsedmd);
-        // }
-        // getTraitsMarkdown();
-
-        // async function getSpellsMarkdown() {
-        //     const spells = await SpellsService.getAllSpells();
-        //     const parsedmd = convertDictionaryToMD(spells,makeTableLine_Spells,`| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`);
-        //     console.log(parsedmd);
-        //     setMarkdown(parsedmd);
-        // }
-        // getSpellsMarkdown();
-
-        // Items are broken for some reason
         
         async function getItemsMarkdown() {
             const items = await ItemsService.getAllItems();
@@ -55,15 +26,12 @@ export default function RulebookPage() {
         getItemsMarkdown();
 
         
-
-        
-        
         // console.log(markdown)
 
-    }, [TraitsService, markdown])
+    }, [ItemsService, markdown])
 
     return (
-        <div className="max-w-7xl mx-auto p-8 text-center">
+        <>
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>
@@ -83,6 +51,6 @@ export default function RulebookPage() {
             {/* <span className="bg-nature">asssss</span> */}
             {/* <span className="bg-medicine">asssss</span> */}
             {/* <span className="bg-thieving">asssss</span> */}
-        </div>
+        </>
     );
 }

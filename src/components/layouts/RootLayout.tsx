@@ -6,9 +6,11 @@ import { AuthProvider } from "../../context/AuthProvider";
 export default function RootLayout() {
     return (
         <>
-            <AuthProvider>
-                <Outlet />
-            </AuthProvider>
+            <div className="max-w-7xl mx-auto p-8 text-center">
+                <AuthProvider>
+                    <Outlet />
+                </AuthProvider>
+            </div>
         </>
     );
 }
