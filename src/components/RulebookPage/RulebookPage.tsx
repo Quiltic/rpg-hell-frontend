@@ -8,7 +8,7 @@ import useApi from "../../hooks/useApi";
 // import markdown from "../../assets/test.md";
 import jsonfile from "../../assets/temp_trait.json";
 
-import { convertDictionaryToMD_Traits, convertDictionaryToMD_Spells, convertDictionaryToMD_Items } from "../../util/markdownTools";
+import { convertDictionaryToMD, makeTableLine_Trait, makeTableLine_Spells, makeTableLine_Items } from "../../util/markdownTools";
 import { TraitsService, ItemsService, SpellsService } from '../../client';
 
 // function runList() {
@@ -29,16 +29,16 @@ export default function RulebookPage() {
     // Runs on Render update (only on changes)
     useEffect(() => {
         
-        async function getTraitsMarkdown() {
-            const traits = await TraitsService.getAllTraits();
-            const parsedmd = convertDictionaryToMD_Traits(traits);
-            setMarkdown(parsedmd);
-        }
-        getTraitsMarkdown();
+        // async function getTraitsMarkdown() {
+        //     const traits = await TraitsService.getAllTraits();
+        //     const parsedmd = convertDictionaryToMD(traits,makeTableLine_Trait,`| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`);
+        //     setMarkdown(parsedmd);
+        // }
+        // getTraitsMarkdown();
 
         // async function getSpellsMarkdown() {
         //     const spells = await SpellsService.getAllSpells();
-        //     const parsedmd = convertDictionaryToMD_Spells(spells);
+        //     const parsedmd = convertDictionaryToMD(spells,makeTableLine_Spells,`| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`);
         //     console.log(parsedmd);
         //     setMarkdown(parsedmd);
         // }
@@ -46,13 +46,13 @@ export default function RulebookPage() {
 
         // Items are broken for some reason
         
-        // async function getItemsMarkdown() {
-        //     const items = await ItemsService.getAllItems();
-        //     const parsedmd = convertDictionaryToMD_Items(items);
-        //     console.log(parsedmd);
-        //     setMarkdown(parsedmd);
-        // }
-        // getItemsMarkdown();
+        async function getItemsMarkdown() {
+            const items = await ItemsService.getAllItems();
+            const parsedmd = convertDictionaryToMD(items,makeTableLine_Items,`| **Name** | **Requirements** | **Effect** | **Tags** | **Cost** | **Craft** |\n| --- | --- | --- | --- | --- | --- |\n`);
+            console.log(parsedmd);
+            setMarkdown(parsedmd);
+        }
+        getItemsMarkdown();
 
         
 

@@ -1,37 +1,56 @@
 import { Item, Spell, Trait } from "../client";
-import { TraitDictionary } from "../types/TraitDictionary";
 import Pill from "../../components/ui/Pill";
 
+type Dictionary<T> = {
+    [key: string]: T;
+}
 
-function firstLeterUppercase(_string:string, splitter:string, ender:string) {
+function firstLeterUppercase(_string: string, splitter: string, ender: string) {
     // console.log(_string);
-    if (!_string){
-        return
+    if (!_string) {
+        return;
     }
     // sometimes we might get a problem with an endspace existing, this culls it
     if (_string.endsWith(" ")) {
         _string = _string.slice(0, -1);
     }
     // Try to make the names, requirements, tags, ect. uppercase
-    return _string.split(splitter).map((word) => { 
-        return word[0].toUpperCase() + word.substring(1); 
-    }).join(ender);
+    return _string
+        .split(splitter)
+        .map((word) => {
+            return word[0].toUpperCase() + word.substring(1);
+        })
+        .join(ender);
 }
 
-function toPill(_string:string, splitter:string, ender:string) {
+function toPill(_string: string, splitter: string, ender: string) {
     // sometimes we might get a problem with an endspace existing, this culls it
     if (_string.endsWith(" ")) {
         _string = _string.slice(0, -1);
     }
     // Try to make the names, requirements, tags, ect. uppercase
-    return _string.split(splitter).map((word) => { 
-        return `<div className="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word}">${word[0].toUpperCase() + word.substring(1)}</div>`;
-    }).join(ender);
+    return _string
+        .split(splitter)
+        .map((word) => {
+            return `<div className="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word}">${
+                word[0].toUpperCase() + word.substring(1)
+            }</div>`;
+        })
+        .join(ender);
 }
-
 
 function highlightKeywords(text: string, makePill: boolean = false): string {
-    const colors: string[] = ["body", "mind", "soul","arcana","charm","crafting","nature","medicine","thieving"];
+    const colors: string[] = [
+        "body",
+        "mind",
+        "soul",
+        "arcana",
+        "charm",
+        "crafting",
+        "nature",
+        "medicine",
+        "thieving",
+    ];
     let updatedText: string = text;
 
     for (const color of colors) {
@@ -40,11 +59,18 @@ function highlightKeywords(text: string, makePill: boolean = false): string {
     return updatedText;
 }
 
-function highlightWord(text: string, word: string, makePill: boolean = false): string {
+function highlightWord(
+    text: string,
+    word: string,
+    makePill: boolean = false
+): string {
     const regex = new RegExp(`\\b(${word})\\b`, "gi");
     if (makePill) {
-        return text.replace(regex, `<div className="flex h-6 w-fit px-3 items-start justify-center rounded-full text-white bg-${word}">$1</div>`);
-    } 
+        return text.replace(
+            regex,
+            `<div className="flex h-6 w-fit px-3 items-start justify-center rounded-full text-white bg-${word}">$1</div>`
+        );
+    }
     return text.replace(regex, `<span className="text-${word}-700">$1</span>`);
 }
 
@@ -54,17 +80,17 @@ function makeTableLine_Trait(trait: Trait): string {
     // requirements = highlightKeywords(requirements, true); // Add true param for Pill (though it doesent like md)
 
     let dice: string = "#".repeat(trait.dice);
-    let effect: string = trait.effect.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    let effect: string = trait.effect.replace(/(?:\r\n|\r|\n)/g, "<br />");
     effect = highlightKeywords(effect);
 
     // Passives
     if (trait.is_passive) {
-        if (dice == ""){
-            dice = "P"
+        if (dice == "") {
+            dice = "P";
         } else {
             dice = `P, ${dice}`;
         }
-    }   
+    }
 
     return `| **${name}** | ${requirements} | ${dice} | ${effect} |`;
 }
@@ -75,7 +101,7 @@ function makeTableLine_Spells(spell: Spell): string {
     // requirements = highlightKeywords(requirements, true); // Add true param for Pill (though it doesent like md)
 
     const dice: string = "#".repeat(spell.dice);
-    let effect: string = spell.effect.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    let effect: string = spell.effect.replace(/(?:\r\n|\r|\n)/g, "<br />");
     effect = highlightKeywords(effect);
 
     const tags = firstLeterUppercase(spell.tags?.toString(), ",", ", ");
@@ -88,7 +114,7 @@ function makeTableLine_Items(item: Item): string {
 
     const requirements = toPill(item.req?.toString(), ",", "");
 
-    let effect: string = item.effect.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    let effect: string = item.effect.replace(/(?:\r\n|\r|\n)/g, "<br />");
     effect = highlightKeywords(effect);
 
     const tags = firstLeterUppercase(item.tags?.toString(), ",", ", ");
@@ -99,43 +125,15 @@ function makeTableLine_Items(item: Item): string {
     return `| **${name}** | ${requirements} | ${effect} | ${tags} |  ${cost} |  ${craft} |`;
 }
 
-function convertDictionaryToMD_Traits(traits: TraitDictionary): string {
-    const rows: string[] = Object.values(traits).map(makeTableLine_Trait);
+
+function convertDictionaryToMD<T>(vals: Dictionary<T>, makeFunc: (x: T) => string, header: string): string {
+    const rows: string[] = Object.values(vals).map(makeFunc);
 
     // Push header row
-    const txt =
-        `| **Name** | **Requirements** | **Dice** | **Effect** |\n| --- | --- | --- | --- |\n`.concat(
-            rows.join("\n")
-        );
+    const txt = header.concat(rows.join("\n"));
 
     // Join rows with newline character
     return txt;
 }
 
-function convertDictionaryToMD_Spells(traits: TraitDictionary): string {
-    const rows: string[] = Object.values(traits).map(makeTableLine_Spells);
-
-    // Push header row
-    const txt =
-        `| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`.concat(
-            rows.join("\n")
-        );
-
-    // Join rows with newline character
-    return txt;
-}
-
-function convertDictionaryToMD_Items(traits: TraitDictionary): string {
-    const rows: string[] = Object.values(traits).map(makeTableLine_Items);
-
-    // Push header row
-    const txt =
-        `| **Name** | **Requirements** | **Effect** | **Tags** | **Cost** | **Craft** |\n| --- | --- | --- | --- | --- | --- |\n`.concat(
-            rows.join("\n")
-        );
-
-    // Join rows with newline character
-    return txt;
-}
-
-export {convertDictionaryToMD_Spells, convertDictionaryToMD_Traits, convertDictionaryToMD_Items};
+export { convertDictionaryToMD, makeTableLine_Trait, makeTableLine_Spells, makeTableLine_Items };
