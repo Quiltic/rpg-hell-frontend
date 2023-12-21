@@ -78,7 +78,7 @@ export default function SpellsTablePage() {
             return;
         }
 
-        const filteredSpells = spellsObjectFiltered.filter((t) => {
+        const filteredSpells = spellsObject.filter((t) => {
             console.log(t.name);
             return (
                 t.name.toLowerCase().includes(searchValue) ||

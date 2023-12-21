@@ -62,7 +62,7 @@ export default function ItemsTablePage() {
             return;
         }
 
-        const filteredItems = itemsObjectFiltered.filter((t) => {
+        const filteredItems = itemsObject.filter((t) => {
             console.log(t.name);
             return (
                 t.name.toLowerCase().includes(searchValue) ||

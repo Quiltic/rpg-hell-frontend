@@ -54,12 +54,13 @@ export default function TraitsTablePage() {
     }, [TraitsService]);
 
     function handleSearch() {
+
         if (searchValue == "") {
             setTraitsObjectFiltered(traitsObject);
             return;
         }
 
-        const filteredTraits = traitsObjectFiltered.filter((t) => {
+        const filteredTraits = traitsObject.filter((t) => {
             console.log(t.name);
             return (
                 t.name.toLowerCase().includes(searchValue) ||
