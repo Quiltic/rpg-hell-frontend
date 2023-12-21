@@ -1,10 +1,9 @@
-import { List } from "postcss/lib/list";
+// import { List } from "postcss/lib/list";
 import { Item, Spell, Trait } from "../client";
-// import Pill from "../../components/ui/Pill";
 
-type Dictionary<T> = {
-    [key: string]: T;
-}
+// type Dictionary<T> = {
+//     [key: string]: T;
+// }
 
 function firstLeterUppercase(_string: string, splitter: string, ender: string) { 
     // css class on table cell: first-letter:capitalize
