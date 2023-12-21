@@ -83,7 +83,9 @@ export default function Login() {
             }
         }
 
-        persistLogin();
+        if (auth.isAuthenticated == false) {
+            persistLogin();
+        }
 
         // TEMP TEST VERSION
         // setAuth({
@@ -96,7 +98,7 @@ export default function Login() {
         // });
 
         // setAuth({ isAuthenticated: false });
-    }, [UsersService, setAuth]);
+    }, [UsersService, auth.isAuthenticated, setAuth]);
 
     useEffect(() => {
         async function fetchLoginURL() {

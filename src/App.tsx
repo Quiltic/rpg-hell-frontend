@@ -5,6 +5,8 @@ import { Button } from "./components/ui/Button/Button";
 
 import { Link } from "react-router-dom";
 
+import Pill from "./components/ui/Pill";
+
 const bookOpenIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +24,9 @@ const bookOpenIcon = (
     </svg>
 );
 
+// Example of usage
+// <Pill colorClassName="bg-body">Body</Pill>
+
 function App() {
     return (
         <>
@@ -32,6 +37,7 @@ function App() {
                         Rulebook / Josh land
                     </Button>
                 </Link>
+                <Pill colorClassName="bg-body">Body</Pill>
             </div>
         </>
     );
