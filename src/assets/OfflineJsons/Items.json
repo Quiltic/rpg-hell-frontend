@@ -1,0 +1,1828 @@
+{
+  "1": {
+    "id": 1,
+    "name": "shield",
+    "effect": "",
+    "req": [
+      "body 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 1",
+      "hand 1"
+    ]
+  },
+  "2": {
+    "id": 2,
+    "name": "shield",
+    "effect": "",
+    "req": [
+      "mind 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 1",
+      "hand 1"
+    ]
+  },
+  "3": {
+    "id": 3,
+    "name": "unarmored",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "defence 0",
+      "speed 1"
+    ]
+  },
+  "4": {
+    "id": 4,
+    "name": "light",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "defence 1"
+    ]
+  },
+  "5": {
+    "id": 5,
+    "name": "medium",
+    "effect": "",
+    "req": [
+      "body 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "defence 2",
+      "nspeed 1"
+    ]
+  },
+  "6": {
+    "id": 6,
+    "name": "medium",
+    "effect": "",
+    "req": [
+      "mind 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "defence 2",
+      "nspeed 1"
+    ]
+  },
+  "7": {
+    "id": 7,
+    "name": "heavy",
+    "effect": "",
+    "req": [
+      "body 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "defence 3",
+      "nspeed 2"
+    ]
+  },
+  "8": {
+    "id": 8,
+    "name": "tower shield",
+    "effect": "",
+    "req": [
+      "body 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 1",
+      "hand 1",
+      "ward 1"
+    ]
+  },
+  "9": {
+    "id": 9,
+    "name": "platemail (heavy)",
+    "effect": "",
+    "req": [
+      "body 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 2",
+      "defence 3",
+      "nspeed 2"
+    ]
+  },
+  "10": {
+    "id": 10,
+    "name": "ancient plate (heavy)",
+    "effect": "",
+    "req": [
+      "body 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 4",
+      "defence 3",
+      "nspeed 2"
+    ]
+  },
+  "11": {
+    "id": 11,
+    "name": "padded leather (medium)",
+    "effect": "",
+    "req": [
+      "mind 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 1",
+      "defence 2",
+      "ward 1",
+      "nspeed 1"
+    ]
+  },
+  "12": {
+    "id": 12,
+    "name": "composite chainmail (medium)",
+    "effect": "",
+    "req": [
+      "mind 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 2",
+      "defence 2",
+      "ward 1",
+      "nspeed 1"
+    ]
+  },
+  "13": {
+    "id": 13,
+    "name": "soul weave cloak (light)",
+    "effect": "",
+    "req": [
+      "soul 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "defence 1",
+      "ward 2"
+    ]
+  },
+  "14": {
+    "id": 14,
+    "name": "soul weave robes (light)",
+    "effect": "",
+    "req": [
+      "soul 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor 1",
+      "defence 1",
+      "ward 2"
+    ]
+  },
+  "15": {
+    "id": 15,
+    "name": "fists",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1"
+    ]
+  },
+  "16": {
+    "id": 16,
+    "name": "dagger",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "throw range 6"
+    ]
+  },
+  "17": {
+    "id": 17,
+    "name": "shortbow",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "18": {
+    "id": 18,
+    "name": "flintlock pistol",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "armor shredding 0",
+      "loading 0",
+      "range 12"
+    ]
+  },
+  "19": {
+    "id": 19,
+    "name": "boomerang",
+    "effect": "",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "returning 0",
+      "throw range 8"
+    ]
+  },
+  "20": {
+    "id": 20,
+    "name": "slingshot",
+    "effect": "Increases the Throw Range of small items by 2.",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "range 12"
+    ]
+  },
+  "21": {
+    "id": 21,
+    "name": "shovel",
+    "effect": "As an Attack Action you can throw dirt into someone's eyes to Blind them for a turn. Range 3.",
+    "req": [
+      "core 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "two handed 0"
+    ]
+  },
+  "22": {
+    "id": 22,
+    "name": "net",
+    "effect": "Inflict Grappled",
+    "req": [
+      "core 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "throw range 6"
+    ]
+  },
+  "23": {
+    "id": 23,
+    "name": "crossbow",
+    "effect": "",
+    "req": [
+      "core 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "armor piercing 0",
+      "loading 0",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "24": {
+    "id": 24,
+    "name": "staff",
+    "effect": "",
+    "req": [
+      "core 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "two handed 0"
+    ]
+  },
+  "25": {
+    "id": 25,
+    "name": "short spear",
+    "effect": "",
+    "req": [
+      "core 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "armor piercing 0",
+      "throw range 6"
+    ]
+  },
+  "26": {
+    "id": 26,
+    "name": "sword",
+    "effect": "",
+    "req": [
+      "body 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2"
+    ]
+  },
+  "27": {
+    "id": 27,
+    "name": "axe",
+    "effect": "",
+    "req": [
+      "body 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "armor shredding 0",
+      "throw range 8"
+    ]
+  },
+  "28": {
+    "id": 28,
+    "name": "greatsword",
+    "effect": "",
+    "req": [
+      "body 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 3",
+      "two handed 0"
+    ]
+  },
+  "29": {
+    "id": 29,
+    "name": "greathammer",
+    "effect": "",
+    "req": [
+      "body 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "knockback 2",
+      "two handed 0"
+    ]
+  },
+  "30": {
+    "id": 30,
+    "name": "spear",
+    "effect": "",
+    "req": [
+      "body 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "armor piercing 0",
+      "throw range 8"
+    ]
+  },
+  "31": {
+    "id": 31,
+    "name": "ancient blade",
+    "effect": "",
+    "req": [
+      "body 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 4"
+    ]
+  },
+  "32": {
+    "id": 32,
+    "name": "ancient axe",
+    "effect": "",
+    "req": [
+      "body 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 3",
+      "armor shredding 0",
+      "throw range 8"
+    ]
+  },
+  "33": {
+    "id": 33,
+    "name": "ancient spear",
+    "effect": "",
+    "req": [
+      "body 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 4",
+      "armor piercing 0",
+      "throw range 8"
+    ]
+  },
+  "34": {
+    "id": 34,
+    "name": "ancient hammer",
+    "effect": "",
+    "req": [
+      "body 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 5",
+      "knockback 2",
+      "two handed 0"
+    ]
+  },
+  "35": {
+    "id": 35,
+    "name": "rapier",
+    "effect": "Move 2 tiles after attack.",
+    "req": [
+      "mind 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "armor piercing 0"
+    ]
+  },
+  "36": {
+    "id": 36,
+    "name": "flintlock rifle",
+    "effect": "",
+    "req": [
+      "mind 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "loading 0",
+      "range 14",
+      "two handed 0"
+    ]
+  },
+  "37": {
+    "id": 37,
+    "name": "flintlock shotgun",
+    "effect": "",
+    "req": [
+      "mind 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "armor shredding 0",
+      "knockback 2",
+      "loading 0",
+      "range 8",
+      "two handed 0"
+    ]
+  },
+  "38": {
+    "id": 38,
+    "name": "longnose rifle",
+    "effect": "",
+    "req": [
+      "mind 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "armor piercing 0",
+      "loading 0",
+      "range 14",
+      "two handed 0"
+    ]
+  },
+  "39": {
+    "id": 39,
+    "name": "longbow",
+    "effect": "",
+    "req": [
+      "mind 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "40": {
+    "id": 40,
+    "name": "compound bow",
+    "effect": "",
+    "req": [
+      "mind 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 3",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "41": {
+    "id": 41,
+    "name": "lever action rifle",
+    "effect": "",
+    "req": [
+      "mind 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 3",
+      "armor piercing 0",
+      "loading 0",
+      "range 14",
+      "two handed 0"
+    ]
+  },
+  "42": {
+    "id": 42,
+    "name": "ancient carbine",
+    "effect": "",
+    "req": [
+      "mind 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 4",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "43": {
+    "id": 43,
+    "name": "ancient long rifle",
+    "effect": "",
+    "req": [
+      "mind 6"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 4",
+      "armor piercing 0",
+      "loading 0",
+      "range 14",
+      "two handed 0"
+    ]
+  },
+  "44": {
+    "id": 44,
+    "name": "soul lanturn",
+    "effect": "",
+    "req": [
+      "soul 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "glow 2"
+    ]
+  },
+  "45": {
+    "id": 45,
+    "name": "soul lantern staff",
+    "effect": "",
+    "req": [
+      "soul 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "glow 2",
+      "range 8"
+    ]
+  },
+  "46": {
+    "id": 46,
+    "name": "ancient star",
+    "effect": "",
+    "req": [
+      "soul 4"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "glow 2",
+      "range 8"
+    ]
+  },
+  "47": {
+    "id": 47,
+    "name": "impact lance",
+    "effect": "",
+    "req": [
+      "body 2",
+      "mind 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "knockback 8"
+    ]
+  },
+  "48": {
+    "id": 48,
+    "name": "conquerors banner",
+    "effect": "Friendly creatures that are within 2 tiles of the Banner gain 1 Temporary Health at the start of their Turn. ",
+    "req": [
+      "body 2",
+      "mind 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "two handed 0"
+    ]
+  },
+  "49": {
+    "id": 49,
+    "name": "radiant hammer",
+    "effect": "",
+    "req": [
+      "body 2",
+      "soul 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 3",
+      "knockback 2",
+      "throw range 6",
+      "two handed 0"
+    ]
+  },
+  "50": {
+    "id": 50,
+    "name": "light ballista",
+    "effect": "",
+    "req": [
+      "body 1",
+      "mind 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 3",
+      "armor piercing 0",
+      "knockback 2",
+      "loading 0",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "51": {
+    "id": 51,
+    "name": "seeking thistles",
+    "effect": "",
+    "req": [
+      "mind 2",
+      "soul 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "returning 0",
+      "throw range 6"
+    ]
+  },
+  "52": {
+    "id": 52,
+    "name": "tome of souls",
+    "effect": "Gain an additional 2 Soul Strain",
+    "req": [
+      "mind 1",
+      "soul 2"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "range 8"
+    ]
+  },
+  "53": {
+    "id": 53,
+    "name": "katana",
+    "effect": "Does an additional damage to targets hit by Overwatch",
+    "req": [
+      "body 1",
+      "mind 1",
+      "soul 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "armor shredding 0",
+      "two handed 0"
+    ]
+  },
+  "54": {
+    "id": 54,
+    "name": "tonfas",
+    "effect": "Gain 1 extra Armor",
+    "req": [
+      "body 1",
+      "mind 1",
+      "soul 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "two handed 0"
+    ]
+  },
+  "55": {
+    "id": 55,
+    "name": "steamthrower",
+    "effect": "Goes through targets until the end of its range.",
+    "req": [
+      "special 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "burn 1",
+      "loading 0",
+      "range 8",
+      "two handed 0"
+    ]
+  },
+  "56": {
+    "id": 56,
+    "name": "bronze bolter",
+    "effect": "Each attack fires two bolts (all hits hit twice)",
+    "req": [
+      "special 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 1",
+      "range 14"
+    ]
+  },
+  "57": {
+    "id": 57,
+    "name": "clockwork cannon",
+    "effect": "",
+    "req": [
+      "special 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "damage 2",
+      "armor shredding 0",
+      "knockback 6",
+      "loading 0",
+      "range 12",
+      "two handed 0"
+    ]
+  },
+  "58": {
+    "id": 58,
+    "name": "spectral claws",
+    "effect": "Does Your Soul in damage.",
+    "req": [
+      "soul 1",
+      "special 1"
+    ],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "armor shredding 0",
+      "two handed 0"
+    ]
+  },
+  "225": {
+    "id": 225,
+    "name": "bandage",
+    "effect": "Target a Creature, cannot target undead or constructs. Heal the target 2 Health + Half your Medicine Rounded up. \r\nCan be crafted with Medicine or Crafting Rolls.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "medicine 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "226": {
+    "id": 226,
+    "name": "medkit",
+    "effect": "Target a Creature, cannot target undead or constructs. Heal the target for your Medicine + Level.\r\nCan be crafted with Medicine or Crafting Rolls.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "medicine 0",
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "227": {
+    "id": 227,
+    "name": "healing spray",
+    "effect": "Requires Medicine 3 to be used properly. Target a Creature, cannot target undead or constructs. Heal the target 2 + Level Health. \r\nCan be crafted with Medicine or Crafting Rolls.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "medicine 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "228": {
+    "id": 228,
+    "name": "smoke grenade",
+    "effect": "Throw Range 6. Cast Summon Fog wherever it lands. The fog does not end if you take damage.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "229": {
+    "id": 229,
+    "name": "frag grenade",
+    "effect": "Throw Range 6. Burst 1 centered wherever it lands. Make a Core Attack roll against all creatures within the area. Deals 1 damage.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "230": {
+    "id": 230,
+    "name": "flashbang",
+    "effect": "Throw Range 6. Cast Lightshow wherever it lands. Make a Core Attack roll for the attack instead of Soul.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "231": {
+    "id": 231,
+    "name": "potion of heart",
+    "effect": "Gain 4 Temporary Health. This goes away at the end of the next rest or when used.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "232": {
+    "id": 232,
+    "name": "potion of body",
+    "effect": "Gain 1 Body for 30 seconds (3 turns).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "233": {
+    "id": 233,
+    "name": "potion of mind",
+    "effect": "Gain 1 Mind for 30 seconds (3 turns).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "234": {
+    "id": 234,
+    "name": "potion of soul",
+    "effect": "Gain 1 Soul. This effect goes away after 3 turns (30 sec).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "235": {
+    "id": 235,
+    "name": "potion of stoneskin",
+    "effect": "Gain -1 Damage when Hit for 30 seconds (3 turns).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "236": {
+    "id": 236,
+    "name": "potion of the ghost",
+    "effect": "Gain Intangible for 60 seconds (6 turns).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "237": {
+    "id": 237,
+    "name": "potion of flight",
+    "effect": "Gain Flight (Can move its Speed in the air) for 60 seconds (6 turns).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "238": {
+    "id": 238,
+    "name": "potion of soul stich",
+    "effect": "Cleans 3.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "239": {
+    "id": 239,
+    "name": "holy water",
+    "effect": "Deals 1 damage to Undead when in contact (this does not remove the Holy water). This is needed to craft a Potion of Life.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "240": {
+    "id": 240,
+    "name": "sleeping poison",
+    "effect": "When ingested or put into the blood (coated blade) roll Body. You must get a (5,4,4) or Fall Asleep. The GM rolls a dice, you are asleep for this many hours or until someone wakes you up with damage or 2 dice.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "241": {
+    "id": 241,
+    "name": "deadly poison",
+    "effect": "When ingested or put into the blood (coated blade) roll Body. You must get a (5,4,4) or take 2 Damage.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "242": {
+    "id": 242,
+    "name": "soul rend poison",
+    "effect": "When ingested or put into the blood (coated blade) roll Soul. You must get a (5,4,4) or gain 2 Soul Strain.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "243": {
+    "id": 243,
+    "name": "paralysis poison",
+    "effect": "When ingested or put into the blood (coated blade) roll Body. You must get a (5,4,4) or be Frozen for 20 seconds (2 turns).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "244": {
+    "id": 244,
+    "name": "cooking tools",
+    "effect": "Allows cooking decent or higher meals.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "245": {
+    "id": 245,
+    "name": "alchemist tools",
+    "effect": "Allows for crafting potions and healing items (listed above).",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "246": {
+    "id": 246,
+    "name": "smithing tools",
+    "effect": "Allows for crafting weapons and armors.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "247": {
+    "id": 247,
+    "name": "thieves’ tools",
+    "effect": "Allows for picking locks.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "248": {
+    "id": 248,
+    "name": "tinkers tools",
+    "effect": "Allows for crafting most other items.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "249": {
+    "id": 249,
+    "name": "rope",
+    "effect": "It’s rope. Typically in 1 Tile increments (5 ft.)",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "250": {
+    "id": 250,
+    "name": "small bag",
+    "effect": "Increases items that can be carried by 1/2th [4 bits] of a tile.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "251": {
+    "id": 251,
+    "name": "backback",
+    "effect": "Increases items that can be carried by 1 tile [8 bits].",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "252": {
+    "id": 252,
+    "name": "cart",
+    "effect": "Can carry 1*2*2 [32 bits] (width, length, height) tiles of stuff.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "large 0",
+      "non-magic 0",
+      "vehicle 0"
+    ]
+  },
+  "253": {
+    "id": 253,
+    "name": "wagon",
+    "effect": "Allows for crafting while traveling, and can carry 2*4*6 [384 bits] (width, length, height) tiles of stuff.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "large 0",
+      "non-magic 0",
+      "vehicle 0"
+    ]
+  },
+  "254": {
+    "id": 254,
+    "name": "row boat",
+    "effect": "Can carry 1*2*2 [32 bits] (width, length, height) tiles of stuff. Only works in water.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "large 0",
+      "non-magic 0",
+      "vehicle 0"
+    ]
+  },
+  "255": {
+    "id": 255,
+    "name": "big boat",
+    "effect": "Allows for crafting while traveling, and can carry 2*4*6 [384 bits] (width, length, height) tiles of stuff. Only works in water.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "large 0",
+      "non-magic 0",
+      "vehicle 0"
+    ]
+  },
+  "256": {
+    "id": 256,
+    "name": "bedroll",
+    "effect": "Comphy sleep on the road.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "257": {
+    "id": 257,
+    "name": "lantern",
+    "effect": "Glows 3 when lit. Lasts 48 hours total before needing to be refueled. Reduce in 1 minute time segments.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "258": {
+    "id": 258,
+    "name": "fire starters",
+    "effect": "Can start a fire without rolling Nature.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "small 0"
+    ]
+  },
+  "259": {
+    "id": 259,
+    "name": "travel supplies",
+    "effect": "Contains all the necessities for travel excluding food, including Cooking tools. Fire starters, a Bedroll, a Lanturn, and 10 tiles of Rope (50 ft)",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "medium 0",
+      "non-magic 0"
+    ]
+  },
+  "260": {
+    "id": 260,
+    "name": "travel food",
+    "effect": "An assortment of dry goods meant for travel. It does not taste good.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "261": {
+    "id": 261,
+    "name": "cheap meal",
+    "effect": "A prepared meal. It's better than Travel Food but not by much.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "262": {
+    "id": 262,
+    "name": "decent meal",
+    "effect": "A well prepared meal. Most will find this acceptable.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "263": {
+    "id": 263,
+    "name": "rich meal",
+    "effect": "An expensive meal made for the wealthy. Most will find this tasty.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "264": {
+    "id": 264,
+    "name": "royal meal",
+    "effect": "Kings and Emperors eat this. The best meal money can buy.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "265": {
+    "id": 265,
+    "name": "map",
+    "effect": "A map.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "266": {
+    "id": 266,
+    "name": "oil",
+    "effect": "Flammable. Can be used to refuel a Lantern or for cooking.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "non-magic 0",
+      "tiny 0"
+    ]
+  },
+  "267": {
+    "id": 267,
+    "name": "potion of life",
+    "effect": "Revive a dead creature. The creature’s Soul must be free and the creature cannot have been dead for more than 1 month.\r\nRequires a Phoenix Feather, Undying Heart, and Holy Water to craft.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "magic 0",
+      "medicine 0",
+      "potion 0",
+      "tiny 0"
+    ]
+  },
+  "268": {
+    "id": 268,
+    "name": "phoenix feather",
+    "effect": "A golden orange feather that is warm to the touch.\r\nIf a Creature dies while in possession of the feather the feather turns to dust, the creature's Health is set to 1, and they are no longer on Death's Door.\r\nThis is needed to craft a Potion of Life.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "magic 0",
+      "medicine 0",
+      "tiny 0"
+    ]
+  },
+  "269": {
+    "id": 269,
+    "name": "undying heart",
+    "effect": "A heart that continues to beat even when its body is lost.\r\nCan be Consumed to permanently increase Health by 2.\r\nThis is needed to craft a Potion of Life.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "consumable 0",
+      "magic 0",
+      "medicine 0",
+      "tiny 0"
+    ]
+  },
+  "270": {
+    "id": 270,
+    "name": "rune of power",
+    "effect": "Attacks inflict an extra 1 Damage",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "271": {
+    "id": 271,
+    "name": "rune of swiftness",
+    "effect": "Grants the user 1 extra Speed",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "272": {
+    "id": 272,
+    "name": "rune of fire",
+    "effect": "Makes the object warm to the touch. Attacks inflict an additional 1 Burn.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "273": {
+    "id": 273,
+    "name": "rune of ice",
+    "effect": "Makes the object cold to the touch. Attacks inflict an additional 1 Stun.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "274": {
+    "id": 274,
+    "name": "rune of air",
+    "effect": "Makes the object feel lighter. Attacks do 1 damage to another creature of your choice within 1 tile of the creature hit.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "275": {
+    "id": 275,
+    "name": "rune of earth",
+    "effect": "Makes the object feel heaver. Attacks inflict an additional 2 Knockback.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "276": {
+    "id": 276,
+    "name": "rune of souls",
+    "effect": "Increases the Users Max Soul Strain by 1.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "277": {
+    "id": 277,
+    "name": "rune of heart",
+    "effect": "On Rest gives the user an extra 3 Temporary Health (this stacks with other On rest gain tmp hp)",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "278": {
+    "id": 278,
+    "name": "rune of hostility",
+    "effect": "When applied, name a type of creature (Humanoid, Beast, Construct, Monstrosity, Undead or Planar). The rune glows when that type of creature becomes hostile within 20 tiles of the rune. It glows brighter the closer it is to the creature, starting with Glow 1 to Glow 4 at its closest.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "279": {
+    "id": 279,
+    "name": "rune of friendship",
+    "effect": "When you are within 1 tile of another person using a Rune of Friendship both creatures gain 1 Armor.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "280": {
+    "id": 280,
+    "name": "rune of chaos",
+    "effect": "When doing an action if you roll a 6 turn another non 1 or 6 into a 6. When rolling a 1 turn another non 1 or 6 into a 1.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "281": {
+    "id": 281,
+    "name": "rune of light",
+    "effect": "You can spend 1 dice to activate or deactivate this Rune. While active the rune Glows 4 until deactivated.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "282": {
+    "id": 282,
+    "name": "rune of the darkness",
+    "effect": "While you are in the dark you do an extra 2 Damage.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "283": {
+    "id": 283,
+    "name": "rune of the forge",
+    "effect": "",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "284": {
+    "id": 284,
+    "name": "rune of transformation",
+    "effect": "",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "285": {
+    "id": 285,
+    "name": "rune of the feather",
+    "effect": "Half's the weight of whatever the rune is attached to. Turns 2 handed Melee weapons into 1 handed, this action reduces damage by 1.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "286": {
+    "id": 286,
+    "name": "rune of lead",
+    "effect": "Double’s the weight of whatever the rune is attached to. Turns 1 handed Melee weapons into 2 handed, this action increases damage by 1.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "287": {
+    "id": 287,
+    "name": "dimensional bag (bag o holding)",
+    "effect": "The Bag has the spell Pocket Dimension constantly cast on it. It is not tied to any one person and cannot be placed inside another Dimensional Bag or Pocket Dimension.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "small 0"
+    ]
+  },
+  "288": {
+    "id": 288,
+    "name": "scarf of the fishs tale",
+    "effect": "An ornate scarf decorated with a story of love lost at sea. Once tied to a user, they are able to breathe underwater and can “talk” to aquatic life.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "bound 0",
+      "magic 0",
+      "tiny 0"
+    ]
+  },
+  "289": {
+    "id": 289,
+    "name": "ring of illusions",
+    "effect": "A ring carved with ever changing runes that seem to describe any number of lost secrets.\r\nOnce tied to a user, they are able to cast Minor Illusion at will, and can cast Create Illusion Twice a day without gaining Soul Strain.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "bound 0",
+      "magic 0",
+      "tiny 0"
+    ]
+  },
+  "290": {
+    "id": 290,
+    "name": "living map",
+    "effect": "A ebony cloth map that shows glowing gold and white details.\r\nWhen the map is opened it shows a detailed map of the surrounding area (200x200 tiles). The map shows the location of any creatures in its area. It wont show hidden areas or things disguised by magic such as Invisible creatures.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "tiny 0"
+    ]
+  },
+  "291": {
+    "id": 291,
+    "name": "cloak of shadows",
+    "effect": "A ebony cloth map that shows glowing gold and white details.\r\nWhen the map is opened it shows a detailed map of the surrounding area (200x200 tiles). The map shows the location of any creatures in its area. It wont show hidden areas or things disguised by magic such as Invisible creatures.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "bound 0",
+      "magic 0",
+      "tiny 0"
+    ]
+  },
+  "292": {
+    "id": 292,
+    "name": "enchanted weapon",
+    "effect": "A weapon forged by the greatest smiths.\r\nIs found with a random Rune inscribed on it. Can hold 2 runes.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "small 0"
+    ]
+  },
+  "293": {
+    "id": 293,
+    "name": "parachute ring",
+    "effect": "A ring with a small engraving of a cloud.\r\nWhen the wearer falls 5 tiles or more will cast Spectral Parachute on only the wearer. This can only be done once per day.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "tiny 0"
+    ]
+  },
+  "294": {
+    "id": 294,
+    "name": "rune of hunger",
+    "effect": "You can spend 1 dice to activate or deactivate this rune. While active You take 1 damage at the end of your turn; but you Heal 1 each time you hit a creature with the weapon inscribed with this rune.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "295": {
+    "id": 295,
+    "name": "rune of spell resistance",
+    "effect": "When you have to roll dice when saving against a spell you can add 1 to 1 of the rolls.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "296": {
+    "id": 296,
+    "name": "rune of branding",
+    "effect": "Attacks Mark the target until the beginning of your next turn.",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "rune 0",
+      "tiny 0"
+    ]
+  },
+  "297": {
+    "id": 297,
+    "name": "ring of soul stealing",
+    "effect": "A silver ring with a black opal gemstone.\r\nWhen in possession of someone with Soul the ring will use their Soul Strain to cast Sleeping Powder on them. This cannot happen if the Ring has cast this spell within 1 hour prior or the person has Maxed out their Soul Strain. ",
+    "req": [],
+    "cost": 0,
+    "craft": 0,
+    "tags": [
+      "magic 0",
+      "tiny 0"
+    ]
+  }
+}
