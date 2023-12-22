@@ -51,54 +51,54 @@ export default function Login() {
     console.log(auth);
     console.log(setAuth);
 
-    useEffect(() => {
-        async function getAuthentication() {
-            const persistantUser: DBUser =
-                await UsersService.getOrCreateDatabaseUser();
-            setAuth({
-                discordId: persistantUser.discord_id,
-                avatarUrl: persistantUser.avatar_url ?? "",
-                username: persistantUser.username,
-                admin: persistantUser.is_admin ?? false,
-                isAuthenticated: true,
-            });
-        }
+    // useEffect(() => {
+    //     async function getAuthentication() {
+    //         const persistantUser: DBUser =
+    //             await UsersService.getOrCreateDatabaseUser();
+    //         setAuth({
+    //             discordId: persistantUser.discord_id,
+    //             avatarUrl: persistantUser.avatar_url ?? "",
+    //             username: persistantUser.username,
+    //             admin: persistantUser.is_admin ?? false,
+    //             isAuthenticated: true,
+    //         });
+    //     }
 
-        async function persistLogin() {
-            try {
-                getAuthentication();
-            } catch (e) {
-                if (e instanceof ApiError) {
-                    console.log("Attempting to refresh session...");
-                }
-                try {
-                    const refreshResponse = await UsersService.refresh();
-                    console.log(refreshResponse);
-                    if (refreshResponse.content == true) {
-                        getAuthentication();
-                    }
-                } catch {
-                    setAuth({ isAuthenticated: false });
-                }
-            }
-        }
+    //     async function persistLogin() {
+    //         try {
+    //             getAuthentication();
+    //         } catch (e) {
+    //             if (e instanceof ApiError) {
+    //                 console.log("Attempting to refresh session...");
+    //             }
+    //             try {
+    //                 const refreshResponse = await UsersService.refresh();
+    //                 console.log(refreshResponse);
+    //                 if (refreshResponse.content == true) {
+    //                     getAuthentication();
+    //                 }
+    //             } catch {
+    //                 setAuth({ isAuthenticated: false });
+    //             }
+    //         }
+    //     }
 
-        if (auth.isAuthenticated == false) {
-            persistLogin();
-        }
+    //     if (auth.isAuthenticated == false) {
+    //         persistLogin();
+    //     }
 
-        // TEMP TEST VERSION
-        // setAuth({
-        //     discordId: 12345,
-        //     avatarUrl:
-        //         "https://cdn.discordapp.com/emojis/679179726740258826.gif?size=96&quality=lossless",
-        //     username: "testddfg!",
-        //     isAuthenticated: true,
-        //     admin: true,
-        // });
+    //     // TEMP TEST VERSION
+    //     // setAuth({
+    //     //     discordId: 12345,
+    //     //     avatarUrl:
+    //     //         "https://cdn.discordapp.com/emojis/679179726740258826.gif?size=96&quality=lossless",
+    //     //     username: "testddfg!",
+    //     //     isAuthenticated: true,
+    //     //     admin: true,
+    //     // });
 
-        // setAuth({ isAuthenticated: false });
-    }, [UsersService, auth.isAuthenticated, setAuth]);
+    //     // setAuth({ isAuthenticated: false });
+    // }, [UsersService, auth.isAuthenticated, setAuth]);
 
     useEffect(() => {
         async function fetchLoginURL() {
@@ -112,6 +112,15 @@ export default function Login() {
         const location = window.location.pathname;
         window.localStorage.setItem("loginCallbackDestination", location);
         window.location.href = loginURL;
+    }
+
+    function handleLogoutButtonClick() {
+        async function fetchLogout() {
+            if (await UsersService.logout()) {
+                window.location.reload();
+            }
+        }
+        fetchLogout();
     }
 
     // useEffect here that calls the soon to be made axios provider to run Login
@@ -153,6 +162,7 @@ export default function Login() {
                                         leftIcon={userIcon}
                                         variant="mind"
                                         className="h-8 rounded-lg"
+                                        onClick={handleLogoutButtonClick}
                                     >
                                         Log out
                                     </Button>
