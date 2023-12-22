@@ -30,15 +30,12 @@ const bookOpenIcon = (
 function App() {
     return (
         <>
-            <Header />
-            <div className="max-w-7xl mx-auto p-8 text-center">
-                <Link to={"rulebook"}>
-                    <Button leftIcon={bookOpenIcon} variant="body">
-                        Rulebook / Josh land
-                    </Button>
-                </Link>
-                <Pill colorClassName="bg-body">Body</Pill>
-            </div>
+            <Link to={"rulebook"}>
+                <Button leftIcon={bookOpenIcon} variant="body">
+                    Rulebook / Josh land
+                </Button>
+            </Link>
+            <Pill colorClassName="bg-body">Body</Pill>
         </>
     );
 }
