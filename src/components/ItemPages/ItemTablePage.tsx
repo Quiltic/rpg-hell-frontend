@@ -7,12 +7,16 @@ import rehypeRaw from "rehype-raw";
 
 import useApi from "../../hooks/useApi";
 
-import { convertDictionaryToMD, makeTableLine_Items } from "../../util/markdownTools";
+import {
+    convertDictionaryToMD,
+    makeTableLine_Items,
+} from "../../util/markdownTools";
 import { bookOpenIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 import { Button } from "../../components/ui/Button/Button";
 import { Link } from "react-router-dom";
 
+import json from "../../assets/OfflineJsons/Items.json";
 
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
 export default function ItemsTablePage() {
@@ -21,40 +25,53 @@ export default function ItemsTablePage() {
 
     const [searchValue, setSearchValue] = useState("");
     const [itemsObject, setItemsObject] = useState<Array<Item>>([]);
-    const [itemsObjectFiltered, setItemsObjectFiltered] = useState< Array<Item> >([]);
+    const [itemsObjectFiltered, setItemsObjectFiltered] = useState<Array<Item>>(
+        []
+    );
 
     const updateMarkdown = useCallback(() => {
         const parsedmd = convertDictionaryToMD(
             itemsObjectFiltered,
             makeTableLine_Items,
             `| **Name** | **Requirements** | **Effect** | **Tags** | **Cost** | **Craft** |\n| --- | --- | --- | --- | --- | --- |\n`
-            );
+        );
 
         // console.log(parsedmd);
         setMarkdown(parsedmd);
-
     }, [itemsObjectFiltered]);
 
     useEffect(() => {
-        updateMarkdown()
-    },[itemsObjectFiltered, updateMarkdown])
-    
+        updateMarkdown();
+    }, [itemsObjectFiltered, updateMarkdown]);
+
     // Runs on Render update (only on changes)
     useEffect(() => {
-
-        async function getSpellsMarkdown() {
+        async function getItemsMarkdown() {
             const items_raw = await ItemsService.getAllItems();
             const items = Object.values(items_raw);
             setItemsObject(items);
             setItemsObjectFiltered(items);
-            
+
+            try {
+                const items_raw = await ItemsService.getAllItems();
+                const items = Object.values(items_raw);
+                setItemsObject(items);
+                setItemsObjectFiltered(items);
+            } catch (e) {
+                if (e.message == "Network Error") {
+                    console.log(
+                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+                    );
+                    const items = Object.values(json);
+                    setItemsObject(items);
+                    setItemsObjectFiltered(items);
+                }
+            }
         }
-        getSpellsMarkdown();
+        getItemsMarkdown();
 
         // console.log(markdown)
-
-    }, [ItemsService])
-
+    }, [ItemsService]);
 
     function handleSearch() {
         if (searchValue == "") {
@@ -75,7 +92,6 @@ export default function ItemsTablePage() {
 
     return (
         <>
-
             <Link to={".."}>
                 <Button leftIcon={bookOpenIcon} variant="subtle">
                     Back
@@ -87,7 +103,11 @@ export default function ItemsTablePage() {
                 type="text"
                 name="search"
                 onChange={(e) => setSearchValue(e.target.value)}
-                onKeyDown={(e) => {if (e.key === "Enter") {handleSearch()}}}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        handleSearch();
+                    }
+                }}
             />
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}

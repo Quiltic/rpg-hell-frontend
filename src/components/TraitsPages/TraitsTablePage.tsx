@@ -7,12 +7,16 @@ import rehypeRaw from "rehype-raw";
 
 import useApi from "../../hooks/useApi";
 
-import { convertDictionaryToMD, makeTableLine_Trait } from "../../util/markdownTools";
+import {
+    convertDictionaryToMD,
+    makeTableLine_Trait,
+} from "../../util/markdownTools";
 import { bookOpenIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 import { Button } from "../../components/ui/Button/Button";
-import { Link } from "react-router-dom";
+import { ErrorResponse, Link } from "react-router-dom";
 
+import json from "../../assets/OfflineJsons/Traits.json";
 
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
 export default function TraitsTablePage() {
@@ -21,7 +25,9 @@ export default function TraitsTablePage() {
 
     const [searchValue, setSearchValue] = useState("");
     const [traitsObject, setTraitsObject] = useState<Array<Trait>>([]);
-    const [traitsObjectFiltered, setTraitsObjectFiltered] = useState< Array<Trait> >([]);
+    const [traitsObjectFiltered, setTraitsObjectFiltered] = useState<
+        Array<Trait>
+    >([]);
 
     const updateMarkdown = useCallback(() => {
         const parsedmd = convertDictionaryToMD(
@@ -33,17 +39,29 @@ export default function TraitsTablePage() {
     }, [traitsObjectFiltered]);
 
     useEffect(() => {
-        updateMarkdown()
-    },[traitsObjectFiltered, updateMarkdown])
+        updateMarkdown();
+    }, [traitsObjectFiltered, updateMarkdown]);
 
     // Runs on Render update (only on changes)
 
     useEffect(() => {
         async function getTraitsMarkdown() {
-            const traits_raw = await TraitsService.getAllTraits();
-            const traits = Object.values(traits_raw);
-            setTraitsObject(traits);
-            setTraitsObjectFiltered(traits);
+            try {
+                const traits_raw = await TraitsService.getAllTraits();
+                const traits = Object.values(traits_raw);
+                setTraitsObject(traits);
+                setTraitsObjectFiltered(traits);
+            } catch (e) {
+                if (e.message == "Network Error") {
+                    console.log(
+                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+                    );
+                    const traits = Object.values(json);
+                    setTraitsObject(traits);
+                    setTraitsObjectFiltered(traits);
+                }
+            }
+
             // traits.sort((trait_a, trait_b) => {trait_a.req} )
 
             // value -> Arcana -> Charm -> Crafting -> Nature -> Medicine -> Thieving -> Body -> Mind -> Soul
@@ -54,7 +72,6 @@ export default function TraitsTablePage() {
     }, [TraitsService]);
 
     function handleSearch() {
-
         if (searchValue == "") {
             setTraitsObjectFiltered(traitsObject);
             return;
@@ -84,7 +101,11 @@ export default function TraitsTablePage() {
                 type="text"
                 name="search"
                 onChange={(e) => setSearchValue(e.target.value)}
-                onKeyDown={(e) => {if (e.key === "Enter") {handleSearch()}}}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        handleSearch();
+                    }
+                }}
             />
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}

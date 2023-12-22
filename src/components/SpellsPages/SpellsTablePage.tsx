@@ -7,12 +7,16 @@ import rehypeRaw from "rehype-raw";
 
 import useApi from "../../hooks/useApi";
 
-import { convertDictionaryToMD, makeTableLine_Spells } from "../../util/markdownTools";
+import {
+    convertDictionaryToMD,
+    makeTableLine_Spells,
+} from "../../util/markdownTools";
 
 import { Button } from "../../components/ui/Button/Button";
 import { Link } from "react-router-dom";
 import { bookOpenIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
+import json from "../../assets/OfflineJsons/Spells.json";
 
 // I dont understand why but i need the commented out colors in order for them to show up. its weird
 export default function SpellsTablePage() {
@@ -21,56 +25,64 @@ export default function SpellsTablePage() {
 
     const [searchValue, setSearchValue] = useState("");
     const [spellsObject, setSpellsObject] = useState<Array<Spell>>([]);
-    const [spellsObjectFiltered, setSpellsObjectFiltered] = useState< Array<Spell> >([]);
-    const [spellsObjectSorted, setSpellsObjectSorted] = useState< Array<Spell> >([]);
+    const [spellsObjectFiltered, setSpellsObjectFiltered] = useState<
+        Array<Spell>
+    >([]);
+    const [spellsObjectSorted, setSpellsObjectSorted] = useState<Array<Spell>>(
+        []
+    );
 
     const updateMarkdown = useCallback(() => {
         const parsedmd = convertDictionaryToMD(
             spellsObjectSorted,
             makeTableLine_Spells,
             `| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`
-            );
+        );
 
         // console.log(parsedmd);
         setMarkdown(parsedmd);
-
     }, [spellsObjectSorted]);
 
     const sortObjects = useCallback(() => {
-        const sortedSpells = spellsObjectFiltered.sort((t1,t2) => {
+        const sortedSpells = spellsObjectFiltered.sort((t1, t2) => {
             // console.log(t.name);
-            return (
-                t1.level - t2.level
-            );
+            return t1.level - t2.level;
         });
 
         // console.log(parsedmd);
-        setSpellsObjectSorted(sortedSpells)
-
+        setSpellsObjectSorted(sortedSpells);
     }, [spellsObjectFiltered]);
 
     useEffect(() => {
-        sortObjects()
-        updateMarkdown()
-    },[spellsObjectFiltered, updateMarkdown, sortObjects])
-    
+        sortObjects();
+        updateMarkdown();
+    }, [spellsObjectFiltered, updateMarkdown, sortObjects]);
+
     // Runs on Render update (only on changes)
     useEffect(() => {
-
         async function getSpellsMarkdown() {
-            const spells_raw = await SpellsService.getAllSpells();
-            const spells = Object.values(spells_raw);
-            setSpellsObject(spells);
-            setSpellsObjectSorted(spells);
-            setSpellsObjectFiltered(spells);
-            
+            try {
+                const spells_raw = await SpellsService.getAllSpells();
+                const spells = Object.values(spells_raw);
+                setSpellsObject(spells);
+                setSpellsObjectSorted(spells);
+                setSpellsObjectFiltered(spells);
+            } catch (e) {
+                if (e.message == "Network Error") {
+                    console.log(
+                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+                    );
+                    const spells = Object.values(json);
+                    setSpellsObject(spells);
+                    setSpellsObjectSorted(spells);
+                    setSpellsObjectFiltered(spells);
+                }
+            }
         }
         getSpellsMarkdown();
 
         // console.log(markdown)
-
-    }, [SpellsService])
-
+    }, [SpellsService]);
 
     function handleSearch() {
         if (searchValue == "") {
@@ -102,7 +114,11 @@ export default function SpellsTablePage() {
                 type="text"
                 name="search"
                 onChange={(e) => setSearchValue(e.target.value)}
-                onKeyDown={(e) => {if (e.key === "Enter") {handleSearch()}}}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        handleSearch();
+                    }
+                }}
             />
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
