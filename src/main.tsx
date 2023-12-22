@@ -1,19 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.tsx";
 import RootLayout from "./components/layouts/RootLayout.tsx";
 import NotImplementedPage from "./components/NotImplementedPage/NotImplementedPage.tsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
-import LoginCallbackPage from "./components/loginCallback/LoginCallbackPage.tsx";
+import LoginCallbackPage from "./components/loginCallbackPage/LoginCallbackPage.tsx";
 
 import RulebookPage from "./components/RulebookPages/RulebookPage.tsx";
 import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
 import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
 import ItemsTablePage from "./components/ItemPages/ItemTablePage.tsx";
-
 
 const router = createBrowserRouter([
     {
