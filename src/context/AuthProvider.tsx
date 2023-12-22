@@ -2,7 +2,7 @@ import { createContext, useState, ReactNode, useEffect } from "react";
 import { IUnauthenticated, User } from "../types/auth";
 import { ApiError, DBUser } from "../client";
 
-import { useApi } from "../hooks/useApi";
+import useApi from "../hooks/useApi";
 
 export interface IAuthContext {
     readonly auth: User;

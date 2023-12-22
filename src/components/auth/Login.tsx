@@ -7,7 +7,6 @@ import { Popover, Transition } from "@headlessui/react";
 
 import discordLogo from "../../assets/discord.svg";
 import useApi from "../../hooks/useApi";
-import { ApiError, DBUser } from "../../client";
 
 const arrowLeftOnRectangleIcon = (
     <svg
