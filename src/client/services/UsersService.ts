@@ -23,6 +23,18 @@ export class UsersService {
     }
 
     /**
+     * Logout
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static logout(): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'GET',
+            url: '/logout',
+        });
+    }
+
+    /**
      * Callback
      * @returns any Successful Response
      * @throws ApiError
