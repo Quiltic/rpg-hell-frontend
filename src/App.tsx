@@ -1,5 +1,4 @@
 import "./App.css";
-import Header from "./components/nav/Header";
 
 import { Button } from "./components/ui/Button/Button";
 
