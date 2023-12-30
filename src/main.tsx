@@ -13,6 +13,7 @@ import RulebookPage from "./components/RulebookPages/RulebookPage.tsx";
 import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
 import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
 import ItemsTablePage from "./components/ItemPages/ItemTablePage.tsx";
+import SpellsTableAltPage from "./components/SpellsPages/SpellsTableAltPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
                     {
                         path: "spells",
                         element: <SpellsTablePage />,
+                    },
+                    {
+                        path: "spells-alt",
+                        element: <SpellsTableAltPage />,
                     },
                     {
                         path: "traits",
