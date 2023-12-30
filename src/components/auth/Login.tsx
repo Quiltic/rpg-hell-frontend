@@ -50,55 +50,6 @@ export default function Login() {
     console.log(auth);
     console.log(setAuth);
 
-    // useEffect(() => {
-    //     async function getAuthentication() {
-    //         const persistantUser: DBUser =
-    //             await UsersService.getOrCreateDatabaseUser();
-    //         setAuth({
-    //             discordId: persistantUser.discord_id,
-    //             avatarUrl: persistantUser.avatar_url ?? "",
-    //             username: persistantUser.username,
-    //             admin: persistantUser.is_admin ?? false,
-    //             isAuthenticated: true,
-    //         });
-    //     }
-
-    //     async function persistLogin() {
-    //         try {
-    //             getAuthentication();
-    //         } catch (e) {
-    //             if (e instanceof ApiError) {
-    //                 console.log("Attempting to refresh session...");
-    //             }
-    //             try {
-    //                 const refreshResponse = await UsersService.refresh();
-    //                 console.log(refreshResponse);
-    //                 if (refreshResponse.content == true) {
-    //                     getAuthentication();
-    //                 }
-    //             } catch {
-    //                 setAuth({ isAuthenticated: false });
-    //             }
-    //         }
-    //     }
-
-    //     if (auth.isAuthenticated == false) {
-    //         persistLogin();
-    //     }
-
-    //     // TEMP TEST VERSION
-    //     // setAuth({
-    //     //     discordId: 12345,
-    //     //     avatarUrl:
-    //     //         "https://cdn.discordapp.com/emojis/679179726740258826.gif?size=96&quality=lossless",
-    //     //     username: "testddfg!",
-    //     //     isAuthenticated: true,
-    //     //     admin: true,
-    //     // });
-
-    //     // setAuth({ isAuthenticated: false });
-    // }, [UsersService, auth.isAuthenticated, setAuth]);
-
     useEffect(() => {
         async function fetchLoginURL() {
             const res = await UsersService.login();
@@ -121,8 +72,6 @@ export default function Login() {
         }
         fetchLogout();
     }
-
-    // useEffect here that calls the soon to be made axios provider to run Login
 
     return (
         <>
