@@ -1,4 +1,7 @@
 import { Spell } from "../../client";
+// import { highlightKeywords } from "../../util/markdownTools";
+
+import { formatEffectString } from "../../util/textFormatting";
 
 type Props = { displayedSpells: Spell[] };
 
@@ -16,6 +19,7 @@ export default function SpellsTable({ displayedSpells }: Props) {
             </thead>
             <tbody>
                 {displayedSpells.map((spell) => {
+                    const ee = formatEffectString(spell.effect ?? "");
                     return (
                         <tr>
                             <td className="font-bold capitalize">
@@ -23,7 +27,7 @@ export default function SpellsTable({ displayedSpells }: Props) {
                             </td>
                             <td>{spell.level}</td>
                             <td>{"#".repeat(spell.dice ?? 1)}</td>
-                            <td>{spell.effect}</td>
+                            <td dangerouslySetInnerHTML={{ __html: ee }}></td>
                             <td className="capitalize">
                                 {spell.tags?.join(", ")}
                             </td>

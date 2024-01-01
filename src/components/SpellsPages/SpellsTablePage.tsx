@@ -1,144 +1,159 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Spell } from "../../client";
 
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 import useApi from "../../hooks/useApi";
 
-import {
-    convertDictionaryToMD,
-    makeTableLine_Spells,
-} from "../../util/markdownTools";
+import { Tab } from "@headlessui/react";
 
-import { Button } from "../../components/ui/Button/Button";
-import { Link } from "react-router-dom";
-import { bookOpenIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import SpellsTable from "./SpellsTable";
 
 import json from "../../assets/OfflineJsons/Spells.json";
 
-// I dont understand why but i need the commented out colors in order for them to show up. its weird
 export default function SpellsTablePage() {
-    const [markdown, setMarkdown] = useState("");
     const { SpellsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
-    const [spellsObject, setSpellsObject] = useState<Array<Spell>>([]);
-    const [spellsObjectFiltered, setSpellsObjectFiltered] = useState<
-        Array<Spell>
-    >([]);
-    const [spellsObjectSorted, setSpellsObjectSorted] = useState<Array<Spell>>(
-        []
-    );
-
-    const updateMarkdown = useCallback(() => {
-        const parsedmd = convertDictionaryToMD(
-            spellsObjectSorted,
-            makeTableLine_Spells,
-            `| **Name** | **Strain** | **Dice** | **Effect** | **Tags** |\n| --- | --- | --- | --- | --- |\n`
-        );
-
-        // console.log(parsedmd);
-        setMarkdown(parsedmd);
-    }, [spellsObjectSorted]);
-
-    const sortObjects = useCallback(() => {
-        const sortedSpells = spellsObjectFiltered.sort((t1, t2) => {
-            // console.log(t.name);
-            return t1.level - t2.level;
-        });
-
-        // console.log(parsedmd);
-        setSpellsObjectSorted(sortedSpells);
-    }, [spellsObjectFiltered]);
+    const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
+    const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
+    const [clearButtonVisibility, setClearButtonVisibility] =
+        useState("hidden");
 
     useEffect(() => {
-        sortObjects();
-        updateMarkdown();
-    }, [spellsObjectFiltered, updateMarkdown, sortObjects]);
-
-    // Runs on Render update (only on changes)
-    useEffect(() => {
-        async function getSpellsMarkdown() {
+        async function getSpells() {
             try {
-                const spells_raw = await SpellsService.getAllSpells();
-                const spells = Object.values(spells_raw);
-                setSpellsObject(spells);
-                setSpellsObjectSorted(spells);
-                setSpellsObjectFiltered(spells);
+                const spellsRaw = await SpellsService.getAllSpells();
+                let spells = Object.values(spellsRaw);
+
+                spells = spells.filter((s) => {
+                    if (s.tags) {
+                        return s.tags.includes("monster");
+                    }
+                });
+
+                const spellsSortedByLevel = spells.sort((t1, t2) => {
+                    // console.log(t.name);
+                    return (t1.level ?? 0) - (t2.level ?? 0);
+                });
+                setAllSpells(spellsSortedByLevel);
+                // setSpellsObjectSorted(spells);
+                setDisplayedSpells(spellsSortedByLevel);
             } catch (e) {
-                if (e.message == "Network Error") {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     const spells = Object.values(json);
-                    setSpellsObject(spells);
-                    setSpellsObjectSorted(spells);
-                    setSpellsObjectFiltered(spells);
+                    setAllSpells(spells);
+                    // setSpellsObjectSorted(spells);
+                    setDisplayedSpells(spells);
                 }
             }
         }
-        getSpellsMarkdown();
-
-        // console.log(markdown)
+        getSpells();
     }, [SpellsService]);
 
-    function handleSearch() {
+    useEffect(() => {
         if (searchValue == "") {
-            setSpellsObjectFiltered(spellsObject);
+            setDisplayedSpells(allSpells);
+            setClearButtonVisibility("hidden");
             return;
         }
 
-        const filteredSpells = spellsObject.filter((t) => {
-            console.log(t.name);
+        setClearButtonVisibility("visible");
+        const filteredSpells = allSpells.filter((s) => {
             return (
-                t.name.toLowerCase().includes(searchValue) ||
-                t.effect?.toLowerCase().includes(searchValue)
+                s.name.toLowerCase().includes(searchValue) ||
+                s.effect?.toLowerCase().includes(searchValue)
             );
         });
 
-        setSpellsObjectFiltered(filteredSpells);
+        setDisplayedSpells(filteredSpells);
+    }, [allSpells, searchValue]);
+
+    function classNames(...classes: string[]) {
+        return classes.filter(Boolean).join(" ");
     }
+
+    const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // Styling:
 
     return (
         <>
-            <Link to={".."}>
-                <Button leftIcon={bookOpenIcon} variant="subtle">
-                    Back
-                </Button>
-            </Link>
+            <h1 className="text-3xl font-bold">Spells</h1>
 
-            <span>Search:</span>
-            <input
-                type="text"
-                name="search"
-                onChange={(e) => setSearchValue(e.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                        handleSearch();
-                    }
-                }}
-            />
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-                {markdown}
-            </Markdown>
-            {/* <span className="text-body-700">asssss</span> */}
-            {/* <span className="text-mind-700">asssss</span> */}
-            {/* <span className="text-soul-700">asssss</span> */}
-            {/* <span className="text-arcana-700">asssss</span> */}
-            {/* <span className="text-charm-700">asssss</span> */}
-            {/* <span className="text-crafting-700">asssss</span> */}
-            {/* <span className="text-nature-700">asssss</span> */}
-            {/* <span className="text-medicine-700">asssss</span> */}
-            {/* <span className="text-thieving-700">asssss</span> */}
+            <Tab.Group as="div" className="w-full ">
+                <div className="flex flex-column justify-between py-1 w-full align-middle">
+                    <Tab.List className="flex space-x-1 p-1 gap-1">
+                        <Tab
+                            className={({ selected }) =>
+                                classNames(
+                                    "hover:font-bold w-8 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    selected ? "ring-2" : ""
+                                )
+                            }
+                        >
+                            All
+                        </Tab>
+                        {IterativeSpellLevels.map((n) => {
+                            return (
+                                <Tab
+                                    className={({ selected }) =>
+                                        classNames(
+                                            "hover:font-bold w-8 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            selected ? "ring-2" : ""
+                                        )
+                                    }
+                                >
+                                    {n}
+                                </Tab>
+                            );
+                        })}
+                    </Tab.List>
+                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
+                        <MagnifyingGlassIcon className="h-6 w-6" />
 
-            {/* <span className="bg-arcana">asssss</span> */}
-            {/* <span className="bg-charm">asssss</span> */}
-            {/* <span className="bg-crafting">asssss</span> */}
-            {/* <span className="bg-nature">asssss</span> */}
-            {/* <span className="bg-medicine">asssss</span> */}
-            {/* <span className="bg-thieving">asssss</span> */}
+                        <input
+                            value={searchValue}
+                            type="text"
+                            name="search"
+                            placeholder="Search"
+                            className="bg-dark-700 pl-1"
+                            onChange={(e) => {
+                                setSearchValue(e.target.value.toLowerCase());
+                            }}
+                        />
+                        <XMarkIcon
+                            className="h-6 w-6 opacity-50 cursor-pointer"
+                            visibility={clearButtonVisibility}
+                            onClick={() => {
+                                setSearchValue("");
+                                setClearButtonVisibility("hidden");
+                            }}
+                        />
+                    </div>
+                </div>
+                <Tab.Panels>
+                    <Tab.Panel>
+                        <SpellsTable displayedSpells={displayedSpells} />
+                    </Tab.Panel>
+                    {IterativeSpellLevels.map((n) => {
+                        return (
+                            <Tab.Panel>
+                                <SpellsTable
+                                    displayedSpells={displayedSpells.filter(
+                                        (s) => {
+                                            return s.level == n;
+                                        }
+                                    )}
+                                />
+                            </Tab.Panel>
+                        );
+                    })}
+                </Tab.Panels>
+            </Tab.Group>
         </>
     );
 }
