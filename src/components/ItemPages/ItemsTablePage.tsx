@@ -22,16 +22,12 @@ export default function ItemsTablePage() {
 
     useEffect(() => {
         async function getItems() {
-            console.log("FA");
+            
             let items;
-            console.log("BA");
             try {
-                console.log("pissest");
                 const itemsRaw = await ItemsService.getAllItems();
                 items = Object.values(itemsRaw);
-                console.log("pisser");
             } catch (e) {
-                console.log("piss");
                 if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
@@ -50,9 +46,9 @@ export default function ItemsTablePage() {
                 // console.log(t.name);
                 return (t1.name ?? "") < (t2.name ?? "") ? -1 : 1;
             });
-            setAllItems(itemsSortedByReq);
+            setAllItems(itemsSortedByReq ?? []);
             // setItemsObjectSorted(items);
-            setDisplayedItems(itemsSortedByReq);
+            setDisplayedItems(itemsSortedByReq ?? []);
         }
         getItems();
     }, [ItemsService]);

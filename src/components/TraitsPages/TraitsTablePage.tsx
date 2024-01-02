@@ -22,45 +22,31 @@ export default function TraitsTablePage() {
 
     useEffect(() => {
         async function getTraits() {
+            let traits;
             try {
                 const traitsRaw = await TraitsService.getAllTraits();
-                let traits = Object.values(traitsRaw);
-
-                traits = traits.filter((s) => {
-                    if (s.req) {
-                        return s.req?.toString().includes("monster") || s.req?.toString().includes("broken") ? "":s.req;
-                    }
-                });
-
-                const traitsSortedByReq = traits.sort((t1, t2) => {
-                    // console.log(t.name);
-                    return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
-                });
-                setAllTraits(traitsSortedByReq);
-                // setTraitsObjectSorted(traits);
-                setDisplayedTraits(traitsSortedByReq);
+                traits = Object.values(traitsRaw);
             } catch (e) {
                 if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
-                    let traits = Object.values(json);
-
-                    traits = traits.filter((s) => {
-                        if (s.req) {
-                            return s.req?.toString().includes("monster") || s.req?.toString().includes("broken") ? "":s.req;
-                        }
-                    });
-
-                    const traitsSortedByReq = traits.sort((t1, t2) => {
-                        // console.log(t.name);
-                        return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
-                    });
-                    setAllTraits(traitsSortedByReq);
-                    // setTraitsObjectSorted(traitsSortedByReq);
-                    setDisplayedTraits(traitsSortedByReq);
+                    traits = Object.values(json);
                 }
             }
+            traits = traits?.filter((s) => {
+                if (s.req) {
+                    return s.req?.toString().includes("monster") || s.req?.toString().includes("broken") ? "":s.req;
+                }
+            });
+
+            const traitsSortedByReq = traits?.sort((t1, t2) => {
+                // console.log(t.name);
+                return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
+            });
+            setAllTraits(traitsSortedByReq ?? []);
+            // setTraitsObjectSorted(traitsSortedByReq);
+            setDisplayedTraits(traitsSortedByReq ?? []);
         }
         getTraits();
     }, [TraitsService]);

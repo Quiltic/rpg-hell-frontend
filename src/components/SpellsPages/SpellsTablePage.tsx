@@ -22,41 +22,33 @@ export default function SpellsTablePage() {
 
     useEffect(() => {
         async function getSpells() {
+            let spells;
             try {
                 const spellsRaw = await SpellsService.getAllSpells();
-                let spells = Object.values(spellsRaw);
+                spells = Object.values(spellsRaw);
 
-                spells = spells.filter((s) => {
-                    if (s.tags) {
-                        return s.tags.includes("monster") || s.tags.includes("broken") ? "":s.tags;
-                    }
-                });
-
-                const spellsSortedByLevel = spells.sort((t1, t2) => {
-                    // console.log(t.name);
-                    return (t1.level ?? 0) - (t2.level ?? 0);
-                });
-                setAllSpells(spellsSortedByLevel);
-                // setSpellsObjectSorted(spells);
-                setDisplayedSpells(spellsSortedByLevel);
             } catch (e) {
                 if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
-                    let spells = Object.values(json);
-
-                    spells = spells.filter((s) => {
-                        if (s.tags) {
-                            return s.tags.includes("monster") ? "":s.tags;
-                        }
-                    });
-
-                    setAllSpells(spells);
-                    // setSpellsObjectSorted(spells);
-                    setDisplayedSpells(spells);
+                    spells = Object.values(json);
                 }
             }
+
+            spells = spells?.filter((s) => {
+                if (s.tags) {
+                    return s.tags.includes("monster") || s.tags.includes("broken") ? "":s.tags;
+                }
+            });
+
+            const spellsSortedByLevel = spells?.sort((t1, t2) => {
+                // console.log(t.name);
+                return (t1.level ?? 0) - (t2.level ?? 0);
+            });
+            setAllSpells(spellsSortedByLevel ?? []);
+            // setSpellsObjectSorted(spells);
+            setDisplayedSpells(spellsSortedByLevel ?? []);
         }
         getSpells();
     }, [SpellsService]);
