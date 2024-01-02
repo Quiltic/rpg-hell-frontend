@@ -113,7 +113,7 @@ export default function TraitsTablePage() {
                                 <Tab
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
                                             selected ? "ring-2" : ""
                                         )
                                     }

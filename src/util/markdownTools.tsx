@@ -37,7 +37,7 @@ function toPill(_string: string, splitter: string, ender: string) {
     return _string
         .split(splitter)
         .map((word) => {
-            return `<div class="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word}">${
+            return `<div class="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word.slice(0,-2)}-400">${
                 word[0].toUpperCase() + word.substring(1)
             }</div>`;
         })

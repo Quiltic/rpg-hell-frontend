@@ -11,7 +11,7 @@ type Props = { displayedTraits: Trait[] };
 export default function TraitsTable({ displayedTraits: displayedTraits }: Props) {
     return (
         <table className="border-collapse table-auto dark:text-light text-dark rounded-md">
-            <thead className="dark:bg-dark-700 bg-light-300 font-bold">
+            <thead className="dark:bg-dark-400 bg-light-300 font-bold">
                 <tr>
                     <th>Name</th>
                     <th>Requirements</th>
@@ -35,6 +35,15 @@ export default function TraitsTable({ displayedTraits: displayedTraits }: Props)
                     );
                 })}
             </tbody>
+            {/* <span className="bg-body-400">asssss</span> */}
+            {/* <span className="bg-mind-400">asssss</span> */}
+            {/* <span className="bg-soul-400">asssss</span> */}
+            {/* <span className="bg-arcana-400">asssss</span> */}
+            {/* <span className="bg-charm-400">asssss</span> */}
+            {/* <span className="bg-crafting-400">asssss</span> */}
+            {/* <span className="bg-nature-400">asssss</span> */}
+            {/* <span className="bg-medicine-400">asssss</span> */}
+            {/* <span className="bg-thieving-400">asssss</span> */}
         </table>
     );
 }
