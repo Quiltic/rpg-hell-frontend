@@ -28,7 +28,7 @@ export default function SpellsTablePage() {
 
                 spells = spells.filter((s) => {
                     if (s.tags) {
-                        return s.tags.includes("monster");
+                        return s.tags.includes("monster") || s.tags.includes("broken") ? "":s.tags;
                     }
                 });
 
@@ -44,7 +44,14 @@ export default function SpellsTablePage() {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
-                    const spells = Object.values(json);
+                    let spells = Object.values(json);
+
+                    spells = spells.filter((s) => {
+                        if (s.tags) {
+                            return s.tags.includes("monster") ? "":s.tags;
+                        }
+                    });
+
                     setAllSpells(spells);
                     // setSpellsObjectSorted(spells);
                     setDisplayedSpells(spells);
@@ -90,7 +97,7 @@ export default function SpellsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold w-8 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -102,7 +109,7 @@ export default function SpellsTablePage() {
                                 <Tab
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold w-8 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
                                             selected ? "ring-2" : ""
                                         )
                                     }
