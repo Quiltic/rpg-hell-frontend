@@ -16,12 +16,12 @@ import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/rpg-hell-frontend",
         element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
             {
-                path: "/",
+                path: "",
                 element: <App />,
             },
             {
