@@ -37,7 +37,7 @@ function toPill(_string: string, splitter: string, ender: string) {
     return _string
         .split(splitter)
         .map((word) => {
-            return `<div className="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word}">${
+            return `<div class="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word}">${
                 word[0].toUpperCase() + word.substring(1)
             }</div>`;
         })
@@ -142,4 +142,4 @@ function convertDictionaryToMD<T>(vals: Array<T>, makeFunc: (x: T) => string, he
     return txt;
 }
 
-export { convertDictionaryToMD, makeTableLine_Trait, makeTableLine_Spells, makeTableLine_Items };
+export { convertDictionaryToMD, makeTableLine_Trait, makeTableLine_Spells, makeTableLine_Items, toPill };

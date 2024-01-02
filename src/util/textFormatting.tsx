@@ -18,6 +18,7 @@ export function toPillElement(
     return _string
         .split(splitter)
         .map((word) => {
+            console.log(word);
             return (
                 <Pill colorClassName={"bg-" + word.toLowerCase()}>
                     {word /* {word[0].toUpperCase() + word.substring(1)} */}
