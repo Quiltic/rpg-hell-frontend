@@ -14,24 +14,6 @@ import { sparklesIcon, bagIcon, ticketIcon } from "../../assets/IconSVGs/heroico
 
 
 export default function RulebookPage() {
-    // const [markdown, setMarkdown] = useState("");
-
-    // // Runs on Render update (only on changes)
-
-    // useEffect(() => {
-    //     async function getTraitsMarkdown() {
-    //         const traits_raw = await TraitsService.getAllTraits();
-    //         const traits = Object.values(traits_raw);
-    //         setTraitsObject(traits);
-    //         setTraitsObjectFiltered(traits);
-    //         // traits.sort((trait_a, trait_b) => {trait_a.req} )
-
-    //         // value -> Arcana -> Charm -> Crafting -> Nature -> Medicine -> Thieving -> Body -> Mind -> Soul
-    //     }
-    //     getTraitsMarkdown();
-
-    //     // console.log(traitsObject);
-    // }, [TraitsService]);
 
     return (
         <>
@@ -52,7 +34,6 @@ export default function RulebookPage() {
                     Spells
                 </Button>
             </Link>
-
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>
