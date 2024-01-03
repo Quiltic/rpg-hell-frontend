@@ -36,7 +36,10 @@ export default function TraitsTablePage() {
             }
             traits = traits?.filter((s) => {
                 if (s.req) {
-                    return s.req?.toString().includes("MONSTER") || s.req?.toString().includes("BROKEN") ? "":s.req;
+                    return s.req?.toString().includes("MONSTER") ||
+                        s.req?.toString().includes("BROKEN")
+                        ? ""
+                        : s.req;
                 }
             });
 
@@ -73,7 +76,17 @@ export default function TraitsTablePage() {
         return classes.filter(Boolean).join(" ");
     }
 
-    const IterativeTraitLevels = ["Body", 'Mind', 'Soul', 'Arcana', 'Charm', 'Crafting', 'Nature', 'Medicine', 'Thieving'];
+    const IterativeTraitLevels = [
+        "Body",
+        "Mind",
+        "Soul",
+        "Arcana",
+        "Charm",
+        "Crafting",
+        "Nature",
+        "Medicine",
+        "Thieving",
+    ];
 
     // Styling:
 
@@ -100,6 +113,10 @@ export default function TraitsTablePage() {
                                     className={({ selected }) =>
                                         classNames(
                                             "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            "text-".concat(
+                                                n.toLowerCase(),
+                                                "-700"
+                                            ),
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -142,7 +159,9 @@ export default function TraitsTablePage() {
                                 <TraitsTable
                                     displayedTraits={displayedTraits.filter(
                                         (s) => {
-                                            return s.req?.toString().includes(n.toLowerCase());
+                                            return s.req
+                                                ?.toString()
+                                                .includes(n.toLowerCase());
                                         }
                                     )}
                                 />

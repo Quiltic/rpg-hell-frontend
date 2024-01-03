@@ -10,30 +10,36 @@ import markdown from "./Rulebook.md"; // huh?
 
 import { Button } from "../../components/ui/Button/Button";
 import { Link } from "react-router-dom";
-import { sparklesIcon, bagIcon, ticketIcon } from "../../assets/IconSVGs/heroiconsSVG";
-
+import {
+    sparklesIcon,
+    bagIcon,
+    ticketIcon,
+} from "../../assets/IconSVGs/heroiconsSVG";
 
 export default function RulebookPage() {
-
     return (
         <>
-            <Link to={"traits"}>
-                <Button leftIcon={ticketIcon} variant="body">
-                    Traits
-                </Button>
-            </Link>
+            <h3>Pages</h3>
+            <div className="flex flex-column gap-4 justify-center mb-2">
+                <Link to={"traits"}>
+                    <Button leftIcon={ticketIcon} variant="body">
+                        Traits
+                    </Button>
+                </Link>
 
-            <Link to={"items"}>
-                <Button leftIcon={bagIcon} variant="mind">
-                    Items
-                </Button>
-            </Link>
+                <Link to={"items"}>
+                    <Button leftIcon={bagIcon} variant="mind">
+                        Items
+                    </Button>
+                </Link>
 
-            <Link to={"spells"}>
-                <Button leftIcon={sparklesIcon} variant="soul">
-                    Spells
-                </Button>
-            </Link>
+                <Link to={"spells"}>
+                    <Button leftIcon={sparklesIcon} variant="soul">
+                        Spells
+                    </Button>
+                </Link>
+            </div>
+
             <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
                 {markdown}
             </Markdown>
