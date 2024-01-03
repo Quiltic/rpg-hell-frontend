@@ -441,7 +441,7 @@
             "Loading 100",
             "Range 8",
             "Two Handed",
-            " Heavy",
+            "Heavy",
             "Magical",
             "weapon"
         ],
@@ -482,7 +482,7 @@
     "33": {
         "name": "Shard Blade Dagger",
         "req": [
-            "Soul 1"
+            "soul 1"
         ],
         "effect": "On a 5 or 6 give the target an additional 1 stack of Burn.",
         "tags": [
@@ -497,7 +497,7 @@
     "34": {
         "name": "Refined Shard Blade Dagger",
         "req": [
-            "Soul 3"
+            "soul 3"
         ],
         "effect": "On a 5 or 6 give the target an additional 2 stack of Burn.",
         "tags": [
@@ -512,7 +512,7 @@
     "35": {
         "name": "Focused Shard Blade Dagger",
         "req": [
-            "Soul 5"
+            "soul 5"
         ],
         "effect": "On a 4, 5, or 6 give the target an additional 2 stacks of Burn.",
         "tags": [
@@ -527,7 +527,7 @@
     "36": {
         "name": "Shard Infused Great Hammer",
         "req": [
-            "Soul 1"
+            "soul 1"
         ],
         "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 2 tiles away from you.",
         "tags": [
@@ -542,7 +542,7 @@
     "37": {
         "name": "Shard Infused Balanced Great Hammer",
         "req": [
-            "Soul 3"
+            "soul 3"
         ],
         "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 3 tiles away from you.",
         "tags": [
@@ -557,7 +557,7 @@
     "38": {
         "name": "Shard Infused Weighted Great Hammer",
         "req": [
-            "Soul 5"
+            "soul 5"
         ],
         "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 4 tiles away from you.",
         "tags": [
@@ -588,7 +588,7 @@
     "40": {
         "name": "Shard Infused Staff",
         "req": [
-            "Soul 1"
+            "soul 1"
         ],
         "effect": "On a 6 give the target 1 stack of Stun",
         "tags": [
@@ -652,7 +652,7 @@
         "effect": "When you roll a 4, 5, or 6 you may Move 1 tile.",
         "tags": [
             "1 Damage",
-            " weapon"
+            "weapon"
         ],
         "cost": 0,
         "craft": 0
@@ -660,7 +660,7 @@
     "45": {
         "name": "Yoyo",
         "req": [
-            "Soul 1"
+            "soul 1"
         ],
         "effect": "When you cast a spell through the Yoyo you may have it origonate from the location of the Yoyo, so long as you are holding onto the string.",
         "tags": [
@@ -812,9 +812,9 @@
         "craft": 0
     },
     "56": {
-        "name": "Soul Weave Cloathing",
+        "name": "soul Weave Cloathing",
         "req": [
-            "Soul 4"
+            "soul 4"
         ],
         "effect": "",
         "tags": [
@@ -870,9 +870,9 @@
         "effect": "Target a Creature, cannot target undead or constructs. Heal the target 2 Health + Half your Medicine Rounded up.\nCan be crafted with Medicine or crafting Rolls.",
         "tags": [
             "Consumable",
-            " Medicine",
-            " Non-Magic item",
-            " Tiny"
+            "Medicine",
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -885,9 +885,9 @@
         "effect": "Target a Creature, cannot target undead or constructs. Heal the target for your Medicine + Level.\nCan be crafted with Medicine or crafting Rolls.",
         "tags": [
             "Consumable",
-            " Medicine",
-            " Non-Magic item",
-            " Small"
+            "Medicine",
+            "Non-Magic item",
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -900,9 +900,9 @@
         "effect": "requires Medicine 3 to be used properly. Target a Creature, cannot target undead or constructs. Heal the target 2 + Level Health.\nCan be crafted with Medicine or crafting Rolls.",
         "tags": [
             "Consumable",
-            " Medicine",
-            " Non-Magic item",
-            " Tiny"
+            "Medicine",
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -915,8 +915,8 @@
         "effect": "Throw Range 6. Cast Summon Fog wherever it lands. The fog ends when the spell runs out, this spell cannot be countered or stoped.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -929,8 +929,8 @@
         "effect": "Throw Range 6. Burst 1 centered wherever it lands. Make a Core Attack roll against all creatures within the area. On Failure, creatures take 2 damage. On success, creatures take 1 damage.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -943,8 +943,8 @@
         "effect": "Throw Range 6. Cast Lightshow wherever it lands. Make a Core Attack roll for the attack instead of Soul.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -957,9 +957,9 @@
         "effect": "Gain 4 Temporary Health. This goes away at the end of the next rest or when used.",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -972,9 +972,9 @@
         "effect": "Gain 1 body for 30 seconds (3 turns).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -987,9 +987,9 @@
         "effect": "Gain 1 mind for 30 seconds (3 turns).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1002,9 +1002,9 @@
         "effect": "Gain 1 Soul. This effect goes away after 3 turns (30 sec).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1017,9 +1017,9 @@
         "effect": "Gain -1 Damage when Hit for 30 seconds (3 turns).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1032,9 +1032,9 @@
         "effect": "Gain Intangible for 1 minute (6 turns).",
         "tags": [
             "Consumable",
-            " Greater item",
-            " Potion",
-            " Tiny"
+            "Greater item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1047,9 +1047,9 @@
         "effect": "Gain Flight (Can move its Speed in the air) for 1 minute (6 turns).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1062,9 +1062,9 @@
         "effect": "Cleans 3.",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1077,9 +1077,9 @@
         "effect": "Deals 1 damage to Undead when in contact (this does not remove the Holy water). This is needed to craft a Potion of Life.",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1092,9 +1092,9 @@
         "effect": "When ingested or put into the blood (coated blade) roll body. You must get a (5,4,4) or Fall Asleep. The GM rolls a dice, you are asleep for this many hours or until someone wakes you up with damage or 2 dice.",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1107,24 +1107,24 @@
         "effect": "When ingested or put into the blood (coated blade) roll body. You must get a (5,4,4) or take 2 Damage.",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
     },
     "77": {
-        "name": "Soul Rend Poison",
+        "name": "soul Rend Poison",
         "req": [
             ""
         ],
         "effect": "When ingested or put into the blood (coated blade) roll Soul. You must get a (5,4,4) or gain 2 Soul Strain.",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1137,9 +1137,9 @@
         "effect": "When ingested or put into the blood (coated blade) roll body. You must get a (5,4,4) or be Frozen for 20 seconds (2 turns).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1152,7 +1152,7 @@
         "effect": "Allows cooking decent or higher meals.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1165,7 +1165,7 @@
         "effect": "Allows for crafting potions and healing items (listed above).",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1178,7 +1178,7 @@
         "effect": "Allows for crafting weapons and armors.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1191,7 +1191,7 @@
         "effect": "Allows for picking locks.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1204,7 +1204,7 @@
         "effect": "Allows for crafting most other items.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1217,7 +1217,7 @@
         "effect": "It's rope. Typically in 1 Tile increments (5 ft.)",
         "tags": [
             "Non-Magic item",
-            " Tiny"
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1230,7 +1230,7 @@
         "effect": "Increases items that can be carried by 1/2th [4 bits] of a tile.",
         "tags": [
             "Non-Magic item",
-            " Tiny"
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1243,7 +1243,7 @@
         "effect": "Increases items that can be carried by 1 tile [8 bits].",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1256,8 +1256,8 @@
         "effect": "Can carry 1*2*2 [32 bits] (width, length, height) tiles of stuff.",
         "tags": [
             "Large",
-            " Non-Magic item",
-            " Vehicle"
+            "Non-Magic item",
+            "Vehicle"
         ],
         "cost": 0,
         "craft": 0
@@ -1270,8 +1270,8 @@
         "effect": "Allows for crafting while traveling, and can carry 2*4*6 [384 bits] (width, length, height) tiles of stuff.",
         "tags": [
             "Large",
-            " Non-Magic item",
-            " Vehicle"
+            "Non-Magic item",
+            "Vehicle"
         ],
         "cost": 0,
         "craft": 0
@@ -1284,8 +1284,8 @@
         "effect": "Can carry 1*2*2 [32 bits] (width, length, height) tiles of stuff. Only works in water.",
         "tags": [
             "Large",
-            " Non-Magic item",
-            " Vehicle"
+            "Non-Magic item",
+            "Vehicle"
         ],
         "cost": 0,
         "craft": 0
@@ -1298,8 +1298,8 @@
         "effect": "Allows for crafting while traveling, and can carry 2*4*6 [384 bits] (width, length, height) tiles of stuff. Only works in water.",
         "tags": [
             "Large",
-            " Non-Magic item",
-            " Vehicle"
+            "Non-Magic item",
+            "Vehicle"
         ],
         "cost": 0,
         "craft": 0
@@ -1312,7 +1312,7 @@
         "effect": "Comphy sleep on the road.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1325,7 +1325,7 @@
         "effect": "Can start a fire without rolling Nature.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1338,7 +1338,7 @@
         "effect": "Contains all the necessities for travel excluding food, including Cooking tools. Fire starters, a Bedroll, a Lanturn, and 10 tiles of Rope (50 ft)",
         "tags": [
             "Medium",
-            " Non-Magic item"
+            "Non-Magic item"
         ],
         "cost": 0,
         "craft": 0
@@ -1351,8 +1351,8 @@
         "effect": "An assortment of dry goods meant for travel. It does not taste good.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1365,8 +1365,8 @@
         "effect": "A prepared meal. It's better than Travel Food but not by much.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1379,8 +1379,8 @@
         "effect": "A well prepared meal. Most will find this acceptable.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1393,8 +1393,8 @@
         "effect": "An expensive meal made for the wealthy. Most will find this tasty.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1407,8 +1407,8 @@
         "effect": "Kings and Emperors eat this. The best meal money can buy.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1421,7 +1421,7 @@
         "effect": "A map.",
         "tags": [
             "Non-Magic item",
-            " Tiny"
+            "Tiny"
         ],
         "cost": 0,
         "craft": 12
@@ -1434,8 +1434,8 @@
         "effect": "Flammable. Can be used to refuel a Lantern or for cooking.",
         "tags": [
             "Consumable",
-            " Non-Magic item",
-            " Tiny"
+            "Non-Magic item",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1448,10 +1448,10 @@
         "effect": "Revive a dead creature. The creature's Soul must be free and the creature cannot have been dead for more than 1 month.\nrequires a Phoenix Feather, Undying Heart, and Holy Water to craft.",
         "tags": [
             "Consumable",
-            " Greater item",
-            " Medicine",
-            " Potion",
-            " Tiny"
+            "Greater item",
+            "Medicine",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1464,10 +1464,10 @@
         "effect": "A golden orange feather that is warm to the touch.\nIf a Creature dies while in possession of the feather the feather turns to dust, the creature's Health is set to 1, and they are no longer on Death's Door.\nThis is needed to craft a Potion of Life.",
         "tags": [
             "Consumable",
-            " Legendary item",
-            " Magic",
-            " Medicine",
-            " Tiny"
+            "Legendary item",
+            "Magic",
+            "Medicine",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1480,10 +1480,10 @@
         "effect": "A heart that continues to beat even when its body is lost.\nCan be Consumed to permanently increase Health by 2.\nThis is needed to craft a Potion of Life.",
         "tags": [
             "Consumable",
-            " Legendary item",
-            " Magic",
-            " Medicine",
-            " Tiny"
+            "Legendary item",
+            "Magic",
+            "Medicine",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1496,9 +1496,9 @@
         "effect": "Attacks inflict an extra 1 Damage",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1511,9 +1511,9 @@
         "effect": "Grants the user 1 extra Speed",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1526,9 +1526,9 @@
         "effect": "Makes the object warm to the touch. Attacks inflict an additional 1 Burn.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1541,9 +1541,9 @@
         "effect": "Makes the object cold to the touch. Attacks inflict an additional 1 Stun.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1556,9 +1556,9 @@
         "effect": "Makes the object feel lighter. Attacks do 1 damage to another creature of your choice within 1 tile of the creature hit.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1571,9 +1571,9 @@
         "effect": "Makes the object feel heaver. Attacks inflict an additional 2 Knockback.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1586,9 +1586,9 @@
         "effect": "Increases the Users Max Soul Strain by 1.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1601,9 +1601,9 @@
         "effect": "On Rest gives the user an extra 3 Temporary Health (this stacks with other On rest gain tmp hp)",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1616,9 +1616,9 @@
         "effect": "When applied, name a type of creature (Humanoid, Beast, Construct, Monstrosity, Undead or Planar). The rune glows when that type of creature becomes hostile within 20 tiles of the rune. It glows brighter the closer it is to the creature, starting with Glow 1 to Glow 4 at its closest.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1631,9 +1631,9 @@
         "effect": "When you are within 1 tile of another person using a Rune of Friendship both creatures gain 1 armor.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1646,9 +1646,9 @@
         "effect": "When doing an action if you roll a 6 turn another non 1 or 6 into a 6. When rolling a 1 turn another non 1 or 6 into a 1.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1661,9 +1661,9 @@
         "effect": "You can spend 1 dice to activate or deactivate this Rune. While active the rune Glows 4 until deactivated.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1676,9 +1676,9 @@
         "effect": "While you are in the dark you do an extra 2 Damage.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1691,8 +1691,8 @@
         "effect": "",
         "tags": [
             "Magic",
-            " Rune",
-            " Tiny"
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1705,8 +1705,8 @@
         "effect": "",
         "tags": [
             "Magic",
-            " Rune",
-            " Tiny"
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1719,9 +1719,9 @@
         "effect": "Half's the weight of whatever the rune is attached to. Turns 2 handed Melee weapons into 1 handed, this action reduces damage by 1.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1734,9 +1734,9 @@
         "effect": "Double's the weight of whatever the rune is attached to. Turns 1 handed Melee weapons into 2 handed, this action increases damage by 1.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1749,8 +1749,8 @@
         "effect": "The Bag has the spell Pocket Dimension constantly cast on it. It is not tied to any one person and cannot be placed inside another Dimensional Bag or Pocket Dimension.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Small"
+            "Magic",
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1763,9 +1763,9 @@
         "effect": "An ornate scarf decorated with a story of love lost at sea. Once tied to a user, they are able to breathe underwater and can \u201ctalk\u201d to aquatic life.",
         "tags": [
             "Bound",
-            " Lesser item",
-            " Magic",
-            " Tiny"
+            "Lesser item",
+            "Magic",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1778,9 +1778,9 @@
         "effect": "A ring carved with ever changing runes that seem to describe any number of lost secrets.\nA creature can bind itself to the ring. Once bound to a user, they are able to cast Minor Illusion at will, and can cast Create Illusion Twice a day without gaining Soul Strain. This effect resets at the end of a Rest.",
         "tags": [
             "Bound",
-            " Lesser item",
-            " Magic",
-            " Tiny"
+            "Lesser item",
+            "Magic",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1793,7 +1793,7 @@
         "effect": "A ebony cloth map that shows glowing gold and white details.\nWhen the map is opened it shows a detailed map of the surrounding area (200x200 tiles). The map shows the location of any creatures in its area. It wont show hidden areas or things disguised by magic such as Invisible creatures.",
         "tags": [
             "Magic",
-            " Tiny"
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1806,9 +1806,9 @@
         "effect": "A ebony cloth map that shows glowing gold and white details.\nWhen the map is opened it shows a detailed map of the surrounding area (200x200 tiles). The map shows the location of any creatures in its area. It wont show hidden areas or things disguised by magic such as Invisible creatures.",
         "tags": [
             "Bound",
-            " Greater item",
-            " Magic",
-            " Tiny"
+            "Greater item",
+            "Magic",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1821,8 +1821,8 @@
         "effect": "A weapon forged by the greatest smiths.\nIs found with a random Rune inscribed on it. Can hold 2 runes.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Small"
+            "Magic",
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1835,8 +1835,8 @@
         "effect": "A ring with a small engraving of a cloud.\nWhen the wearer falls 5 tiles or more will cast Spectral Parachute on only the wearer. This can only be done once per day.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Tiny"
+            "Magic",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1849,9 +1849,9 @@
         "effect": "",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1864,9 +1864,9 @@
         "effect": "After taking damage from Burn reduce it by 2 instead of 1. This effect lasts for 1 minute (6 turns).",
         "tags": [
             "Consumable",
-            " Lesser item",
-            " Potion",
-            " Tiny"
+            "Lesser item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1879,9 +1879,9 @@
         "effect": "In combat when you roll your turn dice, get additional 3. Outside of combat you gain 2 Speed. This effect lasts for 30 seconds (3 turns).",
         "tags": [
             "Consumable",
-            " Greater item",
-            " Potion",
-            " Tiny"
+            "Greater item",
+            "Potion",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1894,7 +1894,7 @@
         "effect": "A single bar of processed iron. Not quite as strong as steel, but just as useful.",
         "tags": [
             "Non-Magic item",
-            " Small"
+            "Small"
         ],
         "cost": 3,
         "craft": 0
@@ -1907,8 +1907,8 @@
         "effect": "A small red/pink stone that numbs the touch.\nYou can convert small or tiny non-magic items into your possession into an amount of gold pieces equal to what it would cost to craft that item. Alternatively, you can turn gold into a raw non-magic item such as 3 gold to an iron ingot.",
         "tags": [
             "Legendary item",
-            " Magic",
-            " Small"
+            "Magic",
+            "Small"
         ],
         "cost": 0,
         "craft": 0
@@ -1921,8 +1921,8 @@
         "effect": "A silver ring with a black opal gemstone.\nWhen in possession of someone with Soul the ring will use their Soul Strain to cast Sleeping Powder on them. This cannot happen if the Ring has cast this spell within 1 hour prior or the person has Maxed out their Soul Strain.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Tiny"
+            "Magic",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1935,9 +1935,9 @@
         "effect": "Attacks Mark the target until the beginning of your next turn.",
         "tags": [
             "Lesser item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1950,9 +1950,9 @@
         "effect": "When you have to roll dice when saving against a spell you can add 1 to 1 of the rolls.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
@@ -1965,9 +1965,9 @@
         "effect": "You can spend 1 dice to activate or deactivate this rune. While active You take 1 damage at the end of your turn; but you Heal 1 each time you hit a creature with the weapon inscribed with this rune.",
         "tags": [
             "Greater item",
-            " Magic",
-            " Rune",
-            " Tiny"
+            "Magic",
+            "Rune",
+            "Tiny"
         ],
         "cost": 0,
         "craft": 0
