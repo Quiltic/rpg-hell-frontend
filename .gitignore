@@ -21,3 +21,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+Items.csv
+Traits.csv
+Spells.csv
