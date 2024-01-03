@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
         with:
-          working-directory: ./
+          working-directory: /home/runner/work/rpg-hell-frontend
 
       - name: Build project
         run: npm run build
