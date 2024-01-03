@@ -86,6 +86,16 @@ Death's Door only goes away if you do a Rest.
 
 
 # Stats
+## Body
+## Mind
+## Soul
+## Arcana
+## Charm
+## Crafting
+## Nature
+## Medicine
+## Thieving
+
 # Making a Character
 ## Level 1
 ## Leveling Up!
