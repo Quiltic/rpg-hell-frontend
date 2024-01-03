@@ -38,7 +38,7 @@ export default function SpellsTablePage() {
 
             spells = spells?.filter((s) => {
                 if (s.tags) {
-                    return s.tags.includes("monster") || s.tags.includes("broken") ? "":s.tags;
+                    return s.tags.includes("MONSTER") || s.tags.includes("BROKEN") ? "":s.tags;
                 }
             });
 
