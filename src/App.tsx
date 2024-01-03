@@ -4,8 +4,6 @@ import { Button } from "./components/ui/Button/Button";
 
 import { Link } from "react-router-dom";
 
-import Pill from "./components/ui/Pill";
-
 const bookOpenIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,12 +27,16 @@ const bookOpenIcon = (
 function App() {
     return (
         <>
+            <h1>RPG Hell</h1>
+            <p>
+                website very alpha build lotsa missing shit the login button
+                does not work you are looking for the rulebook down there.
+            </p>
             <Link to={"rulebook"}>
                 <Button leftIcon={bookOpenIcon} variant="body">
-                    Rulebook / Josh land
+                    Rulebook
                 </Button>
             </Link>
-            <Pill colorClassName="bg-body">Body</Pill>
         </>
     );
 }

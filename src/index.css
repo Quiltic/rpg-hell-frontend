@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+  h1,
+  h2,
+  h3 {
+    @apply mt-2 mb-1
+  }
+
+  h1 {
+    @apply text-3xl
+  }
+
+  h2 {
+    @apply text-2xl
+  }
+
+  h3 {
+    @apply text-xl
+  }
+
+  p {
+    @apply mb-1
+  }
+}
+
 :root {
   line-height: 1.5;
   font-weight: 400;
@@ -29,55 +54,60 @@
     background-color: #2e262d;
   }
 }
-.table-container{
-    height: 400px;
-    width: 400px;
-    margin: 0 auto;
-  }
-   
-  img{
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-  }
-  table{
-    width: 100%;
-    border-collapse: collapse;
-   
-  }
-  th, td{
-    border: 2px solid #453842;
-    padding: 5px;
-    color: #f4ecd7;
-  }
-  thead tr{
-    /* border: 1px solid #3b3039; */
-    padding: 5px;
-    background-color: #1b161a;
-    color: #D8D0BF;
-  }
-  
 
-  tbody tr:nth-child(odd){
-    /* border: 1px solid #ccc; */
-    padding: 5px;
-    background-color: #2e262d;
-  }
+.table-container {
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+}
 
-  tbody tr:nth-child(even){
-    /* border: 1px solid #ccc; */
-    padding: 5px;
-    background-color: #3b3039;
-  }
+img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+th,
+td {
+  border: 2px solid #453842;
+  padding: 5px;
+  color: #f4ecd7;
+}
+
+thead tr {
+  /* border: 1px solid #3b3039; */
+  padding: 5px;
+  background-color: #1b161a;
+  color: #D8D0BF;
+}
+
+
+tbody tr:nth-child(odd) {
+  /* border: 1px solid #ccc; */
+  padding: 5px;
+  background-color: #2e262d;
+}
+
+tbody tr:nth-child(even) {
+  /* border: 1px solid #ccc; */
+  padding: 5px;
+  background-color: #3b3039;
+}
 
 .body {
-    color: orange;
+  color: orange;
 }
 
 .mind {
-    color: blue;
+  color: blue;
 }
 
 .soul {
-    color: purple;
+  color: purple;
 }

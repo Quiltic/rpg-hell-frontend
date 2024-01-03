@@ -5,7 +5,7 @@ import { Item, Spell, Trait } from "../client";
 //     [key: string]: T;
 // }
 
-function firstLeterUppercase(_string: string, splitter: string, ender: string) { 
+function firstLeterUppercase(_string: string, splitter: string, ender: string) {
     // css class on table cell: first-letter:capitalize
     // console.log(_string);
     if (!_string) {
@@ -37,9 +37,10 @@ function toPill(_string: string, splitter: string, ender: string) {
     return _string
         .split(splitter)
         .map((word) => {
-            return `<div class="flex h-6 w-fit px-2 items-start justify-center rounded text-white bg-${word.slice(0,-2)}-400">${
-                word[0].toUpperCase() + word.substring(1)
-            }</div>`;
+            return `<div class="flex h-6 w-fit px-2 mb-1 items-start justify-center rounded text-white bg-${word.slice(
+                0,
+                -2
+            )}-400">${word[0].toUpperCase() + word.substring(1)}</div>`;
         })
         .join(ender);
 }
@@ -131,8 +132,11 @@ function makeTableLine_Items(item: Item): string {
     return `| **${name}** | ${requirements} | ${effect} | ${tags} |  ${cost} |  ${craft} |`;
 }
 
-
-function convertDictionaryToMD<T>(vals: Array<T>, makeFunc: (x: T) => string, header: string): string {
+function convertDictionaryToMD<T>(
+    vals: Array<T>,
+    makeFunc: (x: T) => string,
+    header: string
+): string {
     const rows: string[] = vals.map(makeFunc);
 
     // Push header row
@@ -142,4 +146,10 @@ function convertDictionaryToMD<T>(vals: Array<T>, makeFunc: (x: T) => string, he
     return txt;
 }
 
-export { convertDictionaryToMD, makeTableLine_Trait, makeTableLine_Spells, makeTableLine_Items, toPill };
+export {
+    convertDictionaryToMD,
+    makeTableLine_Trait,
+    makeTableLine_Spells,
+    makeTableLine_Items,
+    toPill,
+};
