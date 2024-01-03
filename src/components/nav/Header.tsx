@@ -1,54 +1,9 @@
-import React from "react";
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { Fragment, useState } from "react";
-import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-import {
-    ArrowPathIcon,
-    Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
-    XMarkIcon,
-} from "@heroicons/react/24/outline";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
-import { Button } from "../ui/Button/Button";
 import { Link } from "react-router-dom";
 import Login from "../auth/Login";
-
-const products = [
-    {
-        name: "Analytics",
-        description: "Get a better understanding of your traffic",
-        href: "#",
-        icon: ChartPieIcon,
-    },
-    {
-        name: "Engagement",
-        description: "Speak directly to your customers",
-        href: "#",
-        icon: CursorArrowRaysIcon,
-    },
-    {
-        name: "Security",
-        description: "Your customers’ data will be safe and secure",
-        href: "#",
-        icon: FingerPrintIcon,
-    },
-    {
-        name: "Integrations",
-        description: "Connect with third-party tools",
-        href: "#",
-        icon: SquaresPlusIcon,
-    },
-    {
-        name: "Automations",
-        description: "Build strategic funnels that will convert",
-        href: "#",
-        icon: ArrowPathIcon,
-    },
-];
 
 type HeaderPageLink = {
     name: string;
@@ -59,17 +14,17 @@ type HeaderPageLink = {
 const pages: HeaderPageLink[] = [
     {
         name: "Home",
-        href: "/",
+        href: "",
         color: "hover:text-body-700 text-body-600 hover:underline",
     },
     {
         name: "Traits",
-        href: "/traits",
+        href: "rulebook/traits",
         color: "hover:text-mind-700 text-mind-600 hover:underline",
     },
     {
         name: "Rules",
-        href: "/rulebook",
+        href: "rulebook",
         color: "hover:text-soul-700 text-soul-600 hover:underline",
     },
 ];
