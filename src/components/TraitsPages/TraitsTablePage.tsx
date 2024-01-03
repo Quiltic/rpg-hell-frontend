@@ -36,10 +36,7 @@ export default function TraitsTablePage() {
             }
             traits = traits?.filter((s) => {
                 if (s.req) {
-                    return s.req?.toString().includes("MONSTER") ||
-                        s.req?.toString().includes("BROKEN")
-                        ? ""
-                        : s.req;
+                    return s.req?.toString().includes("MONSTER") || s.req?.toString().includes("BROKEN") ? "" : s.req;
                 }
             });
 

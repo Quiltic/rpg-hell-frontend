@@ -98,7 +98,30 @@ Death's Door only goes away if you do a Rest.
 
 # Making a Character
 ## Level 1
+2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
+\`Health = Level + 5*Body + 3*Mind + Soul\`
+\`Soul Strain and Known Spells = 3*Soul\`
+
+2 Weapons, an Armor, a Bandage, and a non-magical item worth less than 15 gold.
+
 ## Leveling Up!
+
+1 Core Stat Increase, 2 Skill increases, and 1 new Trait
+\`Remember to update Health, Armor and Soul Strain\`
+
+
+## Usful Level Table
+| Level | Increases | Skill Increases | Traits | Dice |
+| --- | --- | --- | --- | --- |
+| 1 | 2 | 4 | 3 | 4 |
+| 2 | 3 | 6 | 4 | 5 |
+| 3 | 4 | 8 | 5 | 5 |
+| 4 | 5 | 10 | 6 | 6 |
+| 5 | 6 | 12 | 7 | 6 |
+| 6 | 7 | 14 | 8 | 7 |
+| 7 | 8 | 16 | 9 | 7 |
+| 8 | 9 | 18 | 10 | 8 |
+| 9 | 10 | 20 | 11 | 8 |
 
 `
 export default markdown;
