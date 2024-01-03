@@ -144,7 +144,7 @@ export default function ItemsTablePage() {
                                 <ItemsTable
                                     displayedItems={displayedItems.filter(
                                         (s) => {
-                                            return s.tags?.toString().includes(n.toLowerCase());
+                                            return s.tags?.toString().toLowerCase().includes(n.toLowerCase());
                                         }
                                     )}
                                 />
