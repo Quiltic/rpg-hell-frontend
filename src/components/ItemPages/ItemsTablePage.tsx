@@ -42,10 +42,17 @@ export default function ItemsTablePage() {
                 }
             });
 
-            const itemsSortedByReq = items?.sort((t1, t2) => {
+            let itemsSortedByReq = items?.sort((t1, t2) => {
                 // console.log(t.name);
                 return (t1.name ?? "") < (t2.name ?? "") ? -1 : 1;
             });
+
+            itemsSortedByReq = itemsSortedByReq?.sort((t1, t2) => {
+                // console.log(t.name);
+                return (t1.req ?? "") < (t2.req ?? "") ? -1 : 1;
+            });
+
+
             setAllItems(itemsSortedByReq ?? []);
             // setItemsObjectSorted(items);
             setDisplayedItems(itemsSortedByReq ?? []);
