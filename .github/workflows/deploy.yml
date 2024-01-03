@@ -14,16 +14,18 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+        # uses: actions/setup-node@v3
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-        with:
-          working-directory: /home/runner/work/rpg-hell-frontend
+        run: bun install 
+        # uses: bahmutov/npm-install@v1
+        # with:
+          # working-directory: /home/runner/work/rpg-hell-frontend
 
       - name: Build project
-        run: npm run build
+        run: bun run build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
