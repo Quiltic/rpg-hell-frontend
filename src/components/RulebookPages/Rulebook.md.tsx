@@ -50,29 +50,27 @@ Combat is split up into Rounds, each Round a creature has 3 phases, Begining whi
 All creatures in combat must roll Initative to see when they may do their Actions in Combat. This value is calculated by rolling a dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first).
 Whichever creature has the highest speed goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
 
-## Action Points (AP)
+## Action Dice (AD)
 
-At the begining of your turn you gain an amount of Action Points (denoted as **AP** from here on) based on your __COMBAT DICE__ (Temp name). 
-You can spend AP to do actions in Combat an amount denoted next to the Action as a #, one for each point.
-Attacks and Contests count as ## (2 AP), Movement counts as # (1 AP), and Spells and Traits have varing amounts.
-
+At the begining of your turn you roll an amount of Action Dice (denoted as **AD** from here on) based on your __COMBAT DICE__ (Temp name). 
+You can spend AD to do actions in Combat an amount denoted next to the Action as a #, one for each point.
+Attacks and Contests count as ## (2 AD), Movement counts as # (1 AD), and Spells and Traits have varing amounts.
 
 
 ## Damage and Armor
 
-Damage is split up into 2 catagories Phisical and Magical. All attacks and damage will be denoted as one of these 2 types. Your chosen armor grants you half damage from its respective type.
-For instance Chainmail (Medium Armor) grants half damage from all Phisical attacks.
-Addiitonaly, armor grants an additional special set of Health called **Armor Health**. Diffrent armors provide a varieing amount of Armor Health. Armor Health is reduced before you take normal Health loss. Unlike normal Health Armor health cannot be regained from Healing Items or Spells.
-
 Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Health then your Health.
 
-### Weapon Attacks
+Armor grants an additional special set of Health called **Armor Health**. Diffrent armors provide a varieing amount of Armor Health. Armor Health is reduced before you take normal Health loss. Unlike normal Health Armor health cannot be regained from Healing Items or Spells.
 
-Melee, Bows, and Crossbows tend to do Phisical damage.
-Shardguns, Soul weapons, and Spells tend to do Magical damage.
 
-All weapons have special actions when you weild them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you dont have these requirements you can still use the weapon but you do not get to roll for its effect or other effects, such as effects gained from Traits.
-When you do a Weapon Attack you may roll a dice. Depending on the weapon you may get a bonus effect aside from just doing damage.
+### AD Values Matter
+
+All weapons have special actions when you weild them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you dont have these requirements you can still use the weapon but you only get the 4 or less effects regardless of dice values given.
+On Attacks you give ## (2 AD), taking the sum of these 2 dice gives special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4.
+
+When you give AD for movement if you give it a 1 your Speed is reduced by 1, if you give it a 6 it is increased by 1.
+
 
 
 
@@ -99,7 +97,9 @@ Death's Door only goes away if you do a Rest.
 # Making a Character
 ## Level 1
 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
+
 \`Health = Level + 5*Body + 3*Mind + Soul\`
+
 \`Soul Strain and Known Spells = 3*Soul\`
 
 2 Weapons, an Armor, a Bandage, and a non-magical item worth less than 15 gold.
@@ -107,6 +107,7 @@ Death's Door only goes away if you do a Rest.
 ## Leveling Up!
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
+
 \`Remember to update Health, Armor and Soul Strain\`
 
 

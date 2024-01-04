@@ -13,7 +13,34 @@
         "cost": 0,
         "craft": 0
     },
-    
+    "2": {
+        "name": "Sharpened Dagger",
+        "req": [
+            "body 3"
+        ],
+        "effect": "On a 9 or higher give the target an additional 2 stacks of Bleed.",
+        "tags": [
+            "1 Damage",
+            "Throw Range 6",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "3": {
+        "name": "Seraided Dagger",
+        "req": [
+            "body 5"
+        ],
+        "effect": "On a 9 or higher give the target an additional 2 stacks of Bleed.",
+        "tags": [
+            "2 Damage",
+            "Throw Range 6",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
     "4": {
         "name": "Short Sword",
         "req": [
@@ -27,6 +54,32 @@
         "cost": 0,
         "craft": 0
     },
+    "5": {
+        "name": "Sharpened Short Sword",
+        "req": [
+            "body 3"
+        ],
+        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
+        "tags": [
+            "3 Damage",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "6": {
+        "name": "Balanced Short Sword",
+        "req": [
+            "body 5"
+        ],
+        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
+        "tags": [
+            "4 Damage",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
     "7": {
         "name": "Long Sword",
         "req": [
@@ -35,6 +88,34 @@
         "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
         "tags": [
             "3 Damage",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "8": {
+        "name": "Sharpened Long Sword",
+        "req": [
+            "body 3"
+        ],
+        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
+        "tags": [
+            "4 Damage",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "9": {
+        "name": "Balanced Long Sword",
+        "req": [
+            "body 5"
+        ],
+        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
+        "tags": [
+            "5 Damage",
             "Two Handed",
             "weapon"
         ],
@@ -55,14 +136,70 @@
         "cost": 0,
         "craft": 0
     },
+    "11": {
+        "name": "Sharpened Axe",
+        "req": [
+            "body 3"
+        ],
+        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do Double Damage to Phisical Armor",
+        "tags": [
+            "3 Damage",
+            "Throw Range 6",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "12": {
+        "name": "Balanced Axe",
+        "req": [
+            "body 5"
+        ],
+        "effect": "On a 4, 5 or 6 do Double Damage to armor",
+        "tags": [
+            "4 Damage",
+            "Throw Range 6",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
     "13": {
         "name": "Great Hammer",
         "req": [
-            "core 1"
+            "body 1"
         ],
-        "effect": "This weapon does Double Damage to objects. On a 4 or less this weapon does half damage to objects instead of double. On a 9 or higher  Knockback the Target 2 tiles away from you.",
+        "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 2 tiles away from you.",
         "tags": [
             "2 Damage",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "14": {
+        "name": "Balanced Great Hammer",
+        "req": [
+            "body 3"
+        ],
+        "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 3 tiles away from you.",
+        "tags": [
+            "3 Damage",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "15": {
+        "name": "Weighted Great Hammer",
+        "req": [
+            "body 5"
+        ],
+        "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 4 tiles away from you.",
+        "tags": [
+            "4 Damage",
             "Two Handed",
             "weapon"
         ],
@@ -74,9 +211,39 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a 4 or less you have a Range of 1 instead of 2. On a 9 or higher you damage Targets in a line infront of you instead of just the first Target hit.",
+        "effect": "On a 5 or 6 you damage Targets in a line infront of you instead of just the first Target hit.",
         "tags": [
             "2 Damage",
+            "Range 2",
+            "Throw Range 6",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "17": {
+        "name": "Sharpened Spear",
+        "req": [
+            "body 3"
+        ],
+        "effect": "On a 5 or 6 you damage Targets in a line infront of you instead of just the first Target hit.",
+        "tags": [
+            "3 Damage",
+            "Range 2",
+            "Throw Range 6",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "18": {
+        "name": "Balanced Spear",
+        "req": [
+            "body 5"
+        ],
+        "effect": "On a 4, 5, or 6 you damage Targets in a line infront of you instead of just the first Target hit.",
+        "tags": [
+            "4 Damage",
             "Range 2",
             "Throw Range 6",
             "weapon"
@@ -89,11 +256,43 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 4 or less you do 1 less damage to Armor Health. On a 9 or higher you reduce the Targets Speed by 1 until the start of your next Turn. This effect does not Stack.",
+        "effect": "On a 5 or 6 you reduce the Targets Speed by 1 until the start of your next Turn. This effect does not Stack.",
         "tags": [
             "1 Damage",
             "Loading 16",
             "Range 14",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "20": {
+        "name": "Long Bow",
+        "req": [
+            "mind 3"
+        ],
+        "effect": "On a 4, 5, or 6 you reduce the Targets Speed by 1 until the start of your next Turn. This effect does not Stack.",
+        "tags": [
+            "1 Damage",
+            "Loading 18",
+            "Range 18",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "21": {
+        "name": "Compound Bow",
+        "req": [
+            "mind 5"
+        ],
+        "effect": "On a 4, 5, or 6 you reduce the Targets Speed by 1 until the start of your next Turn. This effect does not Stack.",
+        "tags": [
+            "2 Damage",
+            "Loading 18",
+            "Range 18",
             "Two Handed",
             "weapon"
         ],
@@ -105,7 +304,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 9 or higher do an additional 1 Damage.",
+        "effect": "On a 4, 5, or 6 do an additional 1 Damage.",
         "tags": [
             "1 Damage",
             "Loading 1",
@@ -118,11 +317,27 @@
     "23": {
         "name": "Crossbow",
         "req": [
-            "mind 1"
+            "mind 3"
         ],
-        "effect": "On a 4 or less do 1 less damage. On a 9 or higher do an additional 1 Damage.",
+        "effect": "On a 4, 5, or 6 do an additional 1 Damage.",
         "tags": [
             "1 Damage",
+            "Loading 1",
+            "Range 16",
+            "Two Handed",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "24": {
+        "name": "Heavy Crossbow",
+        "req": [
+            "mind 5"
+        ],
+        "effect": "On a 4, 5, or 6 do an additional 2 Damage.",
+        "tags": [
+            "2 Damage",
             "Loading 1",
             "Range 16",
             "Two Handed",
@@ -148,12 +363,46 @@
         "cost": 0,
         "craft": 0
     },
+    "26": {
+        "name": "Popshard Longnose Rifle",
+        "req": [
+            "mind 3"
+        ],
+        "effect": "On a 5 or 6 do Double Damage to Ward",
+        "tags": [
+            "3 Damage",
+            "Loading 1",
+            "Range 12",
+            "Two Handed",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "27": {
+        "name": "Popshard Longshot Rifle",
+        "req": [
+            "mind 5"
+        ],
+        "effect": "On a 4, 5, or 6 do Double Damage to Ward",
+        "tags": [
+            "3 Damage",
+            "Loading 1",
+            "Range 16",
+            "Two Handed",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
     "28": {
         "name": "Popshard Revolver",
         "req": [
             "mind 1"
         ],
-        "effect": "On a 9 or higher, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice.",
+        "effect": "If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
         "tags": [
             "1 Damage",
             "Loading 6",
@@ -169,7 +418,7 @@
         "req": [
             "mind 3"
         ],
-        "effect": "On a 9 or higher, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
+        "effect": "If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
         "tags": [
             "1 Damage",
             "Loading 8",
@@ -181,12 +430,45 @@
         "cost": 0,
         "craft": 0
     },
-    "32": {
-        "name": "Popshard Shotgun",
+    "30": {
+        "name": "Popshard Minigun",
+        "req": [
+            "mind 5"
+        ],
+        "effect": "On an even roll, you may do another Attack with this weapon without spending more AP, this effect ends if you run out of ammo",
+        "tags": [
+            "1 Damage",
+            "Loading 100",
+            "Range 8",
+            "Two Handed",
+            "Heavy",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "31": {
+        "name": "Popshard Shotgun Sidearm",
         "req": [
             "mind 1"
         ],
-        "effect": "Hits targets to the left and right of the target you aimed at. On a 4 or less only hits 1 target. On a 9 or higher it attacks in a Cone infront of you.",
+        "effect": "Hits targets to the left and right of the target you aimed at. On Odd hits targets within a Cone infront of you.",
+        "tags": [
+            "1 Damage",
+            "Loading 2",
+            "Range 3",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "32": {
+        "name": "Popshard Shotgun",
+        "req": [
+            "mind 2"
+        ],
+        "effect": "Hits targets to the left and right of the target you aimed at. On Odd hits targets within a Cone infront of you.",
         "tags": [
             "2 Damage",
             "Loading 2",
@@ -202,10 +484,85 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a 9 or higher give the target an additional 1 stack of Burn.",
+        "effect": "On a 5 or 6 give the target an additional 1 stack of Burn.",
         "tags": [
             "1 Damage",
             "Throw Range 6",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "34": {
+        "name": "Refined Shard Blade Dagger",
+        "req": [
+            "soul 3"
+        ],
+        "effect": "On a 5 or 6 give the target an additional 2 stack of Burn.",
+        "tags": [
+            "1 Damage",
+            "Throw Range 6",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "35": {
+        "name": "Focused Shard Blade Dagger",
+        "req": [
+            "soul 5"
+        ],
+        "effect": "On a 4, 5, or 6 give the target an additional 2 stacks of Burn.",
+        "tags": [
+            "1 Damage",
+            "Throw Range 6",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "36": {
+        "name": "Shard Infused Great Hammer",
+        "req": [
+            "soul 1"
+        ],
+        "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 2 tiles away from you.",
+        "tags": [
+            "2 Damage",
+            "Two Handed",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "37": {
+        "name": "Shard Infused Balanced Great Hammer",
+        "req": [
+            "soul 3"
+        ],
+        "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 3 tiles away from you.",
+        "tags": [
+            "3 Damage",
+            "Two Handed",
+            "Magical",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 0
+    },
+    "38": {
+        "name": "Shard Infused Weighted Great Hammer",
+        "req": [
+            "soul 5"
+        ],
+        "effect": "This weapon does Double Damage to objects. On a 1, 2, or 3 Knockback the Target 4 tiles away from you.",
+        "tags": [
+            "4 Damage",
+            "Two Handed",
             "Magical",
             "weapon"
         ],
@@ -217,7 +574,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a 4 or less you gain 1 Marked. On a 9 or higher give the target 1 stack of Marked.",
+        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a 1 or 2 give the target 1 stack of Marked.",
         "tags": [
             "1 Damage",
             "Range 3",
@@ -233,7 +590,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a 4 or less have 1 less Range. On a 9 or higher give the target 1 stack of Stun",
+        "effect": "On a 6 give the target 1 stack of Stun",
         "tags": [
             "2 Damage",
             "Range 2",
@@ -249,7 +606,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 4 or less you dont catch the Boomerang and it flys 4 tiles behind you. On a 9 or higher give the target 1 stack of Stun.",
+        "effect": "On a 6 give the target 1 stack of Stun. On a 1 you dont catch the Boomerang and it flys 4 tiles behind you.",
         "tags": [
             "2 Damage",
             "Throw Range 8",
@@ -264,7 +621,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 9 or higher give the target an additional 1 stack of Bleed.",
+        "effect": "On a 5 or 6 give the target an additional 1 stack of Bleed.",
         "tags": [
             "1 Damage",
             "Range 3",
@@ -278,7 +635,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 9 or higher you can throw dirt into the targets eyes to give them 1 stack of Blind.",
+        "effect": "When you roll a 4, 5, or 6 you can throw dirt into the targets eyes to give them 1 stack of Blind.",
         "tags": [
             "2 Damage",
             "Two Handed",
@@ -292,7 +649,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 4 or less loose 1 Speed until the start of your next Turn. On a 9 or higher you may Move 1 tile.",
+        "effect": "When you roll a 4, 5, or 6 you may Move 1 tile.",
         "tags": [
             "1 Damage",
             "weapon"
@@ -305,7 +662,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a 9 or higher you may cast a spell through the Yoyo haveing it origonate from the location of the Yoyo, so long as you are holding onto the string.",
+        "effect": "When you cast a spell through the Yoyo you may have it origonate from the location of the Yoyo, so long as you are holding onto the string.",
         "tags": [
             "1 Damage",
             "Range 2",
