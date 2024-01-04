@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    safelist: [
+        {
+            pattern:
+                /(bg|ring|text)-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving)(-(1|2|3|4|5|6|7|8|9)00|)/,
+        },
+    ],
     theme: {
         extend: {},
         fontFamily: {

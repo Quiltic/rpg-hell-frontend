@@ -22,17 +22,16 @@ export default function TraitsTable({
             <tbody>
                 {displayedTraits.map((trait) => {
                     const ee = formatEffectString(trait.effect ?? "");
-                    const req = toPill(trait.req?.toString() ?? "", ",", "");
+                    const req = toPillElement(trait.req?.toString() ?? "", ",");
                     console.log(req);
                     return (
                         <tr>
                             <td className="font-bold capitalize">
                                 {trait.name}
                             </td>
-                            <td
-                                className="capitalize"
-                                dangerouslySetInnerHTML={{ __html: req }}
-                            ></td>
+                            <td className="capitalize" align="center">
+                                {req}
+                            </td>
                             <td>
                                 {trait.dice ? "#".repeat(trait.dice ?? 1) : "P"}
                             </td>

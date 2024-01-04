@@ -18,14 +18,14 @@ const pages: HeaderPageLink[] = [
         color: "hover:text-body-700 text-body-600 hover:underline",
     },
     {
+        name: "Rulebook",
+        href: "rulebook",
+        color: "hover:text-soul-700 text-soul-600 hover:underline",
+    },
+    {
         name: "Traits",
         href: "rulebook/traits",
         color: "hover:text-mind-700 text-mind-600 hover:underline",
-    },
-    {
-        name: "Rules",
-        href: "rulebook",
-        color: "hover:text-soul-700 text-soul-600 hover:underline",
     },
 ];
 
@@ -38,7 +38,7 @@ export default function Header() {
     return (
         <header className="bg-dark-600">
             <nav
-                className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 p-6 md-px-8"
+                className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 px-8 py-4 md-px-8"
                 aria-label="Global"
             >
                 <div className="flex ">

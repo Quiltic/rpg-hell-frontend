@@ -2,9 +2,7 @@ import { Item } from "../../client";
 import { toPill } from "../../util/markdownTools";
 // import { highlightKeywords } from "../../util/markdownTools";
 
-
-import { formatEffectString } from "../../util/textFormatting";
-
+import { formatEffectString, toPillElement } from "../../util/textFormatting";
 
 type Props = { displayedItems: Item[] };
 
@@ -24,16 +22,16 @@ export default function ItemsTable({ displayedItems: displayedItems }: Props) {
             <tbody>
                 {displayedItems.map((item) => {
                     const ee = formatEffectString(item.effect ?? "");
-                    const req = toPill(item.req?.toString() ?? "", ",","");
+                    const req = toPillElement(item.req?.toString() ?? "", ",");
                     return (
                         <tr>
                             <td className="font-bold capitalize">
                                 {item.name}
                             </td>
-                            <td className="capitalize" dangerouslySetInnerHTML={{ __html: req }}></td>
+                            <td className="capitalize">{req}</td>
                             <td dangerouslySetInnerHTML={{ __html: ee }}></td>
                             <td className="capitalize">
-                                {item.tags?.join(", ").replace(/ 0/gi,"")}
+                                {item.tags?.join(", ").replace(/ 0/gi, "")}
                             </td>
                             <td> {item.cost} </td>
                             <td> {item.craft} </td>
@@ -41,15 +39,6 @@ export default function ItemsTable({ displayedItems: displayedItems }: Props) {
                     );
                 })}
             </tbody>
-            {/* <span className="bg-body-400">asssss</span> */}
-            {/* <span className="bg-mind-400">asssss</span> */}
-            {/* <span className="bg-soul-400">asssss</span> */}
-            {/* <span className="bg-arcana-400">asssss</span> */}
-            {/* <span className="bg-charm-400">asssss</span> */}
-            {/* <span className="bg-crafting-400">asssss</span> */}
-            {/* <span className="bg-nature-400">asssss</span> */}
-            {/* <span className="bg-medicine-400">asssss</span> */}
-            {/* <span className="bg-thieving-400">asssss</span> */}
         </table>
     );
 }

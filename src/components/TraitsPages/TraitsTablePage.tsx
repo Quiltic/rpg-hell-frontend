@@ -11,6 +11,10 @@ import TraitsTable from "./TraitsTable";
 
 import json from "../../assets/OfflineJsons/Traits.json";
 
+function getTabWidth(lengthOfName: number) {
+    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
+}
+
 export default function TraitsTablePage() {
     const { TraitsService } = useApi();
 
@@ -97,7 +101,7 @@ export default function TraitsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -109,11 +113,9 @@ export default function TraitsTablePage() {
                                 <Tab
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
-                                            "text-".concat(
-                                                n.toLowerCase(),
-                                                "-700"
-                                            ),
+                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-light-600 rounded-md",
+                                            getTabWidth(n.length),
+                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
                                         )
                                     }

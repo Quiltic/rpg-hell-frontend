@@ -11,6 +11,10 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/Items.json";
 
+function getTabWidth(lengthOfName: number) {
+    return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
+}
+
 export default function ItemsTablePage() {
     const { ItemsService } = useApi();
 
@@ -22,7 +26,6 @@ export default function ItemsTablePage() {
 
     useEffect(() => {
         async function getItems() {
-            
             let items;
             try {
                 const itemsRaw = await ItemsService.getAllItems();
@@ -38,7 +41,10 @@ export default function ItemsTablePage() {
             console.log(items);
             items = items?.filter((s) => {
                 if (s.req) {
-                    return s.req?.toString().includes("MONSTER") || s.req?.toString().includes("BROKEN") ? "":s.req;
+                    return s.req?.toString().includes("MONSTER") ||
+                        s.req?.toString().includes("BROKEN")
+                        ? ""
+                        : s.req;
                 }
             });
 
@@ -51,7 +57,6 @@ export default function ItemsTablePage() {
                 // console.log(t.name);
                 return (t1.req ?? "") < (t2.req ?? "") ? -1 : 1;
             });
-
 
             setAllItems(itemsSortedByReq ?? []);
             // setItemsObjectSorted(items);
@@ -82,7 +87,15 @@ export default function ItemsTablePage() {
         return classes.filter(Boolean).join(" ");
     }
 
-    const IterativeItemLevels = ["Weapon", 'Armor', 'Item', 'Rune', 'Consumable', 'Lesser', 'Greater'];
+    const IterativeItemLevels = [
+        "Weapon",
+        "Armor",
+        "Item",
+        "Rune",
+        "Consumable",
+        "Lesser",
+        "Greater",
+    ];
 
     // Styling:
 
@@ -96,7 +109,7 @@ export default function ItemsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -109,6 +122,7 @@ export default function ItemsTablePage() {
                                     className={({ selected }) =>
                                         classNames(
                                             "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            getTabWidth(n.length),
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -151,7 +165,10 @@ export default function ItemsTablePage() {
                                 <ItemsTable
                                     displayedItems={displayedItems.filter(
                                         (s) => {
-                                            return s.tags?.toString().toLowerCase().includes(n.toLowerCase());
+                                            return s.tags
+                                                ?.toString()
+                                                .toLowerCase()
+                                                .includes(n.toLowerCase());
                                         }
                                     )}
                                 />

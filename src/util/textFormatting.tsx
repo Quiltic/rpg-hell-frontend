@@ -1,11 +1,7 @@
 import Pill from "../components/ui/Pill";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
-export function toPillElement(
-    _string: string,
-    splitter: string,
-    ender: string
-) {
+export function toPillElement(_string: string, splitter: string) {
     if (!_string) {
         return "";
     }
@@ -15,17 +11,13 @@ export function toPillElement(
         _string = _string.slice(0, -1);
     }
     // Try to make the names, requirements, tags, ect. uppercase
-    return _string
-        .split(splitter)
-        .map((word) => {
-            console.log(word);
-            return (
-                <Pill colorClassName={"bg-" + word.toLowerCase()}>
-                    {word /* {word[0].toUpperCase() + word.substring(1)} */}
-                </Pill>
-            );
-        })
-        .join(ender);
+    const pills = _string.split(splitter).map((word) => {
+        const parts = word.split(" ");
+        return (
+            <Pill colorClassName={"bg-" + parts[0].toLowerCase()}>{word}</Pill>
+        );
+    });
+    return pills;
 }
 
 export function formatEffectString(text: string): string {
