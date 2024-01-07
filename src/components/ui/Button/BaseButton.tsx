@@ -10,6 +10,7 @@ import React from "react";
 export type BaseButtonProps = React.ComponentPropsWithoutRef<"button"> &
     VariantProps<typeof baseButtonVariants> & {
         isLoading?: boolean;
+        open?: boolean;
         leftIcon?: React.ReactElement;
         rightIcon?: React.ReactElement;
     };
@@ -27,6 +28,7 @@ export const BaseButton = React.forwardRef<
             children,
             isLoading,
             disabled,
+            open,
             ...props
         },
         ref
@@ -73,7 +75,8 @@ export const BaseButton = React.forwardRef<
                     <span
                         className={cn(
                             { "mr-2": !!children },
-                            "inline-flex shrink-0 self-center"
+                            "inline-flex shrink-0 self-center",
+                            open ? "rotate-180 transform" : ""
                         )}
                     >
                         {icon}
@@ -84,7 +87,8 @@ export const BaseButton = React.forwardRef<
                     <span
                         className={cn(
                             { "ml-2": !!children },
-                            "inline-flex shrink-0 self-center"
+                            "inline-flex shrink-0 self-center",
+                            open ? "rotate-180 transform" : ""
                         )}
                     >
                         {icon}

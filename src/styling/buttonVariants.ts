@@ -44,6 +44,9 @@ const solidVariants = cva("", {
             mind: "bg-mind text-light hover:bg-mind-600 dark:hover:bg-mind-600",
             body: "bg-body text-light hover:bg-body-600 dark:hover:bg-body-600",
             soul: "bg-soul text-light hover:bg-soul-600 dark:hover:bg-soul-600",
+            nature: "bg-nature text-light hover:bg-nature-600 dark:hover:bg-nature-600",
+            medicine:
+                "bg-medicine text-light hover:bg-medicine-600 dark:hover:bg-medicine-600",
         },
     },
 });
@@ -56,6 +59,9 @@ const subtleVariants = cva("", {
             mind: "text-mind bg-mind/20 hover:bg-mind/30 border-mind",
             body: "text-body bg-body/20 hover:bg-body/30 border-body",
             soul: "text-soul bg-soul/20 hover:bg-soul/30 border-soul",
+            nature: "text-nature bg-nature/20 hover:bg-nature/30 border-nature",
+            medicine:
+                "text-medicine bg-medicine/20 hover:bg-medicine/30 border-medicine",
         },
     },
 });
@@ -68,6 +74,9 @@ const linkVariants = cva("", {
             mind: "bg-transparent underline-offset-4 underline hover:text-mind-700 text-mind-600 hover:bg-transparent",
             body: "bg-transparent underline-offset-4 underline hover:text-body-700 text-body-600 hover:bg-transparent",
             soul: "bg-transparent underline-offset-4 underline hover:text-soul-700 text-soul-600 hover:bg-transparent",
+            nature: "bg-transparent underline-offset-4 underline hover:text-nature-700 text-nature-600 hover:bg-transparent",
+            medicine:
+                "bg-transparent underline-offset-4 underline hover:text-medicine-700 text-medicine-600 hover:bg-transparent",
         },
     },
 });
@@ -79,14 +88,20 @@ export const buttonVariants = cva("...", {
             mind: solidVariants({ variant: "mind" }),
             body: solidVariants({ variant: "body" }),
             soul: solidVariants({ variant: "soul" }),
+            nature: solidVariants({ variant: "nature" }),
+            medicine: solidVariants({ variant: "medicine" }),
             link: linkVariants({ variant: "default" }),
             "link-mind": linkVariants({ variant: "mind" }),
             "link-body": linkVariants({ variant: "body" }),
             "link-soul": linkVariants({ variant: "soul" }),
+            "link-nature": linkVariants({ variant: "nature" }),
+            "link-medicine": linkVariants({ variant: "medicine" }),
             subtle: subtleVariants({ variant: "default" }),
             "subtle-mind": subtleVariants({ variant: "mind" }),
             "subtle-body": subtleVariants({ variant: "body" }),
             "subtle-soul": subtleVariants({ variant: "soul" }),
+            "subtle-nature": subtleVariants({ variant: "nature" }),
+            "subtle-medicine": subtleVariants({ variant: "medicine" }),
             unstyled: "",
         },
     },

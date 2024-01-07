@@ -5,11 +5,29 @@ import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 import useApi from "../../hooks/useApi";
 
-import { Tab } from "@headlessui/react";
+import { Tab, Disclosure } from "@headlessui/react";
 
 import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/Items.json";
+import { Button } from "../ui/Button/Button";
+
+const ChevronIcon = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+    >
+        <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+        />
+    </svg>
+);
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
@@ -20,13 +38,26 @@ export default function ItemsTablePage() {
 
     const [searchValue, setSearchValue] = useState("");
     const [allItems, setAllItems] = useState<Array<Item>>([]);
+    const [pinnedItems, setPinnedItems] = useState<Array<Item>>([]);
     const [displayedItems, setDisplayedItems] = useState<Array<Item>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    function sortItemsArrayByReqs(items: Item[]): Item[] {
+        const itemsSortedByReq = items?.sort((t1, t2) => {
+            // console.log(t.name);
+            return (t1.name ?? "") < (t2.name ?? "") ? -1 : 1;
+        });
+
+        return itemsSortedByReq?.sort((t1, t2) => {
+            // console.log(t.name);
+            return (t1.req ?? "") < (t2.req ?? "") ? -1 : 1;
+        });
+    }
+
     useEffect(() => {
         async function getItems() {
-            let items;
+            let items: Item[];
             try {
                 const itemsRaw = await ItemsService.getAllItems();
                 items = Object.values(itemsRaw);
@@ -36,9 +67,10 @@ export default function ItemsTablePage() {
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     items = Object.values(json);
+                } else {
+                    return;
                 }
             }
-            console.log(items);
             items = items?.filter((s) => {
                 if (s.req) {
                     return s.req?.toString().includes("MONSTER") ||
@@ -48,19 +80,27 @@ export default function ItemsTablePage() {
                 }
             });
 
-            let itemsSortedByReq = items?.sort((t1, t2) => {
-                // console.log(t.name);
-                return (t1.name ?? "") < (t2.name ?? "") ? -1 : 1;
-            });
+            setAllItems(sortItemsArrayByReqs(items ?? []));
+            setDisplayedItems(sortItemsArrayByReqs(items ?? []));
 
-            itemsSortedByReq = itemsSortedByReq?.sort((t1, t2) => {
-                // console.log(t.name);
-                return (t1.req ?? "") < (t2.req ?? "") ? -1 : 1;
-            });
+            const persistentPinnedItemNames =
+                window.localStorage.getItem("pinnedItemNames");
 
-            setAllItems(itemsSortedByReq ?? []);
-            // setItemsObjectSorted(items);
-            setDisplayedItems(itemsSortedByReq ?? []);
+            if (persistentPinnedItemNames) {
+                const splitNames = persistentPinnedItemNames.split("|");
+                const persistentItems = splitNames.map((name) => {
+                    const found = items.find((i) => {
+                        return i.name == name;
+                    });
+                    return found
+                        ? found
+                        : {
+                              name: "Error",
+                              effect: `Item "${name}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
+                          };
+                });
+                setPinnedItems(persistentItems);
+            }
         }
         getItems();
     }, [ItemsService]);
@@ -83,8 +123,31 @@ export default function ItemsTablePage() {
         setDisplayedItems(filteredItems);
     }, [allItems, searchValue]);
 
+    function updatePersistantPinnedItems() {
+        const pinnedItemNames: string[] = pinnedItems.map((i) => {
+            return i.name;
+        });
+        window.localStorage.setItem(
+            "pinnedItemNames",
+            pinnedItemNames.join("|")
+        );
+    }
+
     function classNames(...classes: string[]) {
         return classes.filter(Boolean).join(" ");
+    }
+
+    function addToPinnedItems(i: Item) {
+        setPinnedItems(sortItemsArrayByReqs([...pinnedItems, i]));
+        updatePersistantPinnedItems();
+    }
+
+    function removeFromPinnedItems(i: Item) {
+        const idx = pinnedItems.indexOf(i);
+        const remainingItems = pinnedItems.slice();
+        remainingItems.splice(idx, 1);
+        setPinnedItems(remainingItems);
+        updatePersistantPinnedItems();
     }
 
     const IterativeItemLevels = [
@@ -97,11 +160,42 @@ export default function ItemsTablePage() {
         "Greater",
     ];
 
-    // Styling:
-
     return (
         <>
-            <h1 className="text-3xl font-bold">Items</h1>
+            <h1>Items</h1>
+
+            {pinnedItems.length > 0 && (
+                <>
+                    <div className="justify-start">
+                        <Disclosure defaultOpen>
+                            {({ open }) => (
+                                <>
+                                    <Disclosure.Button>
+                                        <Button
+                                            variant={"soul"}
+                                            className="mb-2"
+                                            open={open}
+                                            rightIcon={ChevronIcon}
+                                        >
+                                            Pinned Items
+                                        </Button>
+                                    </Disclosure.Button>
+                                    <Disclosure.Panel>
+                                        <ItemsTable
+                                            displayedItems={pinnedItems}
+                                            moveItem={(item) => {
+                                                removeFromPinnedItems(item);
+                                            }}
+                                            moveIsAdd={false}
+                                        />
+                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                    </Disclosure.Panel>
+                                </>
+                            )}
+                        </Disclosure>
+                    </div>
+                </>
+            )}
 
             <Tab.Group as="div" className="w-full ">
                 <div className="flex flex-column justify-between py-1 w-full align-middle">
@@ -157,7 +251,12 @@ export default function ItemsTablePage() {
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
-                        <ItemsTable displayedItems={displayedItems} />
+                        <ItemsTable
+                            displayedItems={displayedItems}
+                            moveItem={(item) => {
+                                addToPinnedItems(item);
+                            }}
+                        />
                     </Tab.Panel>
                     {IterativeItemLevels.map((n) => {
                         return (
@@ -171,6 +270,9 @@ export default function ItemsTablePage() {
                                                 .includes(n.toLowerCase());
                                         }
                                     )}
+                                    moveItem={(item) => {
+                                        addToPinnedItems(item);
+                                    }}
                                 />
                             </Tab.Panel>
                         );

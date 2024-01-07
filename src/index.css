@@ -11,7 +11,7 @@
   }
 
   h1 {
-    @apply text-3xl
+    @apply text-3xl mb-4 font-bold
   }
 
   h2 {

@@ -9,7 +9,7 @@ function classNames(...classes: string[]) {
 
 export default function Pill({ children, colorClassName }: Props) {
     const classes = classNames(
-        "flex h-6 w-fit px-3 items-start justify-center rounded-full text-white mb-1",
+        "flex h-6 w-fit px-3 items-start justify-center rounded-md text-white mb-1",
         colorClassName
     );
     return <div className={classes}>{children}</div>;

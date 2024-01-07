@@ -5,11 +5,29 @@ import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 import useApi from "../../hooks/useApi";
 
-import { Tab } from "@headlessui/react";
+import { Tab, Disclosure } from "@headlessui/react";
 
 import TraitsTable from "./TraitsTable";
 
 import json from "../../assets/OfflineJsons/Traits.json";
+import { Button } from "../ui/Button/Button";
+
+const ChevronIcon = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+    >
+        <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+        />
+    </svg>
+);
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -20,13 +38,21 @@ export default function TraitsTablePage() {
 
     const [searchValue, setSearchValue] = useState("");
     const [allTraits, setAllTraits] = useState<Array<Trait>>([]);
+    const [pinnedTraits, setPinnedTraits] = useState<Array<Trait>>([]);
     const [displayedTraits, setDisplayedTraits] = useState<Array<Trait>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    function sortTraitsArrayByReqs(traits: Trait[]) {
+        return traits.sort((t1, t2) => {
+            // console.log(t.name);
+            return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
+        });
+    }
+
     useEffect(() => {
         async function getTraits() {
-            let traits;
+            let traits: Trait[];
             try {
                 const traitsRaw = await TraitsService.getAllTraits();
                 traits = Object.values(traitsRaw);
@@ -36,21 +62,43 @@ export default function TraitsTablePage() {
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     traits = Object.values(json);
+                } else {
+                    return;
                 }
             }
             traits = traits?.filter((s) => {
                 if (s.req) {
-                    return s.req?.toString().includes("MONSTER") || s.req?.toString().includes("BROKEN") ? "" : s.req;
+                    return s.req?.toString().includes("MONSTER") ||
+                        s.req?.toString().includes("BROKEN")
+                        ? ""
+                        : s.req;
                 }
             });
 
-            const traitsSortedByReq = traits?.sort((t1, t2) => {
-                // console.log(t.name);
-                return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
-            });
-            setAllTraits(traitsSortedByReq ?? []);
-            // setTraitsObjectSorted(traitsSortedByReq);
-            setDisplayedTraits(traitsSortedByReq ?? []);
+            traits = sortTraitsArrayByReqs(traits);
+
+            setAllTraits(traits);
+            setDisplayedTraits(traits);
+
+            const persistentPinnedTraitNames =
+                window.localStorage.getItem("pinnedTraitNames");
+
+            if (persistentPinnedTraitNames) {
+                const splitNames = persistentPinnedTraitNames.split("|");
+                const persistentTraits = splitNames.map((tn) => {
+                    const found = traits.find((t) => {
+                        return t.name == tn;
+                    });
+                    return found
+                        ? found
+                        : {
+                              name: "Error",
+                              effect: `Trait "${tn}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
+                              dice: 0,
+                          };
+                });
+                setPinnedTraits(persistentTraits);
+            }
         }
         getTraits();
     }, [TraitsService]);
@@ -77,6 +125,30 @@ export default function TraitsTablePage() {
         return classes.filter(Boolean).join(" ");
     }
 
+    function updatePersistantPinnedTraits(n: Trait[]) {
+        const pinnedTraitNames: string[] = n.map((s) => {
+            return s.name;
+        });
+        window.localStorage.setItem(
+            "pinnedTraitNames",
+            pinnedTraitNames.join("|")
+        );
+    }
+
+    function addToPinnedTraits(s: Trait) {
+        const newPersist = [...pinnedTraits, s];
+        setPinnedTraits(sortTraitsArrayByReqs(newPersist));
+        updatePersistantPinnedTraits(newPersist);
+    }
+
+    function removeFromPinnedTraits(s: Trait) {
+        const idx = pinnedTraits.indexOf(s);
+        const remainingTraits = pinnedTraits.slice();
+        remainingTraits.splice(idx, 1);
+        setPinnedTraits(remainingTraits);
+        updatePersistantPinnedTraits(remainingTraits);
+    }
+
     const IterativeTraitLevels = [
         "Body",
         "Mind",
@@ -93,7 +165,40 @@ export default function TraitsTablePage() {
 
     return (
         <>
-            <h1 className="text-3xl font-bold">Traits</h1>
+            <h1>Traits</h1>
+
+            {pinnedTraits.length > 0 && (
+                <>
+                    <div className="justify-start">
+                        <Disclosure defaultOpen>
+                            {({ open }) => (
+                                <>
+                                    <Disclosure.Button>
+                                        <Button
+                                            variant={"soul"}
+                                            className="mb-2"
+                                            open={open}
+                                            rightIcon={ChevronIcon}
+                                        >
+                                            Pinned Traits
+                                        </Button>
+                                    </Disclosure.Button>
+                                    <Disclosure.Panel>
+                                        <TraitsTable
+                                            displayedTraits={pinnedTraits}
+                                            moveTrait={(trait) => {
+                                                removeFromPinnedTraits(trait);
+                                            }}
+                                            moveIsAdd={false}
+                                        />
+                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                    </Disclosure.Panel>
+                                </>
+                            )}
+                        </Disclosure>
+                    </div>
+                </>
+            )}
 
             <Tab.Group as="div" className="w-full ">
                 <div className="flex flex-column justify-between py-1 w-full align-middle">
@@ -150,7 +255,12 @@ export default function TraitsTablePage() {
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
-                        <TraitsTable displayedTraits={displayedTraits} />
+                        <TraitsTable
+                            displayedTraits={displayedTraits}
+                            moveTrait={(trait) => {
+                                addToPinnedTraits(trait);
+                            }}
+                        />
                     </Tab.Panel>
                     {IterativeTraitLevels.map((n) => {
                         return (
@@ -163,6 +273,9 @@ export default function TraitsTablePage() {
                                                 .includes(n.toLowerCase());
                                         }
                                     )}
+                                    moveTrait={(trait) => {
+                                        addToPinnedTraits(trait);
+                                    }}
                                 />
                             </Tab.Panel>
                         );

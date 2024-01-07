@@ -5,50 +5,103 @@ import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 import useApi from "../../hooks/useApi";
 
-import { Tab } from "@headlessui/react";
+import { Tab, Disclosure } from "@headlessui/react";
 
 import SpellsTable from "./SpellsTable";
 
 import json from "../../assets/OfflineJsons/Spells.json";
+import { Button } from "../ui/Button/Button";
+
+const ChevronIcon = (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6"
+    >
+        <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+        />
+    </svg>
+);
 
 export default function SpellsTablePage() {
     const { SpellsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
     const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
+    const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
     const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    function sortSpellsArrayByLevel(spells: Spell[]) {
+        return spells.sort((t1, t2) => {
+            // console.log(t.name);
+            return (t1.level ?? 0) - (t2.level ?? 0);
+        });
+    }
+
     useEffect(() => {
         async function getSpells() {
-            let spells;
+            let spells: Spell[];
             try {
                 const spellsRaw = await SpellsService.getAllSpells();
-                spells = Object.values(spellsRaw);
 
+                spells = Object.values(spellsRaw);
             } catch (e) {
                 if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     spells = Object.values(json);
+                } else {
+                    return;
                 }
             }
 
             spells = spells?.filter((s) => {
                 if (s.tags) {
-                    return s.tags.includes("MONSTER") || s.tags.includes("BROKEN") ? "":s.tags;
+                    return s.tags.includes("MONSTER") ||
+                        s.tags.includes("BROKEN")
+                        ? ""
+                        : s.tags;
                 }
             });
 
-            const spellsSortedByLevel = spells?.sort((t1, t2) => {
-                // console.log(t.name);
-                return (t1.level ?? 0) - (t2.level ?? 0);
-            });
-            setAllSpells(spellsSortedByLevel ?? []);
+            // const spellsSortedByLevel = spells?.sort((t1, t2) => {
+            //     // console.log(t.name);
+            //     return (t1.level ?? 0) - (t2.level ?? 0);
+            // });
+
+            spells = sortSpellsArrayByLevel(spells);
+
+            setAllSpells(spells);
             // setSpellsObjectSorted(spells);
-            setDisplayedSpells(spellsSortedByLevel ?? []);
+            setDisplayedSpells(spells);
+
+            const persistentPinnedSpellNames =
+                window.localStorage.getItem("pinnedSpellNames");
+
+            if (persistentPinnedSpellNames) {
+                const splitNames = persistentPinnedSpellNames.split("|");
+                const persistentSpells = splitNames.map((sn) => {
+                    const found = spells.find((s) => {
+                        return s.name == sn;
+                    });
+                    return found
+                        ? found
+                        : {
+                              name: "Error",
+                              effect: `Spell "${sn}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
+                          };
+                });
+                setPinnedSpells(persistentSpells);
+            }
         }
         getSpells();
     }, [SpellsService]);
@@ -75,13 +128,68 @@ export default function SpellsTablePage() {
         return classes.filter(Boolean).join(" ");
     }
 
-    const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    function updatePersistantPinnedSpells(n: Spell[]) {
+        const pinnedSpellNames: string[] = n.map((s) => {
+            return s.name;
+        });
+        window.localStorage.setItem(
+            "pinnedSpellNames",
+            pinnedSpellNames.join("|")
+        );
+    }
 
-    // Styling:
+    function addToPinnedSpells(s: Spell) {
+        const newPersist = [...pinnedSpells, s];
+        setPinnedSpells(sortSpellsArrayByLevel(newPersist));
+        updatePersistantPinnedSpells(newPersist);
+    }
+
+    function removeFromPinnedSpells(s: Spell) {
+        const idx = pinnedSpells.indexOf(s);
+        const remainingSpells = pinnedSpells.slice();
+        remainingSpells.splice(idx, 1);
+        setPinnedSpells(remainingSpells);
+        updatePersistantPinnedSpells(remainingSpells);
+    }
+
+    const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     return (
         <>
-            <h1 className="text-3xl font-bold">Spells</h1>
+            <h1>Spells</h1>
+
+            {pinnedSpells.length > 0 && (
+                <>
+                    <div className="justify-start">
+                        <Disclosure defaultOpen>
+                            {({ open }) => (
+                                <>
+                                    <Disclosure.Button>
+                                        <Button
+                                            variant={"soul"}
+                                            className="mb-2"
+                                            open={open}
+                                            rightIcon={ChevronIcon}
+                                        >
+                                            Pinned Spells
+                                        </Button>
+                                    </Disclosure.Button>
+                                    <Disclosure.Panel>
+                                        <SpellsTable
+                                            displayedSpells={pinnedSpells}
+                                            moveSpell={(spell) => {
+                                                removeFromPinnedSpells(spell);
+                                            }}
+                                            moveIsAdd={false}
+                                        />
+                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                    </Disclosure.Panel>
+                                </>
+                            )}
+                        </Disclosure>
+                    </div>
+                </>
+            )}
 
             <Tab.Group as="div" className="w-full ">
                 <div className="flex flex-column justify-between py-1 w-full align-middle">
@@ -136,7 +244,12 @@ export default function SpellsTablePage() {
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
-                        <SpellsTable displayedSpells={displayedSpells} />
+                        <SpellsTable
+                            displayedSpells={displayedSpells}
+                            moveSpell={(spell) => {
+                                addToPinnedSpells(spell);
+                            }}
+                        />
                     </Tab.Panel>
                     {IterativeSpellLevels.map((n) => {
                         return (
@@ -147,6 +260,9 @@ export default function SpellsTablePage() {
                                             return s.level == n;
                                         }
                                     )}
+                                    moveSpell={(spell) => {
+                                        addToPinnedSpells(spell);
+                                    }}
                                 />
                             </Tab.Panel>
                         );

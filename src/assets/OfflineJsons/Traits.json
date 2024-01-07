@@ -6,7 +6,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "2": {
         "name": "Spell Casting",
@@ -15,7 +15,7 @@
             "Base"
         ],
         "dice": 0,
-        "is_passive": 0
+        "is_passive": false
     },
     "3": {
         "name": "Use an Item",
@@ -24,7 +24,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "4": {
         "name": "Move",
@@ -33,7 +33,7 @@
             "Base"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "5": {
         "name": "Hide",
@@ -42,7 +42,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "6": {
         "name": "Search",
@@ -51,7 +51,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "7": {
         "name": "Grapple",
@@ -60,7 +60,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "8": {
         "name": "Push",
@@ -69,7 +69,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "9": {
         "name": "Overwatch",
@@ -78,7 +78,7 @@
             "Base"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "10": {
         "name": "Lock",
@@ -87,7 +87,7 @@
             "Base"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "11": {
         "name": "MONK 1:",
@@ -99,7 +99,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "12": {
         "name": "MONK 2:",
@@ -111,7 +111,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "13": {
         "name": "MONK 3:",
@@ -123,7 +123,7 @@
             "soul 3"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "14": {
         "name": "Meditate",
@@ -132,7 +132,7 @@
             "Base"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "15": {
         "name": "Power Attack",
@@ -141,7 +141,7 @@
             "Base"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "16": {
         "name": "soul Manipulator",
@@ -150,7 +150,7 @@
             "Base"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "17": {
         "name": "Stance Fighting Group",
@@ -160,7 +160,7 @@
             "body 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "18": {
         "name": "Marshall Artist Group",
@@ -170,7 +170,7 @@
             "mind 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "19": {
         "name": "Barbarian Fighting Group",
@@ -179,7 +179,7 @@
             "body 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "20": {
         "name": "Athlete Group",
@@ -188,7 +188,7 @@
             "body 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "21": {
         "name": "Bloodhound",
@@ -197,7 +197,7 @@
             "body 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "22": {
         "name": "Strong Punches",
@@ -206,7 +206,7 @@
             "body 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "23": {
         "name": "Climber",
@@ -215,7 +215,7 @@
             "body 1"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "24": {
         "name": "Pushing Strike",
@@ -224,7 +224,7 @@
             "body 1"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "25": {
         "name": "Hearty",
@@ -233,7 +233,7 @@
             "body 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "26": {
         "name": "Brace",
@@ -243,7 +243,7 @@
             "body 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "27": {
         "name": "Shredder",
@@ -252,7 +252,7 @@
             "body 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "28": {
         "name": "Feint",
@@ -261,7 +261,7 @@
             "body 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "29": {
         "name": "Quick Runner",
@@ -270,7 +270,7 @@
             "body 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "30": {
         "name": "Endure",
@@ -279,7 +279,7 @@
             "body 3"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "31": {
         "name": "Bashing Strike",
@@ -288,7 +288,7 @@
             "body 3"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "32": {
         "name": "Wall Bang",
@@ -297,7 +297,7 @@
             "body 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "33": {
         "name": "Disarm",
@@ -306,7 +306,7 @@
             "body 4"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "34": {
         "name": "Critical Strike",
@@ -315,7 +315,7 @@
             "body 6"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "35": {
         "name": "Deaths Reaper",
@@ -324,7 +324,7 @@
             "body 6"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "36": {
         "name": "Deaths Knock",
@@ -334,7 +334,7 @@
             "mind 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "37": {
         "name": "Defender",
@@ -344,7 +344,7 @@
             "mind 1"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "38": {
         "name": "Fortify",
@@ -354,7 +354,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "39": {
         "name": "Combo Finisher",
@@ -364,7 +364,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "40": {
         "name": "Blessed/Cursed Caster",
@@ -374,7 +374,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "41": {
         "name": "Powerful Smites",
@@ -384,7 +384,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "42": {
         "name": "Protected",
@@ -394,7 +394,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "43": {
         "name": "Spell Combo",
@@ -404,7 +404,7 @@
             "soul 4"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "44": {
         "name": "Tactician Group",
@@ -413,7 +413,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "45": {
         "name": "Marksman Group",
@@ -422,7 +422,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "46": {
         "name": "Mental Mage",
@@ -431,7 +431,7 @@
             "mind 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "47": {
         "name": "Setup",
@@ -440,7 +440,7 @@
             "mind 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "48": {
         "name": "On Guard",
@@ -449,7 +449,7 @@
             "mind 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "49": {
         "name": "Mark",
@@ -458,7 +458,7 @@
             "mind 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "50": {
         "name": "Motivate",
@@ -467,7 +467,7 @@
             "mind 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "51": {
         "name": "Dodge",
@@ -476,7 +476,7 @@
             "mind 2"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "52": {
         "name": "Crippling Shot",
@@ -485,7 +485,7 @@
             "mind 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "53": {
         "name": "Think Ahead",
@@ -494,7 +494,7 @@
             "mind 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "54": {
         "name": "Deadeye",
@@ -503,7 +503,7 @@
             "mind 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "55": {
         "name": "Weakspot",
@@ -512,7 +512,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "56": {
         "name": "Marking Shot",
@@ -521,7 +521,7 @@
             "mind 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "57": {
         "name": "Command",
@@ -530,7 +530,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "58": {
         "name": "Covering Fire",
@@ -539,7 +539,7 @@
             "mind 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "59": {
         "name": "Train of Thought",
@@ -548,7 +548,7 @@
             "mind 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "60": {
         "name": "Coordinated Attack",
@@ -557,7 +557,7 @@
             "mind 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "61": {
         "name": "Collateral",
@@ -566,7 +566,7 @@
             "mind 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "62": {
         "name": "Change of Thinking",
@@ -575,7 +575,7 @@
             "mind 4"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "63": {
         "name": "Size Up",
@@ -584,7 +584,7 @@
             "mind 4"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "64": {
         "name": "Trick Shot",
@@ -593,7 +593,7 @@
             "mind 5"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "65": {
         "name": "Ranged Overwatch",
@@ -602,7 +602,7 @@
             "mind 5"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "66": {
         "name": "Outsmart",
@@ -611,7 +611,7 @@
             "mind 6"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "67": {
         "name": "Illusion of Choice",
@@ -620,7 +620,7 @@
             "mind 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "68": {
         "name": "Kite",
@@ -630,7 +630,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "69": {
         "name": "Unbroken Sprint",
@@ -640,7 +640,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "70": {
         "name": "Rundown",
@@ -650,7 +650,7 @@
             "mind 2"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "71": {
         "name": "Reposition",
@@ -660,7 +660,7 @@
             "mind 4"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "72": {
         "name": "Go Faster",
@@ -670,7 +670,7 @@
             "mind 4"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "73": {
         "name": "mind Reader",
@@ -680,7 +680,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "74": {
         "name": "mind over Matter",
@@ -690,7 +690,7 @@
             "soul 2"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "75": {
         "name": "Telekinetic Mind",
@@ -700,7 +700,7 @@
             "soul 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "76": {
         "name": "The Swarm Group",
@@ -712,7 +712,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "77": {
         "name": "Apprentice Wizard Group",
@@ -721,7 +721,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "78": {
         "name": "Telepathy",
@@ -730,7 +730,7 @@
             "soul 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "79": {
         "name": "Create Familiar",
@@ -739,7 +739,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "80": {
         "name": "Dreams of the Future",
@@ -748,7 +748,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "81": {
         "name": "Yoyo",
@@ -757,7 +757,7 @@
             "soul 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "82": {
         "name": "Split Soul",
@@ -766,7 +766,7 @@
             "soul 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "83": {
         "name": "Shield",
@@ -775,7 +775,7 @@
             "soul 2"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "84": {
         "name": "Shaped Explosions",
@@ -784,7 +784,7 @@
             "soul 3"
         ],
         "dice": 4,
-        "is_passive": 0
+        "is_passive": false
     },
     "85": {
         "name": "Focused",
@@ -793,7 +793,7 @@
             "soul 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "86": {
         "name": "soul Ward",
@@ -802,7 +802,7 @@
             "soul 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "87": {
         "name": "Familial Flock",
@@ -811,7 +811,7 @@
             "soul 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "88": {
         "name": "Soulbound Familiar",
@@ -820,7 +820,7 @@
             "soul 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "89": {
         "name": "Reactive Explosions",
@@ -829,7 +829,7 @@
             "soul 5"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "90": {
         "name": "soul Shielded",
@@ -838,7 +838,7 @@
             "soul 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "91": {
         "name": "Acceleration",
@@ -847,7 +847,7 @@
             "soul 6"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "92": {
         "name": "Summoners Command",
@@ -856,7 +856,7 @@
             "soul 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "93": {
         "name": "soul Bind",
@@ -866,7 +866,7 @@
             "soul 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "94": {
         "name": "soul Stealer",
@@ -876,7 +876,7 @@
             "soul 4"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "95": {
         "name": "Past and Future",
@@ -886,7 +886,7 @@
             "soul 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "96": {
         "name": "Glimpse into the Future.",
@@ -896,7 +896,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "97": {
         "name": "Foresight",
@@ -906,7 +906,7 @@
             "soul 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "98": {
         "name": "Skilled",
@@ -916,7 +916,7 @@
             "Level 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "99": {
         "name": "Lucky",
@@ -926,7 +926,7 @@
             "soul 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "100": {
         "name": "Cat Burglar Group",
@@ -936,7 +936,7 @@
             "thieving 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "101": {
         "name": "Skeleton Key",
@@ -945,7 +945,7 @@
             "thieving 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "102": {
         "name": "Silent Scaling",
@@ -954,7 +954,7 @@
             "thieving 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "103": {
         "name": "Shadow Walk",
@@ -963,7 +963,7 @@
             "thieving 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "104": {
         "name": "Backstab",
@@ -972,7 +972,7 @@
             "thieving 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "105": {
         "name": "Imposing",
@@ -982,7 +982,7 @@
             "thieving 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "106": {
         "name": "Strangle Hold",
@@ -992,7 +992,7 @@
             "thieving 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "107": {
         "name": "Slap Back",
@@ -1002,7 +1002,7 @@
             "thieving 3"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "108": {
         "name": "Get Rough",
@@ -1012,7 +1012,7 @@
             "thieving 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "109": {
         "name": "Off Balance",
@@ -1022,7 +1022,7 @@
             "thieving 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "110": {
         "name": "Larceny",
@@ -1032,7 +1032,7 @@
             "thieving 4"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "111": {
         "name": "In the Shadows",
@@ -1042,7 +1042,7 @@
             "thieving 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "112": {
         "name": "Redirect",
@@ -1052,7 +1052,7 @@
             "thieving 3"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "113": {
         "name": "Toys A Plenty",
@@ -1062,7 +1062,7 @@
             "thieving 6"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "114": {
         "name": "Spell Copying",
@@ -1072,7 +1072,7 @@
             "thieving 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "115": {
         "name": "Shadow Friend",
@@ -1082,7 +1082,7 @@
             "thieving 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "116": {
         "name": "Spell Disarmament",
@@ -1092,7 +1092,7 @@
             "thieving 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "117": {
         "name": "Silencing Strike",
@@ -1102,7 +1102,7 @@
             "thieving 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "118": {
         "name": "Spell Thief",
@@ -1112,7 +1112,7 @@
             "thieving 4"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "119": {
         "name": "body Possession",
@@ -1122,7 +1122,7 @@
             "thieving 4"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "120": {
         "name": "Huntsman Basics Group",
@@ -1132,7 +1132,7 @@
             "nature 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "121": {
         "name": "Hunter",
@@ -1141,7 +1141,7 @@
             "nature 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "122": {
         "name": "nature Speak",
@@ -1150,7 +1150,7 @@
             "nature 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "123": {
         "name": "Natures Friend",
@@ -1159,7 +1159,7 @@
             "nature 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "124": {
         "name": "Draw Roots",
@@ -1169,7 +1169,7 @@
             "nature 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "125": {
         "name": "Natures Bind",
@@ -1179,7 +1179,7 @@
             "nature 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "126": {
         "name": "Thorny Armor",
@@ -1189,7 +1189,7 @@
             "nature 2"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "127": {
         "name": "Marked as Prey",
@@ -1199,7 +1199,7 @@
             "nature 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "128": {
         "name": "Elemental Arrows",
@@ -1209,7 +1209,7 @@
             "nature 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "129": {
         "name": "Hunters Pride",
@@ -1219,7 +1219,7 @@
             "nature 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "130": {
         "name": "Animal Form",
@@ -1229,7 +1229,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "131": {
         "name": "Spirit Animal",
@@ -1239,7 +1239,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "132": {
         "name": "Ignite",
@@ -1249,7 +1249,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "133": {
         "name": "Frostbite",
@@ -1259,7 +1259,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "134": {
         "name": "Crystalize Soul",
@@ -1269,7 +1269,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "135": {
         "name": "Improved Animal Form",
@@ -1279,7 +1279,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "136": {
         "name": "Stronger Flames",
@@ -1289,7 +1289,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "137": {
         "name": "Frozen Bomb",
@@ -1299,7 +1299,7 @@
             "soul 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "138": {
         "name": "Updraft",
@@ -1309,7 +1309,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "139": {
         "name": "Taunt",
@@ -1318,7 +1318,7 @@
             "charm 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "140": {
         "name": "Universal Language",
@@ -1327,7 +1327,7 @@
             "charm 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "141": {
         "name": "First Impression",
@@ -1336,7 +1336,7 @@
             "charm 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "142": {
         "name": "Fearsome Roar",
@@ -1346,7 +1346,7 @@
             "charm 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "143": {
         "name": "Crowd Pleaser",
@@ -1356,7 +1356,7 @@
             "charm 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "144": {
         "name": "Insult to Injury",
@@ -1366,7 +1366,7 @@
             "charm 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "145": {
         "name": "Death's Howl",
@@ -1376,7 +1376,7 @@
             "charm 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "146": {
         "name": "Shock and Awe",
@@ -1386,7 +1386,7 @@
             "charm 4"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "147": {
         "name": "Fancy Feet",
@@ -1396,7 +1396,7 @@
             "charm 6"
         ],
         "dice": 1,
-        "is_passive": 1
+        "is_passive": true
     },
     "148": {
         "name": "The Show Must Go On",
@@ -1406,7 +1406,7 @@
             "charm 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "149": {
         "name": "Distract",
@@ -1416,7 +1416,7 @@
             "mind 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "150": {
         "name": "To Me",
@@ -1426,7 +1426,7 @@
             "mind 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "151": {
         "name": "Jackpot",
@@ -1436,7 +1436,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "152": {
         "name": "Engaging Speaker",
@@ -1446,7 +1446,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "153": {
         "name": "Misdirection",
@@ -1456,7 +1456,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "154": {
         "name": "Pull the Strings",
@@ -1466,7 +1466,7 @@
             "mind 3"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "155": {
         "name": "Ventriloquism",
@@ -1476,7 +1476,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "156": {
         "name": "Positive Influence",
@@ -1487,7 +1487,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "157": {
         "name": "Negative Influence",
@@ -1498,7 +1498,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "158": {
         "name": "Change Face",
@@ -1508,7 +1508,7 @@
             "soul 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "159": {
         "name": "Intrusive Soul",
@@ -1518,7 +1518,7 @@
             "soul 2"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "160": {
         "name": "Goad",
@@ -1529,7 +1529,7 @@
             "mind 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "161": {
         "name": "Battle Medic",
@@ -1538,7 +1538,7 @@
             "medicine 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "162": {
         "name": "Potion Maker",
@@ -1547,7 +1547,7 @@
             "medicine 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "163": {
         "name": "Blood Magic",
@@ -1557,7 +1557,7 @@
             "medicine 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "164": {
         "name": "Blood of Thine Enemy",
@@ -1567,7 +1567,7 @@
             "medicine 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "165": {
         "name": "Bloody Mess",
@@ -1577,7 +1577,7 @@
             "medicine 4"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "166": {
         "name": "Improved Healer",
@@ -1587,7 +1587,7 @@
             "mind 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "167": {
         "name": "Plague Doctor",
@@ -1597,7 +1597,7 @@
             "mind 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "168": {
         "name": "Placebo",
@@ -1607,7 +1607,7 @@
             "mind 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "169": {
         "name": "Recycled Meds",
@@ -1617,7 +1617,7 @@
             "mind 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "170": {
         "name": "Medical Genius",
@@ -1627,7 +1627,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "171": {
         "name": "Resuscitate",
@@ -1637,7 +1637,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "172": {
         "name": "Healthy Hands",
@@ -1647,7 +1647,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "173": {
         "name": "Holy Guardian",
@@ -1657,7 +1657,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "174": {
         "name": "soul Healer",
@@ -1667,7 +1667,7 @@
             "soul 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "175": {
         "name": "Chain Healing",
@@ -1677,7 +1677,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "176": {
         "name": "Beginner Artificer Group",
@@ -1687,7 +1687,7 @@
             "crafting 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "177": {
         "name": "Improvised Weapon",
@@ -1696,7 +1696,7 @@
             "crafting 1"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "178": {
         "name": "Get Creative",
@@ -1705,7 +1705,7 @@
             "crafting 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "179": {
         "name": "Tunneler",
@@ -1715,7 +1715,7 @@
             "crafting 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "180": {
         "name": "Weapon Smith",
@@ -1725,7 +1725,7 @@
             "crafting 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "181": {
         "name": "Flaming Blow",
@@ -1735,7 +1735,7 @@
             "crafting 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "182": {
         "name": "Weapon Smiting Master",
@@ -1745,7 +1745,7 @@
             "crafting 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "183": {
         "name": "Grappling Hook",
@@ -1755,7 +1755,7 @@
             "mind 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "184": {
         "name": "Turreted Weapon",
@@ -1765,7 +1765,7 @@
             "mind 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "185": {
         "name": "Steam Weapons",
@@ -1775,7 +1775,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "186": {
         "name": "Overclock",
@@ -1785,7 +1785,7 @@
             "mind 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "187": {
         "name": "Steam Weapon Inovations",
@@ -1795,7 +1795,7 @@
             "mind 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "188": {
         "name": "Enchanted Item",
@@ -1805,7 +1805,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "189": {
         "name": "Simple Golem",
@@ -1815,7 +1815,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "190": {
         "name": "Golem Ranger Module",
@@ -1825,7 +1825,7 @@
             "soul 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "191": {
         "name": "Rune Maker",
@@ -1834,7 +1834,7 @@
             "arcana 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "192": {
         "name": "Combative Runing",
@@ -1844,7 +1844,7 @@
             "body 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "193": {
         "name": "Blade Wave",
@@ -1854,7 +1854,7 @@
             "body 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "194": {
         "name": "Magical Siphon",
@@ -1864,7 +1864,7 @@
             "body 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "195": {
         "name": "Runic Augmentation",
@@ -1874,7 +1874,7 @@
             "body 4"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "196": {
         "name": "Potent Poisons",
@@ -1884,7 +1884,7 @@
             "mind 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "197": {
         "name": "Double Dosing",
@@ -1894,7 +1894,7 @@
             "mind 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "198": {
         "name": "Complex Brews",
@@ -1904,7 +1904,7 @@
             "mind 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "199": {
         "name": "Scroll Crafting",
@@ -1914,7 +1914,7 @@
             "soul 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "200": {
         "name": "Spell Manipulator",
@@ -1924,7 +1924,7 @@
             "soul 2"
         ],
         "dice": 1,
-        "is_passive": 0
+        "is_passive": false
     },
     "201": {
         "name": "Simple Golem (Arcana)",
@@ -1935,7 +1935,7 @@
             "soul 1"
         ],
         "dice": 2,
-        "is_passive": 1
+        "is_passive": true
     },
     "202": {
         "name": "Strongarm",
@@ -1946,7 +1946,7 @@
             "thieving 2"
         ],
         "dice": 0,
-        "is_passive": 0
+        "is_passive": false
     },
     "203": {
         "name": "Undead Thrawl",
@@ -1956,7 +1956,7 @@
             "medicine 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "204": {
         "name": "If These Walls Could Talk",
@@ -1965,7 +1965,7 @@
             "medicine 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "205": {
         "name": "Curse of Pain",
@@ -1975,7 +1975,7 @@
             "medicine 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "206": {
         "name": "Eyebite",
@@ -1985,7 +1985,7 @@
             "medicine 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "207": {
         "name": "Curse Ward",
@@ -1994,7 +1994,7 @@
             "medicine 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "208": {
         "name": "Eyes of the Night",
@@ -2003,7 +2003,7 @@
             "medicine 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "209": {
         "name": "Undead Tinkerer",
@@ -2013,7 +2013,7 @@
             "medicine 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "210": {
         "name": "Curse of Bones",
@@ -2023,7 +2023,7 @@
             "medicine 4"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "211": {
         "name": "Curse of Fear",
@@ -2033,7 +2033,7 @@
             "medicine 4"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "212": {
         "name": "Undead King",
@@ -2043,7 +2043,7 @@
             "medicine 6"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "213": {
         "name": "Curse of Life",
@@ -2053,7 +2053,7 @@
             "medicine 6"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "214": {
         "name": "Concuror of Darkness",
@@ -2063,7 +2063,7 @@
             "medicine 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "215": {
         "name": "Trap Maker",
@@ -2072,7 +2072,7 @@
             "nature 1"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "216": {
         "name": "Knoledge of the Forest",
@@ -2081,7 +2081,7 @@
             "nature 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "217": {
         "name": "Hidden in the Bush",
@@ -2090,7 +2090,7 @@
             "nature 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "218": {
         "name": "At Home in Nature",
@@ -2099,7 +2099,7 @@
             "nature 2"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "219": {
         "name": "Marked as Prey",
@@ -2109,7 +2109,7 @@
             "nature 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "220": {
         "name": "Marked as Dangerous",
@@ -2119,7 +2119,7 @@
             "nature 3"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "221": {
         "name": "Improved Traps",
@@ -2128,7 +2128,7 @@
             "nature 4"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "222": {
         "name": "Hightened Scenses",
@@ -2137,7 +2137,7 @@
             "nature 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "223": {
         "name": "Mark of the Hunter",
@@ -2147,7 +2147,7 @@
             "nature 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "224": {
         "name": "Elemental Shots",
@@ -2157,7 +2157,7 @@
             "nature 5"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "225": {
         "name": "One with Nature",
@@ -2166,7 +2166,7 @@
             "nature 6"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "226": {
         "name": "Dagger Master",
@@ -2175,7 +2175,7 @@
             "body 5"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "227": {
         "name": "Spear Master",
@@ -2184,7 +2184,7 @@
             "body 5"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "228": {
         "name": "Pitcher",
@@ -2193,7 +2193,7 @@
             "body 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "229": {
         "name": "Bull Rush",
@@ -2202,7 +2202,7 @@
             "body 2"
         ],
         "dice": 2,
-        "is_passive": 0
+        "is_passive": false
     },
     "230": {
         "name": "Cleave",
@@ -2211,7 +2211,7 @@
             "body 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "231": {
         "name": "Rip and Tear",
@@ -2220,7 +2220,7 @@
             "body 3"
         ],
         "dice": 3,
-        "is_passive": 0
+        "is_passive": false
     },
     "232": {
         "name": "Bloodhound",
@@ -2229,7 +2229,7 @@
             "body 1"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "233": {
         "name": "Manipulate",
@@ -2238,7 +2238,7 @@
             "mind 2"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "234": {
         "name": "Enhanced Motivate",
@@ -2247,7 +2247,7 @@
             "mind 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "235": {
         "name": "Recalculate",
@@ -2256,7 +2256,7 @@
             "mind 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     },
     "236": {
         "name": "Double Ammo Stores",
@@ -2266,6 +2266,6 @@
             "crafting 4"
         ],
         "dice": 0,
-        "is_passive": 1
+        "is_passive": true
     }
 }
