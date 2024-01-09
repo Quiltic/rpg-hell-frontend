@@ -26,10 +26,12 @@
     @apply mb-1
   }
 
-  li {
-    @apply mb-2
-  }
 }
+
+li {
+  text-align: left
+}
+
 
 :root {
   line-height: 1.5;
