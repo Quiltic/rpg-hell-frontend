@@ -251,12 +251,7 @@ Death's Door only goes away if you do a Rest.
 | O,3 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
 | O,4 | Beastkin | Increase your Speed by 1. |
 | O,5 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain 1 Armor. |
-| O,6 | Draconic | Pick a type: Fire, Ice, Earth, or Lightning.
-Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. 
-Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain.
-Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain.
-Lightning: You can cast Lightning once per Rest without gaining Soul Strain.
-You use your Core Skill instead of Soul when casting this spell. |
+| O,6 | Draconic | Pick a type: Fire, Ice, Earth, or Lightning.\nFire: You can cast Fire Breath once per Rest without gaining Soul Strain. \nIce: You can cast Freezing Wave once per Rest without gaining Soul Strain.\nEarth: You can cast Bolder Toss once per Rest without gaining Soul Strain.\nLightning: You can cast Lightning once per Rest without gaining Soul Strain.\nYou use your Core Skill instead of Soul when casting this spell. |
 | E,1 | Elemental | Gain the Spell Control Elements. |
 | E,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
 | E,3 | Nymph Born | Gain Nature Speak Trait for free. |
