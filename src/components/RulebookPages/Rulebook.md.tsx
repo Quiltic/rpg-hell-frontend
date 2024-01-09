@@ -85,14 +85,132 @@ Death's Door only goes away if you do a Rest.
 
 # Stats
 ## Body
+
+### Physical Feats
+- Jump 2 tiles horizontally with a running start.
+- Jump 1 tile.
+- Lift/Push 100 lb thing with 2 hands
+- Lift/Push a 20 lb thing with 1 hand
+- Force open a door. This is a loud action.
+
+7+ do 1 of the above. All items above stack with themselves.
+
+
+### Acrobatics or Athletics
+- 7+ Do simple acrobatics/athletics. 
+- 14+ Do novice acrobatics/athletics. 
+- 21+ Do intermediate acrobatics/athletics. 
+- 28+ Do Advanced acrobatics/athletics.
+
+
 ## Mind
+
+### Investigate
+- What happened here?
+- How many people are/were here?
+- What is this item (non-magical)?
+- What did this person/place/item have on/in them (1 item)?
+- A more specific question.
+
+7+ Ask the GM one of the questions, they must give an honest answer
+6- Ask the GM one of the questions, they may give an honest answer
+
+
+### Remember
+- What happened here?
+- What was here?
+- What got left behind?
+- What information do I know about this?
+- A more specific question.
+
+7+ Ask the GM one of the questions, they must give an honest answer
+6- Ask the GM one of the questions, they may give an honest answer
+
+
 ## Soul
+
+### Make a Prayer
+- 7+ Ask your god a question. Increases by 7 for every question asked that day.
+- Ask for aid, may require more than 7+. (GM’s discretion)
+- 21+ Talk to your god.
+
+
 ## Arcana
+
+### Read Runes
+- What does this magic thing do?
+- How can I use/control this magic thing?
+- What/Who wrote these runes?
+- Is this thing magical?
+- Is this magical thing working?
+- What do these runes say?
+- A more specific question.
+
+7+ Ask the GM one of the questions, they must give an honest answer
+6- Ask the GM one of the questions, they may give an honest answer
+
+
 ## Charm
+### Convince someone of something
+- 5+ Convince them of something that they would align with.
+- 7+ Convince them of something they could understand.
+- 14+ Convince them of something unrealistic.
+- 21+ Convince them of something outrageous.
+
+
 ## Crafting
+
+### Make an item
+- 5+ Spend 1 minute to create an improvised item.
+- 7+ Spend 10 minutes to create a simple item. You must have the tools needed to make it.
+- 14+ Spend 1 hour to create a complex item. You must have the tools needed to make it.
+- 21+ Spend multiple hours to create a sophisticated item. You must have the tools needed to make it.
+
+
+### Understand a contraption.
+- What does this contraption do?
+- How can I use/control this contraption?
+- What/Who made this contraption?
+- Is this contraption working?
+- A more specific question.
+
+7+ Ask the GM one of the questions, they must give an honest answer
+6- Ask the GM one of the questions, they may give an honest answer
+
+
 ## Nature
+
+### Scrounge
+- 7+ Find 1 ingredient item, raw food, or clean water source from the local environment. This can be done multiple times in a roll.
+
+### Handle a beast.
+- Do a contest against a creature on a success you may tame/control a beast
+
+### Track a creature
+- 7+ Follow obvious tracks. 
+- 14+ Follow a sneaking creature.
+- 21+ Follow hidden tracks.
+- 28+ Follow near non-existent tracks.
+
+
 ## Medicine
+
+### Identify an Illness or Curse
+- 7+ Determine if the target is Poisoned, Cursed, or is sick. 
+- 14+ Determine if the target can be cured easily. 
+- 21+ Know the name of the Poison, Cursed, or Illness. 
+- 28+ Know the name and how to cure the Poison, Cursed, or Illness. 
+
+
 ## Thieving
+
+### Steal an item
+- Do a contest against any creature that would be able to see you steal the item.
+
+### Place an item undetected
+- Do a contest against any creature that would be able to see you place the item.
+
+
 
 # Making a Character
 ## Level 1
@@ -124,5 +242,26 @@ Death's Door only goes away if you do a Rest.
 | 8 | 9 | 18 | 10 | 8 |
 | 9 | 10 | 20 | 11 | 8 |
 
+
+## Races Table
+| Rolls | Race Type | Bonus Trait |
+| --- | --- | --- |
+| O,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it’s requirement. |
+| O,2 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
+| O,3 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
+| O,4 | Beastkin | Increase your Speed by 1. |
+| O,5 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain 1 Armor. |
+| O,6 | Draconic | Pick a type: Fire, Ice, Earth, or Lightning.
+Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. 
+Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain.
+Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain.
+Lightning: You can cast Lightning once per Rest without gaining Soul Strain.
+You use your Core Skill instead of Soul when casting this spell. |
+| E,1 | Elemental | Gain the Spell Control Elements. |
+| E,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
+| E,3 | Nymph Born | Gain Nature Speak Trait for free. |
+| E,4 | Seeker | Gain Dreams of the Future Trait for free, and at Level 3 gain Past and Future Trait for free. |
+| E,5 | Undergrounder | Darkness does not scare you. You can cast Glow at will, and Fog Light once per Rest. |
+| E,6 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
 `
 export default markdown;
