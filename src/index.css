@@ -25,6 +25,10 @@
   p {
     @apply mb-1
   }
+
+  li {
+    @apply mb-2
+  }
 }
 
 :root {

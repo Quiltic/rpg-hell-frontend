@@ -93,7 +93,7 @@ Death's Door only goes away if you do a Rest.
 - Lift/Push a 20 lb thing with 1 hand
 - Force open a door. This is a loud action.
 
-7+ do 1 of the above. All items above stack with themselves.
+- 7+ do 1 of the above. All items above stack with themselves.
 
 
 ### Acrobatics or Athletics
@@ -112,8 +112,8 @@ Death's Door only goes away if you do a Rest.
 - What did this person/place/item have on/in them (1 item)?
 - A more specific question.
 
-7+ Ask the GM one of the questions, they must give an honest answer
-6- Ask the GM one of the questions, they may give an honest answer
+- 7+ Ask the GM one of the questions, they must give an honest answer
+- 6- Ask the GM one of the questions, they may give an honest answer
 
 
 ### Remember
@@ -123,8 +123,8 @@ Death's Door only goes away if you do a Rest.
 - What information do I know about this?
 - A more specific question.
 
-7+ Ask the GM one of the questions, they must give an honest answer
-6- Ask the GM one of the questions, they may give an honest answer
+- 7+ Ask the GM one of the questions, they must give an honest answer
+- 6- Ask the GM one of the questions, they may give an honest answer
 
 
 ## Soul
@@ -146,8 +146,8 @@ Death's Door only goes away if you do a Rest.
 - What do these runes say?
 - A more specific question.
 
-7+ Ask the GM one of the questions, they must give an honest answer
-6- Ask the GM one of the questions, they may give an honest answer
+- 7+ Ask the GM one of the questions, they must give an honest answer
+- 6- Ask the GM one of the questions, they may give an honest answer
 
 
 ## Charm
@@ -174,8 +174,8 @@ Death's Door only goes away if you do a Rest.
 - Is this contraption working?
 - A more specific question.
 
-7+ Ask the GM one of the questions, they must give an honest answer
-6- Ask the GM one of the questions, they may give an honest answer
+- 7+ Ask the GM one of the questions, they must give an honest answer
+- 6- Ask the GM one of the questions, they may give an honest answer
 
 
 ## Nature
