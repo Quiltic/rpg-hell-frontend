@@ -517,7 +517,7 @@
         "req": [
             ""
         ],
-        "effect": "Target a Creature, cannot target undead or constructs. Heal the target for your Medicine + Level.\nCan be crafted with Medicine or crafting Rolls.",
+        "effect": "Target a Creature, cannot target undead or constructs. Heal the target for your Medicine + your Level.\nCan be crafted with Medicine or crafting Rolls.",
         "tags": [
             "Consumable",
             "Medicine",
@@ -532,7 +532,7 @@
         "req": [
             ""
         ],
-        "effect": "requires Medicine 3 to be used properly. Target a Creature, cannot target undead or constructs. Heal the target 2 + Level Health.\nCan be crafted with Medicine or crafting Rolls.",
+        "effect": "requires Medicine 3 to be used properly. Target a Creature, cannot target undead or constructs. Heal the target 2 + your Level Health.\nCan be crafted with Medicine or crafting Rolls.",
         "tags": [
             "Consumable",
             "Medicine",
@@ -547,7 +547,7 @@
         "req": [
             ""
         ],
-        "effect": "Throw Range 6. Cast Summon Fog wherever it lands. The fog ends when the spell runs out, this spell cannot be countered or stoped.",
+        "effect": "Throw Range 6. Cast Conjure Fog wherever it lands. The fog ends when the spell runs out, this spell cannot be countered or stoped early.",
         "tags": [
             "Consumable",
             "Non-Magic item",
@@ -561,7 +561,7 @@
         "req": [
             ""
         ],
-        "effect": "Throw Range 6. Burst 1 centered wherever it lands. Make a Core Attack roll against all creatures within the area. On Failure, creatures take 2 damage. On success, creatures take 1 damage.",
+        "effect": "Throw Range 6. Burst 1 centered wherever it lands. Targets within the area take 2 damage.",
         "tags": [
             "Consumable",
             "Non-Magic item",
@@ -575,7 +575,7 @@
         "req": [
             ""
         ],
-        "effect": "Throw Range 6. Cast Lightshow wherever it lands. Make a Core Attack roll for the attack instead of Soul.",
+        "effect": "Throw Range 6. Cast Lightshow wherever it lands. Using the 2 dice given plus 4 for the sum.",
         "tags": [
             "Consumable",
             "Non-Magic item",
@@ -589,7 +589,7 @@
         "req": [
             ""
         ],
-        "effect": "Gain 4 Temporary Health. This goes away at the end of the next rest or when used.",
+        "effect": "Gain 4 Health. This goes away at the end of the next rest or when used.",
         "tags": [
             "Consumable",
             "Lesser item",
@@ -724,7 +724,7 @@
         "req": [
             ""
         ],
-        "effect": "When ingested or put into the blood (coated blade) roll body. You must get a (5,4,4) or Fall Asleep. The GM rolls a dice, you are asleep for this many hours or until someone wakes you up with damage or 2 dice.",
+        "effect": "When ingested or put into the blood (coated blade) roll Body. You must get a 13 or higher, otherwise you Fall Asleep. The GM rolls a dice, you are asleep for this many hours or until someone wakes you up with damage or 2 dice.",
         "tags": [
             "Consumable",
             "Lesser item",
@@ -739,7 +739,7 @@
         "req": [
             ""
         ],
-        "effect": "When ingested or put into the blood (coated blade) roll body. You must get a (5,4,4) or take 2 Damage.",
+        "effect": "When ingested or put into the blood (coated blade) roll body. You must get a 13 or higher, otherwise take 2 Damage.",
         "tags": [
             "Consumable",
             "Lesser item",
@@ -754,7 +754,7 @@
         "req": [
             ""
         ],
-        "effect": "When ingested or put into the blood (coated blade) roll Soul. You must get a (5,4,4) or gain 2 Soul Strain.",
+        "effect": "When ingested or put into the blood (coated blade) roll Soul. You must get a 13 or higher, otherwise gain 2 Soul Strain.",
         "tags": [
             "Consumable",
             "Lesser item",
@@ -769,7 +769,7 @@
         "req": [
             ""
         ],
-        "effect": "When ingested or put into the blood (coated blade) roll body. You must get a (5,4,4) or be Frozen for 20 seconds (2 turns).",
+        "effect": "When ingested or put into the blood (coated blade) roll body. You must get a 13 or higher, otherwise be Frozen for 20 seconds (2 turns).",
         "tags": [
             "Consumable",
             "Lesser item",

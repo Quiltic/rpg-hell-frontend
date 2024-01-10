@@ -159,7 +159,7 @@
     "13": {
         "id": 13,
         "name": "root trap",
-        "effect": "You Focus on making an area within Range 8 into a root trap. The area covers 2 tiles around it (Burst 2). Any target that enters the area will be attacked by Roots. All targets that enter or start their turn in the area for the first time must make a Body Roll against the 3 dice given when casting. On failure, the target is Grappled until the start of their next turn and takes 1 damage.\nThis effect lasts for 3 turns, until dispelled, you cast another Focused spell, or you take damage.",
+        "effect": "You Focus on making an area within Range 8 into a root trap. The area covers 2 tiles around it (Burst 2). Any target that enters the area will be attacked by Roots. All targets that enter or start their turn in the area for the first time must make a Body Roll against the sum of the 3 dice given when casting. On failure, the target is Grappled until the start of their next turn and takes 1 damage.\nThis effect lasts for 3 turns, until dispelled, you cast another Focused spell, or you take damage.",
         "dice": 3,
         "level": 1,
         "tags": [
@@ -259,7 +259,7 @@
     "21": {
         "id": 21,
         "name": "sleeping powder",
-        "effect": "Put creatures into a magical slumber. Target a number of Creatures you can see within 8 tiles who\u2019s combined Health total is up to or less than 12 (Armor Health does not count as Health). You cannot target undead or constructs. These creatures are forcefully put to sleep for 3 turns. These creatures wake up if another creature spends ## (2 dice) to wake them or they take damage.",
+        "effect": "Put creatures into a magical slumber. Target a number of Creatures you can see within 8 tiles who\u2019s combined Health total is up to or less than the sum of the dice given +3 (Armor Health does not count as Health). You cannot target undead or constructs. These creatures are forcefully put to sleep for 3 turns. These creatures wake up if another creature spends ## (2 dice) to wake them or they take damage.",
         "dice": 3,
         "level": 1,
         "tags": [
@@ -283,7 +283,7 @@
     "23": {
         "id": 23,
         "name": "lightshow",
-        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a Soul Roll against the 3 dice given when casting. On failure, creatures gain 2 stacks of Blind. On success creatures gain 1 stack of Blind instead.",
+        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a Soul Roll against the sum of the 3 dice given when casting. On failure, creatures gain 2 stacks of Blind. On success creatures gain 1 stack of Blind instead.",
         "dice": 3,
         "level": 1,
         "tags": [
@@ -359,7 +359,7 @@
     "29": {
         "id": 29,
         "name": "fire breath",
-        "effect": "Breath a Cone of flame outward Range 3. Ignite all flammable objects within this area. All targets within this area must make a Mind Roll against the 3 dice given when casting. On failure, give the Creature Burn 3. On success, give the Creature Burn 2.",
+        "effect": "Breath a Cone of flame outward Range 3. Ignite all flammable objects within this area. All targets within this area must make a Mind Roll against the sum of the 3 dice given when casting. On failure, give the Creature Burn 3. On success, give the Creature Burn 2.",
         "dice": 3,
         "level": 2,
         "tags": [
@@ -371,7 +371,7 @@
     "30": {
         "id": 30,
         "name": "boulder toss",
-        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a Soul Roll against the 3 dice given when casting. On failure, the target takes 3 damage and is knocked back 2 tiles. On success, the target takes 2 damage and is knocked back 1 tile.",
+        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a Soul Roll against the sum of the 3 dice given when casting. On failure, the target takes 3 damage and is knocked back 2 tiles. On success, the target takes 2 damage and is knocked back 1 tile.",
         "dice": 3,
         "level": 2,
         "tags": [
@@ -384,7 +384,7 @@
     "31": {
         "id": 31,
         "name": "freezing wave",
-        "effect": "Breath a Cone of ice outward Range 3. Freeze all liquids within this area making it. All targets within this area must make a Body Roll against the 3 dice given when casting. On failure, give the target 2 stacks of Stun. On success, give the target 1 stack of Stun. Wet targets get an additional 2 stacks of Stun.",
+        "effect": "Breath a Cone of ice outward Range 3. Freeze all liquids within this area making it. All targets within this area must make a Body Roll against the sum of the 3 dice given when casting. On failure, give the target 2 stacks of Stun. On success, give the target 1 stack of Stun. Wet targets get an additional 2 stacks of Stun.",
         "dice": 3,
         "level": 2,
         "tags": [
@@ -396,7 +396,7 @@
     "32": {
         "id": 32,
         "name": "lightning",
-        "effect": "Range 6, make a Ray to a point within range. All targets within this area must make a Mind Roll against the 3 dice given when casting. On failure, deal 3 damage. On success, deal 2 damage. Deals an extra damage to Constructs and Wet Creatures.",
+        "effect": "Range 6, make a Ray to a point within range. All targets within this area must make a Mind Roll against the sum of the 3 dice given when casting. On failure, deal 3 damage. On success, deal 2 damage. Deals an extra damage to Constructs and Wet Creatures.",
         "dice": 3,
         "level": 2,
         "tags": [
@@ -421,7 +421,7 @@
     "34": {
         "id": 34,
         "name": "weak curse",
-        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the 3 dice given when casting. If they fail, give the target one of the following Curses. The curse does not go away until dispelled by Purge (must beat the number next to the curse) or the target dies. If this targets an object, the curse can affect anyone who touches the object.\nBlind (6): Blind the target.\nWeak (6): Reduce Melee Weapon damage by 1 and carrying capacity by half.\nParanoia (6): Someone always seems to be watching. Roll Thieving with 2 less dice, and are Marked for the duration of the Curse.",
+        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the sum of the 3 dice given when casting. If they fail, give the target one of the following Curses. The curse does not go away until dispelled by Purge (must beat the number next to the curse) or the target dies. If this targets an object, the curse can affect anyone who touches the object.\nBlind (6): Blind the target.\nWeak (6): Reduce Melee Weapon damage by 1 and carrying capacity by half.\nParanoia (6): Someone always seems to be watching. Roll Thieving with 2 less dice, and are Marked for the duration of the Curse.",
         "dice": 3,
         "level": 2,
         "tags": [
@@ -612,7 +612,7 @@
     "49": {
         "id": 49,
         "name": "shockwave",
-        "effect": "Burst 2 centered on yourself. All targets within this area, other than yourself, must make a Body Roll against the 3 dice given when casting. On failure, Knock them back 6 tiles (Knockback 6). On success, Knock them back 2 tiles (Knockback 2).",
+        "effect": "Burst 2 centered on yourself. All targets within this area, other than yourself, must make a Body Roll against the sum of the 3 dice given when casting. On failure, Knock them back 6 tiles (Knockback 6). On success, Knock them back 2 tiles (Knockback 2).",
         "dice": 3,
         "level": 2,
         "tags": [
@@ -837,7 +837,7 @@
     "67": {
         "id": 67,
         "name": "fireball",
-        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a Mind Roll against the 3 dice given when casting. On failure, gives 4 Burn. On success, gives 3 Burn.",
+        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a Mind Roll against the sum of the 3 dice given when casting. On failure, gives 4 Burn. On success, gives 3 Burn.",
         "dice": 3,
         "level": 4,
         "tags": [
@@ -863,7 +863,7 @@
     "69": {
         "id": 69,
         "name": "curse",
-        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the 3 dice given when casting. If they fail, give the target one of the following Curses. The curse does not go away until dispelled by Purge (must beat the number next to the curse) or the target dies. If this targets an object, the curse can affect anyone who touches the object.\nDecay (6,5): Increases aging by 2 weeks per day. (14 years older in 1 year)\nWoe (6,5): Roll with 1 less dice on all rolls.\nClumsy (6,5): Roll a dice whenever you move. On a 2 or less, fall over ending your movement for that dice.",
+        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the sum of the 3 dice given when casting. If they fail, give the target one of the following Curses. The curse does not go away until dispelled by Purge (must beat the number next to the curse) or the target dies. If this targets an object, the curse can affect anyone who touches the object.\nDecay (6,5): Increases aging by 2 weeks per day. (14 years older in 1 year)\nWoe (6,5): Roll with 1 less dice on all rolls.\nClumsy (6,5): Roll a dice whenever you move. On a 2 or less, fall over ending your movement for that dice.",
         "dice": 3,
         "level": 4,
         "tags": [
@@ -910,7 +910,7 @@
     "73": {
         "id": 73,
         "name": "soul bind",
-        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the 3 dice given when casting. If they fail, give the target the following Curse. The curse goes away after 1 minute (6 turns), if dispelled by Purge (must beat the number next to the curse) or the target dies. \nSoul Shackled (6,5): When the caster of this curse takes damage the cursed target takes the same amount of damage (before accounting for Armor).",
+        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the sum of the 3 dice given when casting. If they fail, give the target the following Curse. The curse goes away after 1 minute (6 turns), if dispelled by Purge (must beat the number next to the curse) or the target dies. \nSoul Shackled (6,5): When the caster of this curse takes damage the cursed target takes the same amount of damage (before accounting for Armor).",
         "dice": 3,
         "level": 4,
         "tags": [
