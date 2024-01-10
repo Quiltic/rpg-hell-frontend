@@ -72,7 +72,11 @@ export default function SpellsTable({
                             </td>
                             <td>{spell.level}</td>
                             <td>{"#".repeat(spell.dice ?? 1)}</td>
-                            <td dangerouslySetInnerHTML={{ __html: ee }}></td>
+
+                            <td
+                                dangerouslySetInnerHTML={{ __html: ee }}
+                                className="whitespace-pre-wrap"
+                            ></td>
                             <td className="capitalize" align="center">
                                 {spell.tags?.join(", ")}
                             </td>

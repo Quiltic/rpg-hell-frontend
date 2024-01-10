@@ -77,7 +77,10 @@ export default function TraitsTable({
                             <td>
                                 {trait.dice ? "#".repeat(trait.dice ?? 1) : "P"}
                             </td>
-                            <td dangerouslySetInnerHTML={{ __html: ee }}></td>
+                            <td
+                                dangerouslySetInnerHTML={{ __html: ee }}
+                                className="whitespace-pre-wrap"
+                            ></td>
                             {moveTrait != undefined && (
                                 <td>
                                     <Button
