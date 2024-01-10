@@ -1191,16 +1191,6 @@
         "dice": 1,
         "is_passive": true
     },
-    "127": {
-        "name": "Marked as Prey",
-        "effect": "You do an extra 1 damage to targets you Mark while they are Marked. Additionally, You know the location of all Marked enemies you have marked regardless of distance.",
-        "req": [
-            "mind 2",
-            "nature 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
     "128": {
         "name": "Elemental Arrows",
         "effect": "You infuse an arrow with elemental energy. Make a Weapon Attack with a weapon that can use arrows (bows/crossbows). The infused arrow does 1 additional damage, Additionally, choose one of the following effects:\nFire: On hit, the arrow applies Burn 2\nIce: On hit, the creature gains Stun 1\nEarth: On hit, the creature is knocked back 2 tiles \nWind: On hit, another creature within 2 tiles takes half damage (rounded down).",

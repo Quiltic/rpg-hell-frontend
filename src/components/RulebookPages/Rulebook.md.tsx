@@ -250,7 +250,7 @@ Death's Door only goes away if you do a Rest.
 | O,2 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
 | O,3 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
 | O,4 | Beastkin | Increase your Speed by 1. |
-| O,5 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain 1 Armor. |
+| O,5 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
 | O,6 | Flame Draconic | Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
 | O,6 | Frozen Draconic | Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
 | O,6 | Earthen Draconic | Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |

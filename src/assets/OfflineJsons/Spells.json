@@ -2,7 +2,7 @@
     "1": {
         "id": 1,
         "name": "fire bolt",
-        "effect": "Hurl a molt of fire. Make a Soul Attack against a target within Throw Range 6. On hit give the target 1 stack of Burn for every 4 Soul Strain you have (rounded down). On a 4 or less give the target 1 stack of Burn for every 5 Soul Strain instead of every 4 (rounded down). On a 9 or higher give the target 1 stack of Burn for every 3 Soul Strain instead of every 4 (rounded down).",
+        "effect": "Hurl a molt of fire. Make a Soul Attack against a target within Throw Range 6. On hit give the target 1 stack of Burn for every 4 Soul Strain you have (rounded down). On a Low Roll give the target 1 stack of Burn for every 5 Soul Strain instead of every 4 (rounded down). On a High Roll give the target 1 stack of Burn for every 3 Soul Strain instead of every 4 (rounded down).",
         "dice": 2,
         "level": 0,
         "tags": [
@@ -15,7 +15,7 @@
     "2": {
         "id": 2,
         "name": "poprocks",
-        "effect": "Turn a rock into a little explosive. Make a Soul Attack against a target within Throw Range 6. On hit push the creature back (Knockback)1 tile plus an additional 1 tile for every 2  Soul Strain you have (rounded up). On a 4 or less it is an additional 1 tile for every 3 Soul Strain instead of every 2. On a 9 or higher it is an additional tile for every Soul Strain you have instread of ever 2.",
+        "effect": "Turn a rock into a little explosive. Make a Soul Attack against a target within Throw Range 6. Push the creature back (Knockback) 1 tile plus an additional 1 tile for every 2 Soul Strain you have (rounded up). On a Low Roll it is an additional 1 tile for every 3 Soul Strain instead of every 2. On a High Roll it is an additional tile for every Soul Strain you have instread of ever 2.",
         "dice": 2,
         "level": 0,
         "tags": [
@@ -29,7 +29,7 @@
     "3": {
         "id": 3,
         "name": "water whip",
-        "effect": "Make a Soul Attack against a creature within Range 6. Do 1 damage for every 4 Soul Strain you currently have (rounded down). On a 4 or less do 1 damage for every 5 Soul Strain you have instead of every 4 (rounded down). On a 9 or higher do 1 damage for every 3 Soul Strain you have instead of every 4 (rounded down).",
+        "effect": "Make a Soul Attack against a creature within Range 6. Do 1 damage for every 4 Soul Strain you currently have (rounded down). On a Low Roll do 1 damage for every 5 Soul Strain you have instead of every 4 (rounded down). On a High Roll do 1 damage for every 3 Soul Strain you have instead of every 4 (rounded down).",
         "dice": 2,
         "level": 0,
         "tags": [
@@ -42,7 +42,7 @@
     "4": {
         "id": 4,
         "name": "spark",
-        "effect": "Create a spark between two fingers which can ignite flammable objects. Alternatively you can make a Soul Attack against a creature within Melee Range. Deals 1 damage for every 2 Strain you currently have. On a 4 or less do 1 damage for every 3 Soul Strain you have instead of every 2. On a 9 or higher do 1 damage for every Soul Strain you have instead of every 2.",
+        "effect": "Create a spark between two fingers which can ignite flammable objects. Alternatively you can make a Soul Attack against a creature within Melee Range. Deals 1 damage for every 2 Strain you currently have. On a Low Roll do 1 damage for every 3 Soul Strain you have instead of every 2. On a High Roll do 1 damage for every Soul Strain you have instead of every 2.",
         "dice": 2,
         "level": 0,
         "tags": [
@@ -133,7 +133,7 @@
     "11": {
         "id": 11,
         "name": "phantom fishing rod",
-        "effect": "This spell counts as a Fishing rod for the purposes of Fishing (See Items). Target a creature within Range 6, increase this range by 1 for every 4 Soul Strain you have (rounded down). Pull a light object to you or if you target a large object or creature make a Soul Attack. On hit pull the target 3 tiles to you. On a 4 or less pull the target 2 tiles to you instead of 3. On a 9 or higher pull the target 4 tiles instead of 3.",
+        "effect": "This spell counts as a Fishing rod for the purposes of Fishing (See Items). Target a creature within Range 6, increase this range by 1 for every 4 Soul Strain you have (rounded down). Pull a light object to you or if you target a large object or creature make a Soul Attack. On hit pull the target 3 tiles to you. On a Low Roll pull the target 2 tiles to you instead of 3. On a High Roll pull the target 4 tiles instead of 3.",
         "dice": 2,
         "level": 0,
         "tags": [
@@ -146,7 +146,7 @@
     "12": {
         "id": 12,
         "name": "flame claw",
-        "effect": "Make a Soul Attack against a target within Melee Range. On hit, give the target 2 Burn. On a 4 or less give the target 1 stack of Burn instead of 2. On a 9 or higher give the target 3 stacks of Burn instead of 2.",
+        "effect": "Make a Soul Attack against a target within Melee Range. On hit, give the target 2 Burn. On a Low Roll give the target 1 stack of Burn instead of 2. On a High Roll give the target 3 stacks of Burn instead of 2.",
         "dice": 2,
         "level": 1,
         "tags": [
@@ -173,7 +173,7 @@
     "14": {
         "id": 14,
         "name": "water ball",
-        "effect": "Create a waterball about 1 ft in diameter. You can then make a Soul Attack against a target within Range 8. On hit the target gets knocked back 4 tiles, and they get 4 stacks of Wet. On a 4 or less they get knocked back 3 tiles and gain 2 stacks of Wet instead. On a 9 or higher they get knocked back 5 tiles and gain 6 stacks of Wet instead.",
+        "effect": "Create a waterball about 1 ft in diameter. You can then make a Soul Attack against a target within Range 8. On hit the target gets knocked back 4 tiles, and they get 4 stacks of Wet. On a Low Roll they get knocked back 3 tiles and gain 2 stacks of Wet instead. On a High Roll they get knocked back 5 tiles and gain 6 stacks of Wet instead.",
         "dice": 2,
         "level": 1,
         "tags": [
@@ -210,7 +210,7 @@
     "17": {
         "id": 17,
         "name": "dark burst",
-        "effect": "Make a Soul Attack against a target within Range 8. Do 2 damage, and the target gains 1 stack of Blind. On a 4 or less the target does not gain a stack of Blind. On a 9 or higher the target gains 2 stacks of Blind instead.",
+        "effect": "Make a Soul Attack against a target within Range 8. Do 2 damage, and the target gains 1 stack of Blind. On a Low Roll the target does not gain a stack of Blind. On a High Roll the target gains 2 stacks of Blind instead.",
         "dice": 2,
         "level": 1,
         "tags": [
@@ -346,7 +346,7 @@
     "28": {
         "id": 28,
         "name": "soul shard",
-        "effect": "Make a Soul Attack against a target within Range 8. On hit the target takes 2 damage, and the next time you cast this spell on the same target add 1 to one of the dice spent casting this spell. On a 4 or less you do not get the bonus to the next cast of this spell on the target. On a 9 or higher you may add 2 instead of 1 to the next cast.",
+        "effect": "Make a Soul Attack against a target within Range 8. On hit the target takes 2 damage, and the next time you cast this spell on the same target add 1 to one of the dice spent casting this spell. On a Low Roll you do not get the bonus to the next cast of this spell on the target. On a High Roll you may add 2 instead of 1 to the next cast.",
         "dice": 2,
         "level": 1,
         "tags": [
@@ -447,7 +447,7 @@
     "36": {
         "id": 36,
         "name": "conjure spectral claws",
-        "effect": "Focus on conjuring a set of Spectral Claws (See weapons). On cast you can do an Attack.  These claws do damage based on your Soul. On a 4 or less you do 1 less damage. On a 9 or higher you give the creature a stack of Soul Strain.\nThe claws go away after 6 turns, if you dispel it, you cast another Focused spell, or you take damage.",
+        "effect": "Focus on conjuring a set of Spectral Claws (See weapons). On cast you can do an Attack.  These claws do damage based on your Soul. On a Low Roll you do 1 less damage. On a High Roll you give the creature a stack of Soul Strain.\nThe claws go away after 6 turns, if you dispel it, you cast another Focused spell, or you take damage.",
         "dice": 2,
         "level": 2,
         "tags": [
@@ -573,7 +573,7 @@
     "46": {
         "id": 46,
         "name": "soul slash",
-        "effect": "Make a Soul Melee Attack against a target. On hit, give the creature 4 Soul Strain. On a 4 or less the target gains 3 Soul Strain instead of 4. On a 9 or higher give the target 5 Soul Strain instead of 4.",
+        "effect": "Make a Soul Melee Attack against a target. On hit, give the creature 4 Soul Strain. On a Low Roll the target gains 3 Soul Strain instead of 4. On a High Roll give the target 5 Soul Strain instead of 4.",
         "dice": 2,
         "level": 2,
         "tags": [

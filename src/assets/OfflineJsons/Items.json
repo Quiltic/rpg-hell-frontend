@@ -4,7 +4,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 9 or higher give the target an additional 1 stack of Bleed.",
+        "effect": "On a High Roll give the target an additional 1 stack of Bleed.",
         "tags": [
             "1 Damage",
             "Throw Range 6",
@@ -19,7 +19,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
+        "effect": "On a Low Roll do 1 less Damage. On a High Roll do an additional 1 Damage.",
         "tags": [
             "2 Damage",
             "weapon"
@@ -32,7 +32,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do an additional 1 Damage.",
+        "effect": "On a Low Roll do 1 less Damage. On a High Roll do an additional 1 Damage.",
         "tags": [
             "3 Damage",
             "Two Handed",
@@ -46,7 +46,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a 4 or less do 1 less Damage. On a 9 or higher do Double Damage to Phisical Armor",
+        "effect": "On a Low Roll do 1 less Damage. On a High Roll do Double Damage to Armor",
         "tags": [
             "2 Damage",
             "Throw Range 6",
@@ -60,7 +60,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "This weapon does Double Damage to objects. On a 4 or less this weapon does half damage to objects instead of double. On a 9 or higher  Knockback the Target 2 tiles away from you.",
+        "effect": "This weapon does Double Damage to objects. On a Low Roll this weapon does half damage to objects instead of double. On a High Roll  Knockback the Target 2 tiles away from you.",
         "tags": [
             "2 Damage",
             "Two Handed",
@@ -74,7 +74,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a 4 or less you have a Range of 1 instead of 2. On a 9 or higher you damage Targets in a line infront of you instead of just the first Target hit.",
+        "effect": "On a Low Roll you have a Range of 1 instead of 2. On a High Roll you damage Targets in a line infront of you instead of just the first Target hit.",
         "tags": [
             "2 Damage",
             "Range 2",
@@ -89,7 +89,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 4 or less you do 1 less damage to Armor Health. On a 9 or higher you reduce the Targets Speed by 1 until the start of your next Turn. This effect does not Stack.",
+        "effect": "On a Low Roll you do 1 less damage to Armor Health. On a High Roll you reduce the Targets Speed by 1 until the start of your next Turn. This effect does not Stack.",
         "tags": [
             "1 Damage",
             "Loading 16",
@@ -105,7 +105,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 9 or higher do an additional 1 Damage.",
+        "effect": "On a High Roll do an additional 1 Damage.",
         "tags": [
             "1 Damage",
             "Loading 1",
@@ -120,7 +120,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 4 or less do 1 less damage. On a 9 or higher do an additional 1 Damage.",
+        "effect": "On a Low Roll do 1 less damage. On a High Roll do an additional 1 Damage.",
         "tags": [
             "1 Damage",
             "Loading 1",
@@ -136,7 +136,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 5 or 6 do Double Damage to Ward",
+        "effect": "On a Low Roll do 1 less Damage. On a High Roll do Double Damage to Armor",
         "tags": [
             "2 Damage",
             "Loading 1",
@@ -153,7 +153,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 9 or higher, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice.",
+        "effect": "On a High Roll, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice.",
         "tags": [
             "1 Damage",
             "Loading 6",
@@ -169,7 +169,7 @@
         "req": [
             "mind 3"
         ],
-        "effect": "On a 9 or higher, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
+        "effect": "On a High Roll, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
         "tags": [
             "1 Damage",
             "Loading 8",
@@ -186,7 +186,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "Hits targets to the left and right of the target you aimed at. On a 4 or less only hits 1 target. On a 9 or higher it attacks in a Cone infront of you.",
+        "effect": "Hits targets to the left and right of the target you aimed at. On a Low Roll only hits 1 target. On a High Roll it attacks in a Cone infront of you.",
         "tags": [
             "2 Damage",
             "Loading 2",
@@ -202,7 +202,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a 9 or higher give the target an additional 1 stack of Burn.",
+        "effect": "On High Roll give the target an additional 1 stack of Burn.",
         "tags": [
             "1 Damage",
             "Throw Range 6",
@@ -217,7 +217,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a 4 or less you gain 1 Marked. On a 9 or higher give the target 1 stack of Marked.",
+        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a Low Roll you gain 1 Marked. On a High Roll give the target 1 stack of Marked.",
         "tags": [
             "1 Damage",
             "Range 3",
@@ -233,7 +233,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a 4 or less have 1 less Range. On a 9 or higher give the target 1 stack of Stun",
+        "effect": "On a Low Roll have 1 less Range. On a High Roll give the target 1 stack of Stun",
         "tags": [
             "2 Damage",
             "Range 2",
@@ -249,7 +249,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 4 or less you dont catch the Boomerang and it flys 4 tiles behind you. On a 9 or higher give the target 1 stack of Stun.",
+        "effect": "On a Low Roll you dont catch the Boomerang and it flys 4 tiles behind you. On a High Roll give the target 1 stack of Stun.",
         "tags": [
             "2 Damage",
             "Throw Range 8",
@@ -264,7 +264,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 9 or higher give the target an additional 1 stack of Bleed.",
+        "effect": "On a High Roll give the target an additional 1 stack of Bleed.",
         "tags": [
             "1 Damage",
             "Range 3",
@@ -278,7 +278,7 @@
         "req": [
             "Core 1"
         ],
-        "effect": "On a 9 or higher you can throw dirt into the targets eyes to give them 1 stack of Blind.",
+        "effect": "On a High Roll you can throw dirt into the targets eyes to give them 1 stack of Blind.",
         "tags": [
             "2 Damage",
             "Two Handed",
@@ -292,7 +292,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a 4 or less loose 1 Speed until the start of your next Turn. On a 9 or higher you may Move 1 tile.",
+        "effect": "On a Low Roll loose 1 Speed until the start of your next Turn. On a High Roll you may Move 1 tile.",
         "tags": [
             "1 Damage",
             "weapon"
@@ -305,7 +305,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a 9 or higher you may cast a spell through the Yoyo haveing it origonate from the location of the Yoyo, so long as you are holding onto the string.",
+        "effect": "On a High Roll you may cast a spell through the Yoyo haveing it origonate from the location of the Yoyo, so long as you are holding onto the string.",
         "tags": [
             "1 Damage",
             "Range 2",
@@ -321,10 +321,9 @@
         "req": [
             "body 2"
         ],
-        "effect": "10*Level armor",
+        "effect": "5*Level armor",
         "tags": [
             "Speed -2",
-            "Phisical",
             "Heavy armor"
         ],
         "cost": 0,
@@ -335,10 +334,9 @@
         "req": [
             "body 4"
         ],
-        "effect": "20*Level armor",
+        "effect": "7*Level armor",
         "tags": [
             "Speed -2",
-            "Phisical",
             "Heavy armor"
         ],
         "cost": 0,
@@ -349,10 +347,9 @@
         "req": [
             "body 1"
         ],
-        "effect": "8*Level armor",
+        "effect": "3*Level armor",
         "tags": [
             "Speed -1",
-            "Phisical",
             "Medium armor"
         ],
         "cost": 0,
@@ -363,10 +360,9 @@
         "req": [
             "mind 1"
         ],
-        "effect": "8*Level armor",
+        "effect": "3*Level armor",
         "tags": [
             "Speed -1",
-            "Phisical",
             "Medium armor"
         ],
         "cost": 0,
@@ -377,10 +373,9 @@
         "req": [
             "body 4"
         ],
-        "effect": "12*Level armor",
+        "effect": "5*Level armor",
         "tags": [
             "Speed -1",
-            "Phisical",
             "Medium armor"
         ],
         "cost": 0,
@@ -391,10 +386,9 @@
         "req": [
             "mind 4"
         ],
-        "effect": "12*Level armor",
+        "effect": "5*Level armor",
         "tags": [
             "Speed -1",
-            "Phisical",
             "Medium armor"
         ],
         "cost": 0,
@@ -405,9 +399,8 @@
         "req": [
             "Core 1"
         ],
-        "effect": "6*Level armor",
+        "effect": "1*Level armor",
         "tags": [
-            "Magical",
             "Light armor"
         ],
         "cost": 0,
@@ -418,9 +411,8 @@
         "req": [
             "Core 1"
         ],
-        "effect": "6*Level armor",
+        "effect": "1*Level armor",
         "tags": [
-            "Magical",
             "Light armor"
         ],
         "cost": 0,
@@ -987,7 +979,7 @@
         "craft": 0
     },
     "94": {
-        "name": "Travel Food",
+        "name": "Travel Meal",
         "req": [
             ""
         ],
