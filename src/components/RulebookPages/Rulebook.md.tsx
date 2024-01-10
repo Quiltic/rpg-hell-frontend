@@ -216,7 +216,7 @@ Death's Door only goes away if you do a Rest.
 ## Level 1
 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
 
-\`Health = Level + 5*Body + 3*Mind + Soul\`
+<span style="font-family: monospace; font-size: 1.3em">Health = Level + 5*Body + 3*Mind + Soul</span>
 
 \`Soul Strain and Known Spells = 3*Soul\`
 
@@ -253,7 +253,7 @@ Death's Door only goes away if you do a Rest.
 | O,5 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
 | O,6 | Flame Draconic | Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
 | O,6 | Frozen Draconic | Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| O,6 | Earthen Draconic | Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
+| O,6 | Earthen Draconic |Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell.|
 | O,6 | Sparked Draconic | Lightning: You can cast Lightning once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
 | E,1 | Elemental | Gain the Spell Control Elements. |
 | E,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
@@ -261,5 +261,5 @@ Death's Door only goes away if you do a Rest.
 | E,4 | Seeker | Gain Dreams of the Future Trait for free, and at Level 3 gain Past and Future Trait for free. |
 | E,5 | Undergrounder | Darkness does not scare you. You can cast Glow at will, and Fog Light once per Rest. |
 | E,6 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
-`
+`;
 export default markdown;

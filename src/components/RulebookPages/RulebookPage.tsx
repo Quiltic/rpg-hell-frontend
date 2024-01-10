@@ -15,6 +15,9 @@ import {
     bagIcon,
     ticketIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
+import { formatEffectString } from "../../util/textFormatting";
+
+const formattedmd = formatEffectString(markdown);
 
 export default function RulebookPage() {
     return (
@@ -40,9 +43,14 @@ export default function RulebookPage() {
                 </Link>
             </div>
 
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-                {markdown}
-            </Markdown>
+            <div className=" mx-auto text-left max-w-4xl markdown-styles">
+                <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
+                >
+                    {formattedmd}
+                </Markdown>
+            </div>
         </>
     );
 }

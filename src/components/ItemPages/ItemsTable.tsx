@@ -74,7 +74,10 @@ export default function ItemsTable({
                             <td className="capitalize" align="center">
                                 {req}
                             </td>
-                            <td dangerouslySetInnerHTML={{ __html: ee }}></td>
+                            <td
+                                dangerouslySetInnerHTML={{ __html: ee }}
+                                className="whitespace-pre-wrap"
+                            ></td>
                             <td className="capitalize">
                                 {item.tags?.join(", ").replace(/ 0/gi, "")}
                             </td>

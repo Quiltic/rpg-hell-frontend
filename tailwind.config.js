@@ -10,7 +10,7 @@ export default {
     theme: {
         extend: {},
         fontFamily: {
-            serif: ["Heebo", "Georgia", "serif"],
+            serif: ["Heebo", "Georgia", "serif", "monospace"],
         },
         container: {
             center: true,

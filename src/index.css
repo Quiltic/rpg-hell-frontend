@@ -7,11 +7,11 @@
   h1,
   h2,
   h3 {
-    @apply mt-2 mb-1
+    @apply mt-4 mb-1 font-bold
   }
 
   h1 {
-    @apply text-3xl mb-4 font-bold
+    @apply text-3xl mb-2 font-bold text-center
   }
 
   h2 {
@@ -27,11 +27,6 @@
   }
 
 }
-
-li {
-  text-align: left
-}
-
 
 :root {
   line-height: 1.5;
@@ -58,6 +53,12 @@ li {
   :root {
     color: #fbf8f0;
     background-color: #2e262d;
+  }
+}
+
+.markdown-styles {
+  p {
+    @apply indent-8
   }
 }
 
