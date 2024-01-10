@@ -153,9 +153,10 @@ export default function ItemsTablePage() {
     const IterativeItemLevels = [
         "Weapon",
         "Armor",
-        "Item",
         "Rune",
-        "Consumable",
+        "Potion",
+        "Grenade",
+        "Non-magic",
         "Lesser",
         "Greater",
     ];
