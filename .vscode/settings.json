@@ -1,3 +1,18 @@
 {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+        "agasent",
+        "bertle",
+        "counterspell",
+        "csteps",
+        "debuff",
+        "demi",
+        "instread",
+        "knockback",
+        "Knockback",
+        "lightshow",
+        "Mysc",
+        "poprocks",
+        "throught"
+    ]
 }

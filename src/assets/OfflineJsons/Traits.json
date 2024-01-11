@@ -1,7 +1,7 @@
 {
     "1": {
         "name": "Weapon Attack",
-        "effect": "Use your weapon to hit a target. To hit a targeSpendt you must give 2 dice. Then when doing damage removing damage from the target based on its Armor and Ward.",
+        "effect": "Use your weapon to hit a target. To hit a target you must give 2 dice. Then when doing damage removing damage from the target based on its Armor and Ward.",
         "req": [
             "Base"
         ],
@@ -552,7 +552,7 @@
     },
     "60": {
         "name": "Coordinated Attack",
-        "effect": "Make a Weapon Attack aginst a single target. An ally within 1 tile of the target may spend their locked dice and the bonus dice spent on this trait to make an attack against the same target.",
+        "effect": "Make a Weapon Attack against a single target. An ally within 1 tile of the target may spend their locked dice and the bonus dice spent on this trait to make an attack against the same target.",
         "req": [
             "mind 3"
         ],

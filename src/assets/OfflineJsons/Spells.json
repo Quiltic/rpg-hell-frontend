@@ -173,7 +173,7 @@
     "14": {
         "id": 14,
         "name": "water ball",
-        "effect": "Create a waterball about 1 ft in diameter. You can then make a Soul Attack against a target within Range 8. On hit the target gets knocked back 4 tiles, and they get 4 stacks of Wet. On a Low Roll they get knocked back 3 tiles and gain 2 stacks of Wet instead. On a High Roll they get knocked back 5 tiles and gain 6 stacks of Wet instead.",
+        "effect": "Create a water ball about 1 ft in diameter. You can then make a Soul Attack against a target within Range 8. On hit the target gets knocked back 4 tiles, and they get 4 stacks of Wet. On a Low Roll they get knocked back 3 tiles and gain 2 stacks of Wet instead. On a High Roll they get knocked back 5 tiles and gain 6 stacks of Wet instead.",
         "dice": 2,
         "level": 1,
         "tags": [
@@ -738,7 +738,7 @@
     "59": {
         "id": 59,
         "name": "dome",
-        "effect": "You can Focus on creating a Spectral Dome within 6 tiles of you. The dome can be up to 3 tiles in radius (6 diamiter). The dome has 15 health and 15 Armor Health. While being made if a creature would be inside the dome\u2019s shape it is not affected by the creation. Creatures and objects cannot move through the dome once made.\nThe dome goes away after 1 hour, if you dispel it, you cast another Focused spell, the dome dies, or you loose Focus.",
+        "effect": "You can Focus on creating a Spectral Dome within 6 tiles of you. The dome can be up to 3 tiles in radius (6 diameter). The dome has 15 health and 15 Armor Health. While being made if a creature would be inside the dome\u2019s shape it is not affected by the creation. Creatures and objects cannot move through the dome once made.\nThe dome goes away after 1 hour, if you dispel it, you cast another Focused spell, the dome dies, or you loose Focus.",
         "dice": 1,
         "level": 3,
         "tags": [
@@ -929,6 +929,18 @@
             "ranged",
             "utility",
             "illusion"
+        ]
+    },
+    "75": {
+        "id": 75,
+        "name": "summon guiding sprite",
+        "effect": "Focus on Summoning a Guiding Sprite within 3 tiles of you, when you first summon the sprite pick an element: Fire, Water, Earth, Wind, Light, or Dark. By using a dice on later turns, or when the Sprite is Summoned you may have it tether to a creature of your choice within 3 tiles of the sprite. At the beginning of your turn or when first tethered the sprite gives one of the following effects based on what element you summoned it as:\nFire: The creature looses all stacks of Wet and cannot gains 1 less stacks of Wet when given stacks while the sprite is tethered.\nWater: The creature Gains a stack of Wet, and cannot have less than 1 stack of Wet while the sprite it tethered.\nEarth: Gain 1 Armor Health. This Armor Health goes away when the sprite leaves.\nWind: You have no need to breathe while tethered. This stops Poisson gas, and drowning.\nLight: Remove all stacks of Blind. The sprite illuminates 2 tiles around itself while tethered.\nDark: Become Invisible, this Invisibility stops when you move or do damage.\nThe sprite lasts for 10 minutes, if you dispel it, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "ranged",
+            "utility",
+            "summon"
         ]
     }
 }

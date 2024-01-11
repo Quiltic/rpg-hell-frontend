@@ -498,11 +498,11 @@
         "craft": 0
     },
     "60": {
-        "name": "Bandage",
+        "name": "bandage",
         "req": [
             ""
         ],
-        "effect": "Target a Creature, cannot target undead or constructs. Heal the target 2 Health + Half your medicine Rounded up.\nCan be crafted with medicine or crafting Rolls.",
+        "effect": "Target a Creature, cannot target undead or constructs. Roll Medicine, 7+ Heal the target half your Medicine (rounded up).\nCan be crafted with medicine or crafting Rolls.",
         "tags": [
             "consumable",
             "medicine",
@@ -517,7 +517,7 @@
         "req": [
             ""
         ],
-        "effect": "Target a Creature, cannot target undead or constructs. Heal the target for your medicine + your Level.\nCan be crafted with medicine or crafting Rolls.",
+        "effect": "Target a Creature, cannot target undead or constructs. Roll Medicine, 7+ Heal the target for your medicine.\nCan be crafted with medicine or crafting Rolls.",
         "tags": [
             "consumable",
             "medicine",
