@@ -513,7 +513,7 @@
         "craft": 0
     },
     "61": {
-        "name": "Medkit",
+        "name": "medkit",
         "req": [
             ""
         ],
@@ -528,7 +528,7 @@
         "craft": 0
     },
     "62": {
-        "name": "Healing Spray",
+        "name": "healing spray",
         "req": [
             ""
         ],
@@ -787,7 +787,7 @@
         "req": [
             ""
         ],
-        "effect": "Allows cooking decent or higher meals.",
+        "effect": "Grants the Action \"Cooking\" which can be used with Mind, Nature, or Medicine:\n5+ Spend 5 minutes to create up to 3 Travel Meals from raw resources.\n7+ Spend 10 minutes to create up to 3 Cheap Meals from raw resources.\n14+ Spend 30 minutes to create up to 3 Decent Meals from raw resources.\n18+ Spend 1 hour to create up to 3 Rich Meals from raw resources.\n21+ Spend 2 hours to create up to 3 Royal Meals from raw resources.",
         "tags": [
             "non-magic item",
             "small"
@@ -800,7 +800,7 @@
         "req": [
             ""
         ],
-        "effect": "Allows for crafting potions and healing items (listed above).",
+        "effect": "Allows for crafting potions and healing items.",
         "tags": [
             "non-magic item",
             "small"
@@ -809,7 +809,7 @@
         "craft": 0
     },
     "81": {
-        "name": "Smithing Tools",
+        "name": "Smiting Tools",
         "req": [
             ""
         ],
@@ -826,7 +826,7 @@
         "req": [
             ""
         ],
-        "effect": "Allows for picking locks.",
+        "effect": "Grants the Action \"Lockpick\" which can be used with Mind, or Thieving: \n7+ Unlock most locks. \n14+ Unlock a well made lock.\n21+ Unlock unique locks.\n28+ Unlock magical locks.",
         "tags": [
             "non-magic item",
             "small"
@@ -1000,7 +1000,7 @@
         "req": [
             ""
         ],
-        "effect": "A prepared meal. It's better than Travel Food but not by much.",
+        "effect": "A prepared meal. It's better than Travel Meal but not by much.",
         "tags": [
             "consumable",
             "non-magic item",

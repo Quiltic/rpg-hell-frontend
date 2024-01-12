@@ -9,6 +9,13 @@ There are primarily 2 sections to this game, Out of Combat; which is where most 
 
 # Out of Combat Rules
 
+## Locking Dice
+
+When you do a roll you may Lock a dice. This dice is set to the side and is removed from the roll. On later turns you may then replace a dice with your Locked dice. Replacing a dice removes the replaced dice from play and unlocks the Locked dice.
+For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
+**You can Not have more than 1 Locked dice at a time.**
+
+
 ## Actions
 
 ### General Actions
@@ -23,11 +30,9 @@ These are actions that come from Traits, which are character/creature dependant.
 
 ## Checks
 
-When you want to do an Action the GM may ask you to roll a Check based on some Stat or Skill you have. When they do you will need to roll a number of dice equal to 2 plus 1 for every point you put into the required check.
+When you want to do an Action you to roll a Check based on the required stat or skill. You will need to roll a number of dice equal to 2 with an additional dice for every point you put into the required check.
 For example if the GM asks you roll a Body check, and you have a 3 in Body then you roll 5 dice.
 
-The GM will then have a number of passes that you will need in order to succeed at the roll you are doing. A success is any dice that is a 4 or higher.
-A 6 counts as 2 successes and a 1 counts as a negative success, yes you technically can have negative successes.
 Once you tell your GM how many successes you have rolled they will then tell you if you passed or failed the check and what happens next.
 
 
@@ -151,11 +156,18 @@ Death's Door only goes away if you do a Rest.
 
 
 ## Charm
+
 ### Convince someone of something
 - 5+ Convince them of something that they would align with.
 - 7+ Convince them of something they could understand.
 - 14+ Convince them of something unrealistic.
 - 21+ Convince them of something outrageous.
+
+### Discern others intentions
+- 7+ Determine if someone's intention is good or bad. This cannot tell if someone is lying, only their intention.
+- 14+ Determine someone's intention, and whether they are lying.
+- 21+ Determine someone's intention, whether they are lying, and what they are lying about.
+- 28+ Determine someone's intention, whether they are lying, what they are lying about, and how to convince them how to tell the truth.
 
 
 ## Crafting
@@ -181,10 +193,13 @@ Death's Door only goes away if you do a Rest.
 ## Nature
 
 ### Scrounge
-- 7+ Find 1 ingredient item, raw food, or clean water source from the local environment. This can be done multiple times in a roll.
+- 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
 ### Handle a beast.
-- Do a contest against a creature on a success you may tame/control a beast
+- 7+ Successfully tame/handle a Creature with the Beast tag and a DR of 1 or less.
+- This roll can be done multiple times increasing the requirement by 3 and the DR by 1. 
+- (For example a 11+ can control a DR 2 Beast)
+
 
 ### Track a creature
 - 7+ Follow obvious tracks. 
@@ -204,12 +219,19 @@ Death's Door only goes away if you do a Rest.
 
 ## Thieving
 
-### Steal an item
-- Do a contest against any creature that would be able to see you steal the item.
+### Steal/place an item
+- 5+ You steal/place the item but are detected.
+- 7+ Do a contest against all creatures nearby. On success, you steal/place the item undetected.
+- 14+ Do a contest against all creatures that are looking your way or you are stealing from. On success, you steal/place the item undetected.
+- 21+ Do a contest against the creature that you are stealing from. On success, you steal/place the item undetected.
+- 28+ You steal/place the item undetected.
 
-### Place an item undetected
-- Do a contest against any creature that would be able to see you place the item.
-
+### Hide
+- 7+ Hide from onlookers, someone can still see you if they look directly at you. You can still be heard normally and most actions will make noise.
+- 11+ Become Hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
+- 14+ Become Hidden until you do any non-Thieving action except moving or move within 1 tile of another non-friendly creature you are not stealing from.
+- 18+ Become Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
+- 28+ Become Invisible until you do any action except moving.
 
 
 # Making a Character
