@@ -20,6 +20,18 @@ function filterBROKENandMONSTER(_list) {
     }))
 };
 
+function filterBROKENandMONSTERreq(_list) {
+    // simple cleanup for BROKEN and MONSTER items
+    return (_list?.filter((l) => {
+        if (l.req) {
+            return l.req.includes("MONSTER") ||
+                l.req.includes("BROKEN")
+                ? ""
+                : l.req;
+        }
+    }))
+};
+
 function sortArrayByReqs(_list) {
     // first sorts by name so that items that dont have req can be properly sorted
     const _listSortedByName = _list?.sort((l1, l2) => {
@@ -37,5 +49,6 @@ function sortArrayByReqs(_list) {
 export {
     sortArrayByLevel,
     filterBROKENandMONSTER,
+    filterBROKENandMONSTERreq,
     sortArrayByReqs,
 };
