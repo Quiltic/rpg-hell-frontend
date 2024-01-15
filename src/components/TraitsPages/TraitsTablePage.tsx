@@ -11,6 +11,8 @@ import TraitsTable from "./TraitsTable";
 
 import json from "../../assets/OfflineJsons/Traits.json";
 import { Button } from "../ui/Button/Button";
+import { filterBROKENandMONSTER, sortArrayByReqs } from "../../util/sortingTools";
+import { getPersistentPinnedNames } from "../../util/tableTools";
 
 const ChevronIcon = (
     <svg
@@ -43,13 +45,6 @@ export default function TraitsTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    function sortTraitsArrayByReqs(traits: Trait[]) {
-        return traits.sort((t1, t2) => {
-            // console.log(t.name);
-            return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
-        });
-    }
-
     useEffect(() => {
         async function getTraits() {
             let traits: Trait[];
@@ -66,40 +61,19 @@ export default function TraitsTablePage() {
                     return;
                 }
             }
-            traits = traits?.filter((s) => {
-                if (s.req) {
-                    return s.req?.toString().includes("MONSTER") ||
-                        s.req?.toString().includes("BROKEN")
-                        ? ""
-                        : s.req;
-                }
-            });
+            traits = filterBROKENandMONSTER(traits);
 
-            traits = sortTraitsArrayByReqs(traits);
+            traits = sortArrayByReqs(traits);
 
             setAllTraits(traits);
             setDisplayedTraits(traits);
 
-            const persistentPinnedTraitNames =
-                window.localStorage.getItem("pinnedTraitNames");
-
-            if (persistentPinnedTraitNames) {
-                const splitNames = persistentPinnedTraitNames.split("|");
-                const persistentTraits = splitNames.map((tn) => {
-                    const found = traits.find((t) => {
-                        return t.name == tn;
-                    });
-                    return found
-                        ? found
-                        : {
-                              name: "Error",
-                              effect: `Trait "${tn}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
-                              dice: 0,
-                          };
-                });
-                setPinnedTraits(persistentTraits);
+            const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
+            if (persistentPinnedTraits) {
+                setPinnedTraits(persistentPinnedTraits);
             }
         }
+
         getTraits();
     }, [TraitsService]);
 
@@ -131,13 +105,13 @@ export default function TraitsTablePage() {
         });
         window.localStorage.setItem(
             "pinnedTraitNames",
-            pinnedTraitNames.join("|")
+            pinnedTraitNames.join(";|;")
         );
     }
 
     function addToPinnedTraits(s: Trait) {
         const newPersist = [...pinnedTraits, s];
-        setPinnedTraits(sortTraitsArrayByReqs(newPersist));
+        setPinnedTraits(sortArrayByReqs(newPersist));
         updatePersistantPinnedTraits(newPersist);
     }
 

@@ -11,6 +11,8 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/Items.json";
 import { Button } from "../ui/Button/Button";
+import { filterBROKENandMONSTER, sortArrayByReqs } from "../../util/sortingTools";
+import { getPersistentPinnedNames } from "../../util/tableTools";
 
 const ChevronIcon = (
     <svg
@@ -43,18 +45,7 @@ export default function ItemsTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    function sortItemsArrayByReqs(items: Item[]): Item[] {
-        const itemsSortedByReq = items?.sort((t1, t2) => {
-            // console.log(t.name);
-            return (t1.name ?? "") < (t2.name ?? "") ? -1 : 1;
-        });
-
-        return itemsSortedByReq?.sort((t1, t2) => {
-            // console.log(t.name);
-            return (t1.req ?? "") < (t2.req ?? "") ? -1 : 1;
-        });
-    }
-
+        
     useEffect(() => {
         async function getItems() {
             let items: Item[];
@@ -71,36 +62,20 @@ export default function ItemsTablePage() {
                     return;
                 }
             }
-            items = items?.filter((s) => {
-                if (s.req) {
-                    return s.req?.toString().includes("MONSTER") ||
-                        s.req?.toString().includes("BROKEN")
-                        ? ""
-                        : s.req;
-                }
-            });
 
-            setAllItems(sortItemsArrayByReqs(items ?? []));
-            setDisplayedItems(sortItemsArrayByReqs(items ?? []));
+            items = filterBROKENandMONSTER(items);
 
-            const persistentPinnedItemNames =
-                window.localStorage.getItem("pinnedItemNames");
+            items = sortArrayByReqs(items ?? []);
 
-            if (persistentPinnedItemNames) {
-                const splitNames = persistentPinnedItemNames.split("|");
-                const persistentItems = splitNames.map((name) => {
-                    const found = items.find((i) => {
-                        return i.name == name;
-                    });
-                    return found
-                        ? found
-                        : {
-                              name: "Error",
-                              effect: `Item "${name}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
-                          };
-                });
-                setPinnedItems(persistentItems);
+            setAllItems(items);
+            setDisplayedItems(items);
+
+            const persistentPinnedItems = getPersistentPinnedNames("pinnedItemNames",items);
+
+            if (persistentPinnedItems) {
+                setPinnedItems(persistentPinnedItems);
             }
+            
         }
         getItems();
     }, [ItemsService]);
@@ -129,7 +104,7 @@ export default function ItemsTablePage() {
         });
         window.localStorage.setItem(
             "pinnedItemNames",
-            pinnedItemNames.join("|")
+            pinnedItemNames.join(";|;")
         );
     }
 
@@ -138,7 +113,7 @@ export default function ItemsTablePage() {
     }
 
     function addToPinnedItems(i: Item) {
-        setPinnedItems(sortItemsArrayByReqs([...pinnedItems, i]));
+        setPinnedItems(sortArrayByReqs([...pinnedItems, i]));
         updatePersistantPinnedItems();
     }
 

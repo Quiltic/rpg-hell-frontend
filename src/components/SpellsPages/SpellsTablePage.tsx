@@ -12,6 +12,10 @@ import SpellsTable from "./SpellsTable";
 import json from "../../assets/OfflineJsons/Spells.json";
 import { Button } from "../ui/Button/Button";
 
+import { filterBROKENandMONSTER, sortArrayByLevel } from "../../util/sortingTools";
+import { getPersistentPinnedNames } from "../../util/tableTools";
+
+
 const ChevronIcon = (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +43,6 @@ export default function SpellsTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    function sortSpellsArrayByLevel(spells: Spell[]) {
-        return spells.sort((t1, t2) => {
-            // console.log(t.name);
-            return (t1.level ?? 0) - (t2.level ?? 0);
-        });
-    }
 
     useEffect(() => {
         async function getSpells() {
@@ -64,44 +62,20 @@ export default function SpellsTablePage() {
                 }
             }
 
-            spells = spells?.filter((s) => {
-                if (s.tags) {
-                    return s.tags.includes("MONSTER") ||
-                        s.tags.includes("BROKEN")
-                        ? ""
-                        : s.tags;
-                }
-            });
+            spells = filterBROKENandMONSTER(spells);
 
-            // const spellsSortedByLevel = spells?.sort((t1, t2) => {
-            //     // console.log(t.name);
-            //     return (t1.level ?? 0) - (t2.level ?? 0);
-            // });
-
-            spells = sortSpellsArrayByLevel(spells);
+            spells = sortArrayByLevel(spells);
 
             setAllSpells(spells);
             // setSpellsObjectSorted(spells);
             setDisplayedSpells(spells);
 
-            const persistentPinnedSpellNames =
-                window.localStorage.getItem("pinnedSpellNames");
-
-            if (persistentPinnedSpellNames) {
-                const splitNames = persistentPinnedSpellNames.split("|");
-                const persistentSpells = splitNames.map((sn) => {
-                    const found = spells.find((s) => {
-                        return s.name == sn;
-                    });
-                    return found
-                        ? found
-                        : {
-                              name: "Error",
-                              effect: `Spell "${sn}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
-                          };
-                });
-                setPinnedSpells(persistentSpells);
+            const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
+            if (persistentPinnedSpells) {
+                setPinnedSpells(persistentPinnedSpells);
             }
+
+
         }
         getSpells();
     }, [SpellsService]);
@@ -134,13 +108,13 @@ export default function SpellsTablePage() {
         });
         window.localStorage.setItem(
             "pinnedSpellNames",
-            pinnedSpellNames.join("|")
+            pinnedSpellNames.join(";|;")
         );
     }
 
     function addToPinnedSpells(s: Spell) {
         const newPersist = [...pinnedSpells, s];
-        setPinnedSpells(sortSpellsArrayByLevel(newPersist));
+        setPinnedSpells(sortArrayByLevel(newPersist));
         updatePersistantPinnedSpells(newPersist);
     }
 
