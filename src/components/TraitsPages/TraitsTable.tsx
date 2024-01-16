@@ -65,7 +65,7 @@ export default function TraitsTable({
                 {displayedTraits.map((trait) => {
                     const ee = formatEffectString(trait.effect ?? "");
                     const req = toPillElement(trait.req?.toString() ?? "", ",");
-                    console.log(req);
+                    // console.log(req);
                     return (
                         <tr>
                             <td className="font-bold capitalize">
