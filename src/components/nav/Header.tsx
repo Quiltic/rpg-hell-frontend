@@ -23,8 +23,8 @@ const pages: HeaderPageLink[] = [
         color: "hover:text-soul-700 text-soul-600 hover:underline",
     },
     {
-        name: "Traits",
-        href: "rulebook/traits",
+        name: "Character Sheet",
+        href: "character-sheet",
         color: "hover:text-mind-700 text-mind-600 hover:underline",
     },
 ];

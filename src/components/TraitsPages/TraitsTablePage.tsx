@@ -11,23 +11,10 @@ import TraitsTable from "./TraitsTable";
 
 import json from "../../assets/OfflineJsons/Traits.json";
 import { Button } from "../ui/Button/Button";
+import { filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
+import { getPersistentPinnedNames } from "../../util/tableTools";
 
-const ChevronIcon = (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-    >
-        <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-        />
-    </svg>
-);
+import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -42,13 +29,6 @@ export default function TraitsTablePage() {
     const [displayedTraits, setDisplayedTraits] = useState<Array<Trait>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
-
-    function sortTraitsArrayByReqs(traits: Trait[]) {
-        return traits.sort((t1, t2) => {
-            // console.log(t.name);
-            return (t1.req ?? "") < (t2.req ?? "0") ? -1 : 1;
-        });
-    }
 
     useEffect(() => {
         async function getTraits() {
@@ -66,40 +46,21 @@ export default function TraitsTablePage() {
                     return;
                 }
             }
-            traits = traits?.filter((s) => {
-                if (s.req) {
-                    return s.req?.toString().includes("MONSTER") ||
-                        s.req?.toString().includes("BROKEN")
-                        ? ""
-                        : s.req;
-                }
-            });
+            traits = filterBROKENandMONSTERreq(traits);
 
-            traits = sortTraitsArrayByReqs(traits);
+            traits = sortArrayByReqs(traits);
+
+            
 
             setAllTraits(traits);
             setDisplayedTraits(traits);
 
-            const persistentPinnedTraitNames =
-                window.localStorage.getItem("pinnedTraitNames");
-
-            if (persistentPinnedTraitNames) {
-                const splitNames = persistentPinnedTraitNames.split("|");
-                const persistentTraits = splitNames.map((tn) => {
-                    const found = traits.find((t) => {
-                        return t.name == tn;
-                    });
-                    return found
-                        ? found
-                        : {
-                              name: "Error",
-                              effect: `Trait "${tn}" not found. It either has been edited or deleted. please search for it and remove this entry.`,
-                              dice: 0,
-                          };
-                });
-                setPinnedTraits(persistentTraits);
+            const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
+            if (persistentPinnedTraits) {
+                setPinnedTraits(persistentPinnedTraits);
             }
         }
+
         getTraits();
     }, [TraitsService]);
 
@@ -131,13 +92,13 @@ export default function TraitsTablePage() {
         });
         window.localStorage.setItem(
             "pinnedTraitNames",
-            pinnedTraitNames.join("|")
+            pinnedTraitNames.join(";|;")
         );
     }
 
     function addToPinnedTraits(s: Trait) {
         const newPersist = [...pinnedTraits, s];
-        setPinnedTraits(sortTraitsArrayByReqs(newPersist));
+        setPinnedTraits(sortArrayByReqs(newPersist));
         updatePersistantPinnedTraits(newPersist);
     }
 
