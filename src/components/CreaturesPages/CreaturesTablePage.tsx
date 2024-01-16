@@ -17,8 +17,7 @@ import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
 
 
 import { Button } from "../ui/Button/Button";
-import { filterBROKENandMONSTERreq, sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
-import { getPersistentPinnedNames } from "../../util/tableTools";
+import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 

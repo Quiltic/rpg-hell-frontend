@@ -1,0 +1,23 @@
+{
+    "1":{
+        "name": "dog",
+        "race": "animal",
+        "level": 0,
+        "body": 1,
+        "mind": 0,
+        "soul": 0,
+        "arcana": 0,
+        "charm": 1,
+        "crafting": 0,
+        "medicine": 0,
+        "nature": 1,
+        "thieving": 0,
+        "curHealth": 0,
+        "speedBonus": 1,
+        "stackEffects": ["dodge 2"],
+        "traits": "bloodhound;|;knowledge of the forest",
+        "spells": "",
+        "items": "bite;|;unarmored",
+        "notes": "big notes stuff\nlotsa notes here"
+    }
+}
