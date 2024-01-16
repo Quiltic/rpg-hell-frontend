@@ -17,10 +17,11 @@ import useApi from "../../hooks/useApi";
 import { Spell, Trait, Item } from "../../client";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import TraitsTable from "../TraitsPages/TraitsTable";
+import ItemsTable from "../ItemPages/ItemsTable";
 
 import { getPersistentPinnedNames } from "../../util/tableTools";
 import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
-import ItemsTable from "../ItemPages/ItemsTable";
+
 
 
 // import Markdown from "react-markdown";
@@ -32,8 +33,8 @@ import ItemsTable from "../ItemPages/ItemsTable";
 
 export default function CharacterSheetPage() {
 
-
     const { SpellsService, TraitsService, ItemsService } = useApi();
+
     const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
     const [pinnedTraits, setPinnedTraits] = useState<Array<Trait>>([]);
     const [pinnedItems, setPinnedItems] = useState<Array<Item>>([]);
