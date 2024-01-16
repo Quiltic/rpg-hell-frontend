@@ -7,35 +7,33 @@ import useApi from "../../hooks/useApi";
 
 import { Tab, Disclosure } from "@headlessui/react";
 
-import TraitsTable from "./CreaturesTable";
-
-
 import CreatureTable from "./CreaturesTable";
 
 import jsonTraits from "../../assets/OfflineJsons/Traits.json";
 import jsonSpells from "../../assets/OfflineJsons/Spells.json";
 import jsonItems from "../../assets/OfflineJsons/Items.json";
-import jsonCreatures from "../../assets/OfflineJsons/Creatues.json";
+import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
 
 
 
 import { Button } from "../ui/Button/Button";
-import { filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
+import { filterBROKENandMONSTERreq, sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 import { getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
+    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : lengthOfName < 12 ? "w-24" : "w-32";
 }
 
-export default function TraitsTablePage() {
+export default function CreatureTablePage() {
     // const { TraitsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
-    const [allTraits, setAllTraits] = useState<Array<Trait>>([]);
-    const [pinnedTraits, setPinnedTraits] = useState<Array<Trait>>([]);
-    const [displayedTraits, setDisplayedTraits] = useState<Array<Trait>>([]);
+    const [allCreatures, setAllCreatures] = useState<Array<Creature>>([]);
+    const [pinnedCreatures, setPinnedCreatures] = useState<Array<Creature>>([]);
+    
+    const [displayedCreatures, setDisplayedCreatures] = useState<Array<Creature>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
@@ -46,6 +44,32 @@ export default function TraitsTablePage() {
     const [traits, setTraits] = useState<Array<Trait>>([]);
     const [items, setItems] = useState<Array<Item>>([]);
 
+
+    useEffect(() => {
+        async function getCreatures() {
+            let creatures: Creature[];
+            // try {
+            //     const spellsRaw = await SpellsService.getAllSpells();
+
+            //     spells = Object.values(spellsRaw);
+            // } catch (e) {
+            //     if (e instanceof Error && e.message == "Network Error") {
+            //         console.log(
+            //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+            //         );
+            creatures = Object.values(jsonCreatures);
+            //     } else {
+            //         return;
+            //     }
+            // }
+
+            creatures = sortArrayByLevel(creatures);
+            setAllCreatures(creatures);
+
+        }
+
+        getCreatures();
+    }, []);
 
     useEffect(() => {
         async function getSpells() {
@@ -66,18 +90,12 @@ export default function TraitsTablePage() {
             }
 
             spells = sortArrayByLevel(spells);
-
-            const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
-            if (persistentPinnedSpells) {
-                setPinnedSpells(persistentPinnedSpells);
-            }
-
+            setSpells(spells);
 
         }
 
         getSpells();
     }, [SpellsService]);
-
 
     useEffect(() => {
         async function getTraits() {
@@ -95,19 +113,12 @@ export default function TraitsTablePage() {
                     return;
                 }
             }
-            traits = filterBROKENandMONSTERreq(traits);
-
             traits = sortArrayByReqs(traits);
-
-            const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
-            if (persistentPinnedTraits) {
-                setPinnedTraits(persistentPinnedTraits);
-            }
+            setTraits(traits);
         }
         
         getTraits();
     }, [TraitsService]);
-
 
     useEffect(() => {
         async function getItems() {
@@ -125,16 +136,9 @@ export default function TraitsTablePage() {
                     return;
                 }
             }
-
-            items = filterBROKENandMONSTER(items);
-
             items = sortArrayByReqs(items ?? []);
 
-            const persistentPinnedItems = getPersistentPinnedNames("pinnedItemNames",items);
-
-            if (persistentPinnedItems) {
-                setPinnedItems(persistentPinnedItems);
-            }
+            setItems(items);
             
         }
 
@@ -143,27 +147,27 @@ export default function TraitsTablePage() {
 
     useEffect(() => {
         if (searchValue == "") {
-            setDisplayedTraits(allTraits);
+            setDisplayedCreatures(allCreatures);
             setClearButtonVisibility("hidden");
             return;
         }
 
         setClearButtonVisibility("visible");
-        const filteredTraits = allTraits.filter((s) => {
+        const filteredCreatures = allCreatures.filter((s) => {
             return (
-                s.name.toLowerCase().includes(searchValue) ||
-                s.effect?.toLowerCase().includes(searchValue)
+                s.name.toLowerCase().includes(searchValue) //||
+                // s.effect?.toLowerCase().includes(searchValue)
             );
         });
 
-        setDisplayedTraits(filteredTraits);
-    }, [allTraits, searchValue]);
+        setDisplayedCreatures(filteredCreatures);
+    }, [allCreatures, searchValue]);
 
     function classNames(...classes: string[]) {
         return classes.filter(Boolean).join(" ");
     }
 
-    function updatePersistantPinnedTraits(n: Trait[]) {
+    function updatePersistantPinnedCreatures(n: Creature[]) {
         const pinnedTraitNames: string[] = n.map((s) => {
             return s.name;
         });
@@ -173,39 +177,36 @@ export default function TraitsTablePage() {
         );
     }
 
-    function addToPinnedTraits(s: Trait) {
-        const newPersist = [...pinnedTraits, s];
-        setPinnedTraits(sortArrayByReqs(newPersist));
-        updatePersistantPinnedTraits(newPersist);
+    function addToPinnedCreatures(s: Creature) {
+        const newPersist = [...pinnedCreatures, s];
+        setPinnedCreatures(sortArrayByReqs(newPersist));
+        updatePersistantPinnedCreatures(newPersist);
     }
 
-    function removeFromPinnedTraits(s: Trait) {
-        const idx = pinnedTraits.indexOf(s);
-        const remainingTraits = pinnedTraits.slice();
+    function removeFromPinnedCreatures(s: Creature) {
+        const idx = pinnedCreatures.indexOf(s);
+        const remainingTraits = pinnedCreatures.slice();
         remainingTraits.splice(idx, 1);
-        setPinnedTraits(remainingTraits);
-        updatePersistantPinnedTraits(remainingTraits);
+        setPinnedCreatures(remainingTraits);
+        updatePersistantPinnedCreatures(remainingTraits);
     }
 
     const IterativeTraitLevels = [
-        "Body",
-        "Mind",
-        "Soul",
-        "Arcana",
-        "Charm",
-        "Crafting",
-        "Nature",
-        "Medicine",
-        "Thieving",
+        "Humanoid",
+        "Animal",
+        "Monstrosity",
+        "Planar",
+        "Undead",
+        "Mythic"
     ];
 
     // Styling:
 
     return (
         <>
-            <h1>Traits</h1>
+            <h1>Creatures</h1>
 
-            {pinnedTraits.length > 0 && (
+            {pinnedCreatures.length > 0 && (
                 <>
                     <div className="justify-start">
                         <Disclosure defaultOpen>
@@ -218,16 +219,19 @@ export default function TraitsTablePage() {
                                             open={open}
                                             rightIcon={ChevronIcon}
                                         >
-                                            Pinned Traits
+                                            Pinned Creatures
                                         </Button>
                                     </Disclosure.Button>
                                     <Disclosure.Panel>
-                                        <TraitsTable
-                                            displayedTraits={pinnedTraits}
-                                            moveTrait={(trait) => {
-                                                removeFromPinnedTraits(trait);
+                                        <CreatureTable
+                                            displayedCreatures={pinnedCreatures}
+                                            moveCreature={(creature) => {
+                                                removeFromPinnedCreatures(creature);
                                             }}
                                             moveIsAdd={false}
+                                            traitsList={traits}
+                                            spellsList={spells}
+                                            itemsList={items}
                                         />
                                         <hr className="h-px my-4 border-0 bg-dark-600" />
                                     </Disclosure.Panel>
@@ -293,27 +297,33 @@ export default function TraitsTablePage() {
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
-                        <TraitsTable
-                            displayedTraits={displayedTraits}
-                            moveTrait={(trait) => {
-                                addToPinnedTraits(trait);
+                        <CreatureTable
+                            displayedCreatures={displayedCreatures}
+                            moveCreature={(creature) => {
+                                addToPinnedCreatures(creature);
                             }}
+                            traitsList={traits}
+                            spellsList={spells}
+                            itemsList={items}
                         />
                     </Tab.Panel>
                     {IterativeTraitLevels.map((n) => {
                         return (
                             <Tab.Panel>
-                                <TraitsTable
-                                    displayedTraits={displayedTraits.filter(
+                                <CreatureTable
+                                    displayedCreatures={displayedCreatures.filter(
                                         (s) => {
-                                            return s.req
+                                            return s.race
                                                 ?.toString()
                                                 .includes(n.toLowerCase());
                                         }
                                     )}
-                                    moveTrait={(trait) => {
-                                        addToPinnedTraits(trait);
+                                    moveCreature={(creature) => {
+                                        addToPinnedCreatures(creature);
                                     }}
+                                    traitsList={traits}
+                                    spellsList={spells}
+                                    itemsList={items}
                                 />
                             </Tab.Panel>
                         );

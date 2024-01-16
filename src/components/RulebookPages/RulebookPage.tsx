@@ -41,6 +41,11 @@ export default function RulebookPage() {
                         Spells
                     </Button>
                 </Link>
+                <Link to={"creatures"}>
+                    <Button leftIcon={sparklesIcon} variant="medicine">
+                        Creatures
+                    </Button>
+                </Link>
             </div>
 
             <div className=" mx-auto text-left max-w-4xl markdown-styles">

@@ -191,7 +191,7 @@
         "is_passive": true
     },
     "21": {
-        "name": "Bloodhound",
+        "name": "bloodhound",
         "effect": "Gain 2 extra Speed when moving to a Marked or Bleeding (has Bleed stacks) creature.\nThis can be taken multiple times to increase the Speed by 2 each time this is taken.",
         "req": [
             "body 1"

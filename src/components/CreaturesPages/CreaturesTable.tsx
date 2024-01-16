@@ -1,5 +1,6 @@
 import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Spell, Trait, Item, Creature } from "../../client";
+import { getNames } from "../../util/tableTools";
 
 
 import { formatEffectString, toPillElement } from "../../util/textFormatting";
@@ -10,6 +11,8 @@ type Props = {
     moveCreature?: (creature: Creature) => void;
     moveIsAdd?: boolean;
     traitsList: Array<Trait>;
+    spellsList: Array<Spell>;
+    itemsList: Array<Item>;
 };
 
 
@@ -17,7 +20,9 @@ export default function CreaturesTable({
     displayedCreatures: displayedCreatures,
     moveCreature,
     moveIsAdd = true,
-    traitsList: traitsList
+    traitsList: traitsList,
+    spellsList: spellsList,
+    itemsList: itemsList
 }: Props) {
     return (
         <table className="border-collapse table-auto dark:text-light text-dark rounded-md">
@@ -26,11 +31,11 @@ export default function CreaturesTable({
                     <th>Name</th>
                     <th>Level</th>
                     <th>Race</th>
-                    <th>Stats</th>
-                    <th>Skills</th>
-                    <th>Health/Armor</th>
+                    <th>_Stats&Skills_</th>
+                    <th>HealthStuff</th>
                     <th>Speed/Soul Strain</th>
                     <th>Traits/Spells/Items</th>
+                    <th>Notes</th>
                     {moveCreature != undefined && (
                         <th>{moveIsAdd ? "Save" : "Unsave"}</th>
                     )}
@@ -38,22 +43,41 @@ export default function CreaturesTable({
             </thead>
             <tbody>
                 {displayedCreatures.map((creature) => {
+                    console.log(creature);
                     // const ee = formatEffectString(creature.effect ?? "");
-                    const stats = `Body ${creature.body},Mind ${creature.mind},Soul ${creature.soul}`
+                    const stats = `Body ${creature.body},Mind ${creature.mind},Soul ${creature.soul},`
                     const skills = `Arcana ${creature.arcana},Charm ${creature.charm},Crafting ${creature.crafting},Nature ${creature.nature},Medicine ${creature.medicine},Thieving ${creature.thieving}`
                     const race = toPillElement(creature.race?.toString() ?? "", ";|;");
-                    const statsPills = toPillElement(stats, ",");
-                    const skillsPills = toPillElement(skills, ",");
-
+                    const statsNSkillsPills = toPillElement(stats+skills, ",");
+                    
                     let stacks = creature.stackEffects.join(",");
-                    stacks = `Health ${creature.level+creature.body*5+creature.mind*3+creature.arcana},` + stats; 
+                    stacks = `Health ${Math.ceil(creature.level+creature.body*5+creature.mind*3+creature.soul)},` + stacks; 
                     const healthNArmor = toPillElement(stacks, ",");
-                
+                    
+                    const speedNSoulStrain = toPillElement(`Speed ${creature.speedBonus+6},SoulStrain ${creature.soul*3}`, ",");
+                        
 
-                    const speedNSoulStrain = toPillElement(`Speed ${creature.speedBonus+6},Soul Strain ${creature.soul*3}`, ",");
+
+                    const traits = getNames(creature.traits,traitsList);
+                    const spells = getNames(creature.spells,spellsList);
+                    const items = getNames(creature.items,itemsList);
+
+                    const traitLines = traits.map((t) => {
+                        return `${t.name} - ${t.dice} - ${t.effect}`;
+                    });
+                    const itemLines = items.map((i) => {
+                        return `${i.name} - ${i.tags} - ${i.effect}`;
+                    });
+                    let spellLines = ["SPELLS", ...spells.map((s) => {
+                        return `${s.name} - ${"#".repeat(s.dice ?? 1)}, ST ${s.level} - ${s.effect}`;
+                    })];
+
+                    if (spellLines[1] == 'Error - #, ST undefined - Object "" not found. It either has been edited or deleted. please search for it and remove this entry.'){
+                        spellLines = [""];
+                    }
                     
-                    
-                    const bigList = "";
+                    // some magical fuckery
+                    const bigList = ["TRAITS", ...traitLines,"ITEMS", ...itemLines,...spellLines].join("\n");
 
                     return (
                         <tr>
@@ -67,10 +91,7 @@ export default function CreaturesTable({
                                 {race}
                             </td>
                             <td className="capitalize" align="center">
-                                {statsPills}
-                            </td>
-                            <td className="capitalize" align="center">
-                                {skillsPills}
+                                {statsNSkillsPills}
                             </td>
                             <td className="capitalize" align="center">
                                 {healthNArmor}
@@ -80,6 +101,10 @@ export default function CreaturesTable({
                             </td>
                             <td
                                 dangerouslySetInnerHTML={{ __html: bigList }}
+                                className="whitespace-pre-wrap"
+                            ></td>
+                            <td
+                                dangerouslySetInnerHTML={{ __html: formatEffectString(creature.notes ?? "") }}
                                 className="whitespace-pre-wrap"
                             ></td>
                             {moveCreature != undefined && (

@@ -14,6 +14,7 @@ import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
 import ItemsTablePage from "./components/ItemPages/ItemsTablePage.tsx";
 import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
 import CharacterSheetPage from "./components/CharacterSheet/CharacterSheet.tsx";
+import CreatureTablePage from "./components/CreaturesPages/CreaturesTablePage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -48,6 +49,10 @@ const router = createBrowserRouter(
                         {
                             path: "items",
                             element: <ItemsTablePage />,
+                        },
+                        {
+                            path: "creatures",
+                            element: <CreatureTablePage />,
                         },
                     ],
                 },
