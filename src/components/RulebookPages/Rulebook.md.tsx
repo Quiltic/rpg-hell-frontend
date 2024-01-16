@@ -173,10 +173,12 @@ Death's Door only goes away if you do a Rest.
 ## Crafting
 
 ### Make an item
-- 5+ Spend 1 minute to create an improvised item.
-- 7+ Spend 10 minutes to create a simple item. You must have the tools needed to make it.
-- 14+ Spend 1 hour to create a complex item. You must have the tools needed to make it.
-- 21+ Spend multiple hours to create a sophisticated item. You must have the tools needed to make it.
+- 5+ Spend 1 minute and half the gold cost of an item to create an item of Crafting value 0.
+- 7+ Spend 10 minutes and half the gold cost of an item to create an item of Crafting value 1 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
+- 14+ Spend 1 hour and half the gold cost of an item to create an item of Crafting value 2 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
+- 21+ Spend multiple hours and half the gold cost of an item to create an item of Crafting value 3 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
+- 28+ Spend multiple hours and half the gold cost of an item to create an item of Crafting value 4 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
+
 
 
 ### Understand a contraption.
