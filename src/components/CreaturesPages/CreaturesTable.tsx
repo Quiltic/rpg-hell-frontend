@@ -32,7 +32,7 @@ export default function CreaturesTable({
                     <th>Level</th>
                     <th>Race</th>
                     <th>_Stats&Skills_</th>
-                    <th>HealthStuff</th>
+                    <th>Health&Armor</th>
                     <th>Speed/Soul Strain</th>
                     <th>Traits/Spells/Items</th>
                     <th>Notes</th>
@@ -62,22 +62,28 @@ export default function CreaturesTable({
                     const spells = getNames(creature.spells,spellsList);
                     const items = getNames(creature.items,itemsList);
 
-                    const traitLines = traits.map((t) => {
+                    let traitLines = ["TRAITS",...traits.map((t) => {
                         return `${t.name} - ${t.dice} - ${t.effect}`;
-                    });
-                    const itemLines = items.map((i) => {
+                    })];
+                    let itemLines = ["ITEMS", ...items.map((i) => {
                         return `${i.name} - ${i.tags} - ${i.effect}`;
-                    });
+                    })];
                     let spellLines = ["SPELLS", ...spells.map((s) => {
                         return `${s.name} - ${"#".repeat(s.dice ?? 1)}, ST ${s.level} - ${s.effect}`;
                     })];
 
-                    if (spellLines[1] == 'Error - #, ST undefined - Object "" not found. It either has been edited or deleted. please search for it and remove this entry.'){
+                    if (traitLines[1].includes('Object "" not found.')){
+                        traitLines = [""];
+                    }
+                    if (itemLines[1].includes('Object "" not found.')){
+                        itemLines = [""];
+                    }
+                    if (spellLines[1].includes('Object "" not found.')){
                         spellLines = [""];
                     }
                     
                     // some magical fuckery
-                    const bigList = ["TRAITS", ...traitLines,"ITEMS", ...itemLines,...spellLines].join("\n");
+                    const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
 
                     return (
                         <tr>

@@ -172,7 +172,7 @@ export default function CreatureTablePage() {
             return s.name;
         });
         window.localStorage.setItem(
-            "pinnedTraitNames",
+            "pinnedCreatureNames",
             pinnedTraitNames.join(";|;")
         );
     }

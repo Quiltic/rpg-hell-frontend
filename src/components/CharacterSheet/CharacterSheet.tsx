@@ -10,14 +10,17 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import jsonTraits from "../../assets/OfflineJsons/Traits.json";
 import jsonSpells from "../../assets/OfflineJsons/Spells.json";
 import jsonItems from "../../assets/OfflineJsons/Items.json";
+import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
 
 
 import useApi from "../../hooks/useApi";
 
-import { Spell, Trait, Item } from "../../client";
+import { Spell, Trait, Item, Creature } from "../../client";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import TraitsTable from "../TraitsPages/TraitsTable";
 import ItemsTable from "../ItemPages/ItemsTable";
+import CreatureTable from "../CreaturesPages/CreaturesTable";
+
 
 import { getPersistentPinnedNames } from "../../util/tableTools";
 import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
@@ -38,6 +41,11 @@ export default function CharacterSheetPage() {
     const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
     const [pinnedTraits, setPinnedTraits] = useState<Array<Trait>>([]);
     const [pinnedItems, setPinnedItems] = useState<Array<Item>>([]);
+    const [pinnedCreatures, setPinnedCreatures] = useState<Array<Creature>>([]);
+
+    const [spells, setSpells] = useState<Array<Spell>>([]);
+    const [traits, setTraits] = useState<Array<Trait>>([]);
+    const [items, setItems] = useState<Array<Item>>([]);
 
 
     useEffect(() => {
@@ -57,10 +65,12 @@ export default function CharacterSheetPage() {
                     return;
                 }
             }
+            spells = sortArrayByLevel(spells);
+            setSpells(spells);
 
             spells = filterBROKENandMONSTER(spells);
 
-            spells = sortArrayByLevel(spells);
+            
 
             const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
             if (persistentPinnedSpells) {
@@ -90,9 +100,10 @@ export default function CharacterSheetPage() {
                     return;
                 }
             }
-            traits = filterBROKENandMONSTERreq(traits);
-
             traits = sortArrayByReqs(traits);
+            setTraits(traits);
+
+            traits = filterBROKENandMONSTERreq(traits);
 
             const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
             if (persistentPinnedTraits) {
@@ -102,6 +113,7 @@ export default function CharacterSheetPage() {
         
         getTraits();
     }, [TraitsService]);
+
 
 
     useEffect(() => {
@@ -121,9 +133,10 @@ export default function CharacterSheetPage() {
                 }
             }
 
-            items = filterBROKENandMONSTER(items);
-
             items = sortArrayByReqs(items ?? []);
+            setItems(items);
+
+            items = filterBROKENandMONSTER(items);
 
             const persistentPinnedItems = getPersistentPinnedNames("pinnedItemNames",items);
 
@@ -135,6 +148,37 @@ export default function CharacterSheetPage() {
 
         getItems();
     }, [ItemsService]);
+
+
+    useEffect(() => {
+        async function getCreatures() {
+            let creatures: Creature[];
+            // try {
+            //     const spellsRaw = await SpellsService.getAllSpells();
+
+            //     spells = Object.values(spellsRaw);
+            // } catch (e) {
+            //     if (e instanceof Error && e.message == "Network Error") {
+            //         console.log(
+            //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+            //         );
+            creatures = Object.values(jsonCreatures);
+            //     } else {
+            //         return;
+            //     }
+            // }
+
+            creatures = sortArrayByLevel(creatures);
+            const persistentPinnedCreatures = getPersistentPinnedNames("pinnedCreatureNames",creatures);
+
+            if (persistentPinnedCreatures) {
+                setPinnedCreatures(persistentPinnedCreatures);
+            }
+
+        }
+
+        getCreatures();
+    }, []);
 
 
     return (
@@ -215,6 +259,37 @@ export default function CharacterSheetPage() {
                                     <Disclosure.Panel>
                                         <ItemsTable
                                             displayedItems={pinnedItems}
+                                        />
+                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                    </Disclosure.Panel>
+                                </>
+                            )}
+                        </Disclosure>
+                    </div>
+                </>
+            )}
+            {pinnedCreatures.length > 0 && (
+                <>
+                    <div className="justify-start">
+                        <Disclosure defaultOpen>
+                            {({ open }) => (
+                                <>
+                                    <Disclosure.Button>
+                                        <Button
+                                            variant={"soul"}
+                                            className="mb-2"
+                                            open={open}
+                                            rightIcon={ChevronIcon}
+                                        >
+                                            Pinned Creatures
+                                        </Button>
+                                    </Disclosure.Button>
+                                    <Disclosure.Panel>
+                                        <CreatureTable
+                                            displayedCreatures={pinnedCreatures}
+                                            traitsList={traits}
+                                            spellsList={spells}
+                                            itemsList={items}
                                         />
                                         <hr className="h-px my-4 border-0 bg-dark-600" />
                                     </Disclosure.Panel>
