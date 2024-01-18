@@ -9,7 +9,7 @@ import { Button } from "../ui/Button/Button";
 import { Fragment, useState } from 'react'
 
 import {
-    ticketIcon,
+    creaturesIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
 
 type Props = {
@@ -40,7 +40,7 @@ export default function CreaturePopup({
     return (
         <>
 
-        <Button leftIcon={ticketIcon} onClick={openModal} variant={"link-soul"}>
+        <Button leftIcon={creaturesIcon} onClick={openModal} variant={"link-soul"}>
             Open {displayedCreature.name}
         </Button>
 

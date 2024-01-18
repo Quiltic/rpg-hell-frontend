@@ -15,6 +15,7 @@ import {
     sparklesIcon,
     bagIcon,
     ticketIcon,
+    creaturesIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
 import { formatEffectString } from "../../util/textFormatting";
 import HeadingRenderer from "./headingRenderer";
@@ -45,7 +46,7 @@ export default function RulebookPage() {
                     </Button>
                 </Link>
                 <Link to={"creatures"}>
-                    <Button leftIcon={sparklesIcon} variant="medicine">
+                    <Button leftIcon={creaturesIcon} variant="medicine">
                         Creatures
                     </Button>
                 </Link>
