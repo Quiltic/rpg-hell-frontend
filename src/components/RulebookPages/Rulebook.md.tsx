@@ -7,6 +7,51 @@ This game is heavily inspired by YOU the players and your host known as the Game
 
 There are primarily 2 sections to this game, Out of Combat; which is where most roll-playing will take place and In Combat; which is where you fight monsters and other stuff.
 
+For a complete and up to date rule set go to [https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing](https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing).
+
+
+
+
+
+# Magic
+
+Magic is the ability to control souls to affect the world around them. Every creature, object, or place has a soul. Though typically only creatures are able to directly control souls.
+
+As of now there are only 3 known ways to control soul: Strange grand movements which physically change the shape of souls, using Light to suppress or enhance souls, and through writing of Runes on items to bring out the items latent soul.
+
+There are a number of ways to learn how to do magic. Some mages learn through intense study and hard work. Others learn how by tradition or special dances. Even more are born with such knowledge or even find them by shear coincidence.
+
+Manipulation of souls is not without consequence. As such, when a creature or item cast or use magic, they gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. Your max Soul Strain is 3 times your Soul. Though some Traits can increase this slightly. You loose all stacks of Soul Strain when you finish a Rest.
+
+
+
+
+# Rest and Travel
+## Rest
+
+When you spend 8 or more hours doing non-extraneous effort, such as sleeping or relaxing, you gain the effects of a Rest. Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. However, you can only Rest up to twice a Day.
+
+When you complete a Rest you gain the following bonuses:
+- You fully heal, and regain all Armor effects such as Armor Health, Dodge, and Ward.
+- You loose all non permanent Stack Effects, such as Wet or Soul Strain (these are just 2 examples. See Stack Effects for more).
+- You regain all uses of spent Trait effects. (Some traits will say "You can do this a number of times per Rest")
+- You loose all Stacks of Death's Door
+
+
+
+## Travel
+
+When moving long distances you move based on the average of all party member's Speed (rounded down). For example if a party has 3 people with speeds of 7,6,4 then the travel speed is 5.
+Large grid is used when dealing with travel. A large tile is 2,160*2,160 tiles. Medium tiles are 36*36 tiles (can be used to move per minute). __If your using hex like a chad then its the same but in hex shape.__
+Every Hour your party can move a number of Large tiles equal to your Party Travel Speed, mentioned above. 
+Alternatively, your party can move 1 tile faster at the cost of being permanently Marked for the duration of travel. This condition lasts into combat if you get ambushed.
+Or your party can move 1 tile slower to try to Hide during travel. You can roll Nature or Thieving for this check.
+When using Boats, Riding Animals, Carts, Cars, or some similar vehicle you replace your speed with that of the vehicle.
+
+
+
+
+
 # Out of Combat Rules
 
 ## Locking Dice
@@ -16,31 +61,35 @@ For example lets say I do a Physical Feats roll and roll five 6's. I probably do
 **You can Not have more than 1 Locked dice at a time.**
 
 
+
+
 ## Actions
 
-### General Actions
+These are actions that anyone can do. The basic listing of actions any creature can do is listed under their respective stat/skill down below.
 
-These are actions that anyone can do.
+Some actions require traits or items to acquire. An example is the Tunneler Trait which lets you easily break and move solid land, such as dirt or stone. Or the ever famous Cooking Tools which allow you to make foods you otherwise would have to buy to acquire.
 
-
-### Trait Actions
-
-These are actions that come from Traits, which are character/creature dependant.
-
-
-## Checks
-
-When you want to do an Action you to roll a Check based on the required stat or skill. You will need to roll a number of dice equal to 2 with an additional dice for every point you put into the required check.
-For example if the GM asks you roll a Body check, and you have a 3 in Body then you roll 5 dice.
-
-Once you tell your GM how many successes you have rolled they will then tell you if you passed or failed the check and what happens next.
+Actions generally have 3 different ways of operating: Checks (the most common type), Contests, and Activatable (toggles or just works without rolling).
 
 
 
-## Contests
+### Checks
 
-Some Actions require Contests, which is a competition between to or more parties. When your GM asks you to roll a Contest you then roll a Check based on the required Stat or Skill.
-Whichever person has more successes wins the contest. If a tie happens it is based on the dice values rolled. If a tie where to come from this the player wins.
+When you want to do an Action that requires a check, you roll a number of dice based on the required stat or skill. The number of dice is equal to 2 with an additional dice for every point you put into the required check.
+For example if you want to do a Physical Feat you roll a Body check, and you have a 3 in Body then you roll 5 dice (2 from default plus 3 from Body).
+
+Depending on the check you will be able to do specific actions based on the values rolled. Some checks work where they list off a number of actions and for every dice group you give (typically 7 or more) you can redo that action a number of times. A good example is our Physical Feat roll, where you may give 7+ a number of times to increase the values of the roll.
+
+Others will just have a total for the sum of all the dice rolled. A good example of this is our Cooking Tools, which give better foods the higher you roll.
+
+You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next.
+
+
+
+### Contests
+
+Some Actions require Contests, which is a competition between two or more parties. When your GM asks you to roll a Contest you then roll a Check based on the required Stat or Skill similar to the ways checks work.
+Whichever party has a higher sum wins the contest. If a tie happens it is based on the dice values rolled. If a tie where to come from this the players win.
 
 
 
@@ -62,12 +111,6 @@ You can spend AD to do actions in Combat an amount denoted next to the Action as
 Attacks and Contests count as ## (2 AD), Movement counts as # (1 AD), and Spells and Traits have varying amounts.
 
 
-## Damage and Armor
-
-Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Health then your Health.
-
-Armor grants an additional special set of Health called **Armor Health**. Different armors provide a varying amount of Armor Health. Armor Health is reduced before you take normal Health loss. Unlike normal Health Armor health cannot be regained from Healing Items or Spells.
-
 
 ### AD Values Matter
 
@@ -76,6 +119,13 @@ On Attacks you give ## (2 AD), taking the sum of these 2 dice gives special effe
 
 When you give AD for movement if you give it a 1 your Speed is reduced by 1, if you give it a 6 it is increased by 1.
 
+
+
+## Damage and Armor
+
+Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Health then your Health.
+
+Armor grants an additional special set of Health called **Armor Health**. Different armors provide a varying amount of Armor Health. Armor Health is reduced before you take normal Health loss. Unlike normal Health Armor health cannot be regained from Healing Items or Spells.
 
 
 
@@ -229,11 +279,15 @@ Death's Door only goes away if you do a Rest.
 - 28+ You steal/place the item undetected.
 
 ### Hide
-- 7+ Hide from onlookers, someone can still see you if they look directly at you. You can still be heard normally and most actions will make noise.
-- 11+ Become Hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
-- 14+ Become Hidden until you do any non-Thieving action except moving or move within 1 tile of another non-friendly creature you are not stealing from.
+- 7+ Become Hidden if no-one is watching you (other than other party members) and few (4 or less on average) people are around to see you. You are hidden until you do any action other than moving or move within 3 tiles of another non-friendly creature you are not stealing from.
+- 11+ Become Hidden if no-one is watching you (other than other party members) and some (10 or less on average) people are around to see you. You are hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
+- 14+ Become Hidden if no-one is watching you (other than other party members) and many (20 or more on average) people are around to see you. You are hidden until you do any action other than moving or move within 1 tiles of another non-friendly creature you are not stealing from.
 - 18+ Become Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
 - 28+ Become Invisible until you do any action except moving.
+
+
+
+
 
 
 # Making a Character
@@ -270,20 +324,24 @@ Death's Door only goes away if you do a Rest.
 ## Races Table
 | Rolls | Race Type | Bonus Trait |
 | --- | --- | --- |
-| O,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it's requirement. |
-| O,2 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
-| O,3 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
-| O,4 | Beastkin | Increase your Speed by 1. |
-| O,5 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
-| O,6 | Flame Draconic | Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| O,6 | Frozen Draconic | Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| O,6 | Earthen Draconic |Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell.|
-| O,6 | Sparked Draconic | Lightning: You can cast Lightning once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| E,1 | Elemental | Gain the Spell Control Elements. |
-| E,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
-| E,3 | Nymph Born | Gain Nature Speak Trait for free. |
-| E,4 | Seeker | Gain Dreams of the Future Trait for free, and at Level 3 gain Past and Future Trait for free. |
-| E,5 | Undergrounder | Darkness does not scare you. You can cast Glow at will, and Fog Light once per Rest. |
-| E,6 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
+| 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it's requirement. |
+| 1,2 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
+| 1,3 | Seeker | Gain Dreams of the Future Trait for free, and at Level 3 gain Past and Future Trait for free. |
+| 1,4 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
+| 1,5 | Beastkin | Increase your Speed by 1. |
+| 1,6 | Undergrounder | Darkness does not scare you. You can cast Glow at will, and Fog Light once per Rest. |
+| 2,1 | Flaming Draconic | Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
+| 2,2 | Frozen Draconic | Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
+| 2,3 | Earthen Draconic |Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell.|
+| 2,4 | Sparked Draconic | Lightning: You can cast Lightning once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
+| 2,5 | Glowing Draconic | Light: You can cast Fog Light once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
+| 2,6 | Shadow Draconic | Dark: You can cast Weak Curse once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
+| 3,1 | Elemental | Gain the Spell Control Elements. |
+| 3,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
+| 3,3 | Nymph Born | Gain Nature Speak Trait for free. |
+| 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
+| 3,5 | Nagalike | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them your level stacks of Poisoned. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
+| 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
+| 4+ | Reroll | Reroll |
 `;
 export default markdown;
