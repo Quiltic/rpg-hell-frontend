@@ -15,7 +15,7 @@ export default function TableOfContentsDiscl() {
                   className={`${open ? 'rotate-180 transform' : ''} h-10 w-10`}
                 />
               </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm grid grid-rows-auto-auto-auto-1fr-auto gap-4 h-screen p-4 bg-dark-400 rounded-md">
+              <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
                 <div className="grid grid-cols-3 p-4 gap-4">
                     <div className="bg-dark-300 capitalize whitespace-pre-wrap">
                         <ul>
