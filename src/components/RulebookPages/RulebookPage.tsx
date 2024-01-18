@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+
+// import { useState, useEffect, useCallback } from "react";
 
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -16,6 +17,8 @@ import {
     ticketIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
 import { formatEffectString } from "../../util/textFormatting";
+import HeadingRenderer from "./headingRenderer";
+import TableOfContentsDiscl from "./tableofContentsDiscl";
 
 const formattedmd = formatEffectString(markdown);
 
@@ -49,9 +52,11 @@ export default function RulebookPage() {
             </div>
 
             <div className=" mx-auto text-left max-w-4xl markdown-styles">
+                <TableOfContentsDiscl/>
                 <Markdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
+                    components={{'h1':HeadingRenderer,'h2':HeadingRenderer,'h3':HeadingRenderer,'h4':HeadingRenderer,'h5':HeadingRenderer,'h6':HeadingRenderer,}}
                 >
                     {formattedmd}
                 </Markdown>
