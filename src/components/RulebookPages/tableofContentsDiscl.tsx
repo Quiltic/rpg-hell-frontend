@@ -56,53 +56,53 @@ export default function TableOfContentsDiscl() {
                         <ul>
                             <li><a href="#stats-and-skills">Stats and Skills</a>
                                 <ul>
-                                    <li><a href="#span-classtext-body-700bodyspan"><span className="text-body-700">Body</span></a>
+                                    <li><a href="#body"><span className="text-body-700">Body</span></a>
                                         <ul>
                                             <li><a href="#physical-feats">Physical Feats</a></li>
                                             <li><a href="#acrobatics-or-athletics">Acrobatics or Athletics</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-mind-700mindspan"><span className="text-mind-700">Mind</span></a>
+                                    <li><a href="#mind"><span className="text-mind-700">Mind</span></a>
                                         <ul>
                                             <li><a href="#investigate">Investigate</a></li>
                                             <li><a href="#remember">Remember</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-soul-700soulspan"><span className="text-soul-700">Soul</span></a>
+                                    <li><a href="#soul"><span className="text-soul-700">Soul</span></a>
                                         <ul>
                                             <li><a href="#make-a-prayer">Make a Prayer</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-arcana-700arcanaspan"><span className="text-arcana-700">Arcana</span></a>
+                                    <li><a href="#arcana"><span className="text-arcana-700">Arcana</span></a>
                                         <ul>
                                             <li><a href="#read-runes">Read Runes</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-charm-700charmspan"><span className="text-charm-700">Charm</span></a>
+                                    <li><a href="#charm"><span className="text-charm-700">Charm</span></a>
                                         <ul>
                                             <li><a href="#convince-someone-of-something">Convince someone of something</a></li>
                                             <li><a href="#discern-others-intentions">Discern others intentions</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-crafting-700craftingspan"><span className="text-crafting-700">Crafting</span></a>
+                                    <li><a href="#crafting"><span className="text-crafting-700">Crafting</span></a>
                                         <ul>
                                             <li><a href="#make-an-item">Make an item</a></li>
                                             <li><a href="#understand-a-contraption">Understand a contraption.</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-nature-700naturespan"><span className="text-nature-700">Nature</span></a>
+                                    <li><a href="#nature"><span className="text-nature-700">Nature</span></a>
                                         <ul>
                                             <li><a href="#scrounge">Scrounge</a></li>
                                             <li><a href="#handle-a-beast">Handle a beast.</a></li>
                                             <li><a href="#track-a-creature">Track a creature</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-medicine-700medicinespan"><span className="text-medicine-700">Medicine</span></a>
+                                    <li><a href="#medicine"><span className="text-medicine-700">Medicine</span></a>
                                         <ul>
                                             <li><a href="#identify-an-illness-or-curse">Identify an Illness or Curse</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#span-classtext-thieving-700thievingspan"><span className="text-thieving-700">Thieving</span></a>
+                                    <li><a href="#thieving"><span className="text-thieving-700">Thieving</span></a>
                                         <ul>
                                             <li><a href="#stealplace-an-item">Steal/place an item</a></li>
                                             <li><a href="#hide">Hide</a></li>
@@ -127,7 +127,7 @@ export default function TableOfContentsDiscl() {
                                 <ul>
                                     <li>
                                         <ul>
-                                            <li><a href="#span-classtext-soul-700soulspan-strain"><span className="text-soul-700">Soul</span> Strain</a></li>
+                                            <li><a href="#soul"><span className="text-soul-700">Soul Strain</span></a></li>
                                             <li><a href="#deaths-door-1">Death's Door</a></li>
                                             <li><a href="#burn">Burn</a></li>
                                             <li><a href="#wet">Wet</a></li>
