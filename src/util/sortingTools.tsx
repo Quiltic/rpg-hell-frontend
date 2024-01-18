@@ -39,6 +39,8 @@ function sortArrayByReqs(_list) {
         return (l1.name ?? "") < (l2.name ?? "") ? -1 : 1;
     });
 
+    
+
     // returns the sorted array based on a custom sort
     return _listSortedByName.sort((l1, l2) => {
         // console.log(t.name);

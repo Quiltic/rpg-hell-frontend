@@ -4,6 +4,7 @@ import { getNames } from "../../util/tableTools";
 
 
 import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import CreaturePopup from "./characterSheetPopup";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -24,6 +25,8 @@ export default function CreaturesTable({
     spellsList: spellsList,
     itemsList: itemsList
 }: Props) {
+    // const 
+
     return (
         <table className="border-collapse table-auto dark:text-light text-dark rounded-md">
             <thead className="dark:bg-dark-400 bg-light-300 font-bold">
@@ -31,11 +34,7 @@ export default function CreaturesTable({
                     <th>Name</th>
                     <th>Level</th>
                     <th>Race</th>
-                    <th>_Stats&Skills_</th>
-                    <th>Health&Armor</th>
-                    <th>Speed/Soul Strain</th>
-                    <th>Traits/Spells/Items</th>
-                    <th>Notes</th>
+                    <th>Open</th>
                     {moveCreature != undefined && (
                         <th>{moveIsAdd ? "Save" : "Unsave"}</th>
                     )}
@@ -43,48 +42,8 @@ export default function CreaturesTable({
             </thead>
             <tbody>
                 {displayedCreatures.map((creature) => {
-                    console.log(creature);
-                    // const ee = formatEffectString(creature.effect ?? "");
-                    const stats = `Body ${creature.body},Mind ${creature.mind},Soul ${creature.soul},`
-                    const skills = `Arcana ${creature.arcana},Charm ${creature.charm},Crafting ${creature.crafting},Nature ${creature.nature},Medicine ${creature.medicine},Thieving ${creature.thieving}`
                     const race = toPillElement(creature.race?.toString() ?? "", ";|;");
-                    const statsNSkillsPills = toPillElement(stats+skills, ",");
                     
-                    let stacks = creature.stackEffects.join(",");
-                    stacks = `Health ${Math.ceil(creature.level+creature.body*5+creature.mind*3+creature.soul)},` + stacks; 
-                    const healthNArmor = toPillElement(stacks, ",");
-                    
-                    const speedNSoulStrain = toPillElement(`Speed ${creature.speedBonus+6},SoulStrain ${creature.soul*3}`, ",");
-                        
-
-
-                    const traits = getNames(creature.traits,traitsList);
-                    const spells = getNames(creature.spells,spellsList);
-                    const items = getNames(creature.items,itemsList);
-
-                    let traitLines = ["TRAITS",...traits.map((t) => {
-                        return `${t.name} - ${t.dice} - ${t.effect}`;
-                    })];
-                    let itemLines = ["ITEMS", ...items.map((i) => {
-                        return `${i.name} - ${i.tags} - ${i.effect}`;
-                    })];
-                    let spellLines = ["SPELLS", ...spells.map((s) => {
-                        return `${s.name} - ${"#".repeat(s.dice ?? 1)}, ST ${s.level} - ${s.effect}`;
-                    })];
-
-                    if (traitLines[1].includes('Object "" not found.')){
-                        traitLines = [""];
-                    }
-                    if (itemLines[1].includes('Object "" not found.')){
-                        itemLines = [""];
-                    }
-                    if (spellLines[1].includes('Object "" not found.')){
-                        spellLines = [""];
-                    }
-                    
-                    // some magical fuckery
-                    const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
-
                     return (
                         <tr>
                             <td className="font-bold capitalize">
@@ -96,23 +55,15 @@ export default function CreaturesTable({
                             <td className="capitalize" align="center">
                                 {race}
                             </td>
-                            <td className="capitalize" align="center">
-                                {statsNSkillsPills}
+                            <td>
+                                <CreaturePopup
+                                    displayedCreature={creature}
+                                    traitsList={traitsList}
+                                    spellsList={spellsList}
+                                    itemsList={itemsList}
+                                />
                             </td>
-                            <td className="capitalize" align="center">
-                                {healthNArmor}
-                            </td>
-                            <td className="capitalize" align="center">
-                                {speedNSoulStrain}
-                            </td>
-                            <td
-                                dangerouslySetInnerHTML={{ __html: bigList }}
-                                className="whitespace-pre-wrap"
-                            ></td>
-                            <td
-                                dangerouslySetInnerHTML={{ __html: formatEffectString(creature.notes ?? "") }}
-                                className="whitespace-pre-wrap"
-                            ></td>
+                            
                             {moveCreature != undefined && (
                                 <td>
                                     <Button
