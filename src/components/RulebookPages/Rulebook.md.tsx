@@ -1,6 +1,50 @@
 const markdown = `
 
-# Basics
+# Table of Contents
+
+[Basics](#basics)
+[Locking Dice](#lock)
+[Magic](#magic-simple)
+[Rest and Travel](#rest-travel)
+- [Rest](#rest)
+- [Travel](#travel)
+
+
+[Out of Combat Rules](#ooc-rules)
+- [Actions](#actions)
+-- [Checks](#checks)
+-- [Contests](#contests)
+
+
+[Combat](#combat)
+- [Initiative](#init)
+- [Action Dice](#ad)
+- [Damage and Armor](#damage-armor)
+- [Death's Door](#deaths-door)
+
+
+[Stats and Skills](#stats-n-skills)
+- [Body](#body)
+- [Mind](#mind)
+- [Soul](#soul)
+- [Arcana](#arcana)
+- [Charm](#charm)
+- [Crafting](#crafting)
+- [Nature](#nature)
+- [Medicine](#medicine)
+- [Thieving](#thieving)
+
+
+[Making a Character](#making-character)
+[Level Table](#level-table)
+[Race Table](#race-table)
+
+
+[Stack effects](#stack-effects)
+
+
+
+# Basics {#basics}
 
 This game is built up around the idea of normal dice (d6's, or 6 sided dice). Any and all rolls that this game will ask you to do will be done using some amount of these dice, so go grab some. Personally I would recommend 4-6 per person, though you can play this with just 1 if need be.
 This game is heavily inspired by YOU the players and your host known as the Game Master (denoted as GM from here on). The GM is the one hosting the show, and while this is the rule-book not all possible situations can be given clear ruling. Envitably it is up to the GM to decide what will happen. 
@@ -13,7 +57,17 @@ For a complete and up to date rule set go to [https://docs.google.com/document/d
 
 
 
-# Magic
+# Locking Dice {#lock}
+
+When you do a roll you may Lock a dice. This dice is set to the side and is removed from the roll. On later turns you may then replace a dice with your Locked dice. Replacing a dice removes the replaced dice from play and unlocks the Locked dice.
+For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
+**You can Not have more than 1 Locked dice at a time.**
+
+
+
+
+
+# Magic {#magic-simple}
 
 Magic is the ability to control souls to affect the world around them. Every creature, object, or place has a soul. Though typically only creatures are able to directly control souls.
 
@@ -26,8 +80,8 @@ Manipulation of souls is not without consequence. As such, when a creature or it
 
 
 
-# Rest and Travel
-## Rest
+# Rest and Travel {#rest-travel}
+## Rest {#rest}
 
 When you spend 8 or more hours doing non-extraneous effort, such as sleeping or relaxing, you gain the effects of a Rest. Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. However, you can only Rest up to twice a Day.
 
@@ -39,7 +93,7 @@ When you complete a Rest you gain the following bonuses:
 
 
 
-## Travel
+## Travel {#travel}
 
 When moving long distances you move based on the average of all party member's Speed (rounded down). For example if a party has 3 people with speeds of 7,6,4 then the travel speed is 5.
 Large grid is used when dealing with travel. A large tile is 2,160*2,160 tiles. Medium tiles are 36*36 tiles (can be used to move per minute). __If your using hex like a chad then its the same but in hex shape.__
@@ -52,18 +106,9 @@ When using Boats, Riding Animals, Carts, Cars, or some similar vehicle you repla
 
 
 
-# Out of Combat Rules
+# Out of Combat Rules {#ooc-rules}
 
-## Locking Dice
-
-When you do a roll you may Lock a dice. This dice is set to the side and is removed from the roll. On later turns you may then replace a dice with your Locked dice. Replacing a dice removes the replaced dice from play and unlocks the Locked dice.
-For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
-**You can Not have more than 1 Locked dice at a time.**
-
-
-
-
-## Actions
+## Actions {#actions}
 
 These are actions that anyone can do. The basic listing of actions any creature can do is listed under their respective stat/skill down below.
 
@@ -73,7 +118,7 @@ Actions generally have 3 different ways of operating: Checks (the most common ty
 
 
 
-### Checks
+### Checks {#checks}
 
 When you want to do an Action that requires a check, you roll a number of dice based on the required stat or skill. The number of dice is equal to 2 with an additional dice for every point you put into the required check.
 For example if you want to do a Physical Feat you roll a Body check, and you have a 3 in Body then you roll 5 dice (2 from default plus 3 from Body).
@@ -86,7 +131,7 @@ You then tell your GM what you rolled and what action you want to try and the GM
 
 
 
-### Contests
+### Contests {#contests}
 
 Some Actions require Contests, which is a competition between two or more parties. When your GM asks you to roll a Contest you then roll a Check based on the required Stat or Skill similar to the ways checks work.
 Whichever party has a higher sum wins the contest. If a tie happens it is based on the dice values rolled. If a tie where to come from this the players win.
@@ -95,16 +140,16 @@ Whichever party has a higher sum wins the contest. If a tie happens it is based 
 
 
 
-# Combat
+# Combat {#combat}
 
 Combat is split up into Rounds, each Round a creature has 3 phases, Beginning which is where they take damage or effects from Stack Effects. Next their Action phase which is where they can do their Trait or Generic Actions. Lastly their end phase, which is where they loose stacks or effects.
 
-## Initiative
+## Initiative {#init}
 
 All creatures in combat must roll Initiative to see when they may do their Actions in Combat. This value is calculated by rolling a dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first).
 Whichever creature has the highest speed goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
 
-## Action Dice (AD)
+## Action Dice (AD) {#ad}
 
 At the beginning of your turn you roll an amount of Action Dice (denoted as **AD** from here on) based on your __COMBAT DICE__ (Temp name). 
 You can spend AD to do actions in Combat an amount denoted next to the Action as a #, one for each point.
@@ -112,7 +157,7 @@ Attacks and Contests count as ## (2 AD), Movement counts as # (1 AD), and Spells
 
 
 
-### AD Values Matter
+### AD Values Matter 
 
 All weapons have special actions when you wield them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you don't have these requirements you can still use the weapon but you only get the 4 or less effects regardless of dice values given.
 On Attacks you give ## (2 AD), taking the sum of these 2 dice gives special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4.
@@ -121,7 +166,7 @@ When you give AD for movement if you give it a 1 your Speed is reduced by 1, if 
 
 
 
-## Damage and Armor
+## Damage and Armor {#damage-armor}
 
 Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Health then your Health.
 
@@ -129,7 +174,7 @@ Armor grants an additional special set of Health called **Armor Health**. Differ
 
 
 
-## Deaths Door
+## Deaths Door {#deaths-door}
 
 When you are on 0 or less life you are put on Death's Door. While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
 : For example if you are on Death's Door and roll a 3 you live another turn and are on Death's Door 2.
@@ -138,10 +183,12 @@ Death's Door only goes away if you do a Rest.
 
 
 
-# Stats
-## Body
 
-### Physical Feats
+
+# Stats and Skills {#stats-n-skills}
+## Body {#body}
+
+### Physical Feats {#physical-feats}
 - Jump 2 tiles horizontally with a running start.
 - Jump 1 tile.
 - Lift/Push 100 lb thing with 2 hands
@@ -151,16 +198,16 @@ Death's Door only goes away if you do a Rest.
 - 7+ do 1 of the above. All items above stack with themselves.
 
 
-### Acrobatics or Athletics
+### Acrobatics or Athletics {#ac-ath}
 - 7+ Do simple acrobatics/athletics. 
 - 14+ Do novice acrobatics/athletics. 
 - 21+ Do intermediate acrobatics/athletics. 
 - 28+ Do Advanced acrobatics/athletics.
 
 
-## Mind
+## Mind {#mind}
 
-### Investigate
+### Investigate {#investigate}
 - What happened here?
 - How many people are/were here?
 - What is this item (non-magical)?
@@ -171,7 +218,7 @@ Death's Door only goes away if you do a Rest.
 - 6- Ask the GM one of the questions, they may give an honest answer
 
 
-### Remember
+### Remember {#remember}
 - What happened here?
 - What was here?
 - What got left behind?
@@ -182,17 +229,17 @@ Death's Door only goes away if you do a Rest.
 - 6- Ask the GM one of the questions, they may give an honest answer
 
 
-## Soul
+## Soul {#soul}
 
-### Make a Prayer
+### Make a Prayer {#pray}
 - 7+ Ask your god a question. Increases by 7 for every question asked that day.
 - Ask for aid, may require more than 7+. (GM's discretion)
 - 21+ Talk to your god.
 
 
-## Arcana
+## Arcana {#arcana}
 
-### Read Runes
+### Read Runes {#read runes}
 - What does this magic thing do?
 - How can I use/control this magic thing?
 - What/Who wrote these runes?
@@ -205,24 +252,24 @@ Death's Door only goes away if you do a Rest.
 - 6- Ask the GM one of the questions, they may give an honest answer
 
 
-## Charm
+## Charm {#charm}
 
-### Convince someone of something
+### Convince someone of something {#convince}
 - 5+ Convince them of something that they would align with.
 - 7+ Convince them of something they could understand.
 - 14+ Convince them of something unrealistic.
 - 21+ Convince them of something outrageous.
 
-### Discern others intentions
+### Discern others intentions {#vibe-check}
 - 7+ Determine if someone's intention is good or bad. This cannot tell if someone is lying, only their intention.
 - 14+ Determine someone's intention, and whether they are lying.
 - 21+ Determine someone's intention, whether they are lying, and what they are lying about.
 - 28+ Determine someone's intention, whether they are lying, what they are lying about, and how to convince them how to tell the truth.
 
 
-## Crafting
+## Crafting {#crafting}
 
-### Make an item
+### Make an item {#make-item}
 - 5+ Spend 1 minute and half the gold cost of an item to create an item of Crafting value 0.
 - 7+ Spend 10 minutes and half the gold cost of an item to create an item of Crafting value 1 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
 - 14+ Spend 1 hour and half the gold cost of an item to create an item of Crafting value 2 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
@@ -231,7 +278,7 @@ Death's Door only goes away if you do a Rest.
 
 
 
-### Understand a contraption.
+### Understand a contraption. {#understand-contraption}
 - What does this contraption do?
 - How can I use/control this contraption?
 - What/Who made this contraption?
@@ -242,43 +289,43 @@ Death's Door only goes away if you do a Rest.
 - 6- Ask the GM one of the questions, they may give an honest answer
 
 
-## Nature
+## Nature {#nature}
 
-### Scrounge
+### Scrounge {#scrounge}
 - 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
-### Handle a beast.
+### Handle a beast. {#handle}
 - 7+ Successfully tame/handle a Creature with the Beast tag and a DR of 1 or less.
 - This roll can be done multiple times increasing the requirement by 3 and the DR by 1. 
 - (For example a 11+ can control a DR 2 Beast)
 
 
-### Track a creature
+### Track a creature {#track}
 - 7+ Follow obvious tracks. 
 - 14+ Follow a sneaking creature.
 - 21+ Follow hidden tracks.
 - 28+ Follow near non-existent tracks.
 
 
-## Medicine
+## Medicine {#medicine}
 
-### Identify an Illness or Curse
+### Identify an Illness or Curse {#id-illness-or-curse}
 - 7+ Determine if the target is Poisoned, Cursed, or is sick. 
 - 14+ Determine if the target can be cured easily. 
 - 21+ Know the name of the Poison, Cursed, or Illness. 
 - 28+ Know the name and how to cure the Poison, Cursed, or Illness. 
 
 
-## Thieving
+## Thieving {#thieving}
 
-### Steal/place an item
+### Steal/place an item {#steal}
 - 5+ You steal/place the item but are detected.
 - 7+ Do a contest against all creatures nearby. On success, you steal/place the item undetected.
 - 14+ Do a contest against all creatures that are looking your way or you are stealing from. On success, you steal/place the item undetected.
 - 21+ Do a contest against the creature that you are stealing from. On success, you steal/place the item undetected.
 - 28+ You steal/place the item undetected.
 
-### Hide
+### Hide {#hide}
 - 7+ Become Hidden if no-one is watching you (other than other party members) and few (4 or less on average) people are around to see you. You are hidden until you do any action other than moving or move within 3 tiles of another non-friendly creature you are not stealing from.
 - 11+ Become Hidden if no-one is watching you (other than other party members) and some (10 or less on average) people are around to see you. You are hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
 - 14+ Become Hidden if no-one is watching you (other than other party members) and many (20 or more on average) people are around to see you. You are hidden until you do any action other than moving or move within 1 tiles of another non-friendly creature you are not stealing from.
@@ -290,7 +337,7 @@ Death's Door only goes away if you do a Rest.
 
 
 
-# Making a Character
+# Making a Character {#making-character}
 ## Level 1
 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
 
@@ -300,14 +347,14 @@ Death's Door only goes away if you do a Rest.
 
 2 Weapons, an Armor, a Bandage, and a non-magical item worth less than 15 gold.
 
-## Leveling Up!
+## Leveling Up! {#levelup}
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
 
 <span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Soul Strain</span>
 
 
-## Useful Level Table
+## Useful Level Table {#level-table}
 | Level | Increases | Skill Increases | Traits | Dice |
 | --- | --- | --- | --- | --- |
 | 1 | 2 | 4 | 3 | 4 |
@@ -321,7 +368,7 @@ Death's Door only goes away if you do a Rest.
 | 9 | 10 | 20 | 11 | 8 |
 
 
-## Races Table
+## Races Table {#race-table}
 | Rolls | Race Type | Bonus Trait |
 | --- | --- | --- |
 | 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it's requirement. |
@@ -343,5 +390,94 @@ Death's Door only goes away if you do a Rest.
 | 3,5 | Nagalike | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them your level stacks of Poisoned. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
 | 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
 | 4+ | Reroll | Reroll |
+
+
+
+
+
+
+# Stack Effects {#stack-effects}
+
+### Soul Strain
+- How much your Soul has been affected by casting or being affected by magic.
+- You can have an amount of Soul Strain equal to three times your Soul before you start taking damage.
+- When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Health, Dodge, Ward, and other effects do not reduce this damage)
+
+### Death's Door
+- When you are on 0 or less life you are put on Death's Door. 
+- While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. 
+- If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
+
+### Burn
+- Removes stacks of Wet before other effects.
+- 1 stack of Burn removes 1 stack of Wet
+- At the beginning of your turn take an amount of Damage equal to the amount of Burn you have and reduce the Burn by 1.
+- A creature can spend ## (2 dice) to put out all remaining stacks of Burn on itself or another creature.
+
+### Wet
+- Removes stacks of Burn before other effects
+- 1 stack of wet removes 1 stack of Burn
+- Wind spells do an additional 1 damage to you.
+- The wording on wind spells is there to remind you. It does not do 2 extra damage
+- At the beginning of your turn reduce Wet by 1.
+
+### Bleed
+- At the beginning of your turn take an amount of Damage equal to the amount of Bleed you have and reduce the Bleed by 1.
+- If you are healed with a bandage, medkit or other healing ITEM remove all stacks of Bleed
+
+### Poisoned
+- You do 1 less damage from weapon attacks, and have Disadvantage on Body rolls.
+- Punches are weapon attacks.
+
+### Stun
+- At the beginning of your turn lose a number of dice equal to the amount of Stun. (do not roll these when starting your turn)
+- Example; If you start your turn normally rolling 5 dice but have 2 stacks of Stun you roll 3 for this turn instead
+- Loose all stacks at the end of your turn.
+
+### Webbed
+- Set your Speed to 0. You cannot do the Move action.
+- Reduce Webbed by 1 at the end of your turn.
+
+### Grappled
+- You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body Contest against the source of the grapple to remove this effect. 
+- Does not reduce until the source stops grappling you, or you escape the grapple.
+
+### Blinded
+- You cannot see and fail any rolls that rely on sight. 
+- All targets are classified as Hidden to you (including Marked targets) unless you succeed at a Search check. 
+- Reduce by 1 at the end of your turn.
+
+### Marked
+- Cant become hidden.
+- Reduce Marked by 1 at the end of your turn.
+- Some Traits and effects have special interactions with Marked.
+
+### Hidden
+- You cannot be seen or heard when someone is not looking for you.
+- You cannot be targeted by weapon or non area spells.
+- Does not disappear until you come out of hiding or are revealed.
+
+### Invisible
+- You are Hidden, and cannot be detected by sight.
+- Has no effect on creatures that rely on hearing instead of sight. Such as Sand Worms
+- Reduce Invisible by 1 at the end of your Turn.
+
+### Flying
+- You can move your Speed in any direction that isn't through walls. 
+- You are immune to slow terrain that is on the ground.
+
+### Incorporeal
+- You cannot interact with the world or Cast Spells. However you are able to force your way through walls and floors. 
+- While incorporeal you can only interact with other Incorporeal things.
+- Magic can still damage you while Incorporeal, however you cannot gain stack effects from magic, such as Burn.
+- You cannot be damaged from non-magical damage.
+- Reduce Incorporeal by 1 at the end of your Turn.
+
+### Silence
+- You cannot speak, cast spells, or activate the effects of your weapon. 
+- Reduce Silence by 1 at the end of your Turn.
+
+
+
 `;
 export default markdown;
