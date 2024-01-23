@@ -293,4 +293,26 @@
         "items": "spirit claw;|;thick hide",
         "notes": "The guardian's level is the same as its summoners level.\nSoul is equal to half your level (rounded down). Charm and Medicine are equal to the summoners Soul/2 (rounded down)."
     }
+    ,
+    "15":{
+        "name": "humming sprite",
+        "race": "planar",
+        "level": 0,
+        "body": 0,
+        "mind": 0,
+        "soul": 1,
+        "arcana": 1,
+        "charm": 1,
+        "crafting": 0,
+        "medicine": 0,
+        "nature": 0,
+        "thieving": 0,
+        "curHealth": 0,
+        "speedBonus": 1,
+        "stackEffects": ["dodge 2"],
+        "traits": "hover;|;equipable;|;change face",
+        "spells": "far whispers;|;control elements",
+        "items": "fists;|;unarmored",
+        "notes": "A small translucent sprite similar in size to a small child. They are mostly found in service of mages and planar entities.\nThey love music and will come flocking if a good song is played to try to hum along to it."
+    }
 }
