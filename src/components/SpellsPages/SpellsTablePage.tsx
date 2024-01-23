@@ -31,20 +31,20 @@ export default function SpellsTablePage() {
     useEffect(() => {
         async function getSpells() {
             let spells: Spell[];
-            try {
-                const spellsRaw = await SpellsService.getAllSpells();
+            // try {
+            //     const spellsRaw = await SpellsService.getAllSpells();
 
-                spells = Object.values(spellsRaw);
-            } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
+            //     spells = Object.values(spellsRaw);
+            // } catch (e) {
+            //     if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     spells = Object.values(json);
-                } else {
-                    return;
-                }
-            }
+            //     } else {
+            //         return;
+            //     }
+            // }
 
             spells = filterBROKENandMONSTER(spells);
 

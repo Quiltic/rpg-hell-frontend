@@ -1,467 +1,516 @@
 {
     "1": {
-        "name": "Weapon Attack",
-        "effect": "Use your weapon to hit a target. To hit a target you must give 2 dice. Then when doing damage removing damage from the target based on its Armor and Ward.",
+        "name": "weapon attack",
+        "effect": "Use your weapon to hit a target. To hit a target you must give 2 dice, possibly doing a bonus effect based on the sum of the roll and the weapon used. Then when doing damage removing damage from the target based on its Armor and Ward.",
         "req": [
-            "Base"
+            "base"
         ],
         "dice": 2,
         "is_passive": false
     },
     "2": {
-        "name": "Spell Casting",
-        "effect": "Gain Soul Strain to Cast a spell from your Spell list. Soul Strain cost and dice cost depend on spell.",
+        "name": "spell casting",
+        "effect": "Gain Soul Strain to Cast a spell from your Spell list. Soul Strain cost, dice cost, and effect depend on spell.",
         "req": [
-            "Base"
+            "base"
         ],
-        "dice": 0,
+        "dice": 4,
         "is_passive": false
     },
     "3": {
-        "name": "Use an Item",
+        "name": "use an item",
         "effect": "Use an item that is from your bag, or is within 1 tile of you in the world.",
         "req": [
-            "Base"
+            "base"
         ],
         "dice": 2,
         "is_passive": false
     },
     "4": {
-        "name": "Move",
-        "effect": "Spend a dice to move your Speed. Swimming and Climbing use two tiles instead of 1.",
+        "name": "move",
+        "effect": "Spend a dice to move your Speed. Swimming and Climbing use two tiles instead of 1. If you give a 1 you lose 1 Speed for this movement. If you give a 6 you gain 1 Speed for this Movement",
         "req": [
-            "Base"
+            "base"
         ],
         "dice": 1,
         "is_passive": false
     },
     "5": {
-        "name": "Hide",
-        "effect": "Roll a Contested Thieving roll against all a Core roll of all creatures that can see you. If you succeed you become Hidden. You do not need to beat your ally\u2019s Search to still go Hidden, unless you are trying to hide from them or they are trying to stop you.",
+        "name": "grapple",
+        "effect": "Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is Grappled.",
         "req": [
-            "Base"
+            "base"
         ],
         "dice": 2,
         "is_passive": false
     },
     "6": {
-        "name": "Search",
-        "effect": "Roll your Core Skill. Pick the top 3 dice. If you meet or beat the dice values of the hidden creature they are no longer Hidden.",
+        "name": "push",
+        "effect": "Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is pushed 3 tiles away from you.",
         "req": [
-            "Base"
+            "base"
         ],
         "dice": 2,
         "is_passive": false
     },
     "7": {
-        "name": "Grapple",
-        "effect": "Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is Grappled.",
+        "name": "overwatch",
+        "effect": "When a target moves into or out of your Weapon range you may spend your Locked Dice to do a Weapon Attack. Reduce your Locked dice value by 2 for this attack.",
         "req": [
-            "Base"
+            "base"
         ],
-        "dice": 2,
+        "dice": 1,
         "is_passive": false
     },
     "8": {
-        "name": "Push",
-        "effect": "Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is pushed 3 tiles away from you.",
+        "name": "lock",
+        "effect": "You may Lock any unused dice at the end of your Turn.",
         "req": [
-            "Base"
+            "base"
         ],
-        "dice": 2,
+        "dice": 1,
         "is_passive": false
     },
     "9": {
-        "name": "Overwatch",
-        "effect": "Make a Melee Attack at the first target that moves within your weapon range.",
+        "name": "flight",
+        "effect": "You have permanent Flight.",
         "req": [
-            "Base"
+            "MONSTER"
         ],
-        "dice": 1,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "10": {
-        "name": "Lock",
-        "effect": "You may Lock any unused dice at the end of your Turn.",
+        "name": "aquatic life",
+        "effect": "You can only breathe in water.",
         "req": [
-            "Base"
+            "MONSTER"
         ],
-        "dice": 1,
+        "dice": 0,
         "is_passive": true
     },
     "11": {
-        "name": "MONK 1:",
-        "effect": "When you get this you may use your Level instead of a set skill plus 2. \nSet your Unarmed Damage to 2. \nYour unarmored Armor Score is the same as Light Armor. You still retain the benefits of being unarmored.",
+        "name": "strong body",
+        "effect": "When you roll Physical Feats for Lifting or Pulling multiply each roll by 3 times.",
         "req": [
-            "BROKEN",
-            "body 1",
-            "mind 1",
-            "soul 1"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "12": {
-        "name": "MONK 2:",
-        "effect": "Your Unarmed Attacks can damage Incorporeal things as if you where Incorporeal.\nSet your Unarmed Damage to 4. \nYour unarmored Armor Score is the same as Medium Armor. You still retain the benefits of being unarmored.",
+        "name": "mount",
+        "effect": "When someone rolls to Handle a Beast on you they do so with an extra dice.\nAdditionally, you can carry another creature without needing to do a Physical Feats roll.",
         "req": [
-            "BROKEN",
-            "body 2",
-            "mind 2",
-            "soul 2"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "13": {
-        "name": "MONK 3:",
-        "effect": "You have achieved inner balance, perfect hegemony inside yourself.\nUsing 2 dice you can purify yourself of curse and various other negative effects.\nAdditionally, you can not be knocked prone unless you allow it.\nSet your Unarmed Damage to 6. \nYour unarmored Armor Score is the same as Heavy Armor. You still retain the benefits of being unarmored.",
+        "name": "hidyhole",
+        "effect": "Cast Pocket Dimension on yourself without needing a container. You cannot take items with you when you enter or leave. You are unconscious while inside and do not need to eat, sleep, or breathe until you leave the Hidyhole.",
         "req": [
-            "BROKEN",
-            "body 3",
-            "mind 3",
-            "soul 3"
+            "MONSTER"
         ],
-        "dice": 2,
-        "is_passive": true
+        "dice": 1,
+        "is_passive": false
     },
     "14": {
-        "name": "Meditate",
-        "effect": "You can spend 1 hour meditating to cleanse half your Soul Strain.",
+        "name": "movement choice 1",
+        "effect": "Gain Climber and Swimmer, Flight, or Increase your Speed by 2.",
         "req": [
-            "Base"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "15": {
-        "name": "Power Attack",
-        "effect": "If a 6 was spent doing a non AOE Attack it does an extra damage.",
+        "name": "construct",
+        "effect": "Does not require food, water, or air to function.",
         "req": [
-            "Base"
+            "MONSTER"
         ],
-        "dice": 2,
+        "dice": 0,
         "is_passive": true
     },
     "16": {
-        "name": "soul Manipulator",
-        "effect": "While soul is your Core Skill, Triple your Soul when Calculating Max Soul Strain instead of Doubling it.",
+        "name": "deathless",
+        "effect": "Can be revived with a Crafting score of 20 or higher (sum).",
         "req": [
-            "Base"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "17": {
-        "name": "Stance Fighting Group",
-        "effect": "Gain the following traits: Pushing Strike, Feint, and Bash. This trait costs 2 trait points. You may only select this trait at level 1.",
+        "name": "forced soul",
+        "effect": "Get 2 Soul Strain, do not get any spells",
         "req": [
-            "BROKEN",
-            "body 2"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "18": {
-        "name": "Marshall Artist Group",
-        "effect": "Gain the following traits: Strong Punches, Climber, and Setup.  This trait costs 2 trait points. You may only select this trait at level 1.",
+        "name": "spirit",
+        "effect": "Become Incorporeal until the start of your next turn.",
         "req": [
-            "body 1",
-            "mind 1"
+            "MONSTER"
         ],
-        "dice": 0,
-        "is_passive": true
+        "dice": 2,
+        "is_passive": false
     },
     "19": {
-        "name": "Barbarian Fighting Group",
-        "effect": "Gain the following traits: Hearty, Shredder, and Bull Rush.  This trait costs 2 trait points. You may only select this trait at level 1.",
+        "name": "undead (6,4)",
+        "effect": "The creature is Undead. When this creature hits 0 or less health they roll deaths door rolls.",
         "req": [
-            "body 2"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "20": {
-        "name": "Athlete Group",
-        "effect": "You gain the following traits: Climber, Quick Runner, and Pitcher.  This trait costs 2 trait points. You can only select this trait at level 1.",
+        "name": "equipable",
+        "effect": "Can use Items that it meets the requirements for.",
         "req": [
-            "body 2"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "21": {
-        "name": "bloodhound",
-        "effect": "Gain 2 extra Speed when moving to a Marked or Bleeding (has Bleed stacks) creature.\nThis can be taken multiple times to increase the Speed by 2 each time this is taken.",
+        "name": "hover",
+        "effect": "Floats up to 1 tile over the ground (isn't affected by ground based effects).",
         "req": [
-            "body 1"
+            "MONSTER"
         ],
         "dice": 0,
         "is_passive": true
     },
     "22": {
-        "name": "Strong Punches",
+        "name": "strong punches",
         "effect": "When doing an Attack with a Fist Weapon the damage is equal to half your Level (rounded up) plus 1.",
-        "req": [
-            "body 1"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "23": {
-        "name": "Climber",
-        "effect": "Can move your Speed up vertical walls without needing to roll or spending extra Speed.",
-        "req": [
-            "body 1"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "24": {
-        "name": "Pushing Strike",
-        "effect": "Do a Melee Attack it has an additional 3 Knockback.",
-        "req": [
-            "body 1"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "25": {
-        "name": "Hearty",
-        "effect": "Gain additional Max Health equal to your Body.",
         "req": [
             "body 1"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "26": {
-        "name": "Brace",
-        "effect": "Take no damage from knockback.",
+    "23": {
+        "name": "hearty",
+        "effect": "Gain additional Max Health equal to your Body.\nAdditionally, when you roll to lift, pull, or push an object, you roll with Advantage.",
         "req": [
-            "BROKEN",
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "24": {
+        "name": "climber",
+        "effect": "Can move your Speed up vertical walls without needing to roll Acrobatics or Athletics or spending extra Speed.",
+        "req": [
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "25": {
+        "name": "dual wield",
+        "effect": "Do a one handed Weapon Attack. You can do an additional attack with a different one handed weapon for half damage (rounded down). This second attack is done with a 7 for the sum. Any weapon that does not say specifically it is two handed is one handed.",
+        "req": [
+            "body 2"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "26": {
+        "name": "obstruct",
+        "effect": "Target creatures cannot move through tiles adjacent to you. They may, however, stop within this area (for instance in doing a melee attack).",
+        "req": [
             "body 2"
         ],
         "dice": 0,
         "is_passive": true
     },
     "27": {
-        "name": "Shredder",
-        "effect": "Do a Melee Attack, this attack does no damage. Remove Armor equal to your damage. You can only do this once per turn. Additionally, you gain advantage when trying to break objects that are smaller than you.",
+        "name": "quick runner",
+        "effect": "Gain 1 additional Speed. This can be taken multiple times to gain another additional Speed.",
         "req": [
             "body 2"
         ],
-        "dice": 2,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "28": {
-        "name": "Feint",
-        "effect": "Make a Weapon Attack. You may add 3 to one of the dice you use for the attack. At the end of your turn gain Stun 1. You can only do this once per turn.",
+        "name": "battle ready",
+        "effect": "When you do a Melee Weapon Attack dice, if you spend a 1 you may reroll this dice once per turn.\nAdditionally, when you roll Initiative dice you may roll 2 dice and pick which dice to use.",
         "req": [
-            "body 2"
+            "body 3"
         ],
-        "dice": 2,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "29": {
-        "name": "Quick Runner",
-        "effect": "Gain 1 extra Speed. This can be taken multiple times to increase the Speed by 1 each time this is taken.",
+        "name": "defensive duelist",
+        "effect": "When you give a Low Roll for a Melee Weapon Attack you gain 1 Stack of Dodge until the end of your next Rest.",
         "req": [
-            "body 2"
+            "body 3",
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
     "30": {
-        "name": "Endure",
-        "effect": "Gain 2 Temporary Health. This cannot be done while you have Temporary Health.",
-        "req": [
-            "body 3"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "31": {
-        "name": "Bashing Strike",
-        "effect": "Do a Melee Attack, this attack does no damage. Stun 3. Alternatively, if the target is unaware of you you can do a Body Contest against the target. On success the target is knocked unconscious for 1 minute (6 turns), until another creature spends 1 dice to wake them up, or they take damage.",
-        "req": [
-            "body 3"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "32": {
-        "name": "Wall Bang",
-        "effect": "When you Knockback a target into non destructible surface (wall) they take damage for every tile they do not move, instead of for every 2 tiles they dont move.",
+        "name": "tag team",
+        "effect": "When you attack a target while another ally is within 1 tile of that target, you may roll an additional dice and pick which rolled dice activates effects.\nAdditionally, if you are standing next to an Ally, both you and the Ally get Advantage on Body checks.",
         "req": [
             "body 3"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "33": {
-        "name": "Disarm",
-        "effect": "Do a Melee Attack, this attack does no damage. If the target is holding a weapon they drop the weapon and it goes 3 tiles away.",
+    "31": {
+        "name": "critical",
+        "effect": "When you give a sum attack of 12 for a Melee Weapon Attack dice, you do double damage for that attack.\nAdditionally, when you give two or more 6's for a roll you may add 3 to that roll without spending another dice.",
+        "req": [
+            "body 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "32": {
+        "name": "disarm",
+        "effect": "Do a Melee Attack, this attack does no damage. If the target is holding an item they drop the item sending it 3 tiles away. This may or maynot start combat depending on situation.",
         "req": [
             "body 4"
         ],
         "dice": 2,
         "is_passive": false
     },
-    "34": {
-        "name": "Critical Strike",
-        "effect": "Do a Melee Attack. Roll a dice on a 5 or 6 it does Double damage. Otherwise it does normal damage. This can only be done once per turn.",
+    "33": {
+        "name": "improved auras",
+        "effect": "Your Auras have an increased Range of 1 tile.",
         "req": [
-            "body 6"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "35": {
-        "name": "Deaths Reaper",
-        "effect": "When you kill a creature with a Melee Attack. Gain an additional Dice.",
-        "req": [
-            "body 6"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "36": {
-        "name": "Deaths Knock",
-        "effect": "While on Death\u2019s Door you do an extra 2 damage from Weapon Attacks.",
-        "req": [
-            "body 2",
-            "mind 1"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "37": {
-        "name": "Defender",
-        "effect": "When you use Overwatch and you hit a creature. That creature\u2019s Speed is set to 0 and gets Webbed this turn.",
-        "req": [
-            "body 2",
-            "mind 1"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "38": {
-        "name": "Fortify",
-        "effect": "Gain a Stack of Armor. You cannot gain more than 3 Armor from this trait per Rest.",
-        "req": [
-            "body 4",
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "39": {
-        "name": "Combo Finisher",
-        "effect": "If you hit the same creature twice this turn you can do another Weapon Attack.",
-        "req": [
-            "body 4",
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "40": {
-        "name": "Blessed/Cursed Caster",
-        "effect": "You have been gifted with power. You can cast Bless or Weak Curse using 1 Soul Strain instead of 2, and all spells you cast do an extra 1 damage to Undead.",
-        "req": [
-            "body 2",
-            "soul 1"
+            "body 5"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "41": {
-        "name": "Powerful Smites",
-        "effect": "When you cast Smite, increase its damage by half your Soul rounded up.",
+    "34": {
+        "name": "death's reaper",
+        "effect": "When you kill a creature with a Melee Attack. Regain one of the dice spent on this attack.",
         "req": [
-            "body 2",
-            "soul 1"
+            "body 6",
+            "OOC"
         ],
-        "dice": 2,
+        "dice": 0,
         "is_passive": true
     },
-    "42": {
-        "name": "Protected",
-        "effect": "When you are put on Death\u2019s Door, gain 2 stacks of Ward.",
+    "35": {
+        "name": "guarding aura",
+        "effect": "You know how many creatures are within your Aura, even if they are Hidden. At the beginning of your turn, for every creature in your Aura you get 1 Armor Health. If you do not have an Aura you get one with the following effect: \nRadiating Aura: Spend a dice to toggle on or off this Aura. You can only have one Aura active at a time. While this Aura is active you emanate a soft glow illuminating everything within 2 tiles of you.",
         "req": [
-            "body 4",
+            "body 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "36": {
+        "name": "defender",
+        "effect": "When you use Overwatch and you hit a creature. That creature\u2019s Speed is set to 0 and gets Webbed this turn.\nAdditionally, you know if a creatures intentions are hostile without needing to do a Discern Others Intentions roll.",
+        "req": [
+            "body 3",
+            "mind 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "37": {
+        "name": "fortify",
+        "effect": "Gain an amount of Armor Health equal to your Level. You cannot do this action more than 3 times per Rest.",
+        "req": [
+            "body 3",
+            "mind 2",
+            "OOC"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "38": {
+        "name": "combo finisher",
+        "effect": "If you hit the same creature twice this turn you can do another Weapon Attack without spending more dice, this roll is always a 6. You cannot use this feature more than once per turn.",
+        "req": [
+            "body 5",
+            "mind 3",
+            "OOC"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "39": {
+        "name": "paladin aura",
+        "effect": "While you have your Aura up, you treat the area your Aura covers as your attack range for attacks made through Overwatch. If you do not have an Aura you get one with the following effect: Spend a dice to toggle on or off this Aura you can only have one Aura active at a time. While this Aura is Active a soft glow appears within 2 tiles of you.\nAdditionally, when you hit an overwatch attack the effects of your aura are applied immediately.",
+        "req": [
+            "body 3",
+            "soul 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "40": {
+        "name": "blessed/cursed caster",
+        "effect": "You have been gifted with power. You can cast Bless or Weak Curse once per Rest without gaining Soul Strain. \nAdditionally, all spells you cast do an extra 1 damage to Undead.",
+        "req": [
+            "body 3",
             "soul 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "43": {
-        "name": "Spell Combo",
-        "effect": "Cast a Damaging Melee Spell. After hitting with this Melee Spell, take the lowest die spent on the spell and the other given die to make a Melee Weapon Attack. This cannot be done more than once per turn.",
+    "41": {
+        "name": "protected",
+        "effect": "When you are put on Death\u2019s Door, gain 2 stacks of Ward.",
         "req": [
-            "body 6",
-            "soul 4"
+            "body 3",
+            "soul 2",
+            "OOC"
         ],
-        "dice": 3,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
+    },
+    "42": {
+        "name": "dagger master",
+        "effect": "When attacking with a Dagger you may only give a 6 instead of 2 dice to do a Weapon Attack.\nAdditionally, when you Scavenge you find 1 extra item each time you succeed.",
+        "req": [
+            "body 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "43": {
+        "name": "spear master",
+        "effect": "When you activate a Spear's Weapon effect the Range is increased by 1 tile.\nAdditionally, when you do a running jump you can do a Pole Vault with your Spear instead giving 4 tiles per activation instead of 2.",
+        "req": [
+            "body 6"
+        ],
+        "dice": 0,
+        "is_passive": true
     },
     "44": {
-        "name": "Tactician Group",
-        "effect": "You gain the following traits: Think Ahead, Command, and Motivate.  This trait costs 2 trait points. You can only select this trait at level 1.",
+        "name": "hammer master",
+        "effect": "When you activate a Hammer's Weapon effect you can knock the target down instead of knocking them back.",
         "req": [
-            "mind 2"
+            "body 6",
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
     "45": {
-        "name": "Marksman Group",
-        "effect": "You gain the following traits: Crippling Shot, Dodge, and On Guard.  This trait costs 2 trait points. You can only select this trait at level 1.",
+        "name": "axe master",
+        "effect": "When you activate a Axe's Weapon effect you do triple damage to Armor instead of double.",
         "req": [
-            "mind 2"
+            "body 6",
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
     "46": {
-        "name": "Mental Mage",
-        "effect": "If your Max Soul Strain is 0 it becomes 2. If it is higher, increase it by 1.",
+        "name": "pitcher",
+        "effect": "Double the Throw Range for all items you Throw. Items that don't have a displayed Throw Range have a Throw Range of 3.",
+        "req": [
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "47": {
+        "name": "bull rush",
+        "effect": "Move up to half your speed in a strait line in any direction, you may move through creatures during this move. Do a Body Contest against any creature within 1 tile during the move. On Success, knock the target back 3 tiles away from your path.",
+        "req": [
+            "body 2"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "48": {
+        "name": "cleave",
+        "effect": "Do a Melee Weapon Attack against all target's in front of you (Directly in front, to the left, and right of that tile). You can only do this once per turn.",
+        "req": [
+            "body 3",
+            "OOC"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "49": {
+        "name": "rip and tear",
+        "effect": "Do a Melee Weapon Attack, if you activate the Weapons effect, give the target an additional 1 stack of Bleed.",
+        "req": [
+            "body 3",
+            "OOC"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "50": {
+        "name": "bloodhound",
+        "effect": "Gain 2 extra Speed when moving to a Marked or Bleeding (has Bleed stacks) creature.",
+        "req": [
+            "body 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "51": {
+        "name": "bashing strike",
+        "effect": "Do a Melee Attack, this attack does no damage instead giving Stun 2. On a Low Roll give the target 1 Stun instead. On a High Roll give the target 3 Stun instead.\nAlternatively, if the target is unaware of you you can do a Body Contest against the target. On success the target is knocked unconscious for 1 minute (6 turns), until another creature spends 2 dice to wake them up, or they take damage.",
+        "req": [
+            "body 3"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "52": {
+        "name": "swimmer",
+        "effect": "Can move your Speed through normal liquids without needing to roll Acrobatics or Athletics or spending extra Speed.",
+        "req": [
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "53": {
+        "name": "jumper",
+        "effect": "When you roll Physical Feats to Jump, add 2 to the distance jumped.",
+        "req": [
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "54": {
+        "name": "mental mage",
+        "effect": "If your Max Soul Strain is 0 it becomes 2. Otherwise, increase it by 2.",
         "req": [
             "mind 1"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "47": {
-        "name": "Setup",
-        "effect": "Give yourself the dice spent on this skill next turn. This can only be done once per turn.",
+    "55": {
+        "name": "mark",
+        "effect": "Apply 3 stacks of Marked to a target you can see within Range 6.",
         "req": [
             "mind 1"
         ],
         "dice": 1,
         "is_passive": false
     },
-    "48": {
-        "name": "On Guard",
-        "effect": "If you end your turn without Attacking/Damaging anything. Go on Overwatch for free.",
-        "req": [
-            "mind 1"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "49": {
-        "name": "Mark",
-        "effect": "Mark a target for 3 turns. (Marked Targets cant become hidden and loose 1 Armor if they have Armor) [Marking an already Marked Target has no effect except to reset the duration of Marked]",
-        "req": [
-            "mind 1"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "50": {
-        "name": "Motivate",
+    "56": {
+        "name": "motivate",
         "effect": "Target a creature you can see. Give the target the dice you used on this skill. This can be used outside of Combat when rolling a dice for a check. If you and the target both roll this check you spend one of your dice in the check, otherwise roll Mind then spend a dice.",
         "req": [
             "mind 1"
@@ -469,26 +518,127 @@
         "dice": 1,
         "is_passive": false
     },
-    "51": {
-        "name": "Dodge",
-        "effect": "When you take damage you may spend your Locked dice to move 1 tile in any direction.",
-        "req": [
-            "mind 2"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "52": {
-        "name": "Crippling Shot",
-        "effect": "Do a Ranged Attack, on hit, reduce the target\u2019s Speed by 2 to a max of 4 reduction.",
+    "57": {
+        "name": "crippling shot",
+        "effect": "Do a Ranged Weapon attack, this attack reduces the target's Speed by 2, to a maximum of 4 reduced from this trait, until the begining of your next turn.\nAlternatively, throw a Bola that trips and sets the Speed of the target to 0. Until the end of the target's next turn.",
         "req": [
             "mind 2"
         ],
         "dice": 3,
         "is_passive": false
     },
-    "53": {
-        "name": "Think Ahead",
+    "58": {
+        "name": "marking shot",
+        "effect": "Do a Ranged Weapon Attack, it gives them 2 stacks of Marked. If you activated your weapons effect give them another stack of Marked. This cannot be used more than once in a turn.",
+        "req": [
+            "mind 2",
+            "OOC"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "59": {
+        "name": "weak spot",
+        "effect": "When a Creature attacks a Target you Marked they may add 1 to weapon or spell sums. They may only do this once per turn.",
+        "req": [
+            "mind 2",
+            "OOC"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "60": {
+        "name": "forethought",
+        "effect": "When you do a Weapon Attack, you may add an additional dice to activate weapon effects.\nIf you replace a dice with your Locked dice you may add half of the replaced dice's value (rounded down) to the locked dice value. This effect does not happen if the Locked dice value is 6.",
+        "req": [
+            "mind 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "61": {
+        "name": "train of thought",
+        "effect": "If you don't have a locked die at the end of your turn lock a 3. This effect can go off once every minute (6 Turns).",
+        "req": [
+            "mind 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "62": {
+        "name": "marked as lost and found",
+        "effect": "When Searching for a Hidden target, if you find something you can apply 2 Stacks of Marked without spending another dice.\nAdditionally, you get Advantage when you search for a target that you are familiar with. (Creatures you just met do not count)",
+        "req": [
+            "mind 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "63": {
+        "name": "recalculate",
+        "effect": "You may flip this dice to show its opposite face. (1\u21d46, 2\u21d45, 3\u21d44) You can only do this once per turn, and a number of times equal to your COMBAT DICE per Rest.",
+        "req": [
+            "mind 4"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "64": {
+        "name": "size up",
+        "effect": "Target a creature you can see. You determine which of the target's Primary Skills (Body | Mind | Soul) are highest and lowest. You do not know the values of these Skills.",
+        "req": [
+            "mind 4"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "65": {
+        "name": "change of thinking",
+        "effect": "Set a dice to 4. You can do this a number of times equal to your COMBAT DICE per Rest.",
+        "req": [
+            "mind 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "66": {
+        "name": "duplicity",
+        "effect": "When you roll multiple dice for a Weapon attack, you may use all of the dice to activate an effect rather than just 1.",
+        "req": [
+            "mind 5"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "67": {
+        "name": "longer marks",
+        "effect": "When you Mark a creature, increase its marked stacks by 3.",
+        "req": [
+            "mind 5"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "68": {
+        "name": "outsmart",
+        "effect": "When a creature that you can see rolls you may replace one of the dice rolled with your Locked dice.",
+        "req": [
+            "mind 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "69": {
+        "name": "illusion of choice",
+        "effect": "Set a dice to any value you want. You can only do this once per turn, and a number of times equal to your COMBAT DICE per Rest.",
+        "req": [
+            "mind 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "70": {
+        "name": "think ahead",
         "effect": "Split a dice. Cannot split a 1.",
         "req": [
             "mind 2"
@@ -496,262 +646,26 @@
         "dice": 1,
         "is_passive": false
     },
-    "54": {
-        "name": "Deadeye",
-        "effect": "Spend 2 1\u2019s to hit a target with a Ranged Attack. This cannot be used more than once in a turn. This can be taken multiple times to increase the number of times you can do this in a turn.",
-        "req": [
-            "mind 2"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "55": {
-        "name": "Weakspot",
-        "effect": "When a Creature attacks a Creature you Marked they may add 1 to a dice roll once per turn.",
-        "req": [
-            "mind 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "56": {
-        "name": "Marking Shot",
-        "effect": "Do a Ranged Attack, it gives them Marked for 2 turns on hit. This cannot be used more than once in a turn.",
-        "req": [
-            "mind 2"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "57": {
-        "name": "Command",
-        "effect": "Give an ally the ability to attack (2 dice) or move (1 dice). You cannot use this ability more than once per turn.",
-        "req": [
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "58": {
-        "name": "Covering Fire",
-        "effect": "Make a Ranged Attack. On hit stop the target from being able to do Overwatch, cast spells, or do actions until the start of their turn.",
-        "req": [
-            "mind 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "59": {
-        "name": "Train of Thought",
-        "effect": "If you don't have a locked die at the end of your turn lock a 3.",
-        "req": [
-            "mind 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "60": {
-        "name": "Coordinated Attack",
-        "effect": "Make a Weapon Attack against a single target. An ally within 1 tile of the target may spend their locked dice and the bonus dice spent on this trait to make an attack against the same target.",
-        "req": [
-            "mind 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "61": {
-        "name": "Collateral",
-        "effect": "Damage up to 3 creatures in a strait line with a Ranged Weapon Attack.",
-        "req": [
-            "mind 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "62": {
-        "name": "Change of Thinking",
-        "effect": "Set a dice to 4. You can do this once per turn.",
-        "req": [
-            "mind 4"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "63": {
-        "name": "Size Up",
-        "effect": "Target a creature you can see. You determine which of the targets Primary Skills (Body | Mind | Soul) are highest and lowest. You do not know the values of these Skills.",
-        "req": [
-            "mind 4"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "64": {
-        "name": "Trick Shot",
-        "effect": "Do a Ranged attack. You gain 3 additional range, and can hit targets you dont see, so long as there is a path to them from where you are within range.",
-        "req": [
-            "mind 5"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "65": {
-        "name": "Ranged Overwatch",
-        "effect": "Go on Overwatch with a Ranged Weapon.",
-        "req": [
-            "mind 5"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "66": {
-        "name": "Outsmart",
-        "effect": "During the enemy\u2019s turn replace a creatures dice with the one given.",
-        "req": [
-            "mind 6"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "67": {
-        "name": "Illusion of Choice",
-        "effect": "You can Manipulate twice a turn instead of once.",
-        "req": [
-            "mind 6"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "68": {
-        "name": "Kite",
-        "effect": "When you land an attack. You may then move half your Speed.",
-        "req": [
-            "body 1",
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "69": {
-        "name": "Unbroken Sprint",
-        "effect": "Move 3 times your Speed.",
-        "req": [
-            "body 1",
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "70": {
-        "name": "Rundown",
-        "effect": "When an enemy moves within half your Speed; you can spend your locked dice to move half your Speed.",
-        "req": [
-            "body 1",
-            "mind 2"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
     "71": {
-        "name": "Reposition",
-        "effect": "When an ally attacks; you can spend your locked dice to move half your Speed.",
+        "name": "enhanced motivate",
+        "effect": "When you use Motivate, increase the dice\u2019s value by 1. This effect doesn\u2019t apply if the dice is already 6.",
         "req": [
-            "body 2",
             "mind 4"
         ],
-        "dice": 1,
+        "dice": 0,
         "is_passive": true
     },
     "72": {
-        "name": "Go Faster",
-        "effect": "Gain a bonus to your Speed equal to half of the higher dice expended (Rounded Down). Then Move your Speed.",
+        "name": "command",
+        "effect": "Give a creature the 2 dice used on this action. They may then use these 2 dice to do any action on their character sheet during your turn. You cannot use this ability more than once per turn.",
         "req": [
-            "body 2",
-            "mind 4"
+            "mind 2"
         ],
         "dice": 2,
         "is_passive": false
     },
     "73": {
-        "name": "mind Reader",
-        "effect": "Attempt to force your mind into another creature's mind that you can see. Roll a Contested Mind check. On success you can read the creatures surface thoughts. Additionally, you can roll another Contested Mind check to look for some information the creature may have memories about. You can only be bound to one creature at a time.",
-        "req": [
-            "mind 2",
-            "soul 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "74": {
-        "name": "mind over Matter",
-        "effect": "When you take damage you can spend your Locked dice and gain Stun 1 and negate the damage. This does not negate other effects such as Knockback or Ward removal.",
-        "req": [
-            "mind 4",
-            "soul 2"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "75": {
-        "name": "Telekinetic Mind",
-        "effect": "You learn the spells Telekinesis, Phantom Fishing Rod, and Poprocks if you don't already know them. Additionally, you can cast Telekinesis for only 1 Soul Strain instead of 3.",
-        "req": [
-            "mind 4",
-            "soul 2"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "76": {
-        "name": "The Swarm Group",
-        "effect": "You gain the following traits: Create Familiar, Simple Golem (Crafting), and Simple Golem (Arcana).  This trait costs 2 trait points. You can only select this trait at level 1.",
-        "req": [
-            "arcana 2",
-            "BROKEN",
-            "crafting 2",
-            "soul 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "77": {
-        "name": "Apprentice Wizard Group",
-        "effect": "You gain the following traits: Yoyo, Force Field, and Create Familiar.  This trait costs 2 trait points. You can only select this trait at level 1.",
-        "req": [
-            "soul 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "78": {
-        "name": "Telepathy",
-        "effect": "Bind your mind to a willing creature's mind. You can use your action on later turns to see/hear through their senses or send/receive simple messages. You can only be bound to one creature at a time.",
-        "req": [
-            "soul 1"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "79": {
-        "name": "Create Familiar",
-        "effect": "At the end of a Rest you can create a https://www.notion.so/04fed09659e84ab0a24fecdec3d0d64b?pvs=21 (See Creatures). You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead) and appearance each time it is created. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the familiar is not given any commands it does not do any action. When you spend a dice to move you may also have the familiar move as well.",
-        "req": [
-            "soul 1"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "80": {
-        "name": "Dreams of the Future",
-        "effect": "At the end of a Rest roll a number of dice equal to your Level and Lock one of the dice.",
-        "req": [
-            "soul 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "81": {
-        "name": "Yoyo",
+        "name": "yoyo",
         "effect": "Move your Speed. At the end of the turn teleport back to where you started the turn.",
         "req": [
             "soul 1"
@@ -759,35 +673,53 @@
         "dice": 1,
         "is_passive": false
     },
-    "82": {
-        "name": "Split Soul",
-        "effect": "Cleanse 2. You can do this a number of times equal to your Soul per Rest.",
+    "74": {
+        "name": "telepathy",
+        "effect": "Bind your mind to a willing creature's mind. You can use your action on later turns to see/hear through their senses or send/receive simple messages. You can only be bound to one creature at a time.",
         "req": [
-            "soul 2"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "83": {
-        "name": "Shield",
-        "effect": "Spend your Locked dice to activate. Cast Cube, making a flat shield shape between you and whatever is attacking you. The damage first goes to the cube then to you. The cube cannot block Area damage and goes away at the end of your next turn.",
-        "req": [
-            "soul 2"
+            "soul 1"
         ],
         "dice": 1,
+        "is_passive": false
+    },
+    "75": {
+        "name": "create familiar",
+        "effect": "At the end of a Rest you can create a Familiar (See Creatures). You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead) and appearance each time it is created. You can control up to your level of personal minions with your dice, but they must all be given the same Command. If the familiar is not given any commands it does not do any action. When you spend a dice to move you may also have the familiar move as well.",
+        "req": [
+            "soul 1"
+        ],
+        "dice": 0,
         "is_passive": true
     },
-    "84": {
-        "name": "Shaped Explosions",
-        "effect": "Cast an area of effect spell. When you do, you can choose up to 3 creatures within the area. Those creatures succeed on the save without needing to roll.",
+    "76": {
+        "name": "illusionary mage",
+        "effect": "When you cast an Illusion spell you can create it with both sound and visuals.",
+        "req": [
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "77": {
+        "name": "meditate",
+        "effect": "Grants the Action Meditate which uses Soul:\n5+ Spend 1 Hour to remove 1 Soul Strain  \n7+ Spend 1 Hour to remove 3 Soul Strain\n21+ Spend 1 Hour to remove Half your Soul Strain (rounded down)\nThese can be done multiple times in a roll without increasing the time spent Meditating.",
+        "req": [
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "78": {
+        "name": "conjure shield",
+        "effect": "Gain 1 Soul Strain and spend your Locked dice to activate. Create a spectral flat shield shape between you and whatever is attacking you. This shield has 6 health. The damage first goes to the shield then to you. The shield cannot block Area damage and goes away at the end of your next turn.",
         "req": [
             "soul 3"
         ],
-        "dice": 4,
+        "dice": 1,
         "is_passive": false
     },
-    "85": {
-        "name": "Focused",
+    "79": {
+        "name": "focused",
         "effect": "You do not lose Focus from taking damage.",
         "req": [
             "soul 3"
@@ -795,8 +727,17 @@
         "dice": 0,
         "is_passive": true
     },
-    "86": {
-        "name": "soul Ward",
+    "80": {
+        "name": "familial flock",
+        "effect": "You create up to 2 Familiars (or equivalent such as Personal Construct) at the end of a Rest. At level 5 it becomes 3 familiars and at level 8 it becomes 4.",
+        "req": [
+            "soul 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "81": {
+        "name": "soul ward",
         "effect": "When you take damage you can gain Ward 1, and gain 2 Soul Strain, then take the damage. This effect cannot happen if you are at max Ward.",
         "req": [
             "soul 4"
@@ -804,425 +745,881 @@
         "dice": 0,
         "is_passive": true
     },
-    "87": {
-        "name": "Familial Flock",
-        "effect": "You create up to 2 Familiars (or equivalent such as Personal Construct) at the end of a Rest. At level 6 it becomes 3 familiars and at level 9 it becomes 4.",
+    "82": {
+        "name": "soulbound familiar",
+        "effect": "Your Familiar gains the spell Swapper with a Soul Strain cost of 1, however it only can target the Owner (you). The Owner (you) can cast spells through the familiar as if they (you) where the familiar. Spells cast this way target the familiar not the Owner. (Soul Skip teleports the familiar not the Owner)",
         "req": [
             "soul 4"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "88": {
-        "name": "Soulbound Familiar",
-        "effect": "Your Familiar gains the spell Swapper with a St cost of 1, however it only can target the Owner (you).\nThe Owner (you) can cast spells through the familiar as if they (you) where the familiar.",
+    "83": {
+        "name": "mirror match",
+        "effect": "Gain 3 Soul Strain to target all creatures within 3 tiles of you, excluding yourself. These creatures make a Soul roll against the 3 dice given. You make an Illusionary clone of that creature. On fail the clone has 2 Ward, on success it has 1. Any action that would effect a creature other than itself will get sucked into the clone. \nAdditionally, if the creature tries to move past the clone it must win a Soul contest against you. The clone has 1 health and is magical in nature.",
         "req": [
-            "soul 4"
+            "soul 5"
         ],
-        "dice": 0,
-        "is_passive": true
+        "dice": 3,
+        "is_passive": false
     },
-    "89": {
-        "name": "Reactive Explosions",
-        "effect": "When you do an area of effect spell, you can set one of the required dice to 5 (You still spend 3 dice, you just change 1 dice).",
+    "84": {
+        "name": "summoners command",
+        "effect": "At the start of your turn you may have all of your personal minions (constructs, undead, familiars, summons etc) move without you spending a dice.",
         "req": [
             "soul 5"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "90": {
-        "name": "soul Shielded",
-        "effect": "You can have a maximum of 5 Ward instead of 3. Additionally, gain an additional Ward on Rest.",
+    "85": {
+        "name": "soul shielded",
+        "effect": "You can have a maximum of 5 Ward instead of 3 and gain an additional Ward on Rest.\nAdditionally, While you have Ward you cannot become dirty or wet by unwelcomed sources.",
         "req": [
             "soul 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "86": {
+        "name": "acceleration",
+        "effect": "Gain Speed equal to half your current Soul Strain (rounded down). This effect goes away at the end of your turn.",
+        "req": [
+            "soul 6"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "87": {
+        "name": "dreams of the future",
+        "effect": "At the end of a Rest roll a number of dice equal to your Level and Lock one of them.",
+        "req": [
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "88": {
+        "name": "rune maker",
+        "effect": "At the end of a Rest you can craft 2 Lesser Runes of your choosing. If you craft different runes using this feature the oldest rune gets replaced. This skill can be taken multiple times to increase the number of runes by 1.",
+        "req": [
+            "arcana 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "89": {
+        "name": "discover rune of soul skip",
+        "effect": "You have learned how to create a Unique Rune of Soul Skip. At the end of a rest, you can create 1 Rune of Soul Skip and apply it to an item. Only 1 instance of this rune can exist at any time and attempting to create a second will destroy the first.\nRune of Soul Skip: You can cast Soul Skip without gaining Soul Strain a number of times per day equal to your Arcana reseting at Dawn.",
+        "req": [
+            "arcana 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "90": {
+        "name": "runic carver",
+        "effect": "At the end of a Rest you can craft 1 Greater Rune and 1 Lesser Runes of your choosing. If you craft different runes using this feature you replace the preveously made one of the same level.",
+        "req": [
+            "arcana 4"
         ],
         "dice": 0,
         "is_passive": true
     },
     "91": {
-        "name": "Acceleration",
-        "effect": "Gain Speed equal to 1/3 your current Soul Strain (rounded down). This effect goes away at the end of your turn.",
+        "name": "runic master",
+        "effect": "At the end of a Rest you can craft 2 Greater Runes of your choosing. If you craft different runes using this feature the oldest rune gets replaced.",
         "req": [
-            "soul 6"
+            "arcana 6"
         ],
-        "dice": 1,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "92": {
-        "name": "Summoners Command",
-        "effect": "At the start of your turn you may have all of your personal minions (constructs, undead, familiars, summons etc) move without you spending a dice.",
+        "name": "combative running",
+        "effect": "You have figured out how to improve the flow of runic magic through your tools. Weapons you wield and armor you wear can have an additional rune inserted into it. \nAdditionally, at the end of a Rest craft a Lesser Rune. This rune must be put in your weapon or armor and will be replaced if you make another.",
         "req": [
-            "soul 6"
+            "arcana 2",
+            "body 1"
         ],
         "dice": 0,
         "is_passive": true
     },
     "93": {
-        "name": "soul Bind",
-        "effect": "You bind an object or weapon to your very soul. The object gains Returning and if it's a weapon you can do Soul Attack Roll instead of its default Stat attack roll. You must still meet the minimum requirements to use the weapon.",
+        "name": "arcane armory",
+        "effect": "You can cast pocket dimension on items you have applied runes to. When you cast pocket dimension in this way you target only the runed item, \nAdditionally you can equip or unequip armor or weapons this way.",
         "req": [
-            "body 1",
-            "soul 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "94": {
-        "name": "soul Stealer",
-        "effect": "When you kill an enemy with a non-spell Melee Attack, Cleanse 2.",
-        "req": [
-            "body 2",
-            "soul 4"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "95": {
-        "name": "Past and Future",
-        "effect": "You can now Lock two dice. When you would Lock a dice while having two Locked you may pick which Locked dice to replace.",
-        "req": [
-            "mind 1",
-            "soul 2"
+            "arcana 2",
+            "body 1"
         ],
         "dice": 1,
         "is_passive": false
     },
-    "96": {
-        "name": "Glimpse into the Future.",
-        "effect": "You can Lock dice when outside of Combat. Dice locked this way are removed from the roll pool.",
+    "94": {
+        "name": "blade wave",
+        "effect": "You can channel Arcane energy into a Melee Weapon Attack and expel it to attack at range. You can make a Melee Weapon Attack with an additional 4 Range. This attack does half damage (rounded down), and does not activate the weapons effect. On a Low Roll you reduce this damage by 1. On a High Roll you may activate the Weapons effect.\nAdditionally, once per day you may surge this energy. Each creature in a 6 tile line in front of you takes your Weapon's full damage. This attack does not activate the weapons effect. On a Low Roll you reduce this damage by 1. On a High Roll you may activate the Weapons effect.",
         "req": [
-            "mind 1",
-            "soul 2"
+            "arcana 3",
+            "body 2"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "95": {
+        "name": "discover rune of absorption",
+        "effect": "You have learned how to create a Unique Rune of Absorption. At the end of a rest, you can create 1 Rune of Absorption and apply it to any item. Only 1 instance of this rune can exist at any time and attempting to create a second will destroy the first.\nRune of Absorption: Once a day, you may cast the spell Counterspell without gaining soul strain. If a spell is successfully countered then this Rune has additional effects based what it is applied to.\nWeapon: If a spell is successfully countered the weapon glows with energy reminiscent of the spell countered and your next Weapon Attack has a -2 to the High Roll threshhold and the attack does 2 additional damage.\nArmor: If a spell is successfully countered the armor glows with energy reminiscent of the spell countered and you gain armor equivalent to double the countered spell's Soul Strain with a minimum of 2.\nItem: You counterspell with a value of 6 regardless of what value the locked die spent is.",
+        "req": [
+            "arcana 5",
+            "body 3"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "97": {
-        "name": "Foresight",
-        "effect": "When you lock a dice, increase its value by 2. This effect cannot increase a dice\u2019s value over 6.",
+    "96": {
+        "name": "runic augmentation",
+        "effect": "You are able to cast Flesh Shaper on yourself at will. However, the effects are Permanent instead of temporary.",
         "req": [
-            "mind 2",
-            "soul 4"
+            "arcana 6",
+            "body 4"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "97": {
+        "name": "discover rune of poison",
+        "effect": "You have learned how to create a Unique Rune of Poison. At the end of a rest, you can create 1 Rune of Poison and apply it to any item. Only 1 instance of this rune can exist at any time and attempting to create a second will destroy the first.\nRune of Poison: This Rune has effects based what it is applied to.\nWeapon: On hit give the target Poisoned until the begining of your next turn. If the weapon already applies this effect increase its duration by 1 turn.\nArmor: You cannot become Poisoned, and heal 1 when you would be poisoned.\nItem: Once per day you may make a poison with a crafting value of 2 or less without needing to roll. This effect resets at Dawn.",
+        "req": [
+            "arcana 2",
+            "mind 1"
         ],
         "dice": 0,
         "is_passive": true
     },
     "98": {
-        "name": "Skilled",
-        "effect": "Gain an additional 2 Sub-skill increases.",
+        "name": "complex brews",
+        "effect": "You can brew a potion with 2 effects.",
         "req": [
-            "BROKEN",
-            "Level 1"
+            "arcana 2",
+            "mind 1"
         ],
         "dice": 0,
         "is_passive": true
     },
     "99": {
-        "name": "Lucky",
-        "effect": "When you roll a 1 you can re-roll that dice. You can only do this once per Rest.",
+        "name": "poisoned strikes",
+        "effect": "When you hit an attack with a weapon that has no poison (or similar effect) on it you may give the target a stack of Poisoned until the start of your next turn.\nAdditionally, when you apply a potion or Poison effect to an item, it gets twice the number of uses before the potion or Poison runs out.",
         "req": [
-            "mind 2",
-            "soul 4"
+            "arcana 3",
+            "mind 2"
         ],
         "dice": 0,
         "is_passive": true
     },
     "100": {
-        "name": "Cat Burglar Group",
-        "effect": "You gain the following traits: Yoyo, Skeleton Key, and Silent Scaling.  This trait costs 2 trait points. You can only select this trait at level 1.",
+        "name": "skin absorbing",
+        "effect": "You can throw potions and poisons to appy their effect. Potions and poisons thrown this way have their effect time reduced by 30 seconds (5 turns) to a minimum of 6 seconds (1 turn). (Items without a throw range have a default throw range of 3.)",
         "req": [
-            "soul 1",
-            "thieving 1"
+            "arcana 3",
+            "mind 2"
         ],
         "dice": 0,
         "is_passive": true
     },
     "101": {
-        "name": "Skeleton Key",
-        "effect": "You can lockpick without needing tools. Additionally, you roll an extra dice when you lockpick with tools.",
+        "name": "potent alchemy",
+        "effect": "Potions and poisons you brew last 30 seconds (5 turns) longer, or have 2 more charges when applied to an item. (This is taken into effect after all other bonus effects.)",
         "req": [
-            "thieving 1"
+            "arcana 4",
+            "mind 2"
         ],
         "dice": 0,
         "is_passive": true
     },
     "102": {
-        "name": "Silent Scaling",
-        "effect": "You make no noise while climbing or falling up to half your Speed.",
+        "name": "double dosing",
+        "effect": "Potions and poisons you brew can be used twice before it is consumed.",
         "req": [
-            "thieving 1"
+            "arcana 6",
+            "body 4"
         ],
         "dice": 0,
         "is_passive": true
     },
     "103": {
-        "name": "Shadow Walk",
-        "effect": "While you are Hidden or unseen you may turn Invisible. This Invisibility lasts until the start of your next turn.",
+        "name": "potions of power",
+        "effect": "You can brew potions that when ingested allow the drinker to cast a spell with a Soul Strain cost of 2 or less, once. This spell is chosen appon making the Potion, and goes away at the end of a Rest.",
         "req": [
-            "thieving 2"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "104": {
-        "name": "Backstab",
-        "effect": "Do a Melee Attack, it does an extra 1 Damage. The Attack gains Armor Penetration if it does not already have it.\u00a0You can only do this once per turn. This can be taken multiple times to increase the bonus damage by 1 each time this is taken.",
-        "req": [
-            "thieving 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "105": {
-        "name": "Imposing",
-        "effect": "You can use Body instead of Charm when deceiving or intimidating someone.",
-        "req": [
-            "body 1",
-            "thieving 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "106": {
-        "name": "Strangle Hold",
-        "effect": "While you have a creature Grappled. They cannot cast spells or speak.",
-        "req": [
-            "body 1",
-            "thieving 2"
+            "arcana 6",
+            "body 4"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "107": {
-        "name": "Slap Back",
-        "effect": "Spend your locked dice when using this trait. Make a Melee attack on a creature who has hit you with a Melee attack.",
+    "104": {
+        "name": "scroll crafting",
+        "effect": "At the end of a Rest you can create a magical Scroll. This scroll can contain any Spell you know when crafting, and can be used by anyone. The person using the scroll can cast the spell on the scroll for half its Soul Strain cost if they know the spell or at full cost if they don't. You can only have 1 scroll written with this trait at a time, if another one is written the first one loses its power.",
         "req": [
-            "body 2",
-            "thieving 3"
+            "arcana 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "105": {
+        "name": "shaped explosions",
+        "effect": "Cast an area of effect spell, with a sum reduction of 4. When you do, you can choose up to 3 creatures within the area. Those creatures succeed on the save without needing to roll.",
+        "req": [
+            "arcana 3",
+            "soul 2"
+        ],
+        "dice": 4,
+        "is_passive": false
+    },
+    "106": {
+        "name": "spell manipulator",
+        "effect": "Gain 1 Soul Strain then pick on of the following:  \nSoul Slinger: The next spell you cast this turn has an extra 4 Range. \nMaintain Spell Form: The next spell you cast this turn has its duration is increased by an extra 2 turns. \nIntensify Spell: The next spell you cast this turn does 1 extra damage.",
+        "req": [
+            "arcana 3",
+            "soul 2"
         ],
         "dice": 1,
         "is_passive": false
     },
-    "108": {
-        "name": "Get Rough",
-        "effect": "You can push creatures a number of tiles based on your Body +1 instead of just 3 tiles.",
+    "107": {
+        "name": "spell book crafting",
+        "effect": "At the end of a Rest you can create a magical Spell Book. This book can contain up to 3 Spells you know when crafting, and can be used by anyone. The person using the book can cast any spell in the book without gaining Soul Strain. Once a Spell is cast from the book that spell is then magically removed from the book. \nAlternatively you can remove a Spell page from the book turning it into a Spell Scroll which burns away at Dawn. You can only have 1 book written with this trait at a time, if another one is written the first one loses its power.",
         "req": [
-            "body 2",
-            "thieving 4"
+            "arcana 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "108": {
+        "name": "discover rune of gravity",
+        "effect": "You have learned how to create a Unique Rune of Gravity. At the end of a rest, you can create 1 Rune of Gravity and apply it to any item. Only 1 instance of this rune can exist at any time and attempting to create a second will destroy the first.\nRune of Gravity: the wielder of the item this rune is applied to can activate it as a # (one dice) action. When you activate it you choose which effect takes place. This effect can be turned off for an additional # (one dice) action.\n1. Your Gravity is inverted, making it so you will fall upwards. You can take fall damage from this and can leave the atmosphere with this rune.\n2. Your Gravity is increased, making you immune to displacements, decreasing your speed by 2\n3. Your Gravity is decreased, effects of displacements are doubled and when you do a Physical Feats roll for jumping your jump height is increased by 1.\nThese effects can be activated a number of times equal to your Arcana, resetting at dawn.",
+        "req": [
+            "arcana 4",
+            "soul 2"
         ],
         "dice": 0,
         "is_passive": true
     },
     "109": {
-        "name": "Off Balance",
-        "effect": "Successful Push actions reduce the targets Speed by half.",
+        "name": "reactive explosions",
+        "effect": "When you do an area of effect spell, you can set one of the required dice to 5 (You still spend 3 dice, you just change the value of one dice).",
         "req": [
-            "body 2",
-            "thieving 4"
+            "arcana 5",
+            "soul 3"
         ],
         "dice": 0,
         "is_passive": true
     },
     "110": {
-        "name": "Larceny",
-        "effect": "Roll a contested Body Check against a target within 1 tile of you. On success you wrestle an item away from the target.",
+        "name": "taunt",
+        "effect": "Make a Contested Charm roll against a creature you can see. On success the creature cannot willingly move away from you and must spend a dice to move closer if possible.",
         "req": [
-            "body 2",
-            "thieving 4"
+            "charm 3"
         ],
         "dice": 2,
         "is_passive": false
     },
     "111": {
-        "name": "In the Shadows",
-        "effect": "When you kill a creature while hidden you do not become revealed.",
+        "name": "jackpot",
+        "effect": "When you spend only 6\u2019s on a roll you may add 3 to the roll.",
         "req": [
-            "mind 1",
-            "thieving 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "112": {
-        "name": "Redirect",
-        "effect": "When you get hit spend your Locked dice to redirect the attack to a creature within 1 tile of you. You cannot do this if there are no creatures within 1 tile of you.",
-        "req": [
-            "mind 2",
-            "thieving 3"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "113": {
-        "name": "Toys A Plenty",
-        "effect": "Use an item that is from your bag, or is within 1 tile of you in the world.",
-        "req": [
-            "mind 4",
-            "thieving 6"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "114": {
-        "name": "Spell Copying",
-        "effect": "If you see a spell being cast by someone else, you temporarily know that spell for 60 seconds (6 turns) regardless of if you know the spell innately.",
-        "req": [
-            "soul 1",
-            "thieving 2"
+            "charm 3"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "115": {
-        "name": "Shadow Friend",
-        "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Shadow Friend (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the shadow is not given any commands it does not do any action. When you spend a dice to move you may also have the shadow move as well.",
+    "112": {
+        "name": "universal language",
+        "effect": "You can attempt to converse with Humanoids, Planar, Monstrosities, or Mythic creatures who cannot understand your spoken language. When you roll to Convince Someone of Something you can target one of these creatures, with a -7 penalty to the sum.",
         "req": [
-            "soul 1",
-            "thieving 2"
+            "charm 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "113": {
+        "name": "first impression",
+        "effect": "When interacting with a creature for the first time, you gain an additional dice to the first Charm roll you make against it.",
+        "req": [
+            "charm 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "114": {
+        "name": "dance performer",
+        "effect": "Gain a new action called Performance: Dance, which can be used with Charm or Body. It does the following:\n6- Everyone boo's you and tries to get you to stop.\n7+ Dance majestically attracting common people, commoners will watch you perform. You may get some coin at the end.\n14+ Dance majestically attracting most people, most will watch you perform. You may get some coin at the end.\n21+ Dance majestically attracting nobility, nobles will watch you perform. You may get some coin at the end.\n28+ Dance majestically attracting royalty, royals will watch you perform. You may get some coin at the end.",
+        "req": [
+            "charm 1",
+            "body 1"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "115": {
+        "name": "rain dance",
+        "effect": "When you do a Performance: Dance, you may cast one of the following spells without gaining Soul Strain: \n7+ Conjure Fog\n14+ Rain\n21+ __\n28+ __",
+        "req": [
+            "charm 2",
+            "body 1",
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
     "116": {
-        "name": "Spell Disarmament",
-        "effect": "You can cast Dispel Magic with Thieves\u2019 tools without gaining Soul Strain.",
+        "name": "sword dance",
+        "effect": "When you do a Performance: Dance, you may do attacks while performing, gaining 1 extra damage if you would attract most people, 2 extra damage for nobility, and 3 extra damage for royalty. This effect lasts while you are dancing. If you gain stacks of Stun or lose Health you stop Dancing. (Armor Health is not health).",
         "req": [
-            "soul 1",
-            "thieving 2"
+            "charm 3",
+            "body 2"
         ],
-        "dice": 2,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "117": {
-        "name": "Silencing Strike",
-        "effect": "Make a Weapon Attack. Until the end of the target\u2019s next turn they are unable to cast spells.",
+        "name": "shock and awe",
+        "effect": "Do a Charm contest against a creature you can see. On Success, the creature gains 3 stacks of Stun.\nAdditionally, when you are Performing you may roll Charm to redo the Performance, taking the effects of the higher roll.",
         "req": [
-            "soul 2",
-            "thieving 3"
+            "charm 4",
+            "body 2"
         ],
-        "dice": 3,
+        "dice": 2,
         "is_passive": false
     },
     "118": {
-        "name": "Spell Thief",
-        "effect": "If you successfully Counterspell a Spell. You can Cast that spell for half its Soul Strain cost (rounded up) on your next turn.",
+        "name": "fancy feet",
+        "effect": "When you do a Performance: Dance, when you take damage from a Ranged Attack, you can spend your locked dice to half this damage (rounded up).\nAdditionally, you can ____",
         "req": [
-            "soul 2",
-            "thieving 4"
+            "charm 4",
+            "body 2"
         ],
-        "dice": 2,
+        "dice": 0,
         "is_passive": true
     },
     "119": {
-        "name": "body Possession",
-        "effect": "You can take over another humanoids living body for up to 10 minutes. The effected creature must be unconscious and will wake up if it takes damage. At the end of the effect, if you choose to leave the body, or if the creature wakes up from damage, you are booted to the nearest safe tile next to the creature. You cannot enter the same creature for 1 day after using this effect on them.",
+        "name": "the show must go on",
+        "effect": "When you fail a Death's Door roll, you can instead turn it into a success. You can do this once per Rest.\nAdditionally, when you are Performing you cannot gain stacks of Stun or be interrupted by Charm Rolls.",
         "req": [
-            "soul 2",
-            "thieving 4"
+            "charm 6",
+            "body 4"
         ],
-        "dice": 3,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "120": {
-        "name": "Huntsman Basics Group",
-        "effect": "You gain the following traits: Trap Maker, Mark, and Hunter.  This trait costs 2 trait points. You can only select this trait at level 1.",
+        "name": "act like you belong",
+        "effect": "When making a check to make pass as a member of a group or to blend in with a group of people, you may roll Charm instead of Thievery.",
         "req": [
+            "charm 2",
             "mind 1",
-            "nature 1"
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
     "121": {
-        "name": "Hunter",
-        "effect": "Roll Nature instead of Thievery when Hiding.",
+        "name": "expose",
+        "effect": "Do a Charm contest against a creature you can see within 6 tiles of you. On a success, give the creature 2 stacks of Stun every turn for 30 seconds (3 turns). On a failure, they are immune to this feature for 1 minute.\nAdditionally, When you succeed on a Discern others Intentions roll and determine that a character is not telling the truth (roll at least a 9+) that character has disadvantage on checks for a minute.",
         "req": [
-            "nature 1"
+            "charm 3",
+            "mind 2"
         ],
-        "dice": 0,
-        "is_passive": true
+        "dice": 2,
+        "is_passive": false
     },
     "122": {
-        "name": "nature Speak",
-        "effect": "You can have simple conversations with animals, and can use Nature instead of Charm when talking to them.",
+        "name": "clueless",
+        "effect": "When a creature makes a Charm check to Discern your Intentions reduce their sum by 4.",
         "req": [
-            "nature 1"
+            "charm 4",
+            "mind 2",
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
     "123": {
-        "name": "Natures Friend",
-        "effect": "You can cast Beast Bond without gaining Soul Strain. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the beast is not given any commands it does not do any action. When you spend a dice to move you may also have the beast move as well.",
+        "name": "ventriloquism",
+        "effect": "Do a contested Soul roll against a creature within range 6. On success you make the target recites a sentence as well as it can and in the same tone.\nThey believe the sentence was their own and have no memory of the magic. On failure they someone tried to cast magic on them but not what it was or who cast it.",
         "req": [
-            "nature 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "124": {
-        "name": "Draw Roots",
-        "effect": "Heal 1. You must be standing on soil or stone to do this. You can do this a number of times equal to your Nature stat (max 6) per Rest.",
-        "req": [
-            "body 1",
-            "nature 2"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "125": {
-        "name": "Natures Bind",
-        "effect": "You can Grapple someone using earth or plants within 4 tiles of you instead of having touch. All other rules still apply to the Grapple.",
-        "req": [
-            "body 1",
-            "nature 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "126": {
-        "name": "Thorny Armor",
-        "effect": "You may spend your Locked dice to do Nature (Rounded down) to a creature that has hit you with a Melee attack.",
-        "req": [
-            "body 1",
-            "nature 2"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "128": {
-        "name": "Elemental Arrows",
-        "effect": "You infuse an arrow with elemental energy. Make a Weapon Attack with a weapon that can use arrows (bows/crossbows). The infused arrow does 1 additional damage, Additionally, choose one of the following effects:\nFire: On hit, the arrow applies Burn 2\nIce: On hit, the creature gains Stun 1\nEarth: On hit, the creature is knocked back 2 tiles \nWind: On hit, another creature within 2 tiles takes half damage (rounded down).",
-        "req": [
-            "mind 2",
-            "nature 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "129": {
-        "name": "Hunters Pride",
-        "effect": "Marks you place only disappear once you dispel it or the Marked creature dies.",
-        "req": [
-            "mind 2",
-            "nature 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "130": {
-        "name": "Animal Form",
-        "effect": "Gain 2 Soul Strain, you can transform into an animal that you have seen. The creature must have a Difficulty Rating (DR) your Nature or lower. The Shapeshift lasts until dispelled or you die. While transformed you replace your Character sheet with the Animal\u2019s sheet. Your Health and Ward remain unchanged.",
-        "req": [
-            "nature 2",
+            "charm 1",
             "soul 1"
         ],
         "dice": 2,
         "is_passive": false
     },
+    "124": {
+        "name": "vocal mimicry",
+        "effect": "When you cast an Illusion spell with sound you can roll Charm to try to mimic someone's voice. You do not need to roll Charm to mimic your own voice.",
+        "req": [
+            "charm 1",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "125": {
+        "name": "change face",
+        "effect": "You can magically change your appearance to look like another. This illusion covers your entire body letting you change clothes, race, sex, and general appearance.\nIt is, however, still an illusion and touching it reveals the illusion. A creature can make a Core Roll against you to discern if it is an illusion.\nIf a creature discovers this illusion then they are able to see through it regardless of what you look like.",
+        "req": [
+            "charm 1",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "126": {
+        "name": "intrusive soul",
+        "effect": "You can cast Intrusive Thoughts without gaining Soul Strain. \nAdditionally you can use Charm instead of Soul when using the save.",
+        "req": [
+            "charm 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "127": {
+        "name": "rendition",
+        "effect": "Using Artist's tools or a spellcasting focus, you can cast the Minor Illusion spell. When cast in this way, the illusions created can by physically interacted with.\nThey are unarmored and have 1 hit point. \nAdditionally, if the spell is focused on for its duration, the object does not disappear when the spell ends.",
+        "req": [
+            "charm 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "128": {
+        "name": "who are you",
+        "effect": "Do a contested Soul roll against a creature within Range 6. On success, you make the creature forget all knowledge associated to your identity. Actions you undertook are still remembered by the creature but you all memories of you are replaced with that creatures idea of what the perpetrator might look like. Creatures that know you well will remember you and know who you are, but will have no memory of what actions you took. They will make up a reason for the memory loss and have no memory of the magic. On failure they know someone tried to cast magic on them but not what it was or who cast it.",
+        "req": [
+            "charm 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "129": {
+        "name": "rocket jump",
+        "effect": "You take half damage from explosions you detonate (rounded up). The explosions you create can be used as tools for propelling yourself through the air. Whenever you detonate an explosion within 1 tile of yourself, you can launch yourself in a direction of your choosing up to 4 tiles. If the explosion would give you knockback, such as with the Poprocks Spell, you can replace this distance with the knockback from the explosion.",
+        "req": [
+            "crafting 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "130": {
+        "name": "potent grenades",
+        "effect": "Grenades you create or throw have an additional 1 tile effect radius, and do 1 additional damage.",
+        "req": [
+            "crafting 5"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
     "131": {
-        "name": "Spirit Animal",
+        "name": "apprentice smith",
+        "effect": "At the end of a Rest you can modify a Weapon or Armor to remove or add one of the following effects: \nGlow: Give the item the spell Glow. Glow can be cast by the user. (Weapons with this tag can be used to cast spells)\nLight Weight: Give armors +1 Speed. Give weapons -1 to the High Roll threshold.\n---\nAn item can only have one of the changes applied to it. Applying an additional change to an item replaces the first change.",
+        "req": [
+            "crafting 2",
+            "body 1",
+            "OOC"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "132": {
+        "name": "tunneler",
+        "effect": "Grants the Action Tunneler which can be used with Body or Crafting:\n7+ Remove 1 tile cubed worth of soft material such as dirt or lose stones.\n11+ Remove 1 tile cubed worth of dense material such as constructed stone or thick wood.\n14+ Remove 1 tile cubed worth of reinforced material such as metal walls or solid stone.\nYou can do an of the above as many times as you can when you roll.",
+        "req": [
+            "crafting 2",
+            "body 1"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "133": {
+        "name": "flaming blow",
+        "effect": "When you activate a Melee weapon's effect you may it give the target an additional 1 stack of Burn. You can light or snuff out small fires using your weapon instead of a",
+        "req": [
+            "crafting 3",
+            "body 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "134": {
+        "name": "weapon smithing master",
+        "effect": "At the end of a Rest you can create an enhanced weapon, does 1 additional damage, reduces the Low Roll Threshold by 1, and can be sold for twice its value (on average). You can only gain this benefit if you wield this weapon.",
+        "req": [
+            "crafting 3",
+            "body 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "135": {
+        "name": "reforge",
+        "effect": "When holding a Melee weapon, you can instantly reforge it into another Melee weapon of equivalent crafting value. Any Runes or attributes applied to it from other traits are retained.",
+        "req": [
+            "crafting 4",
+            "body 2"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "136": {
+        "name": "turreted weapon",
+        "effect": "Spend 2 dice to turn one of your weapons into a semi automated Turret. If the Turret is destroyed the weapon drops and is broken. The weapon can be picked up by you and returns to being a normal weapon.\nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. When you spend a dice to move you may also have the turrets move as well.",
+        "req": [
+            "crafting 2",
+            "mind 1",
+            "OOC"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "137": {
+        "name": "steam weapons",
+        "effect": "At the end of a Rest you can create 1 of 3 specialty weapons. You may only have 1 of these weapons at a time. See Weapons for more info.\nThe Bronze Bolter; a repeating crossbow, \nSteamthrower: a steam based Flamethrower\nClockwork Cannon; a large blunderbuss that shoots scrap.",
+        "req": [
+            "crafting 3",
+            "mind 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "138": {
+        "name": "overclock",
+        "effect": "Give a weapon a stack of Overclock to a maximum of 5 stacks, increasing its Damage by 1 per stack of Overclock. When the weapon hits a target it loses all stacks of Overclock.",
+        "req": [
+            "crafting 3",
+            "mind 2",
+            "OOC"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "139": {
+        "name": "grappling hook",
+        "effect": "Target a location or target within within Range 6. If you target a location Pull yourself to that location. If you target an object or creature pull a light object to you or make a Mind Attack. On hit pull the target 3 tiles to you.",
+        "req": [
+            "crafting 3",
+            "mind 2"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "140": {
+        "name": "simple golem",
+        "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Personal Golem (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. You can control up to your level of personal minions with your dice, but they must all be given the same Command. If the golem is not given any commands it does not do any action. When you spend a dice to move you may also have the golem move as well.",
+        "req": [
+            "crafting 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "141": {
+        "name": "spectral grenade",
+        "effect": "Gain 1 Soul Strain. Create a Spectral Grenade (it counts as a grenade for the purposes of other traits) within the palm of your hand. The grenade has a throw range of 6 and lasts 1 minute or until thrown (throwing is ##). The grenade detonates with Burst 1. All target's within this area take 1 damage.",
+        "req": [
+            "crafting 2",
+            "soul 1"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "142": {
+        "name": "simple magical craftsman",
+        "effect": "You can craft Lesser Magic items, excluding potions.",
+        "req": [
+            "crafting 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "143": {
+        "name": "spectral artillery",
+        "effect": "Gain 2 soul strain, then pick up to half your level (rounded down) locations within 12 tiles. A spectral artillery shot is fired from some far off place. Next turn creatures within Burst 1 of the chosen location roll Mind against the 3 dice given when activating. On failure they take 3 damage. On success, they take 1 damage.",
+        "req": [
+            "crafting 3",
+            "soul 2"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "144": {
+        "name": "golem ranger module",
+        "effect": "Your Golem\u2019s Soul Weapon gets +4 range and gains Armor Piercing. \nAdditionally, it\u2019s Armor Becomes Light.",
+        "req": [
+            "crafting 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "145": {
+        "name": "master of magic items",
+        "effect": "You can be Bound to twice as many magic items.",
+        "req": [
+            "crafting 6",
+            "soul 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "146": {
+        "name": "magical craftsman",
+        "effect": "You can craft Greater Magic items, excluding potions.",
+        "req": [
+            "crafting 6",
+            "soul 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "147": {
+        "name": "trap maker",
+        "effect": "Make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Traps can be reclaimed if unused. Creatures roll a Nature contest to detect the trap.\NTripwire: A small hidden wire which will knock over any creature that steps on it. Can trigger non magical items. \NSnare: A loop of rope that when triggered Grapples and lifts its prey 2 tiles off the ground. \NPopmine: A plate that when activated knocks its prey 3 tiles in a direction. The direction is decided during the trap's creation.",
+        "req": [
+            "nature 1"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "148": {
+        "name": "knowledge of the forest",
+        "effect": "You can use Nature when rolling to Remember information about: your approximate location, local flora, fauna, or aproximate time of day (even underground).\nAdditionally, when you Scroundge in area you are familiar with, you gain 1 extra item for every success.",
+        "req": [
+            "nature 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "149": {
+        "name": "natures friend",
+        "effect": "You gain Advantage when rolling to Handle a Beast or Track a Creature.\nAdditionally, when you first tame a Beast you can control the Beast as if it was a Personal Minion.",
+        "req": [
+            "nature 2"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "150": {
+        "name": "scrounger",
+        "effect": "Replace your Scrounge with the following:\n5+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or a clean water source.   \n7+ Find 1 small or tiny non-magical item, Cheap Meal, or a unique plant or animal from the local environment.\n14+ you may heal yourself or another creature 3 Health with local medicines. \nThese can be done multiple times in a roll.",
+        "req": [
+            "nature 2"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "151": {
+        "name": "improved traps",
+        "effect": "Make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Some traps can be reclaimed if unused. Creatures roll a Nature contest to detect the trap.\nPitfall: A 5 tile deep hole covered in camouflage that breaks when stepped on. The edge is covered in a slick surface which prevents climbing up it. (Not reclaimable)\nPoison: A gas canister that when triggered unleashes poisonous gas. The gas explodes in Burst 3, Blinding any creature inside. At the start of a creatures turn, they take 1 damage if they are in the gas.\nGoo: An orb of strange goo that bursts on touch. The goo explodes in Burst 3, giving all target's in this area Burn 3 and destroying 3 Armor.",
+        "req": [
+            "nature 4"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "152": {
+        "name": "heightened scenses",
+        "effect": "You can see in poorly light areas as if they were illuminated. \nAdditionally, you get Advantage when doing Perception rolls.",
+        "req": [
+            "nature 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "153": {
+        "name": "one with nature",
+        "effect": "You do not get attacked by creatures with the Beasts type unless you attack them. \nAdditionally, you get an extra 2 dice when interacting with creatures with the Beasts type.",
+        "req": [
+            "nature 6"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "154": {
+        "name": "viney slam",
+        "effect": "Do a ground slam. Vines burst out of the cracks left in the ground. In a 3 tile cone in front of you all creatures in this area make a Body roll against the 3 dice given. On failure the creature is grappled until the start of your next turn.",
+        "req": [
+            "nature 2",
+            "body 1"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "155": {
+        "name": "nature's bind",
+        "effect": "You can Grapple someone using earth or plants within 4 tiles of you instead of having touch. All other rules still apply to the Grapple.",
+        "req": [
+            "nature 2",
+            "body 1"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "156": {
+        "name": "draw roots",
+        "effect": "Heal 1. You must be standing on soil or stone to do this. You can do this a number of times equal to your Nature stat per Rest.\nAlternatively, you can emplant yourself to the surface you are on. While emplanted you cannot be affected by Knockback, and get Double Advantage on other effects trying to move you.",
+        "req": [
+            "nature 2",
+            "body 1"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "157": {
+        "name": "volcano aura",
+        "effect": "Spend a dice to toggle on or off this Aura you can only have one Aura active at a time. While this Aura is active molts of fire start bubbling within 2 tiles around you, this area gives 2 Burn to any creature, other than yourself, that starts its turn in it.\nAdditionally, while active ice melts, water dries, and flora wilts in this area, potentially removing difficult turain.",
+        "req": [
+            "nature 3",
+            "body 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "158": {
+        "name": "sandstorm aura",
+        "effect": "Spend a dice to toggle on or off this Aura you can only have one Aura active at a time. While this Aura is active you make a dense Sandstorm within 2 tiles around you, this area is heavily obscured giving all creatures in this area Advantage on Hiding rolls.\nAdditionally, while this Aura is active you take half damage from Ranged Weapon Attacks.",
+        "req": [
+            "nature 3",
+            "body 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "159": {
+        "name": "forest aura",
+        "effect": "Spend a dice to toggle on or off this Aura you can only have one Aura active at a time. While this Aura is active you stimulate the growth of plants within 2 tiles of you. This area acts as difficult turrain for anyone other than yourself. \nAdditionally, any plants within this area blossom or bloom, and grass or moss grows if their wasent plantlife there already.",
+        "req": [
+            "nature 3",
+            "body 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "160": {
+        "name": "canopy",
+        "effect": "A target on a tile directly behind you becomes Hidden from any creature in front of you. Creatures that stand on the side or behind you can see the Hidden target. You cannot Hide a target larger than yourself.",
+        "req": [
+            "nature 4",
+            "body 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "161": {
+        "name": "overgrowth",
+        "effect": "You become noticeably larger. You get Advantage on Body rolls.",
+        "req": [
+            "nature 5",
+            "body 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "162": {
+        "name": "warden's grasp",
+        "effect": "Once per turn when you hit a target with a Melee Attack, you can do a Grapple check on them without spending extra dice.",
+        "req": [
+            "nature 6",
+            "body 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "163": {
+        "name": "guarding aura",
+        "effect": "You know how many creatures are within your Aura, even if they are Hidden. At the beginning of your turn, for every creature in your Aura you get 1 Armor Health. If you do not have an Aura you get one with the following effect: Spend a dice to toggle on or off this Aura you can only have one Aura active at a time. While this Aura is Active a soft glow appears within 2 tiles of you.",
+        "req": [
+            "nature 6",
+            "body 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "164": {
+        "name": "hidden in the bush",
+        "effect": "You can use Nature instead of Thieving to Hide, and can travel while Hidden at a normal Speed instead of 1 tile slower.",
+        "req": [
+            "nature 2",
+            "mind 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "165": {
+        "name": "marked as prey",
+        "effect": "When you damage a Marked target, you do an extra Damage and reduce the target's Mark stacks by 1. \nAdditionally, you know the rough direction of creatures you Mark.",
+        "req": [
+            "nature 3",
+            "mind 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "166": {
+        "name": "marked as dangerous",
+        "effect": "When a target you Marked does damage. You may remove 1 Stack of Marked to reduce the damage by 1. This cannot reduce the damage below 1.\nAdditionally, if the target is a creature, you know the creatures highest Stat and Substat (name and number).",
+        "req": [
+            "nature 3",
+            "mind 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "167": {
+        "name": "mark of the hunter",
+        "effect": "Your Marks don't go away while you are within 2 Large tiles (4,320x4,320 tiles) the Marked Creature.",
+        "req": [
+            "nature 4",
+            "mind 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "168": {
+        "name": "elemental shots",
+        "effect": "You infuse ammo with elemental energy. Make a Ranged Weapon Attack. The infused ammo does 1 additional damage. \nAdditionally, choose one of the following effects: \nFire: On hit, give the target 2 stacks of Burn \nIce: On hit, give the target 1 stack of Stun \nEarth: On hit, the target is knocked back 2 tiles \nWind: On hit, another target within 2 tiles takes half damage (rounded down).",
+        "req": [
+            "nature 5",
+            "mind 3"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "169": {
+        "name": "longer marks",
+        "effect": "When you Mark a creature, increase its marked stacks by 3.",
+        "req": [
+            "nature 5",
+            "mind 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "170": {
+        "name": "nature speak",
+        "effect": "You can have simple conversations with animals, and can use Nature instead of Charm when talking to them.",
+        "req": [
+            "nature 1",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "171": {
+        "name": "spirit animal",
         "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Spirit Animal (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the spirit is not given any commands it does not do any action. When you spend a dice to move you may also have the spirit move as well.",
         "req": [
             "nature 2",
@@ -1231,39 +1628,39 @@
         "dice": 0,
         "is_passive": true
     },
-    "132": {
-        "name": "Ignite",
-        "effect": "Your damaging cantrips apply 1 stack of Burn.",
+    "172": {
+        "name": "animal form",
+        "effect": "Gain 2 Soul Strain, you can transform into an animal (creature with just the Beast tag) that you have seen. The creature must have a Difficulty Rating (DR) your level or lower. The Shapeshift lasts until dispelled or you die. While transformed you replace your Character sheet with the Animal\u2019s sheet. Your Health and Ward remain unchanged.",
         "req": [
             "nature 2",
             "soul 1"
         ],
-        "dice": 0,
-        "is_passive": true
+        "dice": 2,
+        "is_passive": false
     },
-    "133": {
-        "name": "Frostbite",
-        "effect": "When you effect a creature with Stun, Frozen, or effects that reduce movement, deal 1 damage to them.",
+    "173": {
+        "name": "poisoned magic",
+        "effect": "When you effect a target with a spell that costs Soul Strain you may give them a stack of Poisoned until the start of your next turn. \n\nAlternatively, you can roll Nature instead of Arcana to make poisons, doing so without spending gold.",
         "req": [
-            "nature 2",
-            "soul 1"
+            "nature 3",
+            "soul 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "134": {
-        "name": "Crystalize Soul",
-        "effect": "Whenever you gain Soul Strain from the result of casting a spell. Gain 1 Armor for every 2 Soul Strain gained. This effect goes away the next time you are hit or after 10 minutes.",
+    "174": {
+        "name": "plant growth",
+        "effect": "Gain 2 Soul Strain. Make plants in Burst 3 grow explosively. This area becomes rough turrain for 1 minute (6 turns) and any creature, other than yourself, that enters or starts its turn in this area must make a Body roll against the 3 dice given. On failure the creature is grappled until the start of your next turn.",
         "req": [
-            "nature 2",
-            "soul 1"
+            "nature 3",
+            "soul 2"
         ],
-        "dice": 0,
-        "is_passive": true
+        "dice": 3,
+        "is_passive": false
     },
-    "135": {
-        "name": "Improved Animal Form",
-        "effect": "When you Transform through the use of the Animal Form Trait you can gain half of the Creature\u2019s Health as Temporary Health. You can do this once per Rest. The Temporary Health does not go away if you transform back into your normal self.",
+    "175": {
+        "name": "soul hardened spirit animal",
+        "effect": "Your Spirit Animal gains Ward 2 and 1 Armor stack. \nAdditionally, it\u2019s Armor Becomes Medium",
         "req": [
             "nature 4",
             "soul 2"
@@ -1271,366 +1668,338 @@
         "dice": 0,
         "is_passive": true
     },
-    "136": {
-        "name": "Stronger Flames",
+    "176": {
+        "name": "improved animal form",
+        "effect": "When you Transform through the use of the Animal Form Trait you can gain half of the Creature\u2019s Health as Armor Health. \n\nAdditionally, you can speak normally while transformed and if you have the Nature Speak trait you retain it when transformed.",
+        "req": [
+            "nature 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "177": {
+        "name": "updraft",
+        "effect": "Whenever you gain Soul Strain you can Fly (Move your speed in the air) until end of your turn.",
+        "req": [
+            "nature 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "178": {
+        "name": "elemental fangs",
+        "effect": "When you Transform through the use of the Animal Form Trait you can imbue the animal with one of the following effects.\nFire: While transformed your Weapon Attacks inflict an additional 1 Burn, and when you are affected by Burn reduce the number of stacks you gain by 1.\nIce: You can't lose Speed from non magical sources, and take half damage from Water Spells. \nEarth: While transformed do an additional 1 Damage on your Weapon Attacks, and gain the Draw Roots Trait.\nWind: While transformed you get an additional 2 Speed.",
+        "req": [
+            "nature 5",
+            "soul 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "179": {
+        "name": "soulbound tree hopper",
+        "effect": "Spend 24 hours binding your Soul to a tree turning it into a Soulbound Tree. While this tree stands you are able to gain 5 Soul Strain and walk into another Soulbound Tree that you know of to teleport yourself, your gear, and something you are holding, to this Soulbound tree. You can have any number of Soulbound Trees.",
+        "req": [
+            "nature 6",
+            "soul 4"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "180": {
+        "name": "frostbite",
+        "effect": "When you effect a creature with Stun, Webbed, or effects that reduce movement, deal 1 damage to them.",
+        "req": [
+            "nature 3",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "181": {
+        "name": "crystalized soul",
+        "effect": "Whenever you gain Soul Strain from the result of casting a spell. Gain 1 Armor Health for every 2 Soul Strain gained.",
+        "req": [
+            "nature 3",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "182": {
+        "name": "stronger flames",
         "effect": "Non-cantrip Spells that apply Burn apply an additional stack of Burn.",
         "req": [
-            "nature 4",
+            "nature 3",
             "soul 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "137": {
-        "name": "Frozen Bomb",
-        "effect": "Target up to 3 Creatures you can see. Those targets loose all stacks of Stun, and Frozen. Burst 1 centered on those creatures.  All creatures within this area creatures take an amount of damage equal to the Stun stacks lost.",
+    "183": {
+        "name": "thorny armor",
+        "effect": "At the end of a Rest make a suit of armor made of thorny vines. This armor gives the wearer an additional 4 Armor Health for every point you have in Nature. While Grappling or when being Grappled give the other target 2 stacks of Bleed at the begining of your turn. This armor counts as Medium Armor (-1 Speed).",
         "req": [
-            "nature 4",
-            "soul 2"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "138": {
-        "name": "Updraft",
-        "effect": "Whenever you gain Soul Strain you gain the Flight trait (Move your speed in the air) until end of your turn.",
-        "req": [
-            "nature 4",
-            "soul 2"
+            "nature 3",
+            "body 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "139": {
-        "name": "Taunt",
-        "effect": "Make a Contested Charm roll against a creature you can see. On success the creature cannot willingly move away from you and must spend a dice to move closer if possible.",
+    "184": {
+        "name": "medicinal cooking",
+        "effect": "Meal's you make with the Cooking action heal any creature that eats them. Travel Meals heal 1 health, Cheap Meals heal 2, Decent Meals heal 3, Rich Meals heal 4, Royal Meals heal 5.\nAdditionally, you can make Treats instead of Travel Meals. These Treats heal 3 and remove all stacks of Bleeding when eaten. Treats only last 1 day and become mush after this time.",
         "req": [
-            "charm 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "140": {
-        "name": "Universal Language",
-        "effect": "You can attempt to converse with Humanoids, Planar, Monstrosities, or Mythic creatures who cannot understand your spoken language.",
-        "req": [
-            "charm 6"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "141": {
-        "name": "First Impression",
-        "effect": "When talking to a creature for the first time, you gain an additional dice to the first charm roll you make against it.",
-        "req": [
-            "charm 6"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "142": {
-        "name": "Fearsome Roar",
-        "effect": "All targets within 1 tile of you must make a Charm Roll against the 3 dice given when casting. All creatures that failed cannot willingly move towards you, and must spend a dice to move away from you.",
-        "req": [
-            "body 1",
-            "charm 2"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "143": {
-        "name": "Crowd Pleaser",
-        "effect": "When you kill a creature with a Melee Attack. Gain half your Level (rounded up) plus 1 Temporary Health.",
-        "req": [
-            "body 1",
-            "charm 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "144": {
-        "name": "Insult to Injury",
-        "effect": "When damaging with a Melee Attack do a Charm Contest, on Success do an additional damage.",
-        "req": [
-            "body 2",
-            "charm 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "145": {
-        "name": "Death's Howl",
-        "effect": "When you are put on Death\u2019s Door, release a Howl within 3 tiles of you. All creatures cannot willingly move towards you, and must spend a dice to move away from you.",
-        "req": [
-            "body 2",
-            "charm 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "146": {
-        "name": "Shock and Awe",
-        "effect": "Make a Charm Contest against a creature you can see. On Success the creature gains 3 stacks of Stun (Stun 3).",
-        "req": [
-            "body 2",
-            "charm 4"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "147": {
-        "name": "Fancy Feet",
-        "effect": "When you take damage from a Ranged Attack, you can spend your locked dice to half this damage (rounded up).",
-        "req": [
-            "body 2",
-            "charm 6"
-        ],
-        "dice": 1,
-        "is_passive": true
-    },
-    "148": {
-        "name": "The Show Must Go On",
-        "effect": "When you fail a Deaths Door roll, you can instead turn it into a success. You can do this once per Rest.",
-        "req": [
-            "body 4",
-            "charm 6"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "149": {
-        "name": "Distract",
-        "effect": "Make a distraction within Range 6. Make a Contested Charm roll against a creature you can see. On success the creature cannot willingly move away from the distraction and must spend a dice to move closer if possible.",
-        "req": [
-            "charm 2",
-            "mind 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "150": {
-        "name": "To Me",
-        "effect": "Until the beginning of your next turn creatures you choose gain 2 Speed when moving to you.",
-        "req": [
-            "charm 2",
-            "mind 1"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "151": {
-        "name": "Jackpot",
-        "effect": "When you spend only 6\u2019s on a single target attack do an extra 2 damage instead of 1.",
-        "req": [
-            "charm 3",
-            "mind 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "152": {
-        "name": "Engaging Speaker",
-        "effect": "While you are talking to someone outside of combat they get Stun 1 on all checks that do not relate to you.",
-        "req": [
-            "charm 4",
-            "mind 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "153": {
-        "name": "Misdirection",
-        "effect": "When talking to a creature you can state a clearly false statement. Then do a contested Charm roll against a creature. On success the creature believes whatever sentence you said regardless of how true it was. This effect lasts for 1 hour. After which they may or may not still believe the lie.",
-        "req": [
-            "charm 4",
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "154": {
-        "name": "Pull the Strings",
-        "effect": "Choose a creature within range, do a Charm contest against them. If you succeed the creature immediately makes a weapon attack against another creature of your choice within their weapon range. They use the dice given for this attack.",
-        "req": [
-            "charm 5",
-            "mind 3"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "155": {
-        "name": "Ventriloquism",
-        "effect": "Do a contested Soul roll against a creature within range 6. On success you make the target recites a sentence as well as it can and in the same tone. They believe the sentence was their own and have no memory of the magic. On failure they someone tried to cast magic on them but not what it was or who cast it.",
-        "req": [
-            "charm 2",
-            "soul 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "156": {
-        "name": "Positive Influence",
-        "effect": "When you cast a spell on an ally then their next dice roll is increased by 1. This does not go off on a 6.",
-        "req": [
-            "BROKEN",
-            "charm 4",
-            "soul 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "157": {
-        "name": "Negative Influence",
-        "effect": "When you cast a spell on an enemy then their next dice roll is decreased by 1. This does not go off on a 1.",
-        "req": [
-            "BROKEN",
-            "charm 4",
-            "soul 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "158": {
-        "name": "Change Face",
-        "effect": "You can magically change your appearance to look like another. This illusion covers your entire body letting you change clothes, race, sex, and general appearance. It is, however, still an illusion and touching it reveals the illusion. A creature can make a Core Roll against you to discern if it is an illusion. If a creature discovers this illusion then they are able to see through it regardless of what you look like.",
-        "req": [
-            "charm 2",
-            "soul 1"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "159": {
-        "name": "Intrusive Soul",
-        "effect": "You can cast Intrusive Thoughts without gaining Soul Strain. Additionally you can use Charm instead of Soul when using the save.",
-        "req": [
-            "charm 4",
-            "soul 2"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "160": {
-        "name": "Goad",
-        "effect": "Make a Contested Charm roll against a creature you can see. On success the creature must make an attack against you, if its not in range it must spend a dice to move closer if possible. If the attack hits you gain Ward  1 then take the damage.",
-        "req": [
-            "body 1",
-            "charm 4",
-            "mind 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "161": {
-        "name": "Battle Medic",
-        "effect": "You gain 2 Speed when moving to an ally who has half or less health.\u00a0\nThis can be taken multiple times to increase the Speed by 3 each time this is taken.",
-        "req": [
-            "medicine 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "162": {
-        "name": "Potion Maker",
-        "effect": "You can use Medicine instead of Arcana when making potions.",
-        "req": [
-            "medicine 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "163": {
-        "name": "Blood Magic",
-        "effect": "You gain an amount of Spells equal to twice your Medicine. (When you cast a spell while at max Soul Strain, you take an amount of damage equal to how far you go over your max Soul Strain when casting.",
-        "req": [
-            "body 1",
             "medicine 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "164": {
-        "name": "Blood of Thine Enemy",
-        "effect": "When a creature dies within 6 tiles of you, you can cast a spell with a Strain cost equal to the creature\u2019s Difficulty Rating (DR) or lower once. The creature\u2019s corpse then dries up.",
+    "185": {
+        "name": "professional cook",
+        "effect": "When you make food using the Cooking action you may make 3 more meals than normal. \nAdditionally, you may add 4 to any Cooking roll you do.",
         "req": [
-            "body 2",
             "medicine 4"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "165": {
-        "name": "Bloody Mess",
-        "effect": "When you cause a creature to Bleed this turn, heal for how much Bleed you cause. Additionally, when trying to roll Charm you get Advantage if you or the creatures are bloody.",
-        "req": [
-            "body 2",
-            "medicine 4"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "166": {
-        "name": "Improved Healer",
-        "effect": "When you use a Bandage use your full Medicine roll instead of half.",
+    "186": {
+        "name": "blood magic",
+        "effect": "Turn all of your Soul Strain into bonus Max Health. When you where to gain Soul Strain instead take Health Damage equal to the amount gained and don't gain Soul Strain. If you have no Soul Strain you gain an amount of Spells and Max Health equal to twice your Medicine.",
         "req": [
             "medicine 2",
-            "mind 1"
+            "body 1"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "167": {
-        "name": "Plague Doctor",
-        "effect": "You gain immunity to Poisons.",
+    "187": {
+        "name": "blood shards",
+        "effect": "Gain 2 Soul Strain then shoot shards of blood at a target. Give the target half your level (rounded down) stacks of Bleeding. On a Low Roll reduce the stacks by 1. On a High Roll increase the stacks by 1.",
         "req": [
-            "medicine 2",
-            "mind 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "168": {
-        "name": "Placebo",
-        "effect": "Give a Creature within Range 6 an amount of Temporary Health equal to your Medicine. You can only do this up to half your Medicine (rounded up) per Rest.",
-        "req": [
-            "medicine 2",
-            "mind 1"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "169": {
-        "name": "Recycled Meds",
-        "effect": "You no-longer use up Bandages and can use a Medkit twice before it is expent.",
-        "req": [
-            "medicine 2",
-            "mind 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "170": {
-        "name": "Medical Genius",
-        "effect": "When you use a Medkit on a creature they gain all the benefits of a Rest except for fully healing. (Medkit healing is still the same)",
-        "req": [
-            "medicine 4",
-            "mind 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "171": {
-        "name": "Resuscitate",
-        "effect": "Touch a creature. You Reduce the target\u2019s Death\u2019s Door Count to go back to a 2 or less. Additionally, heal the creature as if you used a Medkit.",
-        "req": [
-            "medicine 4",
-            "mind 2"
+            "medicine 3",
+            "body 2"
         ],
         "dice": 2,
         "is_passive": false
     },
-    "172": {
-        "name": "Healthy Hands",
+    "188": {
+        "name": "bloody mess",
+        "effect": "When you cause a creature to Bleed this turn, heal for how much Bleed you cause. \nAdditionally, when trying to roll Charm you get Advantage if you or the creatures are bloody.",
+        "req": [
+            "medicine 3",
+            "body 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "189": {
+        "name": "plague doctor",
+        "effect": "You gain immunity to Poisons.\nAdditionally, you can use Alchemy Tools to Create poisons using Medicine instead of Arcana.",
+        "req": [
+            "medicine 2",
+            "mind 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "190": {
+        "name": "placebo",
+        "effect": "Give a Creature within Range 6 an amount of Armor Health equal to your Medicine. You can only do this up to half your Medicine (rounded up) times per Rest.",
+        "req": [
+            "medicine 3",
+            "mind 2",
+            "OOC"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "191": {
+        "name": "trained medic",
+        "effect": "When you heal with a Bandage or Medkit, increase the healing by your level. \nAdditionally, gain Advantage when you roll Identify an Illness or Curse.",
+        "req": [
+            "medicine 3",
+            "mind 2"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "192": {
+        "name": "recycled meds",
+        "effect": "You can use Bandages and Medkits twice before they are used.",
+        "req": [
+            "medicine 3",
+            "mind 2",
+            "OOC"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "193": {
+        "name": "medical genius",
+        "effect": "When you use a Medkit on a creature they gain all the benefits of a Rest except for fully healing. (Medkit healing is still the same)",
+        "req": [
+            "medicine 5",
+            "mind 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "194": {
+        "name": "resuscitate",
+        "effect": "Touch a creature. You Reduce the target\u2019s Death\u2019s Door Count by 3 to a minimum of 1. \nAdditionally, heal the creature as if you used a Medkit. You can do this once per Rest.",
+        "req": [
+            "medicine 6",
+            "mind 4"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "195": {
+        "name": "undead thrall",
+        "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Undead Thrall (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. \nIf the Thrall is not given any commands it does not do any action. When you spend a dice to move you may also have the Thrall move as well.",
+        "req": [
+            "medicine 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "196": {
+        "name": "if these walls could talk",
+        "effect": "Spend a moment at crime scene or dead body, the spirits whisper what happened up to 24 hours prior. You may ask up to 3 questions. The spirits will answer the best they can but will never give more than a rough discription. The spirits also cannot describe something that happend through magic or if it was hidden with magic, such as a creature moving under the Invisibility spell.",
+        "req": [
+            "medicine 2",
+            "soul 1"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "197": {
+        "name": "curse of pain",
+        "effect": "Gain 2 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. If this target's an object, the curse can affect anyone who touches the object. \nThe curse goes away after 1 minute (6 turns), until dispelled by Purge (must beat the number next to the curse), you use this curse on another creature, or the target dies. The target knows you cursed it.\nCurse of Pain (6,5): You get Disadvantage on all Checks and Contests for a Skill (Body, Mind, Soul). This skill is chosen by the Curse's Caster. \nAdditionally, when you take 3 or more damage (before armor) take an additional damage.",
+        "req": [
+            "medicine 3",
+            "soul 2"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "198": {
+        "name": "armor of bones",
+        "effect": "At the end of a Rest make a suit of armor made of bones. This armor gives the wearer an additional 2 Armor Health for every point you have in Medicine. The armor alows the wearer to float in water without the need to swim. This armor counts as Light Armor.",
+        "req": [
+            "medicine 3",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "199": {
+        "name": "eyebite",
+        "effect": "When you effect someone with a spell that you cast, you can Blinded them until the start of your next turn.",
+        "req": [
+            "medicine 3",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "200": {
+        "name": "curse ward",
+        "effect": "You get Advantage when rolling to succeed against a Curse or using Purge to remove a Curse. \nAdditionally, you can cast Purge once per rest without gaining Soul Strain.",
+        "req": [
+            "medicine 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "201": {
+        "name": "eyes of the night",
+        "effect": "You can see in poorly light areas as if they were illuminated, and can see through magical darkness. You cannot be blinded by magic.",
+        "req": [
+            "medicine 4",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "202": {
+        "name": "undead tinkerer",
+        "effect": "When you cast the spell Raise Undead, Instead of making a Zombie you can make a Shambler, Burster, or Spitter instead.",
+        "req": [
+            "medicine 5",
+            "soul 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "203": {
+        "name": "curse of bones",
+        "effect": "Gain 4 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. You can only use this curse on one target at a time. If this target's an object, the curse can affect anyone who touches the object. \nThe curse goes away after 1 minute (6 turns), until dispelled by Purge (must beat the number next to the curse), you use this curse on another creature, or the target dies. The target knows you cursed it.\nCurse of Bones (6,5,4): You get Disadvantage on all Checks and Contests for Subskills (Arcana, Charm, Crafting, Nature, Medicine, Thieving).",
+        "req": [
+            "medicine 5",
+            "soul 3"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "204": {
+        "name": "curse of fear",
+        "effect": "Gain 4 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. You can only use this curse on one target at a time. If this target's an object, the curse can affect anyone who touches the object. \nThe curse goes away after 1 minute (6 turns), until dispelled by Purge (must beat the number next to the curse), you use this curse on another creature, or the target dies. The target knows you cursed it.\nCurse of Fear (6,5,4): You see things that are not real. At the begining of your turn a terifying visage appears in an empty tile nearby. Roll a dice, On a 1 or 2 you spend your turn runnning from that space trying to hide, On a 3 or 4, spend all dice attacking that space. On a 5, or 6 you act normaly.",
+        "req": [
+            "medicine 5",
+            "soul 3"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "205": {
+        "name": "undead king",
+        "effect": "You do not get attacked by creatures with the Undead type unless you attack them. \nAdditionally, you can do a Soul Contest against uncontrolled Undead (No owner) to try to gain control of them. This has no effect on target's with this trait.",
+        "req": [
+            "medicine 6",
+            "soul 4"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "206": {
+        "name": "curse of life",
+        "effect": "Gain 6 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. You can only use this curse on one target at a time. If this target's an object, the curse can affect anyone who touches the object. \nThe curse goes away if dispelled by Purge (must beat the number next to the curse), you use this curse on another creature, or the target dies. The target knows you cursed it.\nCurse of Life (6,5,5): You get an additional 50% of your current health (rounded up). But you can nolonger roll Deaths Door Rolls. (You die if you reach 0 or less health)",
+        "req": [
+            "medicine 6",
+            "soul 4"
+        ],
+        "dice": 3,
+        "is_passive": false
+    },
+    "207": {
+        "name": "conqueror of darkness",
+        "effect": "Reduce the Soul Strain cost by 1 for any Dark Spells you cast. (Dark Spells have the tag Dark) (Curses from traits do not activate this trait) This cannot reduce the cost of spells below 1.",
+        "req": [
+            "medicine 6",
+            "soul 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "208": {
+        "name": "halo of light",
+        "effect": "Gain 1 Soul Strain. Give a creature Armor Health equal to your Medicine. While they have this Armor Health they Glow as if the spell Glow was cast on them.",
+        "req": [
+            "medicine 2",
+            "soul 1"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "209": {
+        "name": "healthy hands",
         "effect": "When you cast the Healing Hands Spell use your full Medicine roll instead of half.",
         "req": [
             "medicine 2",
@@ -1639,8 +2008,8 @@
         "dice": 0,
         "is_passive": true
     },
-    "173": {
-        "name": "Holy Guardian",
+    "210": {
+        "name": "holy guardian",
         "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Holy Guardian (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the guardian is not given any commands it does not do any action. When you spend a dice to move you may also have the guardian move as well.",
         "req": [
             "medicine 2",
@@ -1649,8 +2018,8 @@
         "dice": 0,
         "is_passive": true
     },
-    "174": {
-        "name": "soul Healer",
+    "211": {
+        "name": "soul healer",
         "effect": "Touch a living creature, cannot target Undead or Constructs. The creature regains Half their max Health. You can do this once per Rest.",
         "req": [
             "medicine 4",
@@ -1659,8 +2028,8 @@
         "dice": 2,
         "is_passive": false
     },
-    "175": {
-        "name": "Chain Healing",
+    "212": {
+        "name": "chain healing",
         "effect": "When you heal a creature you may heal another creature within 1 tile of them for half the healing (rounded down).",
         "req": [
             "medicine 4",
@@ -1669,593 +2038,253 @@
         "dice": 0,
         "is_passive": true
     },
-    "176": {
-        "name": "Beginner Artificer Group",
-        "effect": "You gain the following traits: Get Creative, Trap Maker, and Pitcher.  This trait costs 2 trait points. You can only select this trait at level 1.",
-        "req": [
-            "body 1",
-            "crafting 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "177": {
-        "name": "Improvised Weapon",
-        "effect": "You can quickly make an improvised weapon. Spend 10 gold and pick a Core weapon, the improvised weapon has the stats of that weapon. It breaks after 4 uses loosing all gold spent in the process.",
-        "req": [
-            "crafting 1"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "178": {
-        "name": "Get Creative",
-        "effect": "You can quickly make a set of improvised tools. Spend 2 gold and pick a set of tools, you are able to use these tools for one crafting roll after which they break loosing all gold spent in the process.",
-        "req": [
-            "crafting 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "179": {
-        "name": "Tunneler",
-        "effect": "You can remove a number of tiles equal to your crafting stat. Different types of tiles cost more or less to dig through\u00a0\n(Cost : Tiles removed).\u00a0\nSoft (1:1), such as dirt or loose stones\nDence (2:1), such as stone walls\nReinforced (3:1), such as metal walls or solid stone",
-        "req": [
-            "body 1",
-            "crafting 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "180": {
-        "name": "Weapon Smith",
-        "effect": "At the end of a Rest you can modify a weapon to remove or add one of the following tags: Two Handed, Loading, Returning, Throw Range 6, Armor Piercing, or Glow. A weapon can only have one of the changes applied to it. Applying an additional change to a weapon replaces the first change.",
-        "req": [
-            "body 1",
-            "crafting 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "181": {
-        "name": "Flaming Blow",
-        "effect": "Do a Melee Attack it gives an additional 1 Burn,",
-        "req": [
-            "body 2",
-            "crafting 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "182": {
-        "name": "Weapon Smiting Master",
-        "effect": "At the end of a Rest you can create an enhanced weapon, it does an additional damage, and can be sold for twice its value (on average). You can only gain this benefit if you wield this weapon.",
-        "req": [
-            "body 2",
-            "crafting 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "183": {
-        "name": "Grappling Hook",
-        "effect": "Target a location or target within within Range 6. If you target a location Pull yourself to that location. If you target an object or creature pull a light object to you or make a Mind Attack. On hit pull the target 3 tiles to you.",
-        "req": [
-            "crafting 2",
-            "mind 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "184": {
-        "name": "Turreted Weapon",
-        "effect": "Spend 2 dice to turn one of your weapons into a semi automated Turret. If the Turret is destroyed the weapon drops and is broken. The weapon can be picked up by you and returns to being a normal weapon.\nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. When you spend a dice to move you may also have the turrets move as well.",
-        "req": [
-            "crafting 2",
-            "mind 1"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "185": {
-        "name": "Steam Weapons",
-        "effect": "At the end of a Rest you can create 1 of 3 specialty weapons. You may only have 1 of these weapons at a time.\nThe Bronze Bolter; a repeating crossbow, \nSteamthrower: a steam based Flamethrower\nClockwork Cannon; a large blunderbuss that shoots scrap. See Weapons for more info.",
-        "req": [
-            "crafting 3",
-            "mind 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "186": {
-        "name": "Overclock",
-        "effect": "Give a weapon a stack of Overclock to a maximum of 5 stacks, increasing its Damage by 1 per stack of Overclock. When the weapon hits a target it looses all stacks of Overclock.",
-        "req": [
-            "crafting 3",
-            "mind 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "187": {
-        "name": "Steam Weapon Inovations",
-        "effect": "At the end of a Rest you can create 1 of 3 specialty weapons. You may only have 1 of these weapons at a time.\nThe Silver Slicer; an improved repeating crossbow, \nSteamdragon: an improved steam based Flamethrower\nGearwork Grand Cannon; a two handed cannon that shoots scrap. See Weapons for more info.\n(This trait is designed to replace the Steam Weapons Trait, though you can take it in addition to get 2 steam weapons.)",
-        "req": [
-            "crafting 6",
-            "mind 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "188": {
-        "name": "Enchanted Item",
-        "effect": "You can spend 1 hour, which can be over the course of a rest, to imbue a spell into an item of your choice. The item gets an amount of Soul Strain equal to your level. Someone can then later cast this spell giving the item Soul Strain instead of the user. You can only have one spell in the item at a time, and you can only have 1 item with this effect.",
-        "req": [
-            "crafting 2",
-            "soul 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "189": {
-        "name": "Simple Golem",
-        "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Personal Golem (See Creatures). This replaces the familiar, dispelling the familiar if one already exists.\nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the golem is not given any commands it does not do any action. When you spend a dice to move you may also have the golem move as well.",
-        "req": [
-            "crafting 2",
-            "soul 1"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "190": {
-        "name": "Golem Ranger Module",
-        "effect": "Your Golem\u2019s Soul Weapon gets +4 range and gains Armor Piercing. Additionally, it\u2019s Armor Becomes Light",
-        "req": [
-            "crafting 4",
-            "soul 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "191": {
-        "name": "Rune Maker",
-        "effect": "You can craft 2 Lesser Runes of your choosing. You can only have 2 active at once any new rune will replace the oldest crafted rune. \nThis skill can be taken multiple times to increase the number of active runes by 1.",
-        "req": [
-            "arcana 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "192": {
-        "name": "Combative Runing",
-        "effect": "You have figured out how to improve the flow of runic magic through your tools. Weapons you wield and armor you wear can have an additional rune inserted into it. Additionally, Craft a Lesser Rune. This rune must be put in your weapon or armor.",
-        "req": [
-            "arcana 3",
-            "body 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "193": {
-        "name": "Blade Wave",
-        "effect": "You can Expel runic magic to create a wave of runic energy. Suppress the magic of one of your active runes to deal your Melee Weapons damage to all creatures in a 8 tile line. While suppressed the rune has no effect. This suppression lasts for 10 minutes.",
-        "req": [
-            "arcana 3",
-            "body 2"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "194": {
-        "name": "Magical Siphon",
-        "effect": "When you get a kill using a magic weapon or a weapon inscribed with a rune, you gain 1 Ward.",
-        "req": [
-            "arcana 4",
-            "body 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "195": {
-        "name": "Runic Augmentation",
-        "effect": "You are able to cast Flesh Shaper on yourself at will. However, the affects are Permanent instead of temporary.",
-        "req": [
-            "arcana 6",
-            "body 4"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "196": {
-        "name": "Potent Poisons",
-        "effect": "Poisons you brew have a save of 6,4,4 instead of 5,4,4.",
-        "req": [
-            "arcana 4",
-            "mind 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "197": {
-        "name": "Double Dosing",
-        "effect": "Potions you brew can be used twice before it is consumed.",
-        "req": [
-            "arcana 6",
-            "mind 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "198": {
-        "name": "Complex Brews",
-        "effect": "You can brew a potion with 2 effects.",
-        "req": [
-            "arcana 6",
-            "mind 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "199": {
-        "name": "Scroll Crafting",
-        "effect": "You can create a magical scroll. This scroll can contain any Spell you know when crafting, and can be used by anyone with Magic (St). The person using the scroll can cast the spell on the scroll for half its St cost if they know the spell or at full cost if they don't. You can only have 1 scroll written at a time, if another one is written the first one loses its power.",
-        "req": [
-            "arcana 2",
-            "soul 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "200": {
-        "name": "Spell Manipulator",
-        "effect": "The next spell you cast this turn has one of the following:  \nSoul Slinger, an extra 4 Range but gain 1 Soul Strain.\nMaintain Spell Form, the spells duration is increased by an extra 2 turns but gain 1 Soul Strain.\nIntensify Spell, do 1 extra damage but gain 2 Soul Strain.",
-        "req": [
-            "arcana 3",
-            "soul 2"
-        ],
-        "dice": 1,
-        "is_passive": false
-    },
-    "201": {
-        "name": "Simple Golem (Arcana)",
-        "effect": "At the end of a Rest you can create a Personal Golem (See Creatures).\nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. When you spend a dice to move you may also have the golem move as well.",
-        "req": [
-            "arcana 2",
-            "BROKEN",
-            "soul 1"
-        ],
-        "dice": 2,
-        "is_passive": true
-    },
-    "202": {
-        "name": "Strongarm",
-        "effect": "enhanced Grappling / Restraining? or taking",
-        "req": [
-            "BROKEN",
-            "body 1",
-            "thieving 2"
-        ],
-        "dice": 0,
-        "is_passive": false
-    },
-    "203": {
-        "name": "Undead Thrawl",
-        "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Undead Thrall (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. \nIf the Thrall is not given any commands it does not do any action. When you spend a dice to move you may also have the Thrall move as well.",
-        "req": [
-            "soul 2",
-            "medicine 2"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "204": {
-        "name": "If These Walls Could Talk",
-        "effect": "Spend a moment at crime sceen or dead body, the spirits wisper what happened up to 24 hours prior. You may ask up to 3 questions. The spirits will answer the best they can but will never give more than a rough discription. The spirits also cannot describe something that happend through magic or if it was hidden with magic, such as a creature moving under the Invisibility spell.",
-        "req": [
-            "medicine 2"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "205": {
-        "name": "Curse of Pain",
-        "effect": "Gain 2 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. If this targets an object, the curse can affect anyone who touches the object. \nThe curse goes away after 1 minute (6 turns), until dispelled by Purge (must beat the number next to the curse), you use this curse on another creatue, or the target dies. The target knows you cursed it.\nCurse of Pain (6,5): You get Disadvantage on all Checks and Contests for a Skill (Body, Mind, Soul). This skill is chosen by the Curse's Caster. Additionaly, when you take 3 or more damage (before armor) take an additional damage.",
-        "req": [
-            "soul 2",
-            "medicine 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "206": {
-        "name": "Eyebite",
-        "effect": "When you effect someone with a spell that you cast, you can Blinded them until the start of your next turn.",
-        "req": [
-            "soul 1",
-            "medicine 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "207": {
-        "name": "Curse Ward",
-        "effect": "You get Advantage when rolling to succed against a Curse or using Purge to remove a Curse. Additionaly, you can cast Purge once per rest without gaining Soul Strain.",
-        "req": [
-            "medicine 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "208": {
-        "name": "Eyes of the Night",
-        "effect": "You can see in poorly light areas as if they where iluminated, and can see through magical darkness. You cannot be blinded by magic.",
-        "req": [
-            "medicine 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "209": {
-        "name": "Undead Tinkerer",
-        "effect": "When you cast the spell Raise Undead, Instead of making a Zombie you can make a Shambler, Burster, or Spitter instead.",
-        "req": [
-            "soul 2",
-            "medicine 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "210": {
-        "name": "Curse of Bones",
-        "effect": "Gain 4 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. You can only use this curse on one target at a time. If this targets an object, the curse can affect anyone who touches the object. \nThe curse goes away after 1 minute (6 turns), until dispelled by Purge (must beat the number next to the curse), you use this curse on another creatue, or the target dies. The target knows you cursed it.\nCurse of Bones (6,5,4): You get Disadvantage on all Checks and Contests for Subskills (Arcana, Charm, Crafting, Nature, Medicine, Theiving).",
-        "req": [
-            "soul 2",
-            "medicine 4"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "211": {
-        "name": "Curse of Fear",
-        "effect": "Gain 4 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. You can only use this curse on one target at a time. If this targets an object, the curse can affect anyone who touches the object. \nThe curse goes away after 1 minute (6 turns), until dispelled by Purge (must beat the number next to the curse), you use this curse on another creatue, or the target dies. The target knows you cursed it.\nCurse of Fear (6,5,4): You see things that are not real. At the begining of your turn a terifying visage appears in an empty tile nearby. Roll a dice, On a 1 or 2 you spend your turn runnning from that space trying to hide, On a 3 or 4, spend all dice attacking that space. On a 5, or 6 you act normaly.",
-        "req": [
-            "soul 2",
-            "medicine 4"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "212": {
-        "name": "Undead King",
-        "effect": "You do not get attacked by creatures with the Undead type unless you attack them. \nAdditionaly, you can do a Soul Contest against uncontrolled Undead (No owner) to try to gain control of them. This has no effect on targets with this trait.",
-        "req": [
-            "soul 6",
-            "medicine 6"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
     "213": {
-        "name": "Curse of Life",
-        "effect": "Gain 6 Soul Strain and target a Creature or Object within range 6. Give the target the following Curse. You can only use this curse on one target at a time. If this targets an object, the curse can affect anyone who touches the object. \nThe curse goes away if dispelled by Purge (must beat the number next to the curse), you use this curse on another creatue, or the target dies. The target knows you cursed it.\nCurse of Life (6,5,5): You get an additional 50% of your current health (rounded up). But you can nolonger roll Deaths Door Rolls. (You die if you reach 0 or less health)",
+        "name": "skeleton key",
+        "effect": "You can Lockpick without needing tools (see Thieves Tools under Items). \nAdditionally, you get Advantage when you Lockpick with Thieves Tools.",
         "req": [
-            "soul 4",
-            "medicine 6"
+            "thieving 1"
         ],
-        "dice": 3,
-        "is_passive": false
+        "dice": 0,
+        "is_passive": true
     },
     "214": {
-        "name": "Concuror of Darkness",
-        "effect": "Reduce the Soul Strain cost by 1 for any Dark Spells you cast. (Dark Spells have the tag Dark) (Curses from traits do not activate this trait) This cannot reduce the cost of spells below 1.",
+        "name": "thieves abound",
+        "effect": "You know how to talk in special code known only to those who slink in the shadows. When talking to another creature that knows this code you may use Thieving instead of Charm to Convince Someone of Something.",
         "req": [
-            "soul 4",
-            "medicine 6"
+            "thieving 1"
         ],
         "dice": 0,
         "is_passive": true
     },
     "215": {
-        "name": "Trap Maker",
-        "effect": "Make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Traps can be reclaimed if unused. Creatures roll a Nature contest to detect the trap.\nTripwire: A small hidden wire which will knock over any creature that steps on it. Can trigger non magical items. \nSnare: A loop of rope that when triggered Grapples and lifts its prey 2 tiles up. \nPopmine: A plate that when activated knocks its prey 3 tiles in a direction. The direction is decided during the trap's creation.",
+        "name": "backstab",
+        "effect": "Do a Melee Attack, the Attack gains Armor Penetration if it does not already have it.\u00a0If you attack while hidden or from the target's backside do an additional damage.",
         "req": [
-            "nature 1"
+            "thieving 3",
+            "OOC"
         ],
-        "dice": 2,
+        "dice": 3,
         "is_passive": false
     },
     "216": {
-        "name": "Knoledge of the Forest",
-        "effect": "You get Advantage when trying to remember information about: your aproximite location, local flora and fauna, or aproximate time of day (even underground).",
+        "name": "sneak thief",
+        "effect": "Reduce the number of tiles you will be detected by by 1, to a minimum of 1. (This effect happens when someone searches.)",
         "req": [
-            "nature 1"
+            "thieving 3"
         ],
         "dice": 0,
         "is_passive": true
     },
     "217": {
-        "name": "Hidden in the Bush",
-        "effect": "You can use Nature instead of Theiving to Hide, and can Travel while Hidden at a normal Speed instead of 1 tile slower.",
+        "name": "eyes of riches",
+        "effect": "You can see in poorly light areas as if they were illuminated. You can tell the rough value of items with a glance, you can't tell if an item is fake with this trait.",
         "req": [
-            "nature 2"
+            "thieving 4"
         ],
         "dice": 0,
         "is_passive": true
     },
     "218": {
-        "name": "At Home in Nature",
-        "effect": "Spend some time searching the local flora. Heal yourself or another creature 2 Health. Alternitivly, you can forge for (1d6)/2 (rounded up) Cheap meals. \nYou cannot use this more than half your level (rounded up) times in the same Large tile (2160 tiles). This effect resets after 1 day.",
+        "name": "slap back",
+        "effect": "Spend your locked dice when using this trait. Make a Melee attack on a creature who has hit you with a Melee attack.",
         "req": [
-            "nature 2"
+            "thieving 2",
+            "body 1"
         ],
-        "dice": 3,
+        "dice": 1,
         "is_passive": false
     },
     "219": {
-        "name": "Marked as Prey",
-        "effect": "When you damage a Marked target, you do an extra Damage and reduce the targets Mark stacks by 1. \nAdditonaly, you know the rough direction of creatures you Mark.",
+        "name": "larceny",
+        "effect": "Roll a contested Body Check against a target within 1 tile of you. On success you wrestle an item you can see the target holding or wearing away from them.",
         "req": [
-            "mind 2",
-            "nature 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "220": {
-        "name": "Marked as Dangerous",
-        "effect": "When a target you Marked does damage. You may remove 1 Stack of Marked to reduce the damage by 1. This cannot reduce the damage below 1.\nAdditionaly, if the target is a creature, you know the creatures highest Stat and Substat (name and number).",
-        "req": [
-            "mind 2",
-            "nature 3"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "221": {
-        "name": "Improved Traps",
-        "effect": "Make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Some traps can be reclaimed if unused. Creatures roll a Nature contest to detect the trap.\nPitfall: A 5 tile deep hole covered in camoflouge that breaks when stepped on. The edge is covered in a slick surface which provents climbing up it. (Not reclaimable)\nPoison: A gas canister that when triggered unleashes poisoness gas. The gas explodes in Burst 3, Blinding any creature inside. At the start of a creatures turn, they take 1 damage if they are in the gas.\nGoo: An orb of strange goo that bursts on touch. The goo explodes in Burst 3, giving all targets in this area Burn 3 and destroying 3 Armor.",
-        "req": [
-            "nature 4"
-        ],
-        "dice": 2,
-        "is_passive": false
-    },
-    "222": {
-        "name": "Hightened Scenses",
-        "effect": "You can see in poorly light areas as if they where iluminated. Additionaly, you get Advantage when doing Perception rolls.",
-        "req": [
-            "nature 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "223": {
-        "name": "Mark of the Hunter",
-        "effect": "Your Marks dont go away while you are within 2 Large tiles (4,320x4,320 tiles) the Marked Creature.",
-        "req": [
-            "mind 3",
-            "nature 4"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "224": {
-        "name": "Elemental Shots",
-        "effect": "You infuse ammo with elemental energy. Make a Ranged Weapon Attack. The infused ammo does 1 additional damage. Additionally, choose one of the following effects: \nFire: On hit, give the target 2 stacks of Burn \nIce: On hit, give the target 1 stack of Stun \nEarth: On hit, the target is knocked back 2 tiles \nWind: On hit, another target within 2 tiles takes half damage (rounded down).",
-        "req": [
-            "mind 4",
-            "nature 5"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "225": {
-        "name": "One with Nature",
-        "effect": "You do not get attacked by creatures with the Beasts type unless you attack them. \nAdditionaly, you get Double Advantage when interacting (Checks and Contests) with creatures with the Beasts type.",
-        "req": [
-            "nature 6"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "226": {
-        "name": "Dagger Master",
-        "effect": "When attacking with a Dagger you spend 1 less AP to do a Weapon Attack.",
-        "req": [
-            "body 5"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "227": {
-        "name": "Spear Master",
-        "effect": "When you activate a Spear's Weapon effect the Range is increased by 1 tile.\nAdditionaly, when you do a running jump you can do a Polevault with your Spear increasing the distance by 2 tiles.",
-        "req": [
-            "body 5"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "228": {
-        "name": "Pitcher",
-        "effect": "Doubble the Throw Range for all items you Throw. Items that dont have a displayed Throw Range have a Throw Range of 3.",
-        "req": [
-            "body 1"
-        ],
-        "dice": 0,
-        "is_passive": true
-    },
-    "229": {
-        "name": "Bull Rush",
-        "effect": "Move up to half your speed in a strait line in any direction. Do a Body Contest against any creature within 1 tile during the move. On Success, knock the target back 3 tiles away from your path.",
-        "req": [
+            "thieving 4",
             "body 2"
         ],
         "dice": 2,
         "is_passive": false
     },
-    "230": {
-        "name": "Cleave",
-        "effect": "Do a Melee Weapon Attack against all targets infront of you (Directly infront, to the left, and right of that tile). You can only do this once per turn.",
+    "220": {
+        "name": "get rough",
+        "effect": "You can push creatures a number of tiles based on your Body +1 instead of just 3 tiles.",
         "req": [
-            "body 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "231": {
-        "name": "Rip and Tear",
-        "effect": "Do a Melee Weapon Attack, if you activate the Weapons effect, give the target an additional 1 stack of Bleed.",
-        "req": [
-            "body 3"
-        ],
-        "dice": 3,
-        "is_passive": false
-    },
-    "232": {
-        "name": "Bloodhound",
-        "effect": "Gain 2 extra Speed when moving to a Marked or Bleeding (has Bleed stacks) creature.\nThis can be taken multiple times to increase the Speed by 2 each time this is taken.",
-        "req": [
-            "body 1"
+            "thieving 4",
+            "body 2",
+            "OOC"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "233": {
-        "name": "Manipulate",
-        "effect": "Combine two dice. If the combination is 7 or more, set 1 dice as a 6 and the other as the remainder\n(3+4= 6,1). You can do this a number of times equal to your COMBAT DICE per Rest.",
+    "221": {
+        "name": "off balance",
+        "effect": "Successful Push actions reduce the target's Speed by half.",
         "req": [
+            "thieving 4",
+            "body 2",
+            "OOC"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "222": {
+        "name": "concealed item",
+        "effect": "You can completely conceal a small item on your person. When you roll Thieving to hide an item on yourself you get Advantage on the roll, and creatures searching you get Disadvantage on their roll. \nAdditionally, when you make a Weapon Attack with a concealed weapon, the weapon is not visible.",
+        "req": [
+            "thieving 2",
+            "mind 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "223": {
+        "name": "silent scaling",
+        "effect": "You make no noise while climbing or falling up to half your Speed, and can climb using Thieving instead of Body.",
+        "req": [
+            "thieving 2",
+            "mind 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "224": {
+        "name": "in the shadows",
+        "effect": "You can do Hidden Checks with 1 less dice in combat. When you kill a creature while Hidden you do not become revealed.",
+        "req": [
+            "thieving 4",
             "mind 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "234": {
-        "name": "Enhanced Motivate",
-        "effect": "When you use Motivate, increase the dice\u2019s value by 1. This effect doesn\u2019t apply if the dice is already 6.",
+    "225": {
+        "name": "hidden in plain sight",
+        "effect": "While disguised, you can roll Thieving instead of Charm to Convince Someone of Something as your disguise.",
         "req": [
-            "mind 4"
+            "thieving 4",
+            "mind 2"
         ],
         "dice": 0,
         "is_passive": true
     },
-    "235": {
-        "name": "Recalculate",
-        "effect": "You may flip this dice to show its opposite face. (1\u21d46, 2\u21d45, 3\u21d44) You can only do this once per turn. This can be done outside of Combat for checks. You can do this a number of times eqal to your COMBAT DICE per Rest.",
+    "226": {
+        "name": "assassinate",
+        "effect": "When you do a Melee Weapon attack, after damaging them, if the target has half your Level (rounded up) or less health set their health to 0. If they roll Deaths Door rolls they roll 3 times.",
         "req": [
+            "thieving 5",
+            "mind 3"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "227": {
+        "name": "redirect",
+        "effect": "When you get hit spend your Locked dice to redirect the attack to a creature within 1 tile of you. You cannot do this if there are no creatures within 1 tile of you.",
+        "req": [
+            "thieving 5",
+            "mind 3",
+            "OOC"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "228": {
+        "name": "toys a plenty",
+        "effect": "Use an item that is from your bag, or is within 1 tile of you in the world.",
+        "req": [
+            "thieving 6",
             "mind 4"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "229": {
+        "name": "shadow walk",
+        "effect": "While you are Hidden or unseen you may turn Invisible. This Invisibility lasts until the start of your next turn.",
+        "req": [
+            "thieving 1",
+            "soul 1"
+        ],
+        "dice": 1,
+        "is_passive": false
+    },
+    "230": {
+        "name": "spell copying",
+        "effect": "If you see a spell being cast by someone else, you temporarily know that spell and how to cast it for 1 minute (6 turns) regardless of if you know the spell innately.",
+        "req": [
+            "thieving 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "231": {
+        "name": "obscured spell",
+        "effect": "You may roll Hide to conceal the fact that you are casting a spell. You roll against any creature who would see you cast the spell.",
+        "req": [
+            "thieving 2",
+            "soul 1"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "232": {
+        "name": "shadow friend",
+        "effect": "When you use the Create Familiar at the end of a Rest you can instead create a Shadow Friend (See Creatures). This replaces the familiar, dispelling the familiar if one already exists. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the shadow is not given any commands it does not do any action. When you spend a dice to move you may also have the shadow move as well.",
+        "req": [
+            "thieving 2",
+            "soul 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "233": {
+        "name": "silencing strike",
+        "effect": "Gain 2 Soul Strain, then make a Weapon Attack. Give the target a Stack of Silence. If you activate the effect of your weapon give them 2 stacks of Silence instead. \nAlternatively you can do no damage to the target and give 3 stacks instead.",
+        "req": [
+            "thieving 3",
+            "soul 2"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "234": {
+        "name": "spell disarmament",
+        "effect": "You can spend 1 minute casting Dispel Magic with Thieves\u2019 tools without gaining Soul Strain.",
+        "req": [
+            "thieving 3",
+            "soul 2"
+        ],
+        "dice": 2,
+        "is_passive": false
+    },
+    "235": {
+        "name": "now you see me",
+        "effect": "When you do the Move action while under the effects of a movement based spell or Soul trait you are Invisible.",
+        "req": [
+            "thieving 3",
+            "soul 2"
         ],
         "dice": 0,
         "is_passive": true
     },
     "236": {
-        "name": "Double Ammo Stores",
-        "effect": "You may spend a Rest modifying a weapon you weild. For this weapon you double the Capacity of ammo a Loading weapon can hold. A weapon can only have this effect aplied to it once.",
+        "name": "spell thief",
+        "effect": "If you successfully Counterspell a Spell. You can Cast that spell for half its Soul Strain cost (rounded up) on your next turn.\nAdditionally, you can gain 2 Soul Strain to learn 1 random spell from creature you can see, you know this spell for 1 hour.",
         "req": [
-            "mind 2",
-            "crafting 4"
+            "thieving 4",
+            "soul 2"
         ],
-        "dice": 0,
-        "is_passive": true
+        "dice": 1,
+        "is_passive": false
+    },
+    "237": {
+        "name": "body possession",
+        "effect": "You can take over another humanoids living body for up to 10 minutes. The affected creature must be unconscious and will wake up if it takes damage. At the end of the effect, if you choose to leave the body, or if the creature wakes up from damage, you are booted to the nearest safe tile next to the creature. You cannot enter the same creature for 1 day after using this effect on them.",
+        "req": [
+            "thieving 5",
+            "soul 3"
+        ],
+        "dice": 3,
+        "is_passive": false
     }
 }

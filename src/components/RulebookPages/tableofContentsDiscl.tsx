@@ -88,6 +88,7 @@ export default function TableOfContentsDiscl() {
                                         <ul>
                                             <li><a href="#make-an-item">Make an item</a></li>
                                             <li><a href="#understand-a-contraption">Understand a contraption.</a></li>
+                                            <li><a href="#performance:-sing/tell-a-story/tell-a-joke">Performance: Sing/Tell a Story/Tell a Joke</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#nature"><span className="text-nature-700">Nature</span></a>

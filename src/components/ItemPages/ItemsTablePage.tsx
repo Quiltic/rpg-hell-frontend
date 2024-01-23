@@ -35,19 +35,19 @@ export default function ItemsTablePage() {
     useEffect(() => {
         async function getItems() {
             let items: Item[];
-            try {
-                const itemsRaw = await ItemsService.getAllItems();
-                items = Object.values(itemsRaw);
-            } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
+            // try {
+            //     const itemsRaw = await ItemsService.getAllItems();
+            //     items = Object.values(itemsRaw);
+            // } catch (e) {
+            //     if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     items = Object.values(json);
-                } else {
-                    return;
-                }
-            }
+            //     } else {
+            //         return;
+            //     }
+            // }
 
             items = filterBROKENandMONSTER(items);
 

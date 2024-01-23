@@ -222,6 +222,14 @@ Death's Door only goes away if you do a Rest.
 - 21+ Determine someone's intention, whether they are lying, and what they are lying about.
 - 28+ Determine someone's intention, whether they are lying, what they are lying about, and how to convince them how to tell the truth.
 
+### Performance: Sing/Tell a Story/Tell a Joke
+- 6- Everyone boo's you and tries to get you to stop.
+- 7+ Rouse common people, commoners will watch you perform. You may get some coin at the end.
+- 14+ Rouse most people, most will watch you perform. You may get some coin at the end.
+- 21+ Rouse nobility, nobles will watch you perform. You may get some coin at the end.
+- 28+ Rouse royalty, royals will watch you perform. You may get some coin at the end.
+
+
 
 ## Crafting
 
