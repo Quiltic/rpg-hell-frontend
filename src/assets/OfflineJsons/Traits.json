@@ -1387,7 +1387,7 @@
     },
     "147": {
         "name": "trap maker",
-        "effect": "Make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Traps can be reclaimed if unused. Creatures roll a Nature contest to detect the trap.\NTripwire: A small hidden wire which will knock over any creature that steps on it. Can trigger non magical items. \NSnare: A loop of rope that when triggered Grapples and lifts its prey 2 tiles off the ground. \NPopmine: A plate that when activated knocks its prey 3 tiles in a direction. The direction is decided during the trap's creation.",
+        "effect": "Make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Traps can be reclaimed if unused. Creatures roll a Nature contest to detect the trap.\nTripwire: A small hidden wire which will knock over any creature that steps on it. Can trigger non magical items. \nSnare: A loop of rope that when triggered Grapples and lifts its prey 2 tiles off the ground. \nPopmine: A plate that when activated knocks its prey 3 tiles in a direction. The direction is decided during the trap's creation.",
         "req": [
             "nature 1"
         ],
