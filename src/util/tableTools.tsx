@@ -41,7 +41,13 @@ function getNames(names: string, objectList: Array<any>) {
     return(_list);
 }
 
+
+function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+}
+
 export {
     getPersistentPinnedNames,
     getNames,
+    classNames,
 };
