@@ -2286,5 +2286,102 @@
         ],
         "dice": 3,
         "is_passive": false
+    },
+    "238": {
+        "name": "kite",
+        "effect": "When you activate the effect of a Weapon you may then move half your Speed.",
+        "req": [
+            "mind 2",
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "239": {
+        "name": "foresight",
+        "effect": "When you lock a dice, increase its value by 1. This effect cannot increase a dice's value over 6.",
+        "req": [
+            "mind 2",
+            "soul 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    },
+    "240": {
+        "name": "lucky",
+        "effect": "When you roll a 1 you can re-roll that dice. You can only do this a number of times equal to your level per Rest.",
+        "req": [
+            "mind 2",
+            "soul 4"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "241": {
+        "name": "past and future",
+        "effect": "You can now Lock two dice. When you would Lock a dice while having two Locked you may pick which Locked dice to replace.",
+        "req": [
+            "mind 1",
+            "soul 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "242": {
+        "name": "soul bind",
+        "effect": "You bind an object or weapon to your very soul. The object gains Returning and if it's a weapon you can do Soul Attack Roll instead of its default Stat attack roll. You must still meet the minimum requirements to use the weapon.",
+        "req": [
+            "soul 1"
+        ],
+        "dice": 1,
+        "is_passive": false
+    }, 
+    "243": {
+        "name": "soul stealer",
+        "effect": "When you kill an enemy with a Melee Attack, remove 2 stacks of Soul Strain",
+        "req": [
+            "soul 4",
+            "body 2",
+            "OOC"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "244": {
+        "name": "marshall artist group",
+        "effect": "Gain the following traits: Strong Punches, Climber, and Motivate. This trait costs 2 trait points. You may only select this trait at level 1.",
+        "req": [
+            "mind 1",
+            "body 1"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "245": {
+        "name": "barbarian fighting group",
+        "effect": "Gain the following traits: Hearty, Dual Wield, and Bull Rush. This trait costs 2 trait points. You may only select this trait at level 1.",
+        "req": [
+            "body 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "246": {
+        "name": "athlete group",
+        "effect": "You gain the following traits: Climber, Quick Runner, and Pitcher. This trait costs 2 trait points. You can only select this trait at level 1.",
+        "req": [
+            "body 2"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "247": {
+        "name": "tactician group",
+        "effect": "You gain the following traits: Think Ahead, Command, and Motivate. This trait costs 2 trait points. You can only select this trait at level 1.",
+        "req": [
+            "mind 2"
+        ],
+        "dice": 0,
+        "is_passive": true
     }
 }
