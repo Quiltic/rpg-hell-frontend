@@ -23,7 +23,6 @@ function filterBROKENandMONSTER(_list: any[]) {
 function filterBROKENandMONSTERreq(_list: any[]) {
     // simple cleanup for BROKEN and MONSTER items
     return (_list?.filter((l: { req: string | string[]; }) => {
-        // console.log(l.req)
         if (l.req) {
             return (l.req.includes("MONSTER") ||
                 l.req.includes("BROKEN"))

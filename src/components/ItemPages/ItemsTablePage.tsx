@@ -11,7 +11,7 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/Items.json";
 import { Button } from "../ui/Button/Button";
-import { filterBROKENandMONSTER, sortArrayByReqs } from "../../util/sortingTools";
+import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
@@ -49,7 +49,7 @@ export default function ItemsTablePage() {
             //     }
             // }
 
-            items = filterBROKENandMONSTER(items);
+            items = filterBROKENandMONSTERreq(items);
 
             items = sortArrayByReqs(items ?? []);
 
