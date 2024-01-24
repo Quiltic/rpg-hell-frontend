@@ -11,8 +11,8 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/Items.json";
 import { Button } from "../ui/Button/Button";
-import { filterBROKENandMONSTER, sortArrayByReqs } from "../../util/sortingTools";
-import { getPersistentPinnedNames } from "../../util/tableTools";
+import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
+import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
@@ -49,7 +49,7 @@ export default function ItemsTablePage() {
             //     }
             // }
 
-            items = filterBROKENandMONSTER(items);
+            items = filterBROKENandMONSTERreq(items);
 
             items = sortArrayByReqs(items ?? []);
 
@@ -84,23 +84,22 @@ export default function ItemsTablePage() {
         setDisplayedItems(filteredItems);
     }, [allItems, searchValue]);
 
-    function updatePersistantPinnedItems() {
+
+    useEffect(() => {
         const pinnedItemNames: string[] = pinnedItems.map((i) => {
             return i.name;
         });
+        console.log(pinnedItems,pinnedItemNames);
         window.localStorage.setItem(
             "pinnedItemNames",
             pinnedItemNames.join(";|;")
         );
-    }
+    }, [pinnedItems]);
 
-    function classNames(...classes: string[]) {
-        return classes.filter(Boolean).join(" ");
-    }
 
     function addToPinnedItems(i: Item) {
         setPinnedItems(sortArrayByReqs([...pinnedItems, i]));
-        updatePersistantPinnedItems();
+        console.log(pinnedItems)
     }
 
     function removeFromPinnedItems(i: Item) {
@@ -108,7 +107,6 @@ export default function ItemsTablePage() {
         const remainingItems = pinnedItems.slice();
         remainingItems.splice(idx, 1);
         setPinnedItems(remainingItems);
-        updatePersistantPinnedItems();
     }
 
     const IterativeItemLevels = [

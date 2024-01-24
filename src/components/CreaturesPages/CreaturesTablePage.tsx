@@ -162,24 +162,24 @@ export default function CreatureTablePage() {
         setDisplayedCreatures(filteredCreatures);
     }, [allCreatures, searchValue]);
 
-    function classNames(...classes: string[]) {
-        return classes.filter(Boolean).join(" ");
-    }
-
-    function updatePersistantPinnedCreatures(n: Creature[]) {
-        const pinnedTraitNames: string[] = n.map((s) => {
+    useEffect(() => {
+        const pinnedTraitNames: string[] = pinnedCreatures.map((s) => {
             return s.name;
         });
         window.localStorage.setItem(
             "pinnedCreatureNames",
             pinnedTraitNames.join(";|;")
         );
+    }, [pinnedCreatures]);
+
+    function classNames(...classes: string[]) {
+        return classes.filter(Boolean).join(" ");
     }
 
     function addToPinnedCreatures(s: Creature) {
         const newPersist = [...pinnedCreatures, s];
         setPinnedCreatures(sortArrayByReqs(newPersist));
-        updatePersistantPinnedCreatures(newPersist);
+        // updatePersistantPinnedCreatures(newPersist);
     }
 
     function removeFromPinnedCreatures(s: Creature) {
@@ -187,7 +187,7 @@ export default function CreatureTablePage() {
         const remainingTraits = pinnedCreatures.slice();
         remainingTraits.splice(idx, 1);
         setPinnedCreatures(remainingTraits);
-        updatePersistantPinnedCreatures(remainingTraits);
+        // updatePersistantPinnedCreatures(remainingTraits);
     }
 
     const IterativeTraitLevels = [

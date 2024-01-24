@@ -13,7 +13,7 @@ import json from "../../assets/OfflineJsons/Spells.json";
 import { Button } from "../ui/Button/Button";
 
 import { filterBROKENandMONSTER, sortArrayByLevel } from "../../util/sortingTools";
-import { getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
@@ -82,24 +82,23 @@ export default function SpellsTablePage() {
         setDisplayedSpells(filteredSpells);
     }, [allSpells, searchValue]);
 
-    function classNames(...classes: string[]) {
-        return classes.filter(Boolean).join(" ");
-    }
 
-    function updatePersistantPinnedSpells(n: Spell[]) {
-        const pinnedSpellNames: string[] = n.map((s) => {
+    useEffect(() => {
+        const pinnedSpellNames: string[] = pinnedSpells.map((s) => {
             return s.name;
         });
         window.localStorage.setItem(
             "pinnedSpellNames",
             pinnedSpellNames.join(";|;")
         );
-    }
+    }, [pinnedSpells]);
+
+
 
     function addToPinnedSpells(s: Spell) {
         const newPersist = [...pinnedSpells, s];
         setPinnedSpells(sortArrayByLevel(newPersist));
-        updatePersistantPinnedSpells(newPersist);
+        // updatePersistantPinnedSpells(newPersist);
     }
 
     function removeFromPinnedSpells(s: Spell) {
@@ -107,7 +106,7 @@ export default function SpellsTablePage() {
         const remainingSpells = pinnedSpells.slice();
         remainingSpells.splice(idx, 1);
         setPinnedSpells(remainingSpells);
-        updatePersistantPinnedSpells(remainingSpells);
+        // updatePersistantPinnedSpells(remainingSpells);
     }
 
     const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];

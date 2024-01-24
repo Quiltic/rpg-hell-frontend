@@ -12,7 +12,7 @@ import TraitsTable from "./TraitsTable";
 import json from "../../assets/OfflineJsons/Traits.json";
 import { Button } from "../ui/Button/Button";
 import { filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
-import { getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
@@ -82,24 +82,21 @@ export default function TraitsTablePage() {
         setDisplayedTraits(filteredTraits);
     }, [allTraits, searchValue]);
 
-    function classNames(...classes: string[]) {
-        return classes.filter(Boolean).join(" ");
-    }
 
-    function updatePersistantPinnedTraits(n: Trait[]) {
-        const pinnedTraitNames: string[] = n.map((s) => {
+    useEffect(() => {
+        const pinnedTraitNames: string[] = pinnedTraits.map((s) => {
             return s.name;
         });
         window.localStorage.setItem(
             "pinnedTraitNames",
             pinnedTraitNames.join(";|;")
         );
-    }
+    }, [pinnedTraits]);
 
     function addToPinnedTraits(s: Trait) {
         const newPersist = [...pinnedTraits, s];
         setPinnedTraits(sortArrayByReqs(newPersist));
-        updatePersistantPinnedTraits(newPersist);
+        // updatePersistantPinnedTraits(newPersist);
     }
 
     function removeFromPinnedTraits(s: Trait) {
@@ -107,7 +104,7 @@ export default function TraitsTablePage() {
         const remainingTraits = pinnedTraits.slice();
         remainingTraits.splice(idx, 1);
         setPinnedTraits(remainingTraits);
-        updatePersistantPinnedTraits(remainingTraits);
+        // updatePersistantPinnedTraits(remainingTraits);
     }
 
     const IterativeTraitLevels = [
