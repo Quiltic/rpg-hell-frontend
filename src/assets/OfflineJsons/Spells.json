@@ -942,5 +942,17 @@
             "utility",
             "summon"
         ]
+    },
+    "76": {
+        "id": 73,
+        "name": "frogrify",
+        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the sum of the 3 dice given when casting. If they fail, give the target the following Curse. The curse goes away after 1 hour, if dispelled by Purge (must beat the number next to the curse) or the target dies.\nFrogrify (14): Turn into a Molefrog, your character sheet is replaced with that of a Molefrog.",
+        "dice": 3,
+        "level": 5,
+        "tags": [
+            "cc",
+            "ranged",
+            "soul"
+        ]
     }
 }
