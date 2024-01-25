@@ -21,7 +21,7 @@ export default function SpellsTable({
             <thead className="dark:bg-dark-700 bg-light-300 font-bold">
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
-                    <th className="table-cell md:hidden w-1/5">Spell</th>
+                    <th className="table-cell md:hidden w-1/4">Spell</th>
                     <th className="hidden md:table-cell">Strain</th>
                     <th className="hidden md:table-cell">Dice</th>
                     <th>Effect</th>
@@ -41,7 +41,7 @@ export default function SpellsTable({
                             <td className="font-bold capitalize hidden md:table-cell">
                                 {spell.name}
                             </td>
-                            <td className="table-cell min-w-24 md:hidden capitalize">
+                            <td className="table-cell md:hidden capitalize">
                                 <span className="font-bold underline">
                                     {spell.name}
                                 </span>{" "}

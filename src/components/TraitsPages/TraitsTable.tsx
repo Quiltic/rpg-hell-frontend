@@ -21,7 +21,7 @@ export default function TraitsTable({
             <thead className="dark:bg-dark-400 bg-light-300 font-bold">
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
-                    <th className="table-cell md:hidden w-1/5">Trait</th>
+                    <th className="table-cell md:hidden w-1/4">Trait</th>
                     <th className="hidden md:table-cell">Requirements</th>
                     <th className="hidden md:table-cell">Dice</th>
                     <th>Effect</th>

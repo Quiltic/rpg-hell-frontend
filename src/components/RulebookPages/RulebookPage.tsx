@@ -1,4 +1,3 @@
-
 // import { useState, useEffect, useCallback } from "react";
 
 import Markdown from "react-markdown";
@@ -27,7 +26,7 @@ export default function RulebookPage() {
     return (
         <>
             <h3>Pages</h3>
-            <div className="flex flex-column gap-4 justify-center mb-2">
+            <div className="flex flex-column flex-wrap gap-4 justify-center mb-2">
                 <Link to={"traits"}>
                     <Button leftIcon={ticketIcon} variant="body">
                         Traits
@@ -53,11 +52,18 @@ export default function RulebookPage() {
             </div>
 
             <div className=" mx-auto text-left max-w-4xl markdown-styles">
-                <TableOfContentsDiscl/>
+                <TableOfContentsDiscl />
                 <Markdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
-                    components={{'h1':HeadingRenderer,'h2':HeadingRenderer,'h3':HeadingRenderer,'h4':HeadingRenderer,'h5':HeadingRenderer,'h6':HeadingRenderer,}}
+                    components={{
+                        h1: HeadingRenderer,
+                        h2: HeadingRenderer,
+                        h3: HeadingRenderer,
+                        h4: HeadingRenderer,
+                        h5: HeadingRenderer,
+                        h6: HeadingRenderer,
+                    }}
                 >
                     {formattedmd}
                 </Markdown>
