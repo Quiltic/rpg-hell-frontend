@@ -10,7 +10,7 @@ export default function RootLayout() {
             <div>
                 <AuthProvider>
                     <Header />
-                    <div className="max-w-7xl mx-auto p-8 text-center">
+                    <div className="max-w-7xl mx-auto p-2 md:p-8 text-center">
                         <Outlet />
                     </div>
                 </AuthProvider>

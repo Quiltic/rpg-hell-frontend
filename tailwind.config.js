@@ -4,7 +4,7 @@ export default {
     safelist: [
         {
             pattern:
-                /(bg|ring|text)-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base)(-(1|2|3|4|5|6|7|8|9)00|)/,
+                /(bg|ring|text)-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|dark|light)(-(1|2|3|4|5|6|7|8|9)00|)/,
         },
     ],
     theme: {
