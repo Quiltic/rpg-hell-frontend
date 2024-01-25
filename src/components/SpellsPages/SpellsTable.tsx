@@ -44,7 +44,8 @@ export default function SpellsTable({
                             <td className="table-cell md:hidden capitalize">
                                 <span className="font-bold underline">
                                     {spell.name}
-                                </span>{" "}
+                                </span>
+                                <br />
                                 Strain: {spell.level} Dice:{" "}
                                 {"#".repeat(spell.dice ?? 1)} Tags:{" "}
                                 {spell.tags?.join(", ")}{" "}

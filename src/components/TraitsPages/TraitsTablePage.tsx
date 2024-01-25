@@ -163,7 +163,7 @@ export default function TraitsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="flex flex-column justify-between py-1 w-full align-middle">
+                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
                     <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
                             className={({ selected }) =>
@@ -192,7 +192,7 @@ export default function TraitsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-56 max-h-10">
+                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
                         <MagnifyingGlassIcon className="h-6 w-6" />
 
                         <input

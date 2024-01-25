@@ -19,7 +19,7 @@ export default function ItemsTable({
             <thead className="dark:bg-dark-400 bg-light-300 font-bold">
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
-                    <th className="table-cell md:hidden w-1/4">Item</th>
+                    <th className="table-cell md:hidden w-1/4be">Item</th>
                     <th className="hidden md:table-cell">Requirements</th>
                     <th>Effect</th>
                     <th className="hidden md:table-cell">Tags</th>
@@ -44,9 +44,10 @@ export default function ItemsTable({
                             <td className="table-cell min-w-24 md:hidden capitalize">
                                 <span className="font-bold underline">
                                     {item.name}
-                                </span>{" "}
+                                </span>
+                                <br />
                                 {req} Cost: {item.cost} Craft: {item.craft}{" "}
-                                Tags:
+                                Tags:{" "}
                                 {item.tags?.join(", ").replace(/ 0/gi, "")}{" "}
                                 {moveItem != undefined && (
                                     <Button
