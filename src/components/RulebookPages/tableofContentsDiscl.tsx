@@ -54,7 +54,7 @@ export default function TableOfContentsDiscl() {
                     </div>
                     <div className="bg-dark-300 whitespace-pre-wrap">
                         <ul>
-                            <li><a href="#stats-and-skills">Stats and Skills</a>
+                            <li><a href="#common-actions">Stats and Skills</a>
                                 <ul>
                                     <li><a href="#body"><span className="text-body-700">Body</span></a>
                                         <ul>
@@ -88,7 +88,7 @@ export default function TableOfContentsDiscl() {
                                         <ul>
                                             <li><a href="#make-an-item">Make an item</a></li>
                                             <li><a href="#understand-a-contraption">Understand a contraption.</a></li>
-                                            <li><a href="#performance:-sing/tell-a-story/tell-a-joke">Performance: Sing/Tell a Story/Tell a Joke</a></li>
+                                            <li><a href="#performance:-sing,-tell-a-story,-or-tell-a-joke">Performance: Sing/Tell a Story/Tell a Joke</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#nature"><span className="text-nature-700">Nature</span></a>
@@ -105,7 +105,7 @@ export default function TableOfContentsDiscl() {
                                     </li>
                                     <li><a href="#thieving"><span className="text-thieving-700">Thieving</span></a>
                                         <ul>
-                                            <li><a href="#stealplace-an-item">Steal/place an item</a></li>
+                                            <li><a href="#steal-or-place-an-item">Steal/place an item</a></li>
                                             <li><a href="#hide">Hide</a></li>
                                         </ul>
                                     </li>

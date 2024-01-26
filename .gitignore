@@ -26,3 +26,4 @@ Traits.csv
 Spells.csv
 jsonmaker.py
 data_file.csv
+json_to_mysql.py

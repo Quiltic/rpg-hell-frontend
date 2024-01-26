@@ -141,7 +141,7 @@ Death's Door only goes away if you do a Rest.
 
 
 
-# Stats and Skills
+# Common Actions
 ## Body
 
 ### Physical Feats
@@ -210,19 +210,19 @@ Death's Door only goes away if you do a Rest.
 
 ## Charm
 
-### Convince someone of something
+### Convince Someone of Something
 - 5+ Convince them of something that they would align with.
 - 7+ Convince them of something they could understand.
 - 14+ Convince them of something unrealistic.
 - 21+ Convince them of something outrageous.
 
-### Discern others intentions
+### Discern Others Intentions
 - 7+ Determine if someone's intention is good or bad. This cannot tell if someone is lying, only their intention.
 - 14+ Determine someone's intention, and whether they are lying.
 - 21+ Determine someone's intention, whether they are lying, and what they are lying about.
 - 28+ Determine someone's intention, whether they are lying, what they are lying about, and how to convince them how to tell the truth.
 
-### Performance: Sing/Tell a Story/Tell a Joke
+### Performance: Sing, Tell a Story, or Tell a Joke
 - 6- Everyone boo's you and tries to get you to stop.
 - 7+ Rouse common people, commoners will watch you perform. You may get some coin at the end.
 - 14+ Rouse most people, most will watch you perform. You may get some coin at the end.
@@ -233,7 +233,7 @@ Death's Door only goes away if you do a Rest.
 
 ## Crafting
 
-### Make an item
+### Make an Item
 - 5+ Spend 1 minute and half the gold cost of an item to create an item of Crafting value 0.
 - 7+ Spend 10 minutes and half the gold cost of an item to create an item of Crafting value 1 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
 - 14+ Spend 1 hour and half the gold cost of an item to create an item of Crafting value 2 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
@@ -242,7 +242,7 @@ Death's Door only goes away if you do a Rest.
 
 
 
-### Understand a contraption.
+### Understand a Contraption.
 - What does this contraption do?
 - How can I use/control this contraption?
 - What/Who made this contraption?
@@ -258,13 +258,13 @@ Death's Door only goes away if you do a Rest.
 ### Scrounge
 - 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
-### Handle a beast.
+### Handle a Beast.
 - 7+ Successfully tame/handle a Creature with the Beast tag and a DR of 1 or less.
 - This roll can be done multiple times increasing the requirement by 3 and the DR by 1. 
 - (For example a 11+ can control a DR 2 Beast)
 
 
-### Track a creature
+### Track a Creature
 - 7+ Follow obvious tracks. 
 - 14+ Follow a sneaking creature.
 - 21+ Follow hidden tracks.
@@ -282,7 +282,7 @@ Death's Door only goes away if you do a Rest.
 
 ## Thieving
 
-### Steal/place an item
+### Steal or Place an Item
 - 5+ You steal/place the item but are detected.
 - 7+ Do a contest against all creatures nearby. On success, you steal/place the item undetected.
 - 14+ Do a contest against all creatures that are looking your way or you are stealing from. On success, you steal/place the item undetected.
@@ -309,11 +309,12 @@ Death's Door only goes away if you do a Rest.
 
 <span style="font-family: monospace; font-size: 1.3em">Soul Strain and Known Spells = 3*Soul</span>
 
-2 Weapons, an Armor, a Bandage, and a non-magical item worth less than 15 gold.
+2 Weapons, an Armor, a Bandage, and a non-magical item worth 15 gold or less.
 
 ## Leveling Up!
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
+No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 
 <span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Soul Strain</span>
 
@@ -351,7 +352,7 @@ Death's Door only goes away if you do a Rest.
 | 3,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
 | 3,3 | Nymph Born | Gain Nature Speak Trait for free. |
 | 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
-| 3,5 | Nagalike | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them your level stacks of Poisoned. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
+| 3,5 | Nagalike | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
 | 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
 | 4+ | Reroll | Reroll |
 

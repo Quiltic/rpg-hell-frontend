@@ -33,19 +33,19 @@ export default function TraitsTablePage() {
     useEffect(() => {
         async function getTraits() {
             let traits: Trait[];
-            // try {
-            //     const traitsRaw = await TraitsService.getAllTraits();
-            //     traits = Object.values(traitsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+            try {
+                const traitsRaw = await TraitsService.getAllTraits();
+                traits = Object.values(traitsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     traits = Object.values(json);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                } else {
+                    return;
+                }
+            }
             traits = filterBROKENandMONSTERreq(traits);
 
             traits = sortArrayByReqs(traits);

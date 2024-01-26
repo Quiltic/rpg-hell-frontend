@@ -5,7 +5,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "On a High Roll move the target 1 tile of your choosing.",
+        "effect": "On a 9 or Higher: move the target 1 tile of your choosing.",
         "tags": [
             "1 damage",
             "weapon"
@@ -19,7 +19,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "On a High Roll give the target an additional 1 stack of Bleed.",
+        "effect": "On a 9 or Higher: give the target an additional 1 stack of Bleed.",
         "tags": [
             "1 damage",
             "throw range 6",
@@ -34,7 +34,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "This weapon does Double Damage to objects. On a Low Roll this weapon does half damage to objects instead of double. On a High Roll Knockback the Target 2 tiles away from you.",
+        "effect": "This weapon does Double Damage to objects. On a 4 or Less: this weapon does half damage to objects instead of double. On a 9 or Higher: Knockback the Target 2 tiles away from you.",
         "tags": [
             "2 damage",
             "two handed",
@@ -49,7 +49,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "On a High Roll do an additional 1 Damage.",
+        "effect": "On a 9 or Higher: do an additional 1 Damage.",
         "tags": [
             "1 damage",
             "loading 1",
@@ -65,7 +65,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "On a Low Roll you don't catch the Boomerang and it flys 4 tiles behind you. On a High Roll give the target 1 stack of Stun.",
+        "effect": "On a 4 or Less: you don't catch the Boomerang and it flys 4 tiles behind you. On a 9 or Higher: give the target 1 stack of Stun.",
         "tags": [
             "2 damage",
             "throw range 8",
@@ -81,7 +81,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a Low Roll you gain 1 Marked. On a High Roll give the target 1 stack of Marked.",
+        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a 4 or Less: you gain 1 Marked. On a 9 or Higher: give the target 1 stack of Marked.",
         "tags": [
             "1 damage",
             "range 3",
@@ -98,7 +98,7 @@
         "req": [
             "core 1"
         ],
-        "effect": "On a High Roll you can throw dirt into the Target's eyes to give them 1 stack of Blind.",
+        "effect": "On a 9 or Higher: you can throw dirt into the Target's eyes to give them 1 stack of Blind.",
         "tags": [
             "2 damage",
             "two handed",
@@ -113,7 +113,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a Low Roll do 1 less Damage. On a High Roll do an additional 1 Damage.",
+        "effect": "On a 4 or Less: do 1 less Damage. On a 9 or Higher: do an additional 1 Damage.",
         "tags": [
             "2 damage",
             "weapon"
@@ -127,7 +127,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a Low Roll do 1 less Damage. On a High Roll do an additional 1 Damage.",
+        "effect": "On a 4 or Less: do 1 less Damage. On a 9 or Higher: do an additional 1 Damage.",
         "tags": [
             "3 damage",
             "two handed",
@@ -142,7 +142,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a Low Roll do 1 less Damage. On a High Roll do Double Damage to Armor",
+        "effect": "On a 4 or Less: do 1 less Damage. On a 9 or Higher: do Double Damage to Armor",
         "tags": [
             "2 damage",
             "throw range 6",
@@ -157,7 +157,7 @@
         "req": [
             "body 1"
         ],
-        "effect": "On a Low Roll you have a Range of 1 instead of 2. On a High Roll you damage Target's in a line in front of you instead of just the first Target hit.",
+        "effect": "On a 4 or Less: you have a Range of 1 instead of 2. On a 9 or Higher: you damage Target's in a line in front of you instead of just the first Target hit.",
         "tags": [
             "2 damage",
             "range 2",
@@ -173,7 +173,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a Low Roll you do 1 less damage to Armor Health. On a High Roll you reduce the Target's speed by 1 until the start of your next Turn. This effect does not Stack.",
+        "effect": "On a 4 or Less: you do 1 less damage to Armor Health. On a 9 or Higher: you reduce the Target's speed by 1 until the start of your next Turn. This effect does not Stack.",
         "tags": [
             "1 damage",
             "loading 16",
@@ -190,7 +190,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a Low Roll do 1 less damage. On a High Roll do an additional 1 Damage.",
+        "effect": "On a 4 or Less: do 1 less damage. On a 9 or Higher: do an additional 1 Damage.",
         "tags": [
             "1 damage",
             "loading 1",
@@ -207,7 +207,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a Low Roll do 1 less Damage. On a High Roll do Double Damage to Armor",
+        "effect": "On a 4 or Less: do 1 less Damage. On a 9 or Higher: do Double Damage to Armor",
         "tags": [
             "2 damage",
             "loading 1",
@@ -225,7 +225,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a Low Roll loose 1 speed until the start of your next Turn. On a High Roll you may Move 1 tile.",
+        "effect": "On a 4 or Less: loose 1 speed until the start of your next Turn. On a 9 or Higher: you may Move 1 tile.",
         "tags": [
             "1 damage",
             "weapon"
@@ -239,7 +239,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a High Roll, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice.",
+        "effect": "On a 9 or Higher:, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice.",
         "tags": [
             "1 damage",
             "loading 6",
@@ -256,7 +256,7 @@
         "req": [
             "mind 3"
         ],
-        "effect": "On a High Roll, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
+        "effect": "On a 9 or Higher:, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
         "tags": [
             "1 damage",
             "loading 8",
@@ -274,7 +274,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "Hits Target's to the left and right of the target you aimed at. On a Low Roll only hits 1 target. On a High Roll it attacks in a Cone in front of you.",
+        "effect": "Hits Target's to the left and right of the target you aimed at. On a 4 or Less: only hits 1 target. On a 9 or Higher: it attacks in a Cone in front of you.",
         "tags": [
             "2 damage",
             "loading 2",
@@ -291,7 +291,7 @@
         "req": [
             "mind 1"
         ],
-        "effect": "On a High Roll give the target an additional 1 stack of Bleed.",
+        "effect": "On a 9 or Higher: give the target an additional 1 stack of Bleed.",
         "tags": [
             "1 damage",
             "range 3",
@@ -322,7 +322,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a Low Roll have 1 less Range. On a High Roll give the target 1 stack of Stun",
+        "effect": "On a 4 or Less: have 1 less Range. On a 9 or Higher: give the target 1 stack of Stun",
         "tags": [
             "2 damage",
             "range 2",
@@ -339,7 +339,7 @@
         "req": [
             "soul 1"
         ],
-        "effect": "On a High Roll you may cast a spell through the Yoyo having it originate from the location of the Yoyo, so long as you are holding onto the string.",
+        "effect": "On a 9 or Higher: you may cast a spell through the Yoyo having it originate from the location of the Yoyo, so long as you are holding onto the string.",
         "tags": [
             "1 damage",
             "range 2",
@@ -356,7 +356,7 @@
         "req": [
             "special 1"
         ],
-        "effect": "On a Low Roll the weapon jams; do not autoload at the end of the turn. On a High Roll do half damage (rounded up) twice to the target. This attack hits twice but only costs 1 loading shot.",
+        "effect": "On a 4 or Less: the weapon jams; do not autoload at the end of the turn. On a 9 or Higher: do half damage (rounded up) twice to the target. This attack hits twice but only costs 1 loading shot.",
         "tags": [
             "2 damage",
             "range 6",
@@ -373,7 +373,7 @@
         "req": [
             "special 1"
         ],
-        "effect": "Attacks all Target's in a Line. Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a Low Roll have 1 less Range. On a High Roll have 1 more Range.",
+        "effect": "Attacks all Target's in a Line. Instead of doing damage this weapon gives stacks of Burn equal to its Damage. On a 4 or Less: have 1 less Range. On a 9 or Higher: have 1 more Range.",
         "tags": [
             "3 damage",
             "range 4",
@@ -391,7 +391,7 @@
         "req": [
             "special 1"
         ],
-        "effect": "Attacks hit in a Burst 1 shape. On a Low Roll the weapon jams; do not autoload at the end of the turn. On a High Roll give all Target's 1 stack of Bleed.",
+        "effect": "Attacks hit in a Burst 1 shape. On a 4 or Less: the weapon jams; do not autoload at the end of the turn. On a 9 or Higher: give all Target's 1 stack of Bleed.",
         "tags": [
             "3 damage",
             "range 4",
@@ -409,7 +409,7 @@
         "req": [
             "MONSTER"
         ],
-        "effect": "On High Roll give the target an additional 1 stack of Bleed.",
+        "effect": "On a 9 or Higher: Roll give the target an additional 1 stack of Bleed.",
         "tags": [
             "2 damage",
             "weapon"
@@ -423,7 +423,7 @@
         "req": [
             "MONSTER"
         ],
-        "effect": "On High Roll give the target an additional 1 stack of Blind.",
+        "effect": "On a 9 or Higher: Roll give the target an additional 1 stack of Blind.",
         "tags": [
             "2 damage",
             "weapon"
@@ -437,7 +437,7 @@
         "req": [
             "MONSTER"
         ],
-        "effect": "On High Roll move the target 1 tile closer.",
+        "effect": "On a 9 or Higher: move the target 1 tile closer to you.",
         "tags": [
             "2 damage",
             "range 2",
@@ -452,7 +452,7 @@
         "req": [
             "MONSTER"
         ],
-        "effect": "On a High Roll move the target 1 tile of your choosing.",
+        "effect": "On a 9 or Higher: move the target 1 tile of your choosing.",
         "tags": [
             "3 damage",
             "weapon"
@@ -466,7 +466,7 @@
         "req": [
             "MONSTER"
         ],
-        "effect": "Increases its damage by 1 every 2 levels you have. On a High Roll Knockback the Target 2 tiles away from you.",
+        "effect": "Increases its damage by 1 every 2 levels you have. On a 9 or Higher: Knockback the Target 2 tiles away from you.",
         "tags": [
             "1 damage",
             "range 6",
@@ -481,7 +481,7 @@
         "req": [
             "MONSTER"
         ],
-        "effect": "Increases its damage by 1 every 2 levels you have. On a High Roll give the target 1 stack of Soul Strain.",
+        "effect": "Increases its damage by 1 every 2 levels you have. On a 9 or Higher: give the target 1 stack of Soul Strain.",
         "tags": [
             "2 damage",
             "weapon"
@@ -1948,7 +1948,7 @@
             "small"
         ],
         "cost": 0,
-        "craft": "5\nring of soul stealing"
+        "craft": "5"
     },
     "127": {
         "id": 127,
@@ -2023,5 +2023,48 @@
         ],
         "cost": 0,
         "craft": 2
+    },
+    "132": {
+        "id": 28,
+        "name": "acid lick",
+        "req": [
+            "MONSTER"
+        ],
+        "effect": "This weapon does Double Damage to Armor. On a 9 or Higher: Move the target 1 tile closer to you.",
+        "tags": [
+            "2 damage",
+            "range 2",
+            "weapon"
+        ],
+        "cost": 0,
+        "craft": 9
+    },
+    "133": {
+        "id": 32,
+        "name": "thick carapace",
+        "req": [
+            "body 2"
+        ],
+        "effect": "Gives 6*Level Armor Health.",
+        "tags": [
+            "speed -1",
+            "medium armor",
+            "MONSTER"
+        ],
+        "cost": 0,
+        "craft": 9
+    },
+    "134": {
+        "id": 32,
+        "name": "ring of soul stealing",
+        "req": [],
+        "effect": "A silver ring with a black opal gemstone.\nWhen in possession of someone with Soul the ring will use their Soul Strain to cast Sleeping Powder on them. This cannot happen if the Ring has cast this spell within 1 hour prior or the person has Maxed out their Soul Strain.",
+        "tags": [
+            "lesser item",
+            "magic",
+            "tiny"
+        ],
+        "cost": 0,
+        "craft": 3
     }
 }

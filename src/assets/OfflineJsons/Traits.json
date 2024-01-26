@@ -2383,5 +2383,32 @@
         ],
         "dice": 0,
         "is_passive": true
+    }, 
+    "248": {
+        "name": "consume",
+        "effect": "When you damage a target with a Melee Attack and it would put that creature to your level or less Health they are eaten and become Grappled. Every turn while grappled this way they gain 3 Burn Stacks.",
+        "req": [
+            "MONSTER"
+        ],
+        "dice": 0,
+        "is_passive": true
+    }, 
+    "249": {
+        "name": "mimicry",
+        "effect": "You may cast Prop without gaining Soul Strain",
+        "req": [
+            "MONSTER"
+        ],
+        "dice": 1,
+        "is_passive": false
+    }, 
+    "250": {
+        "name": "hatch",
+        "effect": "Reduce your Nature by 1. At Nature 0 Hatch into a baby.",
+        "req": [
+            "MONSTER"
+        ],
+        "dice": 3,
+        "is_passive": false
     }
 }
