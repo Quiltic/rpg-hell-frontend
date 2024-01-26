@@ -42,7 +42,6 @@ export default function TraitsTable({
                             <td className="font-bold capitalize hidden md:table-cell">
                                 {trait.name}
                             </td>
-                            <br />
                             <td className="table-cell min-w-24 md:hidden capitalize">
                                 {" "}
                                 <span className="font-bold underline">

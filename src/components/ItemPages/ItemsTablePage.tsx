@@ -12,7 +12,6 @@ import ItemsTable from "./ItemsTable";
 import json from "../../assets/OfflineJsons/Items.json";
 import { Button } from "../ui/Button/Button";
 import {
-    filterBROKENandMONSTER,
     filterBROKENandMONSTERreq,
     sortArrayByReqs,
 } from "../../util/sortingTools";

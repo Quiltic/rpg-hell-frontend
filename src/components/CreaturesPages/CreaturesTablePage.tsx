@@ -14,15 +14,19 @@ import jsonSpells from "../../assets/OfflineJsons/Spells.json";
 import jsonItems from "../../assets/OfflineJsons/Items.json";
 import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
 
-
-
 import { Button } from "../ui/Button/Button";
 import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : lengthOfName < 12 ? "w-24" : "w-32";
+    return lengthOfName < 5
+        ? "w-12"
+        : lengthOfName < 7
+          ? "w-16"
+          : lengthOfName < 12
+            ? "w-24"
+            : "w-32";
 }
 
 export default function CreatureTablePage() {
@@ -31,66 +35,64 @@ export default function CreatureTablePage() {
     const [searchValue, setSearchValue] = useState("");
     const [allCreatures, setAllCreatures] = useState<Array<Creature>>([]);
     const [pinnedCreatures, setPinnedCreatures] = useState<Array<Creature>>([]);
-    
-    const [displayedCreatures, setDisplayedCreatures] = useState<Array<Creature>>([]);
+
+    const [displayedCreatures, setDisplayedCreatures] = useState<
+        Array<Creature>
+    >([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    
     const { SpellsService, TraitsService, ItemsService } = useApi();
 
     const [spells, setSpells] = useState<Array<Spell>>([]);
     const [traits, setTraits] = useState<Array<Trait>>([]);
     const [items, setItems] = useState<Array<Item>>([]);
 
-
     useEffect(() => {
         async function getCreatures() {
             let creatures: Creature[];
-            // try {
-            //     const spellsRaw = await SpellsService.getAllSpells();
+            try {
+                const creaturesRaw = await SpellsService.getAllSpells();
 
-            //     spells = Object.values(spellsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
-            //         console.log(
-            //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-            //         );
-            creatures = Object.values(jsonCreatures);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                creatures = Object.values(creaturesRaw) as Creature[];
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
+                    console.log(
+                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+                    );
+                    creatures = Object.values(jsonCreatures) as Creature[];
+                } else {
+                    return;
+                }
+            }
 
             creatures = sortArrayByLevel(creatures);
             setAllCreatures(creatures);
-
         }
 
         getCreatures();
-    }, []);
+    }, [SpellsService]);
 
     useEffect(() => {
         async function getSpells() {
             let spells: Spell[];
-            // try {
-            //     const spellsRaw = await SpellsService.getAllSpells();
+            try {
+                const spellsRaw = await SpellsService.getAllSpells();
 
-            //     spells = Object.values(spellsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+                spells = Object.values(spellsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     spells = Object.values(jsonSpells);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                } else {
+                    return;
+                }
+            }
 
             spells = sortArrayByLevel(spells);
             setSpells(spells);
-
         }
 
         getSpells();
@@ -99,46 +101,45 @@ export default function CreatureTablePage() {
     useEffect(() => {
         async function getTraits() {
             let traits: Trait[];
-            // try {
-            //     const traitsRaw = await TraitsService.getAllTraits();
-            //     traits = Object.values(traitsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+            try {
+                const traitsRaw = await TraitsService.getAllTraits();
+                traits = Object.values(traitsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     traits = Object.values(jsonTraits);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                } else {
+                    return;
+                }
+            }
             traits = sortArrayByReqs(traits);
             setTraits(traits);
         }
-        
+
         getTraits();
     }, [TraitsService]);
 
     useEffect(() => {
         async function getItems() {
             let items: Item[];
-            // try {
-            //     const itemsRaw = await ItemsService.getAllItems();
-            //     items = Object.values(itemsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+            try {
+                const itemsRaw = await ItemsService.getAllItems();
+                items = Object.values(itemsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
-                    items = Object.values(jsonItems);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                    items = Object.values(jsonItems) as Item[];
+                } else {
+                    return;
+                }
+            }
             items = sortArrayByReqs(items ?? []);
 
             setItems(items);
-            
         }
 
         getItems();
@@ -153,10 +154,8 @@ export default function CreatureTablePage() {
 
         setClearButtonVisibility("visible");
         const filteredCreatures = allCreatures.filter((s) => {
-            return (
-                s.name.toLowerCase().includes(searchValue) //||
-                // s.effect?.toLowerCase().includes(searchValue)
-            );
+            return s.name.toLowerCase().includes(searchValue); //||
+            // s.effect?.toLowerCase().includes(searchValue)
         });
 
         setDisplayedCreatures(filteredCreatures);
@@ -196,7 +195,7 @@ export default function CreatureTablePage() {
         "Monstrosity",
         "Planar",
         "Undead",
-        "Mythic"
+        "Mythic",
     ];
 
     // Styling:
@@ -225,7 +224,9 @@ export default function CreatureTablePage() {
                                         <CreatureTable
                                             displayedCreatures={pinnedCreatures}
                                             moveCreature={(creature) => {
-                                                removeFromPinnedCreatures(creature);
+                                                removeFromPinnedCreatures(
+                                                    creature
+                                                );
                                             }}
                                             moveIsAdd={false}
                                             traitsList={traits}
