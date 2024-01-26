@@ -11,7 +11,10 @@ import TraitsTable from "./TraitsTable";
 
 import json from "../../assets/OfflineJsons/Traits.json";
 import { Button } from "../ui/Button/Button";
-import { filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
+import {
+    filterBROKENandMONSTERreq,
+    sortArrayByReqs,
+} from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
@@ -50,12 +53,13 @@ export default function TraitsTablePage() {
 
             traits = sortArrayByReqs(traits);
 
-            
-
             setAllTraits(traits);
             setDisplayedTraits(traits);
 
-            const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
+            const persistentPinnedTraits = getPersistentPinnedNames(
+                "pinnedTraitNames",
+                traits
+            ) as Trait[];
             if (persistentPinnedTraits) {
                 setPinnedTraits(persistentPinnedTraits);
             }
@@ -81,7 +85,6 @@ export default function TraitsTablePage() {
 
         setDisplayedTraits(filteredTraits);
     }, [allTraits, searchValue]);
-
 
     useEffect(() => {
         const pinnedTraitNames: string[] = pinnedTraits.map((s) => {
@@ -133,7 +136,8 @@ export default function TraitsTablePage() {
                                 <>
                                     <Disclosure.Button>
                                         <Button
-                                            variant={"soul"}
+                                            variant={"dark"}
+                                            size={"xl"}
                                             className="mb-2"
                                             open={open}
                                             rightIcon={ChevronIcon}
@@ -159,8 +163,8 @@ export default function TraitsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="flex flex-column justify-between py-1 w-full align-middle">
-                    <Tab.List className="flex space-x-1 p-1 gap-1">
+                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
+                    <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
@@ -188,7 +192,7 @@ export default function TraitsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
+                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
                         <MagnifyingGlassIcon className="h-6 w-6" />
 
                         <input
@@ -196,7 +200,7 @@ export default function TraitsTablePage() {
                             type="text"
                             name="search"
                             placeholder="Search"
-                            className="bg-dark-700 pl-1"
+                            className="bg-dark-700 pl-1 w-16 flex-grow"
                             onChange={(e) => {
                                 setSearchValue(e.target.value.toLowerCase());
                             }}

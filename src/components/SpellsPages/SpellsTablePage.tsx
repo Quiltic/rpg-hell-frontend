@@ -12,7 +12,10 @@ import SpellsTable from "./SpellsTable";
 import json from "../../assets/OfflineJsons/Spells.json";
 import { Button } from "../ui/Button/Button";
 
-import { filterBROKENandMONSTER, sortArrayByLevel } from "../../util/sortingTools";
+import {
+    filterBROKENandMONSTER,
+    sortArrayByLevel,
+} from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
@@ -26,7 +29,6 @@ export default function SpellsTablePage() {
     const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
-
 
     useEffect(() => {
         async function getSpells() {
@@ -54,12 +56,13 @@ export default function SpellsTablePage() {
             // setSpellsObjectSorted(spells);
             setDisplayedSpells(spells);
 
-            const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
+            const persistentPinnedSpells = getPersistentPinnedNames(
+                "pinnedSpellNames",
+                spells
+            ) as Spell[];
             if (persistentPinnedSpells) {
                 setPinnedSpells(persistentPinnedSpells);
             }
-
-
         }
         getSpells();
     }, [SpellsService]);
@@ -82,7 +85,6 @@ export default function SpellsTablePage() {
         setDisplayedSpells(filteredSpells);
     }, [allSpells, searchValue]);
 
-
     useEffect(() => {
         const pinnedSpellNames: string[] = pinnedSpells.map((s) => {
             return s.name;
@@ -92,8 +94,6 @@ export default function SpellsTablePage() {
             pinnedSpellNames.join(";|;")
         );
     }, [pinnedSpells]);
-
-
 
     function addToPinnedSpells(s: Spell) {
         const newPersist = [...pinnedSpells, s];
@@ -123,7 +123,8 @@ export default function SpellsTablePage() {
                                 <>
                                     <Disclosure.Button>
                                         <Button
-                                            variant={"soul"}
+                                            variant={"dark"}
+                                            size={"xl"}
                                             className="mb-2"
                                             open={open}
                                             rightIcon={ChevronIcon}
@@ -149,12 +150,12 @@ export default function SpellsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="flex flex-column justify-between py-1 w-full align-middle">
-                    <Tab.List className="flex space-x-1 p-1 gap-1">
+                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
+                    <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-10",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -166,7 +167,7 @@ export default function SpellsTablePage() {
                                 <Tab
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-6",
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -176,7 +177,7 @@ export default function SpellsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
+                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
                         <MagnifyingGlassIcon className="h-6 w-6" />
 
                         <input
@@ -184,7 +185,7 @@ export default function SpellsTablePage() {
                             type="text"
                             name="search"
                             placeholder="Search"
-                            className="bg-dark-700 pl-1"
+                            className="bg-dark-700 pl-1 w-16 flex-grow"
                             onChange={(e) => {
                                 setSearchValue(e.target.value.toLowerCase());
                             }}

@@ -9,24 +9,26 @@ type Props = {
     moveIsAdd?: boolean;
 };
 
-
 export default function ItemsTable({
     displayedItems,
     moveItem,
     moveIsAdd = true,
 }: Props) {
     return (
-        <table className="border-collapse table-auto dark:text-light text-dark rounded-md">
+        <table className="border-collapse table-fixed md:table-auto dark:text-light text-dark rounded-md">
             <thead className="dark:bg-dark-400 bg-light-300 font-bold">
                 <tr>
-                    <th>Name</th>
-                    <th>Requirements</th>
+                    <th className="hidden md:table-cell">Name</th>
+                    <th className="table-cell md:hidden w-1/4be">Item</th>
+                    <th className="hidden md:table-cell">Requirements</th>
                     <th>Effect</th>
-                    <th>Tags</th>
-                    <th>Cost</th>
-                    <th>Craft</th>
+                    <th className="hidden md:table-cell">Tags</th>
+                    <th className="hidden md:table-cell">Cost</th>
+                    <th className="hidden md:table-cell">Craft</th>
                     {moveItem != undefined && (
-                        <th>{moveIsAdd ? "Save" : "Unsave"}</th>
+                        <th className="hidden md:table-cell">
+                            {moveIsAdd ? "Save" : "Unsave"}
+                        </th>
                     )}
                 </tr>
             </thead>
@@ -36,23 +38,57 @@ export default function ItemsTable({
                     const req = toPillElement(item.req?.toString() ?? "", ",");
                     return (
                         <tr>
-                            <td className="font-bold capitalize">
+                            <td className="font-bold capitalize hidden md:table-cell">
                                 {item.name}
                             </td>
-                            <td className="capitalize" align="center">
+                            <td className="table-cell min-w-24 md:hidden capitalize">
+                                <span className="font-bold underline">
+                                    {item.name}
+                                </span>
+                                <br />
+                                {req} Cost: {item.cost} Craft: {item.craft}{" "}
+                                Tags:{" "}
+                                {item.tags?.join(", ").replace(/ 0/gi, "")}{" "}
+                                {moveItem != undefined && (
+                                    <Button
+                                        variant={
+                                            moveIsAdd
+                                                ? "subtle-nature"
+                                                : "subtle-medicine"
+                                        }
+                                        leftIcon={
+                                            moveIsAdd ? PinIcon : RemoveIcon
+                                        }
+                                        className="rounded-md w-6 h-8"
+                                        onClick={() => {
+                                            moveItem(item);
+                                        }}
+                                    ></Button>
+                                )}
+                            </td>
+                            <td
+                                className="capitalize hidden md:table-cell"
+                                align="center"
+                            >
                                 {req}
                             </td>
                             <td
                                 dangerouslySetInnerHTML={{ __html: ee }}
                                 className="whitespace-pre-wrap"
                             ></td>
-                            <td className="capitalize">
+                            <td className="capitalize hidden md:table-cell">
                                 {item.tags?.join(", ").replace(/ 0/gi, "")}
                             </td>
-                            <td> {item.cost} </td>
-                            <td> {item.craft} </td>
+                            <td className="hidden md:table-cell">
+                                {" "}
+                                {item.cost}{" "}
+                            </td>
+                            <td className="hidden md:table-cell">
+                                {" "}
+                                {item.craft}{" "}
+                            </td>
                             {moveItem != undefined && (
-                                <td>
+                                <td className="hidden md:table-cell">
                                     <Button
                                         variant={
                                             moveIsAdd

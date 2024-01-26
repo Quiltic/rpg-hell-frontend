@@ -47,6 +47,7 @@ const solidVariants = cva("", {
             nature: "bg-nature text-light hover:bg-nature-600 dark:hover:bg-nature-600",
             medicine:
                 "bg-medicine text-light hover:bg-medicine-600 dark:hover:bg-medicine-600",
+            dark: "bg-dark-700 text-light hover:text-light-400",
         },
     },
 });
@@ -90,6 +91,7 @@ export const buttonVariants = cva("...", {
             soul: solidVariants({ variant: "soul" }),
             nature: solidVariants({ variant: "nature" }),
             medicine: solidVariants({ variant: "medicine" }),
+            dark: solidVariants({ variant: "dark" }),
             link: linkVariants({ variant: "default" }),
             "link-mind": linkVariants({ variant: "mind" }),
             "link-body": linkVariants({ variant: "body" }),

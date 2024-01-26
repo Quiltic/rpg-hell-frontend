@@ -11,11 +11,13 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/Items.json";
 import { Button } from "../ui/Button/Button";
-import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByReqs } from "../../util/sortingTools";
+import {
+    filterBROKENandMONSTERreq,
+    sortArrayByReqs,
+} from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
@@ -30,7 +32,6 @@ export default function ItemsTablePage() {
     const [displayedItems, setDisplayedItems] = useState<Array<Item>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
-
 
     useEffect(() => {
         async function getItems() {
@@ -56,12 +57,14 @@ export default function ItemsTablePage() {
             setAllItems(items);
             setDisplayedItems(items);
 
-            const persistentPinnedItems = getPersistentPinnedNames("pinnedItemNames",items);
+            const persistentPinnedItems = getPersistentPinnedNames(
+                "pinnedItemNames",
+                items
+            ) as Item[];
 
             if (persistentPinnedItems) {
                 setPinnedItems(persistentPinnedItems);
             }
-            
         }
         getItems();
     }, [ItemsService]);
@@ -84,22 +87,20 @@ export default function ItemsTablePage() {
         setDisplayedItems(filteredItems);
     }, [allItems, searchValue]);
 
-
     useEffect(() => {
         const pinnedItemNames: string[] = pinnedItems.map((i) => {
             return i.name;
         });
-        console.log(pinnedItems,pinnedItemNames);
+        console.log(pinnedItems, pinnedItemNames);
         window.localStorage.setItem(
             "pinnedItemNames",
             pinnedItemNames.join(";|;")
         );
     }, [pinnedItems]);
 
-
     function addToPinnedItems(i: Item) {
         setPinnedItems(sortArrayByReqs([...pinnedItems, i]));
-        console.log(pinnedItems)
+        console.log(pinnedItems);
     }
 
     function removeFromPinnedItems(i: Item) {
@@ -132,8 +133,9 @@ export default function ItemsTablePage() {
                                 <>
                                     <Disclosure.Button>
                                         <Button
-                                            variant={"soul"}
-                                            className="mb-2"
+                                            variant={"dark"}
+                                            className="mb-2 w-full"
+                                            size={"xl"}
                                             open={open}
                                             rightIcon={ChevronIcon}
                                         >
@@ -158,8 +160,8 @@ export default function ItemsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="flex flex-column justify-between py-1 w-full align-middle">
-                    <Tab.List className="flex space-x-1 p-1 gap-1">
+                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
+                    <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
@@ -186,7 +188,7 @@ export default function ItemsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
+                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
                         <MagnifyingGlassIcon className="h-6 w-6" />
 
                         <input
@@ -194,7 +196,7 @@ export default function ItemsTablePage() {
                             type="text"
                             name="search"
                             placeholder="Search"
-                            className="bg-dark-700 pl-1"
+                            className="bg-dark-700 pl-1 w-16 flex-grow"
                             onChange={(e) => {
                                 setSearchValue(e.target.value.toLowerCase());
                             }}
