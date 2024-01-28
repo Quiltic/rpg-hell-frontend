@@ -35,7 +35,7 @@ export default function TraitsTable({
             <tbody>
                 {displayedTraits.map((trait) => {
                     const ee = formatEffectString(trait.effect ?? "");
-                    const req = toPillElement(trait.req?.toString() ?? "", ",");
+                    const req = toPillElement(trait.req?.toString().replace(" 0","") ?? "", ",");
                     // console.log(req);
                     return (
                         <tr>

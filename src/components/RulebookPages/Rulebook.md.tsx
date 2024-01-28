@@ -155,34 +155,38 @@ Death's Door only goes away if you do a Rest.
 
 
 ### Acrobatics or Athletics
-- 7+ Do simple acrobatics/athletics. 
-- 14+ Do novice acrobatics/athletics. 
-- 21+ Do intermediate acrobatics/athletics. 
-- 28+ Do Advanced acrobatics/athletics.
+Most situations are based on GM ruling. However a good guideline for DL is: 1 for simple actions, 3 for novice actions, 5 for intermediate actions, 7 for advanced actions, and 9 for master actions.
+
+- Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
+- Failure: You fail.
+- Success: You succeed.
+- Great Success: ___
+- Perfected Success: This specific feat (doing a backflip, jumprope, etc) has become muscle memory to you, reducing the DL by 1 the next time you do this specific feat.
+
 
 
 ## Mind
 
 ### Investigate
-- What happened here?
-- How many people are/were here?
-- What is this item (non-magical)?
-- What did this person/place/item have on/in them (1 item)?
-- A more specific question.
+When searching an area, items or clues in the area have their own discovery DLs determined by the GM. For example, a trinket under a bed would have a DL of 0, a notebook hidden under a false drawer bottom would have a DL of 9. You make 1 Roll to Investigate which the DM silently compares to the DLs of all hidden items or clues.
 
-- 7+ Ask the GM one of the questions, they must give an honest answer
-- 6- Ask the GM one of the questions, they may give an honest answer
+- Complete Failure: You take twice as long to search and find nothing.
+- Failure: You find nothing.
+- Success: You find the item or clue
+- Great Success: You find the item or clue in half the time
+- Perfected Success: You find the item or clue immediately.
+
 
 
 ### Remember
-- What happened here?
-- What was here?
-- What got left behind?
-- What information do I know about this?
-- A more specific question.
+Most situations are based on GM ruling. However a good guideline for DL is: 0 for memories you deeply know, 1 for recent memories, 3 for old memories, and 9 for passing memories (such as a single sentence or word on a sign you have seen once).
 
-- 7+ Ask the GM one of the questions, they must give an honest answer
-- 6- Ask the GM one of the questions, they may give an honest answer
+- Complete Failure: You are completely blank on what you try to remember, forgetting what and why you are trying to remember.
+- Failure: You don't remember.
+- Success: You remember vague details about what you are trying to remember.
+- Great Success: You remember most of the details about what you are trying to remember.
+- Perfected Success: You remember in perfect clarity.
+
 
 
 ## Soul
@@ -196,61 +200,78 @@ Death's Door only goes away if you do a Rest.
 ## Arcana
 
 ### Read Runes
-- What does this magic thing do?
-- How can I use/control this magic thing?
-- What/Who wrote these runes?
-- Is this thing magical?
-- Is this magical thing working?
-- What do these runes say?
-- A more specific question.
+Increase the DL by the target's Crafting score.
+Runes written increase the DL by the writers Arcana.
 
-- 7+ Ask the GM one of the questions, they must give an honest answer
-- 6- Ask the GM one of the questions, they may give an honest answer
+- Complete Failure: ___
+- Failure: You have no idea what the runes say or do.
+- Success: You know what the runes say, what the magic item does, how to use the magic item, or a more specific question based on the item.
+- Great Success: You know what the runes say, or what the magic item does and how to use the magic item, or a more specific question based on the item.
+- Perfected Success: You know what the runes say, what the magic item does, how to use the magic item, and may ask a more specific question based on the item.
+
 
 
 ## Charm
 
 ### Convince Someone of Something
-- 5+ Convince them of something that they would align with.
-- 7+ Convince them of something they could understand.
-- 14+ Convince them of something unrealistic.
-- 21+ Convince them of something outrageous.
+Increase the DL by the target's Charm.
+The DL may also be affected by factors such as familiarity with the target and the target's feelings toward the player.
+Some creatures and situations may increase or decrease this value depending on GM ruling. (Such as if the target would align with what you are convincing them of.)
+
+- Complete Failure: They are not convinced and trust you less.
+- Failure: They are not convinced.
+- Success: They are convinced though they have their doubts and may ask for more (information, gold, lies).
+- Great Success: They are convinced though they have their doubts.
+- Perfected Success: They are thoroughly convinced.
+
 
 ### Discern Others Intentions
-- 7+ Determine if someone's intention is good or bad. This cannot tell if someone is lying, only their intention.
-- 14+ Determine someone's intention, and whether they are lying.
-- 21+ Determine someone's intention, whether they are lying, and what they are lying about.
-- 28+ Determine someone's intention, whether they are lying, what they are lying about, and how to convince them how to tell the truth.
+Increase the DL by the target's Charm
+
+- Complete Failure: You have no idea what their intention is, and you believe they are telling the truth.
+- Failure: You have no idea what their intention is, or if they are lying.
+- Success: Determine the target's intention or if they are lying.
+- Great Success: Determine the target's intention and if they are lying.
+- Perfected Success: Determine the target's intention and if they are lying, and what they are lying about or how to convince them to tell the truth.
+
 
 ### Performance: Sing, Tell a Story, or Tell a Joke
-- 6- Everyone boo's you and tries to get you to stop.
-- 7+ Rouse common people, commoners will watch you perform. You may get some coin at the end.
-- 14+ Rouse most people, most will watch you perform. You may get some coin at the end.
-- 21+ Rouse nobility, nobles will watch you perform. You may get some coin at the end.
-- 28+ Rouse royalty, royals will watch you perform. You may get some coin at the end.
+Most situations are based on GM ruling. However a good guideline for DL is: 1 for commoners, 3 for middle class, 5 for nobility, 7 for royalty, and 9 for gods.
+
+- Complete Failure: Everyone boo's you and tries to get you to stop, sometimes by physical means.
+- Failure: You only attract 1 or two listeners if any. 
+- Success: You attract a group of people nearby to come to listen to your performance. You may get some gold from listeners.
+- Great Success:  You attract a large group of people nearby to come to listen to your performance. You may get some gold from listeners.
+- Perfected Success: Everyone who can hear your performance nearby come to listen to you, and are distracted from focusing on other tasks. You will get some gold from listeners.
+
 
 
 
 ## Crafting
 
 ### Make an Item
-- 5+ Spend 1 minute and half the gold cost of an item to create an item of Crafting value 0.
-- 7+ Spend 10 minutes and half the gold cost of an item to create an item of Crafting value 1 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
-- 14+ Spend 1 hour and half the gold cost of an item to create an item of Crafting value 2 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
-- 21+ Spend multiple hours and half the gold cost of an item to create an item of Crafting value 3 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
-- 28+ Spend multiple hours and half the gold cost of an item to create an item of Crafting value 4 or less. This action cannot make weapons, armors, potions, complex items, or magic items.
+Increase the DL by the crafted items Crafting score.
+Spend 1 minute for a Crafting score of 0.
+Spend 30 minutes multiplied by the item's Crafting score.
+This action cannot make weapons, armors, potions, complex items, or magic items (See Tools).
+
+- Complete Failure: You fail to make the item and lose all gold spent trying to make the item.
+- Failure: You do not finish the item, you reduce the time by half the next time you try to craft this item.
+- Success: Spend the normal amount of time and half the gold cost of the item to create the item.
+- Great Success: Spend half the time and half the gold cost of the item to create the item.
+- Perfected Success: Spend half the time and a quarter of the gold cost of the item to create the item.
 
 
 
 ### Understand a Contraption.
-- What does this contraption do?
-- How can I use/control this contraption?
-- What/Who made this contraption?
-- Is this contraption working?
-- A more specific question.
+Increase the DL by the target's Crafting score.
 
-- 7+ Ask the GM one of the questions, they must give an honest answer
-- 6- Ask the GM one of the questions, they may give an honest answer
+- Complete Failure: You break the item.
+- Failure: You have no idea what the item does.
+- Success: You know what the item does, how to use the item, or more specific information based on the item.
+- Great Success: You know what the item does and how to use the item, or more specific information based on the item.
+- Perfected Success: You know what the item does, how to use the item, and more specific information based on the item.
+
 
 
 ## Nature
@@ -259,42 +280,72 @@ Death's Door only goes away if you do a Rest.
 - 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
 ### Handle a Beast.
-- 7+ Successfully tame/handle a Creature with the Beast tag and a DR of 1 or less.
-- This roll can be done multiple times increasing the requirement by 3 and the DR by 1. 
-- (For example a 11+ can control a DR 2 Beast)
+Can only target a creature with the Animal tag.
+Increase the DL by the creature's Level
+
+- Complete Failure: Enrage the creature, having it attack you or run away.
+- Failure: You do not handle the Creature.
+- Success: Successfully handle the Creature.
+- Great Success: Successfully tame the Creature making it a personal Minion for 1 hour.
+- Perfected Success: Successfully tame the Creature making it a personal Minion permanently.
+
 
 
 ### Track a Creature
-- 7+ Follow obvious tracks. 
-- 14+ Follow a sneaking creature.
-- 21+ Follow hidden tracks.
-- 28+ Follow near non-existent tracks.
+Increase the DL by the target's Thieving if the target was Hiding.
+Increase the DL by 1 for every Hour after the tracks were made.
+Some creatures and situations may increase or decrease this value depending on GM ruling. (Such as weather conditions)
+
+- Complete Failure: You add your own tracks into the mix increasing the DL by 1 next time someone Tracks.
+- Failure: You cannot follow the tracks.
+- Success: Follow tracks up to 12 tiles in length discovering the creature if it is within 4 tiles of you.
+- Great Success: Follow tracks up to 24 tiles in length discovering the creature if it is within 4 tiles of you.
+- Perfected Success: Follow tracks up to 36 tiles in length discovering the creature if it is within 4 tiles of you.
+
 
 
 ## Medicine
 
 ### Identify an Illness or Curse
-- 7+ Determine if the target is Poisoned, Cursed, or is sick. 
-- 14+ Determine if the target can be cured easily. 
-- 21+ Know the name of the Poison, Cursed, or Illness. 
-- 28+ Know the name and how to cure the Poison, Cursed, or Illness. 
+Increase the DL by the targets Crafting score for Poisons
+Increase the DL by the targets Soul Strain level for Curses
+Increase the DL by the targets Level for Illnesses
+Your GM has this information.
+
+- Complete Failure: Do 1d6 damage the creature you are inspecting.
+- Failure: You do not know anything about the Illness or Curse affecting the creature you are inspecting.
+- Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness.
+- Great Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness and how to cure them.
+- Perfected Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness, how to cure them and the name of the affliction.
+
 
 
 ## Thieving
 
 ### Steal or Place an Item
-- 5+ You steal/place the item but are detected.
-- 7+ Do a contest against all creatures nearby. On success, you steal/place the item undetected.
-- 14+ Do a contest against all creatures that are looking your way or you are stealing from. On success, you steal/place the item undetected.
-- 21+ Do a contest against the creature that you are stealing from. On success, you steal/place the item undetected.
-- 28+ You steal/place the item undetected.
+Increase the DL by the target's Level
+Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+If you are Hidden, decrease the DL by your Thieving.
+Additional circumstances such as the size of the item in question could increase the DL
+
+- Complete Failure: You are detected, losing Hidden if you are Hidden, and don't steal the item.
+- Failure: You are not detected and do not steal/place the item.
+- Success: You steal/place the item and lose Hidden if you are Hidden. The targets do not know you stole/placed something.
+- Great Success: You steal/place the item undetected and do not lose Hidden.
+- Perfected Success: You steal/place the item undetected and do not lose Hidden, and can move away without rolling Hidden or spending more dice.
+
 
 ### Hide
-- 7+ Become Hidden if no-one is watching you (other than other party members) and few (4 or less on average) people are around to see you. You are hidden until you do any action other than moving or move within 3 tiles of another non-friendly creature you are not stealing from.
-- 11+ Become Hidden if no-one is watching you (other than other party members) and some (10 or less on average) people are around to see you. You are hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
-- 14+ Become Hidden if no-one is watching you (other than other party members) and many (20 or more on average) people are around to see you. You are hidden until you do any action other than moving or move within 1 tiles of another non-friendly creature you are not stealing from.
-- 18+ Become Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
-- 28+ Become Invisible until you do any action except moving.
+Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+Increase the DL by 2 for every group of 2 people looking for you. (In combat all enemies who know of you will be looking for you)
+Some creatures and situations may increase or decrease this value depending on GM ruling.
+
+- Complete Failure: You do not become Hidden and are Marked for 1 minute (Gain 6 stacks of Marked).
+- Failure: You do not become Hidden.
+- Success: You are hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
+- Great Success: You are hidden until you do any action other than moving or move within 1 tile of another non-friendly creature you are not stealing from.
+- Perfected Success: Become Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
+
 
 
 

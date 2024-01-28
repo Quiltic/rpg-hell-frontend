@@ -35,7 +35,7 @@ export default function ItemsTable({
             <tbody>
                 {displayedItems.map((item) => {
                     const ee = formatEffectString(item.effect ?? "");
-                    const req = toPillElement(item.req?.toString() ?? "", ",");
+                    const req = toPillElement(item.req?.toString().replace(" 0","") ?? "", ",");
                     return (
                         <tr>
                             <td className="font-bold capitalize hidden md:table-cell">
