@@ -51,20 +51,20 @@ export default function CreatureTablePage() {
     useEffect(() => {
         async function getCreatures() {
             let creatures: Creature[];
-            try {
-                const creaturesRaw = await SpellsService.getAllSpells();
+            // try {
+            //     const creaturesRaw = await SpellsService.getAllSpells();
 
-                creatures = Object.values(creaturesRaw) as Creature[];
-            } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
+            //     creatures = Object.values(creaturesRaw) as Creature[];
+            // } catch (e) {
+            //     if (e instanceof Error && e.message == "Network Error") {
+            //         console.log(
+            //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+            //         );
                     creatures = Object.values(jsonCreatures) as Creature[];
-                } else {
-                    return;
-                }
-            }
+            //     } else {
+            //         return;
+            //     }
+            // }
 
             creatures = sortArrayByLevel(creatures);
             setAllCreatures(creatures);
