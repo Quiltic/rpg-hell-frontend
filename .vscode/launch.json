@@ -12,6 +12,24 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+        },
+        {
+            "command": "bun run script generate-client",
+            "name": "Generate Client",
+            "request": "launch",
+            "type": "node-terminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+        },
+        {
+            "command": "bunx --bun vite build",
+            "name": "Build",
+            "request": "launch",
+            "type": "node-terminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
         }
     ]
 }
