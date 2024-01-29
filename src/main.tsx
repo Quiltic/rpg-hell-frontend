@@ -16,6 +16,7 @@ import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
 import CharacterSheetPage from "./components/CharacterSheet/CharacterSheet.tsx";
 import CreatureTablePage from "./components/CreaturesPages/CreaturesTablePage.tsx";
 import JoshhellscapePage from "./components/joshhellscapePages/joshhellscapePage.tsx";
+import UpdateDBTraitsPage from "./components/TraitsPages/UpdateDBTraitsPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -35,6 +36,31 @@ const router = createBrowserRouter(
                 {
                     path: "joshhellscape",
                     element: <JoshhellscapePage />,
+                },
+                {
+                    path: "update-db",
+                    children: [
+                        {
+                            path: "",
+                            element: <NotImplementedPage pageName="Update DB Homepage" />,
+                        },
+                        {
+                            path: "traits",
+                            element: <UpdateDBTraitsPage />,
+                        },
+                        {
+                            path: "spells",
+                            element: <NotImplementedPage pageName="Update DB spells" />,
+                        },
+                        {
+                            path: "items",
+                            element: <NotImplementedPage pageName="Update DB items" />,
+                        },
+                        {
+                            path: "creatures",
+                            element: <NotImplementedPage pageName="Update DB creatures" />,
+                        },
+                    ],
                 },
                 {
                     path: "rulebook",
