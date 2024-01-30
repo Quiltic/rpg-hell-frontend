@@ -23,7 +23,7 @@ import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { toPillElement } from "../../util/textFormatting";
 import { getNames } from "../../util/tableTools";
-import CreaturePopup from "../CreaturesPages/characterSheetPopup";
+import CreaturePopup from "../ui/Popups/characterSheetPopup";
 import CreatureSheet from "../CreaturesPages/characterSheet";
 import CleanCombobox from "./CleanCombobox";
 

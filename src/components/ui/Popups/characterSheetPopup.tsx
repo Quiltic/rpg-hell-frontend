@@ -1,14 +1,14 @@
 // import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import { Spell, Trait, Item, Creature } from "../../client";
+import { Spell, Trait, Item, Creature } from "../../../client";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import CreatureSheet from "./characterSheet";
+import CreatureSheet from "../../CreaturesPages/characterSheet";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Button } from "../ui/Button/Button";
+import { Button } from "../Button/Button";
 import { Fragment, useState } from "react";
 
-import { creaturesIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import { creaturesIcon } from "../../../assets/IconSVGs/heroiconsSVG";
 
 type Props = {
     displayedCreature: Creature;

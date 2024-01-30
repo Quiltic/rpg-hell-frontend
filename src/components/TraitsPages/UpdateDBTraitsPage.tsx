@@ -123,7 +123,7 @@ export default function UpdateDBTraitsPage() {
     // const [secondstatSkillList, setSecondstatSkillList] = useState(statSkillList);
     // const [otherList, setOtherList] = useState(otherListCore);
     // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
-    
+    const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
     const [mainStat, setMainStat] = useState("");
     const [secondStat, setSecondStat] = useState("");
@@ -178,6 +178,7 @@ export default function UpdateDBTraitsPage() {
 
     function addToPinnedTrait(s: Trait) {
 
+        setCurID(s.id);
         setNameText(s.name);
         setEffectText(s.effect ?? "");
         setMainStat(s.req[0]);
@@ -198,6 +199,7 @@ export default function UpdateDBTraitsPage() {
 
     function removeFromPinnedTrait() {
         // Set inputs to nothing
+        setCurID(0);
         setNameText('');
         setEffectText('');
         setMainStat('');
@@ -212,7 +214,7 @@ export default function UpdateDBTraitsPage() {
     function handleCreateNew() {
         console.log(curTrait);
         if (curTrait?.name != ""){
-            // TraitsService.putTrait(curTrait?);
+            TraitsService.putTrait(curTrait);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
@@ -222,8 +224,17 @@ export default function UpdateDBTraitsPage() {
     function handleUpdate() {
         console.log(curTrait);
         if (curTrait?.name != ""){
-            console.log(ObjectsService.objectSearch(curTrait?.name));
-            // TraitsService.updateTrait(curTrait?);
+            TraitsService.updateTrait(curTrait?.name, curTrait);
+        }
+        // Set inputs to nothing
+        removeFromPinnedTrait();
+    };
+
+
+    function handleDelete() {
+        console.log(curTrait);
+        if (curTrait?.name != ""){
+            TraitsService.deleteTrait(curTrait?.id);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
@@ -232,6 +243,7 @@ export default function UpdateDBTraitsPage() {
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
         let trait = {
+            "id": curID,
             "name": nameText.toLowerCase(),
             "effect": effectText,
             "req": [mainStat,secondStat,otherDrop],
@@ -288,7 +300,7 @@ export default function UpdateDBTraitsPage() {
                 {displayedTraits.filter(t => (t.name == curTrait?.name)).length > 0 ? (
                     <>
                         <span />
-                        <Button title="Delete" className="flex flex-row" variant={'body'}>Delete</Button>
+                        <Button title="Delete" className="flex flex-row" variant={'body'} onClick={handleDelete}>Delete</Button>
                         <Button title="Update" className="flex flex-row" variant={"soul"} onClick={handleUpdate}>Update</Button>
                     </>
                  ): (<>

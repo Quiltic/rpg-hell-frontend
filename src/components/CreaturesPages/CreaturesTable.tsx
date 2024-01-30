@@ -4,7 +4,7 @@ import { getNames } from "../../util/tableTools";
 
 
 import { formatEffectString, toPillElement } from "../../util/textFormatting";
-import CreaturePopup from "./characterSheetPopup";
+import CreaturePopup from "../ui/Popups/characterSheetPopup";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
