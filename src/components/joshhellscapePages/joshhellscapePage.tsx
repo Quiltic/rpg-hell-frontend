@@ -33,7 +33,8 @@ function getTabWidth(lengthOfName: number) {
 
 
 const statSkillList = [
-    { id: 1, name: 'base 0' },{ id: 2, name: 'body 1'},
+    { id: 1, name: 'base 0' },
+    { id: 2, name: 'body 1'},
     { id: 3, name: 'mind 1'},
     { id: 4, name: 'soul 1'},
     { id: 5, name: 'arcana 1'},
@@ -90,12 +91,12 @@ const statSkillList = [
     { id: 56, name: 'MONSTER'}
 ];
 
-const otherList = [
+const otherListCore = [
     { id: 1, name: 'BROKEN' },
     { id: 2, name: 'OOC'}
 ];
 
-const diceCostList = [
+const diceCostListCore = [
     { id: 1, name: 'P' },
     { id: 2, name: '#'},
     { id: 3, name: '##'},
@@ -103,16 +104,50 @@ const diceCostList = [
 ];
 
 export default function JoshhellscapePage() {
+
+    const [mainstatSkillList, setMainstatSkillList] = useState(statSkillList);
+    const [secondstatSkillList, setSecondstatSkillList] = useState(statSkillList);
+    const [otherList, setOtherList] = useState(otherListCore);
+    const [diceCostList, setDiceCostList] = useState(diceCostListCore);
+    
+
+
     const [nameText, setNameText] = useState("");
     const [mainStat, setMainStat] = useState("");
     const [secondStat, setSecondStat] = useState("");
     const [diceCost, setDiceCost] = useState("");
     const [otherDrop, setOtherDrop] = useState("");
     const [effectText, setEffectText] = useState("");
+    const [curTrait, setCurTrait] = useState<Trait>();
 
-    // // Define a function to handle the button click event
+    
     function handleCreateNew() {
+        console.log(curTrait);
 
+        // Set inputs to nothing
+        setNameText('');
+        setEffectText('');
+        setMainstatSkillList(statSkillList);
+        setSecondstatSkillList(statSkillList);
+        setOtherList(otherListCore);
+        setDiceCostList(diceCostListCore);
+    };
+
+
+    function handleUpdate() {
+        // console.log(curTrait);
+        
+        // Set inputs to nothing
+        setNameText('');
+        setEffectText('');
+        setMainstatSkillList([{"id":0,"name":"Blerble"},...statSkillList]);
+        setSecondstatSkillList([{"id":0,"name":"omg"},...statSkillList]);
+        setOtherList([{"id":0,"name":"weebe"},...otherListCore]);
+        setDiceCostList([{"id":0,"name":"P"},...diceCostListCore]);
+    };
+    
+    useEffect(() => {
+        // console.log(mainStat,secondStat,otherDrop);
         let trait = {
             "name": nameText,
             "effect": effectText,
@@ -120,6 +155,7 @@ export default function JoshhellscapePage() {
             "dice": 0,
             "is_passive": true
         };
+
         if (diceCost != "P") {
             trait.is_passive = false;
             trait.dice = diceCost.split("#").length - 1;
@@ -127,17 +163,10 @@ export default function JoshhellscapePage() {
 
         // remove the empty stuffs
         trait.req = trait.req.filter((str) => str !== '');
-        
-        // Set inputs to nothing
-        setNameText('');
-        setEffectText('');
 
-        console.log(trait);
-    };
+        setCurTrait(trait);
 
-    useEffect(() => {
-        console.log(mainStat,secondStat,otherDrop);
-    }, [mainStat,secondStat,otherDrop]);
+    }, [nameText,diceCost,mainStat,secondStat,otherDrop,effectText]);
 
 
     return (
@@ -153,11 +182,11 @@ export default function JoshhellscapePage() {
                 </div>
                 <div className="col-span-1">
                     <div className="flex flex-row capitalize">Main Stat/Skill</div>
-                    <CleanCombobox items={statSkillList} className="flex flex-row" get_current={(val) => {setMainStat(val);}}/>
+                    <CleanCombobox items={mainstatSkillList} className="flex flex-row" get_current={(val) => {setMainStat(val);}}/>
                 </div>
                 <div className="col-span-1">
                     <div className="flex flex-row capitalize">Secondary Stat/Skill</div>
-                    <CleanCombobox items={statSkillList} className="flex flex-row" get_current={(val) => {setSecondStat(val);}}/>
+                    <CleanCombobox items={secondstatSkillList} className="flex flex-row" get_current={(val) => {setSecondStat(val);}}/>
                 </div>
                 <div className="col-span-1">
                     <div className="flex flex-row capitalize">Other</div>
@@ -169,7 +198,7 @@ export default function JoshhellscapePage() {
             <textarea rows={40} cols={50} placeholder="Whip around like a yoyo" className="bg-dark-300" value={effectText}  onChange={(e) => setEffectText(e.target.value)}/>
 
             <div className="grid grid-cols-3 gap-4">
-                <Button title="Update" className="flex flex-row" variant={"soul"}>Update</Button>
+                <Button title="Update" className="flex flex-row" variant={"soul"} onClick={handleUpdate}>Update</Button>
                 <Button title="Delete" className="flex flex-row" variant={'body'}>Delete</Button>
                 <Button title="Create New" className="flex flex-row" variant={'nature'} onClick={handleCreateNew}>Create New</Button>
             </div>

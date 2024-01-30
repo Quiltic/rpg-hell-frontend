@@ -145,13 +145,18 @@ Death's Door only goes away if you do a Rest.
 ## Body
 
 ### Physical Feats
-- Jump 2 tiles horizontally with a running start.
-- Jump 1 tile.
-- Lift/Push 100 lb thing with 2 hands
-- Lift/Push a 20 lb thing with 1 hand
-- Force open a door. This is a loud action.
+Do one of the following, increasing its DL appropriately.
+Jump 2 tiles horizontally with a running start. Increase the DL by 1 for every 1 extra tile you want to jump.
+Jump 1 tile vertical or horizontally. Increase the DL by 2 for every 1 extra tile you want to jump.
+Lift/Push 100 lb thing with 2 hands. Increase the DL by 1 for every 100 extra lb you want to lift.
+Lift/Push a 20 lb thing with 1 hand. Increase the DL by 1 for every 20 extra lb you want to lift.
+Force open a door. This cannot be done quietly.
 
-- 7+ do 1 of the above. All items above stack with themselves.
+- Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
+- Failure: You fail.
+- Success: You succeed.
+- Great Success: ___
+- Perfected Success: __
 
 
 ### Acrobatics or Athletics

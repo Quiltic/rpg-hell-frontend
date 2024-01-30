@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Combobox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { classNames } from '../../util/tableTools';
 
 
 // an example of what to give this
@@ -13,20 +12,21 @@ import { classNames } from '../../util/tableTools';
 //     { id: 5, name: 'Tanya Fox' },
 //     { id: 6, name: 'Hellen Schmidt' },
 //   ]
-type Prop = {
-    id: number;
-    name: string;
-};
+// type SelectableOption = {
+//     id: number;
+//     name: string;
+// };
 
 type Props = {
-    items: Array<Prop>;
+    items: Array<string>;
     className: string;
-    get_current: (_str:string) => void;
+    selected: string,
+    setSelected: (s: string) => void;
 }
 
-export default function CleanCombobox({items: items, className: className, get_current}: Props)  {
+export default function CleanCombobox({items: items, className: className, selected, setSelected }: Props)  {
 
-  const [selected, setSelected] = useState<Prop>({'id':0,'name':""})
+  // const [selected, setSelected] = useState<Prop>({'id':0,'name':""})
   const [query, setQuery] = useState('')
   let classnm = className;
 
@@ -34,15 +34,26 @@ export default function CleanCombobox({items: items, className: className, get_c
     query === ''
       ? items
       : items.filter((item) =>
-          item.name
+          item
             .toLowerCase()
             .replace(/\s+/g, '')
             .includes(query.toLowerCase().replace(/\s+/g, ''))
         )
 
-    useEffect(() => {
-        get_current(selected.name);
-    }, [selected]);
+        // useEffect(() => {
+        //     if (items[0].id == 0) {
+        //         setSelected(items[0]);
+        //     } else {
+        //         setSelected({'id':0,'name':""});
+        //     }
+        // }, [items]);
+
+    // useEffect(() => {
+    //     setSelected(selected);
+    // }, [selected]);
+
+
+
 
   return (
     <div className={classnm}>
@@ -51,12 +62,12 @@ export default function CleanCombobox({items: items, className: className, get_c
           <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-light focus-visible:ring-offset-2 focus-visible:ring-offset-light sm:text-sm">
             <Combobox.Input
               className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-light focus:ring-0"
-              displayValue={(item:Prop) => item.name}
+              displayValue={(item:string) => item}
               onChange={(event) => setQuery(event.target.value)}
             />
             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
               <ChevronUpDownIcon
-                className="h-5 w-5 text-dark-400"
+                className="h-5 w-5 text-light-400"
                 aria-hidden="true"
               />
             </Combobox.Button>
@@ -74,9 +85,9 @@ export default function CleanCombobox({items: items, className: className, get_c
                   Nothing found.
                 </div>
               ) : (
-                filteredItems.map((item) => (
+                filteredItems.map((item, i) => (
                   <Combobox.Option
-                    key={item.id}
+                    key={i}
                     className={({ active }) =>
                       `relative cursor-default select-none py-2 pl-10 pr-4 ${
                         active ? 'bg-dark-300 text-light' : 'text-light-700'
@@ -91,7 +102,7 @@ export default function CleanCombobox({items: items, className: className, get_c
                             selected ? 'font-medium' : 'font-normal'
                           }`}
                         >
-                          {item.name}
+                          {item}
                         </span>
                         {selected ? (
                           <span
