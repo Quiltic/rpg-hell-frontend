@@ -23,65 +23,70 @@ function getTabWidth(lengthOfName: number) {
 }
 
 const statSkillList = [
-    "base 0",
-    "body 1",
-    "mind 1",
-    "soul 1",
-    "arcana 1",
-    "charm 1",
-    "crafting 1",
-    "medicine 1",
-    "nature 1",
-    "thieving 1",
-    "body 2",
-    "mind 2",
-    "soul 2",
-    "arcana 2",
-    "charm 2",
-    "crafting 2",
-    "medicine 2",
-    "nature 2",
-    "thieving 2",
-    "body 3",
-    "mind 3",
-    "soul 3",
-    "arcana 3",
-    "charm 3",
-    "crafting 3",
-    "medicine 3",
-    "nature 3",
-    "thieving 3",
-    "body 4",
-    "mind 4",
-    "soul 4",
-    "arcana 4",
-    "charm 4",
-    "crafting 4",
-    "medicine 4",
-    "nature 4",
-    "thieving 4",
-    "body 5",
-    "mind 5",
-    "soul 5",
-    "arcana 5",
-    "charm 5",
-    "crafting 5",
-    "medicine 5",
-    "nature 5",
-    "thieving 5",
-    "body 6",
-    "mind 6",
-    "soul 6",
-    "arcana 6",
-    "charm 6",
-    "crafting 6",
-    "medicine 6",
-    "nature 6",
-    "thieving 6",
-    "MONSTER 0",
+    "",
+    'base 0',
+    'body 1',
+    'mind 1',
+    'soul 1',
+    'arcana 1',
+    'charm 1',
+    'crafting 1',
+    'medicine 1',
+    'nature 1',
+    'thieving 1',
+    'body 2',
+    'mind 2',
+    'soul 2',
+    'arcana 2',
+    'charm 2',
+    'crafting 2',
+    'medicine 2',
+    'nature 2',
+    'thieving 2',
+    'body 3',
+    'mind 3',
+    'soul 3',
+    'arcana 3',
+    'charm 3',
+    'crafting 3',
+    'medicine 3',
+    'nature 3',
+    'thieving 3',
+    'body 4',
+    'mind 4',
+    'soul 4',
+    'arcana 4',
+    'charm 4',
+    'crafting 4',
+    'medicine 4',
+    'nature 4',
+    'thieving 4',
+    'body 5',
+    'mind 5',
+    'soul 5',
+    'arcana 5',
+    'charm 5',
+    'crafting 5',
+    'medicine 5',
+    'nature 5',
+    'thieving 5',
+    'body 6',
+    'mind 6',
+    'soul 6',
+    'arcana 6',
+    'charm 6',
+    'crafting 6',
+    'medicine 6',
+    'nature 6',
+    'thieving 6',
+    'MONSTER 0'
 ];
 
-const otherListCore = ["BROKEN 0", "OOC 0"];
+const otherListCore = [
+    "",
+    'BROKEN 0',
+    'OOC 0'
+];
 
 const diceCostListCore = ["P", "#", "##", "###"];
 
@@ -117,36 +122,36 @@ export default function UpdateDBTraitsPage() {
     // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
-    const [mainStat, setMainStat] = useState("");
+    const [mainStat, setMainStat] = useState("MONSTER 0");
     const [secondStat, setSecondStat] = useState("");
-    const [diceCost, setDiceCost] = useState("");
+    const [diceCost, setDiceCost] = useState("P");
     const [otherDrop, setOtherDrop] = useState("");
     const [effectText, setEffectText] = useState("");
     const [curTrait, setCurTrait] = useState<Trait>();
 
-    useEffect(() => {
-        async function getTraits() {
-            let traits: Trait[];
-            try {
-                const traitsRaw = await TraitsService.getAllTraits();
-                traits = Object.values(traitsRaw);
-            } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    traits = Object.values(json);
-                } else {
-                    return;
-                }
+    async function getTraits() {
+        let traits: Trait[];
+        try {
+            const traitsRaw = await TraitsService.getAllTraits();
+            traits = Object.values(traitsRaw);
+        } catch (e) {
+            if (e instanceof Error && e.message == "Network Error") {
+                console.log(
+                    "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+                );
+                traits = Object.values(json);
+            } else {
+                return;
             }
-
-            traits = sortArrayByReqs(traits);
-
-            setAllTraits(traits);
-            setDisplayedTraits(traits);
         }
 
+        traits = sortArrayByReqs(traits);
+
+        setAllTraits(traits);
+        setDisplayedTraits(traits);
+    }
+
+    useEffect(() => {
         getTraits();
     }, [TraitsService]);
 
@@ -191,13 +196,13 @@ export default function UpdateDBTraitsPage() {
     function removeFromPinnedTrait() {
         // Set inputs to nothing
         setCurID(0);
-        setNameText("");
-        setEffectText("");
-        setMainStat("");
-        setSecondStat("");
-        setDiceCost("");
-        setOtherDrop("");
-        setEffectText("");
+        setNameText('');
+        setEffectText('');
+        setMainStat('MONSTER 0');
+        setSecondStat('');
+        setDiceCost('P');
+        setOtherDrop('');
+        setEffectText('');
     }
 
     async function handleCreateNew() {
@@ -216,7 +221,9 @@ export default function UpdateDBTraitsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
-    }
+        getTraits();
+    };
+
 
     async function handleUpdate() {
         console.log(curTrait);
@@ -235,7 +242,9 @@ export default function UpdateDBTraitsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
-    }
+        getTraits();
+    };
+
 
     async function handleDelete() {
         console.log(curTrait);
@@ -251,8 +260,9 @@ export default function UpdateDBTraitsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
-    }
-
+        getTraits();
+    };
+    
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
         const trait = {
