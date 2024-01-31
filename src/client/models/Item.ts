@@ -6,10 +6,10 @@
 export type Item = {
     id?: number;
     name: string;
-    effect?: string;
+    effect: string;
     req?: Array<string>;
     cost?: number;
     craft?: number;
-    tags?: Array<string>;
+    tags: Array<string>;
 };
 

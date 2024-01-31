@@ -6,7 +6,7 @@
 export type Trait = {
     id?: number;
     name: string;
-    effect?: string;
+    effect: string;
     req?: Array<string>;
     dice: number;
     is_passive?: boolean;
