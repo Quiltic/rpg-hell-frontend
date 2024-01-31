@@ -3,7 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { Link } from "react-router-dom";
-// import Login from "../auth/Login";
+import Login from "../auth/Login";
 
 type HeaderPageLink = {
     name: string;
@@ -14,7 +14,7 @@ type HeaderPageLink = {
 const pages: HeaderPageLink[] = [
     {
         name: "Home",
-        href: "",
+        href: "/rpg-hell-frontend",
         color: "hover:text-body-700 text-body-600 hover:underline",
     },
     {
@@ -42,7 +42,7 @@ export default function Header() {
                 aria-label="Global"
             >
                 <div className="flex ">
-                    <a href="/" className="-m-1.5 p-1.5">
+                    <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <img
                             className="h-8 w-auto"
@@ -70,20 +70,20 @@ export default function Header() {
                         </Link>
                     ))}
                 </div>
-                {/* <div className="hidden md:flex md:flex-1 md:justify-end">
+                <div className="hidden md:flex md:flex-1 md:justify-end">
                     <Login />
-                </div> */}
+                </div>
             </nav>
             <Dialog
                 as="div"
-                className="md:hidden"
+                className="md:hidden bg-light dark:bg-dark"
                 open={mobileMenuOpen}
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
+                        <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img
                                 className="h-8 w-auto"
@@ -116,9 +116,9 @@ export default function Header() {
                                     </Link>
                                 ))}
                             </div>
-                            {/* <div className="py-6">
+                            <div className="py-6">
                                 <Login />
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </Dialog.Panel>
