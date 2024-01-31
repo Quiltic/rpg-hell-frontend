@@ -6,9 +6,9 @@
 export type Spell = {
     id?: number;
     name: string;
-    effect?: string;
+    effect: string;
     dice?: number;
     level?: number;
-    tags?: Array<string>;
+    tags: Array<string>;
 };
 

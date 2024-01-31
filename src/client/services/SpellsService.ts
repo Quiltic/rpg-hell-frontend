@@ -89,32 +89,6 @@ export class SpellsService {
     }
 
     /**
-     * Update Spell
-     * @returns any Successful Response
-     * @throws ApiError
-     */
-    public static updateSpell({
-        id,
-        requestBody,
-    }: {
-        id: number,
-        requestBody: Spell,
-    }): CancelablePromise<any> {
-        return __request(OpenAPI, {
-            method: 'PATCH',
-            url: '/spell/{id}',
-            path: {
-                'id': id,
-            },
-            body: requestBody,
-            mediaType: 'application/json',
-            errors: {
-                422: `Validation Error`,
-            },
-        });
-    }
-
-    /**
      * Delete Spell
      * @returns any Successful Response
      * @throws ApiError
@@ -130,6 +104,32 @@ export class SpellsService {
             path: {
                 'id': id,
             },
+            errors: {
+                422: `Validation Error`,
+            },
+        });
+    }
+
+    /**
+     * Update Spell
+     * @returns any Successful Response
+     * @throws ApiError
+     */
+    public static updateSpell({
+        name,
+        requestBody,
+    }: {
+        name: string,
+        requestBody: Spell,
+    }): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'PATCH',
+            url: '/spell/{name}',
+            path: {
+                'name': name,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
             errors: {
                 422: `Validation Error`,
             },

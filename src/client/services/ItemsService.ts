@@ -50,17 +50,17 @@ export class ItemsService {
      * @throws ApiError
      */
     public static updateItem({
-        id,
+        name,
         requestBody,
     }: {
-        id: number,
+        name: string,
         requestBody: Item,
     }): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/item/{id}',
+            url: '/item/{name}',
             path: {
-                'id': id,
+                'name': name,
             },
             body: requestBody,
             mediaType: 'application/json',

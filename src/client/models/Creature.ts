@@ -4,25 +4,22 @@
 /* eslint-disable */
 
 export type Creature = {
-    id: number;
+    id?: number;
     name: string;
-    race: string;
-    level: number;
-    body: number;
-    mind: number;
-    soul: number;
-    arcana: number;
-    crafting: number;
-    charm: number;
-    thieving: number;
-    nature: number;
-    medicine: number;
-    speedBonus: number;
-    curHealth: number;
-    stackEffects: Array<string>;
-    traits: string;
-    spells: string;
-    items: string;
+    types?: Array<string>;
+    level?: number;
+    body?: number;
+    mind?: number;
+    soul?: number;
+    arcana?: number;
+    crafting?: number;
+    charm?: number;
+    thieving?: number;
+    nature?: number;
+    medicine?: number;
+    traits?: Array<string>;
+    spells?: Array<string>;
+    items?: Array<string>;
     notes?: string;
 };
 
