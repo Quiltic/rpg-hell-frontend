@@ -3,7 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { Link } from "react-router-dom";
-import Login from "../auth/Login";
+// import Login from "../auth/Login";
 
 type HeaderPageLink = {
     name: string;
@@ -70,9 +70,9 @@ export default function Header() {
                         </Link>
                     ))}
                 </div>
-                <div className="hidden md:flex md:flex-1 md:justify-end">
+                {/* <div className="hidden md:flex md:flex-1 md:justify-end">
                     <Login />
-                </div>
+                </div> */}
             </nav>
             <Dialog
                 as="div"
@@ -116,9 +116,9 @@ export default function Header() {
                                     </Link>
                                 ))}
                             </div>
-                            <div className="py-6">
+                            {/* <div className="py-6">
                                 <Login />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </Dialog.Panel>
