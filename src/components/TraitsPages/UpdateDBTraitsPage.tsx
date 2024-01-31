@@ -222,6 +222,7 @@ export default function UpdateDBTraitsPage() {
             setPopupData(reply);
             setPopupName("Create New")
             setPopupIsOpen(true);
+            console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
@@ -235,7 +236,7 @@ export default function UpdateDBTraitsPage() {
             setPopupData(reply);
             setPopupName("Update")
             setPopupIsOpen(true);
-
+            console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
@@ -249,6 +250,7 @@ export default function UpdateDBTraitsPage() {
             setPopupData(reply);
             setPopupName("Deleate")
             setPopupIsOpen(true);
+            console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
@@ -324,7 +326,7 @@ export default function UpdateDBTraitsPage() {
                     </>)
                 }
             </div>
-            <Popup displayedContentName={popupName} displayedContent={popupData} popupIsOpen={popupIsOpen} setPopupIsOpen={(val) => {setPopupIsOpen(val);}} />
+            {/* <Popup displayedContentName={popupName} displayedContent={popupData} popupIsOpen={popupIsOpen} setPopupIsOpen={(val) => {setPopupIsOpen(val);}} /> */}
         </div>
 
             <h1>Traits</h1>
