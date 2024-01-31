@@ -1,45 +1,36 @@
-// import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
-// import { Spell, Trait, Item, Creature } from "../../client";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
-// import CreatureSheet from "./characterSheet";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { Button } from "../Button/Button";
+// import { Button } from "../Button/Button";
 
 
 type Props = {
     displayedContentName:string;
     displayedContent:any;
-    icon: any;
+    isOpen: boolean;
+    setIsOpen: (s: boolean) => void;
 };
 
 export default function Popup({
     displayedContentName: displayedContentName,
     displayedContent: displayedContent,
-    icon: icon
+    isOpen: isOpen,
+    setIsOpen: setIsOpen
 }: Props) {
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
         setIsOpen(false);
     }
 
-    function openModal() {
-        setIsOpen(true);
-    }
+    // function openModal() {
+    //     setIsOpen(true);
+    // }
 
     return (
         <>
-            <Button
-                leftIcon={icon}
-                onClick={openModal}
-                variant={"link-soul"}
-            >
-                Open {displayedContentName}
-            </Button>
-
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child

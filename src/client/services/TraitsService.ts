@@ -49,17 +49,17 @@ export class TraitsService {
      * @throws ApiError
      */
     public static updateTrait({
-        id,
+        name,
         requestBody,
     }: {
-        id: number,
+        name: string,
         requestBody: Trait,
     }): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'PATCH',
-            url: '/trait/{id}',
+            url: '/trait/{name}',
             path: {
-                'id': id,
+                'name': name,
             },
             body: requestBody,
             mediaType: 'application/json',

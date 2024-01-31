@@ -18,6 +18,7 @@ import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
+import Popup from "../ui/Popups/Popup";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -112,7 +113,10 @@ const IterativeTraitLevels = [
 
 export default function UpdateDBTraitsPage() {
     const { TraitsService } = useApi();
-    const { ObjectsService } = useApi();
+
+    const [popupIsOpen, setPopupIsOpen] = useState(false);
+    const [popupName, setPopupName] = useState("");
+    const [popupData, setPopupData] = useState("");
 
     const [searchValue, setSearchValue] = useState("");
     const [allTraits, setAllTraits] = useState<Array<Trait>>([]);
@@ -211,30 +215,40 @@ export default function UpdateDBTraitsPage() {
 
 
     
-    function handleCreateNew() {
+    async function handleCreateNew() {
         console.log(curTrait);
         if (curTrait?.name != ""){
-            TraitsService.putTrait(curTrait);
+            const reply = await TraitsService.putTrait(curTrait);
+            setPopupData(reply);
+            setPopupName("Create New")
+            setPopupIsOpen(true);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
     };
 
 
-    function handleUpdate() {
+    async function handleUpdate() {
         console.log(curTrait);
         if (curTrait?.name != ""){
-            TraitsService.updateTrait(curTrait?.name, curTrait);
+            const reply = await TraitsService.updateTrait(curTrait?.name, curTrait);
+            setPopupData(reply);
+            setPopupName("Update")
+            setPopupIsOpen(true);
+
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
     };
 
 
-    function handleDelete() {
+    async function handleDelete() {
         console.log(curTrait);
         if (curTrait?.name != ""){
-            TraitsService.deleteTrait(curTrait?.id);
+            const reply = await TraitsService.deleteTrait(curTrait?.id);
+            setPopupData(reply);
+            setPopupName("Deleate")
+            setPopupIsOpen(true);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
@@ -268,7 +282,7 @@ export default function UpdateDBTraitsPage() {
 
     return (
         <>
-
+        
         <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
             <div className="grid grid-cols-5 gap-4 bg-dark-300">
                 <div className="col-span-1">
@@ -310,6 +324,7 @@ export default function UpdateDBTraitsPage() {
                     </>)
                 }
             </div>
+            <Popup displayedContentName={popupName} displayedContent={popupData} popupIsOpen={popupIsOpen} setPopupIsOpen={(val) => {setPopupIsOpen(val);}} />
         </div>
 
             <h1>Traits</h1>
