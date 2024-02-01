@@ -33,6 +33,9 @@ export default function TraitsTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    const [hasInitializedPersistedTraits, setHasInitializedPersistedTraits] =
+        useState(false);
+
     useEffect(() => {
         async function getTraits() {
             let traits: Trait[];
@@ -63,6 +66,7 @@ export default function TraitsTablePage() {
             if (persistentPinnedTraits) {
                 setPinnedTraits(persistentPinnedTraits);
             }
+            setHasInitializedPersistedTraits(true);
         }
 
         getTraits();
@@ -87,6 +91,9 @@ export default function TraitsTablePage() {
     }, [allTraits, searchValue]);
 
     useEffect(() => {
+        if (hasInitializedPersistedTraits == false) {
+            return;
+        }
         const pinnedTraitNames: string[] = pinnedTraits.map((s) => {
             return s.name;
         });
@@ -94,7 +101,7 @@ export default function TraitsTablePage() {
             "pinnedTraitNames",
             pinnedTraitNames.join(";|;")
         );
-    }, [pinnedTraits]);
+    }, [hasInitializedPersistedTraits, pinnedTraits]);
 
     function addToPinnedTraits(s: Trait) {
         const newPersist = [...pinnedTraits, s];

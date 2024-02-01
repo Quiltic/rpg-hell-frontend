@@ -33,6 +33,9 @@ export default function ItemsTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    const [hasInitializedPersistedItems, setHasInitializedPersistedItems] =
+        useState(false);
+
     useEffect(() => {
         async function getItems() {
             let items: Item[];
@@ -65,6 +68,7 @@ export default function ItemsTablePage() {
             if (persistentPinnedItems) {
                 setPinnedItems(persistentPinnedItems);
             }
+            setHasInitializedPersistedItems(true);
         }
         getItems();
     }, [ItemsService]);
@@ -88,6 +92,9 @@ export default function ItemsTablePage() {
     }, [allItems, searchValue]);
 
     useEffect(() => {
+        if (hasInitializedPersistedItems == false) {
+            return;
+        }
         const pinnedItemNames: string[] = pinnedItems.map((i) => {
             return i.name;
         });
@@ -96,7 +103,7 @@ export default function ItemsTablePage() {
             "pinnedItemNames",
             pinnedItemNames.join(";|;")
         );
-    }, [pinnedItems]);
+    }, [hasInitializedPersistedItems, pinnedItems]);
 
     function addToPinnedItems(i: Item) {
         setPinnedItems(sortArrayByReqs([...pinnedItems, i]));

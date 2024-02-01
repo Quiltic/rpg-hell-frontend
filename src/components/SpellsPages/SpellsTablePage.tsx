@@ -30,6 +30,9 @@ export default function SpellsTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    const [hasInitializedPersistedSpells, setHasInitializedPersistedSpells] =
+        useState(false);
+
     useEffect(() => {
         async function getSpells() {
             let spells: Spell[];
@@ -63,6 +66,7 @@ export default function SpellsTablePage() {
             if (persistentPinnedSpells) {
                 setPinnedSpells(persistentPinnedSpells);
             }
+            setHasInitializedPersistedSpells(true);
         }
         getSpells();
     }, [SpellsService]);
@@ -86,6 +90,9 @@ export default function SpellsTablePage() {
     }, [allSpells, searchValue]);
 
     useEffect(() => {
+        if (hasInitializedPersistedSpells == false) {
+            return;
+        }
         const pinnedSpellNames: string[] = pinnedSpells.map((s) => {
             return s.name;
         });
@@ -93,7 +100,7 @@ export default function SpellsTablePage() {
             "pinnedSpellNames",
             pinnedSpellNames.join(";|;")
         );
-    }, [pinnedSpells]);
+    }, [hasInitializedPersistedSpells, pinnedSpells]);
 
     function addToPinnedSpells(s: Spell) {
         const newPersist = [...pinnedSpells, s];
