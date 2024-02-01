@@ -27,8 +27,7 @@ export default function SpellsTablePage() {
     const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
     const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
     const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
+    const [clearButtonVisibility, setClearButtonVisibility] = useState("hidden");
 
     const [hasInitializedPersistedSpells, setHasInitializedPersistedSpells] =
         useState(false);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Trait } from "../../client";
+import { Spell } from "../../client";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
@@ -7,11 +7,11 @@ import useApi from "../../hooks/useApi";
 
 import { Tab, Disclosure } from "@headlessui/react";
 
-import TraitsTable from "./TraitsTable";
+import SpellsTable from "./SpellsTable";
 
-import json from "../../assets/OfflineJsons/Traits.json";
+import json from "../../assets/OfflineJsons/Spells.json";
 import { Button } from "../ui/Button/Button";
-import { sortArrayByReqs } from "../../util/sortingTools";
+import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
@@ -22,198 +22,114 @@ function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
 }
 
-const statSkillList = [
-    "",
-    'base 0',
-    'body 1',
-    'mind 1',
-    'soul 1',
-    'arcana 1',
-    'charm 1',
-    'crafting 1',
-    'medicine 1',
-    'nature 1',
-    'thieving 1',
-    'body 2',
-    'mind 2',
-    'soul 2',
-    'arcana 2',
-    'charm 2',
-    'crafting 2',
-    'medicine 2',
-    'nature 2',
-    'thieving 2',
-    'body 3',
-    'mind 3',
-    'soul 3',
-    'arcana 3',
-    'charm 3',
-    'crafting 3',
-    'medicine 3',
-    'nature 3',
-    'thieving 3',
-    'body 4',
-    'mind 4',
-    'soul 4',
-    'arcana 4',
-    'charm 4',
-    'crafting 4',
-    'medicine 4',
-    'nature 4',
-    'thieving 4',
-    'body 5',
-    'mind 5',
-    'soul 5',
-    'arcana 5',
-    'charm 5',
-    'crafting 5',
-    'medicine 5',
-    'nature 5',
-    'thieving 5',
-    'body 6',
-    'mind 6',
-    'soul 6',
-    'arcana 6',
-    'charm 6',
-    'crafting 6',
-    'medicine 6',
-    'nature 6',
-    'thieving 6',
-    'MONSTER 0'
+const tagList = [
+    'fire','water','earth','wind','light','dark','soul','illusion','summon',
+    'aoe','attack','cc','damage','focus','ranged','touch','utility',
+    'MONSTER','BROKEN','OOC'
 ];
 
-const otherListCore = [
-    "",
-    'BROKEN 0',
-    'OOC 0'
-];
+const diceCostListCore = ["#", "##", "###"];
 
-const diceCostListCore = ["P", "#", "##", "###"];
+const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const IterativeTraitLevels = [
-    "Base",
-    "Body",
-    "Mind",
-    "Soul",
-    "Arcana",
-    "Charm",
-    "Crafting",
-    "Nature",
-    "Medicine",
-    "Thieving",
-    "MONSTER",
-];
-
-export default function UpdateDBTraitsPage() {
-    const { TraitsService } = useApi();
+export default function UpdateDBSpellsPage() {
+    const { SpellsService } = useApi();
 
     const [popupIsOpen, setPopupIsOpen] = useState(false);
     const [popupName, setPopupName] = useState("");
     const [popupData, setPopupData] = useState("");
 
     const [searchValue, setSearchValue] = useState("");
-    const [allTraits, setAllTraits] = useState<Array<Trait>>([]);
-    const [displayedTraits, setDisplayedTraits] = useState<Array<Trait>>([]);
+    const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
+    const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
+    // const [tempTag, setTempTag] = useState("");
     // const [mainstatSkillList, setMainstatSkillList] = useState(statSkillList);
     // const [secondstatSkillList, setSecondstatSkillList] = useState(statSkillList);
     // const [otherList, setOtherList] = useState(otherListCore);
     // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
-    const [mainStat, setMainStat] = useState("MONSTER 0");
-    const [secondStat, setSecondStat] = useState("");
-    const [diceCost, setDiceCost] = useState("P");
-    const [otherDrop, setOtherDrop] = useState("");
+    const [tags, setTags] = useState("MONSTER");
+    const [level, setLevel] = useState(0);
+    const [diceCost, setDiceCost] = useState("#");
     const [effectText, setEffectText] = useState("");
-    const [curTrait, setCurTrait] = useState<Trait>();
+    const [curSpell, setCurSpell] = useState<Spell>();
 
-    async function getTraits() {
-        let traits: Trait[];
+    async function getSpells() {
+        let spells: Spell[];
         try {
-            const traitsRaw = await TraitsService.getAllTraits();
-            traits = Object.values(traitsRaw);
+            const spellsRaw = await SpellsService.getAllSpells();
+            spells = Object.values(spellsRaw);
         } catch (e) {
             if (e instanceof Error && e.message == "Network Error") {
                 console.log(
                     "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                 );
-                traits = Object.values(json);
+                spells = Object.values(json);
             } else {
                 return;
             }
         }
 
-        traits = sortArrayByReqs(traits);
+        spells = sortArrayByLevel(spells);
 
-        setAllTraits(traits);
-        setDisplayedTraits(traits);
+        setAllSpells(spells);
+        setDisplayedSpells(spells);
     }
 
     useEffect(() => {
-        getTraits();
-    }, [TraitsService]);
+        getSpells();
+    }, [SpellsService]);
 
     useEffect(() => {
         if (searchValue == "") {
-            setDisplayedTraits(allTraits);
+            setDisplayedSpells(allSpells);
             setClearButtonVisibility("hidden");
             return;
         }
 
         setClearButtonVisibility("visible");
-        const filteredTraits = allTraits.filter((s) => {
+        const filteredSpells = allSpells.filter((s) => {
             return (
                 s.name.toLowerCase().includes(searchValue) ||
                 s.effect?.toLowerCase().includes(searchValue)
             );
         });
 
-        setDisplayedTraits(filteredTraits);
-    }, [allTraits, searchValue]);
+        setDisplayedSpells(filteredSpells);
+    }, [allSpells, searchValue]);
 
-    function addToPinnedTrait(s: Trait) {
+    function addToPinnedSpell(s: Spell) {
         setCurID(s.id);
         setNameText(s.name);
+        setTags(s.tags.toString());
+        setLevel(s.level);
+        setDiceCost(s.dice ? "#".repeat(s.dice ?? 1) : "#");
         setEffectText(s.effect ?? "");
-        setMainStat(s.req[0]);
-
-        if (s.req?.length > 1) {
-            // setSecondstatSkillList([,...statSkillList]);
-            setSecondStat(s.req[1]);
-        } else {
-            setSecondStat("");
-        }
-        if (s.req?.length > 2) {
-            setOtherDrop(s.req[2]);
-        } else {
-            setOtherDrop("");
-        }
-        setDiceCost(s.dice ? "#".repeat(s.dice ?? 1) : "P");
     }
 
-    function removeFromPinnedTrait() {
+    function removeFromPinnedSpell() {
         // Set inputs to nothing
         setCurID(0);
         setNameText('');
         setEffectText('');
-        setMainStat('MONSTER 0');
-        setSecondStat('');
-        setDiceCost('P');
-        setOtherDrop('');
+        setTags('MONSTER');
+        setLevel(0);
+        setDiceCost('#');
         setEffectText('');
     }
 
     async function handleCreateNew() {
-        console.log(curTrait);
-        if (curTrait == undefined) {
+        console.log(curSpell);
+        if (curSpell == undefined) {
             return;
         }
-        if (curTrait?.name != "") {
-            const reply = await TraitsService.putTrait({
-                requestBody: curTrait,
+        if (curSpell?.name != "") {
+            const reply = await SpellsService.putSpell({
+                requestBody: curSpell,
             });
             setPopupData(reply);
             setPopupName("Create New");
@@ -221,20 +137,20 @@ export default function UpdateDBTraitsPage() {
             console.log(reply);
         }
         // Set inputs to nothing
-        removeFromPinnedTrait();
-        getTraits();
+        removeFromPinnedSpell();
+        getSpells();
     };
 
 
     async function handleUpdate() {
-        console.log(curTrait);
-        if (curTrait == undefined) {
+        console.log(curSpell);
+        if (curSpell == undefined) {
             return;
         }
-        if (curTrait?.name != "") {
-            const reply = await TraitsService.updateTrait({
-                name: curTrait?.name,
-                requestBody: curTrait,
+        if (curSpell?.name != "") {
+            const reply = await SpellsService.updateSpell({
+                name: curSpell?.name,
+                requestBody: curSpell,
             });
             setPopupData(reply);
             setPopupName("Update");
@@ -242,56 +158,48 @@ export default function UpdateDBTraitsPage() {
             console.log(reply);
         }
         // Set inputs to nothing
-        removeFromPinnedTrait();
-        getTraits();
+        removeFromPinnedSpell();
+        getSpells();
     };
 
 
     async function handleDelete() {
-        console.log(curTrait);
-        if (curTrait?.id == undefined) {
+        console.log(curSpell);
+        if (curSpell?.id == undefined) {
             return;
         }
-        if (curTrait?.name != "") {
-            const reply = await TraitsService.deleteTrait({ id: curTrait?.id });
+        if (curSpell?.name != "") {
+            const reply = await SpellsService.deleteSpell({ id: curSpell?.id });
             setPopupData(reply);
             setPopupName("Delete");
             setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
-        removeFromPinnedTrait();
-        getTraits();
+        removeFromPinnedSpell();
+        getSpells();
     };
     
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
-        const trait = {
+        const spell = {
             id: curID,
             name: nameText.toLowerCase(),
             effect: effectText,
-            req: [mainStat, secondStat, otherDrop],
-            dice: 0,
-            is_passive: true,
+            dice: (diceCost.split("#").length - 1),
+            level: level,
+            tags: tags.split(","),
         };
+        spell.tags = spell.tags.filter((str) => str !== "");
 
-        if (diceCost != "P") {
-            trait.is_passive = false;
-            trait.dice = diceCost.split("#").length - 1;
-        }
-
-        // remove the empty stuffs
-        trait.req = trait.req.filter((str) => str !== "");
-
-        setCurTrait(trait);
+        setCurSpell(spell);
     }, [
-        nameText,
-        diceCost,
-        mainStat,
-        secondStat,
-        otherDrop,
-        effectText,
         curID,
+        nameText,
+        effectText,
+        diceCost,
+        level,
+        tags,
     ]);
 
     // Styling:
@@ -299,12 +207,12 @@ export default function UpdateDBTraitsPage() {
     return (
         <>
             <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-5 gap-4 bg-dark-300">
+                <div className="grid grid-cols-4 gap-4 bg-dark-300">
                     <div className="col-span-1">
                         <div className="flex flex-row capitalize">Name</div>
                         <input
                             type="text"
-                            placeholder="Yoyo"
+                            placeholder="Poprocks"
                             className="flex flex-row"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
@@ -325,38 +233,32 @@ export default function UpdateDBTraitsPage() {
                     </div>
                     <div className="col-span-1">
                         <div className="flex flex-row capitalize">
-                            Main Stat/Skill
+                            Soul Strain
                         </div>
-                        <CleanCombobox
-                            items={statSkillList}
+                        <input
+                            type="number"
                             className="flex flex-row"
-                            selected={mainStat}
-                            setSelected={(val) => {
-                                setMainStat(val);
-                            }}
+                            value={level}
+                            min="0" max="9"
+                            onChange={(e) => setLevel(parseInt(e.target.value))}
                         />
                     </div>
                     <div className="col-span-1">
                         <div className="flex flex-row capitalize">
-                            Secondary Stat/Skill
+                            tags
                         </div>
-                        <CleanCombobox
-                            items={statSkillList}
+                        <input
+                            type="text"
                             className="flex flex-row"
-                            selected={secondStat}
-                            setSelected={(val) => {
-                                setSecondStat(val);
-                            }}
+                            value={tags}
+                            onChange={(e) => setTags(e.target.value)}
                         />
-                    </div>
-                    <div className="col-span-1">
-                        <div className="flex flex-row capitalize">Other</div>
                         <CleanCombobox
-                            items={otherListCore}
+                            items={tagList}
                             className="flex flex-row"
-                            selected={otherDrop}
+                            selected={""}
                             setSelected={(val) => {
-                                setOtherDrop(val);
+                                setTags(tags.concat(",",val));
                             }}
                         />
                     </div>
@@ -373,7 +275,7 @@ export default function UpdateDBTraitsPage() {
                 />
 
                 <div className="grid grid-cols-3 gap-4">
-                    {displayedTraits.filter((t) => t.name == curTrait?.name)
+                    {displayedSpells.filter((t) => t.name == curSpell?.name)
                         .length > 0 ? (
                         <>
                             <span />
@@ -412,15 +314,15 @@ export default function UpdateDBTraitsPage() {
                 {/* <Popup displayedContentName={popupName} displayedContent={popupData} popupIsOpen={popupIsOpen} setPopupIsOpen={(val) => {setPopupIsOpen(val);}} /> */}
             </div>
 
-            <h1>Traits</h1>
+            <h1>Spells</h1>
 
-            {curTrait?.name && (
+            {curSpell?.name && (
                 <>
                     <div className="justify-start">
-                        <h1>Active Trait</h1>
-                        <TraitsTable
-                            displayedTraits={[curTrait]}
-                            moveTrait={removeFromPinnedTrait}
+                        <h1>Active Spell</h1>
+                        <SpellsTable
+                            displayedSpells={[curSpell]}
+                            moveSpell={removeFromPinnedSpell}
                             moveIsAdd={false}
                         />
                         <hr className="h-px my-4 border-0 bg-dark-600" />
@@ -434,21 +336,19 @@ export default function UpdateDBTraitsPage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-10",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeTraitLevels.map((n) => {
+                        {IterativeSpellLevels.map((n) => {
                             return (
                                 <Tab
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-light-600 rounded-md",
-                                            getTabWidth(n.length),
-                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-6",
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -483,27 +383,24 @@ export default function UpdateDBTraitsPage() {
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
-                        <TraitsTable
-                            displayedTraits={displayedTraits}
-                            moveTrait={(trait) => {
-                                addToPinnedTrait(trait);
+                        <SpellsTable
+                            displayedSpells={displayedSpells}
+                            moveSpell={(spell) => {
+                                addToPinnedSpell(spell);
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeTraitLevels.map((n) => {
+                    {IterativeSpellLevels.map((n) => {
                         return (
                             <Tab.Panel>
-                                <TraitsTable
-                                    displayedTraits={displayedTraits.filter(
+                                <SpellsTable
+                                    displayedSpells={displayedSpells.filter(
                                         (s) => {
-                                            return s.req
-                                                ?.toString()
-                                                .toLowerCase()
-                                                .includes(n.toLowerCase());
+                                            return s.level == n;
                                         }
                                     )}
-                                    moveTrait={(trait) => {
-                                        addToPinnedTrait(trait);
+                                    moveSpell={(spell) => {
+                                        addToPinnedSpell(spell);
                                     }}
                                 />
                             </Tab.Panel>

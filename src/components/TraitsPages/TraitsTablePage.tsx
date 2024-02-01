@@ -118,6 +118,7 @@ export default function TraitsTablePage() {
     }
 
     const IterativeTraitLevels = [
+        "Base",
         "Body",
         "Mind",
         "Soul",
