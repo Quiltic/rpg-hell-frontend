@@ -12,8 +12,8 @@ function filterBROKENandMONSTER(_list: any[]) {
     // simple cleanup for BROKEN and MONSTER items
     return (_list?.filter((l: { tags: string | string[]; }) => {
         if (l.tags) {
-            return l.tags.includes("MONSTER 0") ||
-                l.tags.includes("BROKEN 0")
+            return l.tags.includes("MONSTER") || l.tags.includes("monster") ||
+                l.tags.includes("BROKEN") || l.tags.includes("broken")
                 ? ""
                 : l.tags;
         }
@@ -24,8 +24,8 @@ function filterBROKENandMONSTERreq(_list: any[]) {
     // simple cleanup for BROKEN and MONSTER items
     return (_list?.filter((l: { req: string | string[]; }) => {
         if (l.req) {
-            return (l.req.includes("MONSTER 0") ||
-                l.req.includes("BROKEN 0"))
+            return (l.req.includes("MONSTER 0") || l.req.includes("monster 0") ||
+                l.req.includes("BROKEN 0") || l.req.includes("broken 0"))
                 ? ""
                 : l.req;
         }
@@ -45,10 +45,10 @@ function sortArrayByReqs(_list: any[]) {
         let firstItemLen = l1.req.length;
         let secondItemLen = l2.req.length;
         
-        if (l1.req?.includes("OOC 0")) {
+        if (l1.req?.includes("OOC 0") || l1.req?.includes("ooc 0") || l1.req?.includes("BROKEN 0") || l1.req?.includes("broken 0")) {
             firstItemLen--;
         }
-        if (l2.req?.includes("OOC 0")) {
+        if (l2.req?.includes("OOC 0") || l2.req?.includes("ooc 0") || l2.req?.includes("BROKEN 0") || l2.req?.includes("broken 0")) {
             secondItemLen--;
         }
 
