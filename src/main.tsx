@@ -18,6 +18,7 @@ import CreatureTablePage from "./components/CreaturesPages/CreaturesTablePage.ts
 import JoshhellscapePage from "./components/joshhellscapePages/joshhellscapePage.tsx";
 import UpdateDBTraitsPage from "./components/TraitsPages/UpdateDBTraitsPage.tsx";
 import UpdateDBSpellsPage from "./components/SpellsPages/UpdateDBSpellsPage.tsx";
+import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -55,7 +56,7 @@ const router = createBrowserRouter(
                         },
                         {
                             path: "items",
-                            element: <NotImplementedPage pageName="Update DB items" />,
+                            element: <UpdateDBItemsPage />,
                         },
                         {
                             path: "creatures",
