@@ -26,6 +26,9 @@
     @apply mb-1
   }
 
+  a {
+    @apply hover:underline hover:opacity-70
+  }
 }
 
 :root {
@@ -33,8 +36,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #fbf8f0;
-  background-color: #2e262d;
+  /* color: #fbf8f0;
+  background-color: #2e262d; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

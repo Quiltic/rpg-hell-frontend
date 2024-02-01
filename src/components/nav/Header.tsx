@@ -14,7 +14,7 @@ type HeaderPageLink = {
 const pages: HeaderPageLink[] = [
     {
         name: "Home",
-        href: "/rpg-hell-frontend",
+        href: "/",
         color: "hover:text-body-700 text-body-600 hover:underline",
     },
     {
@@ -36,7 +36,7 @@ function classNames(...classes: string[]) {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="bg-dark-600">
+        <header className="bg-dark-400 dark:bg-dark-600">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 px-8 py-4 md-px-8"
                 aria-label="Global"

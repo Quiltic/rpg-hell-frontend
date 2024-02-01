@@ -6,8 +6,8 @@ export default function ErrorPage() {
     return (
         <>
             <div>Error 404 im not good at this 😭</div>
-            <Link to={"/rpg-hell-backend"}>
-                <Button variant="dark">Home</Button>
+            <Link to={".."}>
+                <Button variant="dark">Back</Button>
             </Link>
         </>
     );

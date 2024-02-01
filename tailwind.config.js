@@ -42,6 +42,14 @@ export default {
                 // 800: '#3B3039',
                 // 900: '#d8d0d7'
             },
+            grey: {
+                DEFAULT: "#CDCDCD",
+                300: "#E4E4E4",
+                400: "#DFDFDF",
+                500: "#CDCDCD",
+                600: "#C6C6C6",
+                700: "#B2B2B2",
+            },
             body: {
                 DEFAULT: "rgb(204, 120, 51)",
                 100: "#29180a",
