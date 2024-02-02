@@ -25,14 +25,9 @@ import CreatureTable from "../CreaturesPages/CreaturesTable";
 import { getPersistentPinnedNames } from "../../util/tableTools";
 import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 
+import markdown from "./tempsheet";
 
 
-// import Markdown from "react-markdown";
-// import remarkGfm from "remark-gfm";
-// import rehypeRaw from "rehype-raw";
-// import { formatEffectString } from "../../util/textFormatting";
-
-// const formattedmd = formatEffectString(markdown);
 
 export default function CharacterSheetPage() {
 
@@ -47,6 +42,16 @@ export default function CharacterSheetPage() {
     const [traits, setTraits] = useState<Array<Trait>>([]);
     const [items, setItems] = useState<Array<Item>>([]);
 
+    const [tempSheet,setTempSheet] = useState(markdown);
+
+
+    health =
+        `Health ${Math.ceil(
+            displayedCreature.level +
+                displayedCreature.body * 5 +
+                displayedCreature.mind * 3 +
+                displayedCreature.soul
+        )},`
 
     useEffect(() => {
         async function getSpells() {
@@ -183,7 +188,15 @@ export default function CharacterSheetPage() {
 
     return (
         <>
-            
+            <textarea
+                rows={40}
+                cols={50}
+                placeholder="Whip around like a yoyo"
+                className="bg-dark-300 h-[60%] w-[100%] rounded-lg p-2"
+                value={tempSheet}
+                onChange={(e) => setTempSheet(e.target.value)}
+            />
+
             {pinnedTraits.length > 0 && (
                 <>
                     <div className="justify-start">
