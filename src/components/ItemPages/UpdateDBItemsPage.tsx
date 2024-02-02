@@ -101,9 +101,9 @@ const IterativeItemLevels = [
     "Rune",
     "Potion",
     "Grenade",
-    "Non-magic",
-    "Lesser",
-    "Greater",
+    "Tool",
+    "Item",
+    "Magical",
 ];
 
 export default function UpdateDBItemsPage() {
@@ -293,7 +293,7 @@ export default function UpdateDBItemsPage() {
                         <div className="flex flex-row capitalize">Name</div>
                         <input
                             type="text"
-                            placeholder="Poprocks"
+                            placeholder="Feather"
                             className="flex flex-row"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
@@ -366,7 +366,7 @@ export default function UpdateDBItemsPage() {
                 <textarea
                     rows={40}
                     cols={50}
-                    placeholder="Whip around like a yoyo"
+                    placeholder="A light little feather."
                     className="bg-dark-300 h-44"
                     value={effectText}
                     onChange={(e) => setEffectText(e.target.value)}

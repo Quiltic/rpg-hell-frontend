@@ -83,7 +83,7 @@ Depending on the check you will be able to do specific actions based on the valu
 
 Others will just have a total for the sum of all the dice rolled. A good example of this is our Cooking Tools, which give better foods the higher you roll.
 
-You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next.
+You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next. See Difficulty Level (DL) Rules for more.
 
 
 
@@ -142,6 +142,37 @@ Death's Door only goes away if you do a Rest.
 
 
 # Common Actions
+
+## Difficulty Level Rules
+
+Most rolls will have a DL goal in order to pass. You can roll varying levels of success or failure based on the total sum rolled. Different DL levels happen for every type of roll and your gm may chose to increase or decrease this DL threshold based on circumstance.
+
+All DL increases are listed above the results of the roll.
+
+Goal: Value to meet = 6 + 3 * Difficulty Level (DL)
+
+Complete Failure: Roll lower than the goal by 5 or more.
+Failure: Roll less than the goal.
+Success: Roll the goal or higher.
+Great Success: Roll higher than the goal by 5 or more.
+Perfect Success: Roll higher than the goal by 10 or more.
+
+
+## DL Table
+| DL | Success value | Min stat to succeed |
+| --- | --- | --- |
+| 0 | 6 | -1 |
+| 1 | 9  | 0 |
+| 2 | 12 | 0 |
+| 3 | 15 | 1 |
+| 4 | 18 | 1 |
+| 5 | 21 | 2 |
+| 6 | 24 | 2 |
+| 7 | 27 | 3 |
+| 8 | 30 | 3 |
+| 9 | 33 | 4 |
+
+
 ## Body
 
 ### Physical Feats
@@ -205,7 +236,7 @@ Most situations are based on GM ruling. However a good guideline for DL is: 0 fo
 ## Arcana
 
 ### Read Runes
-Increase the DL by the target's Crafting score.
+Increase the DL by the writer's Arcana score.
 Runes written increase the DL by the writers Arcana.
 
 - Complete Failure: ___

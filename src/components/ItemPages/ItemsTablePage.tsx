@@ -23,6 +23,18 @@ function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
 }
 
+const IterativeItemLevels = [
+    "Weapon",
+    "Armor",
+    "Rune",
+    "Potion",
+    "Grenade",
+    "Tool",
+    "Item",
+    "Magical",
+];
+
+
 export default function ItemsTablePage() {
     const { ItemsService } = useApi();
 
@@ -116,17 +128,6 @@ export default function ItemsTablePage() {
         remainingItems.splice(idx, 1);
         setPinnedItems(remainingItems);
     }
-
-    const IterativeItemLevels = [
-        "Weapon",
-        "Armor",
-        "Rune",
-        "Potion",
-        "Grenade",
-        "Non-magic",
-        "Lesser",
-        "Greater",
-    ];
 
     return (
         <>
