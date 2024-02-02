@@ -181,7 +181,7 @@ export default function UpdateDBItemsPage() {
         setCurID(s.id);
         setNameText(s.name);
         setEffectText(s.effect ?? "");
-        setTags(s.tags.toString());
+        setTags(s.tags.toString().replace(/ 0/gi, ""));
         setReqs(s.req.toString());
         setCost(s.cost);
         setCraft(s.craft);
