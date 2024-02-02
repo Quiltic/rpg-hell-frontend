@@ -44,38 +44,25 @@ export default function CharacterSheetPage() {
 
     const [tempSheet,setTempSheet] = useState(markdown);
 
-
-    health =
-        `Health ${Math.ceil(
-            displayedCreature.level +
-                displayedCreature.body * 5 +
-                displayedCreature.mind * 3 +
-                displayedCreature.soul
-        )},`
-
     useEffect(() => {
         async function getSpells() {
             let spells: Spell[];
-            // try {
-            //     const spellsRaw = await SpellsService.getAllSpells();
+            try {
+                const spellsRaw = await SpellsService.getAllSpells();
 
-            //     spells = Object.values(spellsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+                spells = Object.values(spellsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     spells = Object.values(jsonSpells);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                } else {
+                    return;
+                }
+            }
             spells = sortArrayByLevel(spells);
             setSpells(spells);
-
-            spells = filterBROKENandMONSTER(spells);
-
-            
 
             const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
             if (persistentPinnedSpells) {
@@ -92,23 +79,23 @@ export default function CharacterSheetPage() {
     useEffect(() => {
         async function getTraits() {
             let traits: Trait[];
-            // try {
-            //     const traitsRaw = await TraitsService.getAllTraits();
-            //     traits = Object.values(traitsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+            try {
+                const traitsRaw = await TraitsService.getAllTraits();
+                traits = Object.values(traitsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     traits = Object.values(jsonTraits);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                } else {
+                    return;
+                }
+            }
             traits = sortArrayByReqs(traits);
             setTraits(traits);
 
-            traits = filterBROKENandMONSTERreq(traits);
+            // traits = filterBROKENandMONSTERreq(traits);
 
             const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
             if (persistentPinnedTraits) {
@@ -124,24 +111,24 @@ export default function CharacterSheetPage() {
     useEffect(() => {
         async function getItems() {
             let items: Item[];
-            // try {
-            //     const itemsRaw = await ItemsService.getAllItems();
-            //     items = Object.values(itemsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
+            try {
+                const itemsRaw = await ItemsService.getAllItems();
+                items = Object.values(itemsRaw);
+            } catch (e) {
+                if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     items = Object.values(jsonItems);
-            //     } else {
-            //         return;
-            //     }
-            // }
+                } else {
+                    return;
+                }
+            }
 
             items = sortArrayByReqs(items ?? []);
             setItems(items);
 
-            items = filterBROKENandMONSTER(items);
+            // items = filterBROKENandMONSTER(items);
 
             const persistentPinnedItems = getPersistentPinnedNames("pinnedItemNames",items);
 
