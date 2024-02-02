@@ -207,13 +207,13 @@ export default function UpdateDBSpellsPage() {
     return (
         <>
             <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-4 gap-4 bg-dark-300">
+                <div className="grid grid-cols-4 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
                     <div className="col-span-1">
                         <div className="flex flex-row capitalize">Name</div>
                         <input
                             type="text"
                             placeholder="Poprocks"
-                            className="flex flex-row"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
@@ -224,7 +224,7 @@ export default function UpdateDBSpellsPage() {
                         </div>
                         <CleanCombobox
                             items={diceCostListCore}
-                            className="flex flex-row"
+                            className="flex flex-row max-w-[30%] shadow-md"
                             selected={diceCost}
                             setSelected={(val) => {
                                 setDiceCost(val);
@@ -237,7 +237,7 @@ export default function UpdateDBSpellsPage() {
                         </div>
                         <input
                             type="number"
-                            className="flex flex-row"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
                             value={level}
                             min="0" max="9"
                             onChange={(e) => setLevel(parseInt(e.target.value))}
@@ -249,7 +249,7 @@ export default function UpdateDBSpellsPage() {
                         </div>
                         <input
                             type="text"
-                            className="flex flex-row"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
                             value={tags}
                             onChange={(e) => setTags(e.target.value)}
                         />
@@ -269,7 +269,7 @@ export default function UpdateDBSpellsPage() {
                     rows={40}
                     cols={50}
                     placeholder="Whip around like a yoyo"
-                    className="bg-dark-300 h-44"
+                    className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}
                     onChange={(e) => setEffectText(e.target.value)}
                 />
