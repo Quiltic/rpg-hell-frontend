@@ -299,7 +299,7 @@ export default function UpdateDBTraitsPage() {
                         <input
                             type="text"
                             placeholder="Yoyo"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%]"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
@@ -310,7 +310,7 @@ export default function UpdateDBTraitsPage() {
                         </div>
                         <CleanCombobox
                             items={diceCostListCore}
-                            className="flex flex-row"
+                            className="flex flex-row max-w-[30%] shadow-md"
                             selected={diceCost}
                             setSelected={(val) => {
                                 setDiceCost(val);
@@ -318,7 +318,7 @@ export default function UpdateDBTraitsPage() {
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="capitalize flex flex-row">
+                        <div className="capitalize flex flex-row shadow-md">
                             Main Stat/Skill
                         </div>
                         <CleanCombobox
@@ -331,7 +331,7 @@ export default function UpdateDBTraitsPage() {
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="capitalize flex flex-row">
+                        <div className="capitalize flex flex-row shadow-md">
                             Secondary Stat/Skill
                         </div>
                         <CleanCombobox
