@@ -417,7 +417,7 @@ export default function UpdateDBTraitsPage() {
                             moveTrait={removeFromPinnedTrait}
                             moveIsAdd={false}
                         />
-                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                        <hr />
                     </div>
                 </>
             )}

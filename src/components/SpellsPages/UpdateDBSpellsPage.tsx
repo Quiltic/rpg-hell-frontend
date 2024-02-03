@@ -23,9 +23,26 @@ function getTabWidth(lengthOfName: number) {
 }
 
 const tagList = [
-    'fire','water','earth','wind','light','dark','soul','illusion','summon',
-    'aoe','attack','cc','damage','focus','ranged','touch','utility',
-    'MONSTER','BROKEN','OOC'
+    "fire",
+    "water",
+    "earth",
+    "wind",
+    "light",
+    "dark",
+    "soul",
+    "illusion",
+    "summon",
+    "aoe",
+    "attack",
+    "cc",
+    "damage",
+    "focus",
+    "ranged",
+    "touch",
+    "utility",
+    "MONSTER",
+    "BROKEN",
+    "OOC",
 ];
 
 const diceCostListCore = ["#", "##", "###"];
@@ -114,12 +131,12 @@ export default function UpdateDBSpellsPage() {
     function removeFromPinnedSpell() {
         // Set inputs to nothing
         setCurID(0);
-        setNameText('');
-        setEffectText('');
-        setTags('MONSTER');
+        setNameText("");
+        setEffectText("");
+        setTags("MONSTER");
         setLevel(0);
-        setDiceCost('#');
-        setEffectText('');
+        setDiceCost("#");
+        setEffectText("");
     }
 
     async function handleCreateNew() {
@@ -139,8 +156,7 @@ export default function UpdateDBSpellsPage() {
         // Set inputs to nothing
         removeFromPinnedSpell();
         getSpells();
-    };
-
+    }
 
     async function handleUpdate() {
         console.log(curSpell);
@@ -160,8 +176,7 @@ export default function UpdateDBSpellsPage() {
         // Set inputs to nothing
         removeFromPinnedSpell();
         getSpells();
-    };
-
+    }
 
     async function handleDelete() {
         console.log(curSpell);
@@ -178,29 +193,22 @@ export default function UpdateDBSpellsPage() {
         // Set inputs to nothing
         removeFromPinnedSpell();
         getSpells();
-    };
-    
+    }
+
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
         const spell = {
             id: curID,
             name: nameText.toLowerCase(),
             effect: effectText,
-            dice: (diceCost.split("#").length - 1),
+            dice: diceCost.split("#").length - 1,
             level: level,
             tags: tags.split(","),
         };
         spell.tags = spell.tags.filter((str) => str !== "");
 
         setCurSpell(spell);
-    }, [
-        curID,
-        nameText,
-        effectText,
-        diceCost,
-        level,
-        tags,
-    ]);
+    }, [curID, nameText, effectText, diceCost, level, tags]);
 
     // Styling:
 
@@ -239,14 +247,13 @@ export default function UpdateDBSpellsPage() {
                             type="number"
                             className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
                             value={level}
-                            min="0" max="9"
+                            min="0"
+                            max="9"
                             onChange={(e) => setLevel(parseInt(e.target.value))}
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
-                            tags
-                        </div>
+                        <div className="flex flex-row capitalize">tags</div>
                         <input
                             type="text"
                             className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
@@ -258,7 +265,7 @@ export default function UpdateDBSpellsPage() {
                             className="flex flex-row"
                             selected={""}
                             setSelected={(val) => {
-                                setTags(tags.concat(",",val));
+                                setTags(tags.concat(",", val));
                             }}
                         />
                     </div>
@@ -325,7 +332,7 @@ export default function UpdateDBSpellsPage() {
                             moveSpell={removeFromPinnedSpell}
                             moveIsAdd={false}
                         />
-                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                        <hr />
                     </div>
                 </>
             )}

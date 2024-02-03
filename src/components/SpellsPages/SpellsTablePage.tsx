@@ -27,7 +27,8 @@ export default function SpellsTablePage() {
     const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
     const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
     const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] = useState("hidden");
+    const [clearButtonVisibility, setClearButtonVisibility] =
+        useState("hidden");
 
     const [hasInitializedPersistedSpells, setHasInitializedPersistedSpells] =
         useState(false);
@@ -146,7 +147,7 @@ export default function SpellsTablePage() {
                                             }}
                                             moveIsAdd={false}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}

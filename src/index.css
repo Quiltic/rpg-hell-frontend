@@ -29,6 +29,10 @@
   a {
     @apply hover:underline hover:opacity-70
   }
+
+  hr {
+    @apply h-px bg-dark dark:bg-light-600 w-full my-4 border-0 opacity-50
+  }
 }
 
 :root {
