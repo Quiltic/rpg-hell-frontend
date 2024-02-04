@@ -99,6 +99,7 @@ const IterativeItemLevels = [
     "Weapon",
     "Armor",
     "Rune",
+    "Medicine",
     "Potion",
     "Grenade",
     "Tool",
