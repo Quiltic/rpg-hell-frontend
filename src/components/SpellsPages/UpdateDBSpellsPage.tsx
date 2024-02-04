@@ -350,9 +350,10 @@ export default function UpdateDBSpellsPage() {
                         >
                             All
                         </Tab>
-                        {IterativeSpellLevels.map((n) => {
+                        {IterativeSpellLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
                                             "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-6",
@@ -397,9 +398,9 @@ export default function UpdateDBSpellsPage() {
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeSpellLevels.map((n) => {
+                    {IterativeSpellLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <SpellsTable
                                     displayedSpells={displayedSpells.filter(
                                         (s) => {

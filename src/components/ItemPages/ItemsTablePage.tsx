@@ -171,6 +171,7 @@ export default function ItemsTablePage() {
                 <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
                     <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
+                            key={0}
                             className={({ selected }) =>
                                 classNames(
                                     "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
@@ -180,9 +181,10 @@ export default function ItemsTablePage() {
                         >
                             All
                         </Tab>
-                        {IterativeItemLevels.map((n) => {
+                        {IterativeItemLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i + 1}
                                     className={({ selected }) =>
                                         classNames(
                                             "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
@@ -224,13 +226,13 @@ export default function ItemsTablePage() {
                         <ItemsTable
                             displayedItems={displayedItems}
                             moveItem={(item) => {
-                                addToPinnedItems(item);
+                                removeFromPinnedItems(item);
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeItemLevels.map((n) => {
+                    {IterativeItemLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <ItemsTable
                                     displayedItems={displayedItems.filter(
                                         (s) => {

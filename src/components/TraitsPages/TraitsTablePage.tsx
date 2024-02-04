@@ -183,9 +183,10 @@ export default function TraitsTablePage() {
                         >
                             All
                         </Tab>
-                        {IterativeTraitLevels.map((n) => {
+                        {IterativeTraitLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
                                             "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-light-600 rounded-md",
@@ -232,9 +233,9 @@ export default function TraitsTablePage() {
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeTraitLevels.map((n) => {
+                    {IterativeTraitLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <TraitsTable
                                     displayedTraits={displayedTraits.filter(
                                         (s) => {

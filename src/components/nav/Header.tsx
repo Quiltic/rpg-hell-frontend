@@ -62,8 +62,8 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="hidden md:flex md:gap-x-12">
-                    {pages.map((page) => (
-                        <Link to={page.href}>
+                    {pages.map((page, i) => (
+                        <Link to={page.href} key={i}>
                             <span className={classNames(page.color, "text-lg")}>
                                 {page.name}
                             </span>
@@ -103,8 +103,8 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                {pages.map((page) => (
-                                    <Link to={page.href}>
+                                {pages.map((page, i) => (
+                                    <Link to={page.href} key={i}>
                                         <span
                                             className={classNames(
                                                 page.color,

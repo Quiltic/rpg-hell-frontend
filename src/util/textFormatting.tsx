@@ -11,10 +11,12 @@ export function toPillElement(_string: string, splitter: string) {
         _string = _string.slice(0, -1);
     }
     // Try to make the names, requirements, tags, ect. uppercase
-    const pills = _string.split(splitter).map((word) => {
+    const pills = _string.split(splitter).map((word, i) => {
         const parts = word.split(" ");
         return (
-            <Pill colorClassName={"bg-" + parts[0].toLowerCase()}>{word}</Pill>
+            <Pill colorClassName={"bg-" + parts[0].toLowerCase()} key={i}>
+                {word}
+            </Pill>
         );
     });
     return pills;

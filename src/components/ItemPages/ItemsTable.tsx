@@ -33,11 +33,14 @@ export default function ItemsTable({
                 </tr>
             </thead>
             <tbody>
-                {displayedItems.map((item) => {
+                {displayedItems.map((item, i) => {
                     const ee = formatEffectString(item.effect ?? "");
-                    const req = toPillElement(item.req?.toString().replace(" 0","") ?? "", ",");
+                    const req = toPillElement(
+                        item.req?.toString().replace(" 0", "") ?? "",
+                        ","
+                    );
                     return (
-                        <tr>
+                        <tr key={i}>
                             <td className="font-bold capitalize hidden md:table-cell">
                                 {item.name}
                             </td>

@@ -454,9 +454,10 @@ export default function UpdateDBItemsPage() {
                         >
                             All
                         </Tab>
-                        {IterativeItemLevels.map((n) => {
+                        {IterativeItemLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
                                             "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
