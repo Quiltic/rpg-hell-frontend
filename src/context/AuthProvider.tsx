@@ -7,6 +7,7 @@ import useApi from "../hooks/useApi";
 export interface IAuthContext {
     readonly auth: User;
     readonly setAuth: (auth: User) => void;
+    readonly authLoading: boolean;
 }
 
 const initialAuth: IUnauthenticated = { isAuthenticated: false };
@@ -16,6 +17,7 @@ const initialContext: IAuthContext = {
     setAuth: () => {
         throw new Error("Uninitialized Authentication Context");
     },
+    authLoading: true,
 };
 
 export const AuthContext = createContext<IAuthContext>(initialContext);
@@ -26,6 +28,7 @@ interface Props {
 
 export function AuthProvider({ children }: Props) {
     const [auth, setAuth] = useState<User>(initialAuth);
+    const [authLoading, setAuthLoading] = useState(true);
 
     const { UsersService } = useApi();
 
@@ -43,6 +46,7 @@ export function AuthProvider({ children }: Props) {
         }
 
         async function persistLogin() {
+            setAuthLoading(true);
             try {
                 getAuthentication();
             } catch (e) {
@@ -59,6 +63,7 @@ export function AuthProvider({ children }: Props) {
                     setAuth({ isAuthenticated: false });
                 }
             }
+            setAuthLoading(false);
         }
 
         if (auth.isAuthenticated == false) {
@@ -67,7 +72,7 @@ export function AuthProvider({ children }: Props) {
     }, [UsersService, auth.isAuthenticated]);
 
     return (
-        <AuthContext.Provider value={{ auth, setAuth }}>
+        <AuthContext.Provider value={{ auth, setAuth, authLoading }}>
             {children}
         </AuthContext.Provider>
     );

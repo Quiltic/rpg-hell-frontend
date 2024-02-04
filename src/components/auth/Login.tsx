@@ -6,8 +6,9 @@ import { Button } from "../ui/Button/Button";
 import { Popover, Transition } from "@headlessui/react";
 
 import discordLogo from "../../assets/discord.svg";
+import loadingIcon from "../../assets/IconSVGs/loadingIcon.svg";
 import useApi from "../../hooks/useApi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const arrowLeftOnRectangleIcon = (
     <svg
@@ -62,11 +63,10 @@ const toolsIcon = (
 
 export default function Login() {
     const [loginURL, setLoginURL] = useState("");
-    const { auth, setAuth } = useContext(AuthContext);
+    const { auth, authLoading } = useContext(AuthContext);
     const { UsersService } = useApi();
 
-    console.log(auth);
-    console.log(setAuth);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchLoginURL() {
@@ -85,7 +85,8 @@ export default function Login() {
     function handleLogoutButtonClick() {
         async function fetchLogout() {
             if (await UsersService.logout()) {
-                window.location.reload();
+                // window.location.reload();
+                navigate("/", { replace: true });
             }
         }
         fetchLogout();
@@ -122,7 +123,7 @@ export default function Login() {
                                             <Link
                                                 to={"/update-db"}
                                                 replace
-                                                className="h-8"
+                                                className="h-8 w-full"
                                             >
                                                 <Button
                                                     leftIcon={toolsIcon}
@@ -157,14 +158,31 @@ export default function Login() {
                     <>
                         <button
                             onClick={handleLoginButtonClick}
-                            className="h-full grid grid-cols-3 items-center overflow-hidden "
+                            className="h-full w-full grid grid-cols-3 items-center overflow-hidden "
                         >
-                            <img
-                                className="h-10 w-10 flex-none"
-                                src={discordLogo}
-                                alt="user's discord avatar"
-                            ></img>
-                            <span className="text-lg col-span-2">Login</span>
+                            {authLoading ? (
+                                <>
+                                    <img
+                                        className="h-10 w-10 flex-none"
+                                        src={loadingIcon}
+                                        alt="loading spinner"
+                                    ></img>
+                                    <span className="text-lg col-span-2 text-light">
+                                        Loading...
+                                    </span>
+                                </>
+                            ) : (
+                                <>
+                                    <img
+                                        className="h-10 w-10 flex-none"
+                                        src={discordLogo}
+                                        alt="user's discord avatar"
+                                    ></img>
+                                    <span className="text-lg col-span-2 text-light">
+                                        Login
+                                    </span>
+                                </>
+                            )}
                         </button>
                     </>
                 )}
