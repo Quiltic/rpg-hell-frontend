@@ -24,69 +24,65 @@ function getTabWidth(lengthOfName: number) {
 
 const statSkillList = [
     "",
-    'base 0',
-    'body 1',
-    'mind 1',
-    'soul 1',
-    'arcana 1',
-    'charm 1',
-    'crafting 1',
-    'medicine 1',
-    'nature 1',
-    'thieving 1',
-    'body 2',
-    'mind 2',
-    'soul 2',
-    'arcana 2',
-    'charm 2',
-    'crafting 2',
-    'medicine 2',
-    'nature 2',
-    'thieving 2',
-    'body 3',
-    'mind 3',
-    'soul 3',
-    'arcana 3',
-    'charm 3',
-    'crafting 3',
-    'medicine 3',
-    'nature 3',
-    'thieving 3',
-    'body 4',
-    'mind 4',
-    'soul 4',
-    'arcana 4',
-    'charm 4',
-    'crafting 4',
-    'medicine 4',
-    'nature 4',
-    'thieving 4',
-    'body 5',
-    'mind 5',
-    'soul 5',
-    'arcana 5',
-    'charm 5',
-    'crafting 5',
-    'medicine 5',
-    'nature 5',
-    'thieving 5',
-    'body 6',
-    'mind 6',
-    'soul 6',
-    'arcana 6',
-    'charm 6',
-    'crafting 6',
-    'medicine 6',
-    'nature 6',
-    'thieving 6',
-    'MONSTER 0'
+    "base 0",
+    "body 1",
+    "mind 1",
+    "soul 1",
+    "arcana 1",
+    "charm 1",
+    "crafting 1",
+    "medicine 1",
+    "nature 1",
+    "thieving 1",
+    "body 2",
+    "mind 2",
+    "soul 2",
+    "arcana 2",
+    "charm 2",
+    "crafting 2",
+    "medicine 2",
+    "nature 2",
+    "thieving 2",
+    "body 3",
+    "mind 3",
+    "soul 3",
+    "arcana 3",
+    "charm 3",
+    "crafting 3",
+    "medicine 3",
+    "nature 3",
+    "thieving 3",
+    "body 4",
+    "mind 4",
+    "soul 4",
+    "arcana 4",
+    "charm 4",
+    "crafting 4",
+    "medicine 4",
+    "nature 4",
+    "thieving 4",
+    "body 5",
+    "mind 5",
+    "soul 5",
+    "arcana 5",
+    "charm 5",
+    "crafting 5",
+    "medicine 5",
+    "nature 5",
+    "thieving 5",
+    "body 6",
+    "mind 6",
+    "soul 6",
+    "arcana 6",
+    "charm 6",
+    "crafting 6",
+    "medicine 6",
+    "nature 6",
+    "thieving 6",
+    "MONSTER 0",
 ];
 
-const otherListCore = [
-    "",
-    'BROKEN 0',
-    'OOC 0'
-];
+const otherListCore = ["", "BROKEN 0", "OOC 0"];
 
 const diceCostListCore = ["P", "#", "##", "###"];
 
@@ -197,13 +193,13 @@ export default function UpdateDBTraitsPage() {
     function removeFromPinnedTrait() {
         // Set inputs to nothing
         setCurID(0);
-        setNameText('');
-        setEffectText('');
-        setMainStat('MONSTER 0');
-        setSecondStat('');
-        setDiceCost('P');
-        setOtherDrop('');
-        setEffectText('');
+        setNameText("");
+        setEffectText("");
+        setMainStat("MONSTER 0");
+        setSecondStat("");
+        setDiceCost("P");
+        setOtherDrop("");
+        setEffectText("");
     }
 
     async function handleCreateNew() {
@@ -223,8 +219,7 @@ export default function UpdateDBTraitsPage() {
         // Set inputs to nothing
         removeFromPinnedTrait();
         getTraits();
-    };
-
+    }
 
     async function handleUpdate() {
         console.log(curTrait);
@@ -244,8 +239,7 @@ export default function UpdateDBTraitsPage() {
         // Set inputs to nothing
         removeFromPinnedTrait();
         getTraits();
-    };
-
+    }
 
     async function handleDelete() {
         console.log(curTrait);
@@ -262,8 +256,8 @@ export default function UpdateDBTraitsPage() {
         // Set inputs to nothing
         removeFromPinnedTrait();
         getTraits();
-    };
-    
+    }
+
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
         const trait = {
@@ -299,24 +293,24 @@ export default function UpdateDBTraitsPage() {
     return (
         <>
             <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-5 gap-4 bg-dark-300">
+                <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
                     <div className="col-span-1">
-                        <div className="flex flex-row capitalize">Name</div>
+                        <div className="capitalize flex flex-row">Name</div>
                         <input
                             type="text"
                             placeholder="Yoyo"
-                            className="flex flex-row"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
+                        <div className="capitalize flex flex-row">
                             Dice Cost
                         </div>
                         <CleanCombobox
                             items={diceCostListCore}
-                            className="flex flex-row"
+                            className="flex flex-row max-w-[30%] shadow-md"
                             selected={diceCost}
                             setSelected={(val) => {
                                 setDiceCost(val);
@@ -324,7 +318,7 @@ export default function UpdateDBTraitsPage() {
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
+                        <div className="capitalize flex flex-row shadow-md">
                             Main Stat/Skill
                         </div>
                         <CleanCombobox
@@ -337,7 +331,7 @@ export default function UpdateDBTraitsPage() {
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
+                        <div className="capitalize flex flex-row shadow-md">
                             Secondary Stat/Skill
                         </div>
                         <CleanCombobox
@@ -350,7 +344,7 @@ export default function UpdateDBTraitsPage() {
                         />
                     </div>
                     <div className="col-span-1">
-                        <div className="flex flex-row capitalize">Other</div>
+                        <div className="capitalize flex flex-row">Other</div>
                         <CleanCombobox
                             items={otherListCore}
                             className="flex flex-row"
@@ -367,7 +361,7 @@ export default function UpdateDBTraitsPage() {
                     rows={40}
                     cols={50}
                     placeholder="Whip around like a yoyo"
-                    className="bg-dark-300 h-44"
+                    className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}
                     onChange={(e) => setEffectText(e.target.value)}
                 />
@@ -423,7 +417,7 @@ export default function UpdateDBTraitsPage() {
                             moveTrait={removeFromPinnedTrait}
                             moveIsAdd={false}
                         />
-                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                        <hr />
                     </div>
                 </>
             )}

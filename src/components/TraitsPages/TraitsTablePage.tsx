@@ -161,7 +161,7 @@ export default function TraitsTablePage() {
                                             }}
                                             moveIsAdd={false}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}

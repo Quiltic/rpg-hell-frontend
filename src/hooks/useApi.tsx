@@ -11,7 +11,7 @@ import {
 } from "../client";
 
 function useApi() {
-    // OpenAPI.BASE = "http://192.168.1.225";
+    // OpenAPI.BASE = "http://localhost:8000";
     OpenAPI.BASE = "https://portof.yokohama";
     OpenAPI.WITH_CREDENTIALS = true;
     OpenAPI.CREDENTIALS = "include";

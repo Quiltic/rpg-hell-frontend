@@ -3,15 +3,12 @@ import { Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button/Button";
 
-
-
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 import jsonTraits from "../../assets/OfflineJsons/Traits.json";
 import jsonSpells from "../../assets/OfflineJsons/Spells.json";
 import jsonItems from "../../assets/OfflineJsons/Items.json";
 import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
-
 
 import useApi from "../../hooks/useApi";
 
@@ -21,11 +18,13 @@ import TraitsTable from "../TraitsPages/TraitsTable";
 import ItemsTable from "../ItemPages/ItemsTable";
 import CreatureTable from "../CreaturesPages/CreaturesTable";
 
-
 import { getPersistentPinnedNames } from "../../util/tableTools";
-import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
-
-
+import {
+    filterBROKENandMONSTER,
+    filterBROKENandMONSTERreq,
+    sortArrayByLevel,
+    sortArrayByReqs,
+} from "../../util/sortingTools";
 
 // import Markdown from "react-markdown";
 // import remarkGfm from "remark-gfm";
@@ -35,7 +34,6 @@ import { filterBROKENandMONSTER, filterBROKENandMONSTERreq, sortArrayByLevel, so
 // const formattedmd = formatEffectString(markdown);
 
 export default function CharacterSheetPage() {
-
     const { SpellsService, TraitsService, ItemsService } = useApi();
 
     const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
@@ -47,7 +45,6 @@ export default function CharacterSheetPage() {
     const [traits, setTraits] = useState<Array<Trait>>([]);
     const [items, setItems] = useState<Array<Item>>([]);
 
-
     useEffect(() => {
         async function getSpells() {
             let spells: Spell[];
@@ -57,10 +54,10 @@ export default function CharacterSheetPage() {
             //     spells = Object.values(spellsRaw);
             // } catch (e) {
             //     if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    spells = Object.values(jsonSpells);
+            console.log(
+                "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+            );
+            spells = Object.values(jsonSpells);
             //     } else {
             //         return;
             //     }
@@ -70,19 +67,17 @@ export default function CharacterSheetPage() {
 
             spells = filterBROKENandMONSTER(spells);
 
-            
-
-            const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
+            const persistentPinnedSpells = getPersistentPinnedNames(
+                "pinnedSpellNames",
+                spells
+            );
             if (persistentPinnedSpells) {
                 setPinnedSpells(persistentPinnedSpells);
             }
-
-
         }
 
         getSpells();
     }, [SpellsService]);
-
 
     useEffect(() => {
         async function getTraits() {
@@ -92,10 +87,10 @@ export default function CharacterSheetPage() {
             //     traits = Object.values(traitsRaw);
             // } catch (e) {
             //     if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    traits = Object.values(jsonTraits);
+            console.log(
+                "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+            );
+            traits = Object.values(jsonTraits);
             //     } else {
             //         return;
             //     }
@@ -105,16 +100,17 @@ export default function CharacterSheetPage() {
 
             traits = filterBROKENandMONSTERreq(traits);
 
-            const persistentPinnedTraits = getPersistentPinnedNames("pinnedTraitNames", traits);
+            const persistentPinnedTraits = getPersistentPinnedNames(
+                "pinnedTraitNames",
+                traits
+            );
             if (persistentPinnedTraits) {
                 setPinnedTraits(persistentPinnedTraits);
             }
         }
-        
+
         getTraits();
     }, [TraitsService]);
-
-
 
     useEffect(() => {
         async function getItems() {
@@ -124,10 +120,10 @@ export default function CharacterSheetPage() {
             //     items = Object.values(itemsRaw);
             // } catch (e) {
             //     if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    items = Object.values(jsonItems);
+            console.log(
+                "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+            );
+            items = Object.values(jsonItems);
             //     } else {
             //         return;
             //     }
@@ -138,17 +134,18 @@ export default function CharacterSheetPage() {
 
             items = filterBROKENandMONSTER(items);
 
-            const persistentPinnedItems = getPersistentPinnedNames("pinnedItemNames",items);
+            const persistentPinnedItems = getPersistentPinnedNames(
+                "pinnedItemNames",
+                items
+            );
 
             if (persistentPinnedItems) {
                 setPinnedItems(persistentPinnedItems);
             }
-            
         }
 
         getItems();
     }, [ItemsService]);
-
 
     useEffect(() => {
         async function getCreatures() {
@@ -169,21 +166,21 @@ export default function CharacterSheetPage() {
             // }
 
             creatures = sortArrayByLevel(creatures);
-            const persistentPinnedCreatures = getPersistentPinnedNames("pinnedCreatureNames",creatures);
+            const persistentPinnedCreatures = getPersistentPinnedNames(
+                "pinnedCreatureNames",
+                creatures
+            );
 
             if (persistentPinnedCreatures) {
                 setPinnedCreatures(persistentPinnedCreatures);
             }
-
         }
 
         getCreatures();
     }, []);
 
-
     return (
         <>
-            
             {pinnedTraits.length > 0 && (
                 <>
                     <div className="justify-start">
@@ -201,10 +198,10 @@ export default function CharacterSheetPage() {
                                         </Button>
                                     </Disclosure.Button>
                                     <Disclosure.Panel>
-                                        <TraitsTable 
+                                        <TraitsTable
                                             displayedTraits={pinnedTraits}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
@@ -232,7 +229,7 @@ export default function CharacterSheetPage() {
                                         <SpellsTable
                                             displayedSpells={pinnedSpells}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
@@ -260,7 +257,7 @@ export default function CharacterSheetPage() {
                                         <ItemsTable
                                             displayedItems={pinnedItems}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
@@ -291,7 +288,7 @@ export default function CharacterSheetPage() {
                                             spellsList={spells}
                                             itemsList={items}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}

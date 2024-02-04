@@ -60,7 +60,7 @@ export default function CreatureTablePage() {
             //         console.log(
             //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
             //         );
-                    creatures = Object.values(jsonCreatures) as Creature[];
+            creatures = Object.values(jsonCreatures) as Creature[];
             //     } else {
             //         return;
             //     }
@@ -233,7 +233,7 @@ export default function CreatureTablePage() {
                                             spellsList={spells}
                                             itemsList={items}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
