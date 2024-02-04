@@ -292,14 +292,14 @@ export default function UpdateDBTraitsPage() {
 
     return (
         <>
-            <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
-                    <div className="col-span-1">
+            <div className="grid  gap-4 p-4 bg-dark-400 rounded-md">
+                <div className="grid grid-cols-1 grid-rows-5 md:grid-rows-1 md:grid-cols-9 gap-4 p-2 bg-dark-300 rounded-lg">
+                    <div className="col-span-1 md:col-span-2">
                         <div className="capitalize flex flex-row">Name</div>
                         <input
                             type="text"
                             placeholder="Yoyo"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
@@ -310,44 +310,44 @@ export default function UpdateDBTraitsPage() {
                         </div>
                         <CleanCombobox
                             items={diceCostListCore}
-                            className="flex flex-row max-w-[30%] shadow-md"
+                            className="flex flex-row w-[100%]"
                             selected={diceCost}
                             setSelected={(val) => {
                                 setDiceCost(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="capitalize flex flex-row shadow-md">
+                    <div className="col-span-1 md:col-span-2">
+                        <div className="capitalize flex flex-row">
                             Main Stat/Skill
                         </div>
                         <CleanCombobox
                             items={statSkillList}
-                            className="flex flex-row"
+                            className="flex flex-row w-[100%]"
                             selected={mainStat}
                             setSelected={(val) => {
                                 setMainStat(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="capitalize flex flex-row shadow-md">
+                    <div className="col-span-1 md:col-span-2">
+                        <div className="capitalize flex flex-row">
                             Secondary Stat/Skill
                         </div>
                         <CleanCombobox
                             items={statSkillList}
-                            className="flex flex-row"
+                            className="flex flex-row w-[100%]"
                             selected={secondStat}
                             setSelected={(val) => {
                                 setSecondStat(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
+                    <div className="col-span-1 md:col-span-2">
                         <div className="capitalize flex flex-row">Other</div>
                         <CleanCombobox
                             items={otherListCore}
-                            className="flex flex-row"
+                            className="flex flex-row w-[100%]"
                             selected={otherDrop}
                             setSelected={(val) => {
                                 setOtherDrop(val);
@@ -358,8 +358,6 @@ export default function UpdateDBTraitsPage() {
 
                 <div className="">Effect</div>
                 <textarea
-                    rows={40}
-                    cols={50}
                     placeholder="Whip around like a yoyo"
                     className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}

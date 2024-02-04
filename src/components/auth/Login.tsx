@@ -84,10 +84,8 @@ export default function Login() {
 
     function handleLogoutButtonClick() {
         async function fetchLogout() {
-            if (await UsersService.logout()) {
-                // window.location.reload();
-                navigate("/", { replace: true });
-            }
+            await UsersService.logout();
+            navigate("/", { replace: true });
         }
         fetchLogout();
     }

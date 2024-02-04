@@ -46,7 +46,7 @@ export default function Header() {
                         <span className="sr-only">Your Company</span>
                         <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=white"
                             alt=""
                         />
                     </a>
@@ -76,12 +76,12 @@ export default function Header() {
             </nav>
             <Dialog
                 as="div"
-                className="md:hidden bg-light dark:bg-dark"
+                className="md:hidden"
                 open={mobileMenuOpen}
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <Dialog.Panel className="bg-light dark:bg-dark fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>

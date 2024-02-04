@@ -306,44 +306,24 @@ export default function UpdateDBItemsPage() {
     return (
         <>
             <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-4 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
-                    <div className="col-span-1">
+                <div className="grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-8 gap-4 p-2 bg-dark-300 rounded-lg">
+                    <div className="md:col-span-2 md:row-span-2 justify-center">
                         <div className="flex flex-row capitalize">Name</div>
                         <input
                             type="text"
                             placeholder="Feather"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="flex flex-row capitalize">cost</div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
-                            value={cost}
-                            min="0"
-                            onChange={(e) => setCost(parseInt(e.target.value))}
-                        />
-
-                        <div className="flex flex-row capitalize">craft</div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
-                            value={craft}
-                            min="0"
-                            max="9"
-                            onChange={(e) => setCraft(parseInt(e.target.value))}
-                        />
-                    </div>
-                    <div className="col-span-1">
+                    <div className="md:col-span-2">
                         <div className="flex flex-row capitalize">
                             Requirements
                         </div>
                         <input
                             type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={reqs}
                             onChange={(e) => setReqs(e.target.value)}
                         />
@@ -356,11 +336,11 @@ export default function UpdateDBItemsPage() {
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
+                    <div className="md:col-span-2">
                         <div className="flex flex-row capitalize">tags</div>
                         <input
                             type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={tags}
                             onChange={(e) => setTags(e.target.value)}
                         />
@@ -373,12 +353,31 @@ export default function UpdateDBItemsPage() {
                             }}
                         />
                     </div>
+                    <div className="md:col-span-1 md:row-span-2">
+                        <div className="flex flex-row capitalize">cost</div>
+                        <input
+                            type="number"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
+                            value={cost}
+                            min="0"
+                            onChange={(e) => setCost(parseInt(e.target.value))}
+                        />
+                    </div>
+                    <div className="md:col-span-1 md:row-span-2">
+                        <div className="flex flex-row capitalize">craft</div>
+                        <input
+                            type="number"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
+                            value={craft}
+                            min="0"
+                            max="9"
+                            onChange={(e) => setCraft(parseInt(e.target.value))}
+                        />
+                    </div>
                 </div>
 
                 <div className="">Effect</div>
                 <textarea
-                    rows={40}
-                    cols={50}
                     placeholder="A light little feather."
                     className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}
