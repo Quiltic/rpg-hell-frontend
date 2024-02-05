@@ -15,17 +15,17 @@ const pages: HeaderPageLink[] = [
     {
         name: "Home",
         href: "/",
-        color: "hover:text-body-700 text-body-600 hover:underline",
+        color: "dark:hover:text-body-700 dark:text-body-600 hover:underline",
     },
     {
         name: "Rulebook",
         href: "rulebook",
-        color: "hover:text-soul-700 text-soul-600 hover:underline",
+        color: "dark:hover:text-soul-700 dark:text-soul-600 hover:underline",
     },
     {
         name: "Character Sheet",
         href: "character-sheet",
-        color: "hover:text-mind-700 text-mind-600 hover:underline",
+        color: "dark:hover:text-mind-700 dark:text-mind-600 hover:underline",
     },
 ];
 
@@ -36,7 +36,7 @@ function classNames(...classes: string[]) {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="bg-dark-400 dark:bg-dark-600">
+        <header className="header-bg-gradient dark:bg-dark-600">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 px-8 py-4 md-px-8"
                 aria-label="Global"
@@ -46,7 +46,7 @@ export default function Header() {
                         <span className="sr-only">Your Company</span>
                         <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=white"
                             alt=""
                         />
                     </a>
@@ -62,9 +62,14 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="hidden md:flex md:gap-x-12">
-                    {pages.map((page) => (
-                        <Link to={page.href}>
-                            <span className={classNames(page.color, "text-lg")}>
+                    {pages.map((page, i) => (
+                        <Link to={page.href} key={i}>
+                            <span
+                                className={classNames(
+                                    page.color,
+                                    "text-gray-300 hover:text-gray-300 text-lg"
+                                )}
+                            >
                                 {page.name}
                             </span>
                         </Link>
@@ -76,12 +81,12 @@ export default function Header() {
             </nav>
             <Dialog
                 as="div"
-                className="md:hidden bg-light dark:bg-dark"
+                className="md:hidden"
                 open={mobileMenuOpen}
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <Dialog.Panel className="bg-light dark:bg-dark fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
@@ -103,8 +108,8 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                {pages.map((page) => (
-                                    <Link to={page.href}>
+                                {pages.map((page, i) => (
+                                    <Link to={page.href} key={i}>
                                         <span
                                             className={classNames(
                                                 page.color,

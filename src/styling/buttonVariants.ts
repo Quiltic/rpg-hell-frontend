@@ -63,6 +63,7 @@ const subtleVariants = cva("", {
             nature: "text-nature bg-nature/20 hover:bg-nature/30 border-nature",
             medicine:
                 "text-medicine bg-medicine/20 hover:bg-medicine/30 border-medicine",
+            dark: "text-dark bg-dark/20 hover:bg-dark/40",
         },
     },
 });
@@ -104,6 +105,7 @@ export const buttonVariants = cva("...", {
             "subtle-soul": subtleVariants({ variant: "soul" }),
             "subtle-nature": subtleVariants({ variant: "nature" }),
             "subtle-medicine": subtleVariants({ variant: "medicine" }),
+            "subtle-dark": subtleVariants({ variant: "dark" }),
             unstyled: "",
         },
     },

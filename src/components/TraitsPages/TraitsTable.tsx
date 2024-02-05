@@ -33,12 +33,15 @@ export default function TraitsTable({
                 </tr>
             </thead>
             <tbody>
-                {displayedTraits.map((trait) => {
+                {displayedTraits.map((trait, i) => {
                     const ee = formatEffectString(trait.effect ?? "");
-                    const req = toPillElement(trait.req?.toString().replace(" 0","") ?? "", ",");
+                    const req = toPillElement(
+                        trait.req?.toString().replace(" 0", "") ?? "",
+                        ","
+                    );
                     // console.log(req);
                     return (
-                        <tr>
+                        <tr key={i}>
                             <td className="font-bold capitalize hidden md:table-cell">
                                 {trait.name}
                             </td>

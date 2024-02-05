@@ -23,9 +23,26 @@ function getTabWidth(lengthOfName: number) {
 }
 
 const tagList = [
-    'fire','water','earth','wind','light','dark','soul','illusion','summon',
-    'aoe','attack','cc','damage','focus','ranged','touch','utility',
-    'MONSTER','BROKEN','OOC'
+    "fire",
+    "water",
+    "earth",
+    "wind",
+    "light",
+    "dark",
+    "soul",
+    "illusion",
+    "summon",
+    "aoe",
+    "attack",
+    "cc",
+    "damage",
+    "focus",
+    "ranged",
+    "touch",
+    "utility",
+    "MONSTER",
+    "BROKEN",
+    "OOC",
 ];
 
 const diceCostListCore = ["#", "##", "###"];
@@ -114,12 +131,12 @@ export default function UpdateDBSpellsPage() {
     function removeFromPinnedSpell() {
         // Set inputs to nothing
         setCurID(0);
-        setNameText('');
-        setEffectText('');
-        setTags('MONSTER');
+        setNameText("");
+        setEffectText("");
+        setTags("MONSTER");
         setLevel(0);
-        setDiceCost('#');
-        setEffectText('');
+        setDiceCost("#");
+        setEffectText("");
     }
 
     async function handleCreateNew() {
@@ -139,8 +156,7 @@ export default function UpdateDBSpellsPage() {
         // Set inputs to nothing
         removeFromPinnedSpell();
         getSpells();
-    };
-
+    }
 
     async function handleUpdate() {
         console.log(curSpell);
@@ -160,8 +176,7 @@ export default function UpdateDBSpellsPage() {
         // Set inputs to nothing
         removeFromPinnedSpell();
         getSpells();
-    };
-
+    }
 
     async function handleDelete() {
         console.log(curSpell);
@@ -178,78 +193,70 @@ export default function UpdateDBSpellsPage() {
         // Set inputs to nothing
         removeFromPinnedSpell();
         getSpells();
-    };
-    
+    }
+
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
         const spell = {
             id: curID,
             name: nameText.toLowerCase(),
             effect: effectText,
-            dice: (diceCost.split("#").length - 1),
+            dice: diceCost.split("#").length - 1,
             level: level,
             tags: tags.split(","),
         };
         spell.tags = spell.tags.filter((str) => str !== "");
 
         setCurSpell(spell);
-    }, [
-        curID,
-        nameText,
-        effectText,
-        diceCost,
-        level,
-        tags,
-    ]);
+    }, [curID, nameText, effectText, diceCost, level, tags]);
 
     // Styling:
 
     return (
         <>
             <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-4 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
-                    <div className="col-span-1">
+                <div className="grid grid-cols-1 grid-rows-auto md:grid-rows-1 md:grid-cols-6 gap-4 p-2 bg-dark-300 rounded-lg">
+                    <div className="md:col-span-2">
                         <div className="flex flex-row capitalize">Name</div>
                         <input
                             type="text"
                             placeholder="Poprocks"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
                     </div>
-                    <div className="col-span-1">
+                    <div className="">
+                        <div className="flex flex-row capitalize">
+                            Soul Strain
+                        </div>
+                        <input
+                            type="number"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
+                            value={level}
+                            min="0"
+                            max="9"
+                            onChange={(e) => setLevel(parseInt(e.target.value))}
+                        />
+                    </div>
+                    <div className="">
                         <div className="flex flex-row capitalize">
                             Dice Cost
                         </div>
                         <CleanCombobox
                             items={diceCostListCore}
-                            className="flex flex-row max-w-[30%] shadow-md"
+                            className="flex flex-row max-w-[100%] shadow-md"
                             selected={diceCost}
                             setSelected={(val) => {
                                 setDiceCost(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
-                            Soul Strain
-                        </div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
-                            value={level}
-                            min="0" max="9"
-                            onChange={(e) => setLevel(parseInt(e.target.value))}
-                        />
-                    </div>
-                    <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
-                            tags
-                        </div>
+                    <div className="md:col-span-2">
+                        <div className="flex flex-row capitalize">tags</div>
                         <input
                             type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={tags}
                             onChange={(e) => setTags(e.target.value)}
                         />
@@ -258,7 +265,7 @@ export default function UpdateDBSpellsPage() {
                             className="flex flex-row"
                             selected={""}
                             setSelected={(val) => {
-                                setTags(tags.concat(",",val));
+                                setTags(tags.concat(",", val));
                             }}
                         />
                     </div>
@@ -266,8 +273,6 @@ export default function UpdateDBSpellsPage() {
 
                 <div className="">Effect</div>
                 <textarea
-                    rows={40}
-                    cols={50}
                     placeholder="Whip around like a yoyo"
                     className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}
@@ -325,7 +330,7 @@ export default function UpdateDBSpellsPage() {
                             moveSpell={removeFromPinnedSpell}
                             moveIsAdd={false}
                         />
-                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                        <hr />
                     </div>
                 </>
             )}
@@ -336,19 +341,20 @@ export default function UpdateDBSpellsPage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-10",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-10",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeSpellLevels.map((n) => {
+                        {IterativeSpellLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-6",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-6",
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -359,7 +365,7 @@ export default function UpdateDBSpellsPage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
@@ -390,9 +396,9 @@ export default function UpdateDBSpellsPage() {
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeSpellLevels.map((n) => {
+                    {IterativeSpellLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <SpellsTable
                                     displayedSpells={displayedSpells.filter(
                                         (s) => {

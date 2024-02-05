@@ -27,7 +27,8 @@ export default function SpellsTablePage() {
     const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
     const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
     const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] = useState("hidden");
+    const [clearButtonVisibility, setClearButtonVisibility] =
+        useState("hidden");
 
     const [hasInitializedPersistedSpells, setHasInitializedPersistedSpells] =
         useState(false);
@@ -146,7 +147,7 @@ export default function SpellsTablePage() {
                                             }}
                                             moveIsAdd={false}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
@@ -161,19 +162,20 @@ export default function SpellsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-10",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-10",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeSpellLevels.map((n) => {
+                        {IterativeSpellLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light w-6",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-6",
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -184,7 +186,7 @@ export default function SpellsTablePage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
@@ -215,9 +217,9 @@ export default function SpellsTablePage() {
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeSpellLevels.map((n) => {
+                    {IterativeSpellLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <SpellsTable
                                     displayedSpells={displayedSpells.filter(
                                         (s) => {

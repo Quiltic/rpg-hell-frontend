@@ -34,10 +34,10 @@ export default function SpellsTable({
                 </tr>
             </thead>
             <tbody>
-                {displayedSpells.map((spell) => {
+                {displayedSpells.map((spell, i) => {
                     const ee = formatEffectString(spell.effect ?? "");
                     return (
-                        <tr>
+                        <tr key={i}>
                             <td className="font-bold capitalize hidden md:table-cell">
                                 {spell.name}
                             </td>

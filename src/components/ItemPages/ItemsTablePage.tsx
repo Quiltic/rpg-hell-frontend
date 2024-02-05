@@ -27,13 +27,13 @@ const IterativeItemLevels = [
     "Weapon",
     "Armor",
     "Rune",
+    "Medicine",
     "Potion",
     "Grenade",
     "Tool",
     "Item",
     "Magical",
 ];
-
 
 export default function ItemsTablePage() {
     const { ItemsService } = useApi();
@@ -158,7 +158,7 @@ export default function ItemsTablePage() {
                                             }}
                                             moveIsAdd={false}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
@@ -171,21 +171,23 @@ export default function ItemsTablePage() {
                 <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
                     <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
+                            key={0}
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeItemLevels.map((n) => {
+                        {IterativeItemLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i + 1}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
                                             getTabWidth(n.length),
                                             selected ? "ring-2" : ""
                                         )
@@ -197,7 +199,7 @@ export default function ItemsTablePage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
@@ -224,13 +226,13 @@ export default function ItemsTablePage() {
                         <ItemsTable
                             displayedItems={displayedItems}
                             moveItem={(item) => {
-                                addToPinnedItems(item);
+                                removeFromPinnedItems(item);
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeItemLevels.map((n) => {
+                    {IterativeItemLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <ItemsTable
                                     displayedItems={displayedItems.filter(
                                         (s) => {

@@ -292,14 +292,14 @@ export default function UpdateDBTraitsPage() {
 
     return (
         <>
-            <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-2 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
-                    <div className="col-span-1">
+            <div className="grid  gap-4 p-4 bg-dark-400 rounded-md">
+                <div className="grid grid-cols-1 grid-rows-5 md:grid-rows-1 md:grid-cols-9 gap-4 p-2 bg-dark-300 rounded-lg">
+                    <div className="col-span-1 md:col-span-2">
                         <div className="capitalize flex flex-row">Name</div>
                         <input
                             type="text"
                             placeholder="Yoyo"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
@@ -310,44 +310,44 @@ export default function UpdateDBTraitsPage() {
                         </div>
                         <CleanCombobox
                             items={diceCostListCore}
-                            className="flex flex-row max-w-[30%] shadow-md"
+                            className="flex flex-row w-[100%]"
                             selected={diceCost}
                             setSelected={(val) => {
                                 setDiceCost(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="capitalize flex flex-row shadow-md">
+                    <div className="col-span-1 md:col-span-2">
+                        <div className="capitalize flex flex-row">
                             Main Stat/Skill
                         </div>
                         <CleanCombobox
                             items={statSkillList}
-                            className="flex flex-row"
+                            className="flex flex-row w-[100%]"
                             selected={mainStat}
                             setSelected={(val) => {
                                 setMainStat(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="capitalize flex flex-row shadow-md">
+                    <div className="col-span-1 md:col-span-2">
+                        <div className="capitalize flex flex-row">
                             Secondary Stat/Skill
                         </div>
                         <CleanCombobox
                             items={statSkillList}
-                            className="flex flex-row"
+                            className="flex flex-row w-[100%]"
                             selected={secondStat}
                             setSelected={(val) => {
                                 setSecondStat(val);
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
+                    <div className="col-span-1 md:col-span-2">
                         <div className="capitalize flex flex-row">Other</div>
                         <CleanCombobox
                             items={otherListCore}
-                            className="flex flex-row"
+                            className="flex flex-row w-[100%]"
                             selected={otherDrop}
                             setSelected={(val) => {
                                 setOtherDrop(val);
@@ -358,8 +358,6 @@ export default function UpdateDBTraitsPage() {
 
                 <div className="">Effect</div>
                 <textarea
-                    rows={40}
-                    cols={50}
                     placeholder="Whip around like a yoyo"
                     className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}
@@ -417,7 +415,7 @@ export default function UpdateDBTraitsPage() {
                             moveTrait={removeFromPinnedTrait}
                             moveIsAdd={false}
                         />
-                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                        <hr />
                     </div>
                 </>
             )}
@@ -428,19 +426,20 @@ export default function UpdateDBTraitsPage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeTraitLevels.map((n) => {
+                        {IterativeTraitLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-light-600 rounded-md",
+                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-grey-400 rounded-md",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
@@ -453,7 +452,7 @@ export default function UpdateDBTraitsPage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
@@ -484,9 +483,9 @@ export default function UpdateDBTraitsPage() {
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeTraitLevels.map((n) => {
+                    {IterativeTraitLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <TraitsTable
                                     displayedTraits={displayedTraits.filter(
                                         (s) => {

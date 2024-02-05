@@ -20,7 +20,12 @@ export default function TableOfContentsDiscl() {
                                 <div className="bg-grey-400 dark:bg-dark-300 capitalize whitespace-pre-wrap p-2">
                                     <ul>
                                         <li>
-                                            <a href="#basics">Basics</a>
+                                            <a
+                                                href="#basics"
+                                                className="font-semibold mb-2"
+                                            >
+                                                Basics
+                                            </a>
                                         </li>
                                         <li>
                                             <a href="#lock">Locking Dice</a>
@@ -102,7 +107,10 @@ export default function TableOfContentsDiscl() {
                                 <div className="bg-grey-400 dark:bg-dark-300 whitespace-pre-wrap p-2">
                                     <ul>
                                         <li>
-                                            <a href="#common-actions">
+                                            <a
+                                                href="#common-actions"
+                                                className="font-semibold  mb-2"
+                                            >
                                                 Stats and Skills
                                             </a>
                                             <ul>
@@ -288,7 +296,10 @@ export default function TableOfContentsDiscl() {
                                 <div className="bg-grey-400 dark:bg-dark-300 flex-row capitalize whitespace-pre-wrap p-2">
                                     <ul>
                                         <li>
-                                            <a href="#making-a-character">
+                                            <a
+                                                href="#making-a-character"
+                                                className="font-semibold mb-2"
+                                            >
                                                 Making a Character
                                             </a>
                                             <ul>

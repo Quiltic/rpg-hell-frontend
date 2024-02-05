@@ -60,7 +60,7 @@ export default function CreatureTablePage() {
             //         console.log(
             //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
             //         );
-                    creatures = Object.values(jsonCreatures) as Creature[];
+            creatures = Object.values(jsonCreatures) as Creature[];
             //     } else {
             //         return;
             //     }
@@ -233,7 +233,7 @@ export default function CreatureTablePage() {
                                             spellsList={spells}
                                             itemsList={items}
                                         />
-                                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                                        <hr />
                                     </Disclosure.Panel>
                                 </>
                             )}
@@ -248,19 +248,20 @@ export default function CreatureTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeTraitLevels.map((n) => {
+                        {IterativeTraitLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-light-600 rounded-md",
+                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-grey-400 rounded-md",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
@@ -273,7 +274,7 @@ export default function CreatureTablePage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
-                        <MagnifyingGlassIcon className="h-6 w-6" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
@@ -307,9 +308,9 @@ export default function CreatureTablePage() {
                             itemsList={items}
                         />
                     </Tab.Panel>
-                    {IterativeTraitLevels.map((n) => {
+                    {IterativeTraitLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <CreatureTable
                                     displayedCreatures={displayedCreatures.filter(
                                         (s) => {

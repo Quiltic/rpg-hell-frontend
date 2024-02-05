@@ -24,81 +24,109 @@ function getTabWidth(lengthOfName: number) {
 
 const statSkillList = [
     "",
-    'base 0',
-    'body 1',
-    'mind 1',
-    'soul 1',
-    'arcana 1',
-    'charm 1',
-    'crafting 1',
-    'medicine 1',
-    'nature 1',
-    'thieving 1',
-    'body 2',
-    'mind 2',
-    'soul 2',
-    'arcana 2',
-    'charm 2',
-    'crafting 2',
-    'medicine 2',
-    'nature 2',
-    'thieving 2',
-    'body 3',
-    'mind 3',
-    'soul 3',
-    'arcana 3',
-    'charm 3',
-    'crafting 3',
-    'medicine 3',
-    'nature 3',
-    'thieving 3',
-    'body 4',
-    'mind 4',
-    'soul 4',
-    'arcana 4',
-    'charm 4',
-    'crafting 4',
-    'medicine 4',
-    'nature 4',
-    'thieving 4',
-    'body 5',
-    'mind 5',
-    'soul 5',
-    'arcana 5',
-    'charm 5',
-    'crafting 5',
-    'medicine 5',
-    'nature 5',
-    'thieving 5',
-    'body 6',
-    'mind 6',
-    'soul 6',
-    'arcana 6',
-    'charm 6',
-    'crafting 6',
-    'medicine 6',
-    'nature 6',
-    'thieving 6',
-    'MONSTER 0',
-    'BROKEN 0',
-    'OOC 0'
+    "base 0",
+    "body 1",
+    "mind 1",
+    "soul 1",
+    "arcana 1",
+    "charm 1",
+    "crafting 1",
+    "medicine 1",
+    "nature 1",
+    "thieving 1",
+    "body 2",
+    "mind 2",
+    "soul 2",
+    "arcana 2",
+    "charm 2",
+    "crafting 2",
+    "medicine 2",
+    "nature 2",
+    "thieving 2",
+    "body 3",
+    "mind 3",
+    "soul 3",
+    "arcana 3",
+    "charm 3",
+    "crafting 3",
+    "medicine 3",
+    "nature 3",
+    "thieving 3",
+    "body 4",
+    "mind 4",
+    "soul 4",
+    "arcana 4",
+    "charm 4",
+    "crafting 4",
+    "medicine 4",
+    "nature 4",
+    "thieving 4",
+    "body 5",
+    "mind 5",
+    "soul 5",
+    "arcana 5",
+    "charm 5",
+    "crafting 5",
+    "medicine 5",
+    "nature 5",
+    "thieving 5",
+    "body 6",
+    "mind 6",
+    "soul 6",
+    "arcana 6",
+    "charm 6",
+    "crafting 6",
+    "medicine 6",
+    "nature 6",
+    "thieving 6",
+    "MONSTER 0",
+    "BROKEN 0",
+    "OOC 0",
 ];
 
 const tagList = [
-    'tiny','small','medium','large','huge','bigabongus',
-    'grenade','medicine','item','weapon','potion','tool','rune',
-    'heavy armor','medium armor','light armor', 'unarmored',
-    'non-magic','magical',
-    'lesser', 'greater','legendary',
-    'consumable','complex','vehicle','bound',
-    '1 damage','loading _','range _','two handed','throw range _','glow',
-    'ward _','dodge _', "speed _",
+    "tiny",
+    "small",
+    "medium",
+    "large",
+    "huge",
+    "bigabongus",
+    "grenade",
+    "medicine",
+    "item",
+    "weapon",
+    "potion",
+    "tool",
+    "rune",
+    "heavy armor",
+    "medium armor",
+    "light armor",
+    "unarmored",
+    "non-magic",
+    "magical",
+    "lesser",
+    "greater",
+    "legendary",
+    "consumable",
+    "complex",
+    "vehicle",
+    "bound",
+    "1 damage",
+    "loading _",
+    "range _",
+    "two handed",
+    "throw range _",
+    "glow",
+    "ward _",
+    "dodge _",
+    "speed _",
 ];
 
 const IterativeItemLevels = [
     "Weapon",
     "Armor",
     "Rune",
+    "Medicine",
     "Potion",
     "Grenade",
     "Tool",
@@ -190,13 +218,13 @@ export default function UpdateDBItemsPage() {
     function removeFromPinnedItem() {
         // Set inputs to nothing
         setCurID(0);
-        setNameText('');
-        setEffectText('');
-        setTags('tiny');
-        setReqs('');
+        setNameText("");
+        setEffectText("");
+        setTags("tiny");
+        setReqs("");
         setCost(0);
         setCraft(0);
-        setEffectText('');
+        setEffectText("");
     }
 
     async function handleCreateNew() {
@@ -216,8 +244,7 @@ export default function UpdateDBItemsPage() {
         // Set inputs to nothing
         removeFromPinnedItem();
         getItems();
-    };
-
+    }
 
     async function handleUpdate() {
         console.log(curItem);
@@ -237,8 +264,7 @@ export default function UpdateDBItemsPage() {
         // Set inputs to nothing
         removeFromPinnedItem();
         getItems();
-    };
-
+    }
 
     async function handleDelete() {
         console.log(curItem);
@@ -255,15 +281,15 @@ export default function UpdateDBItemsPage() {
         // Set inputs to nothing
         removeFromPinnedItem();
         getItems();
-    };
-    
+    }
+
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
         const item = {
             id: curID,
             name: nameText.toLowerCase(),
             effect: effectText,
-            req: reqs.split(','),
+            req: reqs.split(","),
             cost: cost,
             craft: craft,
             tags: tags.split(","),
@@ -273,62 +299,31 @@ export default function UpdateDBItemsPage() {
         item.req = item.req.filter((str) => str !== "");
 
         setCurItem(item);
-    }, [
-        curID,
-        nameText,
-        effectText,
-        tags,
-        reqs,
-        cost,
-        craft,
-    ]);
+    }, [curID, nameText, effectText, tags, reqs, cost, craft]);
 
     // Styling:
 
     return (
         <>
             <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-4 grid-rows-3 md:grid-rows-1 md:grid-cols-5 gap-4 p-2 bg-dark-300 rounded-lg">
-                    <div className="col-span-1">
+                <div className="grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-8 gap-4 p-2 bg-dark-300 rounded-lg">
+                    <div className="md:col-span-2 md:row-span-2 justify-center">
                         <div className="flex flex-row capitalize">Name</div>
                         <input
                             type="text"
                             placeholder="Feather"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={nameText}
                             onChange={(e) => setNameText(e.target.value)}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
-                            cost
-                        </div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
-                            value={cost}
-                            min="0"
-                            onChange={(e) => setCost(parseInt(e.target.value))}
-                        />
-
-                        <div className="flex flex-row capitalize">
-                            craft
-                        </div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[30%] shadow-md"
-                            value={craft}
-                            min="0" max="9"
-                            onChange={(e) => setCraft(parseInt(e.target.value))}
-                        />
-                    </div>
-                    <div className="col-span-1">
+                    <div className="md:col-span-2">
                         <div className="flex flex-row capitalize">
                             Requirements
                         </div>
                         <input
                             type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={reqs}
                             onChange={(e) => setReqs(e.target.value)}
                         />
@@ -337,17 +332,15 @@ export default function UpdateDBItemsPage() {
                             className="flex flex-row"
                             selected={""}
                             setSelected={(val) => {
-                                setReqs(reqs.concat(",",val));
+                                setReqs(reqs.concat(",", val));
                             }}
                         />
                     </div>
-                    <div className="col-span-1">
-                        <div className="flex flex-row capitalize">
-                            tags
-                        </div>
+                    <div className="md:col-span-2">
+                        <div className="flex flex-row capitalize">tags</div>
                         <input
                             type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 max-w-[100%] shadow-md"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                             value={tags}
                             onChange={(e) => setTags(e.target.value)}
                         />
@@ -356,16 +349,35 @@ export default function UpdateDBItemsPage() {
                             className="flex flex-row"
                             selected={""}
                             setSelected={(val) => {
-                                setTags(tags.concat(",",val));
+                                setTags(tags.concat(",", val));
                             }}
+                        />
+                    </div>
+                    <div className="md:col-span-1 md:row-span-2">
+                        <div className="flex flex-row capitalize">cost</div>
+                        <input
+                            type="number"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
+                            value={cost}
+                            min="0"
+                            onChange={(e) => setCost(parseInt(e.target.value))}
+                        />
+                    </div>
+                    <div className="md:col-span-1 md:row-span-2">
+                        <div className="flex flex-row capitalize">craft</div>
+                        <input
+                            type="number"
+                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
+                            value={craft}
+                            min="0"
+                            max="9"
+                            onChange={(e) => setCraft(parseInt(e.target.value))}
                         />
                     </div>
                 </div>
 
                 <div className="">Effect</div>
                 <textarea
-                    rows={40}
-                    cols={50}
                     placeholder="A light little feather."
                     className="bg-dark-300 h-44 rounded-lg p-2"
                     value={effectText}
@@ -423,30 +435,31 @@ export default function UpdateDBItemsPage() {
                             moveItem={removeFromPinnedItem}
                             moveIsAdd={false}
                         />
-                        <hr className="h-px my-4 border-0 bg-dark-600" />
+                        <hr />
                     </div>
                 </>
             )}
 
-<Tab.Group as="div" className="w-full ">
+            <Tab.Group as="div" className="w-full ">
                 <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
                     <Tab.List className="p-1 gap-2 flex flex-wrap">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeItemLevels.map((n) => {
+                        {IterativeItemLevels.map((n, i) => {
                             return (
                                 <Tab
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-light-600 rounded-md ring-light",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
                                             getTabWidth(n.length),
                                             selected ? "ring-2" : ""
                                         )
@@ -458,7 +471,7 @@ export default function UpdateDBItemsPage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6" />
+                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
