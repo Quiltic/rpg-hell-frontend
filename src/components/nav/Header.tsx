@@ -15,17 +15,17 @@ const pages: HeaderPageLink[] = [
     {
         name: "Home",
         href: "/",
-        color: "hover:text-body-700 text-body-600 hover:underline",
+        color: "dark:hover:text-body-700 dark:text-body-600 hover:underline",
     },
     {
         name: "Rulebook",
         href: "rulebook",
-        color: "hover:text-soul-700 text-soul-600 hover:underline",
+        color: "dark:hover:text-soul-700 dark:text-soul-600 hover:underline",
     },
     {
         name: "Character Sheet",
         href: "character-sheet",
-        color: "hover:text-mind-700 text-mind-600 hover:underline",
+        color: "dark:hover:text-mind-700 dark:text-mind-600 hover:underline",
     },
 ];
 
@@ -36,7 +36,7 @@ function classNames(...classes: string[]) {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="bg-dark-400 dark:bg-dark-600">
+        <header className="header-bg-gradient dark:bg-dark-600">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 px-8 py-4 md-px-8"
                 aria-label="Global"
@@ -64,7 +64,12 @@ export default function Header() {
                 <div className="hidden md:flex md:gap-x-12">
                     {pages.map((page, i) => (
                         <Link to={page.href} key={i}>
-                            <span className={classNames(page.color, "text-lg")}>
+                            <span
+                                className={classNames(
+                                    page.color,
+                                    "text-gray-300 hover:text-gray-300 text-lg"
+                                )}
+                            >
                                 {page.name}
                             </span>
                         </Link>
