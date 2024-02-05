@@ -139,7 +139,7 @@ export default function ItemsTablePage() {
         <>
             <h1>Items</h1>
             {auth.isAuthenticated &&
-                <Button onClick={() => (download(allItems, 'items.json', 'text/json'))} variant="link-soul">Download Items Json</Button>
+                <Button onClick={() => (download(JSON.stringify(allItems, null, 2), 'items.json', 'text/json'))} variant="link-soul">Download Items Json</Button>
             }
 
             {pinnedItems.length > 0 && (

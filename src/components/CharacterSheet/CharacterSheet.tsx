@@ -18,7 +18,7 @@ import TraitsTable from "../TraitsPages/TraitsTable";
 import ItemsTable from "../ItemPages/ItemsTable";
 import CreatureTable from "../CreaturesPages/CreaturesTable";
 
-import { getPersistentPinnedNames } from "../../util/tableTools";
+import { download, getPersistentPinnedNames } from "../../util/tableTools";
 import {
     filterBROKENandMONSTER,
     filterBROKENandMONSTERreq,
@@ -41,6 +41,28 @@ export default function CharacterSheetPage() {
     const [items, setItems] = useState<Array<Item>>([]);
 
     const [tempSheet,setTempSheet] = useState(markdown);
+   
+    function clearCharacterSheet() {
+        setTempSheet(markdown);
+        window.localStorage.setItem(
+            "tempSheet",
+            ''
+        );
+    }
+
+    useEffect (() => {
+        if (tempSheet != markdown) {
+            window.localStorage.setItem(
+                "tempSheet",
+                tempSheet
+            );
+        } else {
+            const persistentTempSheet = window.localStorage.getItem("tempSheet");
+            if (persistentTempSheet) {
+                setTempSheet(persistentTempSheet);
+            }
+        }
+    }, [tempSheet])
 
     useEffect(() => {
         async function getSpells() {
@@ -173,6 +195,11 @@ export default function CharacterSheetPage() {
 
     return (
         <>
+            <div className="flex flex-row">
+                <Button onClick={() => clearCharacterSheet()} variant="subtle-medicine">Clear Character Sheet</Button>
+                <Button onClick={() => download(tempSheet,"Character-Sheet.txt",'data:text/plain;charset=utf-8,')} variant="subtle-body">Download Character Sheet</Button>
+            </div>
+
             <textarea
                 rows={40}
                 cols={50}

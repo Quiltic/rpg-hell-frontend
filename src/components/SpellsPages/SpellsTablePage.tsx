@@ -129,7 +129,7 @@ export default function SpellsTablePage() {
         <>
             <h1>Spells</h1>
             {auth.isAuthenticated &&
-                <Button onClick={() => (download(allSpells, 'spells.json', 'text/json'))} variant="link-mind">Download Spells Json</Button>
+                <Button onClick={() => (download(JSON.stringify(allSpells, null, 2), 'spells.json', 'text/json'))} variant="link-mind">Download Spells Json</Button>
             }
 
             {pinnedSpells.length > 0 && (

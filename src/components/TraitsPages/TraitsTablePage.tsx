@@ -146,7 +146,7 @@ export default function TraitsTablePage() {
         <>
             <h1>Traits</h1>
             {auth.isAuthenticated &&
-                <Button onClick={() => (download(allTraits, 'traits.json', 'text/json'))} variant="link-body">Download Traits Json</Button>
+                <Button onClick={() => (download(JSON.stringify(allTraits, null, 2), 'traits.json', 'text/json'))} variant="link-body">Download Traits Json</Button>
             }
             {pinnedTraits.length > 0 && (
                 <>

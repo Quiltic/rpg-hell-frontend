@@ -50,7 +50,7 @@ function classNames(...classes: string[]) {
 
 function download(content, fileName:string, contentType:string) {
     var a = document.createElement("a");
-    var file = new Blob([JSON.stringify(content, null, 2)], {type: contentType});
+    var file = new Blob([content], {type: contentType});
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
