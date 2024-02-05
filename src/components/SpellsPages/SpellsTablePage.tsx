@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Spell } from "../../client";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
@@ -16,9 +16,10 @@ import {
     filterBROKENandMONSTER,
     sortArrayByLevel,
 } from "../../util/sortingTools";
-import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames, download, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function SpellsTablePage() {
     const { SpellsService } = useApi();
@@ -32,6 +33,8 @@ export default function SpellsTablePage() {
 
     const [hasInitializedPersistedSpells, setHasInitializedPersistedSpells] =
         useState(false);
+
+    const { auth, authLoading } = useContext(AuthContext);
 
     useEffect(() => {
         async function getSpells() {
@@ -51,7 +54,11 @@ export default function SpellsTablePage() {
                 }
             }
 
-            spells = filterBROKENandMONSTER(spells);
+            if (authLoading){
+                spells = filterBROKENandMONSTER(spells);
+                // IterativeTraitLevels.push('MONSTER');
+            }
+            
 
             spells = sortArrayByLevel(spells);
 
@@ -121,6 +128,9 @@ export default function SpellsTablePage() {
     return (
         <>
             <h1>Spells</h1>
+            {authLoading &&
+                <Button onClick={() => (download(allSpells, 'spells.json', 'text/json'))} variant="link-mind">Download Spells Json</Button>
+            }
 
             {pinnedSpells.length > 0 && (
                 <>
