@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Trait } from "../../client";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
@@ -15,15 +15,31 @@ import {
     filterBROKENandMONSTERreq,
     sortArrayByReqs,
 } from "../../util/sortingTools";
-import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames, download, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import { AuthContext } from "../../context/AuthProvider";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
 }
 
+const IterativeTraitLevels = [
+        "Base",
+        "Body",
+        "Mind",
+        "Soul",
+        "Arcana",
+        "Charm",
+        "Crafting",
+        "Nature",
+        "Medicine",
+        "Thieving",
+        'Monster'
+    ];
+
 export default function TraitsTablePage() {
+
     const { TraitsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
@@ -35,6 +51,7 @@ export default function TraitsTablePage() {
 
     const [hasInitializedPersistedTraits, setHasInitializedPersistedTraits] =
         useState(false);
+    const { auth, authLoading } = useContext(AuthContext);
 
     useEffect(() => {
         async function getTraits() {
@@ -52,7 +69,11 @@ export default function TraitsTablePage() {
                     return;
                 }
             }
-            traits = filterBROKENandMONSTERreq(traits);
+            
+            if (authLoading){
+                traits = filterBROKENandMONSTERreq(traits);
+                // IterativeTraitLevels.push('MONSTER');
+            }
 
             traits = sortArrayByReqs(traits);
 
@@ -117,25 +138,16 @@ export default function TraitsTablePage() {
         // updatePersistantPinnedTraits(remainingTraits);
     }
 
-    const IterativeTraitLevels = [
-        "Base",
-        "Body",
-        "Mind",
-        "Soul",
-        "Arcana",
-        "Charm",
-        "Crafting",
-        "Nature",
-        "Medicine",
-        "Thieving",
-    ];
+    
 
     // Styling:
 
     return (
         <>
             <h1>Traits</h1>
-
+            {authLoading &&
+                <Button onClick={() => (download(allTraits, 'traits.json', 'text/json'))} variant="link-body">Download Traits Json</Button>
+            }
             {pinnedTraits.length > 0 && (
                 <>
                     <div className="justify-start">

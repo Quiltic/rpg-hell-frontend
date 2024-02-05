@@ -48,4 +48,13 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
-export { getPersistentPinnedNames, getNames, classNames };
+function download(content, fileName:string, contentType:string) {
+    var a = document.createElement("a");
+    var file = new Blob([JSON.stringify(content, null, 2)], {type: contentType});
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(a.href)
+}
+
+export { getPersistentPinnedNames, getNames, classNames, download };
