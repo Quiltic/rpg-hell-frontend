@@ -34,7 +34,6 @@ const IterativeItemLevels = [
     "Tool",
     "Item",
     "Magical",
-    "Monster"
 ];
 
 export default function ItemsTablePage() {

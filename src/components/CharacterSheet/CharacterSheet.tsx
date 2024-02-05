@@ -41,6 +41,10 @@ export default function CharacterSheetPage() {
     const [items, setItems] = useState<Array<Item>>([]);
 
     const [tempSheet,setTempSheet] = useState(markdown);
+    const [traitText,setTraitText] = useState<Array<string>>([]);
+    const [itemText,setItemText] = useState<Array<string>>([]);
+    const [spellText,setSpellText] = useState<Array<string>>([]);
+    
    
     function clearCharacterSheet() {
         setTempSheet(markdown);
@@ -49,6 +53,66 @@ export default function CharacterSheetPage() {
             ''
         );
     }
+
+    // useEffect(() => {
+    //     let traitLines = [
+    //         "TRAITS",
+    //         ...pinnedTraits.map((t) => {
+    //             return `${t.name} - ${t.dice} - ${t.effect}`;
+    //         }),
+    //     ];
+
+    //     if( traitLines.length > 1) {
+    //         if (traitLines[1].includes('Object "" not found.')) {
+    //             traitLines = [""];
+    //         }
+    //     }
+
+    //     setTempSheet(tempSheet.concat('\n',traitLines.join('\n')));
+    // },[pinnedTraits]);
+
+    // useEffect(() => {
+    //     let itemLines = [
+    //         "ITEMS",
+    //         ...pinnedItems.map((i) => {
+    //             return `${i.name} - ${i.tags} - ${i.effect}`;
+    //         }),
+    //     ];
+
+    //     if( itemLines.length > 1) {
+    //         if (itemLines[1].includes('Object "" not found.')) {
+    //             itemLines = [""];
+    //         }
+    //     }
+
+    //     setTempSheet(tempSheet.concat('\n',itemLines.join('\n')));
+    // },[pinnedItems]);
+    
+    // useEffect(() => {
+    //     let spellLines = [
+    //         "SPELLS",
+    //         ...pinnedSpells.map((s) => {
+    //             return `${s.name} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
+    //                 s.level
+    //             } - ${s.effect}`;
+    //         }),
+    //     ];
+
+    //     if( spellLines.length > 1) {
+    //         if (spellLines[1].includes('Object "" not found.')) {
+    //             spellLines = [""];
+    //         }
+    //     }
+
+    //     setTempSheet(tempSheet.concat('\n',spellLines.join('\n')));
+    // },[pinnedSpells]);
+
+    // useEffect (() => {
+    //     // some magical fuckery
+    //     const bigList = [...traitText, ...itemText, ...spellText].join("\n");
+    //     setTempSheet(tempSheet.concat(bigList));
+
+    // }, [traitText,itemText,spellText])
 
     useEffect (() => {
         if (tempSheet != markdown) {

@@ -75,7 +75,7 @@ export default function RulebookPage() {
             </div>
 
             <div className="justify-start">
-                <Disclosure defaultOpen>
+                <Disclosure defaultOpen={false}>
                     {({ open }) => (
                         <>
                             <Disclosure.Button>
