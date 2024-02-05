@@ -54,7 +54,7 @@ export default function SpellsTablePage() {
                 }
             }
 
-            if (!auth.isAuthenticated && !auth.admin){
+            if (!auth.admin){
                 spells = filterBROKENandMONSTER(spells);
                 // IterativeTraitLevels.push('MONSTER');
             }
@@ -128,7 +128,7 @@ export default function SpellsTablePage() {
     return (
         <>
             <h1>Spells</h1>
-            {authLoading &&
+            {auth.isAuthenticated &&
                 <Button onClick={() => (download(allSpells, 'spells.json', 'text/json'))} variant="link-mind">Download Spells Json</Button>
             }
 

@@ -68,7 +68,7 @@ export default function ItemsTablePage() {
                 }
             }
 
-            if (!auth.isAuthenticated && !auth.admin){
+            if (!auth.admin){
                 items = filterBROKENandMONSTERreq(items);
                 // IterativeTraitLevels.push('MONSTER');
             }
@@ -138,7 +138,7 @@ export default function ItemsTablePage() {
     return (
         <>
             <h1>Items</h1>
-            {authLoading &&
+            {auth.isAuthenticated &&
                 <Button onClick={() => (download(allItems, 'items.json', 'text/json'))} variant="link-soul">Download Items Json</Button>
             }
 

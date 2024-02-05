@@ -70,7 +70,7 @@ export default function TraitsTablePage() {
                 }
             }
             
-            if (!auth.isAuthenticated && !auth.admin){
+            if (!auth.admin){
                 traits = filterBROKENandMONSTERreq(traits);
                 // IterativeTraitLevels.push('MONSTER');
             }
@@ -145,7 +145,7 @@ export default function TraitsTablePage() {
     return (
         <>
             <h1>Traits</h1>
-            {authLoading &&
+            {auth.isAuthenticated &&
                 <Button onClick={() => (download(allTraits, 'traits.json', 'text/json'))} variant="link-body">Download Traits Json</Button>
             }
             {pinnedTraits.length > 0 && (
