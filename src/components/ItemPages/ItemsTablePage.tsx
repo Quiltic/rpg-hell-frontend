@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Item } from "../../client";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
@@ -15,9 +15,10 @@ import {
     filterBROKENandMONSTERreq,
     sortArrayByReqs,
 } from "../../util/sortingTools";
-import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames, download, getPersistentPinnedNames } from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import { AuthContext } from "../../context/AuthProvider";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
@@ -33,6 +34,7 @@ const IterativeItemLevels = [
     "Tool",
     "Item",
     "Magical",
+    "Monster"
 ];
 
 export default function ItemsTablePage() {
@@ -47,6 +49,7 @@ export default function ItemsTablePage() {
 
     const [hasInitializedPersistedItems, setHasInitializedPersistedItems] =
         useState(false);
+    const { auth, authLoading } = useContext(AuthContext);
 
     useEffect(() => {
         async function getItems() {
@@ -65,7 +68,10 @@ export default function ItemsTablePage() {
                 }
             }
 
-            items = filterBROKENandMONSTERreq(items);
+            if (authLoading){
+                items = filterBROKENandMONSTERreq(items);
+                // IterativeTraitLevels.push('MONSTER');
+            }
 
             items = sortArrayByReqs(items ?? []);
 
@@ -132,6 +138,9 @@ export default function ItemsTablePage() {
     return (
         <>
             <h1>Items</h1>
+            {authLoading &&
+                <Button onClick={() => (download(allItems, 'items.json', 'text/json'))} variant="link-soul">Download Items Json</Button>
+            }
 
             {pinnedItems.length > 0 && (
                 <>
