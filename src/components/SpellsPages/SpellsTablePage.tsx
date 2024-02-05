@@ -54,7 +54,7 @@ export default function SpellsTablePage() {
                 }
             }
 
-            if (authLoading){
+            if (!auth.isAuthenticated && !auth.admin){
                 spells = filterBROKENandMONSTER(spells);
                 // IterativeTraitLevels.push('MONSTER');
             }

@@ -68,7 +68,7 @@ export default function ItemsTablePage() {
                 }
             }
 
-            if (authLoading){
+            if (!auth.isAuthenticated && !auth.admin){
                 items = filterBROKENandMONSTERreq(items);
                 // IterativeTraitLevels.push('MONSTER');
             }

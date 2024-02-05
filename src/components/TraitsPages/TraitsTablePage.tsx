@@ -70,7 +70,7 @@ export default function TraitsTablePage() {
                 }
             }
             
-            if (authLoading){
+            if (!auth.isAuthenticated && !auth.admin){
                 traits = filterBROKENandMONSTERreq(traits);
                 // IterativeTraitLevels.push('MONSTER');
             }

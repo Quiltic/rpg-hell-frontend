@@ -15,10 +15,15 @@ import {
     bagIcon,
     ticketIcon,
     creaturesIcon,
+    ChevronIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
 import { formatEffectString } from "../../util/textFormatting";
 import HeadingRenderer from "./headingRenderer";
 import TableOfContentsDiscl from "./tableofContentsDiscl";
+import TraitsTablePage from "../TraitsPages/TraitsTablePage";
+import SpellsTablePage from "../SpellsPages/SpellsTablePage";
+import ItemsTablePage from "../ItemPages/ItemsTablePage";
+import { Disclosure } from "@headlessui/react";
 
 const formattedmd = formatEffectString(markdown);
 
@@ -68,6 +73,33 @@ export default function RulebookPage() {
                     {formattedmd}
                 </Markdown>
             </div>
+
+            <div className="justify-start">
+                <Disclosure defaultOpen>
+                    {({ open }) => (
+                        <>
+                            <Disclosure.Button>
+                                <Button
+                                    variant={"dark"}
+                                    size={"xl"}
+                                    className="mb-2"
+                                    open={open}
+                                    rightIcon={ChevronIcon}
+                                >
+                                    All Tables
+                                </Button>
+                            </Disclosure.Button>
+                                <Disclosure.Panel>
+                                <TraitsTablePage />
+                                <SpellsTablePage />
+                                <ItemsTablePage />
+                            </Disclosure.Panel>
+                        </>
+                    )}
+                </Disclosure>
+            </div>
+
+            
         </>
     );
 }
