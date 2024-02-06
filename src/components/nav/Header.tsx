@@ -5,6 +5,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Login from "../auth/Login";
 
+import GodHeadIcon from "../../assets/godhead.svg";
+
 type HeaderPageLink = {
     name: string;
     href: string;
@@ -43,12 +45,12 @@ export default function Header() {
             >
                 <div className="flex ">
                     <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
-                        <span className="sr-only">Your Company</span>
+                        <span className="sr-only">RPG Hell</span>
                         <img
-                            className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                            alt=""
-                        />
+                            className="h-12 w-auto"
+                            src={GodHeadIcon}
+                            alt="temporary logo"
+                        ></img>
                     </a>
                 </div>
                 <div className="flex md:hidden">
@@ -91,10 +93,10 @@ export default function Header() {
                         <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img
-                                className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                                alt=""
-                            />
+                                className="h-12 w-auto"
+                                src={GodHeadIcon}
+                                alt="temporary logo"
+                            ></img>
                         </a>
                         <button
                             type="button"
