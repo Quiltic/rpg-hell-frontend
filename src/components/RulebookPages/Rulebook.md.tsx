@@ -390,7 +390,8 @@ Some creatures and situations may increase or decrease this value depending on G
 
 # Making a Character
 ## Level 1
-2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
+Pick a Lineage, listed below.
+Then gain 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
 
 <span style="font-family: monospace; font-size: 1.3em">Health = Level + 5*Body + 3*Mind + Soul</span>
 
@@ -420,8 +421,8 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 | 9 | 10 | 20 | 11 | 8 |
 
 
-## Races Table
-| Rolls | Race Type | Bonus Trait |
+## Lineage Table
+| Rolls | Lineage Type | Bonus Trait |
 | --- | --- | --- |
 | 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it's requirement. |
 | 1,2 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
@@ -439,7 +440,7 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 | 3,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
 | 3,3 | Nymph Born | Gain Nature Speak Trait for free. |
 | 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
-| 3,5 | Nagalike | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
+| 3,5 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
 | 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
 | 4+ | Reroll | Reroll |
 
@@ -529,6 +530,15 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 - You cannot speak, cast spells, or activate the effects of your weapon. 
 - Reduce Silence by 1 at the end of your Turn.
 
+
+# Mysc Rules
+
+## Followers
+
+There are many forms of Follower, familiars, summons, undead, pets, random NPC's you picked up along the way.
+Out of combat followers act as expected. For example undead and familiars mill about waiting for their owner to give instructions, NPC's will give input or advice, and pets will... well, be pets. 
+However, when the followers do their turn in combat you lump all of them into 1 group rather than individually, and combine all of their health together into one pool. All followers then use the same 3 dice rolled, acting as if they rolled those dice (though they may do different things with said dice). If the group was to take enough damage for one to die, unless it was targeted specifically, roll a dice to decide which dies.
+If it would make more sense to do multiple groups, assuming your GM allows it, you may use these same rules to make multiple groups. A good example of this may be with undead vs familiars.
 
 
 `;
