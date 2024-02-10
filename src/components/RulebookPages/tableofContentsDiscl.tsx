@@ -201,6 +201,13 @@ export default function TableOfContentsDiscl() {
                                                             </a>
                                                         </li>
                                                     </ul>
+                                                    <li>
+                                                        <a href="#performance-sing-tell-a-story-or-tell-a-joke">
+                                                            Performance:
+                                                            Sing/Tell a
+                                                            Story/Tell a Joke
+                                                        </a>
+                                                    </li>
                                                 </li>
                                                 <li>
                                                     <a href="#crafting">
@@ -217,15 +224,7 @@ export default function TableOfContentsDiscl() {
                                                         <li>
                                                             <a href="#understand-a-contraption">
                                                                 Understand a
-                                                                contraption.
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#performance:-sing,-tell-a-story,-or-tell-a-joke">
-                                                                Performance:
-                                                                Sing/Tell a
-                                                                Story/Tell a
-                                                                Joke
+                                                                contraption
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -244,7 +243,7 @@ export default function TableOfContentsDiscl() {
                                                         </li>
                                                         <li>
                                                             <a href="#handle-a-beast">
-                                                                Handle a beast.
+                                                                Handle a beast
                                                             </a>
                                                         </li>
                                                         <li>
@@ -340,7 +339,7 @@ export default function TableOfContentsDiscl() {
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#deaths-door-1">
+                                                            <a href="#deaths-door">
                                                                 Death's Door
                                                             </a>
                                                         </li>
