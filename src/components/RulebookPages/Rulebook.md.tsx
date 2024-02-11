@@ -398,7 +398,7 @@ Some creatures and situations may increase or decrease this value depending on G
 
 2 Weapons, an Armor, a Bandage, and a non-magical item worth 15 gold or less.
 
-## Leveling Up!
+## Levelling Up!
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
 No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.

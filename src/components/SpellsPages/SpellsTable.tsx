@@ -75,7 +75,7 @@ export default function SpellsTable({
 
                             <td
                                 dangerouslySetInnerHTML={{ __html: ee }}
-                                className="whitespace-pre-wrap"
+                                className="whitespace-pre-wrap text-left"
                             ></td>
                             <td
                                 className="capitalize hidden md:table-cell"
