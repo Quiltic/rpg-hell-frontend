@@ -139,7 +139,7 @@ Manipulation of souls is not without consequence. As such, when a creature or it
 When you spend 8 or more hours doing non-extraneous effort, such as sleeping or relaxing, you gain the effects of a Rest. Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. However, you can only Rest up to twice a Day.
 
 When you complete a Rest you gain the following bonuses:
-- You fully heal, and regain all Armor effects such as Armor Health, Dodge, and Ward.
+- You fully heal, and regain all Armor effects such as Armor Stacks, Dodge, and Ward.
 - You loose all non permanent Stack Effects, such as Wet or Soul Strain (these are just 2 examples. See Stack Effects for more).
 - You regain all uses of spent Trait effects. (Some traits will say "You can do this a number of times per Rest")
 - You loose all Stacks of Death's Door
@@ -221,9 +221,9 @@ When you give AD for movement if you give it a 1 your Speed is reduced by 1, if 
 
 ## Damage and Armor
 
-Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Health then your Health.
+Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Stacks then your Health.
 
-Armor grants an additional special set of Health called **Armor Health**. Different armors provide a varying amount of Armor Health. Armor Health is reduced before you take normal Health loss. Unlike normal Health Armor health cannot be regained from Healing Items or Spells.
+Armor grants an additional special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. Armor Stacks is reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or Spells.
 
 
 
@@ -486,8 +486,11 @@ Some creatures and situations may increase or decrease this value depending on G
 
 
 # Making a Character
+
 ## Level 1
-2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
+
+Pick a Lineage, listed below.
+Then gain 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
 
 <span style="font-family: monospace; font-size: 1.3em">Health = Level + 5*Body + 3*Mind + Soul</span>
 
@@ -495,7 +498,21 @@ Some creatures and situations may increase or decrease this value depending on G
 
 2 Weapons, an Armor, a Bandage, and a non-magical item worth 15 gold or less.
 
-## Levelling Up!
+
+
+## EXP
+
+At the end of a session ask yourselves the following questions and gain the amount of XP listed before them if you answered yes.
+(5 XP) Did you find a new Region/Town/Location?
+(3 XP) Did your group survive a deadly encounter? (Half or more party members are on Death's Door)
+(2 XP) Did you complete a quest?
+(1 XP) Did you gain or spend a lot of money?
+(1 XP) Did you make new friends?
+(1 XP) Did you make/defeat new enemies?
+
+
+
+## Leveling Up!
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
 No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
@@ -517,27 +534,21 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 | 9 | 10 | 20 | 11 | 8 |
 
 
-## Races Table
-| Rolls | Race Type | Bonus Trait |
+## Lineage Table
+| Rolls | Lineage Type | Bonus Trait |
 | --- | --- | --- |
-| 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it's requirement. |
-| 1,2 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
-| 1,3 | Seeker | Gain Dreams of the Future Trait for free, and at Level 3 gain Past and Future Trait for free. |
+| 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a Base Stat (Body, Mind, Soul), you must still meet it's requirement. |
+| 1,2 | Undergrounder | You can cast Glow at will, and Fog Light once per Rest without gaining Soul Strain. These spells do not count against the number of known spells you may have. Additionally, you are small, and are able to squeeze into places you normally wouldn't. You act as half your size smaller when trying to get through or into a space you wouldn't fit in otherwise.|
+| 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
 | 1,4 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
 | 1,5 | Beastkin | Increase your Speed by 1. |
-| 1,6 | Undergrounder | Darkness does not scare you. You can cast Glow at will, and Fog Light once per Rest. |
-| 2,1 | Flaming Draconic | Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,2 | Frozen Draconic | Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,3 | Earthen Draconic |Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell.|
-| 2,4 | Sparked Draconic | Lightning: You can cast Lightning once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,5 | Glowing Draconic | Light: You can cast Fog Light once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,6 | Shadow Draconic | Dark: You can cast Weak Curse once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 3,1 | Elemental | Gain the Spell Control Elements. |
-| 3,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
-| 3,3 | Nymph Born | Gain Nature Speak Trait for free. |
-| 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
-| 3,5 | Nagalike | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
-| 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
+| 2,1 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
+| 3,5 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
+| 1,3 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 6 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
+| 3,1 | Nature-born Elemental | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
+| 3,2 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
+| 1,6 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
+| 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Stacks at the end of a Rest. Additionally, you may consume inorganic material as a food source. |
 | 4+ | Reroll | Reroll |
 
 
@@ -550,7 +561,7 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 ### Soul Strain
 - How much your Soul has been affected by casting or being affected by magic.
 - You can have an amount of Soul Strain equal to three times your Soul before you start taking damage.
-- When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Health, Dodge, Ward, and other effects do not reduce this damage)
+- When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
 
 ### Death's Door
 - When you are on 0 or less life you are put on Death's Door. 
@@ -626,6 +637,15 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 - You cannot speak, cast spells, or activate the effects of your weapon. 
 - Reduce Silence by 1 at the end of your Turn.
 
+
+# Mysc Rules
+
+## Followers
+
+There are many forms of Follower, familiars, summons, undead, pets, random NPC's you picked up along the way.
+Out of combat followers act as expected. For example undead and familiars mill about waiting for their owner to give instructions, NPC's will give input or advice, and pets will... well, be pets. 
+However, when the followers do their turn in combat you lump all of them into 1 group rather than individually, and combine all of their health together into one pool. All followers then use the same 3 dice rolled, acting as if they rolled those dice (though they may do different things with said dice). If the group was to take enough damage for one to die, unless it was targeted specifically, roll a dice to decide which dies.
+If it would make more sense to do multiple groups, assuming your GM allows it, you may use these same rules to make multiple groups. A good example of this may be with undead vs familiars.
 
 
 `;function VD(...e){return e.filter(Boolean).join(" ")}function QD({children:e,colorClassName:t}){const n=VD("flex h-6 w-fit px-3 items-start justify-center rounded-md text-light mb-1",t);return h.jsx("div",{className:n,children:e})}function $r(e,t){return e?(e.endsWith(" ")&&(e=e.slice(0,-1)),e.split(t).map((r,a)=>{const i=r.split(" ");return h.jsx(QD,{colorClassName:"bg-"+i[0].toLowerCase(),children:r},a)})):""}function mc(e){return e.replace(/(?:\r\n|\r|\n)/g,"<br />"),KD(e)}function KD(e){const t=["body","mind","soul","arcana","charm","crafting","nature","medicine","thieving"];let n=e;for(const r of t)n=XD(n,r);return n}function XD(e,t){const n=new RegExp(`\\b(${t})\\b`,"gi");return e.replace(n,`<span class="text-${t} dark:text-${t}-700">$1</span>`)}const ov=(e,t)=>typeof t=="string"?e+t:ae.Children.toArray(t.props.children).reduce(ov,e),ui=e=>{const r=ae.Children.toArray(e.children).reduce(ov,"").toLowerCase().replace(/['".()!/:,]/g,"").replace(/\W/g,"-");return ae.createElement(e.node.tagName,{id:r},e.children)};function JD({title:e,titleId:t,...n},r){return b.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 20 20",fill:"currentColor","aria-hidden":"true",ref:r,"aria-labelledby":t},n),e?b.createElement("title",{id:t},e):null,b.createElement("path",{fillRule:"evenodd",d:"M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z",clipRule:"evenodd"}))}const ZD=b.forwardRef(JD),eP=ZD;function tP({title:e,titleId:t,...n},r){return b.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 20 20",fill:"currentColor","aria-hidden":"true",ref:r,"aria-labelledby":t},n),e?b.createElement("title",{id:t},e):null,b.createElement("path",{fillRule:"evenodd",d:"M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z",clipRule:"evenodd"}))}const nP=b.forwardRef(tP),rP=nP;function aP({title:e,titleId:t,...n},r){return b.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 20 20",fill:"currentColor","aria-hidden":"true",ref:r,"aria-labelledby":t},n),e?b.createElement("title",{id:t},e):null,b.createElement("path",{fillRule:"evenodd",d:"M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z",clipRule:"evenodd"}))}const iP=b.forwardRef(aP),oP=iP;function sP({title:e,titleId:t,...n},r){return b.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 20 20",fill:"currentColor","aria-hidden":"true",ref:r,"aria-labelledby":t},n),e?b.createElement("title",{id:t},e):null,b.createElement("path",{fillRule:"evenodd",d:"M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z",clipRule:"evenodd"}))}const uP=b.forwardRef(sP),ti=uP;function lP({title:e,titleId:t,...n},r){return b.createElement("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 20 20",fill:"currentColor","aria-hidden":"true",ref:r,"aria-labelledby":t},n),e?b.createElement("title",{id:t},e):null,b.createElement("path",{d:"M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"}))}const cP=b.forwardRef(lP),ha=cP;function Ma({displayedTraits:e,moveTrait:t,moveIsAdd:n=!0}){return h.jsxs("table",{className:"border-collapse table-fixed md:table-auto dark:text-light text-dark rounded-md",children:[h.jsx("thead",{className:"dark:bg-dark-400 bg-light-300 font-bold",children:h.jsxs("tr",{children:[h.jsx("th",{className:"hidden md:table-cell",children:"Name"}),h.jsx("th",{className:"table-cell md:hidden w-1/4",children:"Trait"}),h.jsx("th",{className:"hidden md:table-cell",children:"Requirements"}),h.jsx("th",{className:"hidden md:table-cell",children:"Dice"}),h.jsx("th",{children:"Effect"}),t!=null&&h.jsx("th",{className:"hidden md:table-cell",children:n?"Save":"Unsave"})]})}),h.jsx("tbody",{children:e.map((r,a)=>{var s;const i=mc(r.effect??""),o=$r(((s=r.req)==null?void 0:s.toString().replace(" 0",""))??"",",");return h.jsxs("tr",{children:[h.jsx("td",{className:"font-bold capitalize hidden md:table-cell",children:r.name}),h.jsxs("td",{className:"table-cell min-w-24 md:hidden capitalize",children:[" ",h.jsx("span",{className:"font-bold underline",children:r.name})," ",h.jsx("br",{}),"Dice:"," ",r.dice?"#".repeat(r.dice??1):"P",h.jsx("div",{className:"flex flex-col items-center",children:o})," ",t!=null&&h.jsx(pe,{variant:n?"subtle-nature":"subtle-medicine",leftIcon:n?Wa:Ga,className:"rounded-md w-6 h-8",onClick:()=>{t(r)}})]}),h.jsx("td",{className:"capitalize hidden md:table-cell",align:"center",children:o}),h.jsx("td",{className:"hidden md:table-cell",children:r.dice?"#".repeat(r.dice??1):"P"}),h.jsx("td",{dangerouslySetInnerHTML:{__html:i},className:"whitespace-pre-wrap text-left"}),t!=null&&h.jsx("td",{className:"hidden md:table-cell",children:h.jsx(pe,{variant:n?"subtle-nature":"subtle-medicine",leftIcon:n?Wa:Ga,className:"rounded-md w-6 h-8",onClick:()=>{t(r)}})})]},a)})})]})}const pc={1:{name:"weapon attack",effect:"Use your weapon to hit a target. To hit a target you must give 2 dice, possibly doing a bonus effect based on the sum of the roll and the weapon used. Then when doing damage removing damage from the target based on its Armor and Ward.",req:["base"],dice:2,is_passive:!1},2:{name:"spell casting",effect:"Gain Soul Strain to Cast a spell from your Spell list. Soul Strain cost, dice cost, and effect depend on spell.",req:["base"],dice:4,is_passive:!1},3:{name:"use an item",effect:"Use an item that is from your bag, or is within 1 tile of you in the world.",req:["base"],dice:2,is_passive:!1},4:{name:"move",effect:"Spend a dice to move your Speed. Swimming and Climbing use two tiles instead of 1. If you give a 1 you lose 1 Speed for this movement. If you give a 6 you gain 1 Speed for this Movement",req:["base"],dice:1,is_passive:!1},5:{name:"grapple",effect:"Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is Grappled.",req:["base"],dice:2,is_passive:!1},6:{name:"push",effect:"Roll a Contested Body Check against a target within 1 tile of you. If you succeed then the target is pushed 3 tiles away from you.",req:["base"],dice:2,is_passive:!1},7:{name:"overwatch",effect:"When a target moves into or out of your Weapon range you may spend your Locked Dice to do a Weapon Attack. Reduce your Locked dice value by 2 for this attack.",req:["base"],dice:1,is_passive:!1},8:{name:"lock",effect:"You may Lock any unused dice at the end of your Turn.",req:["base"],dice:1,is_passive:!1},9:{name:"flight",effect:"You have permanent Flight.",req:["MONSTER"],dice:0,is_passive:!0},10:{name:"aquatic life",effect:"You can only breathe in water.",req:["MONSTER"],dice:0,is_passive:!0},11:{name:"strong body",effect:"When you roll Physical Feats for Lifting or Pulling multiply each roll by 3 times.",req:["MONSTER"],dice:0,is_passive:!0},12:{name:"mount",effect:`When someone rolls to Handle a Beast on you they do so with an extra dice.
