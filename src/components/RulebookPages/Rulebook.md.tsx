@@ -42,7 +42,7 @@ Manipulation of souls is not without consequence. As such, when a creature or it
 When you spend 8 or more hours doing non-extraneous effort, such as sleeping or relaxing, you gain the effects of a Rest. Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. However, you can only Rest up to twice a Day.
 
 When you complete a Rest you gain the following bonuses:
-- You fully heal, and regain all Armor effects such as Armor Health, Dodge, and Ward.
+- You fully heal, and regain all Armor effects such as Armor Stacks, Dodge, and Ward.
 - You loose all non permanent Stack Effects, such as Wet or Soul Strain (these are just 2 examples. See Stack Effects for more).
 - You regain all uses of spent Trait effects. (Some traits will say "You can do this a number of times per Rest")
 - You loose all Stacks of Death's Door
@@ -124,9 +124,9 @@ When you give AD for movement if you give it a 1 your Speed is reduced by 1, if 
 
 ## Damage and Armor
 
-Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Health then your Health.
+Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Stacks then your Health.
 
-Armor grants an additional special set of Health called **Armor Health**. Different armors provide a varying amount of Armor Health. Armor Health is reduced before you take normal Health loss. Unlike normal Health Armor health cannot be regained from Healing Items or Spells.
+Armor grants an additional special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. Armor Stacks is reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or Spells.
 
 
 
@@ -389,7 +389,9 @@ Some creatures and situations may increase or decrease this value depending on G
 
 
 # Making a Character
+
 ## Level 1
+
 Pick a Lineage, listed below.
 Then gain 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
 
@@ -399,7 +401,21 @@ Then gain 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other
 
 2 Weapons, an Armor, a Bandage, and a non-magical item worth 15 gold or less.
 
-## Levelling Up!
+
+
+## EXP
+
+At the end of a session ask yourselves the following questions and gain the amount of XP listed before them if you answered yes.
+(5 XP) Did you find a new Region/Town/Location?
+(3 XP) Did your group survive a deadly encounter? (Half or more party members are on Death's Door)
+(2 XP) Did you complete a quest?
+(1 XP) Did you gain or spend a lot of money?
+(1 XP) Did you make new friends?
+(1 XP) Did you make/defeat new enemies?
+
+
+
+## Leveling Up!
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
 No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
@@ -424,24 +440,18 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 ## Lineage Table
 | Rolls | Lineage Type | Bonus Trait |
 | --- | --- | --- |
-| 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a base skill (Body, Mind, Soul), you must still meet it's requirement. |
-| 1,2 | Shortstack | You are small, and are able to squeeze into places you normally wouldn't. You act as 1 ft smaller when trying to get through or into a space you wouldn't fit in otherwise.  |
-| 1,3 | Seeker | Gain Dreams of the Future Trait for free, and at Level 3 gain Past and Future Trait for free. |
+| 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a Base Stat (Body, Mind, Soul), you must still meet it's requirement. |
+| 1,2 | Undergrounder | You can cast Glow at will, and Fog Light once per Rest without gaining Soul Strain. These spells do not count against the number of known spells you may have. Additionally, you are small, and are able to squeeze into places you normally wouldn't. You act as half your size smaller when trying to get through or into a space you wouldn't fit in otherwise.|
+| 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
 | 1,4 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
 | 1,5 | Beastkin | Increase your Speed by 1. |
-| 1,6 | Undergrounder | Darkness does not scare you. You can cast Glow at will, and Fog Light once per Rest. |
-| 2,1 | Flaming Draconic | Fire: You can cast Fire Breath once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,2 | Frozen Draconic | Ice: You can cast Freezing Wave once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,3 | Earthen Draconic |Earth: You can cast Bolder Toss once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell.|
-| 2,4 | Sparked Draconic | Lightning: You can cast Lightning once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,5 | Glowing Draconic | Light: You can cast Fog Light once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 2,6 | Shadow Draconic | Dark: You can cast Weak Curse once per Rest without gaining Soul Strain. You use your Core Skill instead of Soul when casting this spell. |
-| 3,1 | Elemental | Gain the Spell Control Elements. |
-| 3,2 | Hellborn | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
-| 3,3 | Nymph Born | Gain Nature Speak Trait for free. |
-| 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
+| 2,1 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
 | 3,5 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
-| 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Health. |
+| 1,3 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 6 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
+| 3,1 | Nature-born Elemental | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
+| 3,2 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
+| 1,6 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
+| 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Stacks at the end of a Rest. Additionally, you may consume inorganic material as a food source. |
 | 4+ | Reroll | Reroll |
 
 
@@ -454,7 +464,7 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 ### Soul Strain
 - How much your Soul has been affected by casting or being affected by magic.
 - You can have an amount of Soul Strain equal to three times your Soul before you start taking damage.
-- When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Health, Dodge, Ward, and other effects do not reduce this damage)
+- When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
 
 ### Death's Door
 - When you are on 0 or less life you are put on Death's Door. 
