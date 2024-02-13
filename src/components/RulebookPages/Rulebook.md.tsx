@@ -130,7 +130,7 @@ Armor grants an additional special set of Health called **Armor Health**. Differ
 
 
 
-## Deaths Door
+## Death's Door
 
 When you are on 0 or less life you are put on Death's Door. While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
 : For example if you are on Death's Door and roll a 3 you live another turn and are on Death's Door 2.
@@ -299,7 +299,7 @@ This action cannot make weapons, armors, potions, complex items, or magic items 
 
 
 
-### Understand a Contraption.
+### Understand a Contraption
 Increase the DL by the target's Crafting score.
 
 - Complete Failure: You break the item.
@@ -315,7 +315,7 @@ Increase the DL by the target's Crafting score.
 ### Scrounge
 - 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
-### Handle a Beast.
+### Handle a Beast
 Can only target a creature with the Animal tag.
 Increase the DL by the creature's Level
 
@@ -399,7 +399,7 @@ Then gain 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other
 
 2 Weapons, an Armor, a Bandage, and a non-magical item worth 15 gold or less.
 
-## Leveling Up!
+## Levelling Up!
 
 1 Core Stat Increase, 2 Skill increases, and 1 new Trait
 No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
