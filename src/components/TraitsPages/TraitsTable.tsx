@@ -84,7 +84,7 @@ export default function TraitsTable({
                             </td>
                             <td
                                 dangerouslySetInnerHTML={{ __html: ee }}
-                                className="whitespace-pre-wrap"
+                                className="whitespace-pre-wrap text-left"
                             ></td>
                             {moveTrait != undefined && (
                                 <td className="hidden md:table-cell">

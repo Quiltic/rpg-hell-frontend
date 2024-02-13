@@ -19,11 +19,11 @@ import {
 } from "../../assets/IconSVGs/heroiconsSVG";
 import { formatEffectString } from "../../util/textFormatting";
 import HeadingRenderer from "./headingRenderer";
-import TableOfContentsDiscl from "./tableofContentsDiscl";
 import TraitsTablePage from "../TraitsPages/TraitsTablePage";
 import SpellsTablePage from "../SpellsPages/SpellsTablePage";
 import ItemsTablePage from "../ItemPages/ItemsTablePage";
 import { Disclosure } from "@headlessui/react";
+import TableOfContents from "../TableOfContents/TableOfContents";
 
 const formattedmd = formatEffectString(markdown);
 
@@ -57,7 +57,8 @@ export default function RulebookPage() {
             </div>
 
             <div className=" mx-auto text-left max-w-4xl markdown-styles">
-                <TableOfContentsDiscl />
+                <h1>Table of Contents</h1>
+                <TableOfContents />
                 <Markdown
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
@@ -89,7 +90,7 @@ export default function RulebookPage() {
                                     All Tables
                                 </Button>
                             </Disclosure.Button>
-                                <Disclosure.Panel>
+                            <Disclosure.Panel>
                                 <TraitsTablePage />
                                 <SpellsTablePage />
                                 <ItemsTablePage />
@@ -98,8 +99,6 @@ export default function RulebookPage() {
                     )}
                 </Disclosure>
             </div>
-
-            
         </>
     );
 }
