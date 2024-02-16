@@ -80,6 +80,10 @@ const statsSkillsContents: TableOfContentsItem = {
     className: "",
     subItems: [
         {
+            name: "DL Table",
+            anchorHref: "dl-table",
+        },
+        {
             name: "Body",
             className: "font-semibold text-body dark:text-body-700",
             collapsable: true,
@@ -208,16 +212,16 @@ const characterCreationContents: TableOfContentsItem = {
             name: "Level 1",
         },
         {
-            name: "Levelling up!",
-            anchorHref: "levelling-up",
+            name: "Leveling up!",
+            anchorHref: "leveling-up",
         },
         {
-            name: "Levelling Table",
+            name: "Leveling Table",
             anchorHref: "useful-level-table",
         },
         {
-            name: "Lineages Table",
-            anchorHref: "lineages-table",
+            name: "Lineage Table",
+            anchorHref: "lineage-table",
         },
     ],
 };
@@ -232,7 +236,7 @@ const statusesContents: TableOfContentsItem = {
         },
         {
             name: "Statuses",
-            anchorHref: "status-effects",
+            anchorHref: "stack-effects",
             collapsable: true,
             subItems: [
                 {
