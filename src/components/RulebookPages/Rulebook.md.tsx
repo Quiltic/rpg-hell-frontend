@@ -3,9 +3,9 @@ const markdown = `
 # Basics
 
 This game is built up around the idea of normal dice (d6's, or 6 sided dice). Any and all rolls that this game will ask you to do will be done using some amount of these dice, so go grab some. Personally I would recommend 4-6 per person, though you can play this with just 1 if need be.
-This game is heavily inspired by YOU the players and your host known as the Game Master (denoted as GM from here on). The GM is the one hosting the show, and while this is the rule-book not all possible situations can be given clear ruling. Envitably it is up to the GM to decide what will happen. 
+This game is heavily inspired by YOU the players and your host known as the Game Master (denoted as GM from here on). The GM is the one hosting the show, and while this is the rule-book not all possible situations can be given clear ruling. Envitably, it is up to the GM to decide what will happen. 
 
-There are primarily 2 sections to this game, Out of Combat; which is where most roll-playing will take place and In Combat; which is where you fight monsters and other stuff.
+There are primarily 2 sections to this game, Out of Combat; which is where most roll-playing will take place, and In Combat; which is where you fight monsters and other stuff.
 
 For a complete and up to date rule set go to [https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing](https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing).
 
@@ -15,9 +15,11 @@ For a complete and up to date rule set go to [https://docs.google.com/document/d
 
 # Locking Dice
 
-When you do a roll you may Lock a dice. This dice is set to the side and is removed from the roll. On later turns you may then replace a dice with your Locked dice. Replacing a dice removes the replaced dice from play and unlocks the Locked dice.
-For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
+When you do any roll you may Lock one dice. This dice is set to the side and is removed from the current roll, ie you do not add it to sums or use it for actions. On later turns you may then **replace** a rolled dice with your Locked dice. 
+Replacing a dice removes the replaced dice from play and uses the Locked dice. 
 **You can Not have more than 1 Locked dice at a time.**
+
+For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then, lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
 
 
 
@@ -25,13 +27,13 @@ For example lets say I do a Physical Feats roll and roll five 6's. I probably do
 
 # Magic
 
-Magic is the ability to control souls to affect the world around them. Every creature, object, or place has a soul. Though typically only creatures are able to directly control souls.
+Magic is the ability to control souls, both your own and others, to affect the world around them. Every creature, object, or place has a soul. Though typically only creatures are able to directly control souls.
 
 As of now there are only 3 known ways to control soul: Strange grand movements which physically change the shape of souls, using Light to suppress or enhance souls, and through writing of Runes on items to bring out the items latent soul.
 
 There are a number of ways to learn how to do magic. Some mages learn through intense study and hard work. Others learn how by tradition or special dances. Even more are born with such knowledge or even find them by shear coincidence.
 
-Manipulation of souls is not without consequence. As such, when a creature or item cast or use magic, they gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. Your max Soul Strain is 3 times your Soul. Though some Traits can increase this slightly. You loose all stacks of Soul Strain when you finish a Rest.
+Despite all this, the manipulation of souls is not without consequence. As such, when a creature or item cast or use magic, they may gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. Your max Soul Strain is 3 times your Soul. Though some Traits, or Items can increase this slightly. You loose all stacks of Soul Strain when you finish a Rest.
 
 
 
@@ -52,10 +54,12 @@ When you complete a Rest you gain the following bonuses:
 ## Travel
 
 When moving long distances you move based on the average of all party member's Speed (rounded down). For example if a party has 3 people with speeds of 7,6,4 then the travel speed is 5.
+
 Large grid is used when dealing with travel. A large tile is 2,160*2,160 tiles. Medium tiles are 36*36 tiles (can be used to move per minute). __If your using hex like a chad then its the same but in hex shape.__
 Every Hour your party can move a number of Large tiles equal to your Party Travel Speed, mentioned above. 
 Alternatively, your party can move 1 tile faster at the cost of being permanently Marked for the duration of travel. This condition lasts into combat if you get ambushed.
 Or your party can move 1 tile slower to try to Hide during travel. You can roll Nature or Thieving for this check.
+
 When using Boats, Riding Animals, Carts, Cars, or some similar vehicle you replace your speed with that of the vehicle.
 
 
@@ -70,27 +74,28 @@ These are actions that anyone can do. The basic listing of actions any creature 
 
 Some actions require traits or items to acquire. An example is the Tunneler Trait which lets you easily break and move solid land, such as dirt or stone. Or the ever famous Cooking Tools which allow you to make foods you otherwise would have to buy to acquire.
 
-Actions generally have 3 different ways of operating: Checks (the most common type), Contests, and Activatable (toggles or just works without rolling).
+Actions generally have 3 different ways of operating: Checks (the most common type), Contests, and Activatable ones (toggles or just works without rolling).
 
 
 
 ### Checks
 
 When you want to do an Action that requires a check, you roll a number of dice based on the required stat or skill. The number of dice is equal to 2 with an additional dice for every point you put into the required check.
-For example if you want to do a Physical Feat you roll a Body check, and you have a 3 in Body then you roll 5 dice (2 from default plus 3 from Body).
+For example if you want to do a Physical Feat you roll a Body check. If you have a 3 in Body then you roll 5 dice (2 from default plus 3 from Body).
 
-Depending on the check you will be able to do specific actions based on the values rolled. Some checks work where they list off a number of actions and for every dice group you give (typically 7 or more) you can redo that action a number of times. A good example is our Physical Feat roll, where you may give 7+ a number of times to increase the values of the roll.
+Most (if not all) checks have you take the sum of all dice rolled and compare it to the Difficulty Level value (denoted as DL from here on). 
+All checks have set ways that increase or decrease the DL, they are noted underneath their respective actions. The DL typically ranges from 0 to 9 where the value you need to get in order to pass is 6 + 3*DL.
 
-Others will just have a total for the sum of all the dice rolled. A good example of this is our Cooking Tools, which give better foods the higher you roll.
+Every action has 4 levels of success. Complete Failure (sum is less than the DL by 10 or more), Failure (sum is less than the DL), Success (the sum meets or beets the DL), and Great Success (sum is greater than the DL by 10 or more)
 
-You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next. See Difficulty Level (DL) Rules for more.
+You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next. All of this is recited in the Difficulty Level (DL) Rules Listed below. There is also a table to help show what sums you need to succeed.
 
 
 
 ### Contests
 
-Some Actions require Contests, which is a competition between two or more parties. When your GM asks you to roll a Contest you then roll a Check based on the required Stat or Skill similar to the ways checks work.
-Whichever party has a higher sum wins the contest. If a tie happens it is based on the dice values rolled. If a tie where to come from this the players win.
+Some Actions require Contests, which is a competition between two or more parties. When you or your GM incites a Contest, all party's then roll based on the required Stat or Skill. This being similar to the ways Checks work.
+Whichever party has a higher sum wins the contest. If a tie happens it is based on which party rolled the higher individual dice values. Players always win if all dice are the same.
 
 
 
@@ -98,27 +103,34 @@ Whichever party has a higher sum wins the contest. If a tie happens it is based 
 
 # Combat
 
-Combat is split up into Rounds, each Round a creature has 3 phases, Beginning which is where they take damage or effects from Stack Effects. Next their Action phase which is where they can do their Trait or Generic Actions. Lastly their end phase, which is where they loose stacks or effects.
+Combat is split up into Rounds, each Round a creature has 3 phases; Beginning which is where they take damage or effects from Stack Effects and roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they loose stacks or effects.
 
 ## Initiative
 
-All creatures in combat must roll Initiative to see when they may do their Actions in Combat. This value is calculated by rolling a dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first).
-Whichever creature has the highest speed goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
+All creatures in combat must roll Initiative to see when they may do their Actions in Combat. This value is calculated by rolling two dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first).
+Whichever creature has the highest Initiative goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
+
+The world (earthquakes, neutral NPC's, and other creature related actions) always go last in Initiative.
+
+
 
 ## Action Dice (AD)
 
-At the beginning of your turn you roll an amount of Action Dice (denoted as **AD** from here on) based on your __COMBAT DICE__ (Temp name). 
-You can spend AD to do actions in Combat an amount denoted next to the Action as a #, one for each point.
-Attacks and Contests count as ## (2 AD), Movement counts as # (1 AD), and Spells and Traits have varying amounts.
+At the beginning of your turn you roll an amount of dice based on your __COMBAT DICE__ (Temp name). 
+You can spend these dice to do actions in Combat. Every action asks for a different amount of dice, denoted next to the Action as a number of #. Depending on the action taken the values for the dice may or may not matter.
+For example, when you take/use the action Bull Rush it requires you to give it ##, or two dice. These dice values do not matter as you will always do its effect. On the other hand the Dagger Master trait asks for #, one dice, but requires a 6 to do its effect in combat.
+
+Attacks and Contests count as ## (2 dice), Movement counts as # (1 dice), and Spells and Traits have varying amounts, which are listed next to them under Dice.
 
 
 
-### AD Values Matter 
+### Attack Dice Values Matter 
 
 All weapons have special actions when you wield them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you don't have these requirements you can still use the weapon but you only get the 4 or less effects regardless of dice values given.
-On Attacks you give ## (2 AD), taking the sum of these 2 dice gives special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4.
 
-When you give AD for movement if you give it a 1 your Speed is reduced by 1, if you give it a 6 it is increased by 1.
+On Attacks when you give ## (2 dice) you take the sum of these dice, sometimes giving special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4.
+For example a sword (short or long) does 1 extra damage on a 9 or higher, and 1 less damage on a 4 or lower.
+
 
 
 
@@ -126,7 +138,10 @@ When you give AD for movement if you give it a 1 your Speed is reduced by 1, if 
 
 Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Stacks then your Health.
 
-Armor grants an additional special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. Armor Stacks is reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or Spells.
+Armor grants an additional special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. 
+As stated above Armor Stacks are reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or most Spells.
+
+You can have a max of 100 Armor Stacks at any given point in time.
 
 
 
@@ -145,17 +160,17 @@ Death's Door only goes away if you do a Rest.
 
 ## Difficulty Level Rules
 
-Most rolls will have a DL goal in order to pass. You can roll varying levels of success or failure based on the total sum rolled. Different DL levels happen for every type of roll and your gm may chose to increase or decrease this DL threshold based on circumstance.
+Most (if not all) checks have you take the sum of all dice rolled and compare it to the Difficulty Level value (denoted as DL from here on). 
+You can roll varying levels of success or failure based on the total sum rolled.
+Different DL levels happen for every type of roll and your gm may chose to increase or decrease this DL threshold based on circumstance.
 
-All DL increases are listed above the results of the roll.
+All DL increases are listed above the results of the roll. With the value to succeed (goal) being 6 + 3*Difficulty Level (DL)
 
-Goal: Value to meet = 6 + 3 * Difficulty Level (DL)
-
-Complete Failure: Roll lower than the goal by 5 or more.
-Failure: Roll less than the goal.
-Success: Roll the goal or higher.
-Great Success: Roll higher than the goal by 5 or more.
-Perfect Success: Roll higher than the goal by 10 or more.
+The levels of success are as follows:
+- Complete Failure: Roll lower than the goal by 10 or more.
+- Failure: Roll less than the goal.
+- Success: Roll the goal or higher.
+- Great Success: Roll higher than the goal by 10 or more.
 
 
 ## DL Table
@@ -181,13 +196,12 @@ Jump 2 tiles horizontally with a running start. Increase the DL by 1 for every 1
 Jump 1 tile vertical or horizontally. Increase the DL by 2 for every 1 extra tile you want to jump.
 Lift/Push 100 lb thing with 2 hands. Increase the DL by 1 for every 100 extra lb you want to lift.
 Lift/Push a 20 lb thing with 1 hand. Increase the DL by 1 for every 20 extra lb you want to lift.
-Force open a door. This cannot be done quietly.
+Force open a door. This cannot be done quietly. The DL is 1 for normal doors, 3 for heavy doors, and 6 for reinforced doors. (GM may increase or decrease this value based on door type)
 
 - Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
 - Failure: You fail.
 - Success: You succeed.
 - Great Success: ___
-- Perfected Success: __
 
 
 ### Acrobatics or Athletics
@@ -196,8 +210,7 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 - Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
 - Failure: You fail.
 - Success: You succeed.
-- Great Success: ___
-- Perfected Success: This specific feat (doing a backflip, jumprope, etc) has become muscle memory to you, reducing the DL by 1 the next time you do this specific feat.
+- Great Success: This specific feat (doing a backflip, jumprope, etc) has become muscle memory to you, reducing the DL by 1 the next time you do this specific feat.
 
 
 
@@ -208,9 +221,8 @@ When searching an area, items or clues in the area have their own discovery DLs 
 
 - Complete Failure: You take twice as long to search and find nothing.
 - Failure: You find nothing.
-- Success: You find the item or clue
-- Great Success: You find the item or clue in half the time
-- Perfected Success: You find the item or clue immediately.
+- Success: You find the item or clue.
+- Great Success: You find the item or clue in half the time.
 
 
 
@@ -221,13 +233,14 @@ Most situations are based on GM ruling. However a good guideline for DL is: 0 fo
 - Failure: You don't remember.
 - Success: You remember vague details about what you are trying to remember.
 - Great Success: You remember most of the details about what you are trying to remember.
-- Perfected Success: You remember in perfect clarity.
 
 
 
 ## Soul
 
 ### Make a Prayer
+(This one is a work in progress)
+
 - 7+ Ask your god a question. Increases by 7 for every question asked that day.
 - Ask for aid, may require more than 7+. (GM's discretion)
 - 21+ Talk to your god.
@@ -241,9 +254,8 @@ Runes written increase the DL by the writers Arcana.
 
 - Complete Failure: ___
 - Failure: You have no idea what the runes say or do.
-- Success: You know what the runes say, what the magic item does, how to use the magic item, or a more specific question based on the item.
-- Great Success: You know what the runes say, or what the magic item does and how to use the magic item, or a more specific question based on the item.
-- Perfected Success: You know what the runes say, what the magic item does, how to use the magic item, and may ask a more specific question based on the item.
+- Success: You know what the runes say, what the magic item does, how to use the magic item, or a more specific question based on the item (pick 1).
+- Great Success: You know what the runes say, what the magic item does, how to use the magic item, and may ask a more specific question based on the item.
 
 
 
@@ -257,8 +269,7 @@ Some creatures and situations may increase or decrease this value depending on G
 - Complete Failure: They are not convinced and trust you less.
 - Failure: They are not convinced.
 - Success: They are convinced though they have their doubts and may ask for more (information, gold, lies).
-- Great Success: They are convinced though they have their doubts.
-- Perfected Success: They are thoroughly convinced.
+- Great Success: They are thoroughly convinced.
 
 
 ### Discern Others Intentions
@@ -268,7 +279,6 @@ Increase the DL by the target's Charm
 - Failure: You have no idea what their intention is, or if they are lying.
 - Success: Determine the target's intention or if they are lying.
 - Great Success: Determine the target's intention and if they are lying.
-- Perfected Success: Determine the target's intention and if they are lying, and what they are lying about or how to convince them to tell the truth.
 
 
 ### Performance: Sing, Tell a Story, or Tell a Joke
@@ -277,8 +287,7 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 - Complete Failure: Everyone boo's you and tries to get you to stop, sometimes by physical means.
 - Failure: You only attract 1 or two listeners if any. 
 - Success: You attract a group of people nearby to come to listen to your performance. You may get some gold from listeners.
-- Great Success:  You attract a large group of people nearby to come to listen to your performance. You may get some gold from listeners.
-- Perfected Success: Everyone who can hear your performance nearby come to listen to you, and are distracted from focusing on other tasks. You will get some gold from listeners.
+- Great Success: Everyone who can hear your performance nearby come to listen to you, and are distracted from focusing on other tasks. You will get some gold from listeners.
 
 
 
@@ -287,15 +296,13 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 
 ### Make an Item
 Increase the DL by the crafted items Crafting score.
-Spend 1 minute for a Crafting score of 0.
-Spend 30 minutes multiplied by the item's Crafting score.
+Spend 1 minute for a Crafting score of 0. Spend 10 minutes for a Crafting score of 1. For Crafting score of 2 or higher spend 30 minutes multiplied by the item's Crafting score.
 This action cannot make weapons, armors, potions, complex items, or magic items (See Tools).
 
 - Complete Failure: You fail to make the item and lose all gold spent trying to make the item.
 - Failure: You do not finish the item, you reduce the time by half the next time you try to craft this item.
 - Success: Spend the normal amount of time and half the gold cost of the item to create the item.
 - Great Success: Spend half the time and half the gold cost of the item to create the item.
-- Perfected Success: Spend half the time and a quarter of the gold cost of the item to create the item.
 
 
 
@@ -305,25 +312,25 @@ Increase the DL by the target's Crafting score.
 - Complete Failure: You break the item.
 - Failure: You have no idea what the item does.
 - Success: You know what the item does, how to use the item, or more specific information based on the item.
-- Great Success: You know what the item does and how to use the item, or more specific information based on the item.
-- Perfected Success: You know what the item does, how to use the item, and more specific information based on the item.
+- Great Success: You know what the item does, how to use the item, and more specific information based on the item.
 
 
 
 ## Nature
 
 ### Scrounge
+(This one is a work in progress)
+
 - 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
 ### Handle a Beast
 Can only target a creature with the Animal tag.
 Increase the DL by the creature's Level
 
-- Complete Failure: Enrage the creature, having it attack you or run away.
+- Complete Failure: Enrage or scare the creature, having it attack you or run away.
 - Failure: You do not handle the Creature.
 - Success: Successfully handle the Creature.
-- Great Success: Successfully tame the Creature making it a personal Minion for 1 hour.
-- Perfected Success: Successfully tame the Creature making it a personal Minion permanently.
+- Great Success: Successfully tame the Creature making it a Pet (Follower) for 1 hour. (If you get this option 4 times in 1 day this becomes Permanent)
 
 
 
@@ -336,7 +343,6 @@ Some creatures and situations may increase or decrease this value depending on G
 - Failure: You cannot follow the tracks.
 - Success: Follow tracks up to 12 tiles in length discovering the creature if it is within 4 tiles of you.
 - Great Success: Follow tracks up to 24 tiles in length discovering the creature if it is within 4 tiles of you.
-- Perfected Success: Follow tracks up to 36 tiles in length discovering the creature if it is within 4 tiles of you.
 
 
 
@@ -368,7 +374,6 @@ Additional circumstances such as the size of the item in question could increase
 - Failure: You are not detected and do not steal/place the item.
 - Success: You steal/place the item and lose Hidden if you are Hidden. The targets do not know you stole/placed something.
 - Great Success: You steal/place the item undetected and do not lose Hidden.
-- Perfected Success: You steal/place the item undetected and do not lose Hidden, and can move away without rolling Hidden or spending more dice.
 
 
 ### Hide
@@ -378,11 +383,8 @@ Some creatures and situations may increase or decrease this value depending on G
 
 - Complete Failure: You do not become Hidden and are Marked for 1 minute (Gain 6 stacks of Marked).
 - Failure: You do not become Hidden.
-- Success: You are hidden until you do any action other than moving or move within 2 tiles of another non-friendly creature you are not stealing from.
-- Great Success: You are hidden until you do any action other than moving or move within 1 tile of another non-friendly creature you are not stealing from.
-- Perfected Success: Become Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
-
-
+- Success: You are Hidden until you do any non-thieving action, other than moving, or move within 2 tiles of another non-friendly creature you are not stealing from.
+- Great Success: You are Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
 
 
 
@@ -393,31 +395,32 @@ Some creatures and situations may increase or decrease this value depending on G
 ## Level 1
 
 Pick a Lineage, listed below.
-Then gain 2 Core Stat increases (body, mind, soul), 4 Skill increases (the other ones), 3 Traits you meet the req for.
+Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Skill increases (), 3 Traits you meet the req for.
 
-<span style="font-family: monospace; font-size: 1.3em">Health = Level + 5*Body + 3*Mind + Soul</span>
+<span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
 
-<span style="font-family: monospace; font-size: 1.3em">Soul Strain and Known Spells = 3*Soul</span>
+<span style="font-family: monospace; font-size: 1.3em">Soul Strain = 3*Soul</span> and <span style="font-family: monospace; font-size: 1.3em">Known Spells = 2*Soul</span>. You cannot take spells that have a Soul Strain cost higher than your Level+1. 
 
-2 Weapons, an Armor, a Bandage, and a non-magical item worth 15 gold or less.
+You may take up to 2 Weapons, an Armor, 15 gold, a Bandage, an item with the Tool tag, and two non-magical items worth 15 gold or less.
 
 
 
 ## EXP
 
 At the end of a session ask yourselves the following questions and gain the amount of XP listed before them if you answered yes.
-(5 XP) Did you find a new Region/Town/Location?
-(3 XP) Did your group survive a deadly encounter? (Half or more party members are on Death's Door)
-(2 XP) Did you complete a quest?
-(1 XP) Did you gain or spend a lot of money?
-(1 XP) Did you make new friends?
-(1 XP) Did you make/defeat new enemies?
+- (5 XP) Did you find a new Region/Town/Location?
+- (3 XP) Did your group survive a deadly encounter? (Half or more party members are on Death's Door)
+- (2 XP) Did you complete a quest?
+- (1 XP) Did you gain or spend a lot of money?
+- (1 XP) Did you make new friends?
+- (1 XP) Did you make/defeat new enemies?
 
+(Level up exp values are a work in progress, but expect another table in this spot)
 
 
 ## Leveling Up!
 
-1 Core Stat Increase, 2 Skill increases, and 1 new Trait
+Gain 1 Core Stat Increase, 2 Skill increases, and 1 new Trait.
 No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 
 <span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Soul Strain</span>
@@ -442,17 +445,16 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 | --- | --- | --- |
 | 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a Base Stat (Body, Mind, Soul), you must still meet it's requirement. |
 | 1,2 | Undergrounder | You can cast Glow at will, and Fog Light once per Rest without gaining Soul Strain. These spells do not count against the number of known spells you may have. Additionally, you are small, and are able to squeeze into places you normally wouldn't. You act as half your size smaller when trying to get through or into a space you wouldn't fit in otherwise.|
-| 3,4 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
+| 1,3 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
 | 1,4 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
 | 1,5 | Beastkin | Increase your Speed by 1. |
-| 2,1 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
-| 3,5 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
-| 1,3 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 6 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
-| 3,1 | Nature-born Elemental | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
-| 3,2 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1, and you reduce the time you are Frozen by 1 when you first become Frozen. |
-| 1,6 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
-| 3,6 | Constructed | You gain the Creature type; Construct in addition to Humanoid. Gain your Level additional Armor Stacks at the end of a Rest. Additionally, you may consume inorganic material as a food source. |
-| 4+ | Reroll | Reroll |
+| 1,6 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
+| 2,1 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
+| 2,2 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 6 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
+| 2,3 | Nature-born Elemental | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
+| 2,4 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1. (Work in progress for second half) |
+| 2,5 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
+| 2,6 | Constructed | Gain your Level additional Armor Stacks at the end of a Rest. Additionally, you may consume inorganic material as a food source. |
 
 
 
@@ -545,9 +547,10 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 
 ## Followers
 
-There are many forms of Follower, familiars, summons, undead, pets, random NPC's you picked up along the way.
+There are many forms of Follower, familiars, summons, undead, pets, random NPC's you picked up along the way, and more.
 Out of combat followers act as expected. For example undead and familiars mill about waiting for their owner to give instructions, NPC's will give input or advice, and pets will... well, be pets. 
 However, when the followers do their turn in combat you lump all of them into 1 group rather than individually, and combine all of their health together into one pool. All followers then use the same 3 dice rolled, acting as if they rolled those dice (though they may do different things with said dice). If the group was to take enough damage for one to die, unless it was targeted specifically, roll a dice to decide which dies.
+
 If it would make more sense to do multiple groups, assuming your GM allows it, you may use these same rules to make multiple groups. A good example of this may be with undead vs familiars.
 
 
