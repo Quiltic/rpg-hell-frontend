@@ -16,7 +16,11 @@ import {
     filterBROKENandMONSTER,
     sortArrayByLevel,
 } from "../../util/sortingTools";
-import { classNames, download, getPersistentPinnedNames } from "../../util/tableTools";
+import {
+    classNames,
+    download,
+    getPersistentPinnedNames,
+} from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { AuthContext } from "../../context/AuthProvider";
@@ -54,11 +58,10 @@ export default function SpellsTablePage() {
                 }
             }
 
-            if (!auth.admin){
+            if (!auth.admin) {
                 spells = filterBROKENandMONSTER(spells);
                 // IterativeTraitLevels.push('MONSTER');
             }
-            
 
             spells = sortArrayByLevel(spells);
 
@@ -128,9 +131,20 @@ export default function SpellsTablePage() {
     return (
         <>
             <h1>Spells</h1>
-            {auth.isAuthenticated &&
-                <Button onClick={() => (download(JSON.stringify(allSpells, null, 2), 'spells.json', 'text/json'))} variant="link-mind">Download Spells Json</Button>
-            }
+            {auth.isAuthenticated && (
+                <Button
+                    onClick={() =>
+                        download(
+                            JSON.stringify(allSpells, null, 2),
+                            "spells.json",
+                            "text/json"
+                        )
+                    }
+                    variant="link-mind"
+                >
+                    Download Spells Json
+                </Button>
+            )}
 
             {pinnedSpells.length > 0 && (
                 <>
@@ -172,7 +186,7 @@ export default function SpellsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-10",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-10",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -185,7 +199,7 @@ export default function SpellsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-6",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-6",
                                             selected ? "ring-2" : ""
                                         )
                                     }

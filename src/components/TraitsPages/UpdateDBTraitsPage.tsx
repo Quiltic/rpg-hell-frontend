@@ -426,7 +426,7 @@ export default function UpdateDBTraitsPage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
+                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -439,7 +439,7 @@ export default function UpdateDBTraitsPage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-grey-400 rounded-md",
+                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""

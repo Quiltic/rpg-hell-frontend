@@ -40,10 +40,12 @@ export default function CreaturesTable({
             </thead>
             <tbody>
                 {displayedCreatures.map((creature, i) => {
-                    const race = toPillElement(
-                        creature.race?.toString() ?? "",
-                        ";|;"
-                    );
+                    // const race = toPillElement(
+                    //     creature.race?.toString() ?? "",
+                    //     ";|;"
+                    // );
+                    const race =
+                        creature.race?.toString().replaceAll(",", ", ") ?? "";
 
                     return (
                         <tr key={i}>

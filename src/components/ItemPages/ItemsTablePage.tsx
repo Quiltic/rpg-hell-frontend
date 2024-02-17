@@ -15,7 +15,11 @@ import {
     filterBROKENandMONSTERreq,
     sortArrayByReqs,
 } from "../../util/sortingTools";
-import { classNames, download, getPersistentPinnedNames } from "../../util/tableTools";
+import {
+    classNames,
+    download,
+    getPersistentPinnedNames,
+} from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { AuthContext } from "../../context/AuthProvider";
@@ -67,7 +71,7 @@ export default function ItemsTablePage() {
                 }
             }
 
-            if (!auth.admin){
+            if (!auth.admin) {
                 items = filterBROKENandMONSTERreq(items);
                 // IterativeTraitLevels.push('MONSTER');
             }
@@ -137,9 +141,20 @@ export default function ItemsTablePage() {
     return (
         <>
             <h1>Items</h1>
-            {auth.isAuthenticated &&
-                <Button onClick={() => (download(JSON.stringify(allItems, null, 2), 'items.json', 'text/json'))} variant="link-soul">Download Items Json</Button>
-            }
+            {auth.isAuthenticated && (
+                <Button
+                    onClick={() =>
+                        download(
+                            JSON.stringify(allItems, null, 2),
+                            "items.json",
+                            "text/json"
+                        )
+                    }
+                    variant="link-soul"
+                >
+                    Download Items Json
+                </Button>
+            )}
 
             {pinnedItems.length > 0 && (
                 <>
@@ -182,7 +197,7 @@ export default function ItemsTablePage() {
                             key={0}
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
+                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -195,7 +210,7 @@ export default function ItemsTablePage() {
                                     key={i + 1}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
                                             getTabWidth(n.length),
                                             selected ? "ring-2" : ""
                                         )

@@ -176,7 +176,7 @@ export default function Login() {
                                         src={discordLogo}
                                         alt="user's discord avatar"
                                     ></img>
-                                    <span className="text-lg col-span-2 text-light">
+                                    <span className="text-lg col-span-2 text-light hover:opacity-70">
                                         Login
                                     </span>
                                 </>

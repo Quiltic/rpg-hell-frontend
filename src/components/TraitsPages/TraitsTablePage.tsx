@@ -15,7 +15,11 @@ import {
     filterBROKENandMONSTERreq,
     sortArrayByReqs,
 } from "../../util/sortingTools";
-import { classNames, download, getPersistentPinnedNames } from "../../util/tableTools";
+import {
+    classNames,
+    download,
+    getPersistentPinnedNames,
+} from "../../util/tableTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { AuthContext } from "../../context/AuthProvider";
@@ -25,21 +29,20 @@ function getTabWidth(lengthOfName: number) {
 }
 
 const IterativeTraitLevels = [
-        "Base",
-        "Body",
-        "Mind",
-        "Soul",
-        "Arcana",
-        "Charm",
-        "Crafting",
-        "Nature",
-        "Medicine",
-        "Thieving",
-        'Monster'
-    ];
+    "Base",
+    "Body",
+    "Mind",
+    "Soul",
+    "Arcana",
+    "Charm",
+    "Crafting",
+    "Nature",
+    "Medicine",
+    "Thieving",
+    "Monster",
+];
 
 export default function TraitsTablePage() {
-
     const { TraitsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
@@ -69,8 +72,8 @@ export default function TraitsTablePage() {
                     return;
                 }
             }
-            
-            if (!auth.admin){
+
+            if (!auth.admin) {
                 traits = filterBROKENandMONSTERreq(traits);
                 // IterativeTraitLevels.push('MONSTER');
             }
@@ -138,16 +141,25 @@ export default function TraitsTablePage() {
         // updatePersistantPinnedTraits(remainingTraits);
     }
 
-    
-
     // Styling:
 
     return (
         <>
             <h1>Traits</h1>
-            {auth.isAuthenticated &&
-                <Button onClick={() => (download(JSON.stringify(allTraits, null, 2), 'traits.json', 'text/json'))} variant="link-body">Download Traits Json</Button>
-            }
+            {auth.isAuthenticated && (
+                <Button
+                    onClick={() =>
+                        download(
+                            JSON.stringify(allTraits, null, 2),
+                            "traits.json",
+                            "text/json"
+                        )
+                    }
+                    variant="link-body"
+                >
+                    Download Traits Json
+                </Button>
+            )}
             {pinnedTraits.length > 0 && (
                 <>
                     <div className="justify-start">
@@ -188,7 +200,7 @@ export default function TraitsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
+                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -201,7 +213,7 @@ export default function TraitsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-grey-400 rounded-md",
+                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
