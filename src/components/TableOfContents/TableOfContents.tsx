@@ -280,7 +280,6 @@ const statusesContents: TableOfContentsItem = {
     ],
 };
 
-
 const myscContents: TableOfContentsItem = {
     name: "Mysc Rules",
     anchorHref: "mysc-rules",
@@ -318,21 +317,17 @@ const myscContents: TableOfContentsItem = {
     ],
 };
 
-
 export default function TableOfContents() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2">
             <TableOfContentsBlock item={basicContents} />
             <TableOfContentsBlock
                 item={statsSkillsContents}
-                className="row-span-4"
+                className="row-span-2"
             />
             <TableOfContentsBlock item={characterCreationContents} />
-            <TableOfContentsBlock 
-                item={statusesContents} 
-                className="row-span-4"
-            />
             <TableOfContentsBlock item={myscContents} />
+            <TableOfContentsBlock item={statusesContents} />
         </div>
     );
 }
