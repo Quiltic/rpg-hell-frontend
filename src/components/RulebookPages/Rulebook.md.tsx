@@ -449,7 +449,7 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 | 1,5 | Beastkin | Increase your Speed by 1. |
 | 1,6 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
 | 2,1 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
-| 2,2 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 6 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
+| 2,2 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 12 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
 | 2,3 | Nature-born Elemental | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
 | 2,4 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1. (Work in progress for second half) |
 | 2,5 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
@@ -555,6 +555,7 @@ However, when the followers do their turn in combat you lump all of them into 1 
 
 If it would make more sense to do multiple groups, assuming your GM allows it, you may use these same rules to make multiple groups. A good example of this may be with undead vs familiars.
 
+
 ## Weather Conditions
 Weather conditions are effects the GM may give to a particular area to give special effects to it. These are a few of the most common effects that may occur. Your GM may have more weather conditions that are not on this list.
 
@@ -582,6 +583,13 @@ No special effects are present.
 - Overbearing Heat (Heavy) - All Terrain is Rough Terrain if not in shelter. All creatures loose 5 stacks of Wet at the end of their turn if in the Sun.
 - Rainfall (Medium) - All creatures loose 3 stacks of Wet at the end of their turn if in the Sun.
 - Light Rain (Light) - All creatures loose 1 stack of Wet at the end of their turn if in the Sun.
+
+
+## Rough Terrain
+Some areas, spells, and effects grant or are rough terrain. When a character moves through this they must spend 2 tiles of movement for every 1 tile they wish to move.
+
+Some examples of this are swimming, climbing, going through thick mud, or dense plant-life.
+
 
 `;
 export default markdown;
