@@ -280,6 +280,45 @@ const statusesContents: TableOfContentsItem = {
     ],
 };
 
+
+const myscContents: TableOfContentsItem = {
+    name: "Mysc Rules",
+    anchorHref: "mysc-rules",
+    subItems: [
+        {
+            name: "Followers",
+            // className: "text-soul dark:text-soul-700",
+        },
+        {
+            name: "Weather Conditions",
+            // anchorHref: "stack-effects",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Clear",
+                },
+                {
+                    name: "Snowfall",
+                },
+                {
+                    name: "Rain",
+                },
+                {
+                    name: "Winds",
+                },
+                {
+                    name: "Sun",
+                },
+            ],
+        },
+        {
+            name: "Rough Terrain",
+            // className: "text-soul dark:text-soul-700",
+        },
+    ],
+};
+
+
 export default function TableOfContents() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -290,6 +329,7 @@ export default function TableOfContents() {
             />
             <TableOfContentsBlock item={characterCreationContents} />
             <TableOfContentsBlock item={statusesContents} />
+            <TableOfContentsBlock item={myscContents} />
         </div>
     );
 }
