@@ -296,7 +296,7 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 
 ### Make an Item
 Increase the DL by the crafted items Crafting score.
-Spend 1 minute for a Crafting score of 0. Spend 10 minutes for a Crafting score of 1. For Crafting score of 2 or higher spend 30 minutes multiplied by the item's Crafting score.
+Spend 1 minute for a Crafting score of 0. Spend 10 minutes for a Crafting score of 1. For a Crafting score of 2 or higher spend 30 minutes multiplied by the item's Crafting score.
 This action cannot make weapons, armors, potions, complex items, or magic items (See Tools).
 
 - Complete Failure: You fail to make the item and lose all gold spent trying to make the item.
@@ -311,7 +311,7 @@ Increase the DL by the target's Crafting score.
 
 - Complete Failure: You break the item.
 - Failure: You have no idea what the item does.
-- Success: You know what the item does, how to use the item, or more specific information based on the item.
+- Success: You know what the item does, how to use the item, or more specific information based on the item. (Pick 1)
 - Great Success: You know what the item does, how to use the item, and more specific information based on the item.
 
 
@@ -358,7 +358,6 @@ Your GM has this information.
 - Failure: You do not know anything about the Illness or Curse affecting the creature you are inspecting.
 - Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness.
 - Great Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness and how to cure them.
-- Perfected Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness, how to cure them and the name of the affliction.
 
 
 
@@ -548,11 +547,41 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 ## Followers
 
 There are many forms of Follower, familiars, summons, undead, pets, random NPC's you picked up along the way, and more.
+
 Out of combat followers act as expected. For example undead and familiars mill about waiting for their owner to give instructions, NPC's will give input or advice, and pets will... well, be pets. 
+
 However, when the followers do their turn in combat you lump all of them into 1 group rather than individually, and combine all of their health together into one pool. All followers then use the same 3 dice rolled, acting as if they rolled those dice (though they may do different things with said dice). If the group was to take enough damage for one to die, unless it was targeted specifically, roll a dice to decide which dies.
+
 
 If it would make more sense to do multiple groups, assuming your GM allows it, you may use these same rules to make multiple groups. A good example of this may be with undead vs familiars.
 
+## Weather Conditions
+Weather conditions are effects the GM may give to a particular area to give special effects to it. These are a few of the most common effects that may occur. Your GM may have more weather conditions that are not on this list.
+
+Every Weather Condition, excluding Clear, has 3 types to it, Heavy, Medium, and Light.
+
+### Clear
+No special effects are present.
+
+### Snowfall
+- Blizzard (Heavy) - All Terrain is Rough Terrain if not in shelter. All creatures gain 2 stacks of Stun at the end of their turn if in the Blizzard.
+- Snow Storm (Medium) - All water turns to ice and becomes Rough Terrain if not in shelter. All creatures gain 1 stack of Stun at the end of their turn if in the Storm.
+- Light Snowfall (Light) - All water turns to ice and becomes Rough Terrain if not in shelter.
+
+### Rain
+- Torrential Rain (Heavy) - Everything gains 1 stack of Blind, and 5 stacks of Wet at the end of their turn if in the Torrential Rain.
+- Rainfall (Medium) - Everything gains 3 stacks of Wet at the end of their turn if in the Rain.
+- Light Rain (Light) - Everything gains 1 stack of Wet at the end of their turn if in the Rain.
+
+### Winds
+- Tornado (Heavy) - A Tornado rips across the land. It moves 8 tiles in a random direction and is 5 tiles wide. Anything that is within its area when it moves is thrown 12 tiles away from the Tornado. 
+- Sand/Dust Storm (Medium) - All creatures gain 1 stack of Blind at the end of their turn if in the Storm.
+- High Winds (Light) - All attacks are reduced by 1, to a minimum of 1 if in the winds.
+
+### Sun
+- Overbearing Heat (Heavy) - All Terrain is Rough Terrain if not in shelter. All creatures loose 5 stacks of Wet at the end of their turn if in the Sun.
+- Rainfall (Medium) - All creatures loose 3 stacks of Wet at the end of their turn if in the Sun.
+- Light Rain (Light) - All creatures loose 1 stack of Wet at the end of their turn if in the Sun.
 
 `;
 export default markdown;
