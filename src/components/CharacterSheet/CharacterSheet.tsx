@@ -40,18 +40,14 @@ export default function CharacterSheetPage() {
     const [traits, setTraits] = useState<Array<Trait>>([]);
     const [items, setItems] = useState<Array<Item>>([]);
 
-    const [tempSheet,setTempSheet] = useState(markdown);
-    const [traitText,setTraitText] = useState<Array<string>>([]);
-    const [itemText,setItemText] = useState<Array<string>>([]);
-    const [spellText,setSpellText] = useState<Array<string>>([]);
-    
-   
+    const [tempSheet, setTempSheet] = useState(markdown);
+    const [traitText, setTraitText] = useState<Array<string>>([]);
+    const [itemText, setItemText] = useState<Array<string>>([]);
+    const [spellText, setSpellText] = useState<Array<string>>([]);
+
     function clearCharacterSheet() {
         setTempSheet(markdown);
-        window.localStorage.setItem(
-            "tempSheet",
-            ''
-        );
+        window.localStorage.setItem("tempSheet", "");
     }
 
     // useEffect(() => {
@@ -87,7 +83,7 @@ export default function CharacterSheetPage() {
 
     //     setTempSheet(tempSheet.concat('\n',itemLines.join('\n')));
     // },[pinnedItems]);
-    
+
     // useEffect(() => {
     //     let spellLines = [
     //         "SPELLS",
@@ -114,19 +110,17 @@ export default function CharacterSheetPage() {
 
     // }, [traitText,itemText,spellText])
 
-    useEffect (() => {
+    useEffect(() => {
         if (tempSheet != markdown) {
-            window.localStorage.setItem(
-                "tempSheet",
-                tempSheet
-            );
+            window.localStorage.setItem("tempSheet", tempSheet);
         } else {
-            const persistentTempSheet = window.localStorage.getItem("tempSheet");
+            const persistentTempSheet =
+                window.localStorage.getItem("tempSheet");
             if (persistentTempSheet) {
                 setTempSheet(persistentTempSheet);
             }
         }
-    }, [tempSheet])
+    }, [tempSheet]);
 
     useEffect(() => {
         async function getSpells() {
@@ -148,7 +142,10 @@ export default function CharacterSheetPage() {
             spells = sortArrayByLevel(spells);
             setSpells(spells);
 
-            const persistentPinnedSpells = getPersistentPinnedNames("pinnedSpellNames",spells);
+            const persistentPinnedSpells = getPersistentPinnedNames(
+                "pinnedSpellNames",
+                spells
+            );
             if (persistentPinnedSpells) {
                 setPinnedSpells(persistentPinnedSpells);
             }
@@ -259,23 +256,38 @@ export default function CharacterSheetPage() {
 
     return (
         <>
-            <div className="flex flex-row">
-                <Button onClick={() => clearCharacterSheet()} variant="subtle-medicine">Clear Character Sheet</Button>
-                <Button onClick={() => download(tempSheet,"Character-Sheet.txt",'data:text/plain;charset=utf-8,')} variant="subtle-body">Download Character Sheet</Button>
+            <div className="flex flex-row gap-2 justify-evenly md:justify-start">
+                <Button
+                    onClick={() => clearCharacterSheet()}
+                    variant="subtle-medicine"
+                >
+                    Clear Character Sheet
+                </Button>
+                <Button
+                    onClick={() =>
+                        download(
+                            tempSheet,
+                            "Character-Sheet.txt",
+                            "data:text/plain;charset=utf-8,"
+                        )
+                    }
+                    variant="subtle-body"
+                >
+                    Download Character Sheet
+                </Button>
             </div>
 
             <textarea
                 rows={40}
-                cols={50}
                 placeholder="Whip around like a yoyo"
-                className="bg-dark-300 h-[60%] w-[100%] rounded-lg p-2"
+                className="bg-body-700/20 dark:bg-dark-300 h-[60%] w-[100%] rounded-lg p-2 my-2"
                 value={tempSheet}
                 onChange={(e) => setTempSheet(e.target.value)}
             />
 
             {pinnedTraits.length > 0 && (
                 <>
-                    <div className="justify-start">
+                    <div className="justify-start mb-2">
                         <Disclosure defaultOpen>
                             {({ open }) => (
                                 <>
@@ -303,7 +315,7 @@ export default function CharacterSheetPage() {
             )}
             {pinnedSpells.length > 0 && (
                 <>
-                    <div className="justify-start">
+                    <div className="justify-start  mb-2">
                         <Disclosure defaultOpen>
                             {({ open }) => (
                                 <>
@@ -331,7 +343,7 @@ export default function CharacterSheetPage() {
             )}
             {pinnedItems.length > 0 && (
                 <>
-                    <div className="justify-start">
+                    <div className="justify-start  mb-2">
                         <Disclosure defaultOpen>
                             {({ open }) => (
                                 <>
@@ -359,7 +371,7 @@ export default function CharacterSheetPage() {
             )}
             {pinnedCreatures.length > 0 && (
                 <>
-                    <div className="justify-start">
+                    <div className="justify-start mb-2">
                         <Disclosure defaultOpen>
                             {({ open }) => (
                                 <>

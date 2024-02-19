@@ -341,7 +341,7 @@ export default function UpdateDBSpellsPage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-10",
+                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-10",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -354,7 +354,7 @@ export default function UpdateDBSpellsPage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-6",
+                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-6",
                                             selected ? "ring-2" : ""
                                         )
                                     }
