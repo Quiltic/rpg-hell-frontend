@@ -328,7 +328,10 @@ export default function TableOfContents() {
                 className="row-span-4"
             />
             <TableOfContentsBlock item={characterCreationContents} />
-            <TableOfContentsBlock item={statusesContents} />
+            <TableOfContentsBlock 
+                item={statusesContents} 
+                className="row-span-4"
+            />
             <TableOfContentsBlock item={myscContents} />
         </div>
     );
