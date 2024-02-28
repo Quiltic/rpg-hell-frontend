@@ -50,6 +50,7 @@ When you spend 8 or more hours doing non-extraneous effort, such as sleeping or 
 Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. 
 However, you can only Rest up to twice a Day.
 You must Sleep for at least 6 hours every day. This time is apart of a rest.
+You must eat at least 3 meals a day. (Optional rule: You must eat 25 pips, each meal denotes its pip count, per week.)
 
 
 When you complete a Rest you gain the following bonuses:
@@ -148,12 +149,34 @@ For example a sword (short or long) does 1 extra damage on a 9 or higher, and 1 
 
 ## Damage and Armor
 
-Your Health is how much you can take before you are put on Death's Door. When you take damage you first reduce your Armor Stacks then your Health.
+Your Health is how much you can take before you are put on Death's Door, and is calculated by <span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
 
-Armor grants an additional special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. 
-As stated above Armor Stacks are reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or most Spells.
+Armors give special bonuses based on the type of armor. The most prevalent bonus is a special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. 
+Armor Stacks are reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or most Spells.
+You can have a max of 75 Armor Stacks (Temp number) at any given point in time.
+- Armor Stacks do not reduce damage from, Falling, Drowning, Armor Penetration, or excess Soul Strain.
 
-You can have a max of 100 Armor Stacks at any given point in time.
+
+Other armors provide **Dodge**. When you take damage while having stacks of Dodge you may roll a dice. 
+If the dice value is equal to or lower than your Dodge you may reduce the damage taken in half (rounded up) then reduce Dodge by 1.
+- Dodge does not reduce damage from, Burn, Bleed, Knockback, Drowning, or excess Soul Strain.
+
+
+Lastly most Soul armors provide **Ward**. When you take damage you may negate all damage taken and reduce the number of Ward you have by 1.
+You may only have a max of 4 Ward at any given point in time.
+- Ward does not reduce damage from, Burn, Bleed, Falling, Drowning, or excess Soul Strain.
+
+
+
+<span style="font-family: monospace; font-size: 1.3em">All effects from Armor are regained at the end of a Rest.</span>
+
+### Knockback and Fall Damage
+
+When a creature falls or is knocked back, such as from a weapon with knockback, into a solid surfice (wall/floor)
+Creatures can fall or be knocked back 3 tiles before they take damage. If a creature falls 4 or more tiles they take damage equal to how many tiles they fell. For instance if you where to fall off a short building (3 tiles) you would be fine, however if you where to fall off a 2 story building (6 tiles), you would take 6 damage.
+
+This is true of Knockback. If a creature would be knocked back into a solid surface 4 or more tiles they take damage equal to how much movement they cannot move. For instance if you knocked someone 8 tiles back, but they can only go 3, then they will take 5 damage (3 tiles to the wall, 5 tiles "into" the wall).
+
 
 
 
@@ -449,13 +472,17 @@ You may take up to 2 Weapons, an Armor, 15 gold, a Bandage, an item with the Too
 
 At the end of a session ask yourselves the following questions and gain the amount of XP listed before them if you answered yes.
 - (5 XP) Did you find a new Region/Town/Location?
-- (3 XP) Did your group survive a deadly encounter? (Half or more party members are on Death's Door)
-- (2 XP) Did you complete a quest?
+- (3 XP) Did you complete a quest?
 - (1 XP) Did you gain or spend a lot of money?
 - (1 XP) Did you make new friends?
 - (1 XP) Did you make/defeat new enemies?
 
 (Level up exp values are a work in progress, but expect another table in this spot)
+lvl - xp
+2 - 10 (0 + 10)
+3 - 25 (10 + 15)
+4 - 45 (25 + 20)
+5 - 80 (45 + 25)
 
 
 ## Leveling Up!
@@ -525,67 +552,62 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 # Stack Effects
 
 All of the following effects are removed at the end of a Rest.
+You gain the effects of the stacks at the beginning of your turn (or if its your turn imideatly), and reduce them by 1 at the end of your turn.
 
 
 ### Burn
 - Removes stacks of Wet before other effects.
 - 1 stack of Burn removes 1 stack of Wet
-- At the beginning of your turn take an amount of Damage equal to the amount of Burn you have and reduce the Burn by 1.
+- At the beginning of your turn take an amount of Damage equal to the amount of Burn you have.
 - A creature can spend ## (2 dice) to put out all remaining stacks of Burn on itself or another creature.
 
 ### Wet
-- Removes stacks of Burn before other effects
-- 1 stack of wet removes 1 stack of Burn
+- Removes stacks of Burn before other effects.
+- 1 stack of wet removes 1 stack of Burn.
 - Wind spells do an additional 1 damage to you.
-- The wording on wind spells is there to remind you. It does not do 2 extra damage
-- At the beginning of your turn reduce Wet by 1.
+- The wording on wind spells is there to remind you. It does not do 2 extra damage.
 
 ### Bleed
-- At the beginning of your turn take an amount of Damage equal to the amount of Bleed you have and reduce the Bleed by 1.
+- At the beginning of your turn take an amount of Damage equal to the amount of Bleed you have.
 - If you are healed with a bandage, medkit or other healing ITEM remove all stacks of Bleed
 
 ### Poisoned
-- You do 1 less damage from weapon attacks, and have Disadvantage on Body rolls.
+- You do 1 less damage from Melee Weapon Attacks, and have 1 less dice on Body rolls.
 - Punches are weapon attacks.
 
 ### Stun
 - At the beginning of your turn lose a number of dice equal to the amount of Stun. (do not roll these when starting your turn)
 - Example; If you start your turn normally rolling 5 dice but have 2 stacks of Stun you roll 3 for this turn instead
-- Loose all stacks at the end of your turn.
+- Unlike other stacks you loose all stacks of Stun at the end of your turn.
 
 ### Webbed
 - Set your Speed to 0. You cannot do the Move action.
-- Reduce Webbed by 1 at the end of your turn.
 
 ### Blinded
 - You cannot see and fail any rolls that rely on sight. 
-- All targets are classified as Hidden to you (including Marked targets) unless you succeed at a Search check. 
-- Reduce by 1 at the end of your turn.
+- You cannot attack any target that is more than 1 tile away from you.
+- When you move you roll 2 dice and must get a 7 or higher otherwise you loose your remaining movement and fall over. (You don't need to roll if you move 1 tile)
+
 
 ### Marked
-- Cant become Hidden.
-- Reduce Marked by 1 at the end of your turn.
+- You can't become Hidden.
 - Some Traits and effects have special interactions with Marked.
 
 ### Invisible
 - You are Hidden, and cannot be detected by sight.
-- Has no effect on creatures that rely on hearing instead of sight. Such as Sand Worms
-- Reduce Invisible by 1 at the end of your Turn.
+- Has no effect on creatures that rely on hearing instead of sight. Such as Sand Worms.
 
 ### Flying
 - You can move your Speed in any direction that isn't through walls. 
 - You are immune to slow terrain that is on the ground.
 
 ### Incorporeal
-- You cannot interact with the world or Cast Spells. However you are able to force your way through walls and floors. 
+- You can not interact with the normal world, but can still see it.
+- You are able to force your way through walls and floors. 
 - While incorporeal you can only interact with other Incorporeal things.
-- Magic can still damage you while Incorporeal, however you cannot gain stack effects from magic, such as Burn.
-- You cannot be damaged from non-magical damage.
-- Reduce Incorporeal by 1 at the end of your Turn.
 
 ### Silence
 - You cannot speak, cast spells, or activate the effects of your weapon. 
-- Reduce Silence by 1 at the end of your Turn.
 
 
 # Mysc Rules
@@ -635,6 +657,15 @@ No special effects are present.
 Some areas, spells, and effects grant or are rough terrain. When a character moves through this they must spend 2 tiles of movement for every 1 tile they wish to move.
 
 Some examples of this are swimming, climbing, going through thick mud, or dense plant-life.
+
+
+## Mounts
+You can use any creature with the Mount trait as a mount. Mounting or dismounting costs 1 tile of Movement.
+
+While mounted you may replace your speed with the Mounts speed, and when you move the mount moves with you. 
+Additionally, you may use any ability or effect the mount has while mounted. For instance if I have a dragon mount I can spend ### (3 dice) to use its Fire breath.
+
+Creatures target you or your mount separately when doing attacks, checks, or contests.
 
 
 `;
