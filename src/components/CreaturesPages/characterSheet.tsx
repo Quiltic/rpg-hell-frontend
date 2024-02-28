@@ -26,7 +26,7 @@ export default function CreatureSheet({
         `Arcana ${displayedCreature.arcana},Charm ${displayedCreature.charm},Crafting ${displayedCreature.crafting},Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
         ","
     );
-    const race = toPillElement(displayedCreature.race?.toString() ?? "", ";|;");
+    const race = displayedCreature.race?.toString().split(";|;").join(", "); //toPillElement(displayedCreature.race?.toString() ?? "", ";|;");
     // const statsNSkillsPills = toPillElement(stats+skills, ",");
 
     let stacks = displayedCreature.stackEffects.join(",");
@@ -37,14 +37,15 @@ export default function CreatureSheet({
                 displayedCreature.mind * 3 +
                 displayedCreature.soul
         )},` + stacks;
-    const healthNArmor = toPillElement(stacks, ",");
+    const healthNArmor = stacks; //toPillElement(stacks, ",");
 
-    const speedNSoulStrain = toPillElement(
+    const speedNSoulStrain =
+        //toPillElement(
         `Speed ${displayedCreature.speedBonus + 6},SoulStrain ${
             displayedCreature.soul * 3
-        }`,
-        ","
-    );
+        }`; //,
+    // ","
+    // );
 
     const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
     const spells = getNames(displayedCreature.spells, spellsList) as Spell[];
@@ -86,37 +87,41 @@ export default function CreatureSheet({
 
     return (
         <>
-            <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 h-screen p-4 bg-dark-400 rounded-md">
+            <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 h-screen p-4 bg-body/10 dark:bg-dark-400 rounded-md">
                 <div className="grid grid-cols-3 p-4">
-                    <div className="bg-dark-300 capitalize whitespace-pre-wrap">
+                    <div className="bg-body/10 dark:bg-dark-300 capitalize whitespace-pre-wrap">
                         {"NAME\n"}
                         {displayedCreature.name}
                     </div>
-                    <div className="bg-dark-300 whitespace-pre-wrap">
+                    <div className="bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                         {"DR\n"}
                         {displayedCreature.level}
                     </div>
-                    <div className="bg-dark-300 flex-row capitalize whitespace-pre-wrap">
+                    <div className="bg-body/10 dark:bg-dark-300 flex-row capitalize whitespace-pre-wrap">
                         {"RACE/TAGS\n"}
                         {race}
                     </div>
                 </div>
                 <div className="grid grid-cols-4 gap-4">
-                    <div className="col-span-2 bg-dark-300">
-                        <div className="flex flex-row capitalize">{stats}</div>
-                        <div className="flex flex-row capitalize">{skills}</div>
+                    <div className="col-span-2 bg-body/10 dark:bg-dark-300">
+                        <div className="flex flex-row flex-wrap capitalize gap-1">
+                            {stats}
+                        </div>
+                        <div className="flex flex-row flex-wrap capitalize gap-1">
+                            {skills}
+                        </div>
                     </div>
-                    <div className="bg-dark-300 flex-row capitalize">
+                    <div className="bg-body/10 dark:bg-dark-300 flex-row capitalize">
                         {healthNArmor}
                     </div>
-                    <div className="bg-dark-300 capitalize">
+                    <div className="bg-body/10 dark:bg-dark-300 capitalize">
                         {speedNSoulStrain}
                     </div>
                 </div>
-                <div className="flex-grow p-4 bg-dark-300 whitespace-pre-wrap">
+                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                     {bigList}
                 </div>
-                <div className="p-4 bg-dark-300 whitespace-pre-wrap">
+                <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                     {"NOTES\n"}
                     {/* <input
                         value={displayedCreature.notes}
