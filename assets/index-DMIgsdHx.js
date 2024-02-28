@@ -113,8 +113,8 @@ For a complete and up to date rule set go to [https://docs.google.com/document/d
 # Locking Dice
 
 When you do any roll you may Lock one dice. This dice is set to the side and is removed from the current roll, ie you do not add it to sums or use it for actions. On later turns you may then **replace** a rolled dice with your Locked dice. 
-Replacing a dice removes the replaced dice from play and uses the Locked dice. 
-**You can Not have more than 1 Locked dice at a time.**
+Replacing a dice removes the replaced dice from play and uses the Locked dice. You may lock a dice after using a locked dice in the current roll.
+**You can NOT have more than 1 Locked dice at a time.**
 
 For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then, lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
 
@@ -130,7 +130,12 @@ As of now there are only 3 known ways to control soul: Strange grand movements w
 
 There are a number of ways to learn how to do magic. Some mages learn through intense study and hard work. Others learn how by tradition or special dances. Even more are born with such knowledge or even find them by shear coincidence.
 
-Despite all this, the manipulation of souls is not without consequence. As such, when a creature or item cast or use magic, they may gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. Your max Soul Strain is 3 times your Soul. Though some Traits, or Items can increase this slightly. You loose all stacks of Soul Strain when you finish a Rest.
+Despite all this, the manipulation of souls is not without consequence. As such, when a creature or item cast or use magic, they may gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). 
+Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. 
+A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. 
+This damage is taken before the spell effect occurs. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
+Your max Soul Strain is 3 times your Soul. Though some Traits, or Items can increase this slightly. 
+You loose all stacks of Soul Strain when you finish a Rest.
 
 
 
@@ -138,7 +143,11 @@ Despite all this, the manipulation of souls is not without consequence. As such,
 # Rest and Travel
 ## Rest
 
-When you spend 8 or more hours doing non-extraneous effort, such as sleeping or relaxing, you gain the effects of a Rest. Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. However, you can only Rest up to twice a Day.
+When you spend 8 or more hours doing non-extraneous effort, such as sleeping or relaxing, you gain the effects of a Rest. 
+Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. 
+However, you can only Rest up to twice a Day.
+You must Sleep for at least 6 hours every day. This time is apart of a rest.
+
 
 When you complete a Rest you gain the following bonuses:
 - You fully heal, and regain all Armor effects such as Armor Stacks, Dodge, and Ward.
@@ -191,8 +200,10 @@ You then tell your GM what you rolled and what action you want to try and the GM
 
 ### Contests
 
-Some Actions require Contests, which is a competition between two or more parties. When you or your GM incites a Contest, all party's then roll based on the required Stat or Skill. This being similar to the ways Checks work.
-Whichever party has a higher sum wins the contest. If a tie happens it is based on which party rolled the higher individual dice values. Players always win if all dice are the same.
+Some Actions require Contests, which is a competition between two or more parties. 
+When you or your GM incites a Contest, all party's then roll based on the required Stat or Skill. This being similar to the ways Checks work.
+Whichever party has a higher sum wins the contest. If a tie happens it is based on which party rolled the higher individual dice values. 
+Players always win if all dice are the same.
 
 
 
@@ -200,11 +211,12 @@ Whichever party has a higher sum wins the contest. If a tie happens it is based 
 
 # Combat
 
-Combat is split up into Rounds, each Round a creature has 3 phases; Beginning which is where they take damage or effects from Stack Effects and roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they loose stacks or effects.
+Combat is split up into Rounds, each Round lasts 10 seconds and has 3 phases; Beginning which is where they take damage or effects from Stack Effects and roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they loose stacks or effects.
 
 ## Initiative
 
-All creatures in combat must roll Initiative to see when they may do their Actions in Combat. This value is calculated by rolling two dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first).
+All creatures in combat must roll Initiative to see when they may do their Actions in Combat. 
+This value is calculated by rolling two dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first). Players always win if speeds are the same.
 Whichever creature has the highest Initiative goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
 
 The world (earthquakes, neutral NPC's, and other creature related actions) always go last in Initiative.
@@ -258,7 +270,9 @@ Death's Door only goes away if you do a Rest.
 ## Difficulty Level Rules
 
 Most (if not all) checks have you take the sum of all dice rolled and compare it to the Difficulty Level value (denoted as DL from here on). 
+
 You can roll varying levels of success or failure based on the total sum rolled.
+
 Different DL levels happen for every type of roll and your gm may chose to increase or decrease this DL threshold based on circumstance.
 
 All DL increases are listed above the results of the roll. With the value to succeed (goal) being 6 + 3*Difficulty Level (DL)
@@ -289,13 +303,18 @@ The levels of success are as follows:
 
 ### Physical Feats
 Do one of the following, increasing its DL appropriately.
+
 Jump 2 tiles horizontally with a running start. Increase the DL by 1 for every 1 extra tile you want to jump.
+
 Jump 1 tile vertical or horizontally. Increase the DL by 2 for every 1 extra tile you want to jump.
+
 Lift/Push 100 lb thing with 2 hands. Increase the DL by 1 for every 100 extra lb you want to lift.
+
 Lift/Push a 20 lb thing with 1 hand. Increase the DL by 1 for every 20 extra lb you want to lift.
+
 Force open a door. This cannot be done quietly. The DL is 1 for normal doors, 3 for heavy doors, and 6 for reinforced doors. (GM may increase or decrease this value based on door type)
 
-- Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
+- Complete Failure: Fail miserably and sprain something, taking 3 damage in addition to any other effects from failing.
 - Failure: You fail.
 - Success: You succeed.
 - Great Success: ___
@@ -314,7 +333,9 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 ## Mind
 
 ### Investigate
-When searching an area, items or clues in the area have their own discovery DLs determined by the GM. For example, a trinket under a bed would have a DL of 0, a notebook hidden under a false drawer bottom would have a DL of 9. You make 1 Roll to Investigate which the DM silently compares to the DLs of all hidden items or clues.
+When searching an area, items or clues in the area have their own discovery DLs determined by the GM. 
+For example, a trinket under a bed would have a DL of 0, a notebook hidden under a false drawer bottom would have a DL of 9. 
+You make 1 Roll to Investigate which the DM silently compares to the DLs of all hidden items or clues.
 
 - Complete Failure: You take twice as long to search and find nothing.
 - Failure: You find nothing.
@@ -347,9 +368,10 @@ Most situations are based on GM ruling. However a good guideline for DL is: 0 fo
 
 ### Read Runes
 Increase the DL by the writer's Arcana score.
+
 Runes written increase the DL by the writers Arcana.
 
-- Complete Failure: ___
+- Complete Failure: Take 3 Health damage, and you have no idea what the runes say or do.
 - Failure: You have no idea what the runes say or do.
 - Success: You know what the runes say, what the magic item does, how to use the magic item, or a more specific question based on the item (pick 1).
 - Great Success: You know what the runes say, what the magic item does, how to use the magic item, and may ask a more specific question based on the item.
@@ -360,7 +382,9 @@ Runes written increase the DL by the writers Arcana.
 
 ### Convince Someone of Something
 Increase the DL by the target's Charm.
+
 The DL may also be affected by factors such as familiarity with the target and the target's feelings toward the player.
+
 Some creatures and situations may increase or decrease this value depending on GM ruling. (Such as if the target would align with what you are convincing them of.)
 
 - Complete Failure: They are not convinced and trust you less.
@@ -393,7 +417,9 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 
 ### Make an Item
 Increase the DL by the crafted items Crafting score.
+
 Spend 1 minute for a Crafting score of 0. Spend 10 minutes for a Crafting score of 1. For a Crafting score of 2 or higher spend 30 minutes multiplied by the item's Crafting score.
+
 This action cannot make weapons, armors, potions, complex items, or magic items (See Tools).
 
 - Complete Failure: You fail to make the item and lose all gold spent trying to make the item.
@@ -421,8 +447,10 @@ Increase the DL by the target's Crafting score.
 - 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
 
 ### Handle a Beast
+
 Can only target a creature with the Animal tag.
-Increase the DL by the creature's Level
+
+Increase the DL by the creature's Level.
 
 - Complete Failure: Enrage or scare the creature, having it attack you or run away.
 - Failure: You do not handle the Creature.
@@ -432,9 +460,13 @@ Increase the DL by the creature's Level
 
 
 ### Track a Creature
+
 Increase the DL by the target's Thieving if the target was Hiding.
+
 Increase the DL by 1 for every Hour after the tracks were made.
+
 Some creatures and situations may increase or decrease this value depending on GM ruling. (Such as weather conditions)
+
 
 - Complete Failure: You add your own tracks into the mix increasing the DL by 1 next time someone Tracks.
 - Failure: You cannot follow the tracks.
@@ -446,12 +478,15 @@ Some creatures and situations may increase or decrease this value depending on G
 ## Medicine
 
 ### Identify an Illness or Curse
-Increase the DL by the targets Crafting score for Poisons
-Increase the DL by the targets Soul Strain level for Curses
-Increase the DL by the targets Level for Illnesses
-Your GM has this information.
 
-- Complete Failure: Do 1d6 damage the creature you are inspecting.
+Increase the DL by the targets Crafting score for Poisons
+
+Increase the DL by the targets Soul Strain level for Curses
+
+Increase the DL by the targets Level for Illnesses
+(Your GM has this information.)
+
+- Complete Failure: Do 3 damage the creature you are inspecting.
 - Failure: You do not know anything about the Illness or Curse affecting the creature you are inspecting.
 - Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness.
 - Great Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness and how to cure them.
@@ -462,11 +497,15 @@ Your GM has this information.
 
 ### Steal or Place an Item
 Increase the DL by the target's Level
+
 Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+
 If you are Hidden, decrease the DL by your Thieving.
+
 Additional circumstances such as the size of the item in question could increase the DL
 
-- Complete Failure: You are detected, losing Hidden if you are Hidden, and don't steal the item.
+
+- Complete Failure: You are detected, losing Hidden if you are Hidden, and don't steal or place the item.
 - Failure: You are not detected and do not steal/place the item.
 - Success: You steal/place the item and lose Hidden if you are Hidden. The targets do not know you stole/placed something.
 - Great Success: You steal/place the item undetected and do not lose Hidden.
@@ -474,11 +513,13 @@ Additional circumstances such as the size of the item in question could increase
 
 ### Hide
 Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+
 Increase the DL by 2 for every group of 2 people looking for you. (In combat all enemies who know of you will be looking for you)
+
 Some creatures and situations may increase or decrease this value depending on GM ruling.
 
-- Complete Failure: You do not become Hidden and are Marked for 1 minute (Gain 6 stacks of Marked).
-- Failure: You do not become Hidden.
+- Complete Failure: You do not become Hidden and are Marked for 5 minutes (Gain __ stacks of Marked).
+- Failure: You do not become Hidden and can't roll to hide for 1 minute.
 - Success: You are Hidden until you do any non-thieving action, other than moving, or move within 2 tiles of another non-friendly creature you are not stealing from.
 - Great Success: You are Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
 
@@ -554,20 +595,34 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 
 
 
+# Effects
 
+### Grappled
+- You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body Contest against the source of the grapple to remove this effect. 
+- Does not reduce until the source stops grappling you, or you escape the grapple.
 
+### Hidden
+- You cannot be seen or heard when someone is not looking for you.
+- You cannot be targeted by weapon or non area spells.
+- Does not disappear until you come out of hiding or are revealed.
 
-# Stack Effects
+### Death's Door
+- When you are on 0 or less life you are put on Death's Door. 
+- While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. 
+- If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
 
 ### Soul Strain
 - How much your Soul has been affected by casting or being affected by magic.
 - You can have an amount of Soul Strain equal to three times your Soul before you start taking damage.
 - When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
 
-### Death's Door
-- When you are on 0 or less life you are put on Death's Door. 
-- While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. 
-- If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
+
+
+
+# Stack Effects
+
+All of the following effects are removed at the end of a Rest.
+
 
 ### Burn
 - Removes stacks of Wet before other effects.
@@ -599,24 +654,15 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 - Set your Speed to 0. You cannot do the Move action.
 - Reduce Webbed by 1 at the end of your turn.
 
-### Grappled
-- You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body Contest against the source of the grapple to remove this effect. 
-- Does not reduce until the source stops grappling you, or you escape the grapple.
-
 ### Blinded
 - You cannot see and fail any rolls that rely on sight. 
 - All targets are classified as Hidden to you (including Marked targets) unless you succeed at a Search check. 
 - Reduce by 1 at the end of your turn.
 
 ### Marked
-- Cant become hidden.
+- Cant become Hidden.
 - Reduce Marked by 1 at the end of your turn.
 - Some Traits and effects have special interactions with Marked.
-
-### Hidden
-- You cannot be seen or heard when someone is not looking for you.
-- You cannot be targeted by weapon or non area spells.
-- Does not disappear until you come out of hiding or are revealed.
 
 ### Invisible
 - You are Hidden, and cannot be detected by sight.
