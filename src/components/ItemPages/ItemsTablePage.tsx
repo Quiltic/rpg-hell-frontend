@@ -9,7 +9,7 @@ import { Tab, Disclosure } from "@headlessui/react";
 
 import ItemsTable from "./ItemsTable";
 
-import json from "../../assets/OfflineJsons/Items.json";
+import json from "../../assets/OfflineJsons/items.json";
 import { Button } from "../ui/Button/Button";
 import {
     filterBROKENandMONSTERreq,
@@ -61,14 +61,14 @@ export default function ItemsTablePage() {
                 const itemsRaw = await ItemsService.getAllItems();
                 items = Object.values(itemsRaw);
             } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
+                // if (e instanceof Error && e.message == "Network Error") {
                     console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
+                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorrect data."
                     );
                     items = Object.values(json);
-                } else {
-                    return;
-                }
+                // } else {
+                //     return;
+                // }
             }
 
             if (!auth.admin) {
