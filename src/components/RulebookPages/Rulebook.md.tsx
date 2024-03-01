@@ -2,6 +2,7 @@ const markdown = `
 
 # Basics
 
+
 This game is built up around the idea of normal dice (d6's, or 6 sided dice). Any and all rolls that this game will ask you to do will be done using some amount of these dice, so go grab some. Personally I would recommend 4-6 per person, though you can play this with just 1 if need be.
 This game is heavily inspired by YOU the players and your host known as the Game Master (denoted as GM from here on). The GM is the one hosting the show, and while this is the rule-book not all possible situations can be given clear ruling. Envitably, it is up to the GM to decide what will happen. 
 
