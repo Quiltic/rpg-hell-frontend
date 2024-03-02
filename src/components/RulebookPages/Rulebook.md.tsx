@@ -101,6 +101,12 @@ Every action has 4 levels of success. Complete Failure (sum is less than the DL 
 
 You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next. All of this is recited in the Difficulty Level (DL) Rules Listed below. There is also a table to help show what sums you need to succeed.
 
+### Taking Your Time
+Certain checks innately take longer to complete than others (for example when performing physical feat climbing a wall could take longer than jumping a gap). 
+These amounts of time are determined by the GM, who can choose to use this table below as a guideline if they wish.
+
+Additionally, you can choose to perform a check Hastily or Methodically, increasing or decreasing your DL by 1 respectively.
+
 
 
 ### Contests
@@ -109,7 +115,6 @@ Some Actions require Contests, which is a competition between two or more partie
 When you or your GM incites a Contest, all party's then roll based on the required Stat or Skill. This being similar to the ways Checks work.
 Whichever party has a higher sum wins the contest. If a tie happens it is based on which party rolled the higher individual dice values. 
 Players always win if all dice are the same.
-
 
 
 
@@ -434,32 +439,27 @@ Increase the DL by the targets Level for Illnesses
 ## Thieving
 
 ### Steal or Place an Item
-Increase the DL by the target's Level
-
-Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
-
-If you are Hidden, decrease the DL by your Thieving.
-
-Additional circumstances such as the size of the item in question could increase the DL
-
+- Increase the DL by the target you are stealing from's Level
+- Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+- Additional circumstances such as the size of the item in question could increase the DL
+<br />
 
 - Complete Failure: You are detected, losing Hidden if you are Hidden, and don't steal or place the item.
-- Failure: You are not detected and do not steal/place the item.
-- Success: You steal/place the item and lose Hidden if you are Hidden. The targets do not know you stole/placed something.
+- Failure: You do not steal/place the item, and lose Hidden if you are Hidden.
+- Success: You steal/place the item. The targets do not know you stole/placed something.
 - Great Success: You steal/place the item undetected and do not lose Hidden.
 
 
 ### Hide
-Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+- Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
+- Increase the DL by 2 for every group of 2 people looking for you. (In combat all enemies who know of you will be looking for you)
+- Some creatures and situations may increase or decrease this value depending on GM ruling.
+<br />
 
-Increase the DL by 2 for every group of 2 people looking for you. (In combat all enemies who know of you will be looking for you)
-
-Some creatures and situations may increase or decrease this value depending on GM ruling.
-
-- Complete Failure: You do not become Hidden and are Marked for 5 minutes (Gain __ stacks of Marked).
-- Failure: You do not become Hidden and can't roll to hide for 1 minute.
-- Success: You are Hidden until you do any non-thieving action, other than moving, or move within 2 tiles of another non-friendly creature you are not stealing from.
-- Great Success: You are Hidden until you do any non-damaging action or move within 1 tile of another non-friendly creature you are not stealing from.
+- Complete Failure: You do not become Hidden and are Marked for 5 minutes (Gain 30 stacks of Marked).
+- Failure: You do not become Hidden and can't roll to Hide for 1 minute.
+- Success: You are Hidden until you come out of hiding, do a non-thieving action (other than moving), take damage, or are revealed.
+- Great Success: You are Hidden and may keep Hidden for the first non-thieving action (other than moving) you do. You are Hidden until you come out of hiding, do a non-thieving action (other than moving), take damage, or are revealed.
 
 
 
@@ -541,17 +541,20 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 
 ### Grappled
 - You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body Contest against the source of the grapple to remove this effect. 
-- Does not reduce until the source stops grappling you, or you escape the grapple.
+- Does not go away until the source stops grappling you, or you escape the grapple.
+
 
 ### Hidden
 - You cannot be seen or heard when someone is not looking for you.
 - You cannot be targeted by weapon or non area spells.
-- Does not disappear until you come out of hiding or are revealed.
+- Does not go away until you come out of hiding, do a non-thieving action (other than moving), take damage, or are revealed.
+
 
 ### Death's Door
 - When you are on 0 or less life you are put on Death's Door. 
 - While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. 
 - If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
+
 
 ### Soul Strain
 - How much your Soul has been affected by casting or being affected by magic.
