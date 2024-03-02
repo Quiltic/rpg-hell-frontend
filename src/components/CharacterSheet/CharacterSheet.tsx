@@ -5,9 +5,9 @@ import { Button } from "../../components/ui/Button/Button";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
-import jsonTraits from "../../assets/OfflineJsons/Traits.json";
-import jsonSpells from "../../assets/OfflineJsons/Spells.json";
-import jsonItems from "../../assets/OfflineJsons/Items.json";
+import jsonTraits from "../../assets/OfflineJsons/traits.json";
+import jsonSpells from "../../assets/OfflineJsons/spells.json";
+import jsonItems from "../../assets/OfflineJsons/items.json";
 import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
 
 import useApi from "../../hooks/useApi";
@@ -130,14 +130,14 @@ export default function CharacterSheetPage() {
 
                 spells = Object.values(spellsRaw);
             } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
+                // if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     spells = Object.values(jsonSpells);
-                } else {
-                    return;
-                }
+                // } else {
+                //     return;
+                // }
             }
             spells = sortArrayByLevel(spells);
             setSpells(spells);
@@ -161,14 +161,14 @@ export default function CharacterSheetPage() {
                 const traitsRaw = await TraitsService.getAllTraits();
                 traits = Object.values(traitsRaw);
             } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
+                // if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     traits = Object.values(jsonTraits);
-                } else {
-                    return;
-                }
+                // } else {
+                //     return;
+                // }
             }
             traits = sortArrayByReqs(traits);
             setTraits(traits);
@@ -194,14 +194,14 @@ export default function CharacterSheetPage() {
                 const itemsRaw = await ItemsService.getAllItems();
                 items = Object.values(itemsRaw);
             } catch (e) {
-                if (e instanceof Error && e.message == "Network Error") {
+                // if (e instanceof Error && e.message == "Network Error") {
                     console.log(
                         "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                     );
                     items = Object.values(jsonItems);
-                } else {
-                    return;
-                }
+                // } else {
+                //     return;
+                // }
             }
 
             items = sortArrayByReqs(items ?? []);
