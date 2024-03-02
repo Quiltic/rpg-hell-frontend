@@ -9,7 +9,7 @@ import { Tab, Disclosure } from "@headlessui/react";
 
 import ItemsTable from "./ItemsTable";
 
-import json from "../../assets/OfflineJsons/Items.json";
+import json from "../../assets/OfflineJsons/items.json";
 import { Button } from "../ui/Button/Button";
 import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
@@ -167,14 +167,14 @@ export default function UpdateDBItemsPage() {
             const itemsRaw = await ItemsService.getAllItems();
             items = Object.values(itemsRaw);
         } catch (e) {
-            if (e instanceof Error && e.message == "Network Error") {
+            // if (e instanceof Error && e.message == "Network Error") {
                 console.log(
                     "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                 );
                 items = Object.values(json);
-            } else {
-                return;
-            }
+            // } else {
+            //     return;
+            // }
         }
 
         items = sortArrayByReqs(items);

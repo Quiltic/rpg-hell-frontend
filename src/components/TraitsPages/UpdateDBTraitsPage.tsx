@@ -9,7 +9,7 @@ import { Tab, Disclosure } from "@headlessui/react";
 
 import TraitsTable from "./TraitsTable";
 
-import json from "../../assets/OfflineJsons/Traits.json";
+import json from "../../assets/OfflineJsons/traits.json";
 import { Button } from "../ui/Button/Button";
 import { sortArrayByReqs } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
@@ -132,14 +132,14 @@ export default function UpdateDBTraitsPage() {
             const traitsRaw = await TraitsService.getAllTraits();
             traits = Object.values(traitsRaw);
         } catch (e) {
-            if (e instanceof Error && e.message == "Network Error") {
+            // if (e instanceof Error && e.message == "Network Error") {
                 console.log(
                     "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                 );
                 traits = Object.values(json);
-            } else {
-                return;
-            }
+            // } else {
+            //     return;
+            // }
         }
 
         traits = sortArrayByReqs(traits);

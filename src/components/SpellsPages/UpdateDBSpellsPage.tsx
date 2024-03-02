@@ -9,7 +9,7 @@ import { Tab, Disclosure } from "@headlessui/react";
 
 import SpellsTable from "./SpellsTable";
 
-import json from "../../assets/OfflineJsons/Spells.json";
+import json from "../../assets/OfflineJsons/spells.json";
 import { Button } from "../ui/Button/Button";
 import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
@@ -42,7 +42,7 @@ const tagList = [
     "utility",
     "MONSTER",
     "BROKEN",
-    "OOC",
+    "ooc",
 ];
 
 const diceCostListCore = ["#", "##", "###"];
@@ -81,14 +81,14 @@ export default function UpdateDBSpellsPage() {
             const spellsRaw = await SpellsService.getAllSpells();
             spells = Object.values(spellsRaw);
         } catch (e) {
-            if (e instanceof Error && e.message == "Network Error") {
+            // if (e instanceof Error && e.message == "Network Error") {
                 console.log(
                     "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
                 );
                 spells = Object.values(json);
-            } else {
-                return;
-            }
+            // } else {
+            //     return;
+            // }
         }
 
         spells = sortArrayByLevel(spells);
