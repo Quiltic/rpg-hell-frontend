@@ -369,20 +369,31 @@ Increase the DL by the target's Crafting score.
 ## Nature
 
 ### Scrounge
-(This one is a work in progress)
 
-- 7+ Find 1 raw item (such as wood, herbs, or metal scraps), Travel Meal, or clean water source from the local environment. This can be done multiple times in a roll.
+- Increase the DL based on how plentiful resources are in the area. For instance: Plentiful spots have a DL of 0, Good spots have a DL of 1, Ok spots have a DL of 2, Lacking spots have a DL of 4, and Practically Nothing spots have a DL of 6.
+
+Complete Failure: You find nothing and become Poisoned for 1 hour.
+
+Failure: You find nothing.
+
+Success: Find 5 gold worth of Junk, 2 Travel Meals, or a clean water source from the local environment (if there is one).
+
+Great Success: Find 15 gold worth of Junk, 2 Cheap Meals, or a clean water source from the local environment.
+
+
 
 ### Handle a Beast
 
-Can only target a creature with the Animal tag.
+- Can only target a creature with the Animal tag.
+- Increase the DL by the creature's Level.
 
-Increase the DL by the creature's Level.
+Complete Failure: Enrage or scare the creature, having it attack you or run away.
 
-- Complete Failure: Enrage or scare the creature, having it attack you or run away.
-- Failure: You do not handle the Creature.
-- Success: Successfully handle the Creature.
-- Great Success: Successfully tame the Creature making it a Pet (Follower) for 1 hour. (If you get this option 4 times in 1 day this becomes Permanent)
+Failure: You do not handle the Creature.
+
+Success: You are able to handle the Creature. You can either guide them, get close to them, shoo them away, have them give you something (eggs, wool, milk, something in there mouth, ect), or agitate them towards something.
+
+Great Success: Successfully tame the Creature making it a Pet (Follower) for 1 hour. (If you get this option 4 times in 1 day this becomes Permanent)
 
 
 
