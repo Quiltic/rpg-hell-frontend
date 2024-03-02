@@ -16,9 +16,10 @@ For a complete and up to date rule set go to [https://docs.google.com/document/d
 
 # Locking Dice
 
-When you do any roll you may Lock one dice. This dice is set to the side and is removed from the current roll, ie you do not add it to sums or use it for actions. On later turns you may then **replace** a rolled dice with your Locked dice. 
+When you do any roll you may Lock one dice. This dice is set to the side and is removed from the current roll, ie you do not add it to sums or use it for actions. 
+On later turns you may then **replace** a rolled dice with your Locked dice. 
 Replacing a dice removes the replaced dice from play and uses the Locked dice. You may lock a dice after using a locked dice in the current roll.
-**You can NOT have more than 1 Locked dice at a time.**
+**You can NOT have more than 1 Locked dice at a time, and you can't Lock a dice out combat more than once an hour.**
 
 For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then, lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
 
@@ -217,43 +218,40 @@ The levels of success are as follows:
 
 
 ## DL Table
-| DL | Success value | Min stat to succeed |
-| --- | --- | --- |
-| 0 | 6 | -1 |
-| 1 | 9  | 0 |
-| 2 | 12 | 0 |
-| 3 | 15 | 1 |
-| 4 | 18 | 1 |
-| 5 | 21 | 2 |
-| 6 | 24 | 2 |
-| 7 | 27 | 3 |
-| 8 | 30 | 3 |
-| 9 | 33 | 4 |
+| DL | Success value | Min stat to succeed | Average Time |
+| --- | --- | --- | --- |
+| 0 | 6 | -1 | 1 minute |
+| 1 | 9  | 0 | 5 minutes |
+| 2 | 12 | 0 | 10 minutes |
+| 3 | 15 | 1 | 30 minutes |
+| 4 | 18 | 1 | 1 hour |
+| 5 | 21 | 2 | 5 hours |
+| 6 | 24 | 2 | 12 hours |
+| 7 | 27 | 3 | 1 day |
+| 8 | 30 | 3 | 1 week |
+| 9 | 33 | 4 | 1 month |
 
 
 ## Body
 
 ### Physical Feats
-Do one of the following, increasing its DL appropriately.
-
-Jump 2 tiles horizontally with a running start. Increase the DL by 1 for every 1 extra tile you want to jump.
-
-Jump 1 tile vertical or horizontally. Increase the DL by 2 for every 1 extra tile you want to jump.
-
-Lift/Push 100 lb thing with 2 hands. Increase the DL by 1 for every 100 extra lb you want to lift.
-
-Lift/Push a 20 lb thing with 1 hand. Increase the DL by 1 for every 20 extra lb you want to lift.
-
-Force open a door. This cannot be done quietly. The DL is 1 for normal doors, 3 for heavy doors, and 6 for reinforced doors. (GM may increase or decrease this value based on door type)
+- Do one of the following, increasing its DL appropriately.
+- Jump 2 tiles horizontally with a running start. Increase the DL by 1 for every 1 extra tile you want to jump.
+- Jump 1 tile vertical or horizontally. Increase the DL by 2 for every 1 extra tile you want to jump.
+- Lift/Push 100 lb thing with 2 hands. Increase the DL by 1 for every 100 extra lb you want to lift.
+- Lift/Push a 20 lb thing with 1 hand. Increase the DL by 1 for every 20 extra lb you want to lift.
+- Force open a door. This cannot be done quietly. The DL is 1 for normal doors, 3 for heavy doors, and 6 for reinforced doors. (GM may increase or decrease this value based on door type)
+<br />
 
 - Complete Failure: Fail miserably and sprain something, taking 3 damage in addition to any other effects from failing.
 - Failure: You fail.
 - Success: You succeed.
-- Great Success: ___
+- Great Success: You succeed, and you may lock a dice used on this roll. (Work in Progress)
 
 
 ### Acrobatics or Athletics
-Most situations are based on GM ruling. However a good guideline for DL is: 1 for simple actions, 3 for novice actions, 5 for intermediate actions, 7 for advanced actions, and 9 for master actions.
+- Most situations are based on GM ruling. However a good guideline for DL is: 1 for simple actions, 3 for novice actions, 5 for intermediate actions, 7 for advanced actions, and 9 for master actions.
+<br />
 
 - Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
 - Failure: You fail.
@@ -265,19 +263,21 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 ## Mind
 
 ### Investigate
-When searching an area, items or clues in the area have their own discovery DLs determined by the GM. 
-For example, a trinket under a bed would have a DL of 0, a notebook hidden under a false drawer bottom would have a DL of 9. 
-You make 1 Roll to Investigate which the DM silently compares to the DLs of all hidden items or clues.
+- When searching an area, items or clues in the area have their own discovery DLs determined by the GM. 
+- For example, a trinket under a bed would have a DL of 0, a notebook hidden under a false drawer bottom would have a DL of 9. 
+- You make 1 Roll to Investigate which the DM silently compares to the DLs of all hidden items or clues.
+<br />
 
-- Complete Failure: You take twice as long to search and find nothing.
-- Failure: You find nothing.
-- Success: You find the item or clue.
-- Great Success: You find the item or clue in half the time.
+- Complete Failure: You find nothing.
+- Failure: You find 1 item or clue.
+- Success: You find up to 3 items or clues.
+- Great Success: You find all items or clues.
 
 
 
 ### Remember
-Most situations are based on GM ruling. However a good guideline for DL is: 0 for memories you deeply know, 1 for recent memories, 3 for old memories, and 9 for passing memories (such as a single sentence or word on a sign you have seen once).
+- Most situations are based on GM ruling. However a good guideline for DL is: 0 for memories you deeply know, 1 for recent memories, 3 for old memories, and 9 for passing memories (such as a single sentence or word on a sign you have seen once).
+<br />
 
 - Complete Failure: You are completely blank on what you try to remember, forgetting what and why you are trying to remember.
 - Failure: You don't remember.
@@ -299,9 +299,9 @@ Most situations are based on GM ruling. However a good guideline for DL is: 0 fo
 ## Arcana
 
 ### Read Runes
-Increase the DL by the writer's Arcana score.
-
-Runes written increase the DL by the writers Arcana.
+- Increase the DL by the writer's Arcana score.
+- Runes written increase the DL by the writers Arcana.
+<br />
 
 - Complete Failure: Take 3 Health damage, and you have no idea what the runes say or do.
 - Failure: You have no idea what the runes say or do.
@@ -421,13 +421,11 @@ Some creatures and situations may increase or decrease this value depending on G
 ## Medicine
 
 ### Identify an Illness or Curse
-
-Increase the DL by the targets Crafting score for Poisons
-
-Increase the DL by the targets Soul Strain level for Curses
-
-Increase the DL by the targets Level for Illnesses
-(Your GM has this information.)
+- Increase the DL by the targets Crafting score for Poisons
+- Increase the DL by the targets Soul Strain level for Curses
+- Increase the DL by the targets Level for Illnesses
+- (Your GM has this information.)
+<br />
 
 - Complete Failure: Do 3 damage the creature you are inspecting.
 - Failure: You do not know anything about the Illness or Curse affecting the creature you are inspecting.
