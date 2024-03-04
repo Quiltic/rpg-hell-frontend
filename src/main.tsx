@@ -20,6 +20,7 @@ import UpdateDBTraitsPage from "./components/TraitsPages/UpdateDBTraitsPage.tsx"
 import UpdateDBSpellsPage from "./components/SpellsPages/UpdateDBSpellsPage.tsx";
 import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
+import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
 
 const router = createBrowserRouter(
     [
@@ -35,6 +36,10 @@ const router = createBrowserRouter(
                 {
                     path: "character-sheet",
                     element: <CharacterSheetPage />,
+                },
+                {
+                    path: "character-sheet2",
+                    element: <CharacterSheetForm />,
                 },
                 {
                     path: "joshhellscape",
