@@ -7,7 +7,8 @@ type Props = {
     statScore: number;
     onIncrementClick: () => void; // setSelected: (s: number) => void;
     onDecrementClick: () => void;
-    isIncrementDisabled: boolean;
+    maxValue: number;
+    incrementDisabled: boolean;
     // isDecrementDisabled: boolean;
 };
 
@@ -17,15 +18,26 @@ export default function CharacterSheetStatIncrementor({
     statScore: statScore,
     onIncrementClick: onIncrementClick,
     onDecrementClick: onDecrementClick,
-    isIncrementDisabled: isIncrementDisabled, // isDecrementDisabled: isDecrementDisabled,
+    maxValue: maxValue, // isDecrementDisabled: isDecrementDisabled,
+    incrementDisabled: incrementDisabled,
 }: Props) {
     const [isDecrementDisabled, setIsDecrementDisabled] = useState(
         statScore >= 0
     );
+    const [isIncrementDisabled, setIsIncrementDisabled] = useState(
+        statScore <= maxValue
+    );
 
     useEffect(() => {
+
         setIsDecrementDisabled(statScore <= 0);
+        setIsIncrementDisabled(statScore >= maxValue);
+
     }, [statScore]);
+
+    useEffect(() => {
+        setIsIncrementDisabled(incrementDisabled);
+    }, [incrementDisabled]);
 
     return (
         <div
@@ -42,7 +54,7 @@ export default function CharacterSheetStatIncrementor({
                         ? "opacity-0 cursor-not-allowed"
                         : "cursor-pointer hover:opacity-60"
                 )}
-                onClick={onIncrementClick}
+                onClick={() => {if (!isIncrementDisabled) {onIncrementClick()}}}
             >
                 +
             </div>
@@ -55,7 +67,7 @@ export default function CharacterSheetStatIncrementor({
                         ? "opacity-0 cursor-not-allowed"
                         : "cursor-pointer hover:opacity-60"
                 )}
-                onClick={onDecrementClick}
+                onClick={() => { if (!isDecrementDisabled) {onDecrementClick()}}}
             >
                 -
             </div>

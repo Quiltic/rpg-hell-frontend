@@ -99,7 +99,7 @@ export default function CharacterSheetForm() {
                         type="text"
                         className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
                         value={characterSheetFormData.types}
-                        onChange={(e) => SetCharacterSheetFormData.types(e.target.value)}
+                        onChange={(e) => console.log(e.target.value)}
                     />
                     <CleanCombobox
                         items={lineageList}
@@ -116,7 +116,8 @@ export default function CharacterSheetForm() {
                     color="bg-body-700 dark:bg-body-500"
                     statName="body"
                     statScore={1}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -128,7 +129,8 @@ export default function CharacterSheetForm() {
                     color="bg-mind-700 dark:bg-mind-500"
                     statName="mind"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -140,7 +142,8 @@ export default function CharacterSheetForm() {
                     color="bg-soul-700 dark:bg-soul-500"
                     statName="soul"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -157,7 +160,8 @@ export default function CharacterSheetForm() {
                     color="bg-arcana-700 dark:bg-arcana-500"
                     statName="arcana"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -169,7 +173,8 @@ export default function CharacterSheetForm() {
                     color="bg-crafting-700 dark:bg-crafting-500"
                     statName="crafting"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -181,7 +186,8 @@ export default function CharacterSheetForm() {
                     color="bg-charm-700 dark:bg-charm-500"
                     statName="charm"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -195,7 +201,8 @@ export default function CharacterSheetForm() {
                     color="bg-nature-700 dark:bg-nature-500"
                     statName="nature"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -207,7 +214,8 @@ export default function CharacterSheetForm() {
                     color="bg-medicine-700 dark:bg-medicine-500"
                     statName="medicine"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
@@ -219,7 +227,8 @@ export default function CharacterSheetForm() {
                     color="bg-thieving-700 dark:bg-thieving-500"
                     statName="thieving"
                     statScore={0}
-                    isIncrementDisabled={false}
+                    maxValue={6}
+                    incrementDisabled={false}
                     onIncrementClick={() => {
                         console.log("increment");
                     }}
