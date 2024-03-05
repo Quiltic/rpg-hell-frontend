@@ -58,10 +58,10 @@ export default function SpellsTablePage() {
                 // }
             }
 
-            if (!auth.admin) {
-                spells = filterBROKENandMONSTER(spells);
-                // IterativeTraitLevels.push('MONSTER');
-            }
+            // if (!auth.admin) {
+            //     spells = filterBROKENandMONSTER(spells);
+            //     // IterativeTraitLevels.push('MONSTER');
+            // }
 
             spells = sortArrayByLevel(spells);
 

@@ -73,10 +73,10 @@ export default function TraitsTablePage() {
                 // }
             }
 
-            if (!auth.admin) {
-                traits = filterBROKENandMONSTERreq(traits);
-                // IterativeTraitLevels.push('MONSTER');
-            }
+            // if (!auth.admin) {
+            //     traits = filterBROKENandMONSTERreq(traits);
+            //     // IterativeTraitLevels.push('MONSTER');
+            // }
 
             traits = sortArrayByReqs(traits);
 

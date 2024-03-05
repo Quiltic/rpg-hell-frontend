@@ -71,10 +71,10 @@ export default function ItemsTablePage() {
                 // }
             }
 
-            if (!auth.admin) {
-                items = filterBROKENandMONSTERreq(items);
-                // IterativeTraitLevels.push('MONSTER');
-            }
+            // if (!auth.admin) {
+            //     items = filterBROKENandMONSTERreq(items);
+            //     // IterativeTraitLevels.push('MONSTER');
+            // }
 
             items = sortArrayByReqs(items ?? []);
 
