@@ -51,8 +51,22 @@ const initialFormData = {
 // },
 
 const lineageList = [
+    "generic humanoid",
+    "undergrounder",
+    "aquatic",
+    "avian",
+    "beastkin",
+    "draconic",
+    "nagakin",
+    "seeker",
+    "natureborn elemental",
+    "hellborn",
+    "lightborn",
+    "constructed",
+
     "animal",
     "construct",
+    "humanoid",
     "monstrosity",
     "planar",
     "undead",
@@ -84,14 +98,32 @@ export default function JoshhellscapePage() {
     
     
     useEffect(() => {
-        async function getList(_name:string, _loc:string) {
-            const persistentPinnedNames = window.localStorage.getItem(_name);
-            _loc = persistentPinnedNames ?? "";
-        }
+        async function getTraits() {
+            const persistentPinnedNames = window.localStorage.getItem("pinnedTraitNames");
+            let reset = characterSheetFormData;
+            reset.trait = persistentPinnedNames ?? "";
 
-        getList("pinnedTraitNames",initialFormData.traits);
-        getList("pinnedSpellNames",initialFormData.spells);
-        getList("pinnedItemNames",initialFormData.items);
+            SetCharacterSheetFormData(reset);
+        }
+        async function getSpells() {
+            const persistentPinnedNames = window.localStorage.getItem("pinnedSpellNames");
+            let reset = characterSheetFormData;
+            reset.spells = persistentPinnedNames ?? "";
+
+            SetCharacterSheetFormData(reset);
+        }
+        async function getItems() {
+            const persistentPinnedNames = window.localStorage.getItem("pinnedItemNames");
+            let reset = characterSheetFormData;
+            reset.items = persistentPinnedNames ?? "";
+
+            SetCharacterSheetFormData(reset);
+        }
+        
+        // getTraits("pinnedTraitNames",characterSheetFormData.traits); // this was the old better version that dident work
+        getTraits();
+        getSpells();
+        getItems();
     }, []);
 
 
@@ -134,7 +166,7 @@ export default function JoshhellscapePage() {
                     onChange={(e) => { 
                         SetCharacterSheetFormData(prevCreature => ({
                             ...prevCreature,
-                            name: e.target.value,
+                            name: e.target.value.toLowerCase(),
                         }));
                       }}
                 ></input>
