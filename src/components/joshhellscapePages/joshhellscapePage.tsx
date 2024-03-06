@@ -101,7 +101,7 @@ export default function JoshhellscapePage() {
         async function getTraits() {
             const persistentPinnedNames = window.localStorage.getItem("pinnedTraitNames");
             let reset = characterSheetFormData;
-            reset.trait = persistentPinnedNames ?? "";
+            reset.traits = persistentPinnedNames ?? "";
 
             SetCharacterSheetFormData(reset);
         }
@@ -222,7 +222,7 @@ export default function JoshhellscapePage() {
                     color="bg-body-700 dark:bg-body-500"
                     statName="body"
                     statScore={characterSheetFormData.body}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={mainDisabled}
                     onIncrementClick={() => {
                             SetCharacterSheetFormData(prevCreature => ({
@@ -241,7 +241,7 @@ export default function JoshhellscapePage() {
                     color="bg-mind-700 dark:bg-mind-500"
                     statName="mind"
                     statScore={characterSheetFormData.mind}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={mainDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -260,7 +260,7 @@ export default function JoshhellscapePage() {
                     color="bg-soul-700 dark:bg-soul-500"
                     statName="soul"
                     statScore={characterSheetFormData.soul}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={mainDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -284,7 +284,7 @@ export default function JoshhellscapePage() {
                     color="bg-arcana-700 dark:bg-arcana-500"
                     statName="arcana"
                     statScore={characterSheetFormData.arcana}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={subDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -303,7 +303,7 @@ export default function JoshhellscapePage() {
                     color="bg-crafting-700 dark:bg-crafting-500"
                     statName="crafting"
                     statScore={characterSheetFormData.crafting}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={subDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -322,7 +322,7 @@ export default function JoshhellscapePage() {
                     color="bg-charm-700 dark:bg-charm-500"
                     statName="charm"
                     statScore={characterSheetFormData.charm}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={subDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -343,7 +343,7 @@ export default function JoshhellscapePage() {
                     color="bg-nature-700 dark:bg-nature-500"
                     statName="nature"
                     statScore={characterSheetFormData.nature}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={subDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -362,7 +362,7 @@ export default function JoshhellscapePage() {
                     color="bg-medicine-700 dark:bg-medicine-500"
                     statName="medicine"
                     statScore={characterSheetFormData.medicine}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={subDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
@@ -381,7 +381,7 @@ export default function JoshhellscapePage() {
                     color="bg-thieving-700 dark:bg-thieving-500"
                     statName="thieving"
                     statScore={characterSheetFormData.thieving}
-                    maxValue={6}
+                    maxValue={(characterSheetFormData.level +1)}
                     incrementDisabled={subDisabled}
                     onIncrementClick={() => {
                         SetCharacterSheetFormData(prevCreature => ({
