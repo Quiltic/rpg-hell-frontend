@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Creature } from "../../client";
 import CharacterSheetStatIncrementor from "./CharacterSheetStatIncrementor";
-import { getPersistentPinnedNames } from "../../util/tableTools";
-import CleanCombobox from "../joshhellscapePages/CleanCombobox";
+import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { Listbox } from "@headlessui/react";
+import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 const initialFormData: Creature = {
     name: "",
@@ -42,76 +43,97 @@ const lineageList = [
     "monstrosity",
     "planar",
     "undead",
-    "mythic"
+    "mythic",
 ];
 
 export default function CharacterSheetForm() {
     const [characterSheetFormData, SetCharacterSheetFormData] =
         useState(initialFormData);
-    
-    
-        useEffect(() => {
-            async function getTraits() {
-                const persistentPinnedNames = window.localStorage.getItem("pinnedTraitNames");
 
-                if (persistentPinnedNames) {
-                    const splitNames = persistentPinnedNames.split(";|;");
-                    initialFormData.traits = splitNames;
-                }
+    const [selectedLineage, setSelectedLineage] = useState("Select a Lineage");
+
+    useEffect(() => {
+        async function getTraits() {
+            const persistentPinnedNames =
+                window.localStorage.getItem("pinnedTraitNames");
+
+            if (persistentPinnedNames) {
+                const splitNames = persistentPinnedNames.split(";|;");
+                initialFormData.traits = splitNames;
             }
+        }
 
-            async function getSpells() {
-                const persistentPinnedNames = window.localStorage.getItem("pinnedSpellNames");
+        async function getSpells() {
+            const persistentPinnedNames =
+                window.localStorage.getItem("pinnedSpellNames");
 
-                if (persistentPinnedNames) {
-                    const splitNames = persistentPinnedNames.split(";|;");
-                    initialFormData.spells = splitNames;
-                }
+            if (persistentPinnedNames) {
+                const splitNames = persistentPinnedNames.split(";|;");
+                initialFormData.spells = splitNames;
             }
+        }
 
-            async function getItems() {
-                const persistentPinnedNames = window.localStorage.getItem("pinnedItemNames");
+        async function getItems() {
+            const persistentPinnedNames =
+                window.localStorage.getItem("pinnedItemNames");
 
-                if (persistentPinnedNames) {
-                    const splitNames = persistentPinnedNames.split(";|;");
-                    initialFormData.items = splitNames;
-                }
+            if (persistentPinnedNames) {
+                const splitNames = persistentPinnedNames.split(";|;");
+                initialFormData.items = splitNames;
             }
+        }
 
-            getTraits();
-            getSpells();
-            getItems();
-        }, [characterSheetFormData]);
-    
+        getTraits();
+        getSpells();
+        getItems();
+    }, [characterSheetFormData]);
 
     return (
         <div className="grid auto-rows-auto grid-cols-6 gap-3 p-2">
-            <h1 className="col-span-4">Create New Level 1 Character</h1>
+            <h1 className="col-span-6">Create New Level 1 Character</h1>
             <input
                 placeholder="Name"
                 name="name"
-                className="bg-body-700/40 dark:bg-soul-700/10 col-span-3 p-2 active:ring-dark-700 dark:active:ring-light-600 active:ring-2 rounded-lg"
+                className="col-span-6 h-10 w-full rounded-lg bg-body-700/40 p-2 active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600 md:col-span-3"
             ></input>
-            
-            <div className="md:col-span-3">
-                <div className="">Lineage Selector</div>
-                    <input
-                        type="text"
-                        className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                        value={characterSheetFormData.types}
-                        onChange={(e) => console.log(e.target.value)}
-                    />
-                    <CleanCombobox
-                        items={lineageList}
-                        className="flex flex-row"
-                        selected={""}
-                        setSelected={(val) => {
-                            //setTags(SetCharacterSheetFormData.types.concat(",", val));
-                            console.log(val);
-                        }}
-                    />
-                </div>
-            <div className="col-span-6 row-span-3 md:row-span-1 grid grid-cols-1 md:grid-cols-3 justify-items-center gap-3">
+
+            <div className="col-span-6 md:col-span-3">
+                <Listbox value={selectedLineage} onChange={setSelectedLineage}>
+                    <div className="relative">
+                        <Listbox.Button className="h-10 w-full rounded-lg bg-body-700/40 pl-2 text-left capitalize active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600">
+                            <span className="block truncate">
+                                {selectedLineage}
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                <ChevronUpDownIcon
+                                    className="h-5 w-5 text-base"
+                                    aria-hidden="true"
+                                />
+                            </span>
+                        </Listbox.Button>
+                        <Listbox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-body-700/40 py-1 text-light ring-1 ring-dark/5 backdrop-blur-lg focus:outline-none dark:bg-dark dark:bg-soul-700/10 sm:text-sm">
+                            {lineageList.map((l, i) => (
+                                <Listbox.Option
+                                    key={i}
+                                    value={l}
+                                    className={({ active }) =>
+                                        classNames(
+                                            "cursor-pointer px-2 py-1 capitalize text-dark dark:text-light",
+                                            active
+                                                ? "bg-body-700/40 dark:bg-soul-700/10"
+                                                : ""
+                                        )
+                                    }
+                                >
+                                    {l}
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </div>
+                </Listbox>
+            </div>
+
+            <div className="col-span-6 row-span-3 grid grid-cols-1 justify-items-center gap-3 md:row-span-1 md:grid-cols-3">
                 <CharacterSheetStatIncrementor
                     color="bg-body-700 dark:bg-body-500"
                     statName="body"
@@ -152,10 +174,10 @@ export default function CharacterSheetForm() {
                     }}
                 />
             </div>
-            <div className="col-span-6 px-12 -my-3">
+            <div className="col-span-6 -my-3 px-12">
                 <hr className="w-full" />
             </div>
-            <div className="col-span-6 row-span-3 md:row-span-1 grid grid-cols-1 md:grid-cols-3 justify-items-center gap-3">
+            <div className="col-span-6 row-span-3 grid grid-cols-1 justify-items-center gap-3 md:row-span-1 md:grid-cols-3">
                 <CharacterSheetStatIncrementor
                     color="bg-arcana-700 dark:bg-arcana-500"
                     statName="arcana"
@@ -196,7 +218,7 @@ export default function CharacterSheetForm() {
                     }}
                 />
             </div>
-            <div className="col-span-6 row-span-3 md:row-span-1 grid grid-cols-1 md:grid-cols-3 justify-items-center gap-3">
+            <div className="col-span-6 row-span-3 grid grid-cols-1 justify-items-center gap-3 md:row-span-1 md:grid-cols-3">
                 <CharacterSheetStatIncrementor
                     color="bg-nature-700 dark:bg-nature-500"
                     statName="nature"
