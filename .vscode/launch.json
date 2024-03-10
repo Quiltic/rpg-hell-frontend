@@ -14,6 +14,15 @@
             ],
         },
         {
+            "command": "bun run vite",
+            "name": "Launch Dev no open",
+            "request": "launch",
+            "type": "node-terminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+        },
+        {
             "command": "bun run script generate-client",
             "name": "Generate Client",
             "request": "launch",
@@ -30,6 +39,14 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-        }
+        },
+{
+    "type": "firefox",
+    "request": "launch",
+    "reAttach": true,
+    "name": "Launch firefox",
+    "url": "http://localhost:5173/rpg-hell-frontend",
+    "webRoot": "${workspaceFolder}"
+}
     ]
 }

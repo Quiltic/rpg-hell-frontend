@@ -19,5 +19,6 @@
     "useTabs": false,
     "embeddedLanguageFormatting": "auto",
     "vueIndentScriptAndStyle": false,
-    "parser": "typescript"
+    "parser": "typescript",
+    "plugins": ["prettier-plugin-tailwindcss"]
 }
