@@ -101,9 +101,9 @@ Error generating stack: `+i.message+`
 
 
 This game is built up around the idea of normal dice (d6's, or 6 sided dice). Any and all rolls that this game will ask you to do will be done using some amount of these dice, so go grab some. Personally I would recommend 4-6 per person, though you can play this with just 1 if need be.
-This game is heavily inspired by YOU the players and your host known as the Game Master (denoted as GM from here on). The GM is the one hosting the show, and while this is the rule-book not all possible situations can be given clear ruling. Envitably, it is up to the GM to decide what will happen. 
+This game is heavily inspired by YOU the players and your host known as the Game Master (denoted as GM from here on). The GM is the one hosting the show, and while this is the rule-book, not all possible situations can be given clear ruling. Inevitably, it is up to the GM to decide what will happen. 
 
-There are primarily 2 sections to this game, Out of Combat; which is where most roll-playing will take place, and In Combat; which is where you fight monsters and other stuff.
+There are primarily 2 sections to this game: Out of Combat; which is where most role-playing will take place, and In Combat; which is where you fight monsters and other stuff.
 
 For a complete and up to date rule set go to [https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing](https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing).
 
@@ -113,12 +113,12 @@ For a complete and up to date rule set go to [https://docs.google.com/document/d
 
 # Locking Dice
 
-When you do any roll you may Lock one dice. This dice is set to the side and is removed from the current roll, ie you do not add it to sums or use it for actions. 
-On later turns you may then **replace** a rolled dice with your Locked dice. 
-Replacing a dice removes the replaced dice from play and uses the Locked dice. You may lock a dice after using a locked dice in the current roll.
-**You can NOT have more than 1 Locked dice at a time, and you can't Lock a dice out combat more than once an hour.**
+When you do any roll you may Lock one die. This die is set to the side and is removed from the current roll, i.e. you do not add it to sums or use it for actions. 
+On later turns you may then **replace** a rolled die with your Locked die. 
+Replacing a die removes the replaced die from play and uses the Locked die. You may lock a die after using a locked dice in the current roll.
+**You can NOT have more than one Locked die at a time, and you can't Lock a die out combat more than once an hour.**
 
-For example lets say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll so I can remove one of the 6's and have four 6's for this roll. Then, lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, and now I have a 6 and a 1 in my current roll. 
+For example, let's say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll, so I can remove one of the 6's and have four 6's for this roll. Then, lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, meaning now I have a 6 and a 1 in my current roll. 
 
 
 
@@ -126,13 +126,13 @@ For example lets say I do a Physical Feats roll and roll five 6's. I probably do
 
 # Magic
 
-Magic is the ability to control souls, both your own and others, to affect the world around them. Every creature, object, or place has a soul. Though typically only creatures are able to directly control souls.
+Magic is the ability to control souls, both your own and others, to affect the world around you. Every creature, object, or place has a soul. Though typically only creatures are able to directly control souls.
 
-As of now there are only 3 known ways to control soul: Strange grand movements which physically change the shape of souls, using Light to suppress or enhance souls, and through writing of Runes on items to bring out the items latent soul.
+As of now there are only three known ways to control souls: Strange grand movements which physically change the shape of souls, using Light to suppress or enhance souls, or through the writing of Runes on items to bring out the item's latent soul.
 
-There are a number of ways to learn how to do magic. Some mages learn through intense study and hard work. Others learn how by tradition or special dances. Even more are born with such knowledge or even find them by shear coincidence.
+There are a number of ways to learn how to do magic. Some mages learn through intense study and hard work. Others learn how by tradition or special dances. Even more are born with such knowledge or even find them by sheer coincidence.
 
-Despite all this, the manipulation of souls is not without consequence. As such, when a creature or item cast or use magic, they may gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). 
+Despite all this, the manipulation of souls is not without consequence. As such, when a creature or item casts or uses magic, they may gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). 
 Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. 
 A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. 
 This damage is taken before the spell effect occurs. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
@@ -276,7 +276,7 @@ You may only have a max of 4 Ward at any given point in time.
 
 ### Knockback and Fall Damage
 
-When a creature falls or is knocked back, such as from a weapon with knockback, into a solid surfice (wall/floor)
+When a creature falls or is knocked back, such as from a weapon with knockback, into a solid surface (wall/floor)
 Creatures can fall or be knocked back 3 tiles before they take damage. If a creature falls 4 or more tiles they take damage equal to how many tiles they fell. For instance if you where to fall off a short building (3 tiles) you would be fine, however if you where to fall off a 2 story building (6 tiles), you would take 6 damage.
 
 This is true of Knockback. If a creature would be knocked back into a solid surface 4 or more tiles they take damage equal to how much movement they cannot move. For instance if you knocked someone 8 tiles back, but they can only go 3, then they will take 5 damage (3 tiles to the wall, 5 tiles "into" the wall).
@@ -353,7 +353,7 @@ The levels of success are as follows:
 - Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
 - Failure: You fail.
 - Success: You succeed.
-- Great Success: This specific feat (doing a backflip, jumprope, etc) has become muscle memory to you, reducing the DL by 1 the next time you do this specific feat.
+- Great Success: This specific feat (doing a backflip, jump rope, etc) has become muscle memory to you, reducing the DL by 1 the next time you do this specific feat.
 
 
 
@@ -662,7 +662,7 @@ No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
 # Stack Effects
 
 All of the following effects are removed at the end of a Rest.
-You gain the effects of the stacks at the beginning of your turn (or if its your turn imideatly), and reduce them by 1 at the end of your turn.
+You gain the effects of the stacks at the beginning of your turn (or if its your turn immediately), and reduce them by 1 at the end of your turn.
 
 
 ### Burn
