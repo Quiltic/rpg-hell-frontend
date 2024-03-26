@@ -47,7 +47,7 @@ export default function RulebookPage() {
             }
         }
         checkAPI();
-    },[]);
+    },[SpellsService]);
     
 
     return (
