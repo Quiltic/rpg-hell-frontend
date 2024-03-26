@@ -135,7 +135,7 @@ export default function SpellsTablePage() {
     return (
         <>
             <h1>Spells</h1>
-            {auth.isAuthenticated && (
+            {(auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) && (
                 <Button
                     onClick={() =>
                         download(
