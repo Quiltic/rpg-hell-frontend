@@ -60,6 +60,9 @@ export default function TraitsTablePage() {
         async function getTraits() {
             let traits: Trait[];
             try {
+                if (window.localStorage.getItem("useBackup") == "true"){
+                    throw new Error('Use Backup');
+                }
                 const traitsRaw = await TraitsService.getAllTraits();
                 traits = Object.values(traitsRaw);
             } catch (e) {

@@ -58,6 +58,9 @@ export default function ItemsTablePage() {
         async function getItems() {
             let items: Item[];
             try {
+                if (window.localStorage.getItem("useBackup") == "true"){
+                    throw new Error('Use Backup');
+                }
                 const itemsRaw = await ItemsService.getAllItems();
                 items = Object.values(itemsRaw);
             } catch (e) {
