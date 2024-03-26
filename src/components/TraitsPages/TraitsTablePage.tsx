@@ -149,7 +149,8 @@ export default function TraitsTablePage() {
     return (
         <>
             <h1>Traits</h1>
-            {(auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) && (
+            {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
+            {(
                 <Button
                     onClick={() =>
                         download(

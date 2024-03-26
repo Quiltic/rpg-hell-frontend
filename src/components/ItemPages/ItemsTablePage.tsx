@@ -144,7 +144,8 @@ export default function ItemsTablePage() {
     return (
         <>
             <h1>Items</h1>
-            {(auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) && (
+            {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
+            {(
                 <Button
                     onClick={() =>
                         download(
