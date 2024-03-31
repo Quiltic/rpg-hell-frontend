@@ -86,7 +86,7 @@ export default function CreatureSheet({
     }
 
     // some magical fuckery
-    const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
+    // const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
 
     return (
         <>
@@ -122,7 +122,13 @@ export default function CreatureSheet({
                     </div>
                 </div>
                 <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {bigList}
+                    {traitLines}
+                </div>
+                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                    {itemLines}
+                </div>
+                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                    {spellLines}
                 </div>
                 <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                     {"NOTES\n"}
