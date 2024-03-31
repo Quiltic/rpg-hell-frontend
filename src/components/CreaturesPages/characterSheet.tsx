@@ -30,13 +30,16 @@ export default function CreatureSheet({
     // const statsNSkillsPills = toPillElement(stats+skills, ",");
 
     let stacks = displayedCreature.stackEffects.join(",");
+    const bonus = ((displayedCreature.traits.includes("hearty")) ? displayedCreature.body : 0);
     stacks =
         `Health ${Math.ceil(
             displayedCreature.level +
-                displayedCreature.body * 5 +
+                displayedCreature.body * 4 +
                 displayedCreature.mind * 3 +
-                displayedCreature.soul
+                displayedCreature.soul * 2 +
+                bonus
         )},` + stacks;
+
     const healthNArmor = stacks; //toPillElement(stacks, ",");
 
     const speedNSoulStrain =
@@ -54,13 +57,13 @@ export default function CreatureSheet({
     let traitLines = [
         "TRAITS",
         ...traits.map((t) => {
-            return `${t.name} - ${t.dice} - ${t.effect}`;
+            return `${t.name} - ${t.dice}\n${t.effect}`;
         }),
     ];
     let itemLines = [
         "ITEMS",
         ...items.map((i) => {
-            return `${i.name} - ${i.tags} - ${i.effect}`;
+            return `${i.name} - ${i.tags}\n${i.effect}`;
         }),
     ];
     let spellLines = [
@@ -68,7 +71,7 @@ export default function CreatureSheet({
         ...spells.map((s) => {
             return `${s.name} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
                 s.level
-            } - ${s.effect}`;
+            }\n${s.effect}`;
         }),
     ];
 
