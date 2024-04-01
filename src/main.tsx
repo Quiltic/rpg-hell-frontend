@@ -8,7 +8,7 @@ import RootLayout from "./components/layouts/RootLayout.tsx";
 import NotImplementedPage from "./components/NotImplementedPage/NotImplementedPage.tsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import LoginCallbackPage from "./components/loginCallbackPage/LoginCallbackPage.tsx";
-import RickRoll from "./components/loginCallbackPage/LoginCallbackPage.tsx";
+import RickRoll from "./components/loginCallbackPage/RickRoll.tsx";
 
 import RulebookPage from "./components/RulebookPages/RulebookPage.tsx";
 import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
