@@ -23,13 +23,17 @@ export default function CreatureSheet({
         ","
     );
     const skills = toPillElement(
-        `Arcana ${displayedCreature.arcana},Charm ${displayedCreature.charm},Crafting ${displayedCreature.crafting},Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
+        `Arcana ${displayedCreature.arcana},Charm ${displayedCreature.charm},Crafting ${displayedCreature.crafting}`,
+        ","
+    );
+    const skills2 = toPillElement(
+        `Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
         ","
     );
     const race = displayedCreature.race?.toString().split(";|;").join(", "); //toPillElement(displayedCreature.race?.toString() ?? "", ";|;");
     // const statsNSkillsPills = toPillElement(stats+skills, ",");
 
-    let stacks = displayedCreature.stackEffects.join(",");
+    let stacks = displayedCreature.stackEffects.join("\n");
     const bonus = ((displayedCreature.traits.includes("hearty")) ? displayedCreature.body : 0);
     stacks =
         `Health ${Math.ceil(
@@ -42,11 +46,14 @@ export default function CreatureSheet({
 
     const healthNArmor = stacks; //toPillElement(stacks, ",");
 
-    const speedNSoulStrain =
+    let speedNSoulStrain =
         //toPillElement(
-        `Speed ${displayedCreature.speedBonus + 6},SoulStrain ${
-            displayedCreature.soul * 3
+        `Speed ${displayedCreature.speedBonus + 6}
         }`; //,
+
+    if (displayedCreature.soul > 0) {
+        speedNSoulStrain = speedNSoulStrain + `\nSoul Strain 0/${displayedCreature.soul * 3}`;
+    }
     // ","
     // );
 
@@ -113,6 +120,9 @@ export default function CreatureSheet({
                         <div className="flex flex-row flex-wrap capitalize gap-1">
                             {skills}
                         </div>
+                        <div className="flex flex-row flex-wrap capitalize gap-1">
+                            {skills2}
+                        </div>
                     </div>
                     <div className="bg-body/10 dark:bg-dark-300 flex-row capitalize">
                         {healthNArmor}
@@ -122,13 +132,13 @@ export default function CreatureSheet({
                     </div>
                 </div>
                 <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {traitLines}
+                    {traitLines.join("\n")}
                 </div>
                 <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {itemLines}
+                    {itemLines.join("\n")}
                 </div>
                 <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {spellLines}
+                    {spellLines.join("\n")}
                 </div>
                 <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                     {"NOTES\n"}
