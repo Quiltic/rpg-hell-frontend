@@ -59,13 +59,13 @@ export default function CreatureSheet({
     ];
 
     if (traitLines[1].includes('Object "" not found.')) {
-        traitLines = [""];
+        traitLines = [];
     }
     if (itemLines[1].includes('Object "" not found.')) {
-        itemLines = [""];
+        itemLines = [];
     }
     if (spellLines[1].includes('Object "" not found.')) {
-        spellLines = [""];
+        spellLines = [];
     }
 
     // some magical fuckery
@@ -89,7 +89,7 @@ export default function CreatureSheet({
         healthNArmor = healthNArmor + `\nWard ${armor}/3`;
     }
     armor = sumNumbersAfterWord(itemLines, "dodge");
-    console.log(displayedCreature.name,armor);
+    console.log(displayedCreature.name,itemLines);
     if (armor > 0) {
         healthNArmor = healthNArmor + `\nDodge ${armor}/6`;
     }
@@ -146,12 +146,12 @@ export default function CreatureSheet({
                     {traitLines.join("\n")}
                 </div>
                 {
-                    (itemLines != [""]) && 
+                    (itemLines.length == 0) && 
                     <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                         {itemLines.join("\n")}
                     </div>
                 }
-                {(spellLines != [""]) && 
+                {(spellLines.length == 0) && 
                     <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                         {spellLines.join("\n")}
                     </div>
