@@ -142,22 +142,22 @@ export default function CreatureSheet({
                         {speedNSoulStrain}
                     </div>
                 </div>
-                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                     {traitLines.join("\n")}
                 </div>
                 {
                     (itemLines.length == 0) && 
-                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {itemLines.join("\n")}
                     </div>
                 }
                 {(spellLines.length == 0) && 
-                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {spellLines.join("\n")}
                     </div>
                 }
                 {(displayedCreature.notes != "") && 
-                    <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                    <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {"NOTES\n"}
                         {/* <input
                             value={displayedCreature.notes}

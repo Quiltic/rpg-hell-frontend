@@ -63,7 +63,7 @@ export function sumNumbersAfterWord(itemList: string[], findWord: string): numbe
         const wordsAndNumbers = item.split(',');
         for (const wordAndNumber of wordsAndNumbers) {
             const [word, valueStr] = wordAndNumber.split(' ');
-            if (word.trim() === findWord) {
+            if (word.trim() == findWord) {
                 const value = parseInt(valueStr, 10);
                 if (!isNaN(value)) {
                     sum += value;
