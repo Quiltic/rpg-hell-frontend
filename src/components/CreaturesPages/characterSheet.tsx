@@ -40,7 +40,7 @@ export default function CreatureSheet({
     let traitLines = [
         "TRAITS",
         ...traits.map((t) => {
-            return `${t.name} - ${t.dice}\n${t.effect}\n`;
+            return `${t.name} - ${"#".repeat(t.dice ?? 1) ?? "P"}\n${t.effect}\n`;
         }),
     ];
     let itemLines = [
@@ -89,6 +89,7 @@ export default function CreatureSheet({
         healthNArmor = healthNArmor + `\nWard ${armor}/3`;
     }
     armor = sumNumbersAfterWord(itemLines, "dodge");
+    console.log(displayedCreature.name,armor);
     if (armor > 0) {
         healthNArmor = healthNArmor + `\nDodge ${armor}/6`;
     }
@@ -144,26 +145,33 @@ export default function CreatureSheet({
                 <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
                     {traitLines.join("\n")}
                 </div>
-                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {itemLines.join("\n")}
-                </div>
-                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {spellLines.join("\n")}
-                </div>
-                <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {"NOTES\n"}
-                    {/* <input
-                        value={displayedCreature.notes}
-                        type="text"
-                        name="notes"
-                        placeholder="Creatures Notes"
-                        className="bg-dark-700 pl-1 whitespace-pre-wrap"
-                        // onChange={(e) => {
-                        //     setSearchValue(e.target.value.toLowerCase());
-                        // }}
-                    /> */}
-                    {displayedCreature.notes}
-                </div>
+                {
+                    (itemLines != [""]) && 
+                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                        {itemLines.join("\n")}
+                    </div>
+                }
+                {(spellLines != [""]) && 
+                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                        {spellLines.join("\n")}
+                    </div>
+                }
+                {(displayedCreature.notes != "") && 
+                    <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
+                        {"NOTES\n"}
+                        {/* <input
+                            value={displayedCreature.notes}
+                            type="text"
+                            name="notes"
+                            placeholder="Creatures Notes"
+                            className="bg-dark-700 pl-1 whitespace-pre-wrap"
+                            // onChange={(e) => {
+                            //     setSearchValue(e.target.value.toLowerCase());
+                            // }}
+                        /> */}
+                        {displayedCreature.notes}
+                    </div>
+                }
             </div>
         </>
     );
