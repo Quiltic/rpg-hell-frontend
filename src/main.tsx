@@ -73,7 +73,7 @@ const router = createBrowserRouter(
                     ],
                 },
                 {
-                    path: "rulebook",
+                    path: "APRIL",
                     children: [
                         {
                             path: "",
