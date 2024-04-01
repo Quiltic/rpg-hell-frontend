@@ -2,7 +2,7 @@
 import { Spell, Trait, Item, Creature } from "../../client";
 import { getNames } from "../../util/tableTools";
 
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { formatEffectString, sumNumbersAfterWord, toPillElement } from "../../util/textFormatting";
 // import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -30,33 +30,9 @@ export default function CreatureSheet({
         `Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
         ","
     );
-    const race = displayedCreature.race?.toString().split(";|;").join(", "); //toPillElement(displayedCreature.race?.toString() ?? "", ";|;");
-    // const statsNSkillsPills = toPillElement(stats+skills, ",");
+    const race = displayedCreature.race?.toString().split(";|;").join(", ");
 
-    let stacks = displayedCreature.stackEffects.join("\n");
-    const bonus = ((displayedCreature.traits.includes("hearty")) ? displayedCreature.body : 0);
-    stacks =
-        `Health ${Math.ceil(
-            displayedCreature.level +
-                displayedCreature.body * 4 +
-                displayedCreature.mind * 3 +
-                displayedCreature.soul * 2 +
-                bonus
-        )},` + stacks;
-
-    const healthNArmor = stacks; //toPillElement(stacks, ",");
-
-    let speedNSoulStrain =
-        //toPillElement(
-        `Speed ${displayedCreature.speedBonus + 6}
-        }`; //,
-
-    if (displayedCreature.soul > 0) {
-        speedNSoulStrain = speedNSoulStrain + `\nSoul Strain 0/${displayedCreature.soul * 3}`;
-    }
-    // ","
-    // );
-
+    
     const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
     const spells = getNames(displayedCreature.spells, spellsList) as Spell[];
     const items = getNames(displayedCreature.items, itemsList) as Item[];
@@ -64,13 +40,13 @@ export default function CreatureSheet({
     let traitLines = [
         "TRAITS",
         ...traits.map((t) => {
-            return `${t.name} - ${t.dice}\n${t.effect}`;
+            return `${t.name} - ${t.dice}\n${t.effect}\n`;
         }),
     ];
     let itemLines = [
         "ITEMS",
         ...items.map((i) => {
-            return `${i.name} - ${i.tags}\n${i.effect}`;
+            return `${i.name} - ${i.tags}\n${i.effect}\n`;
         }),
     ];
     let spellLines = [
@@ -78,7 +54,7 @@ export default function CreatureSheet({
         ...spells.map((s) => {
             return `${s.name} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
                 s.level
-            }\n${s.effect}`;
+            }\n${s.effect}\n`;
         }),
     ];
 
@@ -94,6 +70,40 @@ export default function CreatureSheet({
 
     // some magical fuckery
     // const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
+    let bonus = ((displayedCreature.traits.includes("hearty")) ? displayedCreature.body : 0);
+    let healthNArmor =
+        `Health ${Math.ceil(
+            displayedCreature.level +
+                displayedCreature.body * 4 +
+                displayedCreature.mind * 3 +
+                displayedCreature.soul * 2 +
+                bonus
+        )}\n`;
+
+    let armor = sumNumbersAfterWord(itemLines, "armor");
+    if (armor > 0) {
+        healthNArmor = healthNArmor + `\nArmor ${armor*displayedCreature.level}/${armor*displayedCreature.level}`;
+    }
+    armor = sumNumbersAfterWord(itemLines, "ward");
+    if (armor > 0) {
+        healthNArmor = healthNArmor + `\nWard ${armor}/3`;
+    }
+    armor = sumNumbersAfterWord(itemLines, "dodge");
+    if (armor > 0) {
+        healthNArmor = healthNArmor + `\nDodge ${armor}/6`;
+    }
+
+    healthNArmor = healthNArmor + displayedCreature.stackEffects.join("\n"); //toPillElement(stacks, ",");
+
+    
+    bonus = sumNumbersAfterWord(itemLines, "speed");
+    let speedNSoulStrain =
+        //toPillElement(
+        `Speed ${displayedCreature.speedBonus + 6 + bonus}`;
+
+    if (displayedCreature.soul > 0) {
+        speedNSoulStrain = speedNSoulStrain + `\nSoul Strain 0/${displayedCreature.soul * 3}`;
+    }
 
     return (
         <>

@@ -54,3 +54,23 @@ function highlightWord(text: string, word: string): string {
         `<span class="text-${word} dark:text-${word}-700">$1</span>`
     );
 }
+
+
+export function sumNumbersAfterWord(itemList: string[], findWord: string): number {
+    let sum = 0;
+
+    for (const item of itemList) {
+        const wordsAndNumbers = item.split(',');
+        for (const wordAndNumber of wordsAndNumbers) {
+            const [word, valueStr] = wordAndNumber.split(' ');
+            if (word.trim() === findWord) {
+                const value = parseInt(valueStr, 10);
+                if (!isNaN(value)) {
+                    sum += value;
+                }
+            }
+        }
+    }
+
+    return sum;
+}
