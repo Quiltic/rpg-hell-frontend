@@ -74,11 +74,11 @@ const router = createBrowserRouter(
                     ],
                 },
                 {
-                    path: "rulebook",
+                    path: "april",
                     element: <RickRoll />,
                 },
                 {
-                    path: "APRIL",
+                    path: "rulebook",
                     children: [
                         {
                             path: "",
