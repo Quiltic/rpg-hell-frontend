@@ -51,19 +51,6 @@ const initialFormData = {
 // },
 
 const lineageList = [
-    "generic humanoid",
-    "undergrounder",
-    "aquatic",
-    "avian",
-    "beastkin",
-    "draconic",
-    "nagakin",
-    "seeker",
-    "natureborn elemental",
-    "hellborn",
-    "lightborn",
-    "constructed",
-
     "animal",
     "construct",
     "humanoid",
