@@ -4,6 +4,7 @@ import CharacterSheetStatIncrementor from "./CharacterSheetStatIncrementor";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import useSkills from "../../hooks/useSkills";
 
 const initialFormData: Creature = {
     name: "",
@@ -50,43 +51,65 @@ export default function CharacterSheetForm() {
     const [characterSheetFormData, SetCharacterSheetFormData] =
         useState(initialFormData);
 
+    const placeholderTrue = true;
+
     const [selectedLineage, setSelectedLineage] = useState("Select a Lineage");
 
-    useEffect(() => {
-        async function getTraits() {
-            const persistentPinnedNames =
-                window.localStorage.getItem("pinnedTraitNames");
+    const {
+        body,
+        mind,
+        soul,
+        arcana,
+        charm,
+        crafting,
+        medicine,
+        nature,
+        thievery,
+        level,
+        skillPointsAvailible,
+        subSkillPointsAvailible,
+        skillMaxAtCurrentLevel,
+        increment,
+        decrement,
+        resetToInitial,
+        levelUp,
+    } = useSkills();
 
-            if (persistentPinnedNames) {
-                const splitNames = persistentPinnedNames.split(";|;");
-                initialFormData.traits = splitNames;
-            }
-        }
+    // useEffect(() => {
+    //     async function getTraits() {
+    //         const persistentPinnedNames =
+    //             window.localStorage.getItem("pinnedTraitNames");
 
-        async function getSpells() {
-            const persistentPinnedNames =
-                window.localStorage.getItem("pinnedSpellNames");
+    //         if (persistentPinnedNames) {
+    //             const splitNames = persistentPinnedNames.split(";|;");
+    //             initialFormData.traits = splitNames;
+    //         }
+    //     }
 
-            if (persistentPinnedNames) {
-                const splitNames = persistentPinnedNames.split(";|;");
-                initialFormData.spells = splitNames;
-            }
-        }
+    //     async function getSpells() {
+    //         const persistentPinnedNames =
+    //             window.localStorage.getItem("pinnedSpellNames");
 
-        async function getItems() {
-            const persistentPinnedNames =
-                window.localStorage.getItem("pinnedItemNames");
+    //         if (persistentPinnedNames) {
+    //             const splitNames = persistentPinnedNames.split(";|;");
+    //             initialFormData.spells = splitNames;
+    //         }
+    //     }
 
-            if (persistentPinnedNames) {
-                const splitNames = persistentPinnedNames.split(";|;");
-                initialFormData.items = splitNames;
-            }
-        }
+    //     async function getItems() {
+    //         const persistentPinnedNames =
+    //             window.localStorage.getItem("pinnedItemNames");
 
-        getTraits();
-        getSpells();
-        getItems();
-    }, [characterSheetFormData]);
+    //         if (persistentPinnedNames) {
+    //             const splitNames = persistentPinnedNames.split(";|;");
+    //             initialFormData.items = splitNames;
+    //         }
+    //     }
+
+    //     getTraits();
+    //     getSpells();
+    //     getItems();
+    // }, [characterSheetFormData]);
 
     return (
         <div className="grid auto-rows-auto grid-cols-6 gap-3 p-2">
@@ -133,44 +156,82 @@ export default function CharacterSheetForm() {
                 </Listbox>
             </div>
 
+            <div className="col-span-3 mb-4 flex flex-row items-center justify-between rounded-lg bg-body-700/40 px-4 py-1 text-xl dark:bg-soul-700/10">
+                <div className="overflow-ellipsis p-1">
+                    Remaining Skill increases:
+                </div>{" "}
+                <div
+                    className={classNames(
+                        "flex h-8 w-8 items-center justify-center rounded-lg p-1 text-light",
+                        skillPointsAvailible > 0 ? "bg-nature" : "bg-medicine"
+                    )}
+                >
+                    {skillPointsAvailible}
+                </div>
+            </div>
+            <div className="col-span-3 mb-4 flex flex-row items-center justify-between rounded-lg bg-body-700/40 px-4 py-1 text-xl dark:bg-soul-700/10">
+                <div className="overflow-ellipsis p-1">
+                    Remaining Sub-skill increases:
+                </div>{" "}
+                <div
+                    className={classNames(
+                        "flex h-8 w-8 items-center justify-center rounded-lg p-1 text-light",
+                        subSkillPointsAvailible > 0
+                            ? "bg-nature"
+                            : "bg-medicine"
+                    )}
+                >
+                    {subSkillPointsAvailible}
+                </div>
+            </div>
+
             <div className="col-span-6 row-span-3 grid grid-cols-1 justify-items-center gap-3 md:row-span-1 md:grid-cols-3">
                 <CharacterSheetStatIncrementor
                     color="bg-body-700 dark:bg-body-500"
                     statName="body"
-                    statScore={1}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={body}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        body == skillMaxAtCurrentLevel ||
+                        skillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("body");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("body");
                     }}
                 />
                 <CharacterSheetStatIncrementor
                     color="bg-mind-700 dark:bg-mind-500"
                     statName="mind"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={mind}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        mind == skillMaxAtCurrentLevel ||
+                        skillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("mind");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("mind");
                     }}
                 />
                 <CharacterSheetStatIncrementor
                     color="bg-soul-700 dark:bg-soul-500"
                     statName="soul"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={soul}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        soul == skillMaxAtCurrentLevel ||
+                        skillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("soul");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("soul");
                     }}
                 />
             </div>
@@ -181,40 +242,49 @@ export default function CharacterSheetForm() {
                 <CharacterSheetStatIncrementor
                     color="bg-arcana-700 dark:bg-arcana-500"
                     statName="arcana"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={arcana}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        arcana == skillMaxAtCurrentLevel ||
+                        subSkillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("arcana");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("arcana");
                     }}
                 />
                 <CharacterSheetStatIncrementor
                     color="bg-crafting-700 dark:bg-crafting-500"
                     statName="crafting"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={crafting}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        crafting == skillMaxAtCurrentLevel ||
+                        subSkillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("crafting");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("crafting");
                     }}
                 />
                 <CharacterSheetStatIncrementor
                     color="bg-charm-700 dark:bg-charm-500"
                     statName="charm"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={charm}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        charm == skillMaxAtCurrentLevel ||
+                        subSkillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("charm");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("charm");
                     }}
                 />
             </div>
@@ -222,40 +292,49 @@ export default function CharacterSheetForm() {
                 <CharacterSheetStatIncrementor
                     color="bg-nature-700 dark:bg-nature-500"
                     statName="nature"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={nature}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        nature == skillMaxAtCurrentLevel ||
+                        subSkillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("nature");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("nature");
                     }}
                 />
                 <CharacterSheetStatIncrementor
                     color="bg-medicine-700 dark:bg-medicine-500"
                     statName="medicine"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statScore={medicine}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        medicine == skillMaxAtCurrentLevel ||
+                        subSkillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("medicine");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("medicine");
                     }}
                 />
                 <CharacterSheetStatIncrementor
                     color="bg-thieving-700 dark:bg-thieving-500"
-                    statName="thieving"
-                    statScore={0}
-                    maxValue={6}
-                    incrementDisabled={false}
+                    statName="thievery"
+                    statScore={thievery}
+                    maxValue={skillMaxAtCurrentLevel}
+                    incrementDisabled={
+                        thievery == skillMaxAtCurrentLevel ||
+                        subSkillPointsAvailible == 0
+                    }
                     onIncrementClick={() => {
-                        console.log("increment");
+                        increment("thievery");
                     }}
                     onDecrementClick={() => {
-                        console.log("decrement");
+                        decrement("thievery");
                     }}
                 />
             </div>

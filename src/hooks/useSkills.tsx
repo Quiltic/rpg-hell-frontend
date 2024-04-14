@@ -65,22 +65,26 @@ export default function useSkills(
     // functions to increment or decrement all skills
     function tryIncrementSkill(
         skillValue: number,
-        skillValueSetter: (newValue: number) => void,
+        skillValueSetter: React.Dispatch<React.SetStateAction<number>>,
         subskill: boolean = false
     ) {
+        console.log("tried: ", body);
+        console.log(skillMaxAtCurrentLevel);
+        console.log(skillPointsAvailible);
         if (skillValue >= skillMaxAtCurrentLevel) {
             skillValueSetter(skillMaxAtCurrentLevel);
         } else {
             if (subskill) {
-                if (subSkillPointsAvailible == 0) {
+                if (subSkillPointsAvailible > 0) {
                     skillValueSetter(skillValue + 1);
                 }
             } else {
-                if (skillPointsAvailible == 0) {
+                if (skillPointsAvailible > 0) {
                     skillValueSetter(skillValue + 1);
                 }
             }
         }
+        console.log("result: ", body);
     }
 
     function tryDecrementSkill(
