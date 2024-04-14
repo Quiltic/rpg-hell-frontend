@@ -2,7 +2,7 @@
 import { Spell, Trait, Item, Creature } from "../../client";
 import { getNames } from "../../util/tableTools";
 
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { formatEffectString, sumNumbersAfterWord, toPillElement } from "../../util/textFormatting";
 // import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -23,30 +23,16 @@ export default function CreatureSheet({
         ","
     );
     const skills = toPillElement(
-        `Arcana ${displayedCreature.arcana},Charm ${displayedCreature.charm},Crafting ${displayedCreature.crafting},Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
+        `Arcana ${displayedCreature.arcana},Charm ${displayedCreature.charm},Crafting ${displayedCreature.crafting}`,
         ","
     );
-    const race = displayedCreature.race?.toString().split(";|;").join(", "); //toPillElement(displayedCreature.race?.toString() ?? "", ";|;");
-    // const statsNSkillsPills = toPillElement(stats+skills, ",");
+    const skills2 = toPillElement(
+        `Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
+        ","
+    );
+    const race = displayedCreature.race?.toString().split(";|;").join(", ");
 
-    let stacks = displayedCreature.stackEffects.join(",");
-    stacks =
-        `Health ${Math.ceil(
-            displayedCreature.level +
-                displayedCreature.body * 5 +
-                displayedCreature.mind * 3 +
-                displayedCreature.soul
-        )},` + stacks;
-    const healthNArmor = stacks; //toPillElement(stacks, ",");
-
-    const speedNSoulStrain =
-        //toPillElement(
-        `Speed ${displayedCreature.speedBonus + 6},SoulStrain ${
-            displayedCreature.soul * 3
-        }`; //,
-    // ","
-    // );
-
+    
     const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
     const spells = getNames(displayedCreature.spells, spellsList) as Spell[];
     const items = getNames(displayedCreature.items, itemsList) as Item[];
@@ -54,13 +40,13 @@ export default function CreatureSheet({
     let traitLines = [
         "TRAITS",
         ...traits.map((t) => {
-            return `${t.name} - ${t.dice} - ${t.effect}`;
+            return `${t.name} - ${"#".repeat(t.dice ?? 1) ?? "P"}\n${t.effect}\n`;
         }),
     ];
     let itemLines = [
         "ITEMS",
         ...items.map((i) => {
-            return `${i.name} - ${i.tags} - ${i.effect}`;
+            return `${i.name} - ${i.tags}\n${i.effect}\n`;
         }),
     ];
     let spellLines = [
@@ -68,22 +54,57 @@ export default function CreatureSheet({
         ...spells.map((s) => {
             return `${s.name} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
                 s.level
-            } - ${s.effect}`;
+            }\n${s.effect}\n`;
         }),
     ];
 
     if (traitLines[1].includes('Object "" not found.')) {
-        traitLines = [""];
+        traitLines = [];
     }
     if (itemLines[1].includes('Object "" not found.')) {
-        itemLines = [""];
+        itemLines = [];
     }
     if (spellLines[1].includes('Object "" not found.')) {
-        spellLines = [""];
+        spellLines = [];
     }
 
     // some magical fuckery
-    const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
+    // const bigList = [...traitLines, ...itemLines, ...spellLines].join("\n");
+    let bonus = ((displayedCreature.traits.includes("hearty")) ? displayedCreature.body : 0);
+    let healthNArmor =
+        `Health ${Math.ceil(
+            displayedCreature.level +
+                displayedCreature.body * 4 +
+                displayedCreature.mind * 3 +
+                displayedCreature.soul * 2 +
+                bonus
+        )}\n`;
+
+    let armor = sumNumbersAfterWord(itemLines, "armor");
+    if (armor > 0) {
+        healthNArmor = healthNArmor + `\nArmor ${armor*displayedCreature.level}/${armor*displayedCreature.level}`;
+    }
+    armor = sumNumbersAfterWord(itemLines, "ward");
+    if (armor > 0) {
+        healthNArmor = healthNArmor + `\nWard ${armor}/3`;
+    }
+    armor = sumNumbersAfterWord(itemLines, "dodge");
+    console.log(displayedCreature.name,itemLines);
+    if (armor > 0) {
+        healthNArmor = healthNArmor + `\nDodge ${armor}/6`;
+    }
+
+    healthNArmor = healthNArmor + displayedCreature.stackEffects.join("\n"); //toPillElement(stacks, ",");
+
+    
+    bonus = sumNumbersAfterWord(itemLines, "speed");
+    let speedNSoulStrain =
+        //toPillElement(
+        `Speed ${displayedCreature.speedBonus + 6 + bonus}`;
+
+    if (displayedCreature.soul > 0) {
+        speedNSoulStrain = speedNSoulStrain + `\nSoul Strain 0/${displayedCreature.soul * 3}`;
+    }
 
     return (
         <>
@@ -110,6 +131,9 @@ export default function CreatureSheet({
                         <div className="flex flex-row flex-wrap capitalize gap-1">
                             {skills}
                         </div>
+                        <div className="flex flex-row flex-wrap capitalize gap-1">
+                            {skills2}
+                        </div>
                     </div>
                     <div className="bg-body/10 dark:bg-dark-300 flex-row capitalize">
                         {healthNArmor}
@@ -118,23 +142,36 @@ export default function CreatureSheet({
                         {speedNSoulStrain}
                     </div>
                 </div>
-                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {bigList}
+                <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                    {traitLines.join("\n")}
                 </div>
-                <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap">
-                    {"NOTES\n"}
-                    {/* <input
-                        value={displayedCreature.notes}
-                        type="text"
-                        name="notes"
-                        placeholder="Creatures Notes"
-                        className="bg-dark-700 pl-1 whitespace-pre-wrap"
-                        // onChange={(e) => {
-                        //     setSearchValue(e.target.value.toLowerCase());
-                        // }}
-                    /> */}
-                    {displayedCreature.notes}
-                </div>
+                {
+                    (itemLines.length == 0) && 
+                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                        {itemLines.join("\n")}
+                    </div>
+                }
+                {(spellLines.length == 0) && 
+                    <div className="flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                        {spellLines.join("\n")}
+                    </div>
+                }
+                {(displayedCreature.notes != "") && 
+                    <div className="p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                        {"NOTES\n"}
+                        {/* <input
+                            value={displayedCreature.notes}
+                            type="text"
+                            name="notes"
+                            placeholder="Creatures Notes"
+                            className="bg-dark-700 pl-1 whitespace-pre-wrap"
+                            // onChange={(e) => {
+                            //     setSearchValue(e.target.value.toLowerCase());
+                            // }}
+                        /> */}
+                        {displayedCreature.notes}
+                    </div>
+                }
             </div>
         </>
     );

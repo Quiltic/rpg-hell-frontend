@@ -60,6 +60,9 @@ export default function TraitsTablePage() {
         async function getTraits() {
             let traits: Trait[];
             try {
+                if (window.localStorage.getItem("useBackup") == "true"){
+                    throw new Error('Use Backup');
+                }
                 const traitsRaw = await TraitsService.getAllTraits();
                 traits = Object.values(traitsRaw);
             } catch (e) {
@@ -146,7 +149,8 @@ export default function TraitsTablePage() {
     return (
         <>
             <h1>Traits</h1>
-            {auth.isAuthenticated && (
+            {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
+            {(
                 <Button
                     onClick={() =>
                         download(

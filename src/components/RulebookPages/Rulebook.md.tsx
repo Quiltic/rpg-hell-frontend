@@ -67,7 +67,7 @@ When you complete a Rest you gain the following bonuses:
 
 When moving long distances you move based on the average of all party member's Speed (rounded down). For example if a party has 3 people with speeds of 7,6,4 then the travel speed is 5.
 
-Large grid is used when dealing with travel. A large tile is 2,160*2,160 tiles. Medium tiles are 36*36 tiles (can be used to move per minute). __If your using hex like a chad then its the same but in hex shape.__
+Large grid is used when dealing with travel. A large tile is 2,160x2,160 tiles. Medium tiles are 36x36 tiles (can be used to move per minute). __If your using hex like a chad then its the same but in hex shape.__
 Every Hour your party can move a number of Large tiles equal to your Party Travel Speed, mentioned above. 
 Alternatively, your party can move 1 tile faster at the cost of being permanently Marked for the duration of travel. This condition lasts into combat if you get ambushed.
 Or your party can move 1 tile slower to try to Hide during travel. You can roll Nature or Thieving for this check.

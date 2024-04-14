@@ -44,6 +44,10 @@ export default function SpellsTablePage() {
         async function getSpells() {
             let spells: Spell[];
             try {
+                if (window.localStorage.getItem("useBackup") == "true"){
+                    throw new Error('Use Backup');
+                }
+
                 const spellsRaw = await SpellsService.getAllSpells();
 
                 spells = Object.values(spellsRaw);
@@ -131,7 +135,8 @@ export default function SpellsTablePage() {
     return (
         <>
             <h1>Spells</h1>
-            {auth.isAuthenticated && (
+            {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
+            {(
                 <Button
                     onClick={() =>
                         download(

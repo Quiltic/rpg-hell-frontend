@@ -58,6 +58,9 @@ export default function ItemsTablePage() {
         async function getItems() {
             let items: Item[];
             try {
+                if (window.localStorage.getItem("useBackup") == "true"){
+                    throw new Error('Use Backup');
+                }
                 const itemsRaw = await ItemsService.getAllItems();
                 items = Object.values(itemsRaw);
             } catch (e) {
@@ -141,7 +144,8 @@ export default function ItemsTablePage() {
     return (
         <>
             <h1>Items</h1>
-            {auth.isAuthenticated && (
+            {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
+            {(
                 <Button
                     onClick={() =>
                         download(
