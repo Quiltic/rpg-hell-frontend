@@ -1,10 +1,9 @@
-import { Item, Trait, Spell, Creature } from "../client";
-
-type PinnedObject = Item | Trait | Spell | Creature;
+import { ApiClassUnion } from "../types/ApiClassUnions";
 
 function getPersistentPinnedNames(
     nameOfPinNames: string,
-    objectList: Array<PinnedObject>
+    objectList: ApiClassUnion[]
+    // objectList: Array<ApiClassUnion>
 ) {
     const persistentPinnedNames = window.localStorage.getItem(nameOfPinNames);
 
@@ -26,7 +25,7 @@ function getPersistentPinnedNames(
     return [];
 }
 
-function getNames(names: string, objectList: Array<PinnedObject>) {
+function getNames(names: string, objectList: ApiClassUnion[]) {
     console.log(objectList);
     // split the nameOfNames
     const splitNames = names.split(";|;");
@@ -48,13 +47,13 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
-function download(content, fileName:string, contentType:string) {
+function download(content, fileName: string, contentType: string) {
     var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
+    var file = new Blob([content], { type: contentType });
     a.href = URL.createObjectURL(file);
     a.download = fileName;
     a.click();
-    URL.revokeObjectURL(a.href)
+    URL.revokeObjectURL(a.href);
 }
 
 export { getPersistentPinnedNames, getNames, classNames, download };

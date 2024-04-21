@@ -1,134 +1,22 @@
-import { useState, useEffect, useContext } from "react";
-import { Spell } from "../../client";
-
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
-
-import useApi from "../../hooks/useApi";
-
 import { Tab, Disclosure } from "@headlessui/react";
-
 import SpellsTable from "./SpellsTable";
-
-import json from "../../assets/OfflineJsons/spells.json";
 import { Button } from "../ui/Button/Button";
-
-import {
-    filterBROKENandMONSTER,
-    sortArrayByLevel,
-} from "../../util/sortingTools";
-import {
-    classNames,
-    download,
-    getPersistentPinnedNames,
-} from "../../util/tableTools";
-
+import { classNames, download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import { AuthContext } from "../../context/AuthProvider";
+import { useSpells } from "../../hooks/useSpells";
+import Search from "../search/Search";
+import { eApiClass } from "../../types/ApiClassUnions";
 
 export default function SpellsTablePage() {
-    const { SpellsService } = useApi();
-
-    const [searchValue, setSearchValue] = useState("");
-    const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
-    const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
-    const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
-
-    const [hasInitializedPersistedSpells, setHasInitializedPersistedSpells] =
-        useState(false);
-
-    const { auth, authLoading } = useContext(AuthContext);
-
-    useEffect(() => {
-        async function getSpells() {
-            let spells: Spell[];
-            try {
-                if (window.localStorage.getItem("useBackup") == "true"){
-                    throw new Error('Use Backup');
-                }
-
-                const spellsRaw = await SpellsService.getAllSpells();
-
-                spells = Object.values(spellsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorrect data."
-                    );
-                    spells = Object.values(json);
-                // } else {
-                //     return;
-                // }
-            }
-
-            // if (!auth.admin) {
-            //     spells = filterBROKENandMONSTER(spells);
-            //     // IterativeTraitLevels.push('MONSTER');
-            // }
-
-            spells = sortArrayByLevel(spells);
-
-            setAllSpells(spells);
-            // setSpellsObjectSorted(spells);
-            setDisplayedSpells(spells);
-
-            const persistentPinnedSpells = getPersistentPinnedNames(
-                "pinnedSpellNames",
-                spells
-            ) as Spell[];
-            if (persistentPinnedSpells) {
-                setPinnedSpells(persistentPinnedSpells);
-            }
-            setHasInitializedPersistedSpells(true);
-        }
-        getSpells();
-    }, [SpellsService]);
-
-    useEffect(() => {
-        if (searchValue == "") {
-            setDisplayedSpells(allSpells);
-            setClearButtonVisibility("hidden");
-            return;
-        }
-
-        setClearButtonVisibility("visible");
-        const filteredSpells = allSpells.filter((s) => {
-            return (
-                s.name.toLowerCase().includes(searchValue) ||
-                s.effect?.toLowerCase().includes(searchValue)
-            );
-        });
-
-        setDisplayedSpells(filteredSpells);
-    }, [allSpells, searchValue]);
-
-    useEffect(() => {
-        if (hasInitializedPersistedSpells == false) {
-            return;
-        }
-        const pinnedSpellNames: string[] = pinnedSpells.map((s) => {
-            return s.name;
-        });
-        window.localStorage.setItem(
-            "pinnedSpellNames",
-            pinnedSpellNames.join(";|;")
-        );
-    }, [hasInitializedPersistedSpells, pinnedSpells]);
-
-    function addToPinnedSpells(s: Spell) {
-        const newPersist = [...pinnedSpells, s];
-        setPinnedSpells(sortArrayByLevel(newPersist));
-        // updatePersistantPinnedSpells(newPersist);
-    }
-
-    function removeFromPinnedSpells(s: Spell) {
-        const idx = pinnedSpells.indexOf(s);
-        const remainingSpells = pinnedSpells.slice();
-        remainingSpells.splice(idx, 1);
-        setPinnedSpells(remainingSpells);
-        // updatePersistantPinnedSpells(remainingSpells);
-    }
+    const {
+        allSpells,
+        pinnedSpells,
+        displayedSpells,
+        addToPinnedSpells,
+        removeFromPinnedSpells,
+        filterSpells,
+        resetFilterSpells,
+    } = useSpells();
 
     const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -136,7 +24,7 @@ export default function SpellsTablePage() {
         <>
             <h1>Spells</h1>
             {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
-            {(
+            {
                 <Button
                     onClick={() =>
                         download(
@@ -149,7 +37,7 @@ export default function SpellsTablePage() {
                 >
                     Download Spells Json
                 </Button>
-            )}
+            }
 
             {pinnedSpells.length > 0 && (
                 <>
@@ -186,12 +74,12 @@ export default function SpellsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
-                    <Tab.List className="p-1 gap-2 flex flex-wrap">
+                <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
+                    <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-10",
+                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-body-700 hover:font-bold dark:bg-dark-600 dark:ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -204,7 +92,7 @@ export default function SpellsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-6",
+                                            "w-6 rounded-md bg-body-700/20 px-2 py-1 ring-body-700 hover:font-bold dark:bg-dark-600 dark:ring-light",
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -214,28 +102,11 @@ export default function SpellsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
-
-                        <input
-                            value={searchValue}
-                            type="text"
-                            name="search"
-                            placeholder="Search"
-                            className="bg-dark-700 pl-1 w-16 flex-grow"
-                            onChange={(e) => {
-                                setSearchValue(e.target.value.toLowerCase());
-                            }}
-                        />
-                        <XMarkIcon
-                            className="h-6 w-6 opacity-50 cursor-pointer"
-                            visibility={clearButtonVisibility}
-                            onClick={() => {
-                                setSearchValue("");
-                                setClearButtonVisibility("hidden");
-                            }}
-                        />
-                    </div>
+                    <Search
+                        filter={filterSpells}
+                        resetFilter={resetFilterSpells}
+                        filterClass={eApiClass.Spell}
+                    />
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>

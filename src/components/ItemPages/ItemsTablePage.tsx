@@ -23,6 +23,9 @@ import {
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { AuthContext } from "../../context/AuthProvider";
+import { useItems } from "../../hooks/useItems";
+import Search from "../search/Search";
+import { eApiClass } from "../../types/ApiClassUnions";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
@@ -41,111 +44,21 @@ const IterativeItemLevels = [
 ];
 
 export default function ItemsTablePage() {
-    const { ItemsService } = useApi();
-
-    const [searchValue, setSearchValue] = useState("");
-    const [allItems, setAllItems] = useState<Array<Item>>([]);
-    const [pinnedItems, setPinnedItems] = useState<Array<Item>>([]);
-    const [displayedItems, setDisplayedItems] = useState<Array<Item>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
-
-    const [hasInitializedPersistedItems, setHasInitializedPersistedItems] =
-        useState(false);
-    const { auth, authLoading } = useContext(AuthContext);
-
-    useEffect(() => {
-        async function getItems() {
-            let items: Item[];
-            try {
-                if (window.localStorage.getItem("useBackup") == "true"){
-                    throw new Error('Use Backup');
-                }
-                const itemsRaw = await ItemsService.getAllItems();
-                items = Object.values(itemsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorrect data."
-                    );
-                    items = Object.values(json);
-                // } else {
-                //     return;
-                // }
-            }
-
-            // if (!auth.admin) {
-            //     items = filterBROKENandMONSTERreq(items);
-            //     // IterativeTraitLevels.push('MONSTER');
-            // }
-
-            items = sortArrayByReqs(items ?? []);
-
-            setAllItems(items);
-            setDisplayedItems(items);
-
-            const persistentPinnedItems = getPersistentPinnedNames(
-                "pinnedItemNames",
-                items
-            ) as Item[];
-
-            if (persistentPinnedItems) {
-                setPinnedItems(persistentPinnedItems);
-            }
-            setHasInitializedPersistedItems(true);
-        }
-        getItems();
-    }, [ItemsService]);
-
-    useEffect(() => {
-        if (searchValue == "") {
-            setDisplayedItems(allItems);
-            setClearButtonVisibility("hidden");
-            return;
-        }
-
-        setClearButtonVisibility("visible");
-        const filteredItems = allItems.filter((s) => {
-            return (
-                s.name.toLowerCase().includes(searchValue) ||
-                s.effect?.toLowerCase().includes(searchValue)
-            );
-        });
-
-        setDisplayedItems(filteredItems);
-    }, [allItems, searchValue]);
-
-    useEffect(() => {
-        if (hasInitializedPersistedItems == false) {
-            return;
-        }
-        const pinnedItemNames: string[] = pinnedItems.map((i) => {
-            return i.name;
-        });
-        console.log(pinnedItems, pinnedItemNames);
-        window.localStorage.setItem(
-            "pinnedItemNames",
-            pinnedItemNames.join(";|;")
-        );
-    }, [hasInitializedPersistedItems, pinnedItems]);
-
-    function addToPinnedItems(i: Item) {
-        setPinnedItems(sortArrayByReqs([...pinnedItems, i]));
-        console.log(pinnedItems);
-    }
-
-    function removeFromPinnedItems(i: Item) {
-        const idx = pinnedItems.indexOf(i);
-        const remainingItems = pinnedItems.slice();
-        remainingItems.splice(idx, 1);
-        setPinnedItems(remainingItems);
-    }
+    const {
+        allItems,
+        pinnedItems,
+        displayedItems,
+        addToPinnedItems,
+        removeFromPinnedItems,
+        filterItems,
+        resetFilterItems,
+    } = useItems();
 
     return (
         <>
             <h1>Items</h1>
             {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
-            {(
+            {
                 <Button
                     onClick={() =>
                         download(
@@ -158,7 +71,7 @@ export default function ItemsTablePage() {
                 >
                     Download Items Json
                 </Button>
-            )}
+            }
 
             {pinnedItems.length > 0 && (
                 <>
@@ -195,13 +108,13 @@ export default function ItemsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
-                    <Tab.List className="p-1 gap-2 flex flex-wrap">
+                <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
+                    <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
                             key={0}
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
+                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-body-700 hover:font-bold dark:bg-dark-600 dark:ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -214,7 +127,7 @@ export default function ItemsTablePage() {
                                     key={i + 1}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
+                                            "rounded-md bg-body-700/20 px-2 py-1 ring-body-700 hover:font-bold dark:bg-dark-600 dark:ring-light",
                                             getTabWidth(n.length),
                                             selected ? "ring-2" : ""
                                         )
@@ -225,28 +138,11 @@ export default function ItemsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
-
-                        <input
-                            value={searchValue}
-                            type="text"
-                            name="search"
-                            placeholder="Search"
-                            className="bg-dark-700 pl-1 w-16 flex-grow"
-                            onChange={(e) => {
-                                setSearchValue(e.target.value.toLowerCase());
-                            }}
-                        />
-                        <XMarkIcon
-                            className="h-6 w-6 opacity-50 cursor-pointer"
-                            visibility={clearButtonVisibility}
-                            onClick={() => {
-                                setSearchValue("");
-                                setClearButtonVisibility("hidden");
-                            }}
-                        />
-                    </div>
+                    <Search
+                        filter={filterItems}
+                        resetFilter={resetFilterItems}
+                        filterClass={eApiClass.Item}
+                    />
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
