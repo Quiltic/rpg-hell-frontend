@@ -1,28 +1,8 @@
-import { useState, useEffect, useContext } from "react";
-import { Item } from "../../client";
-
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
-
-import useApi from "../../hooks/useApi";
-
 import { Tab, Disclosure } from "@headlessui/react";
-
 import ItemsTable from "./ItemsTable";
-
-import json from "../../assets/OfflineJsons/items.json";
 import { Button } from "../ui/Button/Button";
-import {
-    filterBROKENandMONSTERreq,
-    sortArrayByReqs,
-} from "../../util/sortingTools";
-import {
-    classNames,
-    download,
-    getPersistentPinnedNames,
-} from "../../util/tableTools";
-
+import { classNames, download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import { AuthContext } from "../../context/AuthProvider";
 import { useItems } from "../../hooks/useItems";
 import Search from "../search/Search";
 import { eApiClass } from "../../types/ApiClassUnions";

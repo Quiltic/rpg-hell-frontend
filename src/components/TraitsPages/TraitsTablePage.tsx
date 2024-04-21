@@ -1,16 +1,9 @@
-import useApi from "../../hooks/useApi";
-
 import { Tab, Disclosure } from "@headlessui/react";
-
 import TraitsTable from "./TraitsTable";
-
 import { Button } from "../ui/Button/Button";
-
 import { classNames, download } from "../../util/tableTools";
-
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import Search from "../search/Search";
-import { useApiClass } from "../../hooks/useApiClass";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
 
