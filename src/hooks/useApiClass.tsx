@@ -111,9 +111,16 @@ export function useApiClass<T extends ApiClassUnion>(
     const addToPinned = useCallback(
         (s: T) => {
             const newPersist = [...pinned, s];
-            setPinned(sortArrayByReqs(newPersist));
+            if (c == eApiClass.Spell) {
+                setPinned(sortArrayByLevel(newPersist));
+                return;
+            } else if (c == eApiClass.Trait || c == eApiClass.Item) {
+                setPinned(sortArrayByReqs(newPersist));
+                return;
+            }
+            setPinned(newPersist);
         },
-        [pinned]
+        [c, pinned]
     );
 
     const removeFromPinned = useCallback(

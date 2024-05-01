@@ -129,7 +129,7 @@ export default function ItemsTablePage() {
                         <ItemsTable
                             displayedItems={displayedItems}
                             moveItem={(item) => {
-                                removeFromPinnedItems(item);
+                                addToPinnedItems(item);
                             }}
                         />
                     </Tab.Panel>
