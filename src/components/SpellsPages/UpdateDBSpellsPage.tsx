@@ -23,26 +23,23 @@ function getTabWidth(lengthOfName: number) {
 }
 
 const tagList = [
-    "fire",
-    "water",
-    "earth",
-    "wind",
-    "light",
-    "dark",
+    "elemental",
+    "divine",
     "soul",
+    "creation",
+    "control",
+    "divination",
+    "protection",
+    "power",
+    "healing",
     "illusion",
-    "summon",
-    "aoe",
-    "attack",
-    "cc",
-    "damage",
-    "focus",
     "ranged",
     "touch",
-    "utility",
+    "focus",
+    "ritual",
+    "windup",
     "MONSTER",
     "BROKEN",
-    "ooc",
 ];
 
 const diceCostListCore = ["#", "##", "###"];
