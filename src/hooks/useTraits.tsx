@@ -18,9 +18,9 @@ export function useTraits() {
     );
 
     return {
+        allTraits,
         pinnedTraits,
         displayedTraits,
-        allTraits,
         addToPinnedTraits,
         removeFromPinnedTraits,
         filterTraits,
