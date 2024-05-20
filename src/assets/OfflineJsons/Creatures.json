@@ -400,7 +400,7 @@
     },
     "24":{
         "name":"fishman tempest",
-        "race":",humanoid",
+        "race":"humanoid",
         "level":3,
         "body":1,
         "mind":0,

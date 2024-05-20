@@ -3,21 +3,19 @@ import { Spell, Trait, Item, Creature } from "../../client";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
-import useApi from "../../hooks/useApi";
-
 import { Tab, Disclosure } from "@headlessui/react";
 
 import CreatureTable from "./CreaturesTable";
 
-import jsonTraits from "../../assets/OfflineJsons/traits.json";
-import jsonSpells from "../../assets/OfflineJsons/spells.json";
-import jsonItems from "../../assets/OfflineJsons/items.json";
 import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
 
 import { Button } from "../ui/Button/Button";
 import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import { useTraits } from "../../hooks/useTraits";
+import { useSpells } from "../../hooks/useSpells";
+import { useItems } from "../../hooks/useItems";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5
@@ -42,11 +40,17 @@ export default function CreatureTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    const { SpellsService, TraitsService, ItemsService } = useApi();
+    const {
+        allTraits
+    } = useTraits();
 
-    const [spells, setSpells] = useState<Array<Spell>>([]);
-    const [traits, setTraits] = useState<Array<Trait>>([]);
-    const [items, setItems] = useState<Array<Item>>([]);
+    const {
+        allSpells
+    } = useSpells();
+
+    const {
+        allItems
+    } = useItems();
 
     useEffect(() => {
         async function getCreatures() {
@@ -61,6 +65,7 @@ export default function CreatureTablePage() {
             //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
             //         );
             creatures = Object.values(jsonCreatures) as Creature[];
+            // creatures = Object.values(jsonCreaturesTest) as Creature[];
             //     } else {
             //         return;
             //     }
@@ -71,79 +76,9 @@ export default function CreatureTablePage() {
         }
 
         getCreatures();
-    }, [SpellsService]);
+    }, []);
 
-    useEffect(() => {
-        async function getSpells() {
-            let spells: Spell[];
-            try {
-                const spellsRaw = await SpellsService.getAllSpells();
-
-                spells = Object.values(spellsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    spells = Object.values(jsonSpells);
-                // } else {
-                //     return;
-                // }
-            }
-
-            spells = sortArrayByLevel(spells);
-            setSpells(spells);
-        }
-
-        getSpells();
-    }, [SpellsService]);
-
-    useEffect(() => {
-        async function getTraits() {
-            let traits: Trait[];
-            try {
-                const traitsRaw = await TraitsService.getAllTraits();
-                traits = Object.values(traitsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    traits = Object.values(jsonTraits);
-                // } else {
-                //     return;
-                // }
-            }
-            traits = sortArrayByReqs(traits);
-            setTraits(traits);
-        }
-
-        getTraits();
-    }, [TraitsService]);
-
-    useEffect(() => {
-        async function getItems() {
-            let items: Item[];
-            try {
-                const itemsRaw = await ItemsService.getAllItems();
-                items = Object.values(itemsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    items = Object.values(jsonItems) as Item[];
-                // } else {
-                //     return;
-                // }
-            }
-            items = sortArrayByReqs(items ?? []);
-
-            setItems(items);
-        }
-
-        getItems();
-    }, [ItemsService]);
+    
 
     useEffect(() => {
         if (searchValue == "") {
@@ -229,9 +164,9 @@ export default function CreatureTablePage() {
                                                 );
                                             }}
                                             moveIsAdd={false}
-                                            traitsList={traits}
-                                            spellsList={spells}
-                                            itemsList={items}
+                                            traitsList={allTraits}
+                                            spellsList={allSpells}
+                                            itemsList={allItems}
                                         />
                                         <hr />
                                     </Disclosure.Panel>
@@ -303,9 +238,9 @@ export default function CreatureTablePage() {
                             moveCreature={(creature) => {
                                 addToPinnedCreatures(creature);
                             }}
-                            traitsList={traits}
-                            spellsList={spells}
-                            itemsList={items}
+                            traitsList={allTraits}
+                            spellsList={allSpells}
+                            itemsList={allItems}
                         />
                     </Tab.Panel>
                     {IterativeTraitLevels.map((n, i) => {
@@ -322,9 +257,9 @@ export default function CreatureTablePage() {
                                     moveCreature={(creature) => {
                                         addToPinnedCreatures(creature);
                                     }}
-                                    traitsList={traits}
-                                    spellsList={spells}
-                                    itemsList={items}
+                                    traitsList={allTraits}
+                                    spellsList={allSpells}
+                                    itemsList={allItems}
                                 />
                             </Tab.Panel>
                         );

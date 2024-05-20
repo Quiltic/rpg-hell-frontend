@@ -57,10 +57,12 @@ function highlightWord(text: string, word: string): string {
 
 
 export function sumNumbersAfterWord(itemList: string[], findWord: string): number {
+
+    console.log(findWord, itemList);
     let sum = 0;
 
     for (const item of itemList) {
-        const wordsAndNumbers = item.split(',');
+        const wordsAndNumbers = item.substring(item.indexOf("- ") + 2).split(',');
         for (const wordAndNumber of wordsAndNumbers) {
             const [word, valueStr] = wordAndNumber.split(' ');
             if (word.trim() == findWord) {
