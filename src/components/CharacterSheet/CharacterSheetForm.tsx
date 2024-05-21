@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { Creature } from "../../client";
+import React, { useState, useEffect, useMemo } from "react";
+import { Creature, Trait } from "../../client";
 import CharacterSheetStatIncrementor from "./CharacterSheetStatIncrementor";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import useSkills from "../../hooks/useSkills";
+import { useTraits } from "../../hooks/useTraits";
 
 const initialFormData: Creature = {
     name: "",
@@ -40,7 +41,8 @@ export default function CharacterSheetForm() {
 
     const placeholderTrue = true;
 
-    const [selectedLineage, setSelectedLineage] = useState("Select a Lineage");
+    const [selectedLineageTrait, setSelectedLineageTrait] = useState("");
+    const [selectedHumanoidTrait, setSelectedHumanoidTrait] = useState("");
 
     const {
         body,
@@ -52,51 +54,50 @@ export default function CharacterSheetForm() {
         medicine,
         nature,
         thievery,
-        level,
+        // level,
         skillPointsAvailible,
         subSkillPointsAvailible,
         skillMaxAtCurrentLevel,
         increment,
         decrement,
-        resetToInitial,
-        levelUp,
+        // resetToInitial,
+        // levelUp,
     } = useSkills();
 
-    // useEffect(() => {
-    //     async function getTraits() {
-    //         const persistentPinnedNames =
-    //             window.localStorage.getItem("pinnedTraitNames");
+    const { displayedTraits, allTraits, filterTraits, resetFilterTraits } =
+        useTraits();
 
-    //         if (persistentPinnedNames) {
-    //             const splitNames = persistentPinnedNames.split(";|;");
-    //             initialFormData.traits = splitNames;
-    //         }
-    //     }
+    const lineageTraitOptions: Trait[] = useMemo(() => {
+        const ts = allTraits.filter((t) => {
+            return t.req?.includes("base 0");
+        });
+        ts.sort(function (x, y) {
+            const textA = x.name.toUpperCase();
+            const textB = y.name.toUpperCase();
+            return textA < textB ? -1 : textA > textB ? 1 : 0;
+        });
+        const first = "generic humanoid";
+        return ts.sort(function (x, y) {
+            return x.name == first ? -1 : y.name == first ? 1 : 0;
+        });
+    }, [allTraits]);
 
-    //     async function getSpells() {
-    //         const persistentPinnedNames =
-    //             window.localStorage.getItem("pinnedSpellNames");
+    const humanoidTraitOptions: Trait[] = useMemo(() => {
+        const requirements = [
+            ...(body > 0 ? ["body 1"] : []),
+            ...(mind > 0 ? ["mind 1"] : []),
+            ...(soul > 0 ? ["soul 1"] : []),
+        ];
 
-    //         if (persistentPinnedNames) {
-    //             const splitNames = persistentPinnedNames.split(";|;");
-    //             initialFormData.spells = splitNames;
-    //         }
-    //     }
-
-    //     async function getItems() {
-    //         const persistentPinnedNames =
-    //             window.localStorage.getItem("pinnedItemNames");
-
-    //         if (persistentPinnedNames) {
-    //             const splitNames = persistentPinnedNames.split(";|;");
-    //             initialFormData.items = splitNames;
-    //         }
-    //     }
-
-    //     getTraits();
-    //     getSpells();
-    //     getItems();
-    // }, [characterSheetFormData]);
+        return allTraits.filter((t) => {
+            if (t.req == undefined) {
+                return false;
+            }
+            return (
+                t.req.some((r) => requirements.includes(r)) && t.req.length == 1
+            );
+        });
+    }, [allTraits, body, mind, soul]);
 
     return (
         <div className="grid auto-rows-auto grid-cols-6 gap-3 p-2">
@@ -106,43 +107,6 @@ export default function CharacterSheetForm() {
                 name="name"
                 className="col-span-6 h-10 w-full rounded-lg bg-body-700/40 p-2 active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600 md:col-span-3"
             ></input>
-
-            <div className="col-span-6 md:col-span-3">
-                <Listbox value={selectedLineage} onChange={setSelectedLineage}>
-                    <div className="relative">
-                        <Listbox.Button className="h-10 w-full rounded-lg bg-body-700/40 pl-2 text-left capitalize active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600">
-                            <span className="block truncate">
-                                {selectedLineage}
-                            </span>
-                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                                <ChevronUpDownIcon
-                                    className="h-5 w-5 text-base"
-                                    aria-hidden="true"
-                                />
-                            </span>
-                        </Listbox.Button>
-                        <Listbox.Options className="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-body-700/40 py-1 text-light ring-1 ring-dark/5 backdrop-blur-lg focus:outline-none dark:bg-dark dark:bg-soul-700/10 sm:text-sm">
-                            {lineageList.map((l, i) => (
-                                <Listbox.Option
-                                    key={i}
-                                    value={l}
-                                    className={({ active }) =>
-                                        classNames(
-                                            "cursor-pointer px-2 py-1 capitalize text-dark dark:text-light",
-                                            active
-                                                ? "bg-body-700/40 dark:bg-soul-700/10"
-                                                : ""
-                                        )
-                                    }
-                                >
-                                    {l}
-                                </Listbox.Option>
-                            ))}
-                        </Listbox.Options>
-                    </div>
-                </Listbox>
-            </div>
-
             <div className="col-span-3 mb-4 flex flex-row items-center justify-between rounded-lg bg-body-700/40 px-4 py-1 text-xl dark:bg-soul-700/10">
                 <div className="overflow-ellipsis p-1">
                     Remaining Skill increases:
@@ -325,6 +289,117 @@ export default function CharacterSheetForm() {
                     }}
                 />
             </div>
+            <h1 className="col-span-6">Traits</h1>
+            <h2 className="col-span-6">Lineage Trait</h2>
+            <div className="col-span-6 ">
+                <Listbox
+                    value={selectedLineageTrait}
+                    onChange={setSelectedLineageTrait}
+                >
+                    <div className="relative">
+                        <Listbox.Button className="h-14 w-full rounded-lg bg-body-700/40 pl-2 text-left capitalize active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600">
+                            <span className="block truncate">
+                                {selectedLineageTrait == ""
+                                    ? "Select a Lineage"
+                                    : selectedLineageTrait}
+                            </span>
+                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                <ChevronUpDownIcon
+                                    className="h-6 w-6 text-base"
+                                    aria-hidden="true"
+                                />
+                            </span>
+                        </Listbox.Button>
+                        <Listbox.Options className="absolute z-20 mb-4 mt-1 max-h-60 w-full overflow-auto rounded-md bg-light-600 py-1 text-dark ring-1 ring-dark/5 focus:outline-none dark:bg-dark-400 dark:text-light sm:text-sm">
+                            {lineageTraitOptions.map((lt, i) => (
+                                <Listbox.Option
+                                    key={i}
+                                    value={lt.name}
+                                    className={({ active }) =>
+                                        classNames(
+                                            "cursor-pointer px-2 py-1 text-left text-dark dark:text-light",
+                                            active
+                                                ? "bg-body-700/40 dark:bg-soul-700/10"
+                                                : ""
+                                        )
+                                    }
+                                >
+                                    {
+                                        <div className="flex w-full flex-col">
+                                            <div className="font-bold capitalize">
+                                                {lt.name}
+                                            </div>
+                                            <div>{lt.effect}</div>
+                                        </div>
+                                    }
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </div>
+                </Listbox>
+            </div>
+            {selectedLineageTrait == "generic humanoid" && (
+                <div className="col-span-6 ">
+                    <Listbox
+                        value={selectedHumanoidTrait}
+                        onChange={setSelectedHumanoidTrait}
+                    >
+                        <div className="relative">
+                            <Listbox.Button className="h-14 w-full rounded-lg bg-body-700/40 pl-2 text-left capitalize active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600">
+                                <span className="block truncate">
+                                    {selectedHumanoidTrait == ""
+                                        ? "Select a Generic Humanoid Trait"
+                                        : selectedHumanoidTrait}
+                                </span>
+                                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                    <ChevronUpDownIcon
+                                        className="h-6 w-6 text-base"
+                                        aria-hidden="true"
+                                    />
+                                </span>
+                            </Listbox.Button>
+                            <Listbox.Options className="absolute z-20 mb-4 mt-1 max-h-60 w-full overflow-auto rounded-md bg-light-600 py-1 text-dark ring-1 ring-dark/5 focus:outline-none dark:bg-dark-400 dark:text-light sm:text-sm">
+                                {humanoidTraitOptions.length > 0 ? (
+                                    humanoidTraitOptions.map((lt, i) => (
+                                        <Listbox.Option
+                                            key={i}
+                                            value={lt.name}
+                                            className={({ active }) =>
+                                                classNames(
+                                                    "cursor-pointer px-2 py-1 text-left text-dark dark:text-light",
+                                                    active
+                                                        ? "bg-body-700/40 dark:bg-soul-700/10"
+                                                        : ""
+                                                )
+                                            }
+                                        >
+                                            {
+                                                <div className="flex w-full flex-col">
+                                                    <div className="font-bold capitalize">
+                                                        {lt.name}
+                                                    </div>
+                                                    <div>{lt.effect}</div>
+                                                </div>
+                                            }
+                                        </Listbox.Option>
+                                    ))
+                                ) : (
+                                    <Listbox.Option disabled={true} value={""}>
+                                        <div className="h-12 cursor-not-allowed">
+                                            You are missing stat requirements to
+                                            pick a trait
+                                        </div>
+                                    </Listbox.Option>
+                                )}
+                            </Listbox.Options>
+                        </div>
+                    </Listbox>
+                </div>
+            )}
+            <div className="col-span-6 -my-3 px-12">
+                <hr className="w-full" />
+            </div>
+            <h2 className="col-span-6">Level 1 Traits</h2>
         </div>
     );
 }
