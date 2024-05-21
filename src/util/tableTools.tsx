@@ -26,7 +26,7 @@ function getPersistentPinnedNames(
 }
 
 function getNames(names: string, objectList: ApiClassUnion[]) {
-    console.log(objectList);
+    // console.log(objectList);
     // split the nameOfNames
     const splitNames = names.split(";|;");
     const _list = splitNames.map((on) => {

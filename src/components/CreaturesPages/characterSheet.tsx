@@ -1,8 +1,9 @@
 // import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Spell, Trait, Item, Creature } from "../../client";
+import { createItemLines, createTraitLines, dictionaryItems, sumTags, upgradeItem } from "../../util/creatureHelpers";
 import { getNames } from "../../util/tableTools";
 
-import { formatEffectString, sumNumbersAfterWord, toPillElement } from "../../util/textFormatting";
+import { toPillElement } from "../../util/textFormatting";
 // import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -18,6 +19,8 @@ export default function CreatureSheet({
     spellsList: spellsList,
     itemsList: itemsList,
 }: Props) {
+
+
     const stats = toPillElement(
         `Body ${displayedCreature.body},Mind ${displayedCreature.mind},Soul ${displayedCreature.soul}`,
         ","
@@ -35,66 +38,53 @@ export default function CreatureSheet({
     
     const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
     const spells = getNames(displayedCreature.spells, spellsList) as Spell[];
-    const items = getNames(displayedCreature.items, itemsList) as Item[];
+    let items = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
 
-    let traitLines = [
-        ...traits.map((t) => {
-            return `${t.name} - ${"#".repeat(t.dice ?? 1) ?? "P"}\n${t.effect}\n`;
-        }),
-    ];
-    let itemLines = [
-        ...items.map((i) => {
-            return `${i.name} - ${i.tags}\n${i.effect}\n`;
-        }),
-    ];
+    items = upgradeItem(items, displayedCreature.stackEffects);
+
+    
+    let bonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
+    let soulStrain = (displayedCreature.traits.includes("mental mage") ? displayedCreature.soul*3+2 : displayedCreature.soul*3);
+    
+    if (displayedCreature.traits.includes("blood magic")) {
+        bonus += soulStrain;
+        soulStrain = 0;
+    };
+    
+    const health = Math.ceil(
+        displayedCreature.level +
+        displayedCreature.body * 4 +
+        displayedCreature.mind * 3 +
+        displayedCreature.soul * 2 +
+        bonus
+    );
+    
+    const itemTags = sumTags(items);
+    
+    const armor = itemTags["armor"] * displayedCreature.level;
+    const ward = itemTags["ward"];
+    const dodge = itemTags["dodge"];
+    
+    bonus = itemTags["speed"] + (displayedCreature.traits.includes("quick runner") ? 1 : 0);
+    const speed = displayedCreature.speedBonus + 6 + bonus;
+    
+    
+    let [activeLines, passiveLines, itemLines] = createItemLines(items);
+
+    createTraitLines(traits,activeLines,passiveLines);
+    
     let spellLines = [
         ...spells.map((s) => {
-            return `${s.name} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
+            return `${s.name.toUpperCase()} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
                 s.level
             }\n${s.effect}\n`;
         }),
     ];
-    if (traitLines.length > 0) {
-        if (traitLines[0].includes('Object "" not found.')) {
-            traitLines = [];
-        }
-    }
-    if (itemLines.length > 0) {
-        if (itemLines[0].includes('Object "" not found.')) {
-            itemLines = [];
-        }
-    }
     if (spellLines.length > 0) {
         if (spellLines[0].includes('Object "" not found.')) {
             spellLines = [];
         }
     }
-
-    let bonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
-    let soulStrain = (displayedCreature.traits.includes("mental mage") ? displayedCreature.soul*3+2 : displayedCreature.soul*3);
-
-    if (displayedCreature.traits.includes("blood magic")) {
-        bonus += soulStrain;
-        soulStrain = 0;
-    };
-
-    const health = Math.ceil(
-            displayedCreature.level +
-            displayedCreature.body * 4 +
-            displayedCreature.mind * 3 +
-            displayedCreature.soul * 2 +
-            bonus
-        );
-
-    const armor = sumNumbersAfterWord(itemLines, "armor") * displayedCreature.level;
-    const ward = sumNumbersAfterWord(itemLines, "ward");
-    const dodge = sumNumbersAfterWord(itemLines, "dodge");
-    console.log(dodge);
-    
-    bonus = sumNumbersAfterWord(itemLines, "speed");
-    const speed = displayedCreature.speedBonus + 6 + bonus;
-
-    
 
     return (
         <div className="flex flex-col m-5 p-4 dark:bg-dark-400 rounded-md">
@@ -148,21 +138,36 @@ export default function CreatureSheet({
 
             </div>
             <div className="mb-3">
-                <div className="font-bold mb-1">TRAITS</div>
+                <div className="font-bold mb-1">ACTIVES</div>
                 <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
-                    {traitLines.join("\n")}
+                    {activeLines.join("\n")}
                 </div>
             </div>
-            <div className="mb-3">
-                <div className="font-bold mb-1">ITEMS</div>
-                <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
-                    {itemLines.join("\n")}
+
+            { passiveLines.length != 0 &&
+                <div className="mb-3">
+                    <div className="font-bold mb-1">PASSIVES</div>
+                    <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                        {passiveLines.join("\n")}
+                    </div>
                 </div>
-            </div>
+            }
+
+            { itemLines.length != 0 &&
+                <div className="mb-3">
+                    <div className="font-bold mb-1">ITEMS</div>
+                    <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                        {itemLines.join("\n")}
+                    </div>
+                </div>
+            }
             
             { spellLines.length != 0 &&
                 <div className="mb-3">
-                    <div className="font-bold mb-1">SPELLS</div>
+                    <div className="flex flex-row justify-between"> 
+                        <div className="font-bold mb-1">SPELLS</div>
+                        <div className="font-bold mb-1">MAX SOUL STRAIN: {soulStrain}</div>
+                    </div>
                     <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {spellLines.join("\n")}
                     </div>
