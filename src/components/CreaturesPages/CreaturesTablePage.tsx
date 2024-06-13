@@ -127,6 +127,7 @@ export default function CreatureTablePage() {
     const IterativeTraitLevels = [
         "Humanoid",
         "Animal",
+        "Construct",
         "Monstrosity",
         "Planar",
         "Undead",
