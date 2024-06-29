@@ -8,23 +8,128 @@ This game is heavily inspired by YOU the players and your host known as the Game
 
 There are primarily 2 sections to this game: Out of Combat; which is where most role-playing will take place, and In Combat; which is where you fight monsters and other stuff.
 
-For a complete and up to date rule set go to [https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing](https://docs.google.com/document/d/1h8yUHFGRlDEHiQ5K4UsqGjIkeFcHh8aEjj2FuqFQs_c/edit?usp=sharing).
-
-
-
 
 
 # Locking Dice
 
 When you do any roll you may Lock one die. This die is set to the side and is removed from the current roll, i.e. you do not add it to sums or use it for actions. 
-On later turns you may then **replace** a rolled die with your Locked die. 
-Replacing a die removes the replaced die from play and uses the Locked die. You may lock a die after using a locked dice in the current roll.
+On later turns you may then Unlock the dice putting it into your current roll. You may lock a die after using a locked dice in the current roll.
 **You can NOT have more than one Locked die at a time, and you can't Lock a die out combat more than once an hour.**
 
-For example, let's say I do a Physical Feats roll and roll five 6's. I probably don't need all five 6's for this roll, so I can remove one of the 6's and have four 6's for this roll. Then, lets say I roll to Hide and get two 1's. I can replace one of the 1's with my Locked 6, meaning now I have a 6 and a 1 in my current roll. 
+
+
+# Out of Combat Rules
+
+## Actions
+
+These are actions that anyone can do. The basic listing of actions any creature can do is listed under their respective stat/skill down below.
+
+Some actions require traits or items to acquire. An example is the Tunneler Trait which lets you easily break and move solid land, such as dirt or stone. Or the ever famous Cooking Tools which allow you to make foods you otherwise would have to buy to acquire.
+
+Actions generally have 3 different ways of operating: Checks (the most common type), Contests, and Activatable ones (toggles or just works without rolling).
 
 
 
+### Checks
+
+When you want to do an Action that requires a check you first tell your GM what you want to do, then you roll ## (2 dice) and add the respective stat/sub-stat.
+If you roll a 6 or less you Fail, a 7 through 10 is Partial Success, and an 11 or higher is a Success.
+- Failure: where you just fail the action.
+- Partial Success: where you do the action with a but.
+- Success: where you just do the action.
+
+You then tell your GM what you rolled and the GM will tell you what happens next.
+
+: For example if you want to push a bolder you roll a Body check. If you have a 3 in Body then you roll 2 dice and add 3.
+: Lets say you roll a 1 and a 4, you would then have 1 + 4 + 3 = 8. This is a Partial Success; so in this case your GM may say, you push the bolder, but it rolls down the hill uncontrollably.
+
+
+### Taking Your Time
+Certain checks innately take longer to complete than others (for example when performing physical feat climbing a wall could take longer than jumping a gap). 
+These amounts of time are determined by the GM.
+
+
+
+### Contests
+
+Some Actions require Contests, which is a competition between two or more parties. 
+When you or your GM incites a Contest, all party's then roll based on the required Stat or Skill. This being similar to the ways Checks work.
+Whichever party has a higher sum wins the contest. Defenders (the ones being forced to roll) always win if a tie happens.
+
+
+
+# Combat
+
+Combat is split up into Rounds, each Round lasts 10 seconds and has 3 phases; Beginning which is where they take damage or effects from Stack Effects and roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they loose stacks or effects.
+
+## Initiative
+
+All creatures in combat must roll Initiative to see when they may do their Actions in Combat. 
+This value is calculated by rolling ## (2 dice) then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first). Players always win if speeds are the same.
+Whichever creature has the highest Initiative goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
+
+The world and vehicles (earthquakes, neutral NPC's, carts, and other creature related actions) always go last in Initiative.
+
+
+
+## Action Dice (AD)
+
+At the beginning of your turn you roll an amount of dice based on your __COMBAT DICE__ (Temp name). COMBAT DICE can be calculated as 4+(lvl/2) [rounded down].
+You can spend these dice to do actions in Combat. Every action asks for a different amount of dice, denoted next to the Action as a number of #. Depending on the action taken the values for the dice may or may not matter.
+: For example, when you take/use the action Bull Rush it requires you to give it ##, or two dice. These dice values do not matter as you will always do its effect. On the other hand the Dagger Master trait asks for #, one dice, but requires a 6 to do its effect in combat.
+
+Attacks and Contests count as ## (2 dice), Movement counts as # (1 dice), and Spells and Traits have varying amounts, which are listed next to them under Dice.
+
+
+
+### Attack Dice Values Matter 
+
+All weapons have special actions when you wield them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you don't have these requirements you can still use the weapon but you only get the 4 or less effect regardless of dice values given.
+
+On Attacks when you give ## (2 dice) you take the sum of these dice, sometimes giving special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4.
+: For example a sword (short or long) does 1 extra damage on a 9 or higher, and 1 less damage on a 4 or lower.
+
+
+
+
+## Damage and Armor
+
+Your Health is how much you can take before you are put on Death's Door, and is calculated by <span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
+
+Armors give special bonuses based on the type of armor. The most prevalent bonus is a special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. 
+Armor Stacks are reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or most Spells.
+You can have a max of 75 Armor Stacks (Temp number) at any given point in time.
+- Armor Stacks do not reduce damage from, Falling, Drowning, Armor Penetration, or excess Soul Strain.
+
+
+Other armors provide **Dodge**. When you take damage while having stacks of Dodge you may choose to you may reduce the damage taken in half (rounded up) then reduce Dodge by 1.
+- Dodge does not reduce damage from, Burn, Bleed, Knockback, Drowning, or excess Soul Strain.
+
+
+Lastly most Soul armors provide **Ward**. When you gain stacks of Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet you may reduce the number of Ward you have by 1 to negate gaining the stacks.
+You cannot remove stacks with ward once you have gained them.
+You may only have a max of 4 Ward at any given point in time.
+
+
+
+<span style="font-family: monospace; font-size: 1.3em">All effects from Armor are regained at the end of a Rest.</span>
+
+### Knockback and Fall Damage
+
+When a creature falls or is knocked back, such as from a weapon with knockback, into a solid surface (wall/floor).
+Creatures can fall or be knocked back 3 tiles before they take damage. If a creature falls 4 or more tiles they take damage equal to how many tiles they fell. For instance if you where to fall off a short building (3 tiles) you would be fine, however if you where to fall off a 2 story building (6 tiles), you would take 6 damage.
+
+This is true of Knockback. If a creature would be knocked back into a solid surface 4 or more tiles they take damage equal to how much movement they cannot move. For instance if you knocked someone 8 tiles back, but they can only go 3, then they will take 5 damage (3 tiles to the wall, 5 tiles "into" the wall).
+
+
+
+
+## Death's Door
+
+When you are on 0 or less life you are put on Death's Door. While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. If you roll equal to or less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
+: For example if you are on Death's Door and roll a 3 you live another turn and are on Death's Door 2.
+: Another example is if you are On Death's Door 5 and roll a 2 you Die.
+Death's Door only goes away if you do a Rest.
 
 
 # Magic
@@ -38,8 +143,8 @@ There are a number of ways to learn how to do magic. Some mages learn through in
 Despite all this, the manipulation of souls is not without consequence. As such, when a creature or item casts or uses magic, they may gain a number of stacks of Soul Strain based on how strong the spell they are casting is (denoted next to the spell). 
 Depending on how much they have trained their Soul (points in Soul) they may start to take damage from casting. 
 A creature takes an amount of damage based on how much Soul Strain they have over their Max Soul Strain. 
-This damage is taken before the spell effect occurs. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
-Your max Soul Strain is 3 times your Soul. Though some Traits, or Items can increase this slightly. 
+This damage is taken before the spell effect occurs, and the damage affects Health only which cannot be reduced. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
+You know a number of spells equal to 2 times your Soul, and your max Soul Strain is 3 times your Soul. Though some Traits, or Items can increase these slightly. 
 You loose all stacks of Soul Strain when you finish a Rest.
 
 
@@ -52,7 +157,6 @@ When you spend 8 or more hours doing non-extraneous effort, such as sleeping or 
 Rests do not need to be completed all at once, and can be broken up into multiple segments of at least 2 hour increments. 
 However, you can only Rest up to twice a Day.
 You must Sleep for at least 6 hours every day. This time is apart of a rest.
-You must eat at least 3 meals a day. (Optional rule: You must eat 25 pips, each meal denotes its pip count, per week.)
 
 
 When you complete a Rest you gain the following bonuses:
@@ -74,215 +178,53 @@ Or your party can move 1 tile slower to try to Hide during travel. You can roll 
 
 When using Boats, Riding Animals, Carts, Cars, or some similar vehicle you replace your speed with that of the vehicle.
 
-
-
-
-
-# Out of Combat Rules
-
-## Actions
-
-These are actions that anyone can do. The basic listing of actions any creature can do is listed under their respective stat/skill down below.
-
-Some actions require traits or items to acquire. An example is the Tunneler Trait which lets you easily break and move solid land, such as dirt or stone. Or the ever famous Cooking Tools which allow you to make foods you otherwise would have to buy to acquire.
-
-Actions generally have 3 different ways of operating: Checks (the most common type), Contests, and Activatable ones (toggles or just works without rolling).
-
-
-
-### Checks
-
-When you want to do an Action that requires a check, you roll a number of dice based on the required stat or skill. The number of dice is equal to 2 with an additional dice for every point you put into the required check.
-For example if you want to do a Physical Feat you roll a Body check. If you have a 3 in Body then you roll 5 dice (2 from default plus 3 from Body).
-
-Most (if not all) checks have you take the sum of all dice rolled and compare it to the Difficulty Level value (denoted as DL from here on). 
-All checks have set ways that increase or decrease the DL, they are noted underneath their respective actions. The DL typically ranges from 0 to 9 where the value you need to get in order to pass is 6 + 3*DL.
-
-Every action has 4 levels of success. Complete Failure (sum is less than the DL by 10 or more), Failure (sum is less than the DL), Success (the sum meets or beets the DL), and Great Success (sum is greater than the DL by 10 or more)
-
-You then tell your GM what you rolled and what action you want to try and the GM will tell you what happens next. All of this is recited in the Difficulty Level (DL) Rules Listed below. There is also a table to help show what sums you need to succeed.
-
-### Taking Your Time
-Certain checks innately take longer to complete than others (for example when performing physical feat climbing a wall could take longer than jumping a gap). 
-These amounts of time are determined by the GM, who can choose to use this table below as a guideline if they wish.
-
-Additionally, you can choose to perform a check Hastily or Methodically, increasing or decreasing your DL by 1 respectively.
-
-
-
-### Contests
-
-Some Actions require Contests, which is a competition between two or more parties. 
-When you or your GM incites a Contest, all party's then roll based on the required Stat or Skill. This being similar to the ways Checks work.
-Whichever party has a higher sum wins the contest. If a tie happens it is based on which party rolled the higher individual dice values. 
-Players always win if all dice are the same.
-
-
-
-
-# Combat
-
-Combat is split up into Rounds, each Round lasts 10 seconds and has 3 phases; Beginning which is where they take damage or effects from Stack Effects and roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they loose stacks or effects.
-
-## Initiative
-
-All creatures in combat must roll Initiative to see when they may do their Actions in Combat. 
-This value is calculated by rolling two dice then adding the characters Speed. Ties are decided based on the creatures base Speed (highest first). Players always win if speeds are the same.
-Whichever creature has the highest Initiative goes first. Once all creatures have gone the Round is over and it goes back to being the first creatures turn.
-
-The world (earthquakes, neutral NPC's, and other creature related actions) always go last in Initiative.
-
-
-
-## Action Dice (AD)
-
-At the beginning of your turn you roll an amount of dice based on your __COMBAT DICE__ (Temp name). 
-You can spend these dice to do actions in Combat. Every action asks for a different amount of dice, denoted next to the Action as a number of #. Depending on the action taken the values for the dice may or may not matter.
-For example, when you take/use the action Bull Rush it requires you to give it ##, or two dice. These dice values do not matter as you will always do its effect. On the other hand the Dagger Master trait asks for #, one dice, but requires a 6 to do its effect in combat.
-
-Attacks and Contests count as ## (2 dice), Movement counts as # (1 dice), and Spells and Traits have varying amounts, which are listed next to them under Dice.
-
-
-
-### Attack Dice Values Matter 
-
-All weapons have special actions when you wield them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you don't have these requirements you can still use the weapon but you only get the 4 or less effects regardless of dice values given.
-
-On Attacks when you give ## (2 dice) you take the sum of these dice, sometimes giving special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4.
-For example a sword (short or long) does 1 extra damage on a 9 or higher, and 1 less damage on a 4 or lower.
-
-
-
-
-## Damage and Armor
-
-Your Health is how much you can take before you are put on Death's Door, and is calculated by <span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
-
-Armors give special bonuses based on the type of armor. The most prevalent bonus is a special set of Health called **Armor Stacks**. Different armors provide a varying amount of Armor Stacks. 
-Armor Stacks are reduced before you take normal Health loss. Unlike normal Health Armor Stacks cannot be regained from Healing Items or most Spells.
-You can have a max of 75 Armor Stacks (Temp number) at any given point in time.
-- Armor Stacks do not reduce damage from, Falling, Drowning, Armor Penetration, or excess Soul Strain.
-
-
-Other armors provide **Dodge**. When you take damage while having stacks of Dodge you may roll a dice. 
-If the dice value is equal to or lower than your Dodge you may reduce the damage taken in half (rounded up) then reduce Dodge by 1.
-- Dodge does not reduce damage from, Burn, Bleed, Knockback, Drowning, or excess Soul Strain.
-
-
-Lastly most Soul armors provide **Ward**. When you take damage you may negate all damage taken and reduce the number of Ward you have by 1.
-You may only have a max of 4 Ward at any given point in time.
-- Ward does not reduce damage from, Burn, Bleed, Falling, Drowning, or excess Soul Strain.
-
-
-
-<span style="font-family: monospace; font-size: 1.3em">All effects from Armor are regained at the end of a Rest.</span>
-
-### Knockback and Fall Damage
-
-When a creature falls or is knocked back, such as from a weapon with knockback, into a solid surface (wall/floor)
-Creatures can fall or be knocked back 3 tiles before they take damage. If a creature falls 4 or more tiles they take damage equal to how many tiles they fell. For instance if you where to fall off a short building (3 tiles) you would be fine, however if you where to fall off a 2 story building (6 tiles), you would take 6 damage.
-
-This is true of Knockback. If a creature would be knocked back into a solid surface 4 or more tiles they take damage equal to how much movement they cannot move. For instance if you knocked someone 8 tiles back, but they can only go 3, then they will take 5 damage (3 tiles to the wall, 5 tiles "into" the wall).
-
-
-
-
-## Death's Door
-
-When you are on 0 or less life you are put on Death's Door. While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
-: For example if you are on Death's Door and roll a 3 you live another turn and are on Death's Door 2.
-: Another example is if you are On Death's Door 5 and roll a 2 you Die.
-Death's Door only goes away if you do a Rest.
-
-
-
+How to handle events during travel. First decide a destination and route. Count the number of tiles it would take to get there. You then may make a number of events based on how far they travel and how fast they move. 
+A good method for this is dividing the distance by the party speed, or by deciding a set number of events to give. 
+Events can be classified as combat, exploration, roleplay, or location based events.
+ - Combat is... well combat. A good example is having the party get ambushed by bandits, or finding a pack of wolfs.
+ - Exploration is any unmarked location (or generally named location; such as the Plains of Vorg) that you may add flavor or checks to. A good example would be a breaking bridge over a chasm, or a "shortcut" through a cave.
+ - Roleplay may be meeting new people or having the party sit by the campfire telling stories. This may lead to combat or will just be something for the party to experience. A good example would be finding a traveling circus.
+ - Locations are any major, or minor, places that are marked on a map. This can be a known town, ancient ruin, or some other marked location on the map.
 
 
 # Common Actions
 
-## Difficulty Level Rules
+## Perception/Investigation
 
-Most (if not all) checks have you take the sum of all dice rolled and compare it to the Difficulty Level value (denoted as DL from here on). 
-
-You can roll varying levels of success or failure based on the total sum rolled.
-
-Different DL levels happen for every type of roll and your gm may chose to increase or decrease this DL threshold based on circumstance.
-
-All DL increases are listed above the results of the roll. With the value to succeed (goal) being 6 + 3*Difficulty Level (DL)
-
-The levels of success are as follows:
-- Complete Failure: Roll lower than the goal by 10 or more.
-- Failure: Roll less than the goal.
-- Success: Roll the goal or higher.
-- Great Success: Roll higher than the goal by 10 or more.
+Body is used when you are trying to see big picture things, such as a caravan on the horizon, or something out of the corner of your eye.
 
 
-## DL Table
-| DL | Success value | Min stat to succeed | Average Time |
-| --- | --- | --- | --- |
-| 0 | 6 | -1 | 1 minute |
-| 1 | 9  | 0 | 5 minutes |
-| 2 | 12 | 0 | 10 minutes |
-| 3 | 15 | 1 | 30 minutes |
-| 4 | 18 | 1 | 1 hour |
-| 5 | 21 | 2 | 5 hours |
-| 6 | 24 | 2 | 12 hours |
-| 7 | 27 | 3 | 1 day |
-| 8 | 30 | 3 | 1 week |
-| 9 | 33 | 4 | 1 month |
+Mind is used when you are trying to see set things in a room, such as a hidden door in a room, or a cooked painting.
+
+
+Soul is used when you are trying to see details on an object, such as a hidden compartment on a dresser, or a message in glass.
+
+
+
+You may also roll sub-stats when GM deems it appropriate.
+- Arcana for an ancient library.
+- Charm for an art piece, or person.
+- Crafting for a machine or component.
+- Nature for a plant or creature.
+- Medicine for a crime sene.
+- Thieving for a shop or business.
 
 
 ## Body
 
 ### Physical Feats
-- Do one of the following, increasing its DL appropriately.
-- Jump 2 tiles horizontally with a running start. Increase the DL by 1 for every 1 extra tile you want to jump.
-- Jump 1 tile vertical or horizontally. Increase the DL by 2 for every 1 extra tile you want to jump.
-- Lift/Push 100 lb thing with 2 hands. Increase the DL by 1 for every 100 extra lb you want to lift.
-- Lift/Push a 20 lb thing with 1 hand. Increase the DL by 1 for every 20 extra lb you want to lift.
-- Force open a door. This cannot be done quietly. The DL is 1 for normal doors, 3 for heavy doors, and 6 for reinforced doors. (GM may increase or decrease this value based on door type)
-<br />
-
-- Complete Failure: Fail miserably and sprain something, taking 3 damage in addition to any other effects from failing.
-- Failure: You fail.
-- Success: You succeed.
-- Great Success: You succeed, and you may lock a dice used on this roll. (Work in Progress)
-
-
-### Acrobatics or Athletics
-- Most situations are based on GM ruling. However a good guideline for DL is: 1 for simple actions, 3 for novice actions, 5 for intermediate actions, 7 for advanced actions, and 9 for master actions.
-<br />
-
-- Complete Failure: Fail miserably and sprain something, taking 1d6 damage in addition to any other effects from failing.
-- Failure: You fail.
-- Success: You succeed.
-- Great Success: This specific feat (doing a backflip, jump rope, etc) has become muscle memory to you, reducing the DL by 1 the next time you do this specific feat.
-
+- Long Jump 2 + Body tiles horizontally with a running start. Partial Success may be tripping on landing.
+- Jump 1 + (Body/2) tiles vertically or horizontally. Partial Success may be tripping on landing.
+- Lift/Push 100 x Body lb thing with 2 hands. Partial Success may be Loosing 3 speed.
+- Lift/Push a 20 x Body lb thing with 1 hand. Partial Success may be Loosing 3 speed.
+- Force open a door. This cannot be done quietly. Partial Success may be breaking the door off its hinges.
+- Acrobatics or Athletics. Based on GM ruling.
 
 
 ## Mind
 
-### Investigate
-- When searching an area, items or clues in the area have their own discovery DLs determined by the GM. 
-- For example, a trinket under a bed would have a DL of 0, a notebook hidden under a false drawer bottom would have a DL of 9. 
-- You make 1 Roll to Investigate which the DM silently compares to the DLs of all hidden items or clues.
-<br />
-
-- Complete Failure: You find nothing.
-- Failure: You find 1 item or clue.
-- Success: You find up to 3 items or clues.
-- Great Success: You find all items or clues.
-
-
-
 ### Remember
-- Most situations are based on GM ruling. However a good guideline for DL is: 0 for memories you deeply know, 1 for recent memories, 3 for old memories, and 9 for passing memories (such as a single sentence or word on a sign you have seen once).
-<br />
-
-- Complete Failure: You are completely blank on what you try to remember, forgetting what and why you are trying to remember.
-- Failure: You don't remember.
-- Success: You remember vague details about what you are trying to remember.
-- Great Success: You remember most of the details about what you are trying to remember.
+Try to remember something. Partial Success may be remembering vague details.
 
 
 
@@ -299,39 +241,20 @@ The levels of success are as follows:
 ## Arcana
 
 ### Read Runes
-- Increase the DL by the writer's Arcana score.
-- Runes written increase the DL by the writers Arcana.
-<br />
+Read written runes. Partial success may be only being able to read half the runes.
 
-- Complete Failure: Take 3 Health damage, and you have no idea what the runes say or do.
-- Failure: You have no idea what the runes say or do.
-- Success: You know what the runes say, what the magic item does, how to use the magic item, or a more specific question based on the item (pick 1).
-- Great Success: You know what the runes say, what the magic item does, how to use the magic item, and may ask a more specific question based on the item.
+### Investigate a magic item. 
+- You learn the name of the item. (Unless on Failure)
+- You know the effect, and how to activate the magic item. Partial Success may be only knowing one of these (player pick).
+- Ask a more specific question based on the item.
 
 
 
 ## Charm
 
 ### Convince Someone of Something
-Increase the DL by the target's Charm.
-
-The DL may also be affected by factors such as familiarity with the target and the target's feelings toward the player.
-
-Some creatures and situations may increase or decrease this value depending on GM ruling. (Such as if the target would align with what you are convincing them of.)
-
-- Complete Failure: They are not convinced and trust you less.
-- Failure: They are not convinced.
-- Success: They are convinced though they have their doubts and may ask for more (information, gold, lies).
-- Great Success: They are thoroughly convinced.
-
-
-### Discern Others Intentions
-Increase the DL by the target's Charm
-
-- Complete Failure: You have no idea what their intention is, and you believe they are telling the truth.
-- Failure: You have no idea what their intention is, or if they are lying.
-- Success: Determine the target's intention or if they are lying.
-- Great Success: Determine the target's intention and if they are lying.
+Some creatures and situations may increase or decrease your bonus to the roll depending on GM ruling. (Such as if the target would align with what you are convincing them of.)
+- Partial Success may be the creature having doubts and may ask for more (information, gold, lies).
 
 
 ### Performance: Sing, Tell a Story, or Tell a Joke
@@ -348,26 +271,23 @@ Most situations are based on GM ruling. However a good guideline for DL is: 1 fo
 ## Crafting
 
 ### Make an Item
-Increase the DL by the crafted items Crafting score.
-
-Spend 1 minute for a Crafting score of 0. Spend 10 minutes for a Crafting score of 1. For a Crafting score of 2 or higher spend 30 minutes multiplied by the item's Crafting score.
+In order to craft something you need to spend half the cost of the item, and do a number of successful Crafting rolls equal to the items Crafting score.
+Every time you roll to craft an item you must spend an amount of time based on the Crafting score.
+- 1 minute for a Crafting score of 1 or less.
+- 10 minutes for a Crafting score of 4 or less.
+- 30 minutes for a Crafting score of 7 or less.
+- 1 hour for a Crafting score higher than 7.
 
 This action cannot make weapons, armors, potions, complex items, or magic items (See Tools).
-
-- Complete Failure: You fail to make the item and lose all gold spent trying to make the item.
-- Failure: You do not finish the item, you reduce the time by half the next time you try to craft this item.
-- Success: Spend the normal amount of time and half the gold cost of the item to create the item.
-- Great Success: Spend half the time and half the gold cost of the item to create the item.
+- Partial Successes do not count to total Successes.
 
 
 
-### Understand a Contraption
-Increase the DL by the target's Crafting score.
+### Understand a Contraption 
+- You learn the name of the contraption. (Unless on Failure)
+- You know the effect, and how to activate the contraption. Partial Success may be only knowing one of these (player pick).
+- Ask a more specific question based on the contraption.
 
-- Complete Failure: You break the item.
-- Failure: You have no idea what the item does.
-- Success: You know what the item does, how to use the item, or more specific information based on the item. (Pick 1)
-- Great Success: You know what the item does, how to use the item, and more specific information based on the item.
 
 
 
@@ -388,77 +308,40 @@ Great Success: Find 15 gold worth of Junk, 2 Cheap Meals, or a clean water sourc
 
 
 ### Handle a Beast
-
+You can either guide them, get close to them, shoo them away, have them give you something (eggs, wool, milk, something in there mouth, ect), or agitate them towards something.
+Beasts with the Mount trait, may be used as Mounts on successful roll.
+- Partial Success may be the creature having doubts and may ask for more (food, shinys, playing).
 - Can only target a creature with the Animal tag.
 - Increase the DL by the creature's Level.
-
-Complete Failure: Enrage or scare the creature, having it attack you or run away.
-
-Failure: You do not handle the Creature.
-
-Success: You are able to handle the Creature. You can either guide them, get close to them, shoo them away, have them give you something (eggs, wool, milk, something in there mouth, ect), or agitate them towards something.
-
-Great Success: Successfully tame the Creature making it a Pet (Follower) for 1 hour. (If you get this option 4 times in 1 day this becomes Permanent)
 
 
 
 ### Track a Creature
-
-Increase the DL by the target's Thieving if the target was Hiding.
-
-Increase the DL by 1 for every Hour after the tracks were made.
-
-Some creatures and situations may increase or decrease this value depending on GM ruling. (Such as weather conditions)
-
-
-- Complete Failure: You add your own tracks into the mix increasing the DL by 1 next time someone Tracks.
-- Failure: You cannot follow the tracks.
-- Success: Follow tracks up to 12 tiles in length discovering the creature if it is within 4 tiles of you.
-- Great Success: Follow tracks up to 24 tiles in length discovering the creature if it is within 4 tiles of you.
+If the target was Hiding or Obscured when moving, do a Nature Contest against them.
+- Some creatures and situations may increase or decrease your Nature bonus depending on GM ruling (Such as weather conditions, or how long ago the tracks where made).
 
 
 
 ## Medicine
-
 ### Identify an Illness or Curse
-- Increase the DL by the targets Crafting score for Poisons
-- Increase the DL by the targets Soul Strain level for Curses
-- Increase the DL by the targets Level for Illnesses
-- (Your GM has this information.)
-<br />
-
-- Complete Failure: Do 3 damage the creature you are inspecting.
-- Failure: You do not know anything about the Illness or Curse affecting the creature you are inspecting.
-- Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness.
-- Great Success: Determine if the target is Poisoned, Cursed, or is sick with an Illness and how to cure them.
+- You learn the name of the Illness or Curse. (Unless on Failure)
+- You know the effect, and how to nullify the Illness or Curse. Partial Success may be only knowing one of these (player pick).
+- Ask a more specific question based on the Illness or Curse.
 
 
 
 ## Thieving
 
 ### Steal or Place an Item
-- Increase the DL by the target you are stealing from's Level
-- Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
-- Additional circumstances such as the size of the item in question could increase the DL
-<br />
-
-- Complete Failure: You are detected, losing Hidden if you are Hidden, and don't steal or place the item.
-- Failure: You do not steal/place the item, and lose Hidden if you are Hidden.
-- Success: You steal/place the item. The targets do not know you stole/placed something.
-- Great Success: You steal/place the item undetected and do not lose Hidden.
+If you are Hidden, do this roll normally.
+If you are Obscured do this roll without your Thieving bonus.
+- Partial Success may be you you taking the item but becoming detected.
 
 
 ### Hide
-- Increase the DL by 1 for every group of 4 people nearby who can see you. (Excluding friendly party members)
-- Increase the DL by 2 for every group of 2 people looking for you. (In combat all enemies who know of you will be looking for you)
-- Some creatures and situations may increase or decrease this value depending on GM ruling.
-<br />
-
-- Complete Failure: You do not become Hidden and are Marked for 5 minutes (Gain 30 stacks of Marked).
-- Failure: You do not become Hidden and can't roll to Hide for 1 minute.
-- Success: You are Hidden until you come out of hiding, do a non-thieving action (other than moving), take damage, or are revealed.
-- Great Success: You are Hidden and may keep Hidden for the first non-thieving action (other than moving) you do. You are Hidden until you come out of hiding, do a non-thieving action (other than moving), take damage, or are revealed.
-
+On success become Hidden.
+- On Partial Success, become Obscured. If you are already Obscured become Hidden.
+- Some situations may increase or decrease your Thieving bonus depending on GM ruling (Such as weather conditions, or how busy a location you are in).
 
 
 
@@ -480,25 +363,13 @@ You may take up to 2 Weapons, an Armor, 15 gold, a Bandage, an item with the Too
 
 ## EXP
 
-At the end of a session ask yourselves the following questions and gain the amount of XP listed before them if you answered yes.
-- (5 XP) Did you find a new Region/Town/Location?
-- (3 XP) Did you complete a quest?
-- (1 XP) Did you gain or spend a lot of money?
-- (1 XP) Did you make new friends?
-- (1 XP) Did you make/defeat new enemies?
-
-(Level up exp values are a work in progress, but expect another table in this spot)
-lvl - xp
-2 - 10 (0 + 10)
-3 - 25 (10 + 15)
-4 - 45 (25 + 20)
-5 - 80 (45 + 25)
+idk
 
 
 ## Leveling Up!
 
-Gain 1 Core Stat Increase, 2 Skill increases, and 1 new Trait.
-No Stat or Skill can be higher than 1 plus your Level to a maximum of 6.
+Gain 1 Core Stat Increase, 2 Sub-Stat increases, and 1 new Trait.
+No Stat or Sub-Stat can be higher than 1 plus your Level to a maximum of 6.
 
 <span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Soul Strain</span>
 
