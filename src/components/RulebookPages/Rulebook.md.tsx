@@ -294,16 +294,9 @@ This action cannot make weapons, armors, potions, complex items, or magic items 
 ## Nature
 
 ### Scrounge
-
-- Increase the DL based on how plentiful resources are in the area. For instance: Plentiful spots have a DL of 0, Good spots have a DL of 1, Ok spots have a DL of 2, Lacking spots have a DL of 4, and Practically Nothing spots have a DL of 6.
-
-Complete Failure: You find nothing and become Poisoned for 1 hour.
-
-Failure: You find nothing.
-
-Success: Find 5 gold worth of Junk, 2 Travel Meals, or a clean water source from the local environment (if there is one).
-
-Great Success: Find 15 gold worth of Junk, 2 Cheap Meals, or a clean water source from the local environment.
+Find 5 gold worth of Junk, 2 Travel Meals, or a clean water source from the local environment (if there is one).
+- Partial Success may be finding the items, but they are guarded by a creature.
+- Increase or Decrease the rewards based on how plentiful resources are in the area. For instance: Plentiful spots get x3 bonus resources, Good spots get x2 bonus resources, Lacking spots half resources, and Practically Nothing spots give next to nothing.
 
 
 
@@ -351,13 +344,15 @@ On success become Hidden.
 ## Level 1
 
 Pick a Lineage, listed below.
-Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Skill increases (), 3 Traits you meet the req for.
+Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the req for.
 
 <span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
 
 <span style="font-family: monospace; font-size: 1.3em">Soul Strain = 3*Soul</span> and <span style="font-family: monospace; font-size: 1.3em">Known Spells = 2*Soul</span>. You cannot take spells that have a Soul Strain cost higher than your Level+1. 
 
-You may take up to 2 Weapons, an Armor, 15 gold, a Bandage, an item with the Tool tag, and two non-magical items worth 15 gold or less.
+You may take either: 2 Weapons or 1 Weapon and a Shield.
+
+Gain an Armor, 30 gold, a Bandage, an item with the Tool tag, and two non-magical items worth 15 gold or less.
 
 
 
@@ -392,15 +387,15 @@ No Stat or Sub-Stat can be higher than 1 plus your Level to a maximum of 6.
 | Rolls | Lineage Type | Bonus Trait |
 | --- | --- | --- |
 | 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a Base Stat (Body, Mind, Soul), you must still meet it's requirement. |
-| 1,2 | Undergrounder | You can cast Glow at will, and Fog Light once per Rest without gaining Soul Strain. These spells do not count against the number of known spells you may have. Additionally, you are small, and are able to squeeze into places you normally wouldn't. You act as half your size smaller when trying to get through or into a space you wouldn't fit in otherwise.|
+| 1,2 | Undergrounder | You learn the spell Glow, and you can cast Fog Light once per Rest without gaining Soul Strain. These spells do not count against the number of known spells you may have. Additionally, you are small, and are able to squeeze into places you normally wouldn't. You act as half your size smaller when trying to get through or into a space you wouldn't fit in otherwise.|
 | 1,3 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
 | 1,4 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
 | 1,5 | Beastkin | Increase your Speed by 1. |
 | 1,6 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
 | 2,1 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
 | 2,2 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 12 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
-| 2,3 | Nature-born Elemental | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
-| 2,4 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1. (Work in progress for second half) |
+| 2,3 | Nymph-born | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
+| 2,4 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1. Additionally, you know the Spell 'Firebolt'. This does not count against the number of known spells you may have. |
 | 2,5 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
 | 2,6 | Constructed | Gain your Level additional Armor Stacks at the end of a Rest. Additionally, you may consume inorganic material as a food source. |
 
@@ -409,19 +404,25 @@ No Stat or Sub-Stat can be higher than 1 plus your Level to a maximum of 6.
 # Effects
 
 ### Grappled
-- You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body Contest against the source of the grapple to remove this effect. 
+- You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to do a Body Contest against the source of the grapple to remove this effect. 
 - Does not go away until the source stops grappling you, or you escape the grapple.
 
 
 ### Hidden
 - You cannot be seen or heard when someone is not looking for you.
 - You cannot be targeted by weapon or non area spells.
+- You deal 1 bonus damage on your next attack.
 - Does not go away until you come out of hiding, do a non-thieving action (other than moving), take damage, or are revealed.
+
+### Obscured
+- You cannot be seen when someone is not looking for you.
+- You cannot be targeted by weapon or non area spells.
+- Does not go away until you come out of hiding, do an action (other than moving), take damage, or are revealed.
 
 
 ### Death's Door
-- When you are on 0 or less life you are put on Death's Door. 
-- While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. 
+- When you are first put on 0 or less health you are put on Death's Door. 
+- While on Death's Door your have a normal Speed of 2 and every time you take damage while on 0 health you roll a dice. 
 - If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
 
 
@@ -449,19 +450,20 @@ You gain the effects of the stacks at the beginning of your turn (or if its your
 - Removes stacks of Burn before other effects.
 - 1 stack of wet removes 1 stack of Burn.
 - Wind spells do an additional 1 damage to you.
-- The wording on wind spells is there to remind you. It does not do 2 extra damage.
+- The wording on some spells is there to remind you.
 
 ### Bleed
 - At the beginning of your turn take an amount of Damage equal to the amount of Bleed you have.
 - If you are healed with a bandage, medkit or other healing ITEM remove all stacks of Bleed
 
 ### Poisoned
-- You do 1 less damage from Melee Weapon Attacks, and have 1 less dice on Body rolls.
+- You do 1 less damage from Melee Weapon Attacks, and have -1 on Body rolls.
 - Punches are weapon attacks.
 
 ### Stun
 - At the beginning of your turn lose a number of dice equal to the amount of Stun. (do not roll these when starting your turn)
-- Example; If you start your turn normally rolling 5 dice but have 2 stacks of Stun you roll 3 for this turn instead
+- You cannot gain stacks of Stun the turn after being affected by Stun.
+- Example; If you start your turn normally rolling 5 dice but have 2 stacks of Stun you roll 3 for this turn instead.
 - Unlike other stacks you loose all stacks of Stun at the end of your turn.
 
 ### Webbed
@@ -472,22 +474,21 @@ You gain the effects of the stacks at the beginning of your turn (or if its your
 - You cannot attack any target that is more than 1 tile away from you.
 - When you move you roll 2 dice and must get a 7 or higher otherwise you loose your remaining movement and fall over. (You don't need to roll if you move 1 tile)
 
-
 ### Marked
-- You can't become Hidden.
+- You can't become Hidden, or Obscured.
 - Some Traits and effects have special interactions with Marked.
 
 ### Invisible
-- You are Hidden, and cannot be detected by sight.
+- You are Hidden, and cannot be detected by direct light of sight.
 - Has no effect on creatures that rely on hearing instead of sight. Such as Sand Worms.
 
 ### Flying
 - You can move your Speed in any direction that isn't through walls. 
-- You are immune to slow terrain that is on the ground.
+- You are immune to Rough Terrain that is on the ground.
 
 ### Incorporeal
 - You can not interact with the normal world, but can still see it.
-- You are able to force your way through walls and floors. 
+- You are able to force your way through walls and floors as if it was Rough Terrain. 
 - While incorporeal you can only interact with other Incorporeal things.
 
 ### Silence
@@ -546,7 +547,7 @@ Some examples of this are swimming, climbing, going through thick mud, or dense 
 ## Mounts
 You can use any creature with the Mount trait as a mount. Mounting or dismounting costs 1 tile of Movement.
 
-While mounted you may replace your speed with the Mounts speed, and when you move the mount moves with you. 
+While mounted you may replace your speed with the Mounts speed, and when you move the mount moves with you. Mounts do not count as Followers while mounted and so do not get a turn after you.
 Additionally, you may use any ability or effect the mount has while mounted. For instance if I have a dragon mount I can spend ### (3 dice) to use its Fire breath.
 
 Creatures target you or your mount separately when doing attacks, checks, or contests.
