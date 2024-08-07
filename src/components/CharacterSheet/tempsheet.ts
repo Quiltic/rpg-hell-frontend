@@ -2,14 +2,14 @@
 const markdown = `
 [NAME] - LEVEL: __ [RACE]
 
-(Max of 6, get level+1 increases.)
+(Max of 4)
 Body: 0, Mind: 0, Soul: 0
 
-(Max of level+1 up to 6 max; you get 2xlevel+2)
+(Max of 4)
 Arcana: 0, Charm: 0, Crafting: 0, Nature: 0, Medicine: 0, Thieving: 0
 
-Soul Strain - 0/[3*Soul]
-Armor: [0] Health: ##/(5*Body + 3*Mind + Soul + LEVEL), Speed [6]. 
+Strain - 0/[Body + 2*Mind + 3*Soul]
+Armor: [0] Health: __/(4*Body + 3*Mind + 2*Soul + LEVEL), Speed [6]. 
 Locked: [], Combat Dice: __ (starts at 4, goes up every even level)
 
 **Traits:** (Trait for each level; you must meet the requirements to take the trait)
@@ -26,7 +26,12 @@ RACE:
 8: 
 9: 
 
-**Spells:** (You know a number equal to your Soul Strain)
+**Techniques:** (Know 2*Body with a max Strain value of Level +1)
+
+**Insights:** (Know 2*Mind with a max Strain value of Level +1)
+
+**Spells:** (Know 2*Soul with a max Strain value of Level +1)
+
 
 
 **Items:**
