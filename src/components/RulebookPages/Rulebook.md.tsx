@@ -344,15 +344,15 @@ On success become Hidden.
 ## Level 1
 
 Pick a Lineage, listed below.
-Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the req for.
+Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the requirements for.
 
 <span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
 
-<span style="font-family: monospace; font-size: 1.3em">Soul Strain = 3*Soul</span> and <span style="font-family: monospace; font-size: 1.3em">Known Spells = 2*Soul</span>. You cannot take spells that have a Soul Strain cost higher than your Level+1. 
+<span style="font-family: monospace; font-size: 1.3em">Strain = Body + 2*Mind + 3*Soul</span> and <span style="font-family: monospace; font-size: 1.3em">You may know a number of Techniques (Body), Insights (Mind), or Spells (Soul) equal to twice their respective stat</span>. You cannot take Techniques, Insights, or Spells that have a Strain cost higher than your Level+1. 
 
 You may take either: 2 Weapons or 1 Weapon and a Shield.
 
-Gain an Armor, 30 gold, a Bandage, an item with the Tool tag, and two non-magical items worth 15 gold or less.
+Gain an Armor, 30 gold, a Bandage, an item with the Tool tag, and two non-magical items worth ___ gold or less.
 
 
 
@@ -363,25 +363,26 @@ idk
 
 ## Leveling Up!
 
-Gain 1 Core Stat Increase, 2 Sub-Stat increases, and 1 new Trait.
-No Stat or Sub-Stat can be higher than 1 plus your Level to a maximum of 6.
+Every level gain 1 new Trait that you meet its requirements for.
+Every odd level gain +1 to a Main-Stat and +2 to a Sub-Stat or +1 to two different Sub-Stats.
+**No Main or Sub Stat can be higher than 4.**
 
-<span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Soul Strain</span>
+<span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Strain</span>
 
 
 ## Useful Level Table
-| Level | Increases | Skill Increases | Traits | Dice |
+| Level | Main/Sub Stat Increases | Total Stat Increases | # of Traits | Combat Dice |
 | --- | --- | --- | --- | --- |
-| 1 | 2 | 4 | 3 | 4 |
-| 2 | 3 | 6 | 4 | 5 |
-| 3 | 4 | 8 | 5 | 5 |
-| 4 | 5 | 10 | 6 | 6 |
-| 5 | 6 | 12 | 7 | 6 |
-| 6 | 7 | 14 | 8 | 7 |
-| 7 | 8 | 16 | 9 | 7 |
-| 8 | 9 | 18 | 10 | 8 |
-| 9 | 10 | 20 | 11 | 8 |
-
+| 1 | +2/+4 | 2/4 | 3 | 4 |
+| 2 | - | 4 | 2/4 | 5 |
+| 3 | +1/+2 | 3/6 | 5 | 5 |
+| 4 | - | 3/6 | 6 | 6 |
+| 5 | +1/+2 | 4/8 | 7 | 6 |
+| 6 | - | 4/8 | 8 | 7 |
+| 7 | +1/+2 | 5/10 | 9 | 7 |
+| 8 | - | 5/10 | 10 | 8 |
+| 9 | +1/+2 | 6/12 | 11 | 8 |
+| 10 | - | 6/12 | 12 | 9 |
 
 ## Lineage Table
 | Rolls | Lineage Type | Bonus Trait |
@@ -426,10 +427,10 @@ No Stat or Sub-Stat can be higher than 1 plus your Level to a maximum of 6.
 - If you roll less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
 
 
-### Soul Strain
-- How much your Soul has been affected by casting or being affected by magic.
-- You can have an amount of Soul Strain equal to three times your Soul before you start taking damage.
-- When you go over your Max Soul Strain you take damage equal to how much Soul Strain you have. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
+### Strain
+- How much you have strained yourself doing difficult actions or casting magic.
+- When you go over your Max Strain you take damage equal to how much Strain you have gone over by. This damage cannot be reduced and affects Health only. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
+- See Actions and Strain for more info.
 
 
 
@@ -471,8 +472,9 @@ You gain the effects of the stacks at the beginning of your turn (or if its your
 
 ### Blinded
 - You cannot see and fail any rolls that rely on sight. 
-- You cannot attack any target that is more than 1 tile away from you.
-- When you move you roll 2 dice and must get a 7 or higher otherwise you loose your remaining movement and fall over. (You don't need to roll if you move 1 tile)
+- You must do a Search before making an attack.
+- You cannot do attacks with a value of 8 or less.
+- You must give a 4 or higher to do the Move Action.
 
 ### Marked
 - You can't become Hidden, or Obscured.
