@@ -22,6 +22,7 @@ import UpdateDBSpellsPage from "./components/SpellsPages/UpdateDBSpellsPage.tsx"
 import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
 import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
+import CreatureCreatorBadPage from "./components/joshhellscapePages/creaturecreatorBAD.tsx";
 
 const router = createBrowserRouter(
     [
@@ -71,6 +72,11 @@ const router = createBrowserRouter(
                                 <NotImplementedPage pageName="Update DB creatures" />
                             ),
                         },
+                        {
+                            path: "creaturescreatorbad",
+                            element: <CreatureCreatorBadPage />,
+                        },
+                        
                     ],
                 },
                 {
