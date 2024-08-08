@@ -123,7 +123,9 @@ export default function DicePopup() {
                                         </div>
                                     </Dialog.Title>
 
-                                    <div className="flex row items-center flex-wrap justify-center m-4 bg-dark-400 rounded-md">
+                                    {/* <div className="flex row items-center flex-wrap justify-center m-4 bg-dark-400 rounded-md"> */}
+                                    <div className="flex m-4 bg-dark-400 rounded-md justify-center">
+                                    <div className={cn("flex row items-center flex-wrap justify-center",Dice.length < 5 ? "w-[50%]":(Dice.length < 7 ? "w-[60%]":(Dice.length < 9 ? "w-[80%]":"w-[100%]")))}>
                                         {Dice.map((n,i) => {
                                             return (
                                                 <img
@@ -146,11 +148,12 @@ export default function DicePopup() {
                                         })}
 
                                     </div>
+                                    </div>
 
                                     <h1>Total: {Dice.reduce((total, dice) => total + dice+1)+1+Bonus}</h1> {// i have no idea why this works
                                     }
 
-                                    <div className="flex row items-center justify-around m-4">
+                                    <div className="flex row items-center justify-around m-4 flex-wrap">
 
                                         <Button leftIcon={diceRollingIcon} 
                                         variant={randColor}
