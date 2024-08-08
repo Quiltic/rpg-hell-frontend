@@ -33,6 +33,7 @@ const diceSVGs = [
     dice5,
     dice6,
 ]
+const colors = ["body","mind","soul","nature"];
 
 
 function rollDice(amount: number) {
@@ -148,7 +149,7 @@ export default function DicePopup() {
                                     <div className="flex row items-center justify-around m-4">
 
                                         <Button leftIcon={diceRollingIcon} 
-                                        variant="body"
+                                        variant= {colors[Math.floor(Math.random() * colors.length)]}
                                         className="m-2"
                                         onClick={() => {
                                             SetDice(rollDice(Dice.length))
