@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Login from "../auth/Login";
 
 import GodHeadIcon from "../../assets/godhead.svg";
+import DicePopup from "../ui/Popups/dicePopup";
 
 type HeaderPageLink = {
     name: string;
@@ -77,6 +78,9 @@ export default function Header() {
                         </Link>
                     ))}
                 </div>
+
+                <DicePopup/>
+
                 <div className="hidden md:flex md:flex-1 md:justify-end">
                     <Login />
                 </div>
