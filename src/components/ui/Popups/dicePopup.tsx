@@ -22,6 +22,7 @@ import dice5 from "../../../assets/IconSVGs/dice/dice-f-5.svg";
 import dice6 from "../../../assets/IconSVGs/dice/dice-f-6.svg";
 import persDice from "../../../assets/IconSVGs/dice/perspective-dice.svg";
 import rolllingDice from "../../../assets/IconSVGs/dice/rolling-dices.svg";
+import { cn } from "../../../styling/utilites";
 
 
 
@@ -56,6 +57,7 @@ export default function DicePopup() {
     const [Bonus, SetBonus] = useState(0);
 
     const [isOpen, setIsOpen] = useState(false);
+    const [randColor, setRandColor] = useState("body");
 
     function closeModal() {
         setIsOpen(false);
@@ -63,6 +65,7 @@ export default function DicePopup() {
 
     function openModal() {
         setIsOpen(true);
+        setRandColor(colors[Math.floor(Math.random() * colors.length)]);
     }
 
     return (
@@ -124,7 +127,8 @@ export default function DicePopup() {
                                         {Dice.map((n,i) => {
                                             return (
                                                 <img
-                                                    className="h-16 w-auto m-4"
+                                                // cn("m-4 bg-dark-400 rounded-md grid-cols-6", Dice.length > 12 ? "grid-rows-3" : "grid-rows-2")
+                                                    className={cn("w-auto m-4",Dice.length < 3 ? "h-20":"h-16")}
                                                     key={i}
                                                     src={diceSVGs[n]}
                                                     alt={(n+1).toString()}
@@ -149,7 +153,7 @@ export default function DicePopup() {
                                     <div className="flex row items-center justify-around m-4">
 
                                         <Button leftIcon={diceRollingIcon} 
-                                        variant= {colors[Math.floor(Math.random() * colors.length)]}
+                                        variant={randColor}
                                         className="m-2"
                                         onClick={() => {
                                             SetDice(rollDice(Dice.length))
