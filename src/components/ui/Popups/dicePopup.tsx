@@ -25,13 +25,6 @@ import rolllingDice from "../../../assets/IconSVGs/dice/rolling-dices.svg";
 
 
 
-const initialFormData = {
-    bonus: 0,
-    dice: [0,0],
-    diceIcons: [<img/>],
-    diceToRoll: 2,
-};
-
 const diceSVGs = [
     dice1,
     dice2,
@@ -58,37 +51,8 @@ function rollDice(amount: number) {
 
 export default function DicePopup() {
 
-    const [diceFormData, SetDiceFormData] =
-        useState(initialFormData);
-    // const [bonus, setBonus] = useState(0);
-
-
-    // useEffect(() => {
-
-    //     diceFormData.diceIcons = [];
-
-    //     diceFormData.diceIcons = diceFormData.dice.map((n) => {
-    //         return (
-    //             <img
-    //                 className="h-16 w-auto m-2"
-    //                 src={diceSVGs[n]}
-    //                 alt={(n+1).toString()}
-    //                 onClick={() => {
-    //                     const tmplst = diceFormData.dice; // idk how to do this in 1 line
-    //                     delete tmplst[n];
-
-    //                     SetDiceFormData((prevDice) => ({
-    //                         ...prevDice,
-    //                         diceToRoll: Math.min(Math.max(diceFormData.diceToRoll-1, 0), 100000000), // apparently math.clamp isent real
-    //                         dice: tmplst,
-    //                     }))}   
-    //                 }
-    //             ></img>
-    //         );
-    //     })
-
-    // }, [diceFormData.dice]);
-
+    const [Dice, SetDice] = useState([0,0]);
+    const [Bonus, SetBonus] = useState(0);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -102,20 +66,15 @@ export default function DicePopup() {
 
     return (
         <>
-            {/* <Button
+
+            <Button
+                variant={"subtle"}
                 leftIcon={diceRollingIcon}
+                className={
+                    "m-2 bottom-10 left-14 rounded-full w-10 h-10 transform fixed"
+                }
                 onClick={openModal}
-                variant={"link-soul"}
-            >
-            </Button> */}
-            <img
-                className="h-8 w-auto m-2"
-                src={rolllingDice}
-                alt="Open dice roller"
-                onClick={() => {
-                    openModal()
-                }}
-            ></img>
+            />
 
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -160,36 +119,30 @@ export default function DicePopup() {
                                         </div>
                                     </Dialog.Title>
 
-                                    <div className="flex row items-center flex-wrap justify-around m-4 bg-dark-400 rounded-md">
-
-                                        {diceFormData.dice.map((n) => {
+                                    <div className="flex row items-center flex-wrap justify-center m-4 bg-dark-400 rounded-md">
+                                        {Dice.map((n,i) => {
                                             return (
                                                 <img
-                                                    className="h-16 w-auto m-2"
+                                                    className="h-16 w-auto m-4"
+                                                    key={i}
                                                     src={diceSVGs[n]}
                                                     alt={(n+1).toString()}
                                                     onClick={() => {
-                                                        const tmplst = diceFormData.dice; // idk how to do this in 1 line
-                                                        if (tmplst.length > 1){
-                                                            // delete tmplst[n];
-                                                            tmplst.pop();
-                                                        }
-                                                        
 
-                                                        SetDiceFormData((prevDice) => ({
-                                                            ...prevDice,
-                                                            diceToRoll: Math.min(Math.max(diceFormData.diceToRoll-1, 1), 100000000), // apparently math.clamp isent real
-                                                            dice: tmplst,
-                                                        }))}   
-                                                    }
+                                                        if (Dice.length == 1) return
+
+                                                        SetDice(prevDice => 
+                                                            prevDice.filter((_, a) => a !== i)
+                                                        );
+                                                        
+                                                    }}
                                                 ></img>
                                             );
                                         })}
 
-                                        {/* {diceFormData.diceIcons} */}
                                     </div>
 
-                                    <h1>Total: {diceFormData.dice.reduce((total, dice) => total + dice+1)+1+diceFormData.bonus}</h1> {// i have no idea why this works
+                                    <h1>Total: {Dice.reduce((total, dice) => total + dice+1)+1+Bonus}</h1> {// i have no idea why this works
                                     }
 
                                     <div className="flex row items-center justify-around m-4">
@@ -198,10 +151,8 @@ export default function DicePopup() {
                                         variant="body"
                                         className="m-2"
                                         onClick={() => {
-                                            SetDiceFormData((prevDice) => ({
-                                                ...prevDice,
-                                                dice: rollDice(diceFormData.diceToRoll),
-                                            }))}   
+                                            SetDice(rollDice(Dice.length))
+                                            }   
                                         }
                                         >
                                             Roll Dice
@@ -210,10 +161,7 @@ export default function DicePopup() {
                                             placeholder="Bonus"
                                             name="Bonus"
                                             className="rounded-lg bg-body-700/40 p-2 active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600"
-                                            onChange={(e) => SetDiceFormData((prevDice) => ({
-                                                ...prevDice,
-                                                bonus: Number(e.target.value),
-                                            }))}
+                                            onChange={(e) => SetBonus(Number(e.target.value))}
                                         ></input>
 
                                         <img
@@ -221,15 +169,10 @@ export default function DicePopup() {
                                             src={persDice}
                                             alt="Add Dice"
                                             onClick={() => {
-                                                const tmplst = diceFormData.dice; // idk how to do this in 1 line
-                                                tmplst.push(Math.floor(Math.random() * 6));
 
-                                                SetDiceFormData((prevDice) => ({
-                                                    ...prevDice,
-                                                    diceToRoll: diceFormData.diceToRoll+1,
-                                                    dice: tmplst.sort((a,b) => b-a), // sort high to low
-                                                }))}   
-                                            }
+                                                SetDice(prevDice => [...prevDice,Math.floor(Math.random() * 6)].sort((a,b) => b-a));
+
+                                            }}
                                         ></img>
                                     </div>
                                 </Dialog.Panel>
