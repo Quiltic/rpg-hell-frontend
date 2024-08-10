@@ -21,7 +21,7 @@ import dice4 from "../../../assets/IconSVGs/dice/dice-f-4.svg";
 import dice5 from "../../../assets/IconSVGs/dice/dice-f-5.svg";
 import dice6 from "../../../assets/IconSVGs/dice/dice-f-6.svg";
 import persDice from "../../../assets/IconSVGs/dice/perspective-dice.svg";
-import rolllingDice from "../../../assets/IconSVGs/dice/rolling-dices.svg";
+import rolling from "../../../assets/IconSVGs/dice/dice roll.gif";
 import { cn } from "../../../styling/utilites";
 
 
@@ -33,6 +33,7 @@ const diceSVGs = [
     dice4,
     dice5,
     dice6,
+    rolling,
 ]
 const colors = ["body","mind","soul","nature"];
 
@@ -150,7 +151,7 @@ export default function DicePopup() {
                                     </div>
                                     </div>
 
-                                    <h1>Total: {Dice.reduce((total, dice) => total + dice+1)+1+Bonus}</h1> {// i have no idea why this works
+                                    <h1>Total: {Dice.reduce((total, dice) => total + dice+1)+1 != Dice.length*7 ? Dice.reduce((total, dice) => total + dice+1)+1+Bonus : "?"}</h1> {// i have no idea why this works
                                     }
 
                                     <div className="flex row items-center justify-around m-4 flex-wrap">
@@ -159,8 +160,12 @@ export default function DicePopup() {
                                         variant={randColor}
                                         className="m-2"
                                         onClick={() => {
-                                            SetDice(rollDice(Dice.length))
-                                            }   
+                                            SetDice(new Array(Dice.length).fill(6));
+
+                                            setTimeout(() => {
+                                                SetDice(rollDice(Dice.length))
+                                            }, 500);
+                                            }
                                         }
                                         >
                                             Roll Dice
