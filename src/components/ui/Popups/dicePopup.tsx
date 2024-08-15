@@ -12,7 +12,8 @@ import {
     dice4Icon,
     dice5Icon,
     dice6Icon,
-    diceRollingIcon
+    diceRollingIcon,
+    perspectiveDiceIcon
 } from "../../../assets/IconSVGs/dice/diceSVG";
 import dice1 from "../../../assets/IconSVGs/dice/dice-f-1.svg";
 import dice2 from "../../../assets/IconSVGs/dice/dice-f-2.svg";
@@ -73,7 +74,7 @@ export default function DicePopup() {
         <>
 
             <Button
-                variant={"subtle"}
+                variant={"gradient"}
                 leftIcon={diceRollingIcon}
                 className={
                     "m-2 bottom-10 left-14 rounded-full w-10 h-10 transform fixed"
@@ -178,7 +179,7 @@ export default function DicePopup() {
                                         ></input>
 
                                         <img
-                                            className="h-16 w-auto m-2"
+                                            className="h-16 w-auto m-2 bg-dark rounded-full"
                                             src={persDice}
                                             alt="Add Dice"
                                             onClick={() => {
