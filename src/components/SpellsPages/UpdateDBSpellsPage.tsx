@@ -38,6 +38,8 @@ const tagList = [
     "focus",
     "ritual",
     "windup",
+    "Technique",
+    "Insight",
     "MONSTER",
     "BROKEN",
 ];
@@ -49,9 +51,6 @@ const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 export default function UpdateDBSpellsPage() {
     const { SpellsService } = useApi();
 
-    const [popupIsOpen, setPopupIsOpen] = useState(false);
-    const [popupName, setPopupName] = useState("");
-    const [popupData, setPopupData] = useState("");
 
     const [searchValue, setSearchValue] = useState("");
     const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
@@ -59,18 +58,16 @@ export default function UpdateDBSpellsPage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    // const [tempTag, setTempTag] = useState("");
-    // const [mainstatSkillList, setMainstatSkillList] = useState(statSkillList);
-    // const [secondstatSkillList, setSecondstatSkillList] = useState(statSkillList);
-    // const [otherList, setOtherList] = useState(otherListCore);
-    // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
-    const [tags, setTags] = useState("MONSTER");
+    const [tags, setTags] = useState("");
     const [level, setLevel] = useState(0);
     const [diceCost, setDiceCost] = useState("#");
     const [effectText, setEffectText] = useState("");
     const [curSpell, setCurSpell] = useState<Spell>();
+
+    const [lookAtWhat, setLookAtWhat] = useState("spell");
+
 
     async function getSpells() {
         let spells: Spell[];
@@ -130,7 +127,7 @@ export default function UpdateDBSpellsPage() {
         setCurID(0);
         setNameText("");
         setEffectText("");
-        setTags("MONSTER");
+        setTags(lookAtWhat!="spell" ? lookAtWhat : "");
         setLevel(0);
         setDiceCost("#");
         setEffectText("");
@@ -145,9 +142,6 @@ export default function UpdateDBSpellsPage() {
             const reply = await SpellsService.putSpell({
                 requestBody: curSpell,
             });
-            setPopupData(reply);
-            setPopupName("Create New");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
@@ -165,9 +159,6 @@ export default function UpdateDBSpellsPage() {
                 name: curSpell?.name,
                 requestBody: curSpell,
             });
-            setPopupData(reply);
-            setPopupName("Update");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
@@ -182,9 +173,6 @@ export default function UpdateDBSpellsPage() {
         }
         if (curSpell?.name != "") {
             const reply = await SpellsService.deleteSpell({ id: curSpell?.id });
-            setPopupData(reply);
-            setPopupName("Delete");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
@@ -225,7 +213,7 @@ export default function UpdateDBSpellsPage() {
                     </div>
                     <div className="">
                         <div className="flex flex-row capitalize">
-                            Soul Strain
+                            Strain
                         </div>
                         <input
                             type="number"
@@ -313,10 +301,36 @@ export default function UpdateDBSpellsPage() {
                         </>
                     )}
                 </div>
-                {/* <Popup displayedContentName={popupName} displayedContent={popupData} popupIsOpen={popupIsOpen} setPopupIsOpen={(val) => {setPopupIsOpen(val);}} /> */}
             </div>
 
-            <h1>Spells</h1>
+            <h1 className="capitalize">{lookAtWhat}s</h1>
+
+            <div className="flex row justify-center gap-2 p-3">
+                <Button
+                    onClick={() =>
+                        setLookAtWhat("technique")
+                    }
+                    variant="body"
+                >
+                    Techniques
+                </Button>
+                <Button
+                        onClick={() =>
+                            setLookAtWhat("insight")
+                        }
+                        variant="mind"
+                    >
+                        Insights
+                </Button>
+                <Button
+                        onClick={() =>
+                            setLookAtWhat("spell")
+                        }
+                        variant="soul"
+                    >
+                        Spells
+                </Button>
+            </div>
 
             {curSpell?.name && (
                 <>
@@ -387,7 +401,15 @@ export default function UpdateDBSpellsPage() {
                 <Tab.Panels>
                     <Tab.Panel>
                         <SpellsTable
-                            displayedSpells={displayedSpells}
+                            displayedSpells={displayedSpells.filter(
+                                (s) => {
+                                    if (lookAtWhat == "spell") {
+                                        return (!(s.tags.includes("technique")) && !(s.tags.includes("insight")));
+                                    }
+                                    return (s.tags.includes(lookAtWhat));
+                                }
+                            )}
+
                             moveSpell={(spell) => {
                                 addToPinnedSpell(spell);
                             }}
@@ -399,7 +421,10 @@ export default function UpdateDBSpellsPage() {
                                 <SpellsTable
                                     displayedSpells={displayedSpells.filter(
                                         (s) => {
-                                            return s.level == n;
+                                            if (lookAtWhat == "spell") {
+                                                return ((s.level == n) && !(s.tags.includes("technique")) && !(s.tags.includes("insight")));
+                                            }
+                                            return ((s.level == n) && (s.tags.includes(lookAtWhat)));
                                         }
                                     )}
                                     moveSpell={(spell) => {

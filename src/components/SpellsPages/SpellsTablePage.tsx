@@ -6,6 +6,7 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useSpells } from "../../hooks/useSpells";
 import Search from "../search/Search";
 import { eApiClass } from "../../types/ApiClassUnions";
+import { useState } from "react";
 
 export default function SpellsTablePage() {
     const {
@@ -20,9 +21,40 @@ export default function SpellsTablePage() {
 
     const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+    const [lookAtWhat, setLookAtWhat] = useState("spell");
+
     return (
         <>
-            <h1>Spells</h1>
+            <h1 className="capitalize">{lookAtWhat}s</h1>
+
+            <div className="flex row justify-center gap-2 p-3">
+                <Button
+                    onClick={() =>
+                        setLookAtWhat("technique")
+                    }
+                    variant="body"
+                >
+                    Techniques
+                </Button>
+                <Button
+                        onClick={() =>
+                            setLookAtWhat("insight")
+                        }
+                        variant="mind"
+                    >
+                        Insights
+                </Button>
+                <Button
+                        onClick={() =>
+                            setLookAtWhat("spell")
+                        }
+                        variant="soul"
+                    >
+                        Spells
+                </Button>
+            </div>
+            
+
             {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
             {
                 <Button
@@ -33,9 +65,9 @@ export default function SpellsTablePage() {
                             "text/json"
                         )
                     }
-                    variant="link-mind"
+                    variant="subtle-nature"
                 >
-                    Download Spells Json
+                    Download Arts Json
                 </Button>
             }
 
@@ -111,7 +143,17 @@ export default function SpellsTablePage() {
                 <Tab.Panels>
                     <Tab.Panel>
                         <SpellsTable
-                            displayedSpells={displayedSpells}
+                            // displayedSpells={displayedSpells}
+
+                            displayedSpells={displayedSpells.filter(
+                                (s) => {
+                                    if (lookAtWhat == "spell") {
+                                        return (!(s.tags.includes("technique")) && !(s.tags.includes("insight")));
+                                    }
+                                    return (s.tags.includes(lookAtWhat));
+                                }
+                            )}
+
                             moveSpell={(spell) => {
                                 addToPinnedSpells(spell);
                             }}
@@ -123,7 +165,10 @@ export default function SpellsTablePage() {
                                 <SpellsTable
                                     displayedSpells={displayedSpells.filter(
                                         (s) => {
-                                            return s.level == n;
+                                            if (lookAtWhat == "spell") {
+                                                return ((s.level == n) && !(s.tags.includes("technique")) && !(s.tags.includes("insight")));
+                                            }
+                                            return ((s.level == n) && (s.tags.includes(lookAtWhat)));
                                         }
                                     )}
                                     moveSpell={(spell) => {

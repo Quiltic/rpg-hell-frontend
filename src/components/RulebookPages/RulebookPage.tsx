@@ -68,7 +68,7 @@ export default function RulebookPage() {
 
                 <Link to={"spells"}>
                     <Button leftIcon={sparklesIcon} variant="soul">
-                        Spells
+                        Arts
                     </Button>
                 </Link>
                 <Link to={"creatures"}>
