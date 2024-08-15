@@ -38,8 +38,8 @@ const tagList = [
     "focus",
     "ritual",
     "windup",
-    "Technique",
-    "Insight",
+    "technique",
+    "insight",
     "MONSTER",
     "BROKEN",
 ];
