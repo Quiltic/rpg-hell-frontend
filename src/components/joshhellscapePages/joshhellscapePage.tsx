@@ -25,7 +25,7 @@ export default function JoshhellscapePage() {
     const [effectText, setEffectText] = useState("");
     const [curTrait, setCurTrait] = useState<Trait>();
 
-    async function handleUpdate() {
+    async function handleUpdate(curTrait: Trait) {
         console.log(curTrait);
         if (curTrait == undefined) {
             return;
@@ -39,29 +39,29 @@ export default function JoshhellscapePage() {
         }
     }
 
-    function addToPinnedTrait(s: Trait) {
-        setCurID(s.id);
-        setNameText(s.name);
-        setEffectText(s.effect ?? "");
-        setMainStat(s.req[0]);
+    // function addToPinnedTrait(s: Trait) {
+    //     setCurID(s.id);
+    //     setNameText(s.name);
+    //     setEffectText(s.effect ?? "");
+    //     setMainStat(s.req[0]);
 
-        if (s.req?.length > 1) {
-            // setSecondstatSkillList([,...statSkillList]);
-            setSecondStat(s.req[1]);
-        } else {
-            setSecondStat("");
-        }
-        if (s.req?.length > 2) {
-            setOtherDrop(s.req[2]);
-        } else {
-            setOtherDrop("");
-        }
-        setDiceCost(s.dice ? "#".repeat(s.dice ?? 1) : "P");
-    }
+    //     if (s.req?.length > 1) {
+    //         // setSecondstatSkillList([,...statSkillList]);
+    //         setSecondStat(s.req[1]);
+    //     } else {
+    //         setSecondStat("");
+    //     }
+    //     if (s.req?.length > 2) {
+    //         setOtherDrop(s.req[2]);
+    //     } else {
+    //         setOtherDrop("");
+    //     }
+    //     setDiceCost(s.dice ? "#".repeat(s.dice ?? 1) : "P");
+    // }
 
-    useEffect(() => {
-        setAllTraits(Object.values(json));
-    }, [TraitsService]);
+    // useEffect(() => {
+    //     setAllTraits(Object.values(json));
+    // }, [TraitsService]);
 
     // useEffect(() => {
     //     // console.log(mainStat,secondStat,otherDrop);
@@ -101,9 +101,13 @@ export default function JoshhellscapePage() {
                 className="flex flex-row"
                 variant={"body"}
                 onClick={ (e) => {
-                    console.log(allTraits[60]);
-                    console.log(curTrait);
-                    setCurTrait(allTraits[60]);
+                    allTraits.forEach(trait => {
+                        handleUpdate(trait);
+                        
+                    });
+                    // console.log(allTraits[60]);
+                    // console.log(curTrait);
+                    // setCurTrait(allTraits[60]);
                 }
                 }
             >
