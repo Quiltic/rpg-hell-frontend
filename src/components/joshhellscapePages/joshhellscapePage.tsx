@@ -5,10 +5,7 @@ import useApi from "../../hooks/useApi";
 import { Trait } from "../../client";
 import { sortArrayByReqs } from "../../util/sortingTools";
 
-
-
 export default function JoshhellscapePage() {
-
     const { TraitsService } = useApi();
 
     const [allTraits, setAllTraits] = useState<Array<Trait>>([]);
@@ -59,9 +56,9 @@ export default function JoshhellscapePage() {
     //     setDiceCost(s.dice ? "#".repeat(s.dice ?? 1) : "P");
     // }
 
-    // useEffect(() => {
-    //     setAllTraits(Object.values(json));
-    // }, [TraitsService]);
+    useEffect(() => {
+        setAllTraits(Object.values(json));
+    }, [TraitsService]);
 
     // useEffect(() => {
     //     // console.log(mainStat,secondStat,otherDrop);
@@ -93,23 +90,20 @@ export default function JoshhellscapePage() {
     //     curID,
     // ]);
 
-
     return (
         <div className="p-2">
             <Button
                 title="CheckList"
                 className="flex flex-row"
                 variant={"body"}
-                onClick={ (e) => {
-                    allTraits.forEach(trait => {
+                onClick={(e) => {
+                    allTraits.forEach((trait) => {
                         handleUpdate(trait);
-                        
                     });
                     // console.log(allTraits[60]);
                     // console.log(curTrait);
                     // setCurTrait(allTraits[60]);
-                }
-                }
+                }}
             >
                 CheckList
             </Button>
