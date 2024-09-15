@@ -11,12 +11,11 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/items.json";
 import { Button } from "../ui/Button/Button";
-import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
+import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
-import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
-import Popup from "../ui/Popups/Popup";
+
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -61,24 +60,6 @@ const statSkillList = [
     "medicine 4",
     "nature 4",
     "thieving 4",
-    "body 5",
-    "mind 5",
-    "soul 5",
-    "arcana 5",
-    "charm 5",
-    "crafting 5",
-    "medicine 5",
-    "nature 5",
-    "thieving 5",
-    "body 6",
-    "mind 6",
-    "soul 6",
-    "arcana 6",
-    "charm 6",
-    "crafting 6",
-    "medicine 6",
-    "nature 6",
-    "thieving 6",
     "MONSTER 0",
     "BROKEN 0",
     "OOC 0",
@@ -95,15 +76,16 @@ const tagList = [
     "medicine",
     "item",
     "weapon",
-    "potion",
+    "alchemical",
     "tool",
     "rune",
     "armor _",
     "unarmored",
     "non-magic",
     "magical",
-    "lesser",
-    "greater",
+    "common",
+    "uncommon",
+    "rare",
     "legendary",
     "consumable",
     "complex",
@@ -125,7 +107,7 @@ const IterativeItemLevels = [
     "Armor",
     "Rune",
     "Medicine",
-    "Potion",
+    "Alchemical",
     "Grenade",
     "Tool",
     "Item",
@@ -135,21 +117,12 @@ const IterativeItemLevels = [
 export default function UpdateDBItemsPage() {
     const { ItemsService } = useApi();
 
-    const [popupIsOpen, setPopupIsOpen] = useState(false);
-    const [popupName, setPopupName] = useState("");
-    const [popupData, setPopupData] = useState("");
-
     const [searchValue, setSearchValue] = useState("");
     const [allItems, setAllItems] = useState<Array<Item>>([]);
     const [displayedItems, setDisplayedItems] = useState<Array<Item>>([]);
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    // const [tempTag, setTempTag] = useState("");
-    // const [mainstatSkillList, setMainstatSkillList] = useState(statSkillList);
-    // const [secondstatSkillList, setSecondstatSkillList] = useState(statSkillList);
-    // const [otherList, setOtherList] = useState(otherListCore);
-    // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
     const [effectText, setEffectText] = useState("");
@@ -159,6 +132,7 @@ export default function UpdateDBItemsPage() {
     const [tags, setTags] = useState("tiny");
     const [curItem, setCurItem] = useState<Item>();
 
+    
     async function getItems() {
         let items: Item[];
         try {
@@ -176,6 +150,7 @@ export default function UpdateDBItemsPage() {
         }
 
         items = sortArrayByReqs(items);
+        items = sortArrayByTags(items);
 
         setAllItems(items);
         setDisplayedItems(items);
@@ -206,7 +181,7 @@ export default function UpdateDBItemsPage() {
     function addToPinnedItem(s: Item) {
         setCurID(s.id);
         setNameText(s.name);
-        setEffectText(s.effect ?? "");
+        setEffectText(s.effect.replace(/"/g, '') ?? "");
         setTags(s.tags.toString().replace(/ 0/gi, ""));
         setReqs(s.req.toString());
         setCost(s.cost);
@@ -234,9 +209,6 @@ export default function UpdateDBItemsPage() {
             const reply = await ItemsService.putItem({
                 requestBody: curItem,
             });
-            setPopupData(reply);
-            setPopupName("Create New");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
@@ -254,9 +226,6 @@ export default function UpdateDBItemsPage() {
                 name: curItem?.name,
                 requestBody: curItem,
             });
-            setPopupData(reply);
-            setPopupName("Update");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
@@ -271,9 +240,6 @@ export default function UpdateDBItemsPage() {
         }
         if (curItem?.name != "") {
             const reply = await ItemsService.deleteItem({ id: curItem?.id });
-            setPopupData(reply);
-            setPopupName("Delete");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
@@ -286,7 +252,7 @@ export default function UpdateDBItemsPage() {
         const item = {
             id: curID,
             name: nameText.toLowerCase(),
-            effect: effectText,
+            effect: effectText.replace(/"/g, ''),
             req: reqs.split(","),
             cost: cost,
             craft: craft,

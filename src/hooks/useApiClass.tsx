@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { CancelablePromise, Item, Spell, Trait } from "../client";
 
 import json from "../assets/OfflineJsons/traits.json";
-import { sortArrayByLevel, sortArrayByReqs } from "../util/sortingTools";
+import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags } from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";
 import { AuthContext } from "../context/AuthProvider";
 
@@ -80,6 +80,10 @@ export function useApiClass<T extends ApiClassUnion>(
                 t = sortArrayByLevel(t);
             } else {
                 t = sortArrayByReqs(t);
+
+                if (c == eApiClass.Item) { // makes it so you get common, uncommon, rare, leg, then magical vers of that
+                    t = sortArrayByTags(t);
+                }   
             }
 
             setAll(t);

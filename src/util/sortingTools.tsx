@@ -8,6 +8,33 @@ function sortArrayByLevel(_list: any[]) {
     });
 }
 
+function sortArrayByTags(_list: any[]) {
+
+    // returns the sorted array based on a custom sort
+    return _list.sort((l1: { tags: any; }, l2: { tags: any; }) => {
+        
+        const order = ["common","uncommon","rare","legendary"];
+
+        const getMinOrderIndex = (tags: any[]) => {
+            // Map over the tags and find their index in order
+            const indices = tags
+                .map(tag => order.indexOf(tag))
+                .filter(index => index !== -1); // Ignore tags that are not in order
+                
+
+            const bonus = tags.includes('magical') == true ? 5 : 0; // magic items go last
+
+            return indices.length > 0 ? Math.min(...indices)+bonus : Infinity; // Return the lowest index found
+        };
+
+        const firstItemLen = getMinOrderIndex(l1.tags);
+        const secondItemLen = getMinOrderIndex(l2.tags);
+        
+        return (firstItemLen < secondItemLen) ? -1 : 1;
+        
+    });
+}
+
 function filterBROKENandMONSTER(_list: any[]) {
     // simple cleanup for BROKEN and MONSTER items
     return (_list?.filter((l: { tags: string | string[]; }) => {
@@ -68,4 +95,5 @@ export {
     filterBROKENandMONSTER,
     filterBROKENandMONSTERreq,
     sortArrayByReqs,
+    sortArrayByTags,
 };
