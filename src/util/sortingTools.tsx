@@ -13,24 +13,23 @@ function sortArrayByTags(_list: any[]) {
     // returns the sorted array based on a custom sort
     return _list.sort((l1: { tags: any; }, l2: { tags: any; }) => {
         
-        const order = ["common","uncommon","rare","legendary"];
+        const order = ["common 0","uncommon 0","rare 0","legendary 0"];
 
-        const getMinOrderIndex = (tags: any[]) => {
+        const getMinOrderIndex = (tags: any[], _order:string[]) => {
             // Map over the tags and find their index in order
             const indices = tags
-                .map(tag => order.indexOf(tag))
+                .map(tag => _order.indexOf(tag))
                 .filter(index => index !== -1); // Ignore tags that are not in order
-                
 
-            const bonus = tags.includes('magical') == true ? 5 : 0; // magic items go last
+            const bonus = tags.includes('magical 0') == true ? 5 : 0; // magic items go last
 
             return indices.length > 0 ? Math.min(...indices)+bonus : Infinity; // Return the lowest index found
         };
 
-        const firstItemLen = getMinOrderIndex(l1.tags);
-        const secondItemLen = getMinOrderIndex(l2.tags);
+        const firstItemLen = getMinOrderIndex(l1.tags,order);
+        const secondItemLen = getMinOrderIndex(l2.tags,order);
         
-        return (firstItemLen < secondItemLen) ? -1 : 1;
+        return (firstItemLen > secondItemLen) ? -1 : 1;
         
     });
 }
