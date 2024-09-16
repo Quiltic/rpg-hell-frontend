@@ -29,7 +29,7 @@ function sortArrayByTags(_list: any[]) {
         const firstItemLen = getMinOrderIndex(l1.tags,order);
         const secondItemLen = getMinOrderIndex(l2.tags,order);
         
-        return (firstItemLen > secondItemLen) ? -1 : 1;
+        return (firstItemLen < secondItemLen) ? -1 : 1;
         
     });
 }
