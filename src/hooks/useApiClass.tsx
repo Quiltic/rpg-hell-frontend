@@ -2,7 +2,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { CancelablePromise, Item, Spell, Trait } from "../client";
 
 import json from "../assets/OfflineJsons/traits.json";
-import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags } from "../util/sortingTools";
+import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems } from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";
 import { AuthContext } from "../context/AuthProvider";
 
@@ -65,26 +65,46 @@ export function useApiClass<T extends ApiClassUnion>(
                 }
             }
 
-            if (c == eApiClass.Trait) {
-                if (!auth.isAuthenticated || !auth.admin) {
-                    t = filterBroken(t as Trait[]) as T[]; // 😢
-                }
-            } else if (c == eApiClass.Item) {
-                if (!auth.isAuthenticated || !auth.admin) {
-                    t = filterBroken(t as Item[]) as T[]; // 😢
+            // only auth people should be able to see broken stuff
+            if (!auth.isAuthenticated || !auth.admin) {
+                switch (c) {
+                    case eApiClass.Trait:
+                        t = filterBroken(t as Trait[]) as T[];
+                        break;
+
+                    case eApiClass.Item:
+                        t = filterBroken(t as Item[]) as T[];
+                        break;
+
+                    case eApiClass.Spell:
+                        t = filterBrokenSpells(t as Spell[]) as T[];
+                        break;
+
+                    default:
+                        console.log("CREATURE! WHY? HOW? THIS ISENT REAL YET!");
+                        break;
                 }
             }
 
-            if (c == eApiClass.Spell) {
-                t = filterBrokenSpells(t as Spell[]) as T[]; // 😢
-                t = sortArrayByLevel(t);
-            } else {
-                t = sortArrayByReqs(t);
+            // sorting time
+            switch (c) {
+                case eApiClass.Trait:
+                    t = sortArrayByReqs(t);
+                    break;
 
-                if (c == eApiClass.Item) { // makes it so you get common, uncommon, rare, leg, then magical vers of that
-                    t = sortArrayByTags(t);
-                }   
+                case eApiClass.Item:
+                    t = sortItems(t);
+                    break;
+
+                case eApiClass.Spell:
+                    t = sortArrayByLevel(t);
+                    break;
+
+                default:
+                    console.log("CREATURE! WHY? HOW? THIS ISENT REAL YET!");
+                    break;
             }
+
 
             setAll(t);
             setDisplayed(t);

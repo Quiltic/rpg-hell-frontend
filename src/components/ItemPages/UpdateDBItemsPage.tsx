@@ -256,7 +256,7 @@ export default function UpdateDBItemsPage() {
             req: reqs.split(","),
             cost: cost,
             craft: craft,
-            tags: tags.split(","),
+            tags: tags.replace(/, /g, ',').split(","),
         };
 
         item.tags = item.tags.filter((str) => str !== "");
