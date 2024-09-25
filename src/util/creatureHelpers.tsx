@@ -5,6 +5,10 @@ function dictionaryItems(_items: Item[]) {
 
     let itemsDict = Object.fromEntries(_items.map(({name,...rest}) => [name, rest])); // provided by https://stackoverflow.com/questions/61379389/mapping-an-array-of-objects-to-dictionary-in-typescript
 
+    if (Object.keys(itemsDict).includes("Error")) { // a catch incase there is an error (error items break everything)
+        return {}
+    }
+
     for (const [key, value] of Object.entries(itemsDict)) {
         let itemTags = Object.fromEntries(value.tags.map(tag => 
             {
@@ -105,16 +109,16 @@ function createItemLines(updatedItems){
         value.tags = Object.entries(value.tags).map(([tagName, tagValue]) => `${tagName} ${tagValue}`);
 
         if (value.tags.join("").includes("weapon") || value.tags.join("").includes("grenade")) {
-            active.push(`${name} - ## - ${value.tags.join(", ").replace(" 0","")}\n${value.effect}\n`.replace("\n\n","\n"));
+            active.push(`${name} - ## - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
         }
         else if (value.tags.join("").includes("medicine")) {
-            active.push(`${name} - # - ${value.tags.join(", ").replace(" 0","")}\n${value.effect}\n`.replace("\n\n","\n"));
+            active.push(`${name} - # - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
         }
         else if (value.tags.join("").includes("armor")) {
-            passive.push(`${name} - ${value.tags.join(", ").replace(" 0","")}\n${value.effect}\n`.replace("\n\n","\n"));
+            passive.push(`${name} - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
         }
         else {
-            items.push(`${name} - ${value.tags.join(", ").replace(" 0","")}\n${value.effect}\n`.replace("\n\n","\n"));
+            items.push(`${name} - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
         }
 
         
@@ -128,7 +132,7 @@ function createItemLines(updatedItems){
 
 function createTraitLines(_traits: Trait[], activeLines: string[], passiveLines: string[]) {
 
-    const remove = ["swimmer", "climber", "flight"];
+    const remove = ["swimmer", "climber", "flight",'speedy'];
     _traits = _traits.filter(trait => !remove.includes(trait.name));
 
     for (const t of _traits) {

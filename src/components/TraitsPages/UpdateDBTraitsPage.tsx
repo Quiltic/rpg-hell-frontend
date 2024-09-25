@@ -61,24 +61,6 @@ const statSkillList = [
     "medicine 4",
     "nature 4",
     "thieving 4",
-    "body 5",
-    "mind 5",
-    "soul 5",
-    "arcana 5",
-    "charm 5",
-    "crafting 5",
-    "medicine 5",
-    "nature 5",
-    "thieving 5",
-    "body 6",
-    "mind 6",
-    "soul 6",
-    "arcana 6",
-    "charm 6",
-    "crafting 6",
-    "medicine 6",
-    "nature 6",
-    "thieving 6",
     "MONSTER 0",
 ];
 
@@ -119,7 +101,7 @@ export default function UpdateDBTraitsPage() {
     // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
-    const [mainStat, setMainStat] = useState("MONSTER 0");
+    const [mainStat, setMainStat] = useState("");
     const [secondStat, setSecondStat] = useState("");
     const [diceCost, setDiceCost] = useState("P");
     const [otherDrop, setOtherDrop] = useState("");
