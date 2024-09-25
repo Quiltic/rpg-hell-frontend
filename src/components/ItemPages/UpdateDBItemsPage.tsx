@@ -11,7 +11,7 @@ import ItemsTable from "./ItemsTable";
 
 import json from "../../assets/OfflineJsons/items.json";
 import { Button } from "../ui/Button/Button";
-import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags } from "../../util/sortingTools";
+import { sortItems } from "../../util/sortingTools";
 import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
 
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
@@ -149,8 +149,7 @@ export default function UpdateDBItemsPage() {
             // }
         }
 
-        items = sortArrayByReqs(items);
-        items = sortArrayByTags(items);
+        items = sortItems(items);
 
         setAllItems(items);
         setDisplayedItems(items);
