@@ -1,49 +1,69 @@
 import TableOfContentsBlock from "./TableOfContentsBlock";
 import { TableOfContentsItem } from "../../types/TableOfContentsItem";
 
+
 const basicContents: TableOfContentsItem = {
-    name: "Basic Rules",
-    anchorHref: "basics",
+    name: "Main Rules",
+    anchorHref: "main-rules",
     className: "",
     subItems: [
         {
             name: "Locking Dice",
         },
+        
         {
-            name: "Magic",
-        },
-        {
-            name: "Rest and Travel",
+            name: "Checks and Contests",
+            anchorHref: "checks-and-contests",
             className: "font-semibold",
             collapsable: true,
             subItems: [
                 {
-                    name: "Rest",
+                    name: "Checks",
                 },
                 {
-                    name: "Travel",
-                },
+                    name: "Contests",
+                }
             ],
         },
         {
-            name: "Out of Combat",
-            anchorHref: "out-of-combat-rules",
+            name: "Default Actions",
+            anchorHref: "default-actions",
             className: "font-semibold",
             collapsable: true,
             subItems: [
                 {
-                    name: "Actions",
-                    subItems: [
-                        {
-                            name: "Checks",
-                        },
-                        {
-                            name: "Contests",
-                        },
-                    ],
+                    name: "Perception and Investigation",
                 },
+                {
+                    name: "Search",
+                },
+                {
+                    name: "Arts",
+                },
+                {
+                    name: "Shove",
+                },
+                {
+                    name: "Grapple",
+                },
+                {
+                    name: "Move",
+                },
+                {
+                    name: "Attack",
+                },
+                {
+                    name: "Jump",
+                },
+                {
+                    name: "Lock a Dice",
+                },
+                {
+                    name: "Hide",
+                }
             ],
         },
+        
         {
             name: "Combat",
             anchorHref: "combat",
@@ -58,7 +78,7 @@ const basicContents: TableOfContentsItem = {
                     anchorHref: "action-dice-ad",
                     subItems: [
                         {
-                            name: "AD Values Matter",
+                            name: "Attack Dice Values Matter",
                         },
                     ],
                 },
@@ -71,133 +91,124 @@ const basicContents: TableOfContentsItem = {
                 },
             ],
         },
-    ],
-};
-
-const statsSkillsContents: TableOfContentsItem = {
-    name: "Stats and Skills",
-    anchorHref: "common-actions",
-    className: "",
-    subItems: [
         {
-            name: "DL Table",
-            anchorHref: "dl-table",
+            name: "Traits",
         },
         {
-            name: "Body",
-            className: "font-semibold text-body dark:text-body-700",
+            name: "Arts and Strain",
+            anchorHref: "arts-and-strain",
+            className: "font-semibold",
             collapsable: true,
             subItems: [
                 {
-                    name: "Physical Feats",
+                    name: "Techniques",
+                    className: "font-semibold text-body dark:text-body-700",
                 },
                 {
-                    name: "Acrobatics or Athletics",
+                    name: "Insights",
+                    className: "font-semibold text-body dark:text-mind-700",
                 },
-            ],
+                {
+                    name: "Spells and Magic",
+                    className: "font-semibold text-body dark:text-soul-700",
+                },
+            ]
         },
         {
-            name: "Mind",
-            className: "font-semibold text-mind dark:text-mind-700",
+            name: "Rest and Travel",
+            className: "font-semibold",
             collapsable: true,
             subItems: [
                 {
-                    name: "Investigate",
-                },
-                {
-                    name: "Remember",
-                },
-            ],
-        },
-        {
-            name: "Soul",
-            className: "font-semibold text-soul dark:text-soul-700",
-            collapsable: true,
-            subItems: [
-                {
-                    name: "Make a Prayer",
-                },
-            ],
-        },
-        {
-            name: "Arcana",
-            className: "font-semibold text-arcana dark:text-arcana-700",
-            collapsable: true,
-            subItems: [
-                {
-                    name: "Read Runes",
-                },
-            ],
-        },
-        {
-            name: "Charm",
-            className: "font-semibold text-charm dark:text-charm-700",
-            collapsable: true,
-            subItems: [
-                {
-                    name: "Convince someone of Something",
-                },
-                {
-                    name: "Discern others Intentions",
-                },
-                {
-                    name: "Performance: Sing/Tell a Story/Tell a Joke",
-                    anchorHref: "performance-sing-tell-a-story-or-tell-a-joke",
-                },
-            ],
-        },
-        {
-            name: "Crafting",
-            className: "font-semibold text-crafting dark:text-crafting-700",
-            collapsable: true,
-            subItems: [
-                {
-                    name: "Make an Item",
-                },
-                {
-                    name: "Understand a Contraption",
-                },
-            ],
-        },
-        {
-            name: "Nature",
-            className: "font-semibold text-nature dark:text-nature-700",
-            collapsable: true,
-            subItems: [
-                {
-                    name: "Scrounge",
-                },
-                {
-                    name: "Handle a Beast",
-                },
-                {
-                    name: "Track a Creature",
-                },
-            ],
-        },
-        {
-            name: "Medicine",
-            className: "font-semibold text-medicine dark:text-medicine-700",
-            collapsable: true,
-            subItems: [
-                {
-                    name: "Identify an Illness or Curse",
+                    name: "Rest",
                 },
                 {
                     name: "Travel",
                 },
             ],
         },
+    ],
+};
+
+const statsSkillsContents: TableOfContentsItem = {
+    name: "Stats and Skills",
+    anchorHref: "stats-and-skills",
+    className: "",
+    subItems: [
+
         {
-            name: "Thieving",
-            className: "font-semibold text-thieving dark:text-thieving-700",
+            name: "Basic Stats",
+            anchorHref: "basic-stats",
+            className: "font-semibold",
             collapsable: true,
             subItems: [
                 {
-                    name: "Steal or place an Item",
+                    name: "Health",
+                    className: "font-semibold text-body dark:text-charm-700",
                 },
                 {
-                    name: "Hide",
+                    name: "Armor",
+                    className: "font-semibold text-body dark:text-thieving-700",
+                },
+                {
+                    name: "Max Strain",
+                    className: "font-semibold text-body dark:text-soul-700",
+                },
+                {
+                    name: "Speed",
+                    className: "font-semibold text-body dark:text-arcana-700",
+                },
+            ],
+        },
+        {
+            name: "Core Stats",
+            anchorHref: "checks-and-contests",
+            className: "font-semibold",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Body",
+                    className: "font-semibold text-body dark:text-body-700",
+                },
+                {
+                    name: "Mind",
+                    className: "font-semibold text-mind dark:text-mind-700",
+                },
+                {
+                    name: "Soul",
+                    className: "font-semibold text-soul dark:text-soul-700",
+                },
+            ],
+        },
+        {
+            name: "Sub Stats",
+            anchorHref: "sub-stats",
+            className: "font-semibold",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Arcana",
+                    className: "font-semibold text-arcana dark:text-arcana-700",
+                },
+                {
+                    name: "Charm",
+                    className: "font-semibold text-charm dark:text-charm-700",
+                },
+                {
+                    name: "Crafting",
+                    className: "font-semibold text-crafting dark:text-crafting-700",
+                },
+                {
+                    name: "Nature",
+                    className: "font-semibold text-nature dark:text-nature-700",
+                },
+                {
+                    name: "Medicine",
+                    className: "font-semibold text-medicine dark:text-medicine-700",
+                },
+                {
+                    name: "Thieving",
+                    className: "font-semibold text-thieving dark:text-thieving-700",
                 },
             ],
         },
@@ -226,59 +237,99 @@ const characterCreationContents: TableOfContentsItem = {
     ],
 };
 
+
 const statusesContents: TableOfContentsItem = {
     name: "Status Effects",
-    anchorHref: "stack-effects",
+    anchorHref: "status-effects",
     subItems: [
         {
-            name: "Soul Strain",
-            className: "text-soul dark:text-soul-700",
+            name: "Duration Effects",
+            anchorHref: "duration-effects",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Focus"
+                },
+                {
+                    name: "Windup"
+                },
+                {
+                    name: "Prone"
+                },
+                {
+                    name: "Grappled"
+                },
+                {
+                    name: "Obscured"
+                },
+                {
+                    name: "Hidden"
+                },
+                {
+                    name: "Hover"
+                },
+                {
+                    name: "Flying"
+                },
+                {
+                    name: "Silenced"
+                },
+                {
+                    name: "Light Headed"
+                },
+                {
+                    name: "Invisible"
+                },
+                {
+                    name: "Incorporeal"
+                },
+                {
+                    name: "Blind"
+                },
+                {
+                    name: "Poisoned"
+                }
+            ]
         },
         {
-            name: "Statuses",
+            name: "Stack Effects",
             anchorHref: "stack-effects",
             collapsable: true,
             subItems: [
                 {
-                    name: "Burn",
+                    name: "Burn"
                 },
                 {
-                    name: "Wet",
+                    name: "Bleed"
                 },
                 {
-                    name: "Bleed",
+                    name: "Stun"
                 },
                 {
-                    name: "Stun",
+                    name: "Slow"
                 },
                 {
-                    name: "Webbed",
+                    name: "Wet"
                 },
                 {
-                    name: "Grappled",
+                    name: "Marked"
                 },
-                {
-                    name: "Marked",
-                },
-                {
-                    name: "Hidden",
-                },
-                {
-                    name: "Invisible",
-                },
-                {
-                    name: "Flying",
-                },
-                {
-                    name: "Incorporeal",
-                },
-                {
-                    name: "Silenced",
-                },
-            ],
-        },
+            ]
+        }
     ],
 };
+
+
+// Mysc Rules
+// Followers
+// Crafting Items
+// Knockback and Fall Damage
+// Mounts and Vehicles
+// Rough Terrain
+
+// Item Tags
+
+// GM Advice
 
 const myscContents: TableOfContentsItem = {
     name: "Mysc Rules",
@@ -286,7 +337,18 @@ const myscContents: TableOfContentsItem = {
     subItems: [
         {
             name: "Followers",
-            // className: "text-soul dark:text-soul-700",
+        },
+        {
+            name: "Crafting Items"
+        },
+        {
+            name: "Knockback and Fall Damage",
+        },
+        {
+            name: "Mounts and Vehicles",
+        },
+        {
+            name: "Rough Terrain"
         },
         {
             name: "Weather Conditions",
@@ -311,8 +373,10 @@ const myscContents: TableOfContentsItem = {
             ],
         },
         {
-            name: "Rough Terrain",
-            // className: "text-soul dark:text-soul-700",
+            name: "Item Tags"
+        },
+        {
+            name: "GM Advice"
         },
     ],
 };
@@ -320,14 +384,20 @@ const myscContents: TableOfContentsItem = {
 export default function TableOfContents() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2">
-            <TableOfContentsBlock item={basicContents} />
-            <TableOfContentsBlock
-                item={statsSkillsContents}
+            <TableOfContentsBlock item={basicContents} 
                 className="row-span-2"
             />
+            
             <TableOfContentsBlock item={characterCreationContents} />
-            <TableOfContentsBlock item={myscContents} />
+            <TableOfContentsBlock item={myscContents}
+                className="row-span-2"
+             />
+            <TableOfContentsBlock
+                item={statsSkillsContents}
+                // className="row-span-2"
+            />
             <TableOfContentsBlock item={statusesContents} />
+            
         </div>
     );
 }

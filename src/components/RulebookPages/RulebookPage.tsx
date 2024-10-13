@@ -25,29 +25,29 @@ import ItemsTablePage from "../ItemPages/ItemsTablePage";
 import { Disclosure } from "@headlessui/react";
 import TableOfContents from "../TableOfContents/TableOfContents";
 
-import { useState, useEffect, useContext } from "react";
-import { SpellsService } from "../../client/services/SpellsService";
+// import { useState, useEffect, useContext } from "react";
+// import { SpellsService } from "../../client/services/SpellsService";
 
 const formattedmd = formatEffectString(markdown);
 
 export default function RulebookPage() {
-    useEffect(() => {
-        async function checkAPI() {
-            try {
-                const spellsRaw = await SpellsService.getAllSpells();
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorrect data."
-                    );
-                    window.localStorage.setItem(
-                        "useBackup",
-                        "true"
-                    );
-            }
-        }
-        checkAPI();
-    },[SpellsService]);
+    // useEffect(() => {
+    //     async function checkAPI() {
+    //         try {
+    //             const spellsRaw = await SpellsService.getAllSpells();
+    //         } catch (e) {
+    //             // if (e instanceof Error && e.message == "Network Error") {
+    //                 console.log(
+    //                     "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorrect data."
+    //                 );
+    //                 window.localStorage.setItem(
+    //                     "useBackup",
+    //                     "true"
+    //                 );
+    //         }
+    //     }
+    //     checkAPI();
+    // },[SpellsService]);
     
 
     return (
