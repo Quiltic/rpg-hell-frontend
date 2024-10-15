@@ -43,7 +43,7 @@ export function useApiClass<T extends ApiClassUnion>(
     const { auth } = useContext(AuthContext);
 
     useEffect(() => {
-        async function getTraits() {
+        async function getList() {
             let t: T[];
             try {
                 if (window.localStorage.getItem("useBackup") == "true") {
@@ -119,7 +119,7 @@ export function useApiClass<T extends ApiClassUnion>(
             setHasInitializedPersistedTraits(true);
         }
 
-        getTraits();
+        getList();
     }, [auth, c, classServiceGetAllFn, pinnedKey]);
 
     useEffect(() => {
