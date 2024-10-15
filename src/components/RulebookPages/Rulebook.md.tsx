@@ -241,7 +241,7 @@ Events can be classified as combat, exploration, roleplay, or location based eve
 
 # Stats
 
-##Basic Stats
+## Basic Stats
 
 ### Health
 
@@ -471,7 +471,13 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Poisoned
 
-- You do 1 less damage from weapon or spell attacks.  
+- You do 1 less damage from weapon or spell attacks.
+- You have -1 on all Body rolls.
+- Reduce by 1 at the end of your Turn.
+
+### Sparking
+- You take 1 damage for every one (dice value of 1) you roll, unlock, or generate.
+- This effect can happen multiple times per roll, and goes off on ALL rolls.
 - Reduce by 1 at the end of your Turn.
 
 ## Stack Effects
@@ -659,7 +665,7 @@ No special effects are present.
 
 ### Ward
 
-- When you gain stacks of: Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet; you may not gain these stacks and reduce your Ward by 1\.  
+- When you gain stacks of: Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet; you may choose to not gain these stacks and reduce your Ward by 1\.  
 - Gained at the end of a Rest.
 
 ### Heavy Armor

@@ -288,7 +288,10 @@ const statusesContents: TableOfContentsItem = {
                 },
                 {
                     name: "Poisoned"
-                }
+                },
+                {
+                    name: "Sparking"
+                },
             ]
         },
         {
