@@ -64,16 +64,21 @@ export default function JoshhellscapePage() {
     // }, [filterTraits]);
 
     const wantedLoneList = "rune maker;|;runic carver;|;arcane eyes;|;runic master";
-    const wantedComboList = "arcane armory;|;ingredient scavenger;|;scroll crafting;|;combative running;|;potions of power;|;spell manipulator;|;discover rune of absorption;|;spell augmenter;|;runic augmentation;|;double dosing;|;rune gate"
+    const wantedComboList = "arcane armory;|;ingredient scavenger;|;scroll crafting;|;placeholder;|;potions of power;|;spell manipulator;|;placeholder;|;complex brews;|;spell augmenter;|;runic augmentation;|;double dosing;|;rune gate"
 
     const trait = displayedTraits[0];
     const loneTraits = getNames(wantedLoneList, allTraits) as Trait[];
     const comboTraits = getNames(wantedComboList, allTraits) as Trait[];
+
+    const headers = ["arcana","runeblade","alchemist","lore master"];
+    const subNotes = ["Manipulation of the world by use of magical Runes.","Manipulation of idk.","Creating and using potions.","Augmenting Arts in weird ways."];
     
 
     return (
         
         <div>
+            <h1 className={`capitalize text-${headers[0]}`} >{headers[0]}</h1>
+            <p className="italic" >{subNotes[0]}</p>
             <div className="grid grid-cols-1 md:grid-cols-4">
                 {loneTraits.map((trait, i) => {
                     if (trait.name != 'Error') {
@@ -84,6 +89,13 @@ export default function JoshhellscapePage() {
                 })}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3">
+                <h3 className="capitalize" >{headers[1]}</h3>
+                <h3 className="capitalize" >{headers[2]}</h3>
+                <h3 className="capitalize" >{headers[3]}</h3>
+                <p className="italic text-sm" >{subNotes[1]}</p>
+                <p className="italic text-sm" >{subNotes[2]}</p>
+                <p className="italic text-sm" >{subNotes[3]}</p>
+
                 {comboTraits.map((trait, i) => {
                     if (trait.name != 'Error') {
                         return (
