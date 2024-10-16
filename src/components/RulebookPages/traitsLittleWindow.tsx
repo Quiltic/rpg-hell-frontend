@@ -40,7 +40,7 @@ export default function TraitsLittleWindow({
     }
 
     return (
-        <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-5" >
+        <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
             <div className="flex flex-row items-center bg-dark rounded-md justify-between">
                 <div className="text-lg font-bold capitalize p-2">
                     {_trait.name ?? ""}
