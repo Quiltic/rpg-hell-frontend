@@ -25,7 +25,7 @@ export default function TraitCardHolder({
     return (
         
         <div>
-            <h1 className={`capitalize text-${_headers[0]}`} >{_headers[0]}</h1>
+            <h1 className={`capitalize text-${_headers[0]} text-5xl`} >{_headers[0]}</h1>
             <p className="italic" >{_subNotes[0]}</p>
             <div className="grid grid-cols-1 md:grid-cols-4">
                 {loneTraits.map((trait, i) => {
@@ -36,6 +36,7 @@ export default function TraitCardHolder({
                     }
                 })}
             </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-3">
                 <h3 className="capitalize" >{_headers[1]}</h3>
                 <h3 className="capitalize" >{_headers[2]}</h3>
@@ -52,6 +53,7 @@ export default function TraitCardHolder({
                     }
                 })}
             </div>
+            
         </div>
         
 

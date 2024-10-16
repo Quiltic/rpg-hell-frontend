@@ -99,6 +99,24 @@ export default function JoshhellscapePage() {
     } = useTraits();
 
 
+    // TODO: Talk to Etan about Below
+    // TODO: Do Body Mind and Soul sections
+    /*
+    Problems to talk to Etan With
+    - Better showing between sections
+    - Better clarity for connected items (links to crafting, items, spells, etc)
+    - Something to draw users attention in (idk, ask Tristo Again)
+    - it doesent like big names, long req, or long text
+    - make the text size auto change based on size of thing
+    - Text is a little small, possibly pick shorter items or maby the text size will work
+    - DOES NOT WORK IN MOBLE
+    - FUCK LIGHT MODE
+    - doesent like being squished when the window size changes
+    - replace temp defs and names for more cohesive ones
+    - so many holes in traits
+    */
+
+
     return (
         
         <div>
