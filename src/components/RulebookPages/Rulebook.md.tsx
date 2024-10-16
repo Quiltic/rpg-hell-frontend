@@ -551,8 +551,12 @@ If it would make more sense to do multiple groups, assuming your GM allows it, y
 ## Crafting Items
 
 In order to craft something you need to spend half the cost of the item, and do a number of successful Crafting rolls equal to the item's Crafting score. Every time you roll to craft an item you must spend an amount of time based on the rarity of the item (listed below). Only a Success counts when making items, Partial Successes do not increase how far along the item is made.  
-A default crafting roll cannot make weapons, armors, potions, complex items, or magic items. For that you will need to own a set of specialized Tools. However, once you have these Tools you can begin to craft one of these items.   
-Alchemical items, such as potions, can be crafted using Arcana, or Crafting rather than just Crafting. Similarly, Medicine items, such as a bandage, can be crafted using Medicine or Crafting.
+
+A default crafting roll cannot make weapons, armors, alchemical items (such as potions), complex items, runes, or magic items. For that you will need to own a set of specialized Tools. However, once you have these Tools you can begin to craft one of these items.
+To craft weapons and armors you need a suficent heat source (GM dependent) and a set of Smithing tools.
+To craft potions or other alchemical items you need a set of Alchemist tools. Alchemical items, such as potions, can be crafted using Arcana, or Crafting rather than just Crafting. Similarly, Medicine items, such as a bandage, can be crafted using Medicine or Crafting.
+To craft complex items you need a set of Tinkers tools.
+Lastly to craft runes and magic items you need a set of Runecarvers tools.
 
 	1 minute for a common item.  
 	10 minutes for an uncommon item.  

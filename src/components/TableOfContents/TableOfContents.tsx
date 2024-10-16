@@ -342,7 +342,8 @@ const myscContents: TableOfContentsItem = {
             name: "Followers",
         },
         {
-            name: "Crafting Items"
+            name: "Crafting Items",
+            anchorHref: "making-items",
         },
         {
             name: "Knockback and Fall Damage",
