@@ -59,7 +59,7 @@ const theBIGList = [
     },
     {
         wantedLoneList: "steam suit;|;crafting genius;|;explosive expert;|;placeholder",
-        wantedComboList: "flaming blow;|;turreted weapon;|;abjurer;|;placeholder;|;overclock;|;spectral artillery;|;placeholder;|;holes in the armor;|;magical craftsman;|;smithing master;|;placeholder;|;placeholder",
+        wantedComboList: "flaming blow;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;placeholder;|;holes in the armor;|;magical craftsman;|;smithing master;|;placeholder;|;placeholder",
         headers: ["crafting","blacksmith","clockworks","artificer"],
         subNotes: ["Create powerful contraptions from simple parts.","Hone weapons and armor.","Use advanced gears and gyros to do impossible feats.","Magic explosions and items, what more could you ask for?"],
     },
