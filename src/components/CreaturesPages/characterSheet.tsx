@@ -37,14 +37,14 @@ export default function CreatureSheet({
 
     
     const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
-    const spells = getNames(displayedCreature.spells, spellsList) as Spell[];
+    const spells = getNames(displayedCreature.arts, spellsList) as Spell[];
     let items = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
 
-    items = upgradeItem(items, displayedCreature.stackEffects);
+    items = upgradeItem(items, displayedCreature.augments);
 
     
     let bonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
-    let soulStrain = (displayedCreature.traits.includes("mental mage") ? displayedCreature.soul*3+2 : displayedCreature.soul*3);
+    let soulStrain = (displayedCreature.soul*4 + displayedCreature.mind*3 + displayedCreature.body*2) //(displayedCreature.traits.includes("mental mage") ? displayedCreature.soul*4 : displayedCreature.soul*3);
     
     if (displayedCreature.traits.includes("blood magic")) {
         bonus += soulStrain;
@@ -61,12 +61,12 @@ export default function CreatureSheet({
     
     const itemTags = sumTags(items);
     
-    const armor = itemTags["armor"] * displayedCreature.level;
-    const ward = itemTags["ward"];
-    const dodge = itemTags["dodge"];
+    const armor = ("armor" in itemTags ? itemTags["armor"]*displayedCreature.level : 0) + ("heavy armor" in itemTags ? itemTags["heavy armor"]*displayedCreature.level + 4*displayedCreature.body + 3*displayedCreature.mind : 0) + ("medium armor" in itemTags ? itemTags["medium armor"]*displayedCreature.level + 2*displayedCreature.body + 2*displayedCreature.mind : 0);
+    const ward = ("ward" in itemTags ? itemTags["ward"] : 0);
+    const dodge = ("dodge" in itemTags ? itemTags["dodge"] : 0);
     
-    bonus = itemTags["speed"] + (displayedCreature.traits.includes("quick runner") ? 1 : 0);
-    const speed = displayedCreature.speedBonus + 6 + bonus;
+    bonus = ("speed" in itemTags ? itemTags["speed"] : 0) + (displayedCreature.traits.includes("quick runner") ? 1 : 0);
+    const speed = + 6 + bonus;
     
     
     let [activeLines, passiveLines, itemLines] = createItemLines(items);
@@ -75,9 +75,7 @@ export default function CreatureSheet({
     
     let spellLines = [
         ...spells.map((s) => {
-            return `${s.name.toUpperCase()} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
-                s.level
-            }\n${s.effect}\n`;
+            return `${s.name.toUpperCase()} - ${s.level} - ${"#".repeat(s.dice ?? 1) ?? "P"}\n${s.effect}\n`;
         }),
     ];
     if (spellLines.length > 0) {
@@ -165,8 +163,8 @@ export default function CreatureSheet({
             { spellLines.length != 0 &&
                 <div className="mb-3">
                     <div className="flex flex-row justify-between"> 
-                        <div className="font-bold mb-1">SPELLS</div>
-                        <div className="font-bold mb-1">MAX SOUL STRAIN: {soulStrain}</div>
+                        <div className="font-bold mb-1">ARTS</div>
+                        <div className="font-bold mb-1">MAX STRAIN: {soulStrain}</div>
                     </div>
                     <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {spellLines.join("\n")}

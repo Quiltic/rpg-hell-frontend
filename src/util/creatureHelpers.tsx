@@ -1,6 +1,13 @@
 import { Item } from "../client/models/Item";
 import { Trait } from "../client/models/Trait";
 
+function capitalizeWords(input: string): string { // ChatGPT (Im lazy)
+    return input
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+}
+
 function dictionaryItems(_items: Item[]) {
 
     let itemsDict = Object.fromEntries(_items.map(({name,...rest}) => [name, rest])); // provided by https://stackoverflow.com/questions/61379389/mapping-an-array-of-objects-to-dictionary-in-typescript
@@ -16,15 +23,17 @@ function dictionaryItems(_items: Item[]) {
                 let output = [];
                 // console.log(segments);
                 
-                if( segments[1] == "damage" ) {
+                // This entire section is ASS
+                if (segments.length > 2) 
+                    output = [segments[0].concat(" ",segments[1]), parseInt(segments[2])]
+                else if( segments[1] == "damage" )
                     output = ['damage', parseInt(segments[0])];
-                } else {
+                else
                     output = [segments[0], parseInt(segments[1])];
-                }
+                
 
-                if (Number.isNaN(output[1])) {
+                if (Number.isNaN(output[1]))
                     output[1] = 0;
-                }
 
                 return output;
             }
@@ -105,20 +114,21 @@ function createItemLines(updatedItems){
     let items = [];
 
     for (const [name, value] of Object.entries(updatedItems)) {
+        // console.log(value.tags)
 
         value.tags = Object.entries(value.tags).map(([tagName, tagValue]) => `${tagName} ${tagValue}`);
 
         if (value.tags.join("").includes("weapon") || value.tags.join("").includes("grenade")) {
-            active.push(`${name} - ## - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
+            active.push(`${capitalizeWords(name)} (Weapon) - ## - ${capitalizeWords(value.tags.join(", ").replace(/ 0/gi,"").replace(", weapon",""))}\n${value.effect}\n`.replace("\n\n","\n"));
         }
         else if (value.tags.join("").includes("medicine")) {
-            active.push(`${name} - # - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
+            active.push(`${capitalizeWords(name)} - # - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
         }
         else if (value.tags.join("").includes("armor")) {
-            passive.push(`${name} - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
+            passive.push(`${capitalizeWords(name)} - ${value.effect}\n`.replace("\n\n","\n"));
         }
         else {
-            items.push(`${name} - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
+            items.push(`${capitalizeWords(name)} - ${value.tags.join(", ").replace(/ 0/gi,"")}\n${value.effect}\n`.replace("\n\n","\n"));
         }
 
         
@@ -137,9 +147,9 @@ function createTraitLines(_traits: Trait[], activeLines: string[], passiveLines:
 
     for (const t of _traits) {
         if (t.dice != 0) {
-            activeLines.push(`${t.name} - ${"#".repeat(t.dice ?? 1) ?? "P"}\n${t.effect}\n`);
+            activeLines.push(`${capitalizeWords(t.name)} - ${"#".repeat(t.dice ?? 1) ?? "P"}\n${t.effect}\n`);
         } else {
-            passiveLines.push(`${t.name}\n${t.effect}\n`)
+            passiveLines.push(`${capitalizeWords(t.name)}\n${t.effect}\n`)
         }
     }
 
