@@ -1,7 +1,7 @@
 
-import { Trait } from "../../client";
-import { getNames } from "../../util/tableTools";
-import TraitsLittleWindow from "../RulebookPages/traitsLittleWindow";
+import { Trait } from "../../../client";
+import { getNames } from "../../../util/tableTools";
+import TraitCard from "./traitCard";
 
 type Props = {
     allTraits: Trait[];
@@ -25,13 +25,13 @@ export default function TraitCardHolder({
     return (
         
         <div>
-            <h1 className={`capitalize text-${_headers[0]} text-5xl`} >{_headers[0]}</h1>
+            <h1 className={`capitalize text-${_headers[0]} text-5xl`} id={`traits-simple-${_headers[0]}`}>{_headers[0]}</h1>
             <p className="italic" >{_subNotes[0]}</p>
             <div className="grid grid-cols-1 md:grid-cols-4">
                 {loneTraits.map((trait, i) => {
                     if (trait.name != 'Error') {
                         return (
-                        <TraitsLittleWindow _trait={trait} key={i}/>
+                        <TraitCard _trait={trait} key={i}/>
                         );
                     }
                 })}
@@ -48,7 +48,7 @@ export default function TraitCardHolder({
                 {comboTraits.map((trait, i) => {
                     if (trait.name != 'Error') {
                         return (
-                        <TraitsLittleWindow _trait={trait} key={i}/>
+                        <TraitCard _trait={trait} key={i}/>
                         );
                     }
                 })}

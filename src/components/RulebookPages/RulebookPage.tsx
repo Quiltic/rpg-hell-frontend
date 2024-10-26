@@ -19,11 +19,12 @@ import {
 } from "../../assets/IconSVGs/heroiconsSVG";
 import { formatEffectString } from "../../util/textFormatting";
 import HeadingRenderer from "./headingRenderer";
-import TraitsTablePage from "../TraitsPages/TraitsTablePage";
-import SpellsTablePage from "../SpellsPages/SpellsTablePage";
-import ItemsTablePage from "../ItemPages/ItemsTablePage";
+// import TraitsTablePage from "../TraitsPages/TraitsTablePage";
+// import SpellsTablePage from "../SpellsPages/SpellsTablePage";
+// import ItemsTablePage from "../ItemPages/ItemsTablePage";
 import { Disclosure } from "@headlessui/react";
 import TableOfContents from "../TableOfContents/TableOfContents";
+import TraitSimpleListing from "./TraitCardStuff/traitSimpleListing";
 
 // import { useState, useEffect, useContext } from "react";
 // import { SpellsService } from "../../client/services/SpellsService";
@@ -113,9 +114,7 @@ export default function RulebookPage() {
                                 </Button>
                             </Disclosure.Button>
                             <Disclosure.Panel>
-                                <TraitsTablePage />
-                                <SpellsTablePage />
-                                <ItemsTablePage />
+                                <TraitSimpleListing />
                             </Disclosure.Panel>
                         </>
                     )}

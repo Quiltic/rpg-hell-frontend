@@ -1,5 +1,5 @@
-import { Trait } from "../../client";
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { Trait } from "../../../client";
+import { formatEffectString, toPillElement } from "../../../util/textFormatting";
 
 type Props = {
     _trait: Trait;
@@ -21,7 +21,7 @@ const STUPID_COLOR_TYPESCRIPT_BS = [
     
 ];
 
-export default function TraitsLittleWindow({
+export default function TraitCard({
     _trait: _trait,
 }: Props) {    
 

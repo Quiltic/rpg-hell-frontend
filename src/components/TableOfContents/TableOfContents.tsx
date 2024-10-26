@@ -93,6 +93,46 @@ const basicContents: TableOfContentsItem = {
         },
         {
             name: "Traits",
+            className: "font-semibold",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Traits Simple List",
+                    anchorHref: "traits-simple-listing",
+                    subItems: [
+                        {
+                            name: "Arcana",
+                            className: "font-semibold text-arcana dark:text-arcana-700",
+                            anchorHref: "traits-simple-arcana",
+                        },
+                        {
+                            name: "Charm",
+                            className: "font-semibold text-charm dark:text-charm-700",
+                            anchorHref: "traits-simple-charm",
+                        },
+                        {
+                            name: "Crafting",
+                            className: "font-semibold text-crafting dark:text-crafting-700",
+                            anchorHref: "traits-simple-crafting",
+                        },
+                        {
+                            name: "Nature",
+                            className: "font-semibold text-nature dark:text-nature-700",
+                            anchorHref: "traits-simple-nature",
+                        },
+                        {
+                            name: "Medicine",
+                            className: "font-semibold text-medicine dark:text-medicine-700",
+                            anchorHref: "traits-simple-medicine",
+                        },
+                        {
+                            name: "Thieving",
+                            className: "font-semibold text-thieving dark:text-thieving-700",
+                            anchorHref: "traits-simple-thieving",
+                        },
+                    ]
+                }
+            ],
         },
         {
             name: "Arts and Strain",

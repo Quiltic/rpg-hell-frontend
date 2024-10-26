@@ -12,9 +12,9 @@ import { useTraits } from "../../hooks/useTraits";
 import { useItems } from "../../hooks/useItems";
 import { CreatureNew } from "../../client/models/CreatureNew";
 import CleanCombobox from "./CleanCombobox";
-import TraitsLittleWindow from "../RulebookPages/traitsLittleWindow";
+import TraitCard from "../RulebookPages/TraitCardStuff/traitCard";
 import { list } from "postcss";
-import TraitCardHolder from "../RulebookPages/traitCardHolder";
+import TraitCardHolder from "../RulebookPages/TraitCardStuff/traitCardHolder";
 
 
 // const familiarBase = {
