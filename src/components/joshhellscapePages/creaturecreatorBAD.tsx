@@ -17,11 +17,9 @@ const initialFormData = {
     nature: 0,
     medicine: 0,
     thieving: 0,
-    curHealth: 0,
-    speedBonus: 0,
-    stackEffects: [],
+    augments:[],
     traits: "",
-    spells: "",
+    arts: "",
     items: "",
     notes: "",
 };
@@ -91,7 +89,7 @@ export default function CreatureCreatorBadPage() {
             const persistentPinnedNames =
                 window.localStorage.getItem("pinnedSpellNames");
             let reset = characterSheetFormData;
-            reset.spells = persistentPinnedNames ?? "";
+            reset.arts = persistentPinnedNames ?? "";
 
             SetCharacterSheetFormData(reset);
         }
