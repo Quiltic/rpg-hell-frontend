@@ -18,7 +18,45 @@
     	"items": "rending strike;|;light defense",
     	"notes": "Type - This creature is of a chosen Type (Animal, Construct, Monstrosity, Planar, or Undead)\nThe familiar's level is the same as its summoners level.\nSoul, and all skills (Arcana, Charm, Crafting, Nature, Medicine, and Thieving) are equal to half the summoner's respective scores (rounded down)."
 	},
+    "1":{
+        "name":"ranged turreted weapon",
+        "race":"construct",
+        "level":-1,
+        "body":0,
+        "mind":2,
+        "soul":0,
+        "arcana":0,
+        "crafting":0,
+        "charm":0,
+        "nature":0,
+        "medicine":0,
+        "thieving":0,
+        "augments":["light defense - speed -2"],
+        "traits":"equipable;|;construct",
+        "arts":"distracting shot;|;volatile shot",
+        "items":"light defense",
+        "notes":"Created by the Trait 'Turreted Weapon' when given a ranged weapon. The turret's level is the same as its summoners level."
+    },
     "2":{
+        "name":"melee turreted weapon",
+        "race":"construct",
+        "level":-1,
+        "body":2,
+        "mind":0,
+        "soul":0,
+        "arcana":0,
+        "crafting":0,
+        "charm":0,
+        "nature":0,
+        "medicine":0,
+        "thieving":0,
+        "augments":["medium defense - speed 1"],
+        "traits":"equipable;|;construct",
+        "arts":"dual wield;|;lunge",
+        "items":"medium defense",
+        "notes":"Created by the Trait 'Turreted Weapon' when given a melee weapon. The turret's level is the same as its summoners level."
+    },
+    "3":{
         "name": "humming sprite",
         "race": "planar",
         "level": 0,
@@ -37,6 +75,8 @@
         "items": "fists;|;simple defense",
         "notes": "A small translucent sprite similar in size to a small child. They are mostly found in service of mages and planar entities.\nThey love music and will come flocking if a good song is played to try to hum along to it."
     },
+
+    
     "10":{
         "name": "dog",
         "race": "animal",
