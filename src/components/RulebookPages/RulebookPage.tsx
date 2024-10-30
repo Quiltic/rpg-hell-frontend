@@ -99,7 +99,7 @@ export default function RulebookPage() {
             </div>
 
             <div className="justify-start">
-                <Disclosure defaultOpen={false}>
+                <Disclosure defaultOpen={true}>
                     {({ open }) => (
                         <>
                             <Disclosure.Button>
@@ -110,7 +110,7 @@ export default function RulebookPage() {
                                     open={open}
                                     rightIcon={ChevronIcon}
                                 >
-                                    All Tables
+                                    Trait Simple Listing
                                 </Button>
                             </Disclosure.Button>
                             <Disclosure.Panel>
