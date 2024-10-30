@@ -306,6 +306,9 @@ const statusesContents: TableOfContentsItem = {
                     name: "Hidden"
                 },
                 {
+                    name: "Marked"
+                },
+                {
                     name: "Hover"
                 },
                 {
@@ -332,6 +335,9 @@ const statusesContents: TableOfContentsItem = {
                 {
                     name: "Sparking"
                 },
+                {
+                    name: "Glowing"
+                },
             ]
         },
         {
@@ -353,9 +359,6 @@ const statusesContents: TableOfContentsItem = {
                 },
                 {
                     name: "Wet"
-                },
-                {
-                    name: "Marked"
                 },
             ]
         }
