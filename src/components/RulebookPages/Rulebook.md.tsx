@@ -390,7 +390,7 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ## Duration Effects
 
-*Things that may change how you play. May will have a duration when applied.*
+*Things that may change how you play. May have a duration when applied.*
 
 ### Focus
 
@@ -429,6 +429,11 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 - When a creature does a Search action you are only found if no other creatures are Obscured in the same Search.  
 - You do \+1 damage on the attack action, this removes Hidden.
 
+### Marked
+
+- Attack sums against you have +1 to the total value.
+- Some Traits and Arts do apply deferent effects to Marked targets.
+
 ### Hover
 
 - You float off the ground. You are immune to ground effects, such as Rough Terrain, or traps, and you cannot become Prone.
@@ -439,7 +444,7 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Silenced
 
-- You cannot Speak, Cast Spells, or give dice to Traits.
+- You cannot Speak, activate Arts, or give dice to Traits.
 
 ### Light Headed
 
@@ -473,12 +478,18 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 - You do 1 less damage from weapon or spell attacks.
 - You have -1 on all Body rolls.
-- Reduce by 1 at the end of your Turn.
 
 ### Sparking
 - You take 1 damage for every one (dice value of 1) you roll, unlock, or generate.
 - This effect can happen multiple times per roll, and goes off on ALL rolls.
+
+
+### Glowing
+
+- You cannot become Obscured except by solid objects such as walls.  
+- You cannot become Invisible or Hidden.  
 - Reduce by 1 at the end of your Turn.
+
 
 ## Stack Effects
 
@@ -516,15 +527,6 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 - Some Spells and Traits do special effects off of Wet Stacks  
 - Reduce by 1 at the end of your Turn.
 
-
-
-### Marked
-
-- You cannot become Obscured except by solid objects such as walls.  
-- You cannot become Hidden.  
-- Some Spells and Traits do special effects off of Marked Stacks  
-- Reduce by 1 at the end of your Turn.  
-- 
 
 ### Death's Door
 
@@ -717,6 +719,11 @@ It is also recommended offering a Sub-Stat option whenever doing a roll. For exa
 When doing Turns for players it is a good idea to tell a player “You're on deck.” Which means that they are next in initiative. This lets players tune back into combat or prepare to do their turn, either by rolling their dice or by making a plan.
 
 ### Enemies
+
+The game is designed to have enemies be scaled on level equal to a characters level. This means that a level 1 creature is "equivalent" to a level 1 player, while a level 6 creature is comparable to a level 6 player. 
+Using this setting up combat based on creature level should be as strait forward as taking your parties total levels and making it as similar to the enemies total levels. Being within 1 level is recommended.
+For instance if you have 4 party members of level 2, then their total levels would be 8 (4*2). If you wanted them to then fight 'Silverback Wolfs' (each at level 3) them you may want to have the party fight 3 of them (9 total level for the wolfs).
+This should be a slightly difficult fight for the players, but still manageable.
 
 It is recommended to make enemies have intertwined initiative amongst the players, that way you dont have the players doing one big turn and then the enemies doing one big turn. This will force you to fudge some numbers but it does have an overall more interesting turn order.  
 Armor Broken, and Bloody enemies are good to help give your players a sense of how much damage they have done to the enemies. Armor Broken is when the target no longer has any Armor and is taking health damage. While Bloody is good for when the Enemy is on its last legs (typically 25% or less health).

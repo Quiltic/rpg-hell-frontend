@@ -19,7 +19,7 @@ const theBIGList = [
     },
     {
         wantedLoneList: "steam suit;|;crafting genius;|;explosive expert;|;placeholder",
-        wantedComboList: "flaming blow;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;placeholder;|;holes in the armor;|;magical craftsman;|;smithing master;|;placeholder;|;placeholder",
+        wantedComboList: "flaming blow;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;placeholder;|;holes in the armor;|;magical craftsman;|;expert blacksmith;|;placeholder;|;placeholder",
         headers: ["crafting","blacksmith","clockworks","artificer"],
         subNotes: ["Create powerful contraptions from simple parts.","Hone weapons and armor.","Use advanced gears and gyros to do impossible feats.","Magic explosions and items, what more could you ask for?"],
     },
@@ -37,7 +37,7 @@ const theBIGList = [
     },
     {
         wantedLoneList: "apprentice thief;|;cat burgler;|;hidden in plain sight;|;master thief",
-        wantedComboList: "bully;|;concealed item;|;apprentice spell thief;|;larceny;|;silent strike;|;spell thief;|;get rough;|;assassinate;|;obscured spell;|;placeholder;|;marked for death;|;placeholder",
+        wantedComboList: "bully;|;concealed item;|;apprentice spell thief;|;larceny;|;silent strike;|;spell thief;|;get rough;|;assassinate;|;obscured spell;|;double headlock;|;marked for death;|;placeholder",
         headers: ["thieving","thug","assasin","spellthief"],
         subNotes: ["Steal and kill without a trace.","Steal peoples lunch money and get away with it.","Efficent killer.","Steal and use other peoples spells."],
     },
