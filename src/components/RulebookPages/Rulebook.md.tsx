@@ -175,7 +175,7 @@ This is where Strain comes from, as the manipulation of Arts is not without cons
 Depending on how much they have trained their Core Stats they may start to take damage from activating an Art. 
 A creature takes an amount of damage based on how much Strain they have over their Max Strain. 
 This damage is taken before the Art's effect occurs, and the damage affects Health only which cannot be reduced. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
-You know a number of different Arts equal to 2 times your their respective Stat, and your ***Max Strain is equal to Body + 2x Mind + 3x Soul***. Though some Traits, or Items can increase these slightly. 
+You know a number of different Arts equal to 2 times your their respective Stat, and your ***Max Strain is equal to 2x Body + 3x Mind + 4x Soul***. Though some Traits, or Items can increase these slightly. 
 You loose all stacks of Strain when you finish a Rest.
 
 
