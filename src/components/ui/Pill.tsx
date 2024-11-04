@@ -9,10 +9,14 @@ function classNames(...classes: string[]) {
 
 export default function Pill({ children, colorClassName }: Props) {
     const classes = classNames(
-        "flex h-6 min-w-fit px-3 items-start justify-center rounded-md text-light m-1 text-nowrap bg-aabase",
+        "flex h-6 min-w-fit px-3 items-start justify-center rounded-md text-light m-1 bg-aabase",
         colorClassName
     );
-    return <div className={classes}>{children}</div>;
+    return (
+        <div className={classes} style={{ whiteSpace: "nowrap" }}>
+            {children}
+        </div>
+    );
 }
 
 // Example of usage
