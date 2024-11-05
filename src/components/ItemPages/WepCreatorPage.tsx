@@ -89,7 +89,7 @@ const wep4ListReaching = [
 export default function WepCreatorPage() {
     const { ItemsService } = useApi();
 
-    const {
+    let {
         allItems,
         pinnedItems,
         displayedItems,
@@ -160,6 +160,14 @@ export default function WepCreatorPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
+        const {allItems:_allitems, pinnedItems:_pinnedItems, displayedItems:_displayedItems, addToPinnedItems:_addToPinnedItems, removeFromPinnedItems:_removeFromPinnedItems, filterItems:_filterItems, resetFilterItems:_resetFilterItems} = useItems();
+        allItems = _allitems;
+        pinnedItems = _pinnedItems;
+        displayedItems = _displayedItems;
+        addToPinnedItems = _addToPinnedItems;
+        removeFromPinnedItems = _removeFromPinnedItems;
+        filterItems = _filterItems;
+        resetFilterItems = _resetFilterItems;
     }
 
     async function handleUpdate() {
@@ -223,6 +231,10 @@ export default function WepCreatorPage() {
         };
 
         let tags = [...wepBase.split(", "),...wepSec.split(", "),...wepSec2.split(", ")];
+        
+        // if you dont have that much no point in having a 4 or less
+        if (wepSec == "" && wepSec2 == "")
+            tags = [...tags,"(ignore 4 or less)"]
 
         for(const tag of tags){
             // console.log(tag)
