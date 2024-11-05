@@ -36,7 +36,6 @@ const wepSecList = [
     "+mind, +6 range, two handed",
     "+mind, +5 loading, -1 autoload",
     "+mind, -1 loading, -2 range, -1 autoload",
-    "+mind, +1 reaching",
     "+soul, +glow",
 ];
 
@@ -46,29 +45,30 @@ const wepSecList = [
 
 const wepSecListRange = [
     "+launcher",
+    "+2 range",
 ];
 
 
 // "+soul, 9+: heal target for damage dealt",
 // PICK 1
 const wep9List = [ 
-    "+soul, 9+: Give the target 1 stack of Burn.",
     "9+: Do 1 additional Damage",
     "9+: Reduce the target's Armor by 2 then do damage.",
-    "9+: Give the target an additional 1 stack of Bleed.",
-    "9+: Knockback the Target 2 tiles away from you.",
+    "+soul, 9+: Give the target 1 stack of Burn.",
     "9+: Give the target 1 stack of Stun. This effect does not stack on the same target.",
-    "9+: You may Move 1 tile",
+    "9+: Give the target an additional 1 stack of Bleed.",
     "9+: Give the target 1 stack of Slow.",
+    "9+: Knockback the Target 2 tiles away from you.",
+    "9+: You may Move 1 tile",
 ];
 
 
 const wep9ListLoading = [ 
-    "9+: Gain 2 additional range.",
     "9+: Roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice. This attack does not gain damage benefits such as ones gained from Rune of Power, Jackpot, or Critical.",
 ];
 
 const wep9ListReaching = [ 
+    "9+: Gain 2 additional Reaching range.",
     "9+: You damage Target's in a line in front of you instead of just the first Target hit.",
 ];
 
@@ -269,9 +269,6 @@ export default function WepCreatorPage() {
                     case "launcher":
                         finalTags = finalTags.concat(",","launcher")
                         break;
-                    case "reaching":
-                        finalTags = finalTags.concat(",","reaching",String(value))
-                        break;
                     case "body":
                         reqTemp = reqTemp.concat(",","body ",String(value))
                         break;
@@ -286,97 +283,13 @@ export default function WepCreatorPage() {
                 } 
             }
         }
-        // console.log(finalTags)
+        console.log(finalTags)
         setTags(finalTags.concat(",weapon,common"));
         setReqs(reqTemp);
         
     }, [wepBase, wepSec, wepSec2, wep9, wep4, wepSpecial]);
 
-    useEffect(() => {
-        
-        let parts = {
-            "":0,
-            "damage": 0,
-            "throw": 0,
-            "range": 0,
-            "reaching": 0,
-            "two": 0,
-            "loading": 0,
-            "autoload": 0,
-            "glow": 0,
-            "launcher": 0,
-            "body": 0,
-            "mind": 0,
-            "soul": 0,
-        };
-
-        let tags = [...wepBase.split(", "),...wepSec.split(", "),...wepSec2.split(", ")];
-        
-        for(const tag of tags){
-            // console.log(tag)
-            const rxWord = /([a-z])\w+/g;
-            const rxWordText = rxWord.exec(tag)
-            const rxNum = /-?[0-9]\d*/g;
-            const rxNumText = rxNum.exec(tag)
-            
-            // console.log(tag, rxWordText? rxWordText[0] : "", rxNumText? parseInt(rxNumText[0], 10) : 0)
-            parts[String(rxWordText? rxWordText[0] : "")] += rxNumText? parseInt(rxNumText[0], 10) : 1 // idk why its grumpy
-            
-        }
-
-        // console.log(parts)
-
-        let finalTags = "";
-        let reqTemp = "";
-
-        for (const [key, value] of Object.entries(parts)) {
-            // console.log(key, value);
-            if (value > 0) {
-                switch(key) {
-                    case "": // just filler slots, does not need any code
-                        break;
-                    case "ignore": // just filler slots, does not need any code
-                        break;
-                    case "damage":
-                        finalTags = finalTags.concat(",",String(value)," ",key)
-                        break;
-                    case "two":
-                        finalTags = finalTags.concat(",","two handed")
-                        break;
-                    case "throw":
-                        finalTags = finalTags.concat(",","throw range ",String(value))
-                        break;
-                    case "autoload":
-                        finalTags = finalTags.concat(",","autoload")
-                        break;
-                    case "glow":
-                        finalTags = finalTags.concat(",","glow")
-                        break;
-                    case "launcher":
-                        finalTags = finalTags.concat(",","launcher")
-                        break;
-                    case "reaching":
-                        finalTags = finalTags.concat(",","reaching")
-                        break;
-                    case "body":
-                        reqTemp = reqTemp.concat(",","body ",String(value))
-                        break;
-                    case "mind":
-                        reqTemp = reqTemp.concat(",","mind ",String(value))
-                        break;
-                    case "soul":
-                        reqTemp = reqTemp.concat(",","soul ",String(value))
-                        break;
-                    default:
-                        finalTags = finalTags.concat(",",key," ",String(value))
-                } 
-            }
-        }
-        // console.log(finalTags)
-        setTags(finalTags.concat(",weapon,common"));
-        setReqs(reqTemp);
-        
-    }, [wepBase, wepSec, wepSec2]);
+    
 
     useEffect(() => {
         // console.log(mainStat,secondStat,otherDrop);
