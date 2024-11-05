@@ -96,9 +96,9 @@ export default function SearchGroup({
 
 
             <Popup displayedContentName="advanced filtering" isOpen={popupOpen} setIsOpen={setPopupOpen} displayedContent={
-                <div>
+                <div className="bg-dark-400 p-4 m-4 mb-10 rounded-lg">
                     <div className="md:col-span-2 md:row-span-2 justify-center">
-                        <div className="flex flex-row capitalize">Name</div>
+                        <h3 className="flex flex-row capitalize mt-1">Name</h3>
                         <input
                             type="text"
                             placeholder="Feather"
@@ -108,9 +108,9 @@ export default function SearchGroup({
                         />
                     </div>
                     <div className="md:col-span-2">
-                        <div className="flex flex-row capitalize">
+                        <h3 className="flex flex-row capitalize">
                             Effect
-                        </div>
+                        </h3>
                         <input
                             type="text"
                             className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
@@ -119,7 +119,7 @@ export default function SearchGroup({
                         />
                     </div>
                     <div className="md:col-span-2">
-                        <div className="flex flex-row capitalize">tags</div>
+                        <h3 className="flex flex-row capitalize">tags</h3>
                         <input
                             type="text"
                             className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"

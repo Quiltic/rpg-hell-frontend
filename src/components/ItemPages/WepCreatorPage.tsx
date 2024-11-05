@@ -37,6 +37,7 @@ const wepSecList = [
     "+1 mind, +5 loading, -1 autoload",
     "+1 mind, -1 loading, -2 range, -1 autoload",
     "+1 soul, +glow",
+    "+1 soul, -1 two handed",
 ];
 
 // const wepSecListLoading = [
