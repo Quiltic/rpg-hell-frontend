@@ -65,7 +65,7 @@ function Search({
                 filter(
                     (t) => {
                         try {
-                            const temp = [t.name.toLowerCase(),(t as Trait).effect?.toLowerCase().replace("\n","")].join(";|;");
+                            const temp = [t.name.toLowerCase(),(t as Trait).effect?.toLowerCase().replace("\n","")," "].join(";|;");
                             return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
                         } catch (error) {
                             console.error('Bad regex:', error);

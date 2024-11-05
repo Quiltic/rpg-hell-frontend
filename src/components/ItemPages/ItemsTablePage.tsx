@@ -4,12 +4,47 @@ import { Button } from "../ui/Button/Button";
 import { classNames, download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useItems } from "../../hooks/useItems";
-import Search from "../search/Search";
 import { eApiClass } from "../../types/ApiClassUnions";
+import SearchGroup from "../search/SearchGroup";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
 }
+
+const tagList = [
+    "tiny",
+    "small",
+    "medium",
+    "large",
+    "huge",
+    "bigabongus",
+    "grenade",
+    "medicine",
+    "item",
+    "weapon",
+    "alchemical",
+    "tool",
+    "rune",
+    "armor _",
+    "magical",
+    "common",
+    "uncommon",
+    "rare",
+    "legendary",
+    "consumable",
+    "complex",
+    "vehicle",
+    "bound",
+    "1 damage",
+    "loading _",
+    "range _",
+    "two handed",
+    "throw range _",
+    "glow",
+    "ward _",
+    "dodge _",
+    "speed _",
+];
 
 const IterativeItemLevels = [
     "Weapon",
@@ -118,11 +153,13 @@ export default function ItemsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <Search
-                        filter={filterItems}
+                    <SearchGroup 
+                        filter={filterItems} 
                         resetFilter={resetFilterItems}
                         filterClass={eApiClass.Item}
+                        tagList={tagList}
                     />
+                    
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>

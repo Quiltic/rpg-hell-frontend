@@ -45,7 +45,7 @@ export default function Popup({
                         <div className="fixed inset-0 bg-black/25" />
                     </Transition.Child>
 
-                    <div className="fixed inset-0 overflow-y-auto">
+                    <div className="fixed inset-0 overflow-y-auto m-6">
                         <div className="flex items-center justify-center p-4 pt-0 text-center">
                             <Transition.Child
                                 as={Fragment}

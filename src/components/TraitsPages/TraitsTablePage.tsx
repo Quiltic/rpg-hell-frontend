@@ -3,13 +3,15 @@ import TraitsTable from "./TraitsTable";
 import { Button } from "../ui/Button/Button";
 import { classNames, download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import Search from "../search/Search";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
+import SearchGroup from "../search/SearchGroup";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
 }
+
+const tagList = [""];
 
 const IterativeTraitLevels = [
     "Base",
@@ -119,10 +121,11 @@ export default function TraitsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <Search
-                        filter={filterTraits}
+                    <SearchGroup 
+                        filter={filterTraits} 
                         resetFilter={resetFilterTraits}
                         filterClass={eApiClass.Trait}
+                        tagList={tagList}
                     />
                 </div>
                 <Tab.Panels>
