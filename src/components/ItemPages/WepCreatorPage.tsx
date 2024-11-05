@@ -31,12 +31,12 @@ const wepBaseList = [
 // Pick at most 2:
 const wepSecList = [
     "",
-    "+body, +1 damage ",
-    "+body, +throw range 6",
-    "+mind, +6 range, two handed",
-    "+mind, +5 loading, -1 autoload",
-    "+mind, -1 loading, -2 range, -1 autoload",
-    "+soul, +glow",
+    "+1 body, +1 damage ",
+    "+1 body, +throw range 6",
+    "+1 mind, +6 range, two handed",
+    "+1 mind, +5 loading, -1 autoload",
+    "+1 mind, -1 loading, -2 range, -1 autoload",
+    "+1 soul, +glow",
 ];
 
 // const wepSecListLoading = [
@@ -54,7 +54,7 @@ const wepSecListRange = [
 const wep9List = [ 
     "9+: Do 1 additional Damage",
     "9+: Reduce the target's Armor by 2 then do damage.",
-    "+soul, 9+: Give the target 1 stack of Burn.",
+    "+1 soul, 9+: Give the target 1 stack of Burn.",
     "9+: Give the target 1 stack of Stun. This effect does not stack on the same target.",
     "9+: Give the target an additional 1 stack of Bleed.",
     "9+: Give the target 1 stack of Slow.",
@@ -74,7 +74,7 @@ const wep9ListReaching = [
 
 // PICK 1
 const wep4List = [ 
-    "+soul, 4-: You mishandle the weapon, gain 1 stack of Burn.",
+    "+1 soul, 4-: You mishandle the weapon, gain 1 stack of Burn.",
     "4-: You mishandle the weapon, gain 1 Bleed",
     "4-: You mishandle the weapon, gain 1 Slow",
 ];
@@ -200,12 +200,12 @@ export default function WepCreatorPage() {
     useEffect(() => {
 
 
-        let tempEffect = (wepSpecial ? [wepSpecial.replace(/(\+|\-)[a-z]\w*, /g,"")] : []); // This is so we dont have a random empty newline at the beginning of the effect when there is no special text
+        let tempEffect = (wepSpecial.replace(/(\+|\-). [a-z]\w*, /g,"") ? [wepSpecial.replace(/(\+|\-). [a-z]\w*, /g,"")] : []); // This is so we dont have a random empty newline at the beginning of the effect when there is no special text
 
         if (wepBase.includes("(ignore 4 or less)") || (wepSec == "" && wepSec2 == "")){ // if you dont have that much no point in having a 4 or less
-            setEffectText([...tempEffect, wep9.replace("9+:","On a 9 or Higher:").replace(/(\+|\-)[a-z]\w*, /g,"")].join("\n"));
+            setEffectText([...tempEffect, wep9.replace("9+:","On a 9 or Higher:").replace(/(\+|\-). [a-z]\w*, /g,"")].join("\n"));
         } else
-            setEffectText([...tempEffect, wep4.replace("4-:","On a 4 or Less:").replace(/(\+|\-)[a-z]\w*, /g,""), wep9.replace("9+:","On a 9 or Higher:").replace(/(\+|\-)[a-z]\w*, /g,"")].join("\n"));
+            setEffectText([...tempEffect, wep4.replace("4-:","On a 4 or Less:").replace(/(\+|\-). [a-z]\w*, /g,""), wep9.replace("9+:","On a 9 or Higher:").replace(/(\+|\-). [a-z]\w*, /g,"")].join("\n"));
 
         
         let parts = {
@@ -224,7 +224,7 @@ export default function WepCreatorPage() {
             "soul": 0,
         };
 
-        let tags = [...wepBase.split(", "),...wepSec.split(", "),...wepSec2.split(", "),...wep9.split(", "),...wep4.split(", ")];
+        let tags = [...wepBase.split(", "),...wepSec.split(", "),...wepSec2.split(", "),...wep9.split(", "),...wep4.split(", "),...wepSpecial.split(", ")];
         
         for(const tag of tags){
             // console.log(tag)
