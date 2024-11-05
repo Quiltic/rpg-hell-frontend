@@ -5,6 +5,7 @@ import {
     creaturesIcon,
     sparklesIcon,
     ticketIcon,
+    craftingIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
 
 export default function ToolsPage() {
@@ -32,6 +33,13 @@ export default function ToolsPage() {
                 <Link to={"creatures"}>
                     <Button leftIcon={creaturesIcon} variant="medicine">
                         Update Creatures
+                    </Button>
+                </Link>
+            </div>
+            <div className="flex flex-column flex-wrap gap-4 justify-center mb-2">
+                <Link to={"wepcreator"}>
+                    <Button leftIcon={craftingIcon} variant="crafting">
+                        Weapon Creator
                     </Button>
                 </Link>
             </div>

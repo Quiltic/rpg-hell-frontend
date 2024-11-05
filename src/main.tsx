@@ -23,6 +23,7 @@ import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
 import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
 import CreatureCreatorBadPage from "./components/joshhellscapePages/creaturecreatorBAD.tsx";
+import WepCreatorPage from "./components/ItemPages/WepCreatorPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -70,6 +71,12 @@ const router = createBrowserRouter(
                             path: "creatures",
                             element: (
                                 <NotImplementedPage pageName="Update DB creatures" />
+                            ),
+                        },
+                        {
+                            path: "wepcreator",
+                            element: (
+                                <WepCreatorPage/>
                             ),
                         },
                         {
