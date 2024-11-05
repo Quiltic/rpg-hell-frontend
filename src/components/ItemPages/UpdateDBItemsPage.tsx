@@ -1,20 +1,18 @@
 import { useState, useEffect } from "react";
 import { Item } from "../../client";
 
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
-
 import useApi from "../../hooks/useApi";
 
-import { Tab, Disclosure } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
 
 import ItemsTable from "./ItemsTable";
-
-import json from "../../assets/OfflineJsons/items.json";
 import { Button } from "../ui/Button/Button";
-import { sortItems } from "../../util/sortingTools";
-import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames } from "../../util/tableTools";
 
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
+import { eApiClass } from "../../types/ApiClassUnions";
+import SearchGroup from "../search/SearchGroup";
+import { useItems } from "../../hooks/useItems";
 
 
 function getTabWidth(lengthOfName: number) {
@@ -117,11 +115,16 @@ const IterativeItemLevels = [
 export default function UpdateDBItemsPage() {
     const { ItemsService } = useApi();
 
-    const [searchValue, setSearchValue] = useState("");
-    const [allItems, setAllItems] = useState<Array<Item>>([]);
-    const [displayedItems, setDisplayedItems] = useState<Array<Item>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
+    const [changeToRefresh, setChangeToRefresh] = useState(0);
+    
+    const {
+        displayedItems,
+        filterItems,
+        resetFilterItems,
+    } = useItems(changeToRefresh);
+
+    
+
 
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
@@ -133,49 +136,6 @@ export default function UpdateDBItemsPage() {
     const [curItem, setCurItem] = useState<Item>();
 
     
-    async function getItems() {
-        let items: Item[];
-        try {
-            const itemsRaw = await ItemsService.getAllItems();
-            items = Object.values(itemsRaw);
-        } catch (e) {
-            // if (e instanceof Error && e.message == "Network Error") {
-                console.log(
-                    "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                );
-                items = Object.values(json);
-            // } else {
-            //     return;
-            // }
-        }
-
-        items = sortItems(items);
-
-        setAllItems(items);
-        setDisplayedItems(items);
-    }
-
-    useEffect(() => {
-        getItems();
-    }, [ItemsService]);
-
-    useEffect(() => {
-        if (searchValue == "") {
-            setDisplayedItems(allItems);
-            setClearButtonVisibility("hidden");
-            return;
-        }
-
-        setClearButtonVisibility("visible");
-        const filteredItems = allItems.filter((s) => {
-            return (
-                s.name.toLowerCase().includes(searchValue) ||
-                s.effect?.toLowerCase().includes(searchValue)
-            );
-        });
-
-        setDisplayedItems(filteredItems);
-    }, [allItems, searchValue]);
 
     function addToPinnedItem(s: Item) {
         setCurID(s.id);
@@ -212,7 +172,7 @@ export default function UpdateDBItemsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
-        getItems();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleUpdate() {
@@ -229,7 +189,7 @@ export default function UpdateDBItemsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
-        getItems();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleDelete() {
@@ -243,7 +203,7 @@ export default function UpdateDBItemsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
-        getItems();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     useEffect(() => {
@@ -433,28 +393,12 @@ export default function UpdateDBItemsPage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
-
-                        <input
-                            value={searchValue}
-                            type="text"
-                            name="search"
-                            placeholder="Search"
-                            className="bg-dark-700 pl-1 w-16 flex-grow"
-                            onChange={(e) => {
-                                setSearchValue(e.target.value.toLowerCase());
-                            }}
-                        />
-                        <XMarkIcon
-                            className="h-6 w-6 opacity-50 cursor-pointer"
-                            visibility={clearButtonVisibility}
-                            onClick={() => {
-                                setSearchValue("");
-                                setClearButtonVisibility("hidden");
-                            }}
-                        />
-                    </div>
+                    <SearchGroup 
+                        filter={filterItems} 
+                        resetFilter={resetFilterItems}
+                        filterClass={eApiClass.Item}
+                        tagList={tagList}
+                    />
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>

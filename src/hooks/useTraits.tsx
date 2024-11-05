@@ -2,7 +2,7 @@ import { Trait, TraitsService } from "../client";
 import { eApiClass } from "../types/ApiClassUnions";
 import { useApiClass } from "./useApiClass";
 
-export function useTraits() {
+export function useTraits(changeToRefresh:number = 0) {
     const {
         all: allTraits,
         pinned: pinnedTraits,
@@ -14,7 +14,8 @@ export function useTraits() {
     } = useApiClass<Trait>(
         eApiClass.Trait,
         TraitsService.getAllTraits,
-        "pinnedTraitNames"
+        "pinnedTraitNames",
+        changeToRefresh
     );
 
     return {

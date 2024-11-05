@@ -2,7 +2,7 @@ import { Spell, SpellsService } from "../client";
 import { eApiClass } from "../types/ApiClassUnions";
 import { useApiClass } from "./useApiClass";
 
-export function useSpells() {
+export function useSpells(changeToRefresh:number = 0) {
     const {
         all: allSpells,
         pinned: pinnedSpells,
@@ -14,7 +14,8 @@ export function useSpells() {
     } = useApiClass<Spell>(
         eApiClass.Spell,
         SpellsService.getAllSpells,
-        "pinnedSpellNames"
+        "pinnedSpellNames",
+        changeToRefresh
     );
 
     return {
