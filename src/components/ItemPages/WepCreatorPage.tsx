@@ -89,7 +89,9 @@ const wep4ListReaching = [
 export default function WepCreatorPage() {
     const { ItemsService } = useApi();
 
-    let {
+    const [changeToRefresh, setChangeToRefresh] = useState(0);
+    
+    const {
         allItems,
         pinnedItems,
         displayedItems,
@@ -97,9 +99,9 @@ export default function WepCreatorPage() {
         removeFromPinnedItems,
         filterItems,
         resetFilterItems,
-    } = useItems();
-
-
+    } = useItems(changeToRefresh);
+    
+    
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("placeholder name");
     const [effectText, setEffectText] = useState("");
@@ -160,14 +162,7 @@ export default function WepCreatorPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
-        const {allItems:_allitems, pinnedItems:_pinnedItems, displayedItems:_displayedItems, addToPinnedItems:_addToPinnedItems, removeFromPinnedItems:_removeFromPinnedItems, filterItems:_filterItems, resetFilterItems:_resetFilterItems} = useItems();
-        allItems = _allitems;
-        pinnedItems = _pinnedItems;
-        displayedItems = _displayedItems;
-        addToPinnedItems = _addToPinnedItems;
-        removeFromPinnedItems = _removeFromPinnedItems;
-        filterItems = _filterItems;
-        resetFilterItems = _resetFilterItems;
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleUpdate() {
@@ -184,6 +179,7 @@ export default function WepCreatorPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleDelete() {
@@ -197,6 +193,7 @@ export default function WepCreatorPage() {
         }
         // Set inputs to nothing
         removeFromPinnedItem();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
 
@@ -204,13 +201,13 @@ export default function WepCreatorPage() {
     useEffect(() => {
          let tempEffect = (wepSpecial ? [wepSpecial] : []); // This is so we dont have a random empty newline at the beginning of the effect when there is no special text
 
-        if (wepBase.includes("(ignore 4 or less)")){
+        if (wepBase.includes("(ignore 4 or less)") || (wepSec == "" && wepSec2 == "")){ // if you dont have that much no point in having a 4 or less
             setEffectText([...tempEffect, wep9.replace("9+:","On a 9 or Higher:")].join("\n"));
         } else
             setEffectText([...tempEffect, wep4.replace("4-:","On a 4 or Less:"), wep9.replace("9+:","On a 9 or Higher:")].join("\n"));
 
         
-    }, [wepBase, wep9, wep4, wepSpecial]);
+    }, [wepBase, wep9, wep4, wepSpecial, wepSec, wepSec2]);
 
     useEffect(() => {
         
@@ -232,10 +229,6 @@ export default function WepCreatorPage() {
 
         let tags = [...wepBase.split(", "),...wepSec.split(", "),...wepSec2.split(", ")];
         
-        // if you dont have that much no point in having a 4 or less
-        if (wepSec == "" && wepSec2 == "")
-            tags = [...tags,"(ignore 4 or less)"]
-
         for(const tag of tags){
             // console.log(tag)
             const rxWord = /([a-z])\w+/g;
