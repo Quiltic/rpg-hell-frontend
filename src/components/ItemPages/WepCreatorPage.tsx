@@ -270,7 +270,7 @@ export default function WepCreatorPage() {
                         finalTags = finalTags.concat(",","launcher")
                         break;
                     case "reaching":
-                        finalTags = finalTags.concat(",","reaching")
+                        finalTags = finalTags.concat(",","reaching",String(value))
                         break;
                     case "body":
                         reqTemp = reqTemp.concat(",","body ",String(value))
