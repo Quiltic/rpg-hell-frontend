@@ -15,7 +15,7 @@ function getMinOrderIndex (tags: any[], _order:string[]) {
 
 function listSortByName(_list: any[]) {
     return _list?.sort((l1: { name: any; }, l2: { name: any; }) => {
-        return (l1.name ?? "") < (l2.name ?? "") ? -1 : 1;
+        return (l1.name ?? "") > (l2.name ?? "") ? -1 : 1;
     })
 };
 
@@ -53,7 +53,11 @@ function filterBROKENandMONSTERreq(_list: any[]) {
 
 function sortArrayByLevel(_list: any[]) {
     // returns a sorted array based on the objects Level
-    const listSortedByName = listSortByName(_list);
+
+    // I do not know why this needs to be flipped for just level, but for some reason it returns the list backwards only in this instance
+    const listSortedByName = _list?.sort((l1: { name: any; }, l2: { name: any; }) => {
+        return (l1.name ?? "") < (l2.name ?? "") ? -1 : 1;
+    });//listSortByName(_list);
 
     // This will mostly be used for spells and creatures
     return listSortedByName.sort((l1: { level: any; }, l2: { level: any; }) => {
