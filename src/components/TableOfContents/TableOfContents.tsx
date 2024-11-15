@@ -155,6 +155,25 @@ const basicContents: TableOfContentsItem = {
             ]
         },
         {
+            name: "Items",
+            className: "font-semibold",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Equipped Items",
+                },
+                {
+                    name: "Runes",
+                },
+                {
+                    name: "Bound Items",
+                },
+                {
+                    name: "Item Tags"
+                },
+            ],
+        },
+        {
             name: "Rest and Travel",
             className: "font-semibold",
             collapsable: true,
@@ -367,17 +386,6 @@ const statusesContents: TableOfContentsItem = {
 };
 
 
-// Mysc Rules
-// Followers
-// Crafting Items
-// Knockback and Fall Damage
-// Mounts and Vehicles
-// Rough Terrain
-
-// Item Tags
-
-// GM Advice
-
 const myscContents: TableOfContentsItem = {
     name: "Mysc Rules",
     anchorHref: "mysc-rules",
@@ -419,9 +427,6 @@ const myscContents: TableOfContentsItem = {
                     name: "Sun",
                 },
             ],
-        },
-        {
-            name: "Item Tags"
         },
         {
             name: "GM Advice"
