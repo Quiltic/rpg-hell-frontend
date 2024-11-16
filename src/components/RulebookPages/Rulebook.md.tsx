@@ -206,7 +206,7 @@ You can have 2 equipped weapons. You cannot wield 2 weapons that both have the t
 
 (OPTIONAL) - You can only equip two Consumable items. You can use items from your bag by spending # to equip them. 
 
-A listing of what every Item tag does can be found <a href="#item-tags">below<a>.
+A listing of what every Item tag does can be found <a href="#item-tags">below</a>.
 
 
 ## Runes
