@@ -452,29 +452,27 @@ Events can be classified as combat, exploration, roleplay, or location based eve
 
 Pick a Lineage, listed below.
 Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the requirements for.
-
-<span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
-
-<span style="font-family: monospace; font-size: 1.3em">Strain = Body + 2*Mind + 3*Soul</span> and <span style="font-family: monospace; font-size: 1.3em">You may know a number of Techniques (Body), Insights (Mind), or Spells (Soul) equal to twice their respective stat</span>. You cannot take Techniques, Insights, or Spells that have a Strain cost higher than your Level+1. 
-
+Lastly you gain an assortment of items. ***At level 1 all items taken must be non-magical and have a rarity of uncommon or common.***
 You may take either: 2 Weapons or 1 Weapon and a Shield.
+Then gain Armor of your choosing, 30 gold, a Bandage, an item with the Tool tag, and two other items.
 
-Gain an Armor, 30 gold, a Bandage, an item with the Tool tag, and two non-magical items worth ___ gold or less.
-
-
-
-## EXP
-
-idk
+<div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
+<span className="font-mono text-lg">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
+<span className="font-mono text-lg">Strain = Body + 2*Mind + 3*Soul</span> 
+<span className="font-mono text-lg">You may know a number of Techniques (Body), Insights (Mind), or Spells (Soul) equal to twice their respective stat.</span> You cannot take Techniques, Insights, or Spells that have a Strain cost higher than your Level+1. 
+</div>
 
 
 ## Leveling Up!
 
 Every level gain 1 new Trait that you meet its requirements for.
+Every even level gain an additional Combat Dice.
 Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different Sub-Stats, and gain 2 new Techniques (Body), Insights (Mind), or Spells (Soul) based on which Main-stat you increased. 
 **No Main or Sub Stat can be higher than 4.**
 
-<span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Strain</span>
+<div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
+<span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor, Strain, and any Arts you have.</span>
+</div>
 
 
 ## Useful Level Table
@@ -746,53 +744,46 @@ No special effects are present.
 
 ## Weapon Tags
 
-| Tag | Effect | 
-| --- | --- |
-| Damage | How much damage weapons do when they hit the target. |
-| Two Handed | Requires two hands to be able to use. |
-| Range | How many tiles away the item will affect. Weapons can target anything within this range.
-Weapons with this tag are Ranged Weapons. |
-| Reaching | How many tiles away the item will affect. Weapons can target anything within this range.
-Weapons with this tag are Melee Weapons. |
-| Throw Range | How far you can throw the item. |
-| Glow | Can be activated with # (1 die) to light up everything within 2 tiles.
-Items with Glow can be used to cast Spells. |
-| Loading | How many times the item can be used before requiring you to spend # (1 die) to reload. |
-| Autoload | Fully reloads at the end of your turn. |
-| Launcher | Can be used to launch tiny or small items a number of tiles equal to its Range or Throw Range. |
+| Tag | - | Effect | 
+| --- | --- | --- |
+| **Damage** | | How much damage weapons do when they hit the target. |
+| **Two Handed** | | Requires two hands to be able to use. |
+| **Range** | | How many tiles away the item will affect. Weapons can target anything within this range. Weapons with this tag are Ranged Weapons. |
+| **Reaching** | | How many tiles away the item will affect. Weapons can target anything within this range. Weapons with this tag are Melee Weapons. |
+| **Throw Range** | | How far you can throw the item. |
+| **Glow** | | Can be activated with # (1 die) to light up everything within 2 tiles. Items with Glow can be used to cast Spells. |
+| **Loading** | | How many times the item can be used before requiring you to spend # (1 die) to reload. |
+| **Autoload** | | Fully reloads at the end of your turn. |
+| **Launcher** | | Can be used to launch tiny or small items a number of tiles equal to its Range or Throw Range. |
+
 
 ## Armor Tags
 
-| Tag | Effect |
-| --- | --- |
-| Speed | How much Speed you gain/lose when equipping the item. |
-| Dodge | Can be spent when taking damage to reduce damage by half (rounded up).
-Gained at the end of a Rest |
-| Ward | When you gain stacks of: Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet; you may choose to not gain these stacks and reduce your Ward by 1.
-Gained at the end of a Rest. |
-| Heavy Armor | The type/amount of armor you get at the end of a Rest.
-Gives an amount of Armor equal to 4xBody + 3xMind + Your Level  |
-| Medium Armor | The type/amount of armor you get at the end of a Rest.
-Gives an amount of Armor equal to 2xBody + 2xMind + Your Level  |
-| Light Armor | The type/amount of armor you get at the end of a Rest.
-Gives an amount of Armor equal to your Level. |
-| Clothing | A tag used to denote that you gain no armor but more stacks of Dodge and Ward. |
+| Tag | - | Effect |
+| --- | --- | --- |
+| **Speed** | | How much Speed you gain/lose when equipping the item. |
+| **Dodge** | | Can be spent when taking damage to reduce damage by half (rounded up). Gained at the end of a Rest |
+| **Ward** | | When you gain stacks of: Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet; you may choose to not gain these stacks and reduce your Ward by 1. Gained at the end of a Rest. |
+| **Heavy Armor** | | The type/amount of armor you get at the end of a Rest. Gives an amount of Armor equal to 4xBody + 3xMind + Your Level  |
+| **Medium Armor** | | The type/amount of armor you get at the end of a Rest. Gives an amount of Armor equal to 2xBody + 2xMind + Your Level  |
+| **Armor** | | The type/amount of armor you get at the end of a Rest. Gives an amount of Armor equal to your Level. |
+| **Clothing** | | A tag used to denote that you gain no armor but more stacks of Dodge and Ward. |
 
 
 ## General Tags
 
-| Tag | Effect |
-| --- | --- |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Tag | - | Effect |
+| --- | --- | --- |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
 
 # GM Advice
 
