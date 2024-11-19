@@ -1,0 +1,1212 @@
+{
+    "1": {
+        "id": 1,
+        "name": "fire bolt",
+        "effect": "Hurl a molt of fire. Make a Soul Attack against a target within Throw Range 6. Give the target 1 stack of Burn for every 4 Soul Strain you have (rounded down). \nOn a 4 or Lower: give the target 1 stack of Burn for every 5 Soul Strain instead of every 4 (rounded down). \nOn a 9 or Higher: give the target 1 stack of Burn for every 3 Soul Strain instead of every 4 (rounded down).",
+        "dice": 2,
+        "level": 0,
+        "tags": [
+            "fire",
+            "attack",
+            "ranged",
+            "utility"
+        ]
+    },
+    "2": {
+        "id": 2,
+        "name": "poprocks",
+        "effect": "Turn a rock into a little explosive. Make a Soul Attack against a target within Throw Range 6. Push the target back (Knockback) 1 tile plus an additional 1 tile for every 2 Soul Strain you have (rounded up). \nOn a 4 or Lower: it is an additional 1 tile for every 3 Soul Strain instead of every 2. \nOn a 9 or Higher: it is an additional tile for every Soul Strain you have instead of every 2.",
+        "dice": 2,
+        "level": 0,
+        "tags": [
+            "attack",
+            "cc",
+            "ranged",
+            "utility",
+            "earth"
+        ]
+    },
+    "3": {
+        "id": 3,
+        "name": "water whip",
+        "effect": "Make a Soul Attack against a creature within Range 6. Do 1 damage for every 3 Soul Strain you currently have (rounded down). \nOn a 4 or Lower: do 1 damage for every 4 Soul Strain you have instead of every 3 (rounded down). \nOn a 9 or Higher: do 1 damage for every 2 Soul Strain you have instead of every 3 (rounded down).",
+        "dice": 2,
+        "level": 0,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "water"
+        ]
+    },
+    "4": {
+        "id": 4,
+        "name": "spark",
+        "effect": "Create a spark between two fingers which can ignite flammable objects or generate a small amount of electricity. Alternatively you can make a Soul Attack against a creature within Melee Range. Deals 1 damage for every 2 Strain you currently have. \nOn a 4 or Lower: do 1 damage for every 3 Soul Strain you have instead of every 2. \nOn a 9 or Higher: do 1 damage for every Soul Strain you have instead of every 2.",
+        "dice": 2,
+        "level": 0,
+        "tags": [
+            "attack",
+            "damage",
+            "touch",
+            "utility",
+            "wind"
+        ]
+    },
+    "5": {
+        "id": 5,
+        "name": "glow",
+        "effect": "Touch an object to make it glow. It illuminates 2 tiles around it. This effect lasts until dispelled or you cast Glow on another object.\n\nSome items/weapons grant this spell targeting only itself. An object with this spell applied to it can be used to cast magic instead of doing physical movements (See 'Magic' for more info).",
+        "dice": 1,
+        "level": 0,
+        "tags": [
+            "touch",
+            "utility",
+            "light"
+        ]
+    },
+    "6": {
+        "id": 6,
+        "name": "far whispers",
+        "effect": "Target a Creature you can see. Whisper a message no longer than 10 seconds long. The target, and only your target, will hear your whisper regardless of distance.",
+        "dice": 1,
+        "level": 0,
+        "tags": [
+            "ranged",
+            "utility",
+            "dark"
+        ]
+    },
+    "7": {
+        "id": 7,
+        "name": "bertle\u2019s ball",
+        "effect": "You Focus on creating a small ball, which can be no bigger than your palm or smaller than a marble. The ball glows slightly giving it a faint outline for you even through walls. You are always able to see the ball, even through walls. (This lets you cast spells that require line of sight in places you cant see.)\nThis ball can be made out of any physical material and can be used to cast spells.\nThe ball lasts until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 0,
+        "tags": [
+            "focus",
+            "touch",
+            "utility",
+            "summon",
+            "monster"
+        ]
+    },
+    "8": {
+        "id": 8,
+        "name": "pocket dimension",
+        "effect": "Create a small hole in space from a container you are touching that is no larger than 1 tile in size. The space is 1 tile square of empty space accessible through the opening of the container. Every time you cast this spell it connects to the same space regardless of container. Only you can access this space, and if you die its contents are scattered throught the planes. This effect lasts for 3 turns.",
+        "dice": 1,
+        "level": 0,
+        "tags": [
+            "touch",
+            "utility",
+            "soul"
+        ]
+    },
+    "9": {
+        "id": 9,
+        "name": "minor illusion",
+        "effect": "Focus on creating a visual or non-verbal sound Illusion of your choice that is no larger in size than 1 foot square within Range 6. A creature can make an 'Investigate' Roll increasing its DL by your Soul, to discern if it is an illusion.\nThe illusion lasts for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you loose Focus. You can spend an additional dice on the following turns to animate the illusion, resetting the number of turns until it dispels.",
+        "dice": 2,
+        "level": 0,
+        "tags": [
+            "focus",
+            "ranged",
+            "utility",
+            "illusion"
+        ]
+    },
+    "10": {
+        "id": 10,
+        "name": "control elements",
+        "effect": "You can change the general shape, color, and temperature of loose earth (such as dirt, gravel, or sand), non-magical gasses (such as fog, smoke, or air), fires, and water up to a maximum of 1 cubic tile.\u00a0\nSome examples are; being able to freeze water, ignite or snuff out small fires, dry wet objects or creatures, make air bubbles in water, and remove grime from surfaces.\nThis effect lasts for 1 hour if not stable (frozen water in the sun, unstable earthen structures, or bubbles of air in water).",
+        "dice": 1,
+        "level": 0,
+        "tags": [
+            "touch",
+            "utility",
+            "fire",
+            "earth",
+            "water",
+            "wind"
+        ]
+    },
+    "11": {
+        "id": 11,
+        "name": "phantom fishing rod",
+        "effect": "This spell counts as a Fishing rod for the purposes of Fishing (See Items). Pick a target within Range 6, increase this range by 1 for every 4 Soul Strain you have (rounded down). Pull a light object to you or if you target a large object or creature make a Soul Attack. Pull the target 3 tiles to you. \nOn a 4 or Lower: pull the target 2 tiles to you instead of 3. \nOn a 9 or Higher: pull the target 4 tiles instead of 3.",
+        "dice": 2,
+        "level": 0,
+        "tags": [
+            "attack",
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "12": {
+        "id": 79,
+        "name": "ball",
+        "effect": "You Focus on creating a small ball, which can be no bigger than your palm or smaller than a marble. The ball glows slightly giving it a faint outline for you even through walls. You are always able to see the ball, even through walls. (This lets you cast spells that require line of sight in places you cant see.)\nThe ball lasts until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 0,
+        "tags": [
+            "focus",
+            "touch",
+            "utility",
+            "summon"
+        ]
+    },
+    "13": {
+        "id": 12,
+        "name": "flame claw",
+        "effect": "Make a Soul Attack against a target within Melee Range. Give the target 2 Burn. On a 4 or Lower: give the target 1 stack of Burn instead of 2. On a 9 or Higher: give the target 3 stacks of Burn instead of 2.",
+        "dice": 2,
+        "level": 1,
+        "tags": [
+            "attack",
+            "damage",
+            "touch",
+            "fire"
+        ]
+    },
+    "14": {
+        "id": 13,
+        "name": "root trap",
+        "effect": "You Focus on making an area within Range 8 into a root trap. Pick a tile, the floor within 2 tiles (Burst 2) becomes heavily rooted. All targets that enter or start their turn in the area must make a 'Body' Roll against the sum of the 3 dice given when casting. On failure, the target is Grappled until the start of their next turn and takes 1 damage. On, success they count this area as Rough Terrain.\nThis effect lasts for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 3,
+        "level": 1,
+        "tags": [
+            "aoe",
+            "cc",
+            "focus",
+            "ranged",
+            "earth"
+        ]
+    },
+    "15": {
+        "id": 14,
+        "name": "water ball",
+        "effect": "Create a water ball about 1 ft in diameter. You can then make a Soul Attack against a target within Range 8. The target gets knocked back 4 tiles, and gets 4 stacks of Wet. On a 4 or Less: they get knocked back 3 tiles and gain 2 stacks of Wet instead. On a 9 or Higher: they get knocked back 5 tiles and gain 6 stacks of Wet instead.",
+        "dice": 2,
+        "level": 1,
+        "tags": [
+            "attack",
+            "cc",
+            "utility",
+            "water"
+        ]
+    },
+    "16": {
+        "id": 15,
+        "name": "spectral parachute",
+        "effect": "You and up to 4 other creatures of your choosing within Range 6 slow your falling to 4 tiles a round. While spell is active all targets cannot take fall damage.\nThis effect lasts for  10 minutes, or until dispelled.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "ranged",
+            "utility",
+            "wind"
+        ]
+    },
+    "17": {
+        "id": 16,
+        "name": "bless",
+        "effect": "Touch an Object or Creature. If cast on water it becomes Holy Water. If cast on a Creature they cannot be Cursed for 1 hour. If cast on a weapon the weapon does an extra 1 damage to Undead. If cast on a dead body, that body cannot be resurrected as an Undead.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "touch",
+            "utility",
+            "light"
+        ]
+    },
+    "18": {
+        "id": 17,
+        "name": "dark burst",
+        "effect": "Make a Soul Attack against a target within Range 8. Do 2 damage, and the target gains 1 stack of Blind. On a 4 or Less: the target does not gain a stack of Blind. On a 9 or Higher: the target gains 2 stacks of Blind instead.",
+        "dice": 2,
+        "level": 1,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "dark"
+        ]
+    },
+    "19": {
+        "id": 18,
+        "name": "cube",
+        "effect": "You can Focus on creating a Spectral Cube within 6 tiles of you. The cube can be up to 1 tile long on any side. The cube has 1 Health and 5 Armor Health.\nThe cube goes away after 1 minute (6 turns), if you dispel it, you cast another Focused spell, the cube dies, or loose Focus.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "focus",
+            "ranged",
+            "utility",
+            "summon"
+        ]
+    },
+    "20": {
+        "id": 19,
+        "name": "spirit walk",
+        "effect": "Touch a willing Creature. You make the target Incorporeal and reduce the creature\u2019s speed by 2 until the start of your next turn.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "touch",
+            "utility",
+            "soul"
+        ]
+    },
+    "21": {
+        "id": 20,
+        "name": "healing hands",
+        "effect": "Touch a Creature, cannot target Undead or Constructs. Heal the target for half of your Medicine rounded up.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "touch",
+            "healing"
+        ]
+    },
+    "22": {
+        "id": 21,
+        "name": "sleeping powder",
+        "effect": "Put creatures into a magical slumber. Target a number of Creatures you can see within 8 tiles who\u2019s combined Health total is up to or less than the sum of the dice given +3 (Armor Health does not count as Health). You cannot target Undead or Constructs. These creatures are forcefully put to sleep for 1 minute (6 turns), or until another creature spends ## (2 dice) to wake them or they take damage.",
+        "dice": 3,
+        "level": 1,
+        "tags": [
+            "cc",
+            "ranged",
+            "illusion"
+        ]
+    },
+    "23": {
+        "id": 22,
+        "name": "quick repair",
+        "effect": "Touch a broken item or Construct. Repair the target for half of your Crafting rounded up.\nAlternatively, give Armor Health up to half your Crafting (rounded up).",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "touch",
+            "utility",
+            "soul"
+        ]
+    },
+    "24": {
+        "id": 23,
+        "name": "lightshow",
+        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a 'Soul' Roll against the sum of the 3 dice given when casting. On failure, creatures gain 2 stacks of Blind. On success creatures gain 1 stack of Blind instead.",
+        "dice": 3,
+        "level": 1,
+        "tags": [
+            "aoe",
+            "ranged",
+            "utility",
+            "light"
+        ]
+    },
+    "25": {
+        "id": 24,
+        "name": "smite",
+        "effect": "Make a Weapon Attack. On hit do an extra 2 Damage. If the target was Undead do an extra 3 Damage instead.",
+        "dice": 2,
+        "level": 1,
+        "tags": [
+            "attack",
+            "damage",
+            "light"
+        ]
+    },
+    "26": {
+        "id": 25,
+        "name": "sponge",
+        "effect": "Pick an area of liquid within 6 tiles.  Remove an amount of liquid no larger than 2 cubic tiles of liquid, banishing it to a random demi plane. This can target Wet targets, removing all stacks of Wet on them.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "aoe",
+            "ranged",
+            "utility",
+            "fire"
+        ]
+    },
+    "27": {
+        "id": 26,
+        "name": "conjure fog",
+        "effect": "Focus on creating an area of fog centered on a tile you can see within 8 tiles. You then summon a dense fog covering everything within 2 tiles (Burst 2) centered on this tile. Creatures in this area can't see past 1 tile in front of them and lose 6 to their sum when doing ranged attacks or spells in the area.\nThe fog lasts 1 minute (6 turns), until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "aoe",
+            "focus",
+            "ranged",
+            "utility",
+            "wind"
+        ]
+    },
+    "28": {
+        "id": 27,
+        "name": "predict",
+        "effect": "Roll 3 dice and Lock one of them.",
+        "dice": 1,
+        "level": 1,
+        "tags": [
+            "utility",
+            "soul"
+        ]
+    },
+    "29": {
+        "id": 28,
+        "name": "soul shard",
+        "effect": "Make a Soul Attack against a target within Range 8. The target takes 2 damage, and the next time you cast this spell on the same target add 1 to the attack sum. On a 4 or Less: you do not get the bonus to the next cast of this spell on this target. On a 9 or Higher: you may add 2 instead of 1 to the next cast of this spell made against this target.",
+        "dice": 2,
+        "level": 1,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "soul"
+        ]
+    },
+    "30": {
+        "id": 92,
+        "name": "spectral webs",
+        "effect": "Burst 2 centered on a tile within 6 tiles. All targets that in the area must make a 'Body' Roll against the sum of the 3 dice given when casting. On failure, the target gets 2 stacks of Webbed. On success, the target gets 1 stacked of Webbed.",
+        "dice": 3,
+        "level": 1,
+        "tags": [
+            "aoe",
+            "cc",
+            "ranged",
+            "summon"
+        ]
+    },
+    "31": {
+        "id": 98,
+        "name": "create familiar",
+        "effect": "Spend 1 hour to create a Familiar (See Creatures). You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead), movement bonus (Climber and Swimmer, Flight, or Increase Speed by 2.), and appearance each time it is created. You may only ever have 1 familiar at a time, if you where to create a familiar while one already exists the first one morphs into the new one.\n\nThe familiar goes immediately after your turn in combat, however it may only ever roll 3 dice regardless of level. If you die the familiar also dies.",
+        "dice": 3,
+        "level": 1,
+        "tags": [
+            "summon",
+            "touch"
+        ]
+    },
+    "32": {
+        "id": 29,
+        "name": "fire breath",
+        "effect": "Breath a Cone of flame outward Range 3. Ignite all flammable objects within this area. All targets within this area must make a 'Mind' Roll against the sum of the 3 dice given when casting. On failure, give the Creature Burn 3. On success, give the Creature Burn 2.",
+        "dice": 3,
+        "level": 2,
+        "tags": [
+            "aoe",
+            "cc",
+            "fire"
+        ]
+    },
+    "33": {
+        "id": 30,
+        "name": "boulder toss",
+        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a 'Soul' Roll against the sum of the 3 dice given when casting.  On failure, the target takes 3 damage and is knocked back 2 tiles. On success, the target takes 2 damage and is knocked back 1 tile.",
+        "dice": 3,
+        "level": 2,
+        "tags": [
+            "aoe",
+            "damage",
+            "ranged",
+            "earth"
+        ]
+    },
+    "34": {
+        "id": 31,
+        "name": "freezing wave",
+        "effect": "Breath a Cone of ice outward Range 3. Freeze all liquids within this area making it. All targets within this area must make a 'Body' Roll against the sum of the 3 dice given when casting. On failure, give the target 2 stacks of Stun. On success, give the target 1 stack of Stun. Wet targets get an additional 2 stacks of Stun.",
+        "dice": 3,
+        "level": 2,
+        "tags": [
+            "aoe",
+            "cc",
+            "water"
+        ]
+    },
+    "35": {
+        "id": 32,
+        "name": "lightning",
+        "effect": "Range 6, make a Ray to a point within range. All targets within this area must make a 'Mind' Roll against the sum of the 3 dice given when casting. On failure, deal 3 damage. On success, deal 2 damage. Deals an extra damage to Constructs and Wet Creatures.",
+        "dice": 3,
+        "level": 2,
+        "tags": [
+            "aoe",
+            "damage",
+            "ranged",
+            "wind"
+        ]
+    },
+    "36": {
+        "id": 33,
+        "name": "purge",
+        "effect": "Attempt to purge a Curse/Effect on a creature. Roll 'Soul' increasing the DL against a Curse or Effect by their level (denoted next to the curse, effects have a level of 1) on a creature. If you succeed, remove the Curse or all stacks of one effect on the creature.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "touch",
+            "utility",
+            "light"
+        ]
+    },
+    "37": {
+        "id": 34,
+        "name": "weak curse",
+        "effect": "Target a Creature or Object within range 6. The target must make a 'Soul' Roll against the sum of the 3 dice given when casting. If they fail, give the target one of the following Curses; Blind, Weak, or Paranoia. The curse goes away after 24 hours, its dispelled by Purge (must beat the number next to the curse), or the target dies. If this targets an object, the curse can affect anyone who touches the object and the curse does not go away until dispelled by Purge.\n\nBlind (1): Blind the target.\nWeak (1): Reduce Melee Weapon damage by 1 and carrying capacity by half.\nParanoia (1): Someone always seems to be watching. Roll Thieving with 2 less dice, and are Marked for the duration of the Curse.",
+        "dice": 3,
+        "level": 2,
+        "tags": [
+            "cc",
+            "ranged",
+            "dark"
+        ]
+    },
+    "38": {
+        "id": 35,
+        "name": "pillar",
+        "effect": "You can Focus on creating a Spectral Pillar within 6 tiles of you. The pillar can be up to 1 tile long on any side and up to 3 tiles tall. The pillar has 3 health and 9 Armor Health. If a pillar is made under a creature that creature is pushed up to the top of the pillar. If a creature cannot be lifted (from hitting a ceiling) then the creature takes Knockback damage.\nThe pillar goes away after 1 minute (6 turns), if you dispel it, you cast another Focused spell, the pillar dies, or you loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "summon",
+            "focus",
+            "ranged",
+            "utility",
+            "pillar"
+        ]
+    },
+    "39": {
+        "id": 36,
+        "name": "conjure spectral claws",
+        "effect": "Focus on conjuring a set of Spectral Claws (See weapons). On cast you can do an Attack with them with the same dice used to cast the spell. These claws do damage based on your Soul. \nOn a 4 or Lower: you do 1 less damage. \nOn a 9 or Higher: you give the creature a stack of Soul Strain.\nThe claws go away after 1 minute (6 turns), if you dispel it, you cast another Focused spell, or you loose Focus.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "attack",
+            "damage",
+            "focus",
+            "touch",
+            "summon"
+        ]
+    },
+    "40": {
+        "id": 37,
+        "name": "healing drop",
+        "effect": "Target a Creature you can see within 8 tiles. You cannot target Undead or Constructs. Heal the target for half of your Medicine rounded up.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "healing",
+            "ranged"
+        ]
+    },
+    "41": {
+        "id": 38,
+        "name": "invisibility",
+        "effect": "You Focus on giving a Creature Invisibility for 10 minutes. You can increase the number of targeted Creatures by gaining 1 extra Soul Strain per creature. \nThe Invisibility goes away early if the creature takes or does damage, you dispel the Invisibility, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "focus",
+            "illusion",
+            "utility"
+        ]
+    },
+    "42": {
+        "id": 39,
+        "name": "soul skip",
+        "effect": "Teleport to a location that you can see up to your Speed away.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "43": {
+        "id": 40,
+        "name": "ice knife",
+        "effect": "Create a Knife made of Ice. This knife does an extra damage and breaks after 3 turns or if thrown. On cast you can do an Attack.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "utility",
+            "water",
+            "broken"
+        ]
+    },
+    "44": {
+        "id": 41,
+        "name": "beast bond",
+        "effect": "Make a Nature Contest against a beast creature within 4 tiles of you. On Success the beast becomes friendly to you and neutral to any creature that hasn't harmed it. \nYou can control up to your level of personal minions with your dice, but they must all be given the same Command. If the beast is not given any commands it does not do any action. When you spend a dice to move you may also have the beast move as well.\nThis effect lasts until you harm the beast, you cast this spell again, dismiss the spell, or the beast dies. When the spell ends the beast will react based on how you treated it.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "attack",
+            "ranged",
+            "summon",
+            "utility",
+            "broken"
+        ]
+    },
+    "45": {
+        "id": 42,
+        "name": "fog light",
+        "effect": "Focus on summoning a pillar of light from a distant star within 6 tiles of you. The pillar is 4 tiles high and illuminates 3 tiles around it. It clears any fog within its light. This counts as sunlight. You can spend an additional dice on later turns to move the beam up to 6 tiles around it.\nThe Light lasts for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you Loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "aoe",
+            "focus",
+            "light",
+            "utility"
+        ]
+    },
+    "46": {
+        "id": 43,
+        "name": "intrusive thoughts",
+        "effect": "Do a contested 'Soul' roll against a creature within range 6. On success, you can implant a thought into the target\u2019s mind. They believe the thought was their own and have no memory of the magic. On failure, they know you tried to cast magic on them but not what the spell was.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "cc",
+            "ranged",
+            "soul",
+            "utility"
+        ]
+    },
+    "47": {
+        "id": 44,
+        "name": "create illusion",
+        "effect": "Focus on creating a visual or non-verbal sound Illusion of your choice that is no larger in size than 1 tile square. Range 6. A creature can make an 'Investigate' Roll increasing its DL by your Soul, to discern if it is an illusion.\nThe illusion lasts for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you lose Focus. You can spend a dice on the following turns to animate the illusion (no extra SS cost), resetting the number of turns until it dispels.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "focus",
+            "utility",
+            "illusion"
+        ]
+    },
+    "48": {
+        "id": 45,
+        "name": "flesh shaper",
+        "effect": "You alter the body of yourself or another creature with the aid of runes. By spending 10 minutes writing runes on yourself or others, you can grant a creature one of the benefits listed below. Each creature can only have 1 rune alteration and the rune\u2019s used for the change are visible somewhere on the body (can be hidden with clothing). This effect lasts for 24 hours or until the runes are removed.\nWings: Change the creatures arms to resemble wings. The creature is able to glide 2 tiles for every 1 tile it would fall. This effect does not work if their arms are hindered in any way (caring an item, being tied up, being Grappled, ext.).\nGills/Fins: Change the creature to be better in the water. The creature can breath underwater without needing air, and it can swim it\u2019s Speed.\nChange Appearance: Physically alter the creatures body to look like another\u2019s. You can change sex, height, race, and appearance. This does not change the creatures Race Trait.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "soul",
+            "touch",
+            "utility"
+        ]
+    },
+    "49": {
+        "id": 46,
+        "name": "soul slash",
+        "effect": "Make a Soul Melee Attack against a target. Give the creature 4 Soul Strain. \nOn a 4 or Lower: the target gains 3 Soul Strain instead of 4. \nOn a 9 or Higher: give the target 5 Soul Strain instead of 4.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "attack",
+            "cc",
+            "damage",
+            "soul",
+            "touch"
+        ]
+    },
+    "50": {
+        "id": 47,
+        "name": "weightless",
+        "effect": "Focus on making a target weightless. If the target is unwilling, do a 'Soul' Contest against them. On Success, the target is no longer tied down by gravity and can move in air as though it was Water (Swim).\nThis effect lasts for 10 minutes, until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "focus",
+            "touch",
+            "utility",
+            "wind"
+        ]
+    },
+    "51": {
+        "id": 49,
+        "name": "shockwave",
+        "effect": "Burst 2 centered on yourself. All targets within this area, other than yourself, must make a 'Body' Roll against the sum of the 3 dice given when casting. On failure, Knock them back 6 tiles (Knockback 6). On success, Knock them back 2 tiles (Knockback 2).",
+        "dice": 3,
+        "level": 2,
+        "tags": [
+            "aoe",
+            "attack",
+            "utility",
+            "wind"
+        ]
+    },
+    "52": {
+        "id": 50,
+        "name": "butter fingers",
+        "effect": "Do a 'Soul' Contest against a target within Range 6. On failure, the target cannot use their hands to manipulate or grasp objects or surfaces and fails any checks made to do so. If they are holding something, they drop any items they are holding. This effect lasts until the end of your next turn.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "attack",
+            "cc",
+            "ranged",
+            "water",
+            "dark"
+        ]
+    },
+    "53": {
+        "id": 51,
+        "name": "soul chains",
+        "effect": "Make a 'Soul' Contest against a creature within Range 6. On Failure the creature is grappled. You can spend an additional dice each turn to pull the creature 3 tiles to you. If the creature tries to escape they need to do a 'Soul' Contest to escape instead of Body.\nThe chains last for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 2,
+        "level": 2,
+        "tags": [
+            "cc",
+            "focus",
+            "ranged",
+            "soul",
+            "dark"
+        ]
+    },
+    "54": {
+        "id": 52,
+        "name": "detect magic",
+        "effect": "You Focus on the waves of Soul around you. Objects/Creatures affected by magic glow a set color based on what type of spell is affecting it.\nThis effect lasts for 6 turns, until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "focus",
+            "soul",
+            "utility"
+        ]
+    },
+    "55": {
+        "id": 53,
+        "name": "dispel magic",
+        "effect": "Target a creature or object being effected by magic within Range 4. Reduce the spells duration by the dice given. If the magic has no duration it is instead dispelled as if the owner dispelled it. Permanent magic is nullified a number of turns (6 second intervals) based on the dice given.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "ranged",
+            "soul",
+            "utility"
+        ]
+    },
+    "56": {
+        "id": 75,
+        "name": "summon guiding sprite",
+        "effect": "Focus on Summoning a Guiding Sprite within 3 tiles of you, when you first summon the sprite pick an element: Fire, Water, Earth, Wind, Light, or Dark. By using a dice on later turns, or when the Sprite is Summoned you may have it tether to a creature of your choice within 3 tiles of the sprite. At the beginning of your turn or when first tethered the sprite gives one of the following effects based on what element you summoned it as:\nFire: The creature looses all stacks of Wet and cannot gain stacks of Wet while the sprite is tethered.\nWater: The creature gains a stack of Wet, and cannot have less than 1 stack of Wet while the sprite it tethered.\nEarth: The creature gains 1 Armor Health to a Maximum of 20 per creature from this sprite. This Armor Health goes away when the sprite leaves.\nWind: The creature has no need to breathe while tethered. This stops Poisson gas, and drowning.\nLight: The creature looses all stacks of Blind. The sprite illuminates 2 tiles around itself while tethered.\nDark: The creature becomes Invisible, this Invisibility stops when they move or do damage.\nThe sprite lasts for 10 minutes, if you dispel it, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "ranged",
+            "utility",
+            "summon"
+        ]
+    },
+    "57": {
+        "id": 96,
+        "name": "find object",
+        "effect": "Name or describe an object. The object can be a general item, such as a sword or crate, or it can be more specific such as a letter with a gold bird on its front. You can be as specific as you would like, such as 'My golden short sword'. You then Focus on knowing the approximate distance and direction of the nearest object you described. This has a max range of 1 large tile (2,160x2,160 tiles), failing if no item is within this range.\n\nThis effect lasts 1 hour, until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 2,
+        "tags": [
+            "focus",
+            "illusion",
+            "touch",
+            "utility"
+        ]
+    },
+    "58": {
+        "id": 48,
+        "name": "soul shield",
+        "effect": "Range 3. Give a Creature Ward 1. Creatures cannot have more than 3 Ward at a time.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "59": {
+        "id": 54,
+        "name": "wall of thorns",
+        "effect": "You Focus on summoning a wall of thorns within Range 5. When you do a wall of damaging thorns appears in centered on that spot. The wall is  up to 5 tiles long, 1 tile tall, has 10 Health, and any creature that touches the wall takes 2 damage at the start of their turn. If a creature is knocked back into the wall they take 4 damage immediately and are touching the wall.\nThe wall lasts for 10 minutes, until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "focus",
+            "ranged",
+            "utility",
+            "earth"
+        ]
+    },
+    "60": {
+        "id": 55,
+        "name": "rain",
+        "effect": "You call a rain cloud to form in the sky above you. Choose a point within Range 8. A burst of rain covers 3 tiles around it (Burst 3). Anything in that area gets 6 stacks of Wet.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "aoe",
+            "ranged",
+            "utility",
+            "water"
+        ]
+    },
+    "61": {
+        "id": 56,
+        "name": "lightning strike",
+        "effect": "Make a Soul Attack against a target within Range 8. You may add 1 to the attack sum if the target is wearing metal. On hit the target takes 4 damage. Deals an extra damage to Constructs and wet Creatures. \nOn a 4 or Less: do 1 less damage. \nOn a 9 or Higher: do half damage to a target within 2 tiles of your current target.",
+        "dice": 2,
+        "level": 3,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "wind"
+        ]
+    },
+    "62": {
+        "id": 57,
+        "name": "debuff barrier",
+        "effect": "Target a creature within Range 6. Remove all stacks of one of the following: Stunned, Webbed, Blinded, Burning, Wet, Marked, Silenced, or Poisoned. If this is cast on a creature that has no stacks they block the next instance of gaining one of these stacks. This effect lasts for 12 hours.",
+        "dice": 2,
+        "level": 3,
+        "tags": [
+            "ranged",
+            "utility",
+            "light"
+        ]
+    },
+    "63": {
+        "id": 59,
+        "name": "dome",
+        "effect": "You can Focus on creating a Spectral Dome within 6 tiles of you. The dome can be up to 3 tiles in radius (6 diameter). The dome has 15 health and 15 Armor Health. While being made if a creature would be inside the dome\u2019s shape it is not affected by the creation. Creatures and objects cannot move through the dome once made.\nThe dome goes away after 1 hour, if you dispel it, you cast another Focused spell, the dome dies, or you loose Focus.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "focus",
+            "ranged",
+            "utility",
+            "summon"
+        ]
+    },
+    "64": {
+        "id": 60,
+        "name": "ghost",
+        "effect": "Touch a willing Creature, cannot target Undead or Constructs. You Focus on making the target Incorporeal for 1 minute (6 turns). The creature has 2 less Speed while Incorporeal.\nThis effect goes away early if you dispel it, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "focus",
+            "touch",
+            "utility",
+            "soul"
+        ]
+    },
+    "65": {
+        "id": 61,
+        "name": "healing bloom",
+        "effect": "Burst 1 centered on a target within 8 tiles. All targets within this area are healed for half of your Medicine rounded up. Does not affect Undead or Constructs.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "aoe",
+            "healing",
+            "ranged"
+        ]
+    },
+    "66": {
+        "id": 62,
+        "name": "mood swing",
+        "effect": "Do a 'Soul' contest against a creature within Range 6. On success, you forcibly change their mood to one you specify. This may stop them from fighting or may help incite fights. They believe the thought was their own and have no memory of the magic. On failure, they know you tried to cast magic on them but not what the spell was.",
+        "dice": 2,
+        "level": 3,
+        "tags": [
+            "ranged",
+            "utility",
+            "illusion"
+        ]
+    },
+    "67": {
+        "id": 63,
+        "name": "winds grace",
+        "effect": "Touch a creature. Focus on giving that creature 2 Speed. \nThe spells effects go away after 1 hour, if you dispel it, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "touch",
+            "utility",
+            "wind"
+        ]
+    },
+    "68": {
+        "id": 64,
+        "name": "prop",
+        "effect": "You Focus on turning into a simple non-magical inanimate prop that is no smaller than a cup or larger than yourself. While in this form you have 3 Armor health and 1 Health. If you loose this Health or do an action that requires movement, such as doing an attack or casting a spell, the spell ends early. You can be moved by other creatures without loosing this effect. \nIf you are put in a position you would not fit in when you become normal you are shunted out of that space taking knockback damage equal to how far you are shunted. See Mysc Rules - Prop for weird use ruling.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "focus",
+            "utility",
+            "summon"
+        ]
+    },
+    "69": {
+        "id": 65,
+        "name": "swapper",
+        "effect": "Swap a your location with another target you can see within Range 8, you cannot target items that are being worn or carried. If the target is unwilling, do a 'Soul' Contest against them. On success, you teleport to the targets location, and they teleport to your previous location (swap places).",
+        "dice": 2,
+        "level": 3,
+        "tags": [
+            "cc",
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "70": {
+        "id": 66,
+        "name": "counterspell",
+        "effect": "Spend your Locked dice to cast. You counter a spell that you can see being cast within Range 6. That spell must have a Soul Strain cost less than or equal to the locked dice value. This can be cast on another creatures turn.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "71": {
+        "id": 94,
+        "name": "find traps",
+        "effect": "You Focus on detecting traps within 4 tiles of you. When a trap comes within this area it will glow depending on the type of trap: Orange, Blue, or Purple. Orange are triggers for traps, such as a length of rope or a pressure plate. Blue are the traps themselves, such as a pitfall or crossbow trap. Lastly Purple are magical traps, such as ones made by ___.\n\nThis effect lasts 1 hour, until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "focus",
+            "illusion",
+            "utility",
+            "touch"
+        ]
+    },
+    "72": {
+        "id": 97,
+        "name": "displacement",
+        "effect": "You focus on your ability to dodge. When you cast this spell and at the start of your turn if you have less than 4 Dodge, gain stacks of Dodge until you have 4.\n\nThis effect lasts for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you loose Focus. ",
+        "dice": 1,
+        "level": 3,
+        "tags": [
+            "focus",
+            "utility",
+            "wind",
+            "touch"
+        ]
+    },
+    "73": {
+        "id": 58,
+        "name": "raise undead",
+        "effect": "Touch a dead creature. Curse that creature turning them into a Zombie (DR 1). The Zombie goes immediately after your turn in combat, however it may only ever roll 3 dice regardless of level.\nYou can control up to your level of zombies at a time. If you create an zombie while at the limit, the created zombie is unbound and will act on its own will.\n\nWhen multiple controlled zombies do their turn in combat you lump all of them into 1 group rather than individually. Combine all of their health together into one pool. All zombies use the same 3 dice rolled, acting as if they rolled those dice (though they may do different things with said dice). If the group was to take enough damage for one to die, unless it was targeted specifically, roll a dice to decide which dies.",
+        "dice": 2,
+        "level": 4,
+        "tags": [
+            "touch",
+            "utility",
+            "dark"
+        ]
+    },
+    "74": {
+        "id": 67,
+        "name": "fireball",
+        "effect": "Burst 2 centered on a target within 8 tiles. All targets within this area must make a 'Mind' Roll against the sum of the 3 dice given when casting. On failure, gives 4 Burn. On success, gives 3 Burn.",
+        "dice": 3,
+        "level": 4,
+        "tags": [
+            "aoe",
+            "damage",
+            "ranged",
+            "fire"
+        ]
+    },
+    "75": {
+        "id": 68,
+        "name": "chain lightning",
+        "effect": "Pick a target within Range 6. Make a Soul Attack against that target. On hit, deals 4 damage. Deals 1 extra damage to Constructs and wet Creatures, then pick another target within Range 4 of that Target, the lightning jumps to that target damaging them as well. You can do this up to 2 times. \nOn a 4 or Lower: the Lightning jumps 1 time instead of 2. \nOn a 9 or Higher: the lightning jumps 3 times instead of 2.",
+        "dice": 2,
+        "level": 4,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "wind"
+        ]
+    },
+    "76": {
+        "id": 69,
+        "name": "curse",
+        "effect": "Target a Creature or Object within range 6. The target must make a 'Soul' Roll against the sum of the 3 dice given when casting. If they fail, give the target one of the following Curses; Decay, Woe, or Clumsy. The curse goes away after 1 week, its dispelled by Purge (must beat the number next to the curse), or the target dies. If this targets an object, the curse can affect anyone who touches the object and the curse does not go away until dispelled by Purge.\n\nDecay (4): Increases aging by 2 weeks per day. (14 years older in 1 year)\nWoe (4): Roll with 1 less dice on all rolls.\nClumsy (4): Roll a dice whenever you move. On a 2 or less, fall over ending your movement for that dice.",
+        "dice": 3,
+        "level": 4,
+        "tags": [
+            "cc",
+            "ranged",
+            "dark"
+        ]
+    },
+    "77": {
+        "id": 70,
+        "name": "stepping stones",
+        "effect": "Gain an amount of teleport equal to twice your Speed. You can then Teleport to a location that you can see up to a total of this teleport away. You can break up this teleportation into any number of \u201csteps\u201d where you can do other actions. If you do not use up all of the teleportation by the end of your turn you loose the remaining steps.",
+        "dice": 1,
+        "level": 4,
+        "tags": [
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "78": {
+        "id": 71,
+        "name": "wings of mercy",
+        "effect": "Teleport to a Creature (other than yourself) that is on Deaths Door, that you can see up to twice your Speed away. Heal the target for half of your Medicine rounded up.",
+        "dice": 1,
+        "level": 4,
+        "tags": [
+            "healing",
+            "ranged"
+        ]
+    },
+    "79": {
+        "id": 72,
+        "name": "greater illusion",
+        "effect": "Focus on creating a visual or non-verbal sound Illusion of your choice that is no larger in size than 3 tiles square. Range 6. A creature can make an 'Investigate' Roll increasing its DL by your Soul, to discern if it is an illusion.\nThe illusion lasts for 1 minute (6 turns), until dispelled, you cast another Focused spell, or you lose Focus. You can spend a dice on the following turns to animate the illusion (no extra SS cost), resetting the number of turns until it dispels.",
+        "dice": 2,
+        "level": 4,
+        "tags": [
+            "focus",
+            "illusion",
+            "utility"
+        ]
+    },
+    "80": {
+        "id": 73,
+        "name": "soul bind",
+        "effect": "Target a Creature or Object within range 6. The creature must make a 'Soul' Roll against the sum of the 3 dice given when casting. If they fail, give the target the following Curse. The curse goes away after 1 minute (6 turns), if dispelled by Purge (must beat the number next to the curse) or the target dies. \nSoul Shackled (4): When the caster of this curse takes damage the cursed target takes the same amount of damage (before accounting for Armor).",
+        "dice": 3,
+        "level": 4,
+        "tags": [
+            "cc",
+            "ranged",
+            "soul"
+        ]
+    },
+    "81": {
+        "id": 74,
+        "name": "deja vu",
+        "effect": "Do a 'Mind' contested against a creature within range 6. On success, you make the creature forget the last 5 minutes. They believe the thought was their own and have no memory of the magic. On failure, they know you tried to cast magic on them but not what the spell was.",
+        "dice": 2,
+        "level": 4,
+        "tags": [
+            "ranged",
+            "utility",
+            "illusion"
+        ]
+    },
+    "82": {
+        "id": 95,
+        "name": "track creature",
+        "effect": "You Focus on following the path of a creature which you have named or have evidence of. This evidence can be a piece of hair, clothing, or some other identifier. The path may show as glowing footprints or wisps of colored air representing their scent. The path has a max length of up to 4 tiles in front of you, moving as you move. This has a max range of 1 large tile (2,160x2,160 tiles), failing to find the creature if its not in this range.\n\nThis effect lasts 1 hour, until dispelled, you cast another Focused spell, or you loose Focus.",
+        "dice": 2,
+        "level": 4,
+        "tags": [
+            "focus",
+            "illusion",
+            "touch",
+            "utility"
+        ]
+    },
+    "83": {
+        "id": 76,
+        "name": "frogrify",
+        "effect": "Target a Creature or Object within range 6. The target must make a Soul Roll against the sum of the 3 dice given when casting. If they fail, give the target the Frogrify Curse. The curse goes away after 1 hour, if dispelled by Purge (must beat the number next to the curse) or the target dies.\n\nFrogrify (5): Turn into a Molefrog, your character sheet is replaced with that of a Molefrog.",
+        "dice": 3,
+        "level": 5,
+        "tags": [
+            "cc",
+            "ranged",
+            "soul"
+        ]
+    },
+    "84": {
+        "id": 80,
+        "name": "burning curse",
+        "effect": "Target a Creature or Object within range 6. The target must make a 'Soul' Roll against the sum of the 3 dice given when casting. If they fail, give the target the Cursed Flames Curse. The curse does not go away until dispelled by Purge (must beat the number next to the curse) or the target dies. If this targets an object, the curse can affect anyone who touches the object.\n\nCursed Flames (5): The creature no-longer looses stacks of Burn. However, they cannot be killed by Burn or Fire spells. They still take damage from the Burn. If the creature survives 1 year with this curse they become a Burned Soul (See Creatures). They then become a Follower of the caster of the Curse (See 'Follower' rules under 'Mysc').",
+        "dice": 3,
+        "level": 5,
+        "tags": [
+            "cc",
+            "ranged",
+            "fire",
+            "dark"
+        ]
+    },
+    "85": {
+        "id": 81,
+        "name": "soul to body",
+        "effect": "Touch a creature. If the creature is unwilling do a 'Soul' Contest against them. On success, swap the creatures Soul and Body Core Stats. The creature keeps their Max Soul Strain. However, cannot cast Spells with a Soul Strain cost higher than 0. This effect lasts for 1 minute (6 turns) or until you dismiss it.",
+        "dice": 2,
+        "level": 5,
+        "tags": [
+            "touch",
+            "utility",
+            "soul"
+        ]
+    },
+    "86": {
+        "id": 82,
+        "name": "soul shatter",
+        "effect": "Make a Soul Attack against a creature within 1 tile of you. Max out the targets Soul Strain.",
+        "dice": 2,
+        "level": 5,
+        "tags": [
+            "cc",
+            "touch",
+            "soul"
+        ]
+    },
+    "87": {
+        "id": 93,
+        "name": "advanced swapper",
+        "effect": "Swap a target's location with another target you can see within Range 8, one of the targets may be yourself. If one or both target's are unwilling, do a 'Soul' Contest against them. On success, both targets teleport to each others place.",
+        "dice": 2,
+        "level": 5,
+        "tags": [
+            "cc",
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "88": {
+        "id": 83,
+        "name": "far skip",
+        "effect": "Teleport to a location that is up to twice your Speed away.",
+        "dice": 1,
+        "level": 6,
+        "tags": [
+            "ranged",
+            "utility",
+            "soul"
+        ]
+    },
+    "89": {
+        "id": 90,
+        "name": "kamikaze",
+        "effect": "Burst 3 centered on yourself. All targets within this area must make a 'Body' Roll against the sum of the 3 dice given when casting. On failure, creatures take an amount of damage equal to your current health. On success, deals half as much damage (rounded up). \nAfterwards you loose all your health (this damage cannot be mitigated) and are put on Deaths Door. You do not loose your armor health. Additionally, you cannot regain health while you have Soul Strain.",
+        "dice": 3,
+        "level": 6,
+        "tags": [
+            "aoe",
+            "damage",
+            "fire"
+        ]
+    },
+    "90": {
+        "id": 84,
+        "name": "starfall",
+        "effect": "Do a 'Soul' Contested against a creature within Range 6. On success, the creature gains 2 stacks of Marked. \nAt the beginning of your next turn a 'star' falls from the sky. If a creature has stacks of Marked (Prioritizing the one you targeted) the star falls on them. If no creature has Marked when the star falls, the spot the targeted creature was standing when you cast the spell becomes marked.\n\nAll creatures within 2 tiles of the starfall location are knocked up into the air 3 tiles until the beginning of their next turn, and take 4 Damage. Marked creatures in this area take an extra 3 damage and loose a stack of Marked.",
+        "dice": 2,
+        "level": 7,
+        "tags": [
+            "attack",
+            "damage",
+            "ranged",
+            "earth",
+            "summon"
+        ]
+    },
+    "91": {
+        "id": 87,
+        "name": "dragon form",
+        "effect": "Focus on gaining the effects of the Spells Conjure Spectral Claws, Flight, Flesh Shaper (appearance only), Debuff Barrier, and Soul Shield on yourself. You do not gain the Soul Strain from these spells and do not need to Focus on them (focus only on this spell).\nThe spells effects go away after 10 minutes, if you dispel it, you cast another Focused spell, or you loose Focus.",
+        "dice": 2,
+        "level": 7,
+        "tags": [
+            "touch",
+            "focus",
+            "utility",
+            "soul"
+        ]
+    },
+    "92": {
+        "id": 85,
+        "name": "lichs curse",
+        "effect": "Target a Creature or Object within range 6. The target must make a 'Soul' Roll against the sum of the 3 dice given when casting. If they fail, give the target the Lichs Curse. The curse does not go away until dispelled by Purge (must beat the number next to the curse) or the target dies. \n\nLichs Curse (8): When the creature dies the creature returns to life. They become Undead in addition to their other types. At the end of a year the creature looses 1 level. If the creature reaches level 0 they die and cannot be resurrected.",
+        "dice": 3,
+        "level": 8,
+        "tags": [
+            "cc",
+            "ranged",
+            "dark"
+        ]
+    },
+    "93": {
+        "id": 86,
+        "name": "door stop",
+        "effect": "Touch a Creature, the next time the creature is put on deaths door, heal to half the creatures HP and remove this effect. The creature is not given deaths door for this action. This effect lasts for 24 hours. After which the creature cannot be effected by this spell for 1 week.",
+        "dice": 3,
+        "level": 8,
+        "tags": [
+            "touch",
+            "healing",
+            "light"
+        ]
+    },
+    "94": {
+        "id": 88,
+        "name": "revivify",
+        "effect": "Revive a dead creature. The creature\u2019s Soul must be free and the creature cannot have been dead for more than 1 month.",
+        "dice": 3,
+        "level": 9,
+        "tags": [
+            "touch",
+            "utility",
+            "soul"
+        ]
+    },
+    "95": {
+        "id": 89,
+        "name": "time stop",
+        "effect": "You stop the time for everyone but yourself. No time passes for other creatures, letting you act for 1 minute (6 turns) freely. During this time you can do anything you could do during your normal turns with the exception of casting this spell. Touching an object or creature makes time pass normally while you are touching that creature or object. If you stop touching a creature they still get 6 seconds (1 turn) to do their turn before this effect ends. (If you attack/manipulate a creature it gets a turn.)\nWhen this spell ends you get an additional 10 Soul Strain.",
+        "dice": 1,
+        "level": 9,
+        "tags": [
+            "utility",
+            "soul"
+        ]
+    },
+    "96": {
+        "id": 91,
+        "name": "determine fate",
+        "effect": "State an event that will happen and how far into the future it will happen. Roll 'Soul' to determine if these events will happen. The GM determines the DL for success based on how unlikely that event is to happen and on how far into the future it will happen. The closer an event is increases the DL needed (ranging from 4 for near future to 0 for far future), the likely hood of it happening also increases the DL needed (ranging from 4 highly unlikely to 0 for very likely). If you succeed this roll events leading up to what you state will line up so that your statement is true. If the spell success, any check that is made to prevent the event from happening is rolled with a DL of 8 regardless of other factors.",
+        "dice": 2,
+        "level": 9,
+        "tags": [
+            "utility",
+            "summon",
+            "soul"
+        ]
+    }
+}

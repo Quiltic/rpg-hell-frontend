@@ -1,0 +1,2533 @@
+{
+    "1": {
+        "id": 471,
+        "name": "weapon oil base",
+        "effect": "Combine this with a potion to gain its effect. On later turns you may spend ## (2 dice) to coat a weapon with this effect. When you hit a target with a coated weapon the combined potion effect is applied to the target. \n\nThe oil lasts for a number of attacks equal to twice the duration of the combined potion.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "tiny 0",
+            "potion 0",
+            "complex 0"
+        ]
+    },
+    "2": {
+        "id": 312,
+        "name": "weak soul rend poison",
+        "effect": "When ingested gain 2 Soul Strain.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "3": {
+        "id": 310,
+        "name": "weak sleeping poison",
+        "effect": "When ingested if you have 5 or less Health you Fall Asleep. The GM rolls a dice, you are asleep for this many hours or until someone wakes you up with damage or by spending ## (2 dice).",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "4": {
+        "id": 311,
+        "name": "weak poison",
+        "effect": "When ingested become Poisoned for 1 minute.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "5": {
+        "id": 313,
+        "name": "weak paralysis poison",
+        "effect": "When ingested gain 1 Stun.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "6": {
+        "id": 437,
+        "name": "water balloon",
+        "effect": "Throw Range 6. Burst 1 centered wherever it lands. Target's within the area gain 2 stacks of Wet.",
+        "req": [],
+        "cost": 3,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0"
+        ]
+    },
+    "7": {
+        "id": 333,
+        "name": "wagon",
+        "effect": "Allows for crafting while traveling, and can carry 2*4*6 [384 bits] (width, length, height) tiles of stuff.",
+        "req": [],
+        "cost": 0,
+        "craft": 4,
+        "tags": [
+            "large 0",
+            "vehicle 0",
+            "item 0"
+        ]
+    },
+    "8": {
+        "id": 347,
+        "name": "undying heart",
+        "effect": "A heart that continues to beat even when its body is lost.\nCan be Consumed to permanently increase Health by 2.\nThis is needed to craft a potion of Life.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "consumable 0",
+            "legendary 0",
+            "magic 0",
+            "medicine 0",
+            "tiny 0"
+        ]
+    },
+    "9": {
+        "id": 338,
+        "name": "travel supplies",
+        "effect": "Contains all the necessities for travel excluding food, including Cooking tools. Fire starters, a Bedroll, a Lanturn, and 10 tiles of Rope (50 ft)",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "medium 0",
+            "tool 0"
+        ]
+    },
+    "10": {
+        "id": 339,
+        "name": "travel meal",
+        "effect": "One meals worth of dry goods meant for travel. It does not taste good.",
+        "req": [],
+        "cost": 1,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "item 0",
+            "tiny 0"
+        ]
+    },
+    "11": {
+        "id": 409,
+        "name": "trapmaker's tools",
+        "effect": "Grants the Action 'Make Trap' which can be used with Crafting or Nature:\n\nSpend 1 minute, or ## (2 dice) if in combat, to make one of 3 traps listed below. Each trap costs 5 gold to craft, and covers 1 tile or item. Traps can be reclaimed if unused. Creatures roll a Nature or Crafting contest against you to detect the trap.\n\nTripwire: A small hidden wire which will knock over any creature that steps on it or can be triggered to activate items. \nSnare: A loop of rope that when triggered Grapples and lifts its prey 2 tiles off the ground. \nPopmine: A plate that when activated knocks its prey 3 tiles in a direction. The direction is decided during the trap's creation.",
+        "req": [],
+        "cost": 30,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "complex 0",
+            "tool 0"
+        ]
+    },
+    "12": {
+        "id": 324,
+        "name": "tinkers tools",
+        "effect": "When you do the Action Make an Item you may craft complex items.",
+        "req": [],
+        "cost": 30,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            " complex 0",
+            "tool 0"
+        ]
+    },
+    "13": {
+        "id": 327,
+        "name": "thieves' tools",
+        "effect": "Grants the Action Lockpick which can be used with Mind, Crafting, or Thieving:\nIncrease the DL by the lockmaker's Crafting score. Magical locks are increased by the lockmakers's Arcana score.\n\nComplete Failure: Break the Thieves' Tools used to make this roll.\nFailure: You fail to unlock the lock.\nSuccess: Unlock the lock.\nGreat Success: Unlock the lock and reduce the DL by 1 for the next time you unlock this lock.",
+        "req": [],
+        "cost": 30,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            " complex 0",
+            "tool 0"
+        ]
+    },
+    "14": {
+        "id": 302,
+        "name": "smoke grenade",
+        "effect": "Throw Range 6. Cast 'Conjure Fog' wherever it lands. The fog ends when the spell runs out, this spell cannot be countered or stopped early via 'Counterspell' or 'Dispel Magic'.",
+        "req": [],
+        "cost": 6,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0",
+            "complex 0"
+        ]
+    },
+    "15": {
+        "id": 323,
+        "name": "smiting tools",
+        "effect": "When you do the Action Make an Item you may craft weapons and armors.",
+        "req": [],
+        "cost": 30,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "complex 0",
+            "tool 0"
+        ]
+    },
+    "16": {
+        "id": 330,
+        "name": "small bag",
+        "effect": "Increases items that can be carried by 1/2th [4 bits] of a tile.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "item 0",
+            "tiny 0"
+        ]
+    },
+    "17": {
+        "id": 444,
+        "name": "simple prosthetic limb",
+        "effect": "A non-magical limb that can be applied to a creature as a replacement for a missing limb. It works to a point. If the limb is a leg loose 1 Speed. If the leg is an Arm reduce the number of dice you roll when trying to manipulate something. (GM's discretion). Runes can be applied to this limb.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "tiny 0",
+            "complex 0",
+            "item 0"
+        ]
+    },
+    "18": {
+        "id": 258,
+        "name": "shovel",
+        "effect": "On a 9 or Higher: you can throw dirt into the Target's eyes to give them 1 stack of Blind.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "2 damage",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "19": {
+        "id": 415,
+        "name": "shard infused lanturn",
+        "effect": "Instead of doing damage this weapon gives stacks of Burn equal to its Damage.\nOn a 4 or Less: you gain 1 Marked.\nOn a 9 or Higher: give the target 1 stack of Marked.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "1 damage",
+            "range 3",
+            "magical 0",
+            "glow 0",
+            "weapon 0"
+        ]
+    },
+    "20": {
+        "id": 371,
+        "name": "scarf of the fish's tale",
+        "effect": "An ornate scarf decorated with a story of love lost at sea. \n\nOnce bound to a user, they are able to breathe underwater and can \u201ctalk\u201d to aquatic life, so long as they are wearing the scarf.",
+        "req": [],
+        "cost": 325,
+        "craft": 3,
+        "tags": [
+            "bound 0",
+            "lesser 0",
+            " item 0",
+            "tiny 0",
+            "magical 0"
+        ]
+    },
+    "21": {
+        "id": 461,
+        "name": "sandles of speed",
+        "effect": "A set of leather sandals with gold inlays. \n\nOnce bound to a user, they gain an additional 2 Speed while wearing the sandals.",
+        "req": [],
+        "cost": 600,
+        "craft": 4,
+        "tags": [
+            "bound 0",
+            "lesser 0",
+            "item 0",
+            "tiny 0",
+            "magical 0",
+            "bound 0"
+        ]
+    },
+    "22": {
+        "id": 472,
+        "name": "salt base",
+        "effect": "Combine this with a potion to gain its effect. On later turns you may spend # (1 dice) to gain the combined potion's effect. Alternatively, you can spend ## (2 dice) to throw the salt up to 6 tiles onto a target, to apply the combined potion effect.\n\nRegardless of which method is used to apply the effect, its duration is reduced by half (rounded down).",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "tiny 0",
+            "potion 0",
+            "complex 0"
+        ]
+    },
+    "23": {
+        "id": 365,
+        "name": "rune of the feather",
+        "effect": "Makes the object lighter.\nWeapon: Turns 2 handed Melee weapons into 1 handed, this action reduces damage by 1.\nArmor: Decreases the Speed penalty of Medium and Heavy armor by 1. (-2 becomes -1 or  -1 becomes 0)\nItem: Half's the weight of whatever the rune is attached to.",
+        "req": [],
+        "cost": 100,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "24": {
+        "id": 359,
+        "name": "rune of the darkness",
+        "effect": "While you are in the dark you do an extra 2 Damage.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0",
+            "broken 0"
+        ]
+    },
+    "25": {
+        "id": 349,
+        "name": "rune of swiftness",
+        "effect": "Makes the object seem blurry.\nWeapon: Attacks gain +1 to the sum of the roll.\nArmor: Increases the users Speed by 1.\nItem: Can be activated with a # (one dice) to give the user an additional 2 Speed for 1 minute. This can be done 4 times per day with this Rune. Resetting at Dawn.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "26": {
+        "id": 356,
+        "name": "rune of spell resistance",
+        "effect": "When you have to roll dice when saving against a spell you can add 3 to the spell sum.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "27": {
+        "id": 360,
+        "name": "rune of souls",
+        "effect": "Increases the Users Max Soul Strain by 1.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "28": {
+        "id": 348,
+        "name": "rune of power",
+        "effect": "Makes the object give off a feeling of power.\nWeapon: Attacks do an additional 2 Damage.\nArmor: Increase the amount of Armor Health or Dodge by 1. (Armor health that would give 2*Level gives 3*Level instead)\nItem: Can be activated with a # (one dice) to give the user an additional dice on their next roll. This can be done 4 times per day with this Rune. Resetting at Dawn.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "29": {
+        "id": 354,
+        "name": "rune of light",
+        "effect": "Makes the object glow slightly.\nWeapon: Attacks apply an additional 2 stacks of Marked. On Low Roll gives 1 stack instead. On High Roll gives 3 stacks instead.\nArmor: You cannot gain stacks of Blind, and are able to see in the dark.\nItem: Can be activated/deactivated with a # (one dice) to make the item light up as if the spell Fog Light was cast on it.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "30": {
+        "id": 366,
+        "name": "rune of lead",
+        "effect": "Makes the object heaver.\nWeapon: Turns 1 handed Melee weapons into 2 handed, this action increases damage by 1.\nArmor: Gives the armor an additional Armor stacks per Level, but increases the Speed penalty of Medium and Heavy armor by 1. (-2 becomes -3, -1 becomes -2 , etc)\nItem: Double's the weight of whatever the rune is attached to.",
+        "req": [],
+        "cost": 100,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "31": {
+        "id": 351,
+        "name": "rune of ice",
+        "effect": "Makes the object cold to the touch.\nWeapon: Attacks apply an additional 2 stacks of Stun. On Low Roll gives 1 stack instead. On High Roll gives 3 stacks instead.\nArmor: You take half damage from Water spells, and reduce stacks of Stun by 1 when gaining stacks of Stun.\nItem: Can be activated/deactivated with a # (one dice) to make the item super cold the rune will never cool down the item to the point of freezing but it will get close.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "32": {
+        "id": 357,
+        "name": "rune of hunger",
+        "effect": "You can spend 1 dice to activate or deactivate this rune. While active You take 1 damage at the end of your turn; but you Heal 1 each time you hit a creature with the weapon inscribed with this rune.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "33": {
+        "id": 362,
+        "name": "rune of hostility",
+        "effect": "When applied, name a type of creature (Humanoid, Beast, Construct, Monstrosity, Undead or Planar). The rune glows when that type of creature becomes hostile within 20 tiles of the rune. It glows brighter the closer it is to the creature, starting with a soft glow becoming a bright glow as if the spell Glow was cast on it.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "34": {
+        "id": 361,
+        "name": "rune of heart",
+        "effect": "On Rest gives the user an additional 3 Max Health.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "35": {
+        "id": 364,
+        "name": "rune of glow",
+        "effect": "You can spend 1 dice to activate or deactivate this rune. While active the rune glows as if the spell Glow was cast on it. This effect lasts until deactivated. Items with this rune can be used to cast spells through them.",
+        "req": [],
+        "cost": 100,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "36": {
+        "id": 363,
+        "name": "rune of friendship",
+        "effect": "When you are within 3 tiles of another creature using a rune of Friendship both creatures have a minimum of 1 Dodge. If you don't have a stack of Dodge gain 1.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "37": {
+        "id": 350,
+        "name": "rune of fire",
+        "effect": "Makes the object warm to the touch.\nWeapon: Attacks apply an additional 2 stacks of Burn. On Low Roll gives 1 stack instead. On High Roll gives 3 stacks instead.\nArmor: Reduce stacks of Burn by 2 instead of 1 when you remove stacks of Burn.\nItem: Can be activated/deactivated with a # (one dice) to make the item super hot the rune will never heat up the item to the point of melting or burning but it will get close.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "38": {
+        "id": 353,
+        "name": "rune of earth",
+        "effect": "Makes the object feel heavier.\nWeapon: Attacks give an additional 2 Knockback. On Low Roll does 1 less Knockback. On High Roll gives 2 more Knockback.\nArmor: Gain an additional Armor Stacks equal to your Level, and you may reduce non-voluntary movement effects, such as Knockback, on you by half.\nItem: Can be activated/deactivated with a # (one dice) to make the item Indestructible to any Non-Earth Spell.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "39": {
+        "id": 355,
+        "name": "rune of dark",
+        "effect": "Makes the object seem to be covered in shadow.\nWeapon: Attacks apply an additional 2 stacks of Blind. On Low Roll gives 1 stack instead. On High Roll gives 3 stacks instead.\nArmor: You cannot gain stacks of Mark, and gain 1 Dodge on a Rest.\nItem: Can be activated/deactivated with a # (one dice) to make the item turn Invisible.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "40": {
+        "id": 358,
+        "name": "rune of chaos",
+        "effect": "When doing an action if you roll a 6 turn another non 1 or 6 into a 6. When rolling a 1 turn another non 1 or 6 into a 1.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "41": {
+        "id": 367,
+        "name": "rune of branding",
+        "effect": "The rune glows faintly, always giving off a soft heat. It always seems to leave a mark whenever it touches something.\nWeapon: Attacks give the target 1 stack of Marked.\nArmor: \nItem: Can be used once per day to cast 'Curse of the Brand' without gaining Soul Strain.",
+        "req": [],
+        "cost": 100,
+        "craft": 9,
+        "tags": [
+            "lesser 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "42": {
+        "id": 352,
+        "name": "rune of air",
+        "effect": "Makes the object feel lighter.\nWeapon: Attacks do half damage (rounded down) to another creature of your choice within 1 tile of the creature hit. On Low Roll does not do this effect. On High Roll can damage 2 creatures within 1 tile instead of 1.\nArmor: Reduce damage taken from ranged weapon and spell attacks by 1.\nItem: Can be activated/deactivated with a # (one dice) to make the item give off a soft breeze.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "greater 0",
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "43": {
+        "id": 449,
+        "name": "royal rooms access",
+        "effect": "Grants one nights stay at a Royal Room. Royal rooms usually have all the amenities one could ask for and more. This is the best possible living, only found in the homes of royalty.",
+        "req": [],
+        "cost": 50,
+        "craft": 9,
+        "tags": [
+            "tiny 0",
+            "item 0"
+        ]
+    },
+    "44": {
+        "id": 343,
+        "name": "royal meal",
+        "effect": "One meal that Kings or Emperors would eat. The best meal money can buy.",
+        "req": [],
+        "cost": 30,
+        "craft": 4,
+        "tags": [
+            "consumable 0",
+            "item 0",
+            "tiny 0"
+        ]
+    },
+    "45": {
+        "id": 334,
+        "name": "row boat",
+        "effect": "Can carry 1*2*2 [32 bits] (width, length, height) tiles of stuff. Only works in water.",
+        "req": [],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "large 0",
+            "item 0",
+            "vehicle 0"
+        ]
+    },
+    "46": {
+        "id": 378,
+        "name": "rope",
+        "effect": "It's rope. Typically in 1 Tile increments (5 ft.)",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "item 0",
+            "tiny 0"
+        ]
+    },
+    "47": {
+        "id": 385,
+        "name": "ring of soul stealing",
+        "effect": "A silver ring with a black opal gemstone.\nWhen in possession of someone with Soul the ring will use their Soul Strain to cast Sleeping Powder on them. This cannot happen if the Ring has cast this spell within 1 hour prior or the person has Maxed out their Soul Strain.",
+        "req": [],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "lesser 0",
+            "item 0",
+            "tiny 0",
+            "magical 0"
+        ]
+    },
+    "48": {
+        "id": 460,
+        "name": "ring of invisibility",
+        "effect": " A ring carved with completely clear runes that give the illusion of being holes in the ring. \n\nWhile being worn the creature can spend # (1 dice) to cast Invisibility, without gaining Soul Strain. The ring can be activated 2 times per day. Resetting at Dawn.",
+        "req": [],
+        "cost": 500,
+        "craft": 3,
+        "tags": [
+            "tiny 0",
+            "magical 0",
+            "lesser 0",
+            "item 0"
+        ]
+    },
+    "49": {
+        "id": 372,
+        "name": "ring of illusions",
+        "effect": "A ring carved with ever changing runes that seem to describe any number of lost secrets.\n\nA creature can bind itself to the ring. Once bound to a user, they are able to cast Minor Illusion at will, and can cast Create Illusion Twice a day without gaining Soul Strain. This effect resets at the end of a Rest.",
+        "req": [],
+        "cost": 600,
+        "craft": 3,
+        "tags": [
+            "bound 0",
+            "lesser 0",
+            "item 0",
+            "tiny 0",
+            "magical 0"
+        ]
+    },
+    "50": {
+        "id": 448,
+        "name": "rich rooms access",
+        "effect": "Grants one nights stay at a Rich Room. Rich rooms usually have one large bed, a table, multiple chests or containers, access to water, and someone on staff to call. This is well off living only accessible by the rich or in expensive well established inns.",
+        "req": [],
+        "cost": 25,
+        "craft": 9,
+        "tags": [
+            "tiny 0",
+            "item 0"
+        ]
+    },
+    "51": {
+        "id": 342,
+        "name": "rich meal",
+        "effect": "One expensive meal made for the wealthy. Most will find this tasty.",
+        "req": [],
+        "cost": 12,
+        "craft": 3,
+        "tags": [
+            "consumable 0",
+            "item 0",
+            "tiny 0"
+        ]
+    },
+    "52": {
+        "id": 307,
+        "name": "potion of the ghost",
+        "effect": "When ingested gain Intangible for 1 minute (6 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "53": {
+        "id": 314,
+        "name": "potion of stoneskin",
+        "effect": "When ingested reduce all damage taken by 1 for 30 seconds (3 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "greater 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "54": {
+        "id": 308,
+        "name": "potion of soul stich",
+        "effect": "When ingested remove 3 stacks of Soul Strain.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "55": {
+        "id": 320,
+        "name": "potion of soul",
+        "effect": "When ingested gain 1 Soul for 30 seconds (3 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "greater 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "56": {
+        "id": 319,
+        "name": "potion of mind",
+        "effect": "When ingested gain 1 Mind for 30 seconds (3 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "greater 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "57": {
+        "id": 321,
+        "name": "potion of life",
+        "effect": "Pour this over a dead creature. If the creature is not cursed as an Undead, they are revived. The creature's Soul must be free and the creature cannot have been dead for more than 1 month.\nIn order to craft you must combine a Phoenix Feather, Undying Heart, and Holy Water.",
+        "req": [],
+        "cost": 0,
+        "craft": 5,
+        "tags": [
+            "consumable 0",
+            "legendary 0",
+            "medicine 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "58": {
+        "id": 474,
+        "name": "potion of invisibility",
+        "effect": "When ingested become Invisible for 10 minutes, until you do an attack, or cast a spell.",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "59": {
+        "id": 317,
+        "name": "potion of heart",
+        "effect": "When ingested gain 4 Max Health. This goes away at the end of the next rest.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "greater 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "60": {
+        "id": 315,
+        "name": "potion of flight",
+        "effect": "When ingested gain Flight (Can move its speed in the air) for 1 minute (6 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "consumable 0",
+            "greater 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "61": {
+        "id": 477,
+        "name": "potion of fish man",
+        "effect": "When ingested gain 'The Fish Mans Blessing' (4). Blessings act as Curses for the sake of Purge. \n\nThe Fish Mans Blessing (4): Gain the traits 'Swimmer', 'Water Breathing', and 'Bloodhound'; the items 'Hardened Scales' and 'Acid Lick'; and are able to cast the spell 'Water Ball' twice per Rest without gaining Soul Strain.\n\nIn order to craft you must combine a frog tongue, some catfish whiskers, fresh seawater, an aquatic whisper-weed seed, a peace of lightning struck wood, and some fish-man's blood.",
+        "req": [],
+        "cost": 6000,
+        "craft": 5,
+        "tags": [
+            "consumable 0",
+            "legendary 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "62": {
+        "id": 306,
+        "name": "potion of fire resistance",
+        "effect": "When ingested you take no damage from non-magical Fire, and reduce stacks of Burn by 2 instead of 1 when you remove stacks of Burn. This effect lasts for 1 minute (6 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "63": {
+        "id": 305,
+        "name": "potion of cold resistance",
+        "effect": "When ingested take no damage from non-magical cold sources (such as in a blizzard), and reduce stacks of Stun by 1 when gaining stacks of Stun. This effect lasts for 1 minute (6 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "lesser 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "64": {
+        "id": 318,
+        "name": "potion of body",
+        "effect": "When ingested gain 1 Body for 30 seconds (3 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "greater 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "65": {
+        "id": 410,
+        "name": "potion belt",
+        "effect": "A belt of potions helping you hold potions. Can hold 3 potions. Contains 3 lesser potions, or 1 greater potion and 1 lesser potion when found (or taken).",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "tool 0"
+        ]
+    },
+    "66": {
+        "id": 381,
+        "name": "pocket watch",
+        "effect": "Tells the time.",
+        "req": [],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "item 0",
+            "tiny 0",
+            "complex 0"
+        ]
+    },
+    "67": {
+        "id": 346,
+        "name": "phoenix feather",
+        "effect": "A golden orange feather that is warm to the touch.\nIf a Creature dies while in possession of the feather the feather turns to dust, the creature's Health is set to 1, and they are no longer on Death's Door.\nThis is needed to craft a potion of Life.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "consumable 0",
+            "legendary 0",
+            "item 0",
+            "magic 0",
+            "medicine 0",
+            "tiny 0"
+        ]
+    },
+    "68": {
+        "id": 377,
+        "name": "philosopher's stone",
+        "effect": "A small red/pink stone that numbs the touch.\n\nYou can convert small or tiny non-magic items into your possession into an amount of gold pieces equal to what it would cost to craft that item. Alternatively, you can turn gold into a raw non-magic item such as 3 gold to an iron ingot.",
+        "req": [],
+        "cost": 500000,
+        "craft": 6,
+        "tags": [
+            "legendary 0",
+            "item 0",
+            "small 0",
+            "magical 0"
+        ]
+    },
+    "69": {
+        "id": 465,
+        "name": "pen of fates",
+        "effect": "An ornate gold and purple feather pen. This pen seems to give off an almost divine glow when in light. \n\nWhen charged this pen casts Determine Fate using the words written for the spell context. The magic can only be used once per Month after which it becomes a normal pen while charging. The pen will cast Determine Fate regardless of the words written. So for instance if you write \u201c46 gold\u201d the spell will fail and the charge will be used.",
+        "req": [],
+        "cost": 5000000,
+        "craft": 8,
+        "tags": [
+            "tiny 0",
+            "magical 0",
+            "legendary 0",
+            "item 0"
+        ]
+    },
+    "70": {
+        "id": 376,
+        "name": "parachute ring",
+        "effect": "A ring with a small engraving of a cloud.\n\nOnce per day, when the wearer falls 5 or more tiles the ring will cast Spectral Parachute on only the wearer. This effect resets at Dawn.",
+        "req": [],
+        "cost": 120,
+        "craft": 3,
+        "tags": [
+            "lesser 0",
+            "item 0",
+            "tiny 0",
+            "magical 0"
+        ]
+    },
+    "71": {
+        "id": 345,
+        "name": "oil",
+        "effect": "Flammable. Can be used to refuel a Lantern or for cooking.",
+        "req": [],
+        "cost": 10,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "item 0",
+            "tiny 0"
+        ]
+    },
+    "72": {
+        "id": 433,
+        "name": "molotov",
+        "effect": "Throw Range 6. Burst 1 centered wherever it lands. Target's within the area gain 2 stacks of Burn.",
+        "req": [],
+        "cost": 4,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0",
+            "complex 0"
+        ]
+    },
+    "73": {
+        "id": 344,
+        "name": "map",
+        "effect": "A map. Gives a bonus dice when using Navigational Tools or when doing a Remember roll to find out where you are.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "item 0",
+            "tiny 0",
+            "complex 0"
+        ]
+    },
+    "74": {
+        "id": 476,
+        "name": "magical skillet",
+        "effect": "A single cooking skillet with a set of runes along the bottom side.\n\nThis can be used as a set of 'Cooking Tools'. Once a day you can cook over a fire to make up to 6 Meals of your choosing (Travel to Royal meals). Roll a dice: On a 4 or higher the meals are real and can be added to your inventory. On a 3 or lower the meals are not real, and are only an illusion of the requested meal. This effect is reset at Dawn.",
+        "req": [],
+        "cost": 325,
+        "craft": 3,
+        "tags": [
+            "lesser 0",
+            "item 0",
+            "tiny 0",
+            "magical 0"
+        ]
+    },
+    "75": {
+        "id": 380,
+        "name": "lock",
+        "effect": "Can lock items, entryways, or containers. When made increase this items Crafting score by the creator's crafting score.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "item 0",
+            "small 0",
+            "complex 0"
+        ]
+    },
+    "76": {
+        "id": 373,
+        "name": "living map",
+        "effect": "A ebony cloth map that shows glowing gold and white details.\n\nWhen the map is opened it shows a detailed map of the surrounding area (200x200 tiles). The map shows the location of any creatures in its area. It wont show hidden areas or things disguised by magic such as Invisible creatures.",
+        "req": [],
+        "cost": 250,
+        "craft": 3,
+        "tags": [
+            "magical 0",
+            "lesser 0",
+            "tiny 0",
+            "item 0"
+        ]
+    },
+    "77": {
+        "id": 257,
+        "name": "lanturn",
+        "effect": "While lit, it burns oil to illuminates 3 tiles around it. Every refill of oil lasts for 1 hour of burning, reduced in increments of 1 minute.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "small 0",
+            "item 0"
+        ]
+    },
+    "78": {
+        "id": 329,
+        "name": "instrument",
+        "effect": "When you do the Action 'Performance' you may 'Play a Song' which can be used with Soul or Charm.",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "item 0",
+            "small 0",
+            " complex 0"
+        ]
+    },
+    "79": {
+        "id": 464,
+        "name": "immovable rod",
+        "effect": "A silver rod with a button on either end of it. \n\nA user may spend # (1 dice) to press either button. When either button is pressed the rod magically freezes in place, becoming immovable even in the air. Either button can be pressed again to undo this effect. While immovable the rod can hold up to ~2000 kg or ~4500 pounds. If a creature try's to move the rod while it is immovable without pressing the buttons they must roll Body with a DL increase of 8.",
+        "req": [],
+        "cost": 1200,
+        "craft": 5,
+        "tags": [
+            "tiny 0",
+            "magical 0",
+            "greater 0",
+            "item 0"
+        ]
+    },
+    "80": {
+        "id": 309,
+        "name": "holy water",
+        "effect": "Deals 1 damage to Undead when in contact (this does not remove the Holy water). This is needed to craft a potion of Life.",
+        "req": [],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "consumable 0",
+            "lesser item 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "81": {
+        "id": 435,
+        "name": "holy hand grenade",
+        "effect": "Throw Range 6. Burst 4 centered wherever it lands. Target's within the area take 12 damage. If the creature is Undead, they take an additional 12 Damage and cannot roll Deaths Door rolls.",
+        "req": [],
+        "cost": 250,
+        "craft": 5,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0",
+            "complex 0",
+            "magical 0",
+            "legendary 0"
+        ]
+    },
+    "82": {
+        "id": 316,
+        "name": "haste potion",
+        "effect": "When ingested in combat when you roll your turn dice, get an additional 3. Outside of combat you may lock a 6 when you spend or do not have a locked 6. This effect lasts for 30 seconds (3 turns).",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "greater item 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "83": {
+        "id": 255,
+        "name": "hand crossbow",
+        "effect": "On a 9 or Higher: do an additional 1 Damage.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "1 damage",
+            "loading 1",
+            "range 8",
+            "weapon 0"
+        ]
+    },
+    "84": {
+        "id": 411,
+        "name": "grenade bandolier",
+        "effect": "A bandolier of grenades helping you hold grenades for quick access. Can hold 3 grenades. Contains 3 lesser grenades, or 1 greater grenade and 1 lesser grenade when found (or taken).",
+        "req": [],
+        "cost": 20,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "tool 0"
+        ]
+    },
+    "85": {
+        "id": 254,
+        "name": "great hammer",
+        "effect": "This weapon does Double Damage to objects.\nOn a 4 or Less: this weapon does half damage to objects instead of double.\nOn a 9 or Higher: Knockback the Target 2 tiles away from you.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "2 damage",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "86": {
+        "id": 469,
+        "name": "grappling hook",
+        "effect": "Spend ## (2 dice) to activate the grappling hook. Target a location or target within within Range 6. If you target a location Pull yourself to that location. If you target an object or creature pull a light object to you or make a Ranged Attack. On hit pull the target 3 tiles to you.",
+        "req": [],
+        "cost": 125,
+        "craft": 4,
+        "tags": [
+            "tiny 0",
+            "complex 0",
+            "tool 0",
+            "item 0"
+        ]
+    },
+    "87": {
+        "id": 459,
+        "name": "goggles of owl eyes",
+        "effect": "A set of purple tinted Goggles with glowing runes on the outer bands. \n\nWhile wearing these goggles the user can see in poorly light areas as if they were illuminated. This effect does not work in complete darkness, such as in a cave system or in magical darkness.",
+        "req": [],
+        "cost": 260,
+        "craft": 2,
+        "tags": [
+            "tiny 0",
+            "magical 0",
+            "lesser 0",
+            "item 0"
+        ]
+    },
+    "88": {
+        "id": 458,
+        "name": "goggles of magic sight",
+        "effect": "A set of purple tinted Goggles with glowing runes on the outer bands. \n\nWhile wearing these goggles the user can spend ## (2 dice) to cast the spell Detect Magic without gaining soul strain. The goggles can be activated 3 times per day. Resetting at Dawn.",
+        "req": [],
+        "cost": 350,
+        "craft": 3,
+        "tags": [
+            "tiny 0",
+            "magical 0",
+            "lesser 0",
+            "item 0"
+        ]
+    },
+    "89": {
+        "id": 303,
+        "name": "frag grenade",
+        "effect": "Throw Range 6. Burst 1 centered wherever it lands. Target's within the area take 2 damage.",
+        "req": [],
+        "cost": 6,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0",
+            "complex 0"
+        ]
+    },
+    "90": {
+        "id": 462,
+        "name": "flying broom",
+        "effect": "A normal wood and straw broom which has runes engraved on the handle. \n\nWhen the runes are spoken out loud the broom starts to hover and fly. The broom flys until the runes are spoken again or the broom has flown for 2 hours in total that day. The broom can be activated or deactivated once every minute (reduce the remaining flight time by 1 minute intervals). After which the broom loses flight. The broom regains all spent time at dawn. A creature can ride the broom using it as a mount with a Speed of 6 and a Body of 4.",
+        "req": [],
+        "cost": 1000,
+        "craft": 4,
+        "tags": [
+            "medium 0",
+            "magical 0",
+            "greater 0",
+            "vehicle 0"
+        ]
+    },
+    "91": {
+        "id": 304,
+        "name": "flashbang",
+        "effect": "Throw Range 6. Cast 'Lightshow' wherever it lands. Using the 2 dice given plus 4 for the sum.",
+        "req": [],
+        "cost": 8,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0",
+            "complex 0"
+        ]
+    },
+    "92": {
+        "id": 252,
+        "name": "fists",
+        "effect": "On a 9 or Higher: move the target 1 tile of your choosing.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "1 damage",
+            "weapon 0"
+        ]
+    },
+    "93": {
+        "id": 455,
+        "name": "fishing rod",
+        "effect": "Grants the Action 'Go Fishing' which can be used with Soul or Nature:\nIncrease the DL based on how many fish are in the area. For instance: Great fishing spots have a DL of 0, Good fishing spots have a DL of 1, Ok fishing spots have a DL of 2, Lackluster fishing spots have a DL of 4, and Poor fishing spots have a DL of 6.\nAll fishing times take 30 minutes to do regardless of roll.\n\nComplete Failure: Break the Line on the rod used to make this roll. (5 gold to replace)\nFailure: You get 1 gold worth of Junk.\nSuccess: You get 2 small fish (Travel Meals) or 1 Medium Fish (Cheap Meal).\nGreat Success: You get 2 medium fish (Cheap Meals) or 1 Large Fish (Decent Meal).",
+        "req": [],
+        "cost": 35,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "complex 0",
+            "tool 0"
+        ]
+    },
+    "94": {
+        "id": 337,
+        "name": "fire starters",
+        "effect": "Can start a fire without rolling Nature.",
+        "req": [],
+        "cost": 5,
+        "craft": 0,
+        "tags": [
+            "non-magic item 0",
+            "small 0"
+        ]
+    },
+    "95": {
+        "id": 375,
+        "name": "enchanted weapon",
+        "effect": "A weapon forged by the greatest smiths.\nIs found with a random rune inscribed on it. Can hold 2 runes.",
+        "req": [],
+        "cost": 0,
+        "craft": 4,
+        "tags": [
+            "greater item 0",
+            "magic 0",
+            "small 0"
+        ]
+    },
+    "96": {
+        "id": 417,
+        "name": "doctor's bag",
+        "effect": "A bag of medical supplies. Contains 1 Medkit, and 2 Bandages when found (or taken).",
+        "req": [],
+        "cost": 20,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "tool 0"
+        ]
+    },
+    "97": {
+        "id": 370,
+        "name": "dimensional bag (bag o holding)",
+        "effect": "The Bag has the spell Pocket Dimension constantly cast on it. It is not tied to any one person and cannot be placed inside another Dimensional Bag or Pocket Dimension.",
+        "req": [],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "lesser item 0",
+            "magic 0",
+            "small 0"
+        ]
+    },
+    "98": {
+        "id": 447,
+        "name": "decent rooms access",
+        "effect": "Grants one nights stay at a Decent Room. Decent rooms usually have one or two beds, a table, multiple chests or containers, and access to water. This is your common living for homeowners or well established inns.",
+        "req": [],
+        "cost": 11,
+        "craft": 9,
+        "tags": [
+            "tiny 0",
+            "item 0"
+        ]
+    },
+    "99": {
+        "id": 341,
+        "name": "decent meal",
+        "effect": "One well prepared meal. Most will find this acceptable.",
+        "req": [],
+        "cost": 4,
+        "craft": 2,
+        "tags": [
+            "consumable 0",
+            "non-magic item 0",
+            "tiny 0"
+        ]
+    },
+    "100": {
+        "id": 253,
+        "name": "dagger",
+        "effect": "On a 9 or Higher: give the target an additional 1 stack of Bleed.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "1 damage",
+            "throw range 6",
+            "weapon 0"
+        ]
+    },
+    "101": {
+        "id": 473,
+        "name": "cream base",
+        "effect": "Combine this with a potion to gain its effect. On later turns you may spend ### (3 dice) to apply this cream to a target. The target gains the combined potion's effect with its duration increased by twice the normal duration of the combined potion.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "tiny 0",
+            "potion 0",
+            "complex 0"
+        ]
+    },
+    "102": {
+        "id": 326,
+        "name": "cooking tools",
+        "effect": "Grants the Action Cooking which can be used with Mind, Nature, or Medicine:\n\nIncrease the DL by the food's Crafting score.\nThe time spent to cook is 5 minutes for DL 0, 10 for DL 1, 30 for DL 2, 1 hour for DL 3, and multiple hours for DL 4+.\n\nComplete Failure: Burn the food loosing all gold/materials spent to make.\nFailure: Make 1 meal of the chosen type.\nSuccess: Make 3 meals of the chosen type.\nGreat Success: Make 5 meals of the chosen type, or 2 meals that are 1 tier higher.",
+        "req": [],
+        "cost": 30,
+        "craft": 1,
+        "tags": [
+            "item 0",
+            "small 0",
+            " complex 0",
+            "tool 0"
+        ]
+    },
+    "103": {
+        "id": 441,
+        "name": "club",
+        "effect": "On a 9 or Higher: give the target 1 stack of Stun. This effect does not stack on the same target.",
+        "req": [],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "1 damage",
+            "weapon 0"
+        ]
+    },
+    "104": {
+        "id": 446,
+        "name": "cheap rooms access",
+        "effect": "Grants one nights stay at a cheap room. Cheap rooms usually have one or two beds each having a single chest to hold the tenants stuff overnight. This is safer than living in a Bunk Room but less comfortable than a Decent Room.",
+        "req": [],
+        "cost": 6,
+        "craft": 9,
+        "tags": [
+            "tiny 0",
+            "item 0"
+        ]
+    },
+    "105": {
+        "id": 340,
+        "name": "cheap meal",
+        "effect": "One prepared meal. It's better than a Travel Meal but not by much.",
+        "req": [],
+        "cost": 2,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "non-magic item 0",
+            "tiny 0"
+        ]
+    },
+    "106": {
+        "id": 332,
+        "name": "cart",
+        "effect": "Can carry 1*2*2 [32 bits] (width, length, height) tiles of stuff.",
+        "req": [],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "large 0",
+            "non-magic item 0",
+            "vehicle 0"
+        ]
+    },
+    "107": {
+        "id": 466,
+        "name": "cap of everywhere",
+        "effect": "A gray newsboy cap with a jet black interior. \n\nThe cap is sentient and will Bind itself to the first host that puts it on. The sentience living in the hat will try to make the user steal random objects. When an object is unguarded the cap will try to force its owner to steal it, the owner must do a Mind contest against the cap (it has a Mind of 3 dice). On failure the owner must take and keep the item. The cap has an unusual affinity for candles and will try extra hard to make the user take them (roll with a Mind of 5 dice for this contest). The cap can be thrown (## in combat), when it lands the owner is teleported to wherever the cap landed springing up so that the cap is being worn. The cap can be called back to the owner by spending # (1 dice) teleporting it to the owners head.",
+        "req": [],
+        "cost": 1000000,
+        "craft": 8,
+        "tags": [
+            "small 0",
+            "magical 0",
+            "legendary 0",
+            "item 0",
+            "bound 0"
+        ]
+    },
+    "108": {
+        "id": 445,
+        "name": "bunk rooms access",
+        "effect": "Grants one nights stay at a bunk room. Bunk rooms usually have one big room with multiple beds each having a single chest or basket to hold the tenants stuff overnight. Places like this can be dangerous but its better than living outside.",
+        "req": [],
+        "cost": 3,
+        "craft": 9,
+        "tags": [
+            "tiny 0",
+            "item 0"
+        ]
+    },
+    "109": {
+        "id": 468,
+        "name": "boots of waterwalking",
+        "effect": "A set of blue fish scale boots. \n\nWhile wearing the boots, the user can walk on water as if it were sandy land. The user can force their feet through the water in order to dive into it. Alternatively, they can put their feet on the surface while in the water to start to stand on it.",
+        "req": [],
+        "cost": 480,
+        "craft": 4,
+        "tags": [
+            "bound 0",
+            "lesser 0",
+            "item 0",
+            "tiny 0",
+            "magical 0",
+            "bound 0"
+        ]
+    },
+    "110": {
+        "id": 463,
+        "name": "boots of skipping",
+        "effect": "A set of leather boots with blue glowing runes inscribed on the outer heel. \n\nOnce per Rest the wearer can spend # (1 dice) and tap both heels together to cast Soul Skip without gaining Soul Strain.",
+        "req": [],
+        "cost": 520,
+        "craft": 3,
+        "tags": [
+            "bound 0",
+            "lesser 0",
+            "item 0",
+            "small 0",
+            "magical 0"
+        ]
+    },
+    "111": {
+        "id": 256,
+        "name": "boomerang",
+        "effect": "On a 4 or Less: you don't catch the Boomerang and it flys 4 tiles behind you.\nOn a 9 or Higher: give the target 1 stack of Stun.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "2 damage",
+            "throw range 8",
+            "returning 0",
+            "weapon 0"
+        ]
+    },
+    "112": {
+        "id": 335,
+        "name": "big boat",
+        "effect": "Allows for crafting while traveling, and can carry 2*4*6 [384 bits] (width, length, height) tiles of stuff. Only works in water.",
+        "req": [],
+        "cost": 0,
+        "craft": 4,
+        "tags": [
+            "large 0",
+            "non-magic item 0",
+            "vehicle 0"
+        ]
+    },
+    "113": {
+        "id": 336,
+        "name": "bedroll",
+        "effect": "Comfy sleep on the road.",
+        "req": [],
+        "cost": 10,
+        "craft": 2,
+        "tags": [
+            "non-magic item 0",
+            "small 0"
+        ]
+    },
+    "114": {
+        "id": 456,
+        "name": "basic fishing rod",
+        "effect": "Grants the Action 'Go Junk Fishing' which can be used with Soul or Nature:\nIncrease the DL based on how many fish are in the area. For instance: Great fishing spots have a DL of 0, Good fishing spots have a DL of 1, Ok fishing spots have a DL of 2, Lackluster fishing spots have a DL of 4, and Poor fishing spots have a DL of 6.\nAll fishing times take 30 minutes to do regardless of roll.\n\nComplete Failure: Break the Fishing Rod used to make this roll.\nFailure: You get Nothing.\nSuccess: You get 1 small fish (Travel Meal) or 2 gold worth of Junk.\nGreat Success: You get 2 small fish (Travel Meals) or 5 gold worth of Junk.",
+        "req": [],
+        "cost": 10,
+        "craft": 1,
+        "tags": [
+            "small 0",
+            "tool 0"
+        ]
+    },
+    "115": {
+        "id": 299,
+        "name": "bandage",
+        "effect": "Target a creature, cannot target Undead or Constructs. Heal the target half your Medicine (rounded up) + 1.\nCan be crafted with medicine or crafting Rolls.",
+        "req": [],
+        "cost": 4,
+        "craft": 0,
+        "tags": [
+            "consumable 0",
+            "medicine 0",
+            "tiny 0"
+        ]
+    },
+    "116": {
+        "id": 331,
+        "name": "backpack",
+        "effect": "Increases items that can be carried by 1 tile [8 bits].",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "non-magic item 0",
+            "small 0"
+        ]
+    },
+    "117": {
+        "id": 434,
+        "name": "ba-boom-ba",
+        "effect": "Throw Range 6. Burst 2 centered wherever it lands. Target's within the area take 6 damage.",
+        "req": [],
+        "cost": 112,
+        "craft": 3,
+        "tags": [
+            "consumable 0",
+            "grenade 0",
+            "tiny 0",
+            "complex 0",
+            "magical 0",
+            "lesser 0"
+        ]
+    },
+    "118": {
+        "id": 475,
+        "name": "antidote",
+        "effect": "When ingested lose any Poisoned effects you may have.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "119": {
+        "id": 325,
+        "name": "alchemist tools",
+        "effect": "When you do the Action Make an Item you may craft potions items. You may use Arcana to craft potions.",
+        "req": [],
+        "cost": 35,
+        "craft": 2,
+        "tags": [
+            "item 0",
+            "small 0",
+            " complex 0",
+            "tool 0"
+        ]
+    },
+    "120": {
+        "id": 379,
+        "name": "alarm clock",
+        "effect": "A device to tell time, which can be given an amount of time. After the given time the clock will ring loudly.",
+        "req": [],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "item 0",
+            "small 0",
+            "complex 0"
+        ]
+    },
+    "121": {
+        "id": 322,
+        "name": "acid vial",
+        "effect": "When applied to an object reduce the objects Armor Health by 4 per turn.",
+        "req": [],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "greater item 0",
+            "potion 0",
+            "tiny 0"
+        ]
+    },
+    "122": {
+        "id": 369,
+        "name": "rune of transformation",
+        "effect": "",
+        "req": [
+            "broken 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "123": {
+        "id": 368,
+        "name": "rune of the forge",
+        "effect": "",
+        "req": [
+            "broken 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "magic 0",
+            "rune 0",
+            "tiny 0"
+        ]
+    },
+    "124": {
+        "id": 328,
+        "name": "navigational tools",
+        "effect": "Grants the Action Chart a Course which can be used with Mind or Nature:\n7+ Know where you are and know the general direction of where you want to go.\n14+ Know where you are and find a direct safe path to where you want to go.\n21+ Know where you are and find a direct safe path, and a risky path to where you want to go.\n28+ Know where you are and the local environment as if you had lived here all your life.",
+        "req": [
+            "broken 0"
+        ],
+        "cost": 35,
+        "craft": 2,
+        "tags": [
+            "small 0",
+            "complex 0",
+            "tool 0"
+        ]
+    },
+    "125": {
+        "id": 374,
+        "name": "cloak of shadows",
+        "effect": "A ebony cloth map that shows glowing gold and white details.\n\nWhen the map is opened it shows a detailed map of the surrounding area (200x200 tiles). The map shows the location of any creatures in its area. It wont show hidden areas or things disguised by magic such as Invisible creatures.",
+        "req": [
+            "broken 0"
+        ],
+        "cost": 0,
+        "craft": 4,
+        "tags": [
+            "bound 0",
+            "greater 0",
+            "item 0",
+            "tiny 0",
+            "magical 0"
+        ]
+    },
+    "126": {
+        "id": 298,
+        "name": "small shell",
+        "effect": "Gives 6*(Level+1) Armor Health.",
+        "req": [
+            "MONSTER 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "speed -1 0",
+            "medium armor 0"
+        ]
+    },
+    "127": {
+        "id": 443,
+        "name": "arcane prosthetic limb",
+        "effect": "A non-magical limb that can be applied to a creature as a replacement for a missing limb. This limb is enhanced and functions almost exactly the same as a normal limb. The user can have the limb disguised as a normal limb through the use of inscribed illusion runes. Runes can be applied to this limb.",
+        "req": [
+            "arcana 1"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "tiny 0",
+            "complex 0",
+            "item 0",
+            "magical 0"
+        ]
+    },
+    "128": {
+        "id": 262,
+        "name": "spear",
+        "effect": "On a 4 or Less: you have a Range of 1 instead of 2. \nOn a 9 or Higher: you damage Target's in a line in front of you instead of just the first Target hit.",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "2 damage",
+            "range 2",
+            "throw range 6",
+            "weapon 0"
+        ]
+    },
+    "129": {
+        "id": 259,
+        "name": "short sword",
+        "effect": "On a 4 or Less: do 1 less Damage. \nOn a 9 or Higher: do an additional 1 Damage.",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "2 damage",
+            "weapon 0"
+        ]
+    },
+    "130": {
+        "id": 295,
+        "name": "shield",
+        "effect": "Gives Level Armor Health.",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "light armor 0"
+        ]
+    },
+    "131": {
+        "id": 470,
+        "name": "onyx blade",
+        "effect": "A short sword which has been imbued with a dark curse turning its blade a dark Onyx Black.\n\nOnyx Curse (4): Reduce your Soul by 1. If a target would be damaged by an object or creature bearing this curse reduce their Soul by 1. This effect can only happen once per turn (6 seconds). If your Soul becomes -6 or less you are set to 0 Health.\n\nOn a 4 or Less: do 1 less Damage. \nOn a 9 or Higher: do an additional 1 Damage.",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "2 damage",
+            "weapon 0",
+            "magical 0"
+        ]
+    },
+    "132": {
+        "id": 260,
+        "name": "long sword",
+        "effect": "On a 4 or Less: do 1 less Damage. \nOn a 9 or Higher: do an additional 1 Damage.",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "3 damage",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "133": {
+        "id": 285,
+        "name": "chainmail armor",
+        "effect": "Gives 3*Level Armor Health.",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "speed -1 0",
+            "medium armor 0"
+        ]
+    },
+    "134": {
+        "id": 261,
+        "name": "axe",
+        "effect": "On a 4 or Less: do 1 less Damage. \nOn a 9 or Higher: do Double Damage to Armor",
+        "req": [
+            "body 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "2 damage",
+            "throw range 6",
+            "weapon 0"
+        ]
+    },
+    "135": {
+        "id": 283,
+        "name": "half plate armor",
+        "effect": "Gives 5*Level Armor Health.",
+        "req": [
+            "body 2"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "speed -2 0",
+            "heavy armor 0"
+        ]
+    },
+    "136": {
+        "id": 296,
+        "name": "tower shield",
+        "effect": "Gives Level Armor Health.",
+        "req": [
+            "body 4"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "ward 2",
+            "light armor 0"
+        ]
+    },
+    "137": {
+        "id": 284,
+        "name": "platemail armor",
+        "effect": "Gives 7*Level Armor Health.",
+        "req": [
+            "body 4"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "speed -2 0",
+            "heavy armor 0"
+        ]
+    },
+    "138": {
+        "id": 467,
+        "name": "overconfidence",
+        "effect": "Gives 7*Level Armor Health.\n\nOnce bound to a user, while worn, if the wearer is above half health (rounded up), they Heal 1 at the beginning of their turn (every 6 seconds). While they are below half health (rounded up), they take 1 damage at the beginning of their turn instead. Max Health does not include Armor Stacks. ",
+        "req": [
+            "body 4"
+        ],
+        "cost": 0,
+        "craft": 5,
+        "tags": [
+            "speed -2",
+            "heavy armor 0",
+            "magical 0",
+            "greater 0",
+            "bound 0"
+        ]
+    },
+    "139": {
+        "id": 287,
+        "name": "composite chainmail armor",
+        "effect": "Gives 5*Level Armor Health.",
+        "req": [
+            "body 4"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "speed -1 0",
+            "medium armor 0"
+        ]
+    },
+    "140": {
+        "id": 291,
+        "name": "unarmored",
+        "effect": "",
+        "req": [
+            "core 1"
+        ],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "dodge 2",
+            "speed 1",
+            "unarmored armor 0"
+        ]
+    },
+    "141": {
+        "id": 290,
+        "name": "padded leather armor",
+        "effect": "Gives Level Armor Health.",
+        "req": [
+            "core 1"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "light armor 0"
+        ]
+    },
+    "142": {
+        "id": 289,
+        "name": "leather armor",
+        "effect": "Gives Level Armor Health.",
+        "req": [
+            "core 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "light armor 0"
+        ]
+    },
+    "143": {
+        "id": 292,
+        "name": "clothing",
+        "effect": "",
+        "req": [
+            "core 1"
+        ],
+        "cost": 0,
+        "craft": 0,
+        "tags": [
+            "dodge 4",
+            "speed 1",
+            "unarmored armor 0"
+        ]
+    },
+    "144": {
+        "id": 382,
+        "name": "vial knife",
+        "effect": "Makes the object give off a feeling of power.\nWeapon: Attacks do an additional 2 Damage, and reduces the High and Low Roll threshold by 2.\nArmor: Increase the amount of Armor Health or Dodge by 1. (Armor health that would give 2*Level gives 3*Level instead)\nItem: Can be activated with a # (one dice) to give the user an additional dice on their next roll. This can be done 4 times per day with this Rune. Resetting at Dawn.",
+        "req": [
+            "core 1",
+            "broken 0"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "1 damage",
+            "throw range 6",
+            "weapon 0"
+        ]
+    },
+    "145": {
+        "id": 300,
+        "name": "medkit",
+        "effect": "Target a creature, cannot target Undead or Constructs. Heal the target for your Medicine + 1.\nCan be crafted with medicine or crafting Rolls.",
+        "req": [
+            "medicine 1"
+        ],
+        "cost": 10,
+        "craft": 1,
+        "tags": [
+            "consumable 0",
+            "medicine 0",
+            "small 0"
+        ]
+    },
+    "146": {
+        "id": 301,
+        "name": "healing spray",
+        "effect": "Target a creature, cannot target Undead or Constructs. Heal the target 2 + your Level Health.\nCan be crafted with medicine or crafting Rolls.",
+        "req": [
+            "medicine 3"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "consumable 0",
+            "medicine 0",
+            "tiny 0"
+        ]
+    },
+    "147": {
+        "id": 270,
+        "name": "whip",
+        "effect": "On a 9 or Higher: give the target an additional 1 stack of Bleed.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "1 damage",
+            "range 3",
+            "weapon 0"
+        ]
+    },
+    "148": {
+        "id": 263,
+        "name": "short bow",
+        "effect": "On a 4 or Less: you do 1 less damage to Armor Health.\nOn a 9 or Higher: you reduce the Target's speed by 1 until the start of your next Turn. This effect does not Stack.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "1 damage",
+            "loading 16",
+            "range 16",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "149": {
+        "id": 294,
+        "name": "shield",
+        "effect": "Gives Level Armor Health.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "light armor 0"
+        ]
+    },
+    "150": {
+        "id": 266,
+        "name": "rapier",
+        "effect": "On a 4 or Less: loose 1 speed until the start of your next Turn.\nOn a 9 or Higher: you may Move 1 tile.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "1 damage",
+            "weapon 0"
+        ]
+    },
+    "151": {
+        "id": 269,
+        "name": "popshard shotgun",
+        "effect": "Hits Target's to the left and right of the target you aimed at.\nOn a 4 or Less: only hits 1 target.\nOn a 9 or Higher: it attacks in a Cone in front of you.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "2 damage",
+            "loading 2",
+            "range 3",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "152": {
+        "id": 265,
+        "name": "popshard rifle",
+        "effect": "On a 4 or Less: do 1 less Damage.\nOn a 9 or Higher: do Double Damage to Armor",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "2 damage",
+            "loading 1",
+            "range 14",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "153": {
+        "id": 267,
+        "name": "popshard revolver",
+        "effect": "On a 9 or Higher:, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more dice.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "1 damage",
+            "loading 6",
+            "range 8",
+            "weapon 0"
+        ]
+    },
+    "154": {
+        "id": 414,
+        "name": "longbow",
+        "effect": "On a 4 or Less: you do half damage to armor (rounded down).\nOn a 9 or Higher: double your range.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "1 damage",
+            "range 16",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "155": {
+        "id": 264,
+        "name": "crossbow",
+        "effect": "On a 4 or Less: do 1 less damage.\nOn a 9 or Higher: do an additional 1 Damage.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "1 damage",
+            "loading 1",
+            "range 16",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "156": {
+        "id": 286,
+        "name": "chainmail armor",
+        "effect": "Gives 3*Level Armor Health.",
+        "req": [
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "speed -1 0",
+            "medium armor 0"
+        ]
+    },
+    "157": {
+        "id": 268,
+        "name": "popshard lever action repeater",
+        "effect": "On a 9 or Higher:, roll a dice. If you roll less than or equal to the number of rounds left in this weapon, you may do another Attack with this weapon without spending more AP.",
+        "req": [
+            "mind 3"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "1 damage",
+            "loading 8",
+            "range 8",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "158": {
+        "id": 288,
+        "name": "composite chainmail armor",
+        "effect": "Gives 5*Level Armor Health.",
+        "req": [
+            "mind 4"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "speed -1 0",
+            "medium armor 0"
+        ]
+    },
+    "159": {
+        "id": 488,
+        "name": "venomous bite",
+        "effect": "On a 9 or Higher: give the target an additional 2 stacks of Poisoned.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "weapon 0"
+        ]
+    },
+    "160": {
+        "id": 297,
+        "name": "thick hide",
+        "effect": "Gives 4*Level Armor Health.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "light armor 0"
+        ]
+    },
+    "161": {
+        "id": 282,
+        "name": "spirit claws",
+        "effect": "Increases its damage by 1 every 2 levels you have.\nOn a 9 or Higher: give the target 1 stack of Soul Strain.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "weapon 0"
+        ]
+    },
+    "162": {
+        "id": 281,
+        "name": "soul weapon",
+        "effect": "Increases its damage by 1 every 2 levels you have. \nOn a 9 or Higher: Knockback the Target 2 tiles away from you.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "1 damage",
+            "range 6",
+            "weapon 0"
+        ]
+    },
+    "163": {
+        "id": 278,
+        "name": "peck",
+        "effect": "On a 9 or Higher: Roll give the target an additional 1 stack of Blind.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "weapon 0"
+        ]
+    },
+    "164": {
+        "id": 279,
+        "name": "lick",
+        "effect": "On a 9 or Higher: move the target 1 tile closer to you.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "range 2",
+            "weapon 0"
+        ]
+    },
+    "165": {
+        "id": 280,
+        "name": "kick",
+        "effect": "On a 9 or Higher: move the target 1 tile of your choosing.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "3 damage",
+            "weapon 0"
+        ]
+    },
+    "166": {
+        "id": 418,
+        "name": "hide",
+        "effect": "Gives 2*Level Armor Health.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "dodge 2",
+            "speed 1",
+            "unarmored armor 0"
+        ]
+    },
+    "167": {
+        "id": 487,
+        "name": "hardened scales",
+        "effect": "Gives 6*Level Armor Health. Additionally, if you where to receive 2 or less damage from non magical attack you do not take the damage (you can still take damage from drowning, burn, bleed, and knockback).",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "medium armor 0",
+            "speed -1"
+        ]
+    },
+    "168": {
+        "id": 277,
+        "name": "bite",
+        "effect": "On a 9 or Higher: Roll give the target an additional 1 stack of Bleed.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "weapon 0"
+        ]
+    },
+    "169": {
+        "id": 383,
+        "name": "acid lick",
+        "effect": "This weapon does Double Damage to Armor.\nOn a 9 or Higher: Move the target 1 tile closer to you.",
+        "req": [
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "range 2",
+            "weapon 0"
+        ]
+    },
+    "170": {
+        "id": 498,
+        "name": "soul crystal",
+        "effect": "When a creature breaks a crystal they remove up to 3 Soul Strain. You can have up to 4 Crystals made at a time from this trait.\n\nSoul Crystals can be used as a power source in some machines.",
+        "req": [
+            "soul 1"
+        ],
+        "cost": 150,
+        "craft": 9,
+        "tags": [
+            "tiny 0",
+            "medicine 0",
+            "magical 0"
+        ]
+    },
+    "171": {
+        "id": 272,
+        "name": "shard infused staff",
+        "effect": "On a 4 or Less: have 1 less Range.\nOn a 9 or Higher: give the target 1 stack of Stun. This effect does not stack on the same target.",
+        "req": [
+            "soul 1"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "2 damage",
+            "range 2",
+            "glow 0",
+            "weapon 0"
+        ]
+    },
+    "172": {
+        "id": 271,
+        "name": "shard blade dagger",
+        "effect": "On a 9 or Higher: give the target an additional 1 stack of Burn.",
+        "req": [
+            "soul 1"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "1 damage",
+            "throw range 6",
+            "weapon 0"
+        ]
+    },
+    "173": {
+        "id": 439,
+        "name": "combat yoyo",
+        "effect": "On a 9 or Higher: you may cast a spell through the Yoyo having it originate from the location of the Yoyo, so long as you are holding onto the string.",
+        "req": [
+            "soul 1"
+        ],
+        "cost": 0,
+        "craft": 1,
+        "tags": [
+            "1 damage",
+            "range 2",
+            "glow 0",
+            "weapon 0"
+        ]
+    },
+    "174": {
+        "id": 293,
+        "name": "soul weave clothing",
+        "effect": "",
+        "req": [
+            "soul 4"
+        ],
+        "cost": 0,
+        "craft": 2,
+        "tags": [
+            "ward 2",
+            "dodge 6",
+            "unarmored armor 0"
+        ]
+    },
+    "175": {
+        "id": 275,
+        "name": "steamthrower",
+        "effect": "Attacks all Target's in a Line. Instead of doing damage this weapon gives stacks of Burn equal to its Damage.\nOn a 4 or Less: have 1 less Range.\nOn a 9 or Higher: have 1 more Range.",
+        "req": [
+            "special 1"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "3 damage",
+            "range 4",
+            "loading 1",
+            "autoload 0",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "176": {
+        "id": 440,
+        "name": "spectral claws",
+        "effect": "Increases its damage by the wielders Soul.\nOn a 4 or Lower: you do 1 less damage. \nOn a 9 or Higher: you give the creature 1 stack of Soul Strain.",
+        "req": [
+            "special 1"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "0 damage",
+            "weapon 0"
+        ]
+    },
+    "177": {
+        "id": 276,
+        "name": "clockwork cannon",
+        "effect": "Attacks hit in a Burst 1 shape.\nOn a 4 or Less: the weapon jams; do not autoload at the end of the turn.\nOn a 9 or Higher: give all Target's 1 stack of Bleed.",
+        "req": [
+            "special 1"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "3 damage",
+            "range 6",
+            "loading 2",
+            "autoload 0",
+            "two handed 0",
+            "weapon 0"
+        ]
+    },
+    "178": {
+        "id": 274,
+        "name": "bronze bolter",
+        "effect": "On a 4 or Less: the weapon jams; do not autoload at the end of the turn.\nOn a 9 or Higher: do half damage (rounded up) twice to the target. This attack hits twice but only costs 1 loading shot.",
+        "req": [
+            "special 1"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "2 damage",
+            "range 6",
+            "loading 2",
+            "autoload 0",
+            "weapon 0"
+        ]
+    },
+    "179": {
+        "id": 457,
+        "name": "impact lance",
+        "effect": "Hits Knockback the Target 5 tiles away from you. (When you make multiple attacks against a target you may combine the effects into 1 strike.)\nOn a 4 or Less: Knockback the Target 2 tiles away from you instead of 5. \nOn a 9 or Higher: Knockback the Target 8 tiles away from you instead of 5. ",
+        "req": [
+            "body 2",
+            "mind 1"
+        ],
+        "cost": 0,
+        "craft": 3,
+        "tags": [
+            "1 damage",
+            "weapon 0"
+        ]
+    },
+    "180": {
+        "id": 384,
+        "name": "thick carapace",
+        "effect": "Gives 6*Level Armor Health.",
+        "req": [
+            "body 2",
+            "monster 0"
+        ],
+        "cost": 0,
+        "craft": 9,
+        "tags": [
+            "speed -1",
+            "medium armor 0"
+        ]
+    }
+}
