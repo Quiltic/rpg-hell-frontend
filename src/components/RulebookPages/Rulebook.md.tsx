@@ -89,8 +89,16 @@ Spend \#\# (2 dice) to try to see something. This is not the same as a Search ac
 ### Hide
 
 - Spend \#\# to do a Thieving check. 
-  - On a Partial Success, you become Obscured until you attack, cast a spell, or are discoverd.
-  - On a Success, you become Hidden, until you attack, cast a spell, or are discoverd.
+  - On a Partial Success, you become Hidden until you attack, cast a spell, or are discoverd.
+  - On a Success, you become Fully Hidden (See Hidden), until you attack, cast a spell, or are discoverd.
+
+
+### Hunker Down
+
+- You can only do this action while next to an object or wall. This object or wall must cover half your body.
+- Spend \# to Hunker Down. While Hunkered Down you are Obscured.
+- If you, or your cover, move or are moved, you are no-longer Hunkered Down.
+
 
 
 ## Combat
@@ -427,10 +435,10 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Prone
 
-- You cannot be attacked by ranged attacks that have a sum of 8 or less.  
-- You cannot do attacks unless you give a 9 or higher on the attack.  
-- You must give \# before you may do the Move action. This counts as a Move action.  
-- You must give \# to go prone. This counts as a Move action.
+- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.  
+- You cannot do attacks that have a sum of 8 or less.
+- Your Speed is set to 2.
+- You must give \# to go prone or stand up. This counts as a Move action.
 
 ### Grappled
 
@@ -440,17 +448,17 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Obscured
 
-- You cannot be targeted by ranged actions.  
-  - Attacks, spells, effects, etc.  
-- You cannot be detected while people are not looking for you.
+- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
+  - Attacks, spells, effects, etc.
+- Your identity is unknown except by creatures within 1 tile of you, or if you announce yourself.
 
 ### Hidden
 
 - You cannot be targeted by ranged actions.  
   - Attacks, spells, effects, etc.  
 - You cannot be detected while people are not looking for you.  
-- When a creature does a Search action you are only found if no other creatures are Obscured in the same Search.  
-- You do \+1 damage on the attack action, this removes Hidden.
+- If you are Fully Hidden you do \+3 damage on the next attack you do, this removes Hidden.
+- You lose Hidden if you: Attack, Cast an Art, Activate a non-Thieving ability, or do a similar action.
 
 ### Marked
 
@@ -505,7 +513,6 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 ### Sparking
 - You take 1 damage for every one (dice value of 1) you roll, unlock, or generate.
 - This effect can happen multiple times per roll, and goes off on ALL rolls.
-
 
 ### Glowing
 

@@ -60,6 +60,9 @@ const basicContents: TableOfContentsItem = {
                 },
                 {
                     name: "Hide",
+                },
+                {
+                    name: "Hunker Down",
                 }
             ],
         },
