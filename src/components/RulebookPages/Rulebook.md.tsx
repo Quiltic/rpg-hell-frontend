@@ -435,7 +435,7 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Prone
 
-- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.  
+- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
 - You cannot do attacks that have a sum of 8 or less.
 - Your Speed is set to 2.
 - You must give \# to go prone or stand up. This counts as a Move action.
@@ -449,7 +449,7 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 ### Obscured
 
 - You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
-  - Attacks, spells, effects, etc.
+  - Ranged actions made within 1 tile are excluded.
 - Your identity is unknown except by creatures within 1 tile of you, or if you announce yourself.
 
 ### Hidden
