@@ -69,9 +69,7 @@ const router = createBrowserRouter(
                         },
                         {
                             path: "creatures",
-                            element: (
-                                <NotImplementedPage pageName="Update DB creatures" />
-                            ),
+                            element: <CreatureCreatorBadPage />,
                         },
                         {
                             path: "wepcreator",
