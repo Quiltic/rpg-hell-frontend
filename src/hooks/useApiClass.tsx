@@ -31,7 +31,8 @@ function filterBroken(_list: Trait[] | Item[] | { req: string[] | string }[]) {
 export function useApiClass<T extends ApiClassUnion>(
     c: eApiClass,
     classServiceGetAllFn: () => CancelablePromise<Record<string, T>>,
-    pinnedKey: string
+    pinnedKey: string,
+    changeToRefresh: number = 0
 ) {
     const [all, setAll] = useState<Array<T>>([]);
     const [pinned, setPinned] = useState<Array<T>>([]);
@@ -120,7 +121,7 @@ export function useApiClass<T extends ApiClassUnion>(
         }
 
         getList();
-    }, [auth, c, classServiceGetAllFn, pinnedKey]);
+    }, [auth, c, classServiceGetAllFn, pinnedKey, changeToRefresh]);
 
     useEffect(() => {
         if (hasInitializedPersistedTraits == false) {

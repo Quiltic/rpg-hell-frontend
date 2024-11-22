@@ -1,26 +1,19 @@
 import { useState, useEffect } from "react";
 import { Spell } from "../../client";
 
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
-
 import useApi from "../../hooks/useApi";
 
-import { Tab, Disclosure } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
 
 import SpellsTable from "./SpellsTable";
-
-import json from "../../assets/OfflineJsons/spells.json";
 import { Button } from "../ui/Button/Button";
-import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
-import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames } from "../../util/tableTools";
 
-import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
-import Popup from "../ui/Popups/Popup";
+import SearchGroup from "../search/SearchGroup";
+import { eApiClass } from "../../types/ApiClassUnions";
+import { useSpells } from "../../hooks/useSpells";
 
-function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
-}
 
 const tagList = [
     "elemental",
@@ -35,11 +28,16 @@ const tagList = [
     "illusion",
     "ranged",
     "touch",
+    "self",
     "focus",
     "ritual",
     "windup",
     "technique",
+    "aura",
     "insight",
+    "dice",
+    "weapon",
+    "movement",
     "MONSTER",
     "BROKEN",
 ];
@@ -51,12 +49,14 @@ const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 export default function UpdateDBSpellsPage() {
     const { SpellsService } = useApi();
 
+    const [changeToRefresh, setChangeToRefresh] = useState(0);
+    
+    const {
+        displayedSpells,
+        filterSpells,
+        resetFilterSpells,
+    } = useSpells(changeToRefresh);
 
-    const [searchValue, setSearchValue] = useState("");
-    const [allSpells, setAllSpells] = useState<Array<Spell>>([]);
-    const [displayedSpells, setDisplayedSpells] = useState<Array<Spell>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
 
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
@@ -69,49 +69,7 @@ export default function UpdateDBSpellsPage() {
     const [lookAtWhat, setLookAtWhat] = useState("spell");
 
 
-    async function getSpells() {
-        let spells: Spell[];
-        try {
-            const spellsRaw = await SpellsService.getAllSpells();
-            spells = Object.values(spellsRaw);
-        } catch (e) {
-            // if (e instanceof Error && e.message == "Network Error") {
-                console.log(
-                    "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                );
-                spells = Object.values(json);
-            // } else {
-            //     return;
-            // }
-        }
-
-        spells = sortArrayByLevel(spells);
-
-        setAllSpells(spells);
-        setDisplayedSpells(spells);
-    }
-
-    useEffect(() => {
-        getSpells();
-    }, [SpellsService]);
-
-    useEffect(() => {
-        if (searchValue == "") {
-            setDisplayedSpells(allSpells);
-            setClearButtonVisibility("hidden");
-            return;
-        }
-
-        setClearButtonVisibility("visible");
-        const filteredSpells = allSpells.filter((s) => {
-            return (
-                s.name.toLowerCase().includes(searchValue) ||
-                s.effect?.toLowerCase().includes(searchValue)
-            );
-        });
-
-        setDisplayedSpells(filteredSpells);
-    }, [allSpells, searchValue]);
+    
 
     function addToPinnedSpell(s: Spell) {
         setCurID(s.id);
@@ -146,7 +104,7 @@ export default function UpdateDBSpellsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedSpell();
-        getSpells();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleUpdate() {
@@ -163,7 +121,7 @@ export default function UpdateDBSpellsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedSpell();
-        getSpells();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleDelete() {
@@ -177,7 +135,7 @@ export default function UpdateDBSpellsPage() {
         }
         // Set inputs to nothing
         removeFromPinnedSpell();
-        getSpells();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     useEffect(() => {
@@ -375,28 +333,12 @@ export default function UpdateDBSpellsPage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
-
-                        <input
-                            value={searchValue}
-                            type="text"
-                            name="search"
-                            placeholder="Search"
-                            className="bg-dark-700 pl-1 w-16 flex-grow"
-                            onChange={(e) => {
-                                setSearchValue(e.target.value.toLowerCase());
-                            }}
-                        />
-                        <XMarkIcon
-                            className="h-6 w-6 opacity-50 cursor-pointer"
-                            visibility={clearButtonVisibility}
-                            onClick={() => {
-                                setSearchValue("");
-                                setClearButtonVisibility("hidden");
-                            }}
-                        />
-                    </div>
+                    <SearchGroup 
+                        filter={filterSpells} 
+                        resetFilter={resetFilterSpells}
+                        filterClass={eApiClass.Spell}
+                        tagList={tagList}
+                    />
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>

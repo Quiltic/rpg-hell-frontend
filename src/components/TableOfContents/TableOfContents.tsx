@@ -60,6 +60,9 @@ const basicContents: TableOfContentsItem = {
                 },
                 {
                     name: "Hide",
+                },
+                {
+                    name: "Hunker Down",
                 }
             ],
         },
@@ -153,6 +156,25 @@ const basicContents: TableOfContentsItem = {
                     className: "font-semibold text-body dark:text-soul-700",
                 },
             ]
+        },
+        {
+            name: "Items",
+            className: "font-semibold",
+            collapsable: true,
+            subItems: [
+                {
+                    name: "Equipped Items",
+                },
+                {
+                    name: "Runes",
+                },
+                {
+                    name: "Bound Items",
+                },
+                {
+                    name: "Item Tags"
+                },
+            ],
         },
         {
             name: "Rest and Travel",
@@ -337,7 +359,7 @@ const statusesContents: TableOfContentsItem = {
                 },
                 {
                     name: "Glowing"
-                },
+                }
             ]
         },
         {
@@ -360,22 +382,12 @@ const statusesContents: TableOfContentsItem = {
                 {
                     name: "Wet"
                 },
+                
             ]
         }
     ],
 };
 
-
-// Mysc Rules
-// Followers
-// Crafting Items
-// Knockback and Fall Damage
-// Mounts and Vehicles
-// Rough Terrain
-
-// Item Tags
-
-// GM Advice
 
 const myscContents: TableOfContentsItem = {
     name: "Mysc Rules",
@@ -418,9 +430,6 @@ const myscContents: TableOfContentsItem = {
                     name: "Sun",
                 },
             ],
-        },
-        {
-            name: "Item Tags"
         },
         {
             name: "GM Advice"

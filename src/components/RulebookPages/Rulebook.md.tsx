@@ -54,7 +54,7 @@ Spend \#\# (2 dice) to try to see something. This is not the same as a Search ac
 
 ### Arts
 
-- Spend/gain a varying amount of dice and Strain to use your Arts (Techniques, Insights, or Spells).
+- Spend a varying amount of dice and Strain to use your Arts (Techniques, Insights, or Spells).
 
 ### Shove
 
@@ -89,8 +89,16 @@ Spend \#\# (2 dice) to try to see something. This is not the same as a Search ac
 ### Hide
 
 - Spend \#\# to do a Thieving check. 
-  - On a Partial Success, you become obscured until you attack, cast a spell, or are discoverd.
-  - On a Success, you become Hidden, until you attack, cast a spell, or are discoverd.
+  - On a Partial Success, you become Hidden until you attack, cast a spell, or are discoverd.
+  - On a Success, you become Fully Hidden (See Hidden), until you attack, cast a spell, or are discoverd.
+
+
+### Hunker Down
+
+- You can only do this action while next to an object or wall. This object or wall must cover half your body.
+- Spend \# to Hunker Down. While Hunkered Down you are Obscured.
+- If you, or your cover, move or are moved, you are no-longer Hunkered Down.
+
 
 
 ## Combat
@@ -171,23 +179,23 @@ A full listing of Traits is listed under Traits Tables, or in the table page giv
 # Arts and Strain
 
 Arts are special uses of your Body, Mind, and Soul. Using an Art can change the way an encounter pans out, sometimes significantly. When you use an Art you are forcefully manipulating your Body, Mind, or Soul in a way which it was not meant to move. 
-This is where Strain comes from, as the manipulation of Arts is not without consequence. As such, when a creature or item casts or uses Arts, they may gain an amount Strain based on how strong the Art they are activated is (denoted next to the Art). 
+This is where Strain comes from, as the manipulation of Arts is not without consequence. As such, when a creature or item casts or uses Arts, they may spend an amount Strain based on how strong the Art they activated is (denoted next to the Art). 
 Depending on how much they have trained their Core Stats they may start to take damage from activating an Art. 
-A creature takes an amount of damage based on how much Strain they have over their Max Strain. 
+A creature takes an amount of damage based on how much Strain they have under 0. 
 This damage is taken before the Art's effect occurs, and the damage affects Health only which cannot be reduced. (Armor Stacks, Dodge, Ward, and other effects do not reduce this damage)
-You know a number of different Arts equal to 2 times your their respective Stat, and your ***Max Strain is equal to Body + 2x Mind + 3x Soul***. Though some Traits, or Items can increase these slightly. 
-You loose all stacks of Strain when you finish a Rest.
+You know a number of different Arts equal to 2 times your their respective Stat, and your ***Max Strain is equal to 2x Body + 3x Mind + 4x Soul***. Though some Traits, or Items can increase these slightly. 
+You regain all your Strain when you finish a Rest.
 
 
 ## Techniques
 
 The physical moves that tolls a Body. These can be extremely simple, such as giving a Speed boost, to something as complicated as an Aura. 
-***You know a number of Techniques equal to 2x Body. Techniques can only be changed out during a Levelup.***
+***You know a number of Techniques equal to 2x Body, and must cost your level +1 Strain or less. Techniques can only be changed out during a Levelup.***
 
 ## Insights
 
 The mental manipulation that stretches a Mind. These tend to effect dice values, or how one sees a scene. 
-***You know a number of Insights equal to 2x Mind. Insights can only be changed out during a Levelup.***
+***You know a number of Insights equal to 2x Mind, and must cost your level +1 Strain or less. Insights can only be changed out during a Levelup.***
 
 ## Spells and Magic
 
@@ -195,9 +203,34 @@ Magic is the ability to control souls, both your own and others, to affect the w
 As of now there are only three known ways to control souls: Strange grand movements which physically change the shape of souls, using Light to suppress or enhance souls, or through the writing of Runes on items to bring out the item's latent soul.
 There are a number of ways to learn how to do magic. Some mages learn through intense study and hard work. Others learn how by tradition or special dances. Even more are born with such knowledge or even find them by sheer coincidence.
 
-***You know a number of Spells equal to 2x Soul. Unlike other Arts, Spells can be changed out after the end of a Rest.***
+***You know a number of Spells equal to 2x Soul, and must cost your level +1 Strain or less. Unlike other Arts, Spells can be changed out after the end of a Rest.***
 
 
+# Items
+## Equipped Items
+You can only have one item equipped in the following slots: Head, Neck, Armor, Hands, Feet, and Tool.
+
+You can have 2 equipped weapons. You cannot wield 2 weapons that both have the tag ‘Two Handed’. For the purposes of equipped items a shield counts as a weapon. You can switch out an equipped weapon by spending ### (3 dice) in combat.
+
+(OPTIONAL) - You can only equip two Consumable items. You can use items from your bag by spending # to equip them. 
+
+A listing of what every Item tag does can be found <a href="#item-tags">below</a>.
+
+
+## Runes
+Runes are powerful tools and can vastly change how an item works. This does come at the cost of drawing out the latent magic within the item. From this only 1 rune can be applied to most items. Some items can be refined or augmented to improve the flow of magic. In this case you cannot apply multiple of the same rune to an item.
+	
+Attempting to apply runes to creatures usually results in catastrophe. As such you cannot apply runes to living things without special training (Traits).
+	
+Applying a Rune to something is nearly instant. However, removing a Rune takes a large amount of labor. As such you can only remove a Rune at the end of a Rest.
+
+Runes can be found in the world, purchased from arcanists, crafted, or generated from abilities (Traits).
+
+
+## Bound Items
+Bound items are items that magically tie themselves to their user. Like other forms of magic, this strains the bound creature and item. As such an item can only be bound to 1 creature at a time, and a creature can only be bound to 3 items at a time.
+
+Bound items have different ways of binding to them. A simple example may be: Have this item equipped during the course of a Rest. You can unbind to an item at any point. However, once unbound you must redo the steps needed to bind to the item. Unbinding does not cost dice or Strain. Though, cursed bound items cannot be unbound willingly.
 
 
 
@@ -330,29 +363,27 @@ Events can be classified as combat, exploration, roleplay, or location based eve
 
 Pick a Lineage, listed below.
 Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the requirements for.
-
-<span style="font-family: monospace; font-size: 1.3em">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
-
-<span style="font-family: monospace; font-size: 1.3em">Strain = Body + 2*Mind + 3*Soul</span> and <span style="font-family: monospace; font-size: 1.3em">You may know a number of Techniques (Body), Insights (Mind), or Spells (Soul) equal to twice their respective stat</span>. You cannot take Techniques, Insights, or Spells that have a Strain cost higher than your Level+1. 
-
+Lastly you gain an assortment of items. ***At level 1 all items taken must be non-magical and have a rarity of uncommon or common.***
 You may take either: 2 Weapons or 1 Weapon and a Shield.
+Then gain Armor of your choosing, 30 gold, a Bandage, an item with the Tool tag, and two other items.
 
-Gain an Armor, 30 gold, a Bandage, an item with the Tool tag, and two non-magical items worth ___ gold or less.
-
-
-
-## EXP
-
-idk
+<div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
+<span className="font-mono text-lg">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
+<span className="font-mono text-lg">Strain = Body + 2*Mind + 3*Soul</span> 
+<span className="font-mono text-lg">You may know a number of Techniques (Body), Insights (Mind), or Spells (Soul) equal to twice their respective stat.</span> You cannot take Techniques, Insights, or Spells that have a Strain cost higher than your Level+1. 
+</div>
 
 
 ## Leveling Up!
 
 Every level gain 1 new Trait that you meet its requirements for.
+Every even level gain an additional Combat Dice.
 Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different Sub-Stats, and gain 2 new Techniques (Body), Insights (Mind), or Spells (Soul) based on which Main-stat you increased. 
 **No Main or Sub Stat can be higher than 4.**
 
-<span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor and Strain</span>
+<div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
+<span style="font-family: monospace; font-size: 1.3em">Remember to update Health, Armor, Strain, and any Arts you have.</span>
+</div>
 
 
 ## Useful Level Table
@@ -404,10 +435,10 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Prone
 
-- You cannot be attacked by ranged attacks that have a sum of 8 or less.  
-- You cannot do attacks unless you give a 9 or higher on the attack.  
-- You must give \# before you may do the Move action. This counts as a Move action.  
-- You must give \# to go prone. This counts as a Move action.
+- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
+- You cannot do attacks that have a sum of 8 or less.
+- Your Speed is set to 2.
+- You must give \# to go prone or stand up. This counts as a Move action.
 
 ### Grappled
 
@@ -417,17 +448,17 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ### Obscured
 
-- You cannot be targeted by ranged actions.  
-  - Attacks, spells, effects, etc.  
-- You cannot be detected while people are not looking for you.
+- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
+  - Ranged actions made within 1 tile are excluded.
+- Your identity is unknown except by creatures within 1 tile of you, or if you announce yourself.
 
 ### Hidden
 
 - You cannot be targeted by ranged actions.  
   - Attacks, spells, effects, etc.  
 - You cannot be detected while people are not looking for you.  
-- When a creature does a Search action you are only found if no other creatures are Obscured in the same Search.  
-- You do \+1 damage on the attack action, this removes Hidden.
+- If you are Fully Hidden you do \+3 damage on the next attack you do, this removes Hidden.
+- You lose Hidden if you: Attack, Cast an Art, Activate a non-Thieving ability, or do a similar action.
 
 ### Marked
 
@@ -482,7 +513,6 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 ### Sparking
 - You take 1 damage for every one (dice value of 1) you roll, unlock, or generate.
 - This effect can happen multiple times per roll, and goes off on ALL rolls.
-
 
 ### Glowing
 
@@ -624,75 +654,46 @@ No special effects are present.
 
 ## Weapon Tags
 
-### Range
+| Tag | - | Effect | 
+| --- | --- | --- |
+| **Damage** | | How much damage weapons do when they hit the target. |
+| **Two Handed** | | Requires two hands to be able to use. |
+| **Range** | | How many tiles away the item will affect. Weapons can target anything within this range. Weapons with this tag are Ranged Weapons. |
+| **Reaching** | | How many tiles away the item will affect. Weapons can target anything within this range. Weapons with this tag are Melee Weapons. |
+| **Throw Range** | | How far you can throw the item. |
+| **Glow** | | Can be activated with \# (1 die) to light up everything within 2 tiles. Items with Glow can be used to cast Spells. |
+| **Loading** | | How many times the item can be used before requiring you to spend \# (1 die) to reload. |
+| **Autoload** | | Fully reloads at the end of your turn. |
+| **Launcher** | | Can be used to launch tiny or small items a number of tiles equal to its Range or Throw Range. |
 
-- How many tiles away the item will affect.  
-- Weapons can target anything within this range.
-
-### Throw Range
-
-- How far you can throw the item.
-
-### Damage
-
-- How much damage weapons do when they hit the target.
-
-### Auto-loading
-
-- Fully reloads at the end of your turn.
-
-### Two Handed
-
-- Requires two hands to be able to use.
-
-### Loading
-
-- How many times the item can be used before requiring you to spend \# (1 die) to reload.
-
-### Glow
-
-- Can be activated with \# (1 die) to light up everything within 4 tiles.   
-- Items with Glow can be used to cast Spells.
-
-### Launcher
-
-- Can be used to launch small items a number of tiles equal to its Range.
 
 ## Armor Tags
 
-### Speed
+| Tag | - | Effect |
+| --- | --- | --- |
+| **Speed** | | How much Speed you gain/lose when equipping the item. |
+| **Dodge** | | Can be spent when taking damage to reduce damage by half (rounded up). Gained at the end of a Rest |
+| **Ward** | | When you gain stacks of: Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet; you may choose to not gain these stacks and reduce your Ward by 1. Gained at the end of a Rest. |
+| **Heavy Armor** | | The type/amount of armor you get at the end of a Rest. Gives an amount of Armor equal to 4xBody \+ 3xMind \+ Your Level  |
+| **Medium Armor** | | The type/amount of armor you get at the end of a Rest. Gives an amount of Armor equal to 2xBody \+ 2xMind \+ Your Level  |
+| **Armor** | | The type/amount of armor you get at the end of a Rest. Gives an amount of Armor equal to your Level. |
+| **Clothing** | | A tag used to denote that you gain no armor but more stacks of Dodge and Ward. |
 
-- ### How much Speed you gain/lose when equipping the item.
 
-### Dodge
+## General Tags
 
-- Can be spent when taking damage to reduce damage by half (rounded up).  
-- Gained at the end of a Rest
-
-### Ward
-
-- When you gain stacks of: Blinded, Burning, Marked, Poisoned, Silenced, Slow, Stunned, or Wet; you may choose to not gain these stacks and reduce your Ward by 1\.  
-- Gained at the end of a Rest.
-
-### Heavy Armor
-
-- The type/amount of armor you get at the end of a Rest.  
-- Gives 4xBody \+ 3xMind \+ Your Level 
-
-### Medium Armor
-
-- The type/amount of armor you get at the end of a Rest.  
-- Gives 2xBody \+ 2xMind \+ Your Level 
-
-### Light Armor
-
-- The type/amount of armor you get at the end of a Rest.  
-- Gives Dodge and Your Level Armor
-
-### Clothing
-
-- The type/amount of armor you get at the end of a Rest.  
-- Gives Dodge and Ward
+| Tag | - | Effect |
+| --- | --- | --- |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
+| **** |  |  |
 
 # GM Advice
 

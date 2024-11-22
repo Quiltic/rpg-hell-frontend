@@ -56,4 +56,32 @@ function download(content, fileName: string, contentType: string) {
     URL.revokeObjectURL(a.href);
 }
 
-export { getPersistentPinnedNames, getNames, classNames, download };
+function getAllCombinations(arr: string[]): string { // Made with Chat GPT (I was running out of time)
+    // Filter out empty strings
+    const filteredArr = arr.filter(str => str !== "");
+
+    // Recursive helper function to generate permutations
+    function permute(arr: string[]): string[][] {
+        if (arr.length <= 1) return [arr];
+        
+        const result: string[][] = [];
+        
+        for (let i = 0; i < arr.length; i++) {
+            const current = arr[i];
+            const remaining = arr.slice(0, i).concat(arr.slice(i + 1));
+            const remainingPermutations = permute(remaining);
+
+            for (const perm of remainingPermutations) {
+                result.push([current, ...perm]);
+            }
+        }
+        
+        return result;
+    }
+
+    // Generate all permutations and join with .*
+    const allPermutations = permute(filteredArr);
+    return allPermutations.map(permutation => permutation.join(".*")).join("|");
+}
+
+export { getPersistentPinnedNames, getNames, classNames, download, getAllCombinations };

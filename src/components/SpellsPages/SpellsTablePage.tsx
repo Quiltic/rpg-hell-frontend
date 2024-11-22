@@ -4,9 +4,29 @@ import { Button } from "../ui/Button/Button";
 import { classNames, download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useSpells } from "../../hooks/useSpells";
-import Search from "../search/Search";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useState } from "react";
+import SearchGroup from "../search/SearchGroup";
+
+const tagList = [
+    "elemental",
+    "divine",
+    "soul",
+    "creation",
+    "control",
+    "divination",
+    "protection",
+    "power",
+    "healing",
+    "illusion",
+    "ranged",
+    "touch",
+    "focus",
+    "ritual",
+    "windup",
+    "technique",
+    "insight"
+];
 
 export default function SpellsTablePage() {
     const {
@@ -134,10 +154,11 @@ export default function SpellsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <Search
-                        filter={filterSpells}
+                    <SearchGroup 
+                        filter={filterSpells} 
                         resetFilter={resetFilterSpells}
                         filterClass={eApiClass.Spell}
+                        tagList={tagList}
                     />
                 </div>
                 <Tab.Panels>

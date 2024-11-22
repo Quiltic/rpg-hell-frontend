@@ -2,7 +2,7 @@ import { Item, ItemsService } from "../client";
 import { eApiClass } from "../types/ApiClassUnions";
 import { useApiClass } from "./useApiClass";
 
-export function useItems() {
+export function useItems(changeToRefresh:number = 0) {
     const {
         all: allItems,
         pinned: pinnedItems,
@@ -14,7 +14,8 @@ export function useItems() {
     } = useApiClass<Item>(
         eApiClass.Item,
         ItemsService.getAllItems,
-        "pinnedItemNames"
+        "pinnedItemNames",
+        changeToRefresh
     );
 
     return {

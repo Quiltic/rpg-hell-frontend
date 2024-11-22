@@ -76,7 +76,7 @@
         "notes": "A small translucent sprite similar in size to a small child. They are mostly found in service of mages and planar entities.\nThey love music and will come flocking if a good song is played to try to hum along to it."
     },
 
-    
+
     "10":{
         "name": "dog",
         "race": "animal",
@@ -92,7 +92,7 @@
         "thieving": 1,
         "augments": [],
         "traits": "bloodhound;|;keen tracker",
-        "arts": "",
+        "arts": "rip and tear",
         "items": "bite;|;simple defense",
         "notes": ""
     },
@@ -185,7 +185,7 @@
         "medicine": 0,
         "nature": 1,
         "thieving": 1,
-        "augments": [],
+        "augments": ["bite - damage -1"],
         "traits": "climber;|;urban expert",
         "arts": "",
         "items": "bite;|;simple defense",
@@ -223,7 +223,7 @@
         "medicine": 0,
         "nature": 1,
         "thieving": 0,
-        "augments": ["light defense - ward 2,speed -2"],
+        "augments": ["light defense - ward 2,speed -2","bite - damage -1"],
         "traits": "swimmer;|;durable",
         "arts": "bless",
         "items": "bite;|;light defense",
@@ -242,7 +242,7 @@
         "medicine": 0,
         "nature": 3,
         "thieving": 0,
-        "augments": ["light defense - speed 1"],
+        "augments": ["light defense - speed 1","kick - damage -1"],
         "traits": "strong body;|;mount",
         "arts": "bull rush",
         "items": "kick;|;light defense",
@@ -290,7 +290,7 @@
         "name":"turtle duck",
         "race":"animal",
         "level":2,
-        "body":0,
+        "body":1,
         "mind":0,
         "soul":1,
         "arcana":0,
@@ -300,7 +300,7 @@
         "medicine":0,
         "thieving":0,
         "augments":[],
-        "traits":"swimmer;|;expanded lungs;|;durable",
+        "traits":"swimmer;|;expanded lungs",
         "arts":"water ball;|;dark burst",
         "items":"peck;|;light defense",
         "notes":""
@@ -375,7 +375,7 @@
         "nature":2,
         "medicine":1,
         "thieving":1,
-        "augments":["kick - damage -1","light defense - speed 1"],
+        "augments":["kick - damage -1","light defense - speed 1,armor 2"],
         "traits":"heightened senses",
         "arts":"",
         "items":"light defense;|;kick",
@@ -470,13 +470,31 @@
         "nature":1,
         "medicine":1,
         "thieving":0,
-        "augments":["kick - damage -1"],
+        "augments":["kick - damage -1","medium defense - armor 1"],
         "traits":"strong body;|;canopy",
         "arts":"bull rush",
         "items":"medium defense;|;kick",
         "notes":""
     },
-
+    "31":{
+        "name":"stalacbeetle",
+        "race":"animal",
+        "level":6,
+        "body":3,
+        "mind":0,
+        "soul":1,
+        "arcana":0,
+        "crafting":0,
+        "charm":2,
+        "nature":2,
+        "medicine":0,
+        "thieving":4,
+        "augments":[],
+        "traits":"climber;|;mimicry;|;large",
+        "arts":"bull rush;|;meteor leap;|;prop;|;rage",
+        "items":"venomous bite;|;heavy defense",
+        "notes":"An ambush predictor, this beetle clings to the ceilings of caves pretending to be a stalactite. When prey comes close they grab onto their prey then jump into the wall to stun or kill it"
+    },
 
 
     "100":{
@@ -680,10 +698,29 @@
     "400":{
         "name":"war beetle tank",
         "race":"construct,mythic",
-        "level":9,
-        "body":4,
-        "mind":2,
+        "level":5,
+        "body":3,
+        "mind":1,
         "soul":0,
+        "arcana":3,
+        "crafting":4,
+        "charm":0,
+        "nature":1,
+        "medicine":0,
+        "thieving":0,
+        "augments":["heavy defense - armor 2"],
+        "traits":"mount;|;heat purge;|;deathless;|;construct;|;large;|;turreted weapon",
+        "arts":"ground slam;|;rage;|;stagger",
+        "items":"popcannon;|;lightning rail cannon;|;heavy defense",
+        "notes":"A simpler form of the Ancient Beetle Tank. Made in the image of the original, but unable to reach the same raw damage."
+    },
+    "401":{
+        "name":"ancient beetle tank",
+        "race":"construct,mythic",
+        "level":18,
+        "body":4,
+        "mind":4,
+        "soul":2,
         "arcana":4,
         "crafting":4,
         "charm":1,
@@ -691,10 +728,10 @@
         "medicine":1,
         "thieving":1,
         "augments":["heavy defense - armor 2"],
-        "traits":"mount;|;heat purge;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon",
-        "arts":"ground slam;|;rage;|;stagger",
-        "items":"popcannon;|;lightning rail cannon;|;heavy defense",
-        "notes":"A creation from an age long gone. Wandering aimlessly in pursuit of a new home and a new war to jump into."
-    }
+        "traits":"climber;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
+        "arts":"conjure fog;|;ground slam;|;piercing shot",
+        "items":"popshard lever action repeater;|;popcannon;|;heavy defense;|;coil cannon",
+        "notes":"A creation from an age long gone. Wandering aimlessly in pursuit of a new home and a new war to jump into.\n(The tank uses 4 Popshard Turreted Weapons, and has 2 mounted Popcannons. The Cannons cannot become Turrets.)"
+        }
 
 }

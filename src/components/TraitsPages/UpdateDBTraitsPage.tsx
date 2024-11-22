@@ -1,22 +1,18 @@
 import { useState, useEffect } from "react";
 import { Trait } from "../../client";
 
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
-
 import useApi from "../../hooks/useApi";
 
-import { Tab, Disclosure } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
 
 import TraitsTable from "./TraitsTable";
-
-import json from "../../assets/OfflineJsons/traits.json";
 import { Button } from "../ui/Button/Button";
-import { sortArrayByReqs } from "../../util/sortingTools";
-import { classNames, getPersistentPinnedNames } from "../../util/tableTools";
+import { classNames } from "../../util/tableTools";
 
-import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
-import Popup from "../ui/Popups/Popup";
+import { useTraits } from "../../hooks/useTraits";
+import { eApiClass } from "../../types/ApiClassUnions";
+import SearchGroup from "../search/SearchGroup";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -85,20 +81,15 @@ const IterativeTraitLevels = [
 export default function UpdateDBTraitsPage() {
     const { TraitsService } = useApi();
 
-    const [popupIsOpen, setPopupIsOpen] = useState(false);
-    const [popupName, setPopupName] = useState("");
-    const [popupData, setPopupData] = useState("");
+    const [changeToRefresh, setChangeToRefresh] = useState(0);
 
-    const [searchValue, setSearchValue] = useState("");
-    const [allTraits, setAllTraits] = useState<Array<Trait>>([]);
-    const [displayedTraits, setDisplayedTraits] = useState<Array<Trait>>([]);
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
+    const {
+        displayedTraits,
+        filterTraits,
+        resetFilterTraits,
+    } = useTraits(changeToRefresh);
 
-    // const [mainstatSkillList, setMainstatSkillList] = useState(statSkillList);
-    // const [secondstatSkillList, setSecondstatSkillList] = useState(statSkillList);
-    // const [otherList, setOtherList] = useState(otherListCore);
-    // const [diceCostList, setDiceCostList] = useState(diceCostListCore);
+    
     const [curID, setCurID] = useState(0);
     const [nameText, setNameText] = useState("");
     const [mainStat, setMainStat] = useState("");
@@ -108,49 +99,7 @@ export default function UpdateDBTraitsPage() {
     const [effectText, setEffectText] = useState("");
     const [curTrait, setCurTrait] = useState<Trait>();
 
-    async function getTraits() {
-        let traits: Trait[];
-        try {
-            const traitsRaw = await TraitsService.getAllTraits();
-            traits = Object.values(traitsRaw);
-        } catch (e) {
-            // if (e instanceof Error && e.message == "Network Error") {
-                console.log(
-                    "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                );
-                traits = Object.values(json);
-            // } else {
-            //     return;
-            // }
-        }
-
-        traits = sortArrayByReqs(traits);
-
-        setAllTraits(traits);
-        setDisplayedTraits(traits);
-    }
-
-    useEffect(() => {
-        getTraits();
-    }, [TraitsService]);
-
-    useEffect(() => {
-        if (searchValue == "") {
-            setDisplayedTraits(allTraits);
-            setClearButtonVisibility("hidden");
-            return;
-        }
-
-        setClearButtonVisibility("visible");
-        const filteredTraits = allTraits.filter((s) => {
-            return (
-                s.name.toLowerCase().includes(searchValue) ||
-                s.effect?.toLowerCase().includes(searchValue)
-            );
-        });
-
-        setDisplayedTraits(filteredTraits);
-    }, [allTraits, searchValue]);
+    
 
     function addToPinnedTrait(s: Trait) {
         setCurID(s.id);
@@ -193,14 +142,11 @@ export default function UpdateDBTraitsPage() {
             const reply = await TraitsService.putTrait({
                 requestBody: curTrait,
             });
-            setPopupData(reply);
-            setPopupName("Create New");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
-        getTraits();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleUpdate() {
@@ -213,14 +159,11 @@ export default function UpdateDBTraitsPage() {
                 name: curTrait?.name,
                 requestBody: curTrait,
             });
-            setPopupData(reply);
-            setPopupName("Update");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
-        getTraits();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     async function handleDelete() {
@@ -230,14 +173,11 @@ export default function UpdateDBTraitsPage() {
         }
         if (curTrait?.name != "") {
             const reply = await TraitsService.deleteTrait({ id: curTrait?.id });
-            setPopupData(reply);
-            setPopupName("Delete");
-            setPopupIsOpen(true);
             console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedTrait();
-        getTraits();
+        setChangeToRefresh(changeToRefresh+1);
     }
 
     useEffect(() => {
@@ -433,28 +373,12 @@ export default function UpdateDBTraitsPage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full w-full md:w-56 max-h-10">
-                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
-
-                        <input
-                            value={searchValue}
-                            type="text"
-                            name="search"
-                            placeholder="Search"
-                            className="bg-dark-700 pl-1 w-16 flex-grow"
-                            onChange={(e) => {
-                                setSearchValue(e.target.value.toLowerCase());
-                            }}
-                        />
-                        <XMarkIcon
-                            className="h-6 w-6 opacity-50 cursor-pointer"
-                            visibility={clearButtonVisibility}
-                            onClick={() => {
-                                setSearchValue("");
-                                setClearButtonVisibility("hidden");
-                            }}
-                        />
-                    </div>
+                    <SearchGroup 
+                        filter={filterTraits} 
+                        resetFilter={resetFilterTraits}
+                        filterClass={eApiClass.Trait}
+                        tagList={[]}
+                    />
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
