@@ -19,13 +19,14 @@ import TraitsTablePage from "../TraitsPages/TraitsTablePage";
 import { eApiClass } from "../../types/ApiClassUnions";
 import Search from "../search/Search";
 
-import { FunnelIcon, MagnifyingGlassIcon, XMarkIcon, UserIcon } from "@heroicons/react/20/solid";
+import { FunnelIcon, MagnifyingGlassIcon, XMarkIcon, UserIcon, PlusIcon } from "@heroicons/react/20/solid";
 import ItemsTable from "../ItemPages/ItemsTable";
 import Popup from "../ui/Popups/Popup";
 import SearchGroup from "../search/SearchGroup";
 import { Tab } from "@headlessui/react";
 import DicePopup from "../ui/Popups/dicePopup";
 import DicePopup2 from "../ui/Popups/dicePopup2";
+import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
 
 // const wep4ListReaching = [
@@ -33,20 +34,20 @@ import DicePopup2 from "../ui/Popups/dicePopup2";
 // ];
 
 const displayedCreature = {
-        "name":"ancient beetle tank",
-        "race":"construct,mythic",
-        "level":18,
-        "body":4,
-        "mind":4,
-        "soul":2,
+        "name":"template thing",
+        "race":"animal,construct,monstrosity,planar,undead,mythic",
+        "level":10,
+        "body":3,
+        "mind":2,
+        "soul":1,
         "arcana":4,
-        "crafting":4,
-        "charm":1,
-        "nature":1,
-        "medicine":1,
-        "thieving":1,
-        "augments":["heavy defense - armor 2"],
-        "traits":"climber;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
+        "crafting":3,
+        "charm":2,
+        "nature":4,
+        "medicine":3,
+        "thieving":2,
+        "augments":["heavy defense - armor 2,ward 1,dodge 2"],
+        "traits":"climber;|;swimmer;|;flight;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
         "arts":"conjure fog;|;ground slam;|;piercing shot",
         "items":"popshard lever action repeater;|;popcannon;|;heavy defense;|;coil cannon",
         "notes":"A creation from an age long gone. Wandering aimlessly in pursuit of a new home and a new war to jump into.\n(The tank uses 4 Popshard Turreted Weapons, and has 2 mounted Popcannons. The Cannons cannot become Turrets.)"
@@ -56,10 +57,66 @@ const displayedCreature = {
 export default function JoshhellscapePage() {
 
     const {allTraits: traitsList} = useTraits();
-
     const {allSpells: spellsList} = useSpells();
-
     const {allItems: itemsList} = useItems();
+
+
+    const [health, setHealth] = useState(0);
+    const [maxHealth, setMaxHealth] = useState(0);
+    const [armor, setArmor] = useState(0);
+    const [maxArmor, setMaxArmor] = useState(0);
+
+    const [dodge, setDodge] = useState(0);
+    const [restDodge, setRestDodge] = useState(0);
+    const [ward, setWard] = useState(0);
+    const [restWard, setRestWard] = useState(0);
+
+    const [speed, setSpeed] = useState(0);
+
+
+    useEffect(() => {
+
+
+
+
+        const hpBonus = 0;
+    
+        const maxHealth = Math.ceil(
+            displayedCreature.level +
+            displayedCreature.body * 4 +
+            displayedCreature.mind * 3 +
+            displayedCreature.soul * 2 +
+            hpBonus
+        );
+
+        setHealth(maxHealth);
+        setMaxHealth(maxHealth);
+
+
+        if (itemsList.length > 0) {
+            let items = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
+            items = upgradeItem(items, displayedCreature.augments);
+            const itemTags = sumTags(items);
+        
+            const tempArmor = ("armor" in itemTags ? itemTags["armor"]*displayedCreature.level : 0) + ("heavy armor" in itemTags ? itemTags["heavy armor"]*displayedCreature.level + 4*displayedCreature.body + 3*displayedCreature.mind : 0) + ("medium armor" in itemTags ? itemTags["medium armor"]*displayedCreature.level + 2*displayedCreature.body + 2*displayedCreature.mind : 0);
+            setArmor(tempArmor);
+            setMaxArmor(tempArmor);
+
+            const tempWard = "ward" in itemTags ? itemTags["ward"] : 0;
+            const tempDodge = "dodge" in itemTags ? itemTags["dodge"] : 0;
+            setWard(tempWard);
+            setRestWard(tempWard);
+            setDodge(tempDodge);
+            setRestDodge(tempDodge);
+            
+            setSpeed(6 + ("speed" in itemTags ? itemTags["speed"] : 0) + (displayedCreature.traits.includes("quick runner") ? 1 : 0));
+
+
+            console.log(items,itemTags)
+        }
+
+    }, [displayedCreature, itemsList, traitsList]); 
+
 
     // const { ItemsService } = useApi();
 
@@ -76,18 +133,13 @@ export default function JoshhellscapePage() {
         
     // }, [wepBase, wep9, wep4, wepSpecial]);
 
-    const stats = toPillElement(
-        `Body ${displayedCreature.body},Mind ${displayedCreature.mind},Soul ${displayedCreature.soul},Arcana ${displayedCreature.arcana},Charm ${displayedCreature.charm},Crafting ${displayedCreature.crafting},Nature ${displayedCreature.nature},Medicine ${displayedCreature.medicine},Thieving ${displayedCreature.thieving}`,
-        ","
-    );
+
     // const race = displayedCreature.race?.toString().split(";|;").join(", ");
 
     
     // const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
     // const spells = getNames(displayedCreature.arts, spellsList) as Spell[];
-    // let items = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
-
-    // items = upgradeItem(items, displayedCreature.augments);
+    
 
     
     // let bonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
@@ -98,22 +150,8 @@ export default function JoshhellscapePage() {
     //     soulStrain = 0;
     // };
     
-    // const health = Math.ceil(
-    //     displayedCreature.level +
-    //     displayedCreature.body * 4 +
-    //     displayedCreature.mind * 3 +
-    //     displayedCreature.soul * 2 +
-    //     bonus
-    // );
     
-    // const itemTags = sumTags(items);
     
-    // const armor = ("armor" in itemTags ? itemTags["armor"]*displayedCreature.level : 0) + ("heavy armor" in itemTags ? itemTags["heavy armor"]*displayedCreature.level + 4*displayedCreature.body + 3*displayedCreature.mind : 0) + ("medium armor" in itemTags ? itemTags["medium armor"]*displayedCreature.level + 2*displayedCreature.body + 2*displayedCreature.mind : 0);
-    // const ward = ("ward" in itemTags ? itemTags["ward"] : 0);
-    // const dodge = ("dodge" in itemTags ? itemTags["dodge"] : 0);
-    
-    // bonus = ("speed" in itemTags ? itemTags["speed"] : 0) + (displayedCreature.traits.includes("quick runner") ? 1 : 0);
-    // const speed = + 6 + bonus;
     
     
     // let [activeLines, passiveLines, itemLines] = createItemLines(items);
@@ -143,13 +181,29 @@ export default function JoshhellscapePage() {
     return (
         <div>
             <DicePopup2 startingDice={[0,0]} startingBonus={bonus} setBonus={SetBonus} isOpen={popupOpen} setIsOpen={setPopupOpen}/>
-            <div className="flex flex-row justify-left bg-dark-400 rounded-lg m-2">
-                <div className="bg-dark-300 rounded-lg p-2 m-4">
-                    test
+            
+            {/* Header */}
+            <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2">
+                <h2 className="bg-dark-300 rounded-lg p-4 m-2 justify-center items-center flex capitalize">
+                    {displayedCreature.name}
+                </h2>
+
+                <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-1">
+                    <div className="justify-end grid">
+                        Level: {displayedCreature.level}
+                    </div>
+
+                    <div className="capitalize justify-end grid">
+                        {/* I am so lazy here id rather split then recombine than do something smarter (its 11 pm) */}
+                        {displayedCreature.race.toString().split(",").join(", ")}
+                    </div>
                 </div>
             </div>
             
+            {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
+                
+                {/* 9 Stat List */}
                 <div className="bg-dark-400 rounded-lg m-2">
                     <div className="grid grid-cols-3 gap-4 justify-left bg-dark-300 rounded-lg m-2 p-4">
                         <Button
@@ -230,12 +284,204 @@ export default function JoshhellscapePage() {
                     </div>
                 </div>
 
-                <div className="bg-dark-400 rounded-lg m-2">
-                    <div className="bg-dark-300 rounded-lg p-2 m-2">
-                        test
+                {/* Other Stats */}
+                <div className="grid grid-cols-3 bg-dark-400 rounded-lg m-2">
+                    
+                    {/* Health/Armor/Ward/Dodge */}
+                    <div className="flex flex-col col-span-2">
+                        {/* Armor */}
+                        { maxArmor > 0 &&
+                            <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
+                                <div className="flex capitalize font-bold justify-start">
+                                    Armor:
+                                </div>
+                                
+                                <input
+                                    type="number"
+                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                    value={armor}
+                                    min="0"
+                                    onChange={(e) => setArmor(parseInt(e.target.value))}
+                                />
+                                <div className="flex justify-start">
+                                    / {maxArmor}
+                                </div>
+
+                                <div className="flex flex-row">
+                                    <Button  
+                                        leftIcon={plusIcon} 
+                                        variant="subtle"
+                                        className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
+                                        onClick={() => {
+                                            setArmor(armor+1);
+                                            }
+                                        }>
+                                    </Button>
+                                    <Button 
+                                        leftIcon={minusIcon} 
+                                        variant="subtle"
+                                        className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
+                                        onClick={() => {
+                                            setArmor(armor-1);
+                                            }
+                                        }>
+                                    </Button>
+                                </div>
+
+                            </div>
+                        }
+                        
+                        {/* Health */}
+                        <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
+                            <div className="flex capitalize font-bold">
+                                Health:
+                            </div>
+                            
+                            <input
+                                type="number"
+                                className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                value={health}
+                                min="0"
+                                onChange={(e) => setHealth(parseInt(e.target.value))}
+                            />
+                            <div className="flex justify-start">
+                                / {maxHealth}
+                            </div>
+
+                            <div className="flex flex-row">
+                                <Button  
+                                    leftIcon={plusIcon} 
+                                    variant="subtle"
+                                    className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
+                                    onClick={() => {
+                                        setHealth(health+1);
+                                        }
+                                    }>
+                                </Button>
+                                <Button 
+                                    leftIcon={minusIcon} 
+                                    variant="subtle"
+                                    className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
+                                    onClick={() => {
+                                        setHealth(health-1);
+                                        }
+                                    }>
+                                </Button>
+                            </div>
+                        </div>
+                        
+                        
+                        {/* Dodge */}
+                        { restDodge > 0 &&
+                            <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
+                                <div className="flex capitalize font-bold">
+                                    Dodge:
+                                </div>
+                                
+                                <input
+                                    type="number"
+                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                    value={dodge}
+                                    min="0"
+                                    onChange={(e) => setHealth(parseInt(e.target.value))}
+                                />
+
+                                <div></div>
+
+                                <div className="flex flex-row">
+                                    <Button  
+                                        leftIcon={plusIcon} 
+                                        variant="subtle"
+                                        className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
+                                        onClick={() => {
+                                            setDodge(dodge+1);
+                                            }
+                                        }>
+                                    </Button>
+                                    <Button 
+                                        leftIcon={minusIcon} 
+                                        variant="subtle"
+                                        className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
+                                        onClick={() => {
+                                            setDodge(dodge-1);
+                                            }
+                                        }>
+                                    </Button>
+                                </div>
+                            </div>
+                        }
+                        {/* Ward */}
+                        { restWard > 0 &&
+                            <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
+                                <div className="flex capitalize font-bold">
+                                    Ward:
+                                </div>
+                                
+                                <input
+                                    type="number"
+                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                    value={ward}
+                                    min="0"
+                                    onChange={(e) => setHealth(parseInt(e.target.value))}
+                                />
+                                
+                                <div></div>
+
+                                <div className="flex flex-row">
+                                    <Button  
+                                        leftIcon={plusIcon} 
+                                        variant="subtle"
+                                        className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
+                                        onClick={() => {
+                                            setWard(ward+1);
+                                            }
+                                        }>
+                                    </Button>
+                                    <Button 
+                                        leftIcon={minusIcon} 
+                                        variant="subtle"
+                                        className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
+                                        onClick={() => {
+                                            setWard(ward-1);
+                                            }
+                                        }>
+                                    </Button>
+                                </div>
+
+                            </div>
+                        }
+                        
                     </div>
+                    
+                    {/* Speed/Swim/Climb/Fly */}
+                    <div className="flex flex-col">
+                        <div className="bg-dark-300 rounded-lg p-2 m-2 flex justify-center font-bold text-lg items-center">
+                            Speed: {speed}
+                        </div>
+
+                        {/* Swim/CLimb/Fly */}
+                        { (displayedCreature.traits.includes("swimmer") || displayedCreature.traits.includes("climber") || displayedCreature.traits.includes("flight")) &&
+                            <div className="bg-dark-300 rounded-lg p-2 m-2 flex justify-start flex-col">
+                                { displayedCreature.traits.includes("swimmer") &&
+                                <div className="mb-2" >Can Swim</div>
+                                }
+                                {displayedCreature.traits.includes("climber") &&
+                                <div className="mb-2" >Can Climb</div>
+                                }
+                                {displayedCreature.traits.includes("flight") &&
+                                <div className="mb-2" >Can Fly</div>
+                                }
+                            </div>
+                        }
+                        
+                    </div>
+                    
                 </div>
+
             </div>
+
+            
+
         </div>
     );
 }
