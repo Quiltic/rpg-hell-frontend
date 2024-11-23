@@ -194,17 +194,19 @@ export default function JoshhellscapePage() {
     // }
     
     function openPopup (type:number) {
-        SetBonus(type);
+        setNumDice([0,0]);
+        setDiceBonus(type);
         setPopupOpen(true);
     }
-    const [bonus, SetBonus] = useState<number>(0);
+    const [diceBonus, setDiceBonus] = useState<number>(0);
+    const [numDice, setNumDice] = useState<Array<number>>([0,0]);
     const [popupOpen, setPopupOpen] = useState(false);
 
     
 
     return (
         <div>
-            <DicePopup2 startingDice={[0,0]} startingBonus={bonus} setBonus={SetBonus} isOpen={popupOpen} setIsOpen={setPopupOpen}/>
+            <DicePopup2 startingDice={numDice} startingBonus={diceBonus} setBonus={setDiceBonus} isOpen={popupOpen} setIsOpen={setPopupOpen}/>
             
             {/* Header */}
             <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2">
@@ -504,10 +506,27 @@ export default function JoshhellscapePage() {
 
             </div>
 
-            <div className="bg-dark-400 rounded-lg m-2">
-                        piss
+            <div className="bg-dark-400 rounded-lg m-2 p-1">
+                <div className="bg-dark-300 rounded-lg m-1 p-2 flex flex-row">
+                    <div className="flex justify-start font-bold">
+                        Actives
+                    </div>
+                    <div className="flex flex-row justify-end">
+                        <Button
+                            variant={"subtle"}
+                            className={
+                                "rounded-lg p-2"
+                            }
+                            onClick={() => {
+                                setNumDice(Array.apply(null, Array(4+Math.floor(displayedCreature.level/2))).map(Number.prototype.valueOf,0))
+                                setDiceBonus(0)
+                                setPopupOpen(true)
+                            }}
+                        >Combat Dice {4+Math.floor(displayedCreature.level/2)}</Button>
+                    </div>
+                </div>
             </div>
-            
+
             {items!=undefined && items.map((item) => {
 
             return(

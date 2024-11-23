@@ -50,6 +50,7 @@ type Props = {
     startingBonus: number;
     isOpen: boolean;
     setIsOpen: (s: boolean) => void;
+    setDice: (s: number[]) => void;
     setBonus: (s: number) => void;
 };
 
@@ -59,6 +60,7 @@ export default function DicePopup2({
     startingBonus: Bonus = 0,
     isOpen: isOpen,
     setIsOpen: setIsOpen,
+    // setDice: SetDice,
     setBonus: SetBonus,
     }: Props) {
 
