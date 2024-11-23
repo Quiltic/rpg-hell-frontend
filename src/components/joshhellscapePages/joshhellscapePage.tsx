@@ -27,6 +27,7 @@ import { Tab } from "@headlessui/react";
 import DicePopup from "../ui/Popups/dicePopup";
 import DicePopup2 from "../ui/Popups/dicePopup2";
 import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
+import { ClassDictionary } from "clsx";
 
 
 // const wep4ListReaching = [
@@ -49,9 +50,24 @@ const displayedCreature = {
         "augments":["heavy defense - armor 2,ward 1,dodge 2"],
         "traits":"climber;|;swimmer;|;flight;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
         "arts":"conjure fog;|;ground slam;|;piercing shot",
-        "items":"popshard lever action repeater;|;popcannon;|;heavy defense;|;coil cannon",
+        "items":"popshard rifle;|;fists;|;heavy defense",
         "notes":"A creation from an age long gone. Wandering aimlessly in pursuit of a new home and a new war to jump into.\n(The tank uses 4 Popshard Turreted Weapons, and has 2 mounted Popcannons. The Cannons cannot become Turrets.)"
         }
+
+
+type dictItem = {
+    [name: string]: any;
+}
+type fakeItem = {
+    id: number;
+    effect: string;
+    cost: number;
+    craft: number;
+    req: Array<string>;
+    tags: dictItem;
+}
+
+
 
 
 export default function JoshhellscapePage() {
@@ -72,6 +88,12 @@ export default function JoshhellscapePage() {
     const [restWard, setRestWard] = useState(0);
 
     const [speed, setSpeed] = useState(0);
+    
+    const [items, setItems] = useState<Array<dictItem>>();
+
+
+    const formatTags = (tags: { [key: string]: number }): string => Object.entries(tags).map(([key, value]) => `${key} ${value}`).join(', ');
+
 
 
     useEffect(() => {
@@ -79,7 +101,18 @@ export default function JoshhellscapePage() {
 
 
 
-        const hpBonus = 0;
+        let hpBonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
+        
+        let startingStrain = Math.ceil(
+            displayedCreature.soul * 4 +
+            displayedCreature.mind * 3 +
+            displayedCreature.body * 2 
+        );
+
+        if (displayedCreature.traits.includes("blood magic")) {
+            hpBonus += startingStrain;
+            startingStrain = 0;
+        }
     
         const maxHealth = Math.ceil(
             displayedCreature.level +
@@ -94,9 +127,11 @@ export default function JoshhellscapePage() {
 
 
         if (itemsList.length > 0) {
-            let items = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
-            items = upgradeItem(items, displayedCreature.augments);
-            const itemTags = sumTags(items);
+            let tempItems = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
+            tempItems = upgradeItem(tempItems, displayedCreature.augments);
+            const itemTags = sumTags(tempItems);
+            setItems(Object.values(tempItems));
+
         
             const tempArmor = ("armor" in itemTags ? itemTags["armor"]*displayedCreature.level : 0) + ("heavy armor" in itemTags ? itemTags["heavy armor"]*displayedCreature.level + 4*displayedCreature.body + 3*displayedCreature.mind : 0) + ("medium armor" in itemTags ? itemTags["medium armor"]*displayedCreature.level + 2*displayedCreature.body + 2*displayedCreature.mind : 0);
             setArmor(tempArmor);
@@ -112,7 +147,7 @@ export default function JoshhellscapePage() {
             setSpeed(6 + ("speed" in itemTags ? itemTags["speed"] : 0) + (displayedCreature.traits.includes("quick runner") ? 1 : 0));
 
 
-            console.log(items,itemTags)
+            // console.log(tempItems,itemTags)
         }
 
     }, [displayedCreature, itemsList, traitsList]); 
@@ -134,21 +169,10 @@ export default function JoshhellscapePage() {
     // }, [wepBase, wep9, wep4, wepSpecial]);
 
 
-    // const race = displayedCreature.race?.toString().split(";|;").join(", ");
-
     
     // const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
     // const spells = getNames(displayedCreature.arts, spellsList) as Spell[];
     
-
-    
-    // let bonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
-    // let soulStrain = (displayedCreature.soul*4 + displayedCreature.mind*3 + displayedCreature.body*2) //(displayedCreature.traits.includes("mental mage") ? displayedCreature.soul*4 : displayedCreature.soul*3);
-    
-    // if (displayedCreature.traits.includes("blood magic")) {
-    //     bonus += soulStrain;
-    //     soulStrain = 0;
-    // };
     
     
     
@@ -480,7 +504,33 @@ export default function JoshhellscapePage() {
 
             </div>
 
+            <div className="bg-dark-400 rounded-lg m-2">
+                        piss
+            </div>
             
+            {items!=undefined && items.map((item) => {
+
+            return(
+            <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
+                <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
+                    {item.name}
+                </div>
+                {'weapon' in item.tags && 
+                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1">
+                        ##
+                    </div>
+                }
+                <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-3">
+                    {formatTags(item.tags).replace(/ 0/gi,"").replace(/, weapon/gi,"").replace(/, common/gi,"").replace(/, uncommon/gi,"").replace(/, rare/gi,"").replace(/, legendary/gi,"")}
+                </div>
+                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-6 whitespace-pre-wrap overflow-y-auto text-left">
+                    {item.effect}
+                </div>
+
+
+            </div>);
+
+            })}
 
         </div>
     );

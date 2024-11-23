@@ -10,7 +10,7 @@ function capitalizeWords(input: string): string { // ChatGPT (Im lazy)
 
 function dictionaryItems(_items: Item[]) {
 
-    let itemsDict = Object.fromEntries(_items.map(({name,...rest}) => [name, rest])); // provided by https://stackoverflow.com/questions/61379389/mapping-an-array-of-objects-to-dictionary-in-typescript
+    let itemsDict = Object.fromEntries(_items.map(({name,...rest}) => [name, {name, ...rest}])); // provided by https://stackoverflow.com/questions/61379389/mapping-an-array-of-objects-to-dictionary-in-typescript
 
     if (Object.keys(itemsDict).includes("Error")) { // a catch incase there is an error (error items break everything)
         return {}
