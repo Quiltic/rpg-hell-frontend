@@ -82,6 +82,9 @@ export default function JoshhellscapePage() {
     const [armor, setArmor] = useState(0);
     const [maxArmor, setMaxArmor] = useState(0);
 
+    const [strain, setStrain] = useState(0);
+    const [maxStrain, setMaxStrain] = useState(0);
+
     const [dodge, setDodge] = useState(0);
     const [restDodge, setRestDodge] = useState(0);
     const [ward, setWard] = useState(0);
@@ -97,9 +100,6 @@ export default function JoshhellscapePage() {
 
 
     useEffect(() => {
-
-
-
 
         let hpBonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
         
@@ -121,6 +121,9 @@ export default function JoshhellscapePage() {
             displayedCreature.soul * 2 +
             hpBonus
         );
+
+        setStrain(startingStrain);
+        setMaxStrain(startingStrain);
 
         setHealth(maxHealth);
         setMaxHealth(maxHealth);
@@ -152,21 +155,12 @@ export default function JoshhellscapePage() {
 
     }, [displayedCreature, itemsList, traitsList]); 
 
-
-    // const { ItemsService } = useApi();
-
-    // const [searchValue, setSearchValue] = useState("");
     
-    // useEffect(() => {
-    //      let tempEffect = (wepSpecial ? [wepSpecial] : []); // This is so we dont have a random empty newline at the beginning of the effect when there is no special text
-
-    //     if (wepBase.includes("(ignore 4 or less)")){
-    //         setEffectText([...tempEffect, wep9.replace("9+:","On a 9 or Higher:")].join("\n"));
-    //     } else
-    //         setEffectText([...tempEffect, wep4.replace("4-:","On a 4 or Less:"), wep9.replace("9+:","On a 9 or Higher:")].join("\n"));
-
-        
-    // }, [wepBase, wep9, wep4, wepSpecial]);
+    useEffect(() => {
+        if (strain < 0) {
+            setHealth(health+strain);
+        }        
+    }, [strain]);
 
 
     
@@ -506,6 +500,7 @@ export default function JoshhellscapePage() {
 
             </div>
 
+            {/* Actives Bar */}
             <div className="bg-dark-400 rounded-lg m-2 p-1">
                 <div className="bg-dark-300 rounded-lg m-1 p-2 flex flex-row">
                     <div className="flex justify-start font-bold">
@@ -527,6 +522,7 @@ export default function JoshhellscapePage() {
                 </div>
             </div>
 
+            {/* Items */}
             {items!=undefined && items.map((item) => {
 
             return(
@@ -546,6 +542,84 @@ export default function JoshhellscapePage() {
                     {item.effect}
                 </div>
 
+
+            </div>);
+
+            })}
+
+            {/* Arts Bar */}
+            <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
+                {/* <div className=" flex flex-row"> */}
+                <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
+                    Arts
+                </h2>
+                <div className="bg-dark-300 rounded-lg m-2 grid grid-cols-1 flex flex-row justify-end">
+                { maxStrain > 0 &&
+                        <div className="bg-dark-300 rounded-lg p-2 flex flex-row justify-center items-center">
+                            <div className="flex capitalize font-bold justify-start p-2">
+                                Strain:
+                            </div>
+                            
+                            <input
+                                type="number"
+                                className="flex flex-row h-9 w-20 rounded-lg p-2 shadow-md justify-end m-1"
+                                value={strain}
+                                max={maxStrain}
+                                onChange={(e) => setStrain(parseInt(e.target.value))}
+                            />
+                            <div className="flex justify-start">
+                                / {maxStrain}
+                            </div>
+
+                            <div className="flex flex-row p-2">
+                                <Button  
+                                    leftIcon={plusIcon} 
+                                    variant="subtle"
+                                    className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
+                                    onClick={() => {
+                                        setStrain(strain+1);
+                                        }
+                                    }>
+                                </Button>
+                                <Button 
+                                    leftIcon={minusIcon} 
+                                    variant="subtle"
+                                    className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
+                                    onClick={() => {
+                                        setStrain(strain-1);
+                                        }
+                                    }>
+                                </Button>
+                            </div>
+                        </div>
+                    }
+                </div>
+                {/* </div> */}
+            </div>
+
+
+            {/* Arts */}
+            {displayedCreature.arts && spellsList.length > 0 && (getNames(displayedCreature.arts, spellsList) as Spell[]).map((art) => {
+
+            return(
+            <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
+                <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2 whitespace-pre-wrap overflow-y-auto">
+                    {art.name}
+                    { art.tags.includes("focus") ? "\n(Focus)" : ""}
+                </div>
+                
+                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1" 
+                    onClick={() => {setStrain(strain-(art.level ?? 0));}}>
+
+                    {art.level}{", "} 
+                    {"#".repeat(art.dice ?? 1) ?? "P"}
+                </div>
+                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-8 whitespace-pre-wrap overflow-y-auto text-left">
+                    {art.effect}
+                </div>
+                <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-1">
+                    {art.tags.join(', ')}
+                </div>
 
             </div>);
 
