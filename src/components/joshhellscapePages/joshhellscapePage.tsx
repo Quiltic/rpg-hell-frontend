@@ -28,6 +28,7 @@ import DicePopup from "../ui/Popups/dicePopup";
 import DicePopup2 from "../ui/Popups/dicePopup2";
 import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { ClassDictionary } from "clsx";
+import Checkbox from "../ui/Checkbox";
 
 
 // const wep4ListReaching = [
@@ -190,18 +191,69 @@ export default function JoshhellscapePage() {
     function openPopup (type:number) {
         setNumDice([0,0]);
         setDiceBonus(type);
-        setPopupOpen(true);
+        setDicePopupOpen(true);
     }
     const [diceBonus, setDiceBonus] = useState<number>(0);
     const [numDice, setNumDice] = useState<Array<number>>([0,0]);
-    const [popupOpen, setPopupOpen] = useState(false);
-
+    const [dicePopupOpen, setDicePopupOpen] = useState(false);
     
+
+    function resetStats() {
+        setArmor(maxArmor);
+        setDodge(restDodge);
+        setWard(restWard);
+        setHealth(maxHealth);
+        setStrain(maxStrain);
+    }
+
+    const [restPopupOpen, setRestPopupOpen] = useState(false);    
+    const [checkbox, setCheckbox] = useState(false);
+
+
 
     return (
         <div>
-            <DicePopup2 startingDice={numDice} startingBonus={diceBonus} setBonus={setDiceBonus} isOpen={popupOpen} setIsOpen={setPopupOpen}/>
+
+            <DicePopup2 startingDice={numDice} startingBonus={diceBonus} setBonus={setDiceBonus} isOpen={dicePopupOpen} setIsOpen={setDicePopupOpen}/>
             
+            <Popup isOpen={restPopupOpen} setIsOpen={setRestPopupOpen} displayedContentName="Do Rest?" displayedContent={
+                <div className="">
+                    <div className="bg-dark-400 rounded-lg m-2 p-2">
+                        <div className="bg-dark-300 rounded-lg p-2 text-lg">
+                            Doing this action will reset your Health, Armor, Ward, Dodge, and Strain.
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-4 bg-dark-400 rounded-lg m-2">
+                        <Button
+                            variant={"nature"}
+                            className={
+                                "rounded-lg p-2 m-2 rounded-lg grid grid-cols-1 bg-nature"
+                            }
+                            onClick={() => {
+                                resetStats();
+                                setRestPopupOpen(false);
+                            }}
+                        >Rest</Button>
+
+                        <Button
+                            variant={"medicine"}
+                            className={
+                                "rounded-lg p-2 m-2 bg-medicine rounded-lg grid grid-cols-1"
+                            }
+                            onClick={() => {
+                                setRestPopupOpen(false);
+                            }}
+                        >Dont Rest</Button>
+
+                        <div></div> {/* Just a hollow thing for formating. */}
+
+                        <Checkbox isChecked={checkbox} setIsChecked={setCheckbox} text="Do not show this again."/>
+                            
+                    </div>
+                </div>
+            }/>
+
+
             {/* Header */}
             <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2">
                 <h2 className="bg-dark-300 rounded-lg p-4 m-2 justify-center items-center flex capitalize">
@@ -501,25 +553,34 @@ export default function JoshhellscapePage() {
             </div>
 
             {/* Actives Bar */}
-            <div className="bg-dark-400 rounded-lg m-2 p-1">
-                <div className="bg-dark-300 rounded-lg m-1 p-2 flex flex-row">
-                    <div className="flex justify-start font-bold">
-                        Actives
-                    </div>
-                    <div className="flex flex-row justify-end">
-                        <Button
-                            variant={"subtle"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {
-                                setNumDice(Array.apply(null, Array(4+Math.floor(displayedCreature.level/2))).map(Number.prototype.valueOf,0))
-                                setDiceBonus(0)
-                                setPopupOpen(true)
-                            }}
-                        >Combat Dice {4+Math.floor(displayedCreature.level/2)}</Button>
-                    </div>
+            <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
+                <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
+                    Actives
+                </h2>
+                <div className="bg-dark-300 rounded-lg m-2 grid grid-cols-2 justify-end">
+                    <Button
+                        variant={"subtle"}
+                        className={
+                            "rounded-lg p-2 m-2"
+                        }
+                        onClick={() => {
+                            setRestPopupOpen(true)
+                        }}
+                    >Rest</Button>
+
+                    <Button
+                        variant={"subtle"}
+                        className={
+                            "rounded-lg p-2 m-2"
+                        }
+                        onClick={() => {
+                            setNumDice(Array.apply(null, Array(4+Math.floor(displayedCreature.level/2))).map(Number.prototype.valueOf,0))
+                            setDiceBonus(0)
+                            setDicePopupOpen(true)
+                        }}
+                    >Combat Dice {4+Math.floor(displayedCreature.level/2)}</Button>
                 </div>
+
             </div>
 
             {/* Items */}
@@ -549,7 +610,6 @@ export default function JoshhellscapePage() {
 
             {/* Arts Bar */}
             <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
-                {/* <div className=" flex flex-row"> */}
                 <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
                     Arts
                 </h2>
@@ -594,7 +654,6 @@ export default function JoshhellscapePage() {
                         </div>
                     }
                 </div>
-                {/* </div> */}
             </div>
 
 
@@ -603,21 +662,18 @@ export default function JoshhellscapePage() {
 
             return(
             <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
-                <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2 whitespace-pre-wrap overflow-y-auto">
+                <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2 whitespace-pre-wrap overflow-y-auto flex items-center justify-center">
                     {art.name}
                     { art.tags.includes("focus") ? "\n(Focus)" : ""}
                 </div>
-                
-                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1" 
+                <div className={"text-xl font-bold rounded-lg bg-dark-300 rounded-lg p-2 m-2 col-span-1 flex items-center justify-center hover:ring-2 hover:ring-light/75 ".concat((art.tags.includes("technique") ? "hover:bg-body" : (art.tags.includes("insight") ? "hover:bg-mind" : "hover:bg-soul"))) }
                     onClick={() => {setStrain(strain-(art.level ?? 0));}}>
-
-                    {art.level}{", "} 
-                    {"#".repeat(art.dice ?? 1) ?? "P"}
+                    {art.level}{", "}{"#".repeat(art.dice ?? 1) ?? "P"}
                 </div>
                 <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-8 whitespace-pre-wrap overflow-y-auto text-left">
                     {art.effect}
                 </div>
-                <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-1">
+                <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-1 text-sm">
                     {art.tags.join(', ')}
                 </div>
 
