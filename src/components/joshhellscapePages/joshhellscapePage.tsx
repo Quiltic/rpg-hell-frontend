@@ -49,7 +49,7 @@ const displayedCreature = {
         "medicine":3,
         "thieving":2,
         "augments":["heavy defense - armor 2,ward 1,dodge 2"],
-        "traits":"climber;|;swimmer;|;flight;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
+        "traits":"trained medic;|;spell manipulator;|;climber;|;swimmer;|;flight;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
         "arts":"conjure fog;|;ground slam;|;piercing shot",
         "items":"popshard rifle;|;fists;|;heavy defense",
         "notes":"A creation from an age long gone. Wandering aimlessly in pursuit of a new home and a new war to jump into.\n(The tank uses 4 Popshard Turreted Weapons, and has 2 mounted Popcannons. The Cannons cannot become Turrets.)"
@@ -94,12 +94,19 @@ export default function JoshhellscapePage() {
     const [speed, setSpeed] = useState(0);
     
     const [items, setItems] = useState<Array<dictItem>>();
+    const [traits, setTraits] = useState<Array<dictItem>>();
+
+    const [activesItems, setActivesItems] = useState<Array<any>>([]);
+    const [passivesItems, setPassivesItems] = useState<Array<any>>([]);
+
+    const [activesTraits, setActivesTraits] = useState<Array<any>>([]);
+    const [passivesTraits, setPassivesTraits] = useState<Array<any>>([]);
 
 
     const formatTags = (tags: { [key: string]: number }): string => Object.entries(tags).map(([key, value]) => `${key} ${value}`).join(', ');
 
-
-
+    
+    // Startup stat update
     useEffect(() => {
 
         let hpBonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
@@ -153,10 +160,14 @@ export default function JoshhellscapePage() {
 
             // console.log(tempItems,itemTags)
         }
+        if (traitsList.length > 0) {
+            setTraits(getNames(displayedCreature.traits, traitsList) as Trait[]);
+            // console.log(getNames(displayedCreature.traits, traitsList) as Trait[])
+        }
 
     }, [displayedCreature, itemsList, traitsList]); 
 
-    
+    // Strain dmg
     useEffect(() => {
         if (strain < 0) {
             setHealth(health+strain);
@@ -164,29 +175,67 @@ export default function JoshhellscapePage() {
     }, [strain]);
 
 
-    
-    // const traits = getNames(displayedCreature.traits, traitsList) as Trait[];
-    // const spells = getNames(displayedCreature.arts, spellsList) as Spell[];
-    
-    
-    
-    
-    
-    
-    // let [activeLines, passiveLines, itemLines] = createItemLines(items);
+    // Set Actives/Passives for items
+    useEffect(() => {
+        
+        if (items!=undefined) {
+            let actives:any[] = [];
+            let passives:any[] = [];
 
-    // createTraitLines(traits,activeLines,passiveLines);
+            const itemCheckList = ["weapon","grenade","throwable","potion","medicine"];
+
+            let isactive = false;
+
+            items.forEach(item => {
+                isactive = false;
+                itemCheckList.forEach(tag => {
+                    if (tag in item.tags)
+                        isactive = true;
+                });
+
+                if (isactive)
+                    actives.push(item);
+                else
+                    passives.push(item);
+            });
+
+            setActivesItems(actives);
+            setPassivesItems(passives);
+        }
+    }, [items]);
+
+
+    // set actives/passives for traits
+    useEffect(() => {
+        
+        if (traits!=undefined) {
+            let actives:any[] = [];
+            let passives:any[] = [];
+
+            const traitCheckList = "flight,climber,swimmer";
+
+            traits.forEach(trait => {
+                
+                if (!(traitCheckList.includes(trait.name.toLowerCase()))) {
+                    if (trait.effect.toLowerCase().includes("spend"))
+                        actives.push(trait);
+                    else
+                        passives.push(trait);
+                }
+            });
+
+            setActivesTraits(actives);
+            setPassivesTraits(passives);
+        }
+    }, [traits]);
+
+    function getTraitCost(traitEffect:string) {
+        const strain = traitEffect.match(/spend\s.*([0-9]+)\sstrain/i)?.[1] || "";
+        const dice = traitEffect.match(/spend\s(#*)/i)?.[1] || "";
+        return (strain.concat((dice != "" && strain != "") ? ", ": '', dice));
+    }
     
-    // let spellLines = [
-    //     ...spells.map((s) => {
-    //         return `${s.name.toUpperCase()} - ${s.level} - ${"#".repeat(s.dice ?? 1) ?? "P"}\n${s.effect}\n`;
-    //     }),
-    // ];
-    // if (spellLines.length > 0) {
-    //     if (spellLines[0].includes('Object "" not found.')) {
-    //         spellLines = [];
-    //     }
-    // }
+    
     
     function openPopup (type:number) {
         setNumDice([0,0]);
@@ -216,6 +265,7 @@ export default function JoshhellscapePage() {
 
             <DicePopup2 startingDice={numDice} startingBonus={diceBonus} setBonus={setDiceBonus} isOpen={dicePopupOpen} setIsOpen={setDicePopupOpen}/>
             
+            {/* RestPopup */}
             <Popup isOpen={restPopupOpen} setIsOpen={setRestPopupOpen} displayedContentName="Do Rest?" displayedContent={
                 <div className="">
                     <div className="bg-dark-400 rounded-lg m-2 p-2">
@@ -564,7 +614,10 @@ export default function JoshhellscapePage() {
                             "rounded-lg p-2 m-2"
                         }
                         onClick={() => {
-                            setRestPopupOpen(true)
+                            if (checkbox)
+                                resetStats();
+                            else
+                                setRestPopupOpen(true);
                         }}
                     >Rest</Button>
 
@@ -584,29 +637,84 @@ export default function JoshhellscapePage() {
             </div>
 
             {/* Items */}
-            {items!=undefined && items.map((item) => {
+            {activesItems!=undefined && activesItems.map((item) => {
 
             return(
             <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
                 <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
                     {item.name}
                 </div>
-                {'weapon' in item.tags && 
-                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1">
-                        ##
-                    </div>
-                }
+                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1">
+                    {'weapon' in item.tags ? "##" : 'throwable' in item.tags ? "##" : 'grenade' in item.tags ? "##" : "#"}
+                </div>
                 <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-3">
                     {formatTags(item.tags).replace(/ 0/gi,"").replace(/, weapon/gi,"").replace(/, common/gi,"").replace(/, uncommon/gi,"").replace(/, rare/gi,"").replace(/, legendary/gi,"")}
                 </div>
                 <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-6 whitespace-pre-wrap overflow-y-auto text-left">
                     {item.effect}
                 </div>
-
-
             </div>);
 
             })}
+
+
+            {/* Traits */}
+            {activesTraits!=undefined && activesTraits.map((trait) => {
+                return(
+                <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
+                    <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
+                        {trait.name}
+                    </div>
+                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1">
+                        {getTraitCost(trait.effect.toLowerCase())}
+                    </div>
+                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-9 whitespace-pre-wrap overflow-y-auto text-left">
+                        {trait.effect}
+                    </div>
+                </div>);
+            })}
+
+
+
+             {/* Passives Bar */}
+             <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
+                <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
+                    Passives
+                </h2>
+                <div className="bg-dark-300 rounded-lg m-2 grid grid-cols-2 justify-end">
+                </div>
+            </div>
+
+            {/* Items */}
+            {passivesItems!=undefined && passivesItems.map((item) => {
+                return(
+                <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
+                    <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
+                        {item.name}
+                    </div>
+                    <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-3">
+                        {formatTags(item.tags).replace(/ 0/gi,"").replace(/, weapon/gi,"").replace(/, common/gi,"").replace(/, uncommon/gi,"").replace(/, rare/gi,"").replace(/, legendary/gi,"")}
+                    </div>
+                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-7 whitespace-pre-wrap overflow-y-auto text-left">
+                        {item.effect}
+                    </div>
+                </div>);
+            })}
+
+            {/* Traits */}
+            {passivesTraits!=undefined && passivesTraits.map((trait) => {
+                return(
+                <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
+                    <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
+                        {trait.name}
+                    </div>
+                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-10 whitespace-pre-wrap overflow-y-auto text-left">
+                        {trait.effect}
+                    </div>
+                </div>);
+            })}
+
+
 
             {/* Arts Bar */}
             <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
