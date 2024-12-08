@@ -7,24 +7,24 @@ import TraitCardHolder from "./traitCardHolder";
 const theBIGList = [
     {
         wantedLoneList: "rune maker;|;runic carver;|;arcane eyes;|;runic master",
-        wantedComboList: "arcane armory;|;ingredient scavenger;|;scroll crafting;|;placeholder;|;potions of power;|;spell manipulator;|;placeholder;|;complex brews;|;spell augmenter;|;runic augmentation;|;double dosing;|;rune gate",
+        wantedComboList: "arcane armory;|;ingredient scavenger;|;spell book;|;placeholder;|;complex brews;|;spell manipulator;|;placeholder;|;potent alchemy;|;spell augmenter;|;runic augmentation;|;double dosing;|;rune gate",
         headers: ["arcana","runeblade","alchemist","lore master"],
-        subNotes: ["Manipulation of the world by use of magical Runes.","Manipulation of idk.","Creating and using potions.","Augmenting Arts in weird ways."],
+        subNotes: ["Manipulation of the world by use of magical Runes.","Enhancing yourself and your tools.","Creating and using potions.","Augmenting Arts in weird ways."],
     },
     {
-        wantedLoneList: "placeholder;|;jackpot;|;first impression;|;universal language",
+        wantedLoneList: "saving face;|;jackpot;|;first impression;|;universal language",
         wantedComboList: "fancy feet;|;apprentice detective;|;ventriloquism;|;the show must go on;|;trained detective;|;body possession;|;placeholder;|;heart to heart;|;stolen dreams;|;placeholder;|;master detective;|;puppet master",
         headers: ["charm","performer","detective","puppeteer"],
         subNotes: ["Talk and manipulate others.","Give people a good show, and gain buffs while doing it.","Solve crimes, even if the local guard dont like it.","Control people, figuratively and literally."],
     },
     {
         wantedLoneList: "steam suit;|;crafting genius;|;explosive expert;|;placeholder",
-        wantedComboList: "flaming blow;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;placeholder;|;holes in the armor;|;magical craftsman;|;expert blacksmith;|;placeholder;|;placeholder",
+        wantedComboList: "apprentice blacksmith;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;flaming blow;|;holes in the armor;|;magical craftsman;|;expert blacksmith;|;placeholder;|;placeholder",
         headers: ["crafting","blacksmith","clockworks","artificer"],
         subNotes: ["Create powerful contraptions from simple parts.","Hone weapons and armor.","Use advanced gears and gyros to do impossible feats.","Magic explosions and items, what more could you ask for?"],
     },
     {
-        wantedLoneList: "natures friend;|;heightened scenses;|;placeholder;|;one with nature",
+        wantedLoneList: "natures friend;|;heightened senses;|;draw roots;|;one with nature",
         wantedComboList: "nature's bind;|;hidden in the bush;|;animal form;|;canopy;|;marked as prey;|;elementalist adept;|;overgrowth;|;elemental shots;|;updraft;|;warden's grasp;|;master huntsman;|;magical beast form",
         headers: ["nature","warden","hunter","druid"],
         subNotes: ["Work with nature to improve yourself.","Become a guardian of the forest (and your allies).","Hunt down any prey no matter how far.","Harness natures elements and become the monsters you fear most."],
