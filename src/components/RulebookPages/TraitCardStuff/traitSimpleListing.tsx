@@ -7,7 +7,7 @@ import TraitCardHolder from "./traitCardHolder";
 const theBIGList = [
     {
         wantedLoneList: "rune maker;|;runic carver;|;arcane eyes;|;runic master",
-        wantedComboList: "arcane armory;|;ingredient scavenger;|;spell book;|;placeholder;|;complex brews;|;spell manipulator;|;placeholder;|;potent alchemy;|;spell augmenter;|;runic augmentation;|;double dosing;|;rune gate",
+        wantedComboList: "arcane armory;|;ingredient scavenger;|;spell book;|;runic overflow;|;complex brews;|;spell manipulator;|;runic swap;|;potent alchemy;|;spell augmenter;|;runic augmentation;|;double dosing;|;rune gate",
         headers: ["arcana","runeblade","alchemist","lore master"],
         subNotes: ["Manipulation of the world by use of magical Runes.","Enhancing yourself and your tools.","Creating and using potions.","Augmenting Arts in weird ways."],
     },
@@ -25,7 +25,7 @@ const theBIGList = [
     },
     {
         wantedLoneList: "natures friend;|;heightened senses;|;draw roots;|;one with nature",
-        wantedComboList: "nature's bind;|;hidden in the bush;|;animal form;|;canopy;|;marked as prey;|;elementalist adept;|;overgrowth;|;elemental shots;|;updraft;|;warden's grasp;|;master huntsman;|;magical beast form",
+        wantedComboList: "nature's bind;|;hidden in the bush;|;apprentice elementalist;|;canopy;|;marked as prey;|;packmate form;|;overgrowth;|;elemental shots;|;elementalist adept;|;warden's grasp;|;master huntsman;|;dragon form",
         headers: ["nature","warden","hunter","druid"],
         subNotes: ["Work with nature to improve yourself.","Become a guardian of the forest (and your allies).","Hunt down any prey no matter how far.","Harness natures elements and become the monsters you fear most."],
     },
