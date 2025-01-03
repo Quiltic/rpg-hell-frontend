@@ -6,7 +6,7 @@ import TraitCardHolder from "./traitCardHolder";
 
 const theBIGList = [
     {
-        wantedLoneList: "hearty;|;critical;|;placeholder;|;great weapon master",
+        wantedLoneList: "hearty;|;battle ready;|;critical;|;great weapon master",
         wantedComboList: "quick runner;|;bloodhound;|;walled off;|;whirlwind;|;tag team;|;defender;|;strong punches;|;improved auras;|;guarding aura;|;dagger master;|;hammer master;|;polearm master",
         headers: ["body","Aggression","Teamwork","Defensive"],
         subNotes: ["Practice is better than theory.","Hit them hard and fast.","Traits that work better with a team than without.","Defend and Protect."],
