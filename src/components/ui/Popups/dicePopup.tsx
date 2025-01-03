@@ -53,12 +53,23 @@ function rollDice(amount: number) {
 }
 
 
-export default function DicePopup() {
+type Props = {
+    startingDice: number[];
+    startingBonus: number;
+    startOpen: boolean;
+};
 
-    const [Dice, SetDice] = useState([0,0]);
-    const [Bonus, SetBonus] = useState(0);
 
-    const [isOpen, setIsOpen] = useState(false);
+export default function DicePopup({
+    startingDice: startingDice = [0,0],
+    startingBonus: startingBonus = 0,
+    startOpen: startOpen = false,
+    }: Props) {
+
+    const [Dice, SetDice] = useState<number[]>(startingDice);
+    const [Bonus, SetBonus] = useState(startingBonus);
+
+    const [isOpen, setIsOpen] = useState(startOpen);
     const [randColor, setRandColor] = useState("body");
 
     function closeModal() {

@@ -9,6 +9,7 @@ import { Button } from "../Button/Button";
 import { Fragment, useState } from "react";
 
 import { creaturesIcon } from "../../../assets/IconSVGs/heroiconsSVG";
+import UpdatedCharacterSheet from "../../joshhellscapePages/UpdatedCharacterSheet";
 
 type Props = {
     displayedCreature: Creature;
@@ -86,7 +87,7 @@ export default function CreaturePopup({
                                         </div>
                                     </Dialog.Title>
 
-                                    <CreatureSheet
+                                    <UpdatedCharacterSheet
                                         displayedCreature={displayedCreature}
                                         traitsList={traitsList}
                                         spellsList={spellsList}
