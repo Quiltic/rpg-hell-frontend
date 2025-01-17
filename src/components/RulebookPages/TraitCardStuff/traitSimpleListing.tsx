@@ -6,6 +6,12 @@ import TraitCardHolder from "./traitCardHolder";
 
 const theBIGList = [
     {
+        wantedLoneList: "",
+        wantedComboList: "criminal;|;aquatic;|;constructed;|;child of faith;|;cloudhopper;|;cursed;|;undergrounder;|;merchant house;|;elemental;|;warriors of old;|;nomad;|;nature born",
+        headers: ["Origin","Flexible","Middle Grounder", "Eye Catchers"],
+        subNotes: ["Where you came from.","Common ones with a lot of room for change.","More specific, but still flexible","For those with very specific origins."],
+    },
+    {
         wantedLoneList: "hearty;|;battle ready;|;critical;|;great weapon master",
         wantedComboList: "quick runner;|;bloodhound;|;walled off;|;whirlwind;|;tag team;|;defender;|;strong punches;|;improved auras;|;guarding aura;|;dagger master;|;hammer master;|;polearm master",
         headers: ["body","Aggression","Teamwork","Defensive"],
@@ -38,19 +44,19 @@ const theBIGList = [
     },
     {
         wantedLoneList: "slapdash solutions;|;crafting genius;|;explosive expert;|;build them, break them",
-        wantedComboList: "apprentice blacksmith;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;flaming blow;|;holes in the armor;|;magical craftsman;|;expert blacksmith;|;placeholder;|;wellspring of creation",
+        wantedComboList: "apprentice blacksmith;|;turreted weapon;|;abjurer;|;reforge;|;overclock;|;spectral artillery;|;blacksmiths touch;|;holes in the armor;|;magical craftsman;|;expert blacksmith;|;placeholder;|;wellspring of creation",
         headers: ["crafting","blacksmith","clockworks","artificer"],
         subNotes: ["Create powerful contraptions from simple parts.","Hone weapons and armor.","Use advanced gears and gyros to do impossible feats.","Magic explosions and items, what more could you ask for?"],
     },
     {
-        wantedLoneList: "natures friend;|;heightened senses;|;draw roots;|;one with nature",
-        wantedComboList: "nature's bind;|;hidden in the bush;|;apprentice elementalist;|;canopy;|;marked as prey;|;packmate form;|;overgrowth;|;elemental shots;|;elementalist adept;|;warden's grasp;|;master huntsman;|;dragon form",
+        wantedLoneList: "knowledge of the forest;|;heightened senses;|;draw roots;|;one with nature",
+        wantedComboList: "nature's bind;|;hidden in the bush;|;apprentice elementalist;|;canopy;|;marked as prey;|;plant growth;|;overgrowth;|;elemental shots;|;elementalist adept;|;warden's grasp;|;master huntsman;|;soulbound tree hopper",
         headers: ["nature","warden","hunter","druid"],
         subNotes: ["Work with nature to improve yourself.","Become a guardian of the forest (and your allies).","Hunt down any prey no matter how far.","Harness natures elements and become the monsters you fear most."],
     },
     {
         wantedLoneList: "field medicine;|;trained medic;|;recycled meds;|;resuscitate",
-        wantedComboList: "blood magic;|;medical leaches;|;if these walls could talk;|;bloody mess;|;acupuncture;|;curse ward;|;placeholder;|;plague doctor;|;undead tinkerer;|;power from pain;|;placeholder;|;undead king",
+        wantedComboList: "blood magic;|;medical leaches;|;if these walls could talk;|;bloody mess;|;acupuncture;|;soul absorption;|;placeholder;|;plague doctor;|;undead tinkerer;|;power from pain;|;placeholder;|;undead king",
         headers: ["medicine","blood magic","strange healers","necromancer"],
         subNotes: ["Become the doctor you always wanted to be.","Using blood for spells and effects.","There is more than one way to heal.","Stop dealth in its tracks, one way or another."],
     },
