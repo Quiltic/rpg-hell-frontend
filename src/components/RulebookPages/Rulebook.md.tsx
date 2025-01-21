@@ -361,15 +361,15 @@ Events can be classified as combat, exploration, roleplay, or location based eve
 
 ## Level 1
 
-Pick a Lineage, listed below.
-Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the requirements for.
+Pick an Origin, listed below.
+Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases with any stat being a max of 2 (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the requirements for.
 Lastly you gain an assortment of items. ***At level 1 all items taken must be non-magical and have a rarity of uncommon or common.***
 You may take either: 2 Weapons or 1 Weapon and a Shield.
 Then gain Armor of your choosing, 30 gold, a Bandage, an item with the Tool tag, and two other items.
 
 <div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
 <span className="font-mono text-lg">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
-<span className="font-mono text-lg">Strain = Body + 2*Mind + 3*Soul</span> 
+<span className="font-mono text-lg">Strain = 2*Body + 3*Mind + 4*Soul</span> 
 <span className="font-mono text-lg">You may know a number of Techniques (Body), Insights (Mind), or Spells (Soul) equal to twice their respective stat.</span> You cannot take Techniques, Insights, or Spells that have a Strain cost higher than your Level+1. 
 </div>
 
@@ -400,23 +400,6 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 | 9 | +1/+2 | 6/12 | 11 | 8 |
 | 10 | - | 6/12 | 12 | 9 |
 
-## Lineage Table
-| Rolls | Lineage Type | Bonus Trait |
-| --- | --- | --- |
-| 1,1 | Generic Humanoid | Pick an extra Skill that doesn't require more than 1 in a Base Stat (Body, Mind, Soul), you must still meet it's requirement. |
-| 1,2 | Undergrounder | You learn the spell Glow, and you can cast Fog Light once per Rest without gaining Soul Strain. These spells do not count against the number of known spells you may have. Additionally, you are small, and are able to squeeze into places you normally wouldn't. You act as half your size smaller when trying to get through or into a space you wouldn't fit in otherwise.|
-| 1,3 | Aquatic | You can breath underwater without needing air, and you can swim your Speed. |
-| 1,4 | Avian | You are able to glide 2 tiles for every 1 tile you fall. This effect does not work if your arms are hindered in any way (Being Grappled, caring something, ext.) |
-| 1,5 | Beastkin | Increase your Speed by 1. |
-| 1,6 | Draconic | When you lock a dice, increase its value by 1. This cannot increase a 6. |
-| 2,1 | Naga-kin | When you grapple a creature within 1 tile of you, you may Bite them (no cost) to give them Poisoned for a number of turns equal to your Level. Additionally, you gain an extra dice when trying to Identify an Illness or Curse. |
-| 2,2 | Seeker | You are mostly blind, only able to see things up to 2 tiles away. To counteract this you are able to see the Souls of living things up to 12 tiles away so long as they are not obstructed by solid objects such as walls. Additionally, you know the Spell 'Detect Magic'. This does not count against the number of known spells you may have. |
-| 2,3 | Nymph-born | You are able to have simple conversations with creatures that have the Animal Tag. Additionally, you know the Spell 'Control Elements'. This does not count against the number of known spells you may have. |
-| 2,4 | Hell-born | After taking damage from Burn reduce it by 2 instead of 1. Additionally, you know the Spell 'Firebolt'. This does not count against the number of known spells you may have. |
-| 2,5 | Light-born | Heal 1 more whenever you would Heal. You can cast Glow at will. This spell does not count against the number of known spells you may have. |
-| 2,6 | Constructed | Gain your Level additional Armor Stacks at the end of a Rest. Additionally, you may consume inorganic material as a food source. |
-
-
 # Status Effects
 
 ## Duration Effects
@@ -426,12 +409,12 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 ### Focus
 
 - You are concentrating on an Art over a ‘long’ period of time.  
-- You lose Focus when you gain any amount of Stun, gain stacks of or are put on Death’s Door, or through specific Arts such as the spell ‘Daydream’.
+- You lose Focus when you gain any amount of Stun, gain stacks of Death’s Door, or through specific Arts such as the spell ‘Daydream’.
 
 ### Windup
 
 - Similar to focus except you are preparing to do something next turn.  
-- You lose Windup when you gain any amount of Stun, gain stacks of or are put on Death’s Door, or through specific Arts such as the spell ‘Daydream’.
+- You lose Windup when you gain any amount of Stun, gain stacks of Death’s Door, or through specific Arts such as the spell ‘Daydream’.
 
 ### Prone
 
