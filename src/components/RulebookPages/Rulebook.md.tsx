@@ -158,10 +158,15 @@ You may only have a max of 4 Ward at any given point in time.
 
 ### Death's Door
 
-When you are on 0 or less life you are put on Death's Door. While on Death's Door your have a normal Speed of 2 and every time you take damage while on Death's Door you roll a dice. If you roll equal to or less than the Death's Door value you Die, otherwise you increase Death's Door by 1.
-: For example if you are on Death's Door and roll a 3 you live another turn and are on Death's Door 2.
-: Another example is if you are On Death's Door 5 and roll a 2 you Die.
-Death's Door only goes away if you do a Rest.
+When you are put at 0 or less health you do not immediately die. Rather, you gain stacks of Death's Door. You gain 1 stack of Death's Door by having 0 or less health at the start of your Turn, or by having negative twice your level or less health at the end of a turn.
+
+While you have stacks of Death's Door you gain a specific ailment.
+- At Death's Door 1, you have half your Speed (rounded up).
+- At Death's Door 2, you are Prone and cannot get up.
+- At Death's Door 3, you become unconscious, and cannot be woken up until you lose Death's Door stacks or are healed for more than half your Max Health.
+- At Death's Door 4, You Die.
+
+You lose all stacks of Death's Door at the end of a Rest.
 
 
 # Traits
@@ -222,9 +227,9 @@ Runes are powerful tools and can vastly change how an item works. This does come
 	
 Attempting to apply runes to creatures usually results in catastrophe. As such you cannot apply runes to living things without special training (Traits).
 	
-Applying a Rune to something is nearly instant. However, removing a Rune takes a large amount of labor. As such you can only remove a Rune at the end of a Rest.
+Applying or removing a Rune to something takes a large amount of labor. As such you can only apply or remove a Rune at the end of a Rest. You can apply and remove a rune or multiple runes in the same Rest.
 
-Runes can be found in the world, purchased from arcanists, crafted, or generated from abilities (Traits).
+Runes can be found in the world, purchased from arcanists, or generated from abilities (Traits).
 
 
 ## Bound Items
@@ -245,9 +250,9 @@ You must Sleep for at least 6 hours every day. This time is apart of a rest.
 
 When you complete a Rest you gain the following bonuses:
 - You fully heal, and regain all Armor effects such as Armor Stacks, Dodge, and Ward.
-- You loose all non permanent Stack Effects, such as Wet or Soul Strain (these are just 2 examples. See Stack Effects for more).
+- You lose all non permanent Stack Effects, such as Wet or Soul Strain (these are just 2 examples. See Stack Effects for more).
 - You regain all uses of spent Trait effects. (Some traits will say "You can do this a number of times per Rest")
-- You loose all Stacks of Death's Door
+- You lose all Stacks of Death's Door
 
 
 
@@ -365,7 +370,7 @@ Pick an Origin, listed below.
 Then gain 2 Core Stat increases (Body, Mind, Soul), 4 Sub-Stat increases with any stat being a max of 2 (Arcana, Crafting, Charm, Nature, Medicine, Thieving), and 3 Traits you meet the requirements for.
 Lastly you gain an assortment of items. ***At level 1 all items taken must be non-magical and have a rarity of uncommon or common.***
 You may take either: 2 Weapons or 1 Weapon and a Shield.
-Then gain Armor of your choosing, 30 gold, a Bandage, an item with the Tool tag, and two other items.
+Then gain Armor of your choosing, 6d6 +10 (or 31) gold, a Bandage, and a choice of: any set of craftsman tools, Traveler's Gear, 1 Medkit and 2 Bandages, 3 common Grenades [Flashbang, Frag, or Smoke], 1 Common and 1 Uncommon Potion, or 3d6 extra gold.
 
 <div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
 <span className="font-mono text-lg">Health = Level + 4*Body + 3*Mind + 2*Soul</span>
@@ -378,7 +383,7 @@ Then gain Armor of your choosing, 30 gold, a Bandage, an item with the Tool tag,
 
 Every level gain 1 new Trait that you meet its requirements for.
 Every even level gain an additional Combat Dice.
-Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different Sub-Stats, and gain 2 new Techniques (Body), Insights (Mind), or Spells (Soul) based on which Main-stat you increased. 
+Every odd level gain +1 to a Main-Stat, +1 to two different Sub-Stats, and gain 2 new Techniques (Body), Insights (Mind), or Spells (Soul) based on which Main-stat you increased. 
 **No Main or Sub Stat can be higher than 4.**
 
 <div className="flex justify-center flex-col bg-dark-400 rounded-lg p-4">
@@ -404,104 +409,76 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 
 ## Duration Effects
 
-*Things that may change how you play. May have a duration when applied.*
+*Things that may change how you play. Have a duration when applied.*
+
+### Blind
+- You cannot see, failing any roll that requires sight.    
+- You can only do targeted actions that have a sum of 9 or higher.  
+- When you give a 1 to Move, or for a Movement based ability (such as 'Bullrush') you go Prone instead.
+
+### Flying
+- You can move your Speed in the Air.
 
 ### Focus
-
 - You are concentrating on an Art over a ‘long’ period of time.  
 - You lose Focus when you gain any amount of Stun, gain stacks of Death’s Door, or through specific Arts such as the spell ‘Daydream’.
 
-### Windup
-
-- Similar to focus except you are preparing to do something next turn.  
-- You lose Windup when you gain any amount of Stun, gain stacks of Death’s Door, or through specific Arts such as the spell ‘Daydream’.
-
-### Prone
-
-- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
-- You cannot do attacks that have a sum of 8 or less.
-- Your Speed is set to 2.
-- You must give \# to go prone or stand up. This counts as a Move action.
+### Glowing
+- You cannot become Obscured except by solid objects such as walls.  
+- You cannot become Invisible or Hidden. 
 
 ### Grappled
+- You cannot Attack anything other than the thing grappling you.  
+- You may give \#\# to do a Body contest against the target grappling you. On Success, you are no longer Grappled.  
+- Some Spells or Traits let/force you to roll other stats in the contest instead of Body.
 
-- You cannot target anything other than the thing grappling you.  
-- You may give \#\# to do a Body contest against the target grappling you. On success, you are no longer Grappled.  
-  - Some Spells or Traits let/force you to roll other stats in the contest instead of Body.
-
-### Obscured
-
-- You cannot do or be effected by ranged actions (such as attacks, spells, or effects) that have a sum of 8 or less.
-  - Ranged actions made within 1 tile are excluded.
-- Your identity is unknown except by creatures within 1 tile of you, or if you announce yourself.
-
-### Hidden
-
-- You cannot be targeted by ranged actions.  
+  ### Hidden
+- You cannot be targeted.  
   - Attacks, spells, effects, etc.  
 - You cannot be detected while people are not looking for you.  
 - If you are Fully Hidden you do \+3 damage on the next attack you do, this removes Hidden.
 - You lose Hidden if you: Attack, Cast an Art, Activate a non-Thieving ability, or do a similar action.
 
-### Marked
-
-- Attack sums against you have +1 to the total value.
-- Some Traits and Arts do apply deferent effects to Marked targets.
-
 ### Hover
-
 - You float off the ground. You are immune to ground effects, such as Rough Terrain, or traps, and you cannot become Prone.
 
-### Flying
-
-- You can move your Speed in the Air.
-
-### Silenced
-
-- You cannot Speak, activate Arts, or give dice to Traits.
-
-### Light Headed
-
-- You cannot activate Windup or Focus abilities or Arts.  
-- If you are Winding up or Focusing on something you drop the Windup/Focus.
-
 ### Invisible
-
 - You cannot gain stacks of Marked, and lose any you have when becoming Invisible.  
 - You are permanently Obscured.  
-- You cannot be found when someone Searches unless you are within 2 tiles of them.  
 - You cannot be seen by anything except through magic.
 
 ### Incorporeal
-
 - You can not interact with the normal world, but can still see it.  
-- You cannot do or take damage from non-magical sources.  
-  - You can take/do non-magical damage from/to other incorporeal things.  
+- You cannot do or take damage from non-Incorporeal sources. 
 - You are able to force your way through walls and floors as if it was Rough Terrain.  
 - While incorporeal you can only interact with other Incorporeal things.  
 - You do not leave traces, and cannot be tracked.
 
-### Blind
+### Light Headed
+- You cannot activate Windup or Focus abilities or Arts.  
+- If you are Winding up or Focusing on something you drop the Windup/Focus.
 
-- You cannot see, failing any roll that requires sight.  
-- You cannot target anything unless you Search First.  
-- You cannot do attacks that have a sum of 8 or less.  
-- Reduce by 1 at the end of your Turn.
+### Obscured
+- You cannot do or be effected by Ranged Actions (such as Attacks, Spells, or other Effects) that have a sum of 8 or less.
+  - Ranged actions made within 1 tile are excluded.
+- Your identity is unknown except by creatures within 1 tile of you, or if you announce yourself.
 
 ### Poisoned
-
-- You do 1 less damage from weapon or spell attacks.
+- You do 1 less damage on Weapon or Spell Attacks.
 - You have -1 on all Body rolls.
 
-### Sparking
-- You take 1 damage for every one (dice value of 1) you roll, unlock, or generate.
-- This effect can happen multiple times per roll, and goes off on ALL rolls.
+### Prone
+- You cannot do or be effected by Ranged Actions (such as Attacks, Spells, or Effects) that have a sum of 8 or less.
+- You can only do attacks that have a sum of 9 or higher.
+- Your Speed is set to 2.
+- You must give \# to go Prone or stand up. This counts as a Move action.
 
-### Glowing
+### Silenced
+- You cannot Speak or cast Arts.
 
-- You cannot become Obscured except by solid objects such as walls.  
-- You cannot become Invisible or Hidden.  
-- Reduce by 1 at the end of your Turn.
+### Windup
+- Similar to Focus except you are preparing to do something next turn.  
+- You lose Windup when you gain any amount of Stun, gain stacks of Death’s Door, or through specific Arts such as the spell ‘Daydream’.
 
 
 ## Stack Effects
@@ -509,43 +486,46 @@ Every odd level gain +1 to a Main-Stat, +2 to a Sub-Stat or +1 to two different 
 *Effects that are based on the amount of stacks you have.*
 
 ### Burn
-
 - Take damage at the start of your turn for every stack of Burn  
 - Spend \#\# to remove all stacks of Burn  
 - Reduce by 1 at the end of your Turn.
 
 ### Bleed
-
 - Take damage at the start of turn for every stack of Bleed.  
-- Remove all stacks of Bleed when you are Healed  
+- Healing items and some Traits remove stacks of Bleed 
 - Reduce by 1 at the end of your Turn.
 
-### Stun
+### Death's Door
+- Gained by having 0 or less health at the start of your Turn, or by having negative twice your level or less health at the end of a turn.
+- At Death's Door 1, you have half your Speed (rounded up).
+- At Death's Door 2, you are Prone and cannot get up.
+- At Death's Door 3, you become unconscious, and cannot be woken up until you lose Death's Door stacks or are healed for more than half your Max Health.
+- At Death's Door 4, You Die.
+- Lose all stacks of Death's Door at the end of a Rest.
 
+### Marked
+- Attack sums against you have +1 to the total value.
+- Some Traits and Arts remove stacks to do effects.
+- Reduce by 1 at the end of your Turn.
+
+### Slow
+- Reduce your Speed by the amount of Slow you have.  
+- Remove all stacks at the end of your turn.
+
+### Sparking
+- At the beginning of your turn, for every one (dice value of 1) you Roll, you take damage equal to the number of stacks you have.
+- Lose all stacks at the end of your Turn.
+
+### Stun
 - Roll less dice at the start of your turn for every stack of Stun.  
 - You cannot gain Stun the turn after you are affected by Stun  
 - Remove all stacks at the end of your turn.
 
-
-
-### Slow
-
-- Reduce your Speed by the amount of Slow you have.  
-- Remove all stacks at the end of your turn.
-
 ### Wet
-
 - Removes or Prevents having/gaining stacks of Burn equal to the amount of wet  
   - 1 Wet prevents 1 Burn  
 - Some Spells and Traits do special effects off of Wet Stacks  
 - Reduce by 1 at the end of your Turn.
-
-
-### Death's Door
-
-- When you take damage, roll a Dice. If you roll equal to or less than the number of Death's Door stacks you have You die. Otherwise increase Death's Door by 1\.  
-- Your default Speed is set to 3 unless it is Lower.  
-- Remove all stacks of Death’s Door when you Rest.
 
 
 
