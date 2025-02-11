@@ -25,26 +25,26 @@ const theBIGList = [
     },
     {
         wantedLoneList: "telepathy;|;soul shielded;|;simple spell enhancements;|;efficient spellcasting",
-        wantedComboList: "yoyo;|;soul covenant;|;apprentice elementalist;|;placeholder;|;placeholder;|;placeholder;|;placeholder;|;placeholder;|;elementalist adept;|;acceleration;|;purified soul;|;updraft",
+        wantedComboList: "soul weapon;|;soul covenant;|;apprentice elementalist;|;placeholder;|;placeholder;|;placeholder;|;weapons calling;|;destined reach;|;updraft;|;power from within;|;purified soul;|;expert elementalist",
         headers: ["soul","Movement","Religious","Elementalist"],
         subNotes: ["Spellcasters and Summoners.","Positioning is key.","Clerics, Paladins, and Warlocks","Manipulate the elements to your wim"],
     },
     
     {
         wantedLoneList: "rune maker;|;arcane eyes;|;runic carver;|;runic master",
-        wantedComboList: "arcane armory;|;ingredient scavenger;|;spell book;|;runic swap;|;complex brews;|;spell manipulator;|;runic flux;|;potent alchemy;|;spell expertise;|;runic overflow;|;double dosing;|;spell augmenter",
+        wantedComboList: "placeholder;|;ingredient scavenger;|;spell book;|;placeholder;|;complex brews;|;spell manipulator;|;placeholder;|;potent alchemy;|;spell expertise;|;placeholder;|;double dosing;|;spell augmenter",
         headers: ["arcana","runeblade","alchemist","lore master"],
         subNotes: ["Manipulation of the world by use of magical Runes.","Enhancing yourself and your tools.","Creating and using potions.","Augmenting Arts in weird ways."],
     },
     {
         wantedLoneList: "first impression;|;heart to heart;|;universal language;|;saving face",
-        wantedComboList: "fancy feet;|;apprentice detective;|;ventriloquism;|;show, dont tell;|;trained detective;|;body possession;|;for the crowd;|;holes in the armor;|;stolen dreams;|;the show must go on;|;expert detective;|;puppet master",
+        wantedComboList: "fancy feet;|;apprentice detective;|;ventriloquism;|;attentive audience;|;trained detective;|;body possession;|;for the crowd;|;holes in the armor;|;stolen dreams;|;the show must go on;|;expert detective;|;puppet master",
         headers: ["charm","performer","detective","puppeteer"],
         subNotes: ["Talk and manipulate others.","Give people a good show, and gain buffs while doing it.","Solve crimes, even if the local guard dont like it.","Control people, figuratively and literally."],
     },
     {
         wantedLoneList: "slapdash solutions;|;placeholder;|;placeholder;|;build them, break them",
-        wantedComboList: "apprentice blacksmith;|;turreted item;|;spectral artillery;|;reforge;|;steam power;|;fractal creations;|;placeholder;|;placeholder;|;abjurer;|;expert blacksmith;|;placeholder;|;wellspring of creation",
+        wantedComboList: "apprentice blacksmith;|;turreted item;|;arcane armory;|;reforge;|;steam suit;|;runic swap;|;sharpening stone;|;placeholder;|;runic flux;|;expert blacksmith;|;placeholder;|;runic overflow",
         headers: ["crafting","blacksmith","clockworks","artificer"],
         subNotes: ["Create powerful contraptions from simple parts.","Hone weapons and armor.","Use advanced gears and gyros to do impossible feats.","Magic explosions and items, what more could you ask for?"],
     },
@@ -62,7 +62,7 @@ const theBIGList = [
     },
     {
         wantedLoneList: "apprentice thief;|;cat burgler;|;hidden in plain sight;|;master thief",
-        wantedComboList: "bully;|;marked for death;|;apprentice spell thief;|;double headlock;|;silent strike;|;obscured spell;|;get rough;|;placeholder;|;spell thief;|;larceny;|;assassinate;|;blurred spells",
+        wantedComboList: "bully;|;marked for death;|;apprentice spell thief;|;throw out the trash;|;silent strike;|;obscured spell;|;get rough;|;placeholder;|;spell thief;|;double headlock;|;assassinate;|;blurred spells",
         headers: ["thieving","thug","assasin","spellthief"],
         subNotes: ["Steal and kill without a trace.","Steal peoples lunch money and get away with it.","Efficent killer.","Steal and use other peoples spells."],
     },
