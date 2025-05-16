@@ -60,7 +60,7 @@ const statSkillList = [
     "MONSTER 0",
 ];
 
-const otherListCore = ["", "BROKEN 0", "OOC 0"];
+const otherListCore = ["", "BROKEN 0", "combat 0", "ooc 0"];
 
 const diceCostListCore = ["P", "#", "##", "###"];
 
@@ -126,7 +126,7 @@ export default function UpdateDBTraitsPage() {
         setCurID(0);
         setNameText("");
         setEffectText("");
-        setMainStat("MONSTER 0");
+        setMainStat("");
         setSecondStat("");
         setDiceCost("P");
         setOtherDrop("");
