@@ -76,6 +76,8 @@ const IterativeTraitLevels = [
     "Medicine",
     "Thieving",
     "MONSTER",
+    "Major",
+    "minor"
 ];
 
 export default function UpdateDBTraitsPage() {
