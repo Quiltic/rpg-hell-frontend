@@ -1,5 +1,5 @@
-# Core Stats
+# Main-Stats
 
-# Sub Stats
+# Sub-Stats
 
 # Skills
