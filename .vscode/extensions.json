@@ -3,6 +3,9 @@
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "dsznajder.es7-react-js-snippets",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "mattpocock.ts-error-translator",
+        "yoavbls.pretty-ts-errors",
+        "pmneo.tsimporter"
     ]
 }
