@@ -42,6 +42,13 @@ This works the same way in Combat.
 Some times you will have Advantage or Disadvantage on a Check or Contest. If you have Advantage, then you roll two d12's and chose whichever dice value. If you have Disadvantage you also roll 2d12 and then must pick the lower dice value. You still add any other bonuses to the roll regardless of dice value.
 
 
+## Default Actions
+
+These are actions every character can do regardless of statline.
+
+### ***Help*** - When an ally is asked to do a check or contest you may add your Stat bonus to the requested Stat Bonus.
+^Such poor wording.
+
 ## Traits
 
 ## Arts

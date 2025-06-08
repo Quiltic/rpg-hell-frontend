@@ -4,9 +4,11 @@ Effects are things that are applied to you or you apply to others. There is no m
 
 ### ***Burn*** - At the start of your turn take damage equal to the number of stacks you have then reduce the stacks by half (rounded down). Spend ## to remove all stacks.
 
-### ***Blinded*** - You have -2 to Stealth(Thieving) Contests, and -2 to Attack rolls.
+### ***Blinded*** - You have -2 to Stealth(Thieving) Contests, -2 to Attack rolls, and cannot target things that are more than 3 tiles from you.
 
 ### ***Death's Door*** - At 1 stack of Death's Door you have half your Speed (rounded down). At 2 stacks of Death's Door you are Prone and can't get up. At 3 stacks of Death's Door you become unconscious and cannot wake up. At 4 stacks of Death's Door you die. You lose all stacks of Death's Door at the end of a Rest.
+
+### ***Focus*** - You are actively doing something that takes up a significant portion of your attention, such as a consistent Art or ability. You lose Focus when you gain a stack of Death's Door, roll a 1 on a Dodge roll, or gain stacks of Stun.
 
 ### ***Wet*** - When you gain Wet, reduce your Burn stacks by twice the amount of Wet gained. You have +1 when defending against Grapple Contests while Wet. Remove all stacks after 1 minute (6 turns) or if you spend ##.
 
@@ -28,6 +30,8 @@ Effects are things that are applied to you or you apply to others. There is no m
 
 ### ***Silenced*** - You cannot activate Arts, and don't make sounds (Such as talking or footsteps).
 
-### ***Stunned*** - You have -1 on all dice sums (examples include, Attacks, Checks, Contests, etc) for every stack of Stun. Remove all stacks at the end of a Turn (or after 10 seconds).
+### ***Stunned*** - You have -1 on all dice sums (examples include, Attacks, Checks, Contests, etc) for every stack of Stun. Remove all stacks at the end of a Turn (or after 10 seconds). You cannot be affected by Stunned two turns in a row.
 
 ### ***Unconscious*** - You go Prone, and cannot do actions that use dice, activate abilities, and lose Focus and Windup. You are no-longer Unconscious at the end of a Rest.
+
+### ***Windup*** - You are setting up for some action on your next turn. You cannot Windup multiple things on the same turn. You lose Windup if you take 2x your Level or more damage before your next turn or you gain stacks of Stun.
