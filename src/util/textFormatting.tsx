@@ -11,11 +11,6 @@ export function toPillElement(_string: string, splitter: string) {
         _string = _string.slice(0, -1);
     }
 
-    // custom style for broken tag
-    if (_string.toLowerCase() == "broken") {
-        return;
-    }
-
     // Try to make the names, requirements, tags, ect. uppercase
     const pills = _string.split(splitter).map((word, i) => {
         const parts = word.split(" ");
