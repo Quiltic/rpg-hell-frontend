@@ -6,4 +6,5 @@ export default defineConfig({
     base: "/rpg-hell-frontend",
     plugins: [react()],
     appType: "spa",
+    assetsInclude: ["**/*.md"],
 });

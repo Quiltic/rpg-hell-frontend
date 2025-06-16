@@ -25,6 +25,7 @@ import HeadingRenderer from "./headingRenderer";
 import { Disclosure } from "@headlessui/react";
 import TableOfContents from "../TableOfContents/TableOfContents";
 import TraitSimpleListing from "./TraitCardStuff/traitSimpleListing";
+import RulebookNavigation from "./RulebookNav";
 
 // import { useState, useEffect, useContext } from "react";
 // import { SpellsService } from "../../client/services/SpellsService";
@@ -49,12 +50,11 @@ export default function RulebookPage() {
     //     }
     //     checkAPI();
     // },[SpellsService]);
-    
 
     return (
         <>
             <h3>Pages</h3>
-            <div className="flex flex-column flex-wrap gap-4 justify-center mb-2">
+            <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
                 <Link to={"traits"}>
                     <Button leftIcon={ticketIcon} variant="body">
                         Traits
@@ -79,7 +79,9 @@ export default function RulebookPage() {
                 </Link>
             </div>
 
-            <div className=" mx-auto text-left max-w-4xl markdown-styles">
+            <RulebookNavigation />
+
+            <div className=" markdown-styles mx-auto max-w-4xl text-left">
                 <h1>Table of Contents</h1>
                 <TableOfContents />
                 <Markdown

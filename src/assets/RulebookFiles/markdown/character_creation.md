@@ -47,7 +47,7 @@ At every 4th level you gain another Skill.
 ## Handy Leveling Table
 
 | Level | # of Increases | # of __OOC__ Traits | # of __Combat__ Traits | Combat Dice | # of Skills |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | 1 | 1 | +1 | +1 | 4 | +2 |
 | 2 | - | +2 | 1 | +5 | 2 |
 | 3 | 2 | 2 | +2 | 5 | 2 |

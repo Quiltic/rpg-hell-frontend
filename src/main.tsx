@@ -24,6 +24,15 @@ import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
 import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
 import CreatureCreatorBadPage from "./components/joshhellscapePages/creaturecreatorBAD.tsx";
 import WepCreatorPage from "./components/ItemPages/WepCreatorPage.tsx";
+import CharacterCreationRulebookPage from "./components/RulebookPages/SubPages/CharacterCreationPage.tsx";
+import CharacterExamplesPage from "./components/RulebookPages/SubPages/CharacterExamplesPage.tsx";
+import CombatPage from "./components/RulebookPages/SubPages/CombatPage.tsx";
+import CoreRulesPage from "./components/RulebookPages/SubPages/CoreRulesPage.tsx";
+import EffectsPage from "./components/RulebookPages/SubPages/EffectsPage.tsx";
+import ForGMsPage from "./components/RulebookPages/SubPages/GMRulesPage.tsx";
+import IntroPage from "./components/RulebookPages/SubPages/IntroPage.tsx";
+import MiscellaneousRulesPage from "./components/RulebookPages/SubPages/MiscellaneousRulesPage.tsx";
+import StatsPage from "./components/RulebookPages/SubPages/StatsPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -73,15 +82,12 @@ const router = createBrowserRouter(
                         },
                         {
                             path: "wepcreator",
-                            element: (
-                                <WepCreatorPage/>
-                            ),
+                            element: <WepCreatorPage />,
                         },
                         {
                             path: "creaturescreatorbad",
                             element: <CreatureCreatorBadPage />,
                         },
-                        
                     ],
                 },
                 {
@@ -110,6 +116,43 @@ const router = createBrowserRouter(
                         {
                             path: "creatures",
                             element: <CreatureTablePage />,
+                        },
+                        // New pages in the rulebook update project
+                        {
+                            path: "character-creation",
+                            element: <CharacterCreationRulebookPage />,
+                        },
+                        {
+                            path: "character-examples",
+                            element: <CharacterExamplesPage />,
+                        },
+                        {
+                            path: "combat",
+                            element: <CombatPage />,
+                        },
+                        {
+                            path: "core-rules",
+                            element: <CoreRulesPage />,
+                        },
+                        {
+                            path: "effects",
+                            element: <EffectsPage />,
+                        },
+                        {
+                            path: "for-gms",
+                            element: <ForGMsPage />,
+                        },
+                        {
+                            path: "intro",
+                            element: <IntroPage />,
+                        },
+                        {
+                            path: "misc-rules",
+                            element: <MiscellaneousRulesPage />,
+                        },
+                        {
+                            path: "stats",
+                            element: <StatsPage />,
                         },
                     ],
                 },
