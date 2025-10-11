@@ -6,6 +6,7 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
 import SearchGroup from "../search/SearchGroup";
+import { useState } from "react";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -38,9 +39,39 @@ export default function TraitsTablePage() {
         resetFilterTraits,
     } = useTraits();
 
+    const [lookAtWhat, setLookAtWhat] = useState("all");
+    
     return (
         <>
-            <h1>Traits</h1>
+            <h1 className="capitalize">{lookAtWhat.slice(0,-2)} Traits</h1>
+
+            <div className="flex row justify-center gap-2 p-3">
+                <Button
+                    onClick={() =>
+                        setLookAtWhat("ooc 0")
+                    }
+                    variant="nature"
+                >
+                    OOC
+                </Button>
+                <Button
+                        onClick={() =>
+                            setLookAtWhat("combat 0")
+                        }
+                        variant="medicine"
+                    >
+                        Combat
+                </Button>
+                <Button
+                        onClick={() =>
+                            setLookAtWhat("all")
+                        }
+                        variant="thieving"
+                    >
+                        All
+                </Button>
+            </div>
+
             {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
             {
                 <Button
@@ -131,7 +162,17 @@ export default function TraitsTablePage() {
                 <Tab.Panels>
                     <Tab.Panel>
                         <TraitsTable
-                            displayedTraits={displayedTraits}
+                            //displayedTraits={displayedTraits}
+
+                            displayedTraits={displayedTraits.filter(
+                                (s) => {
+                                    if (lookAtWhat == "all") {
+                                        return (s);
+                                    }
+                                    return (s.req?.includes(lookAtWhat));
+                                }
+                            )}
+
                             moveTrait={(trait) => {
                                 addToPinnedTraits(trait);
                             }}
@@ -143,9 +184,12 @@ export default function TraitsTablePage() {
                                 <TraitsTable
                                     displayedTraits={displayedTraits.filter(
                                         (s) => {
-                                            return s.req
-                                                ?.toString()
-                                                .includes(n.toLowerCase());
+                                            if (lookAtWhat == "all") {
+                                                return s.req
+                                                    ?.toString()
+                                                    .includes(n.toLowerCase());
+                                            }
+                                            return ((s.req?.toString().includes(n.toLowerCase())) && (s.req?.includes(lookAtWhat)));
                                         }
                                     )}
                                     moveTrait={(trait) => {
