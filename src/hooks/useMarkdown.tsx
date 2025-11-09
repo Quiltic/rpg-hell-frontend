@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formatEffectString } from "../util/textFormatting";
+import { Heading } from "../types/Heading";
+import { extractHeadings } from "../util/MarkdownHeaderParsing";
 
 // import md from "../assets/markdown/md"
 export default function useMarkdown(md: string) {
     const [rawMarkdown, setRawMarkdown] = useState("");
     const [formattedMarkdown, setFormattedMarkdown] = useState("");
+    const [headings, setHeadings] = useState<Heading[]>([]);
 
     useEffect(() => {
         fetch(md)
@@ -16,9 +19,14 @@ export default function useMarkdown(md: string) {
         setFormattedMarkdown(formatEffectString(rawMarkdown));
     }, [rawMarkdown]);
 
-    // Add a turn string into array of the header strings to be anchorAref'd
+    useEffect(() => {
+        if (formattedMarkdown) {
+            const extracted = extractHeadings(formattedMarkdown);
+            setHeadings(extracted);
+        }
+    }, [formattedMarkdown]);
 
     // add glossary formatter here
 
-    return { formattedMarkdown, rawMarkdown };
+    return { formattedMarkdown, rawMarkdown, headings };
 }
