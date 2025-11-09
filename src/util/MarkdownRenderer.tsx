@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useLayoutEffect, useMemo } from "react";
 import useMarkdown from "../hooks/useMarkdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -50,6 +50,7 @@ export default function MarkdownRenderer({ markdown }: markdownRendererProps) {
                     h4: HeadingRenderer,
                     h5: HeadingRenderer,
                     h6: HeadingRenderer,
+                    ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
                 }}
             >
                 {formattedMarkdown}
