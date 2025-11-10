@@ -7,7 +7,7 @@
   h1,
   h2,
   h3 {
-    @apply mt-4 mb-1 font-bold
+    @apply mt-6 mb-1 font-bold
   }
 
   h1 {
@@ -23,7 +23,7 @@
   }
 
   p {
-    @apply mb-1
+    @apply mb-1 mt-4 ml-6
   }
 
   a {
@@ -107,12 +107,12 @@
   background: rgb(92, 165, 214);
   background: linear-gradient(105deg, rgba(92, 165, 214, 1) 0%, rgba(126, 89, 213, 1) 15%, rgba(214, 147, 92, 1) 30%, rgba(244, 236, 215, 1) 45%);
 } */
-
+/* 
 .markdown-styles {
   p {
     @apply indent-8
   }
-}
+} */
 
 .table-container {
   height: 400px;
@@ -144,4 +144,15 @@ table {
 
 .soul {
   color: purple;
+}
+
+.md_list {
+  padding-left: 3%;
+  list-style-type:"-";
+  margin-top: 1%;
+  text-indent: 2%;
+}
+
+ul li {
+  margin-top: 1%;
 }

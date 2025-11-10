@@ -23,7 +23,7 @@ export default function RulebookNavigation() {
     const rulebookBasePath = "/rulebook/";
     return (
         <nav>
-            <h2>Rulebook Sections</h2>
+            <h2>Rulebook Pages</h2>
             <ul className="rounded-md bg-body-900/50 px-6 py-2 dark:bg-dark-300/80">
                 {rulebookPages.map((page) => {
                     const absolutePath = `${rulebookBasePath}${page.path}`;
