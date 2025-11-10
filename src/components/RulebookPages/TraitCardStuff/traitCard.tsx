@@ -1,9 +1,14 @@
+import Markdown from "react-markdown";
 import { Trait } from "../../../client";
+import MarkdownRenderer from "../../../util/MarkdownRenderer";
 import { formatEffectString, toPillElement } from "../../../util/textFormatting";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 type Props = {
     _trait: Trait;
 };
+
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 const STUPID_COLOR_TYPESCRIPT_BS = [
@@ -22,12 +27,14 @@ const STUPID_COLOR_TYPESCRIPT_BS = [
 ];
 
 export default function TraitCard({
-    _trait: _trait,
+    _trait: _trait = {"name": "LOADING TRAIT", "tags": ["loading"], "effect": "Loading.", "req": ["loading 1"], "extra": ""},
 }: Props) {    
 
     
 
-    const ee = formatEffectString(_trait.effect ?? "");
+    const ee = formatEffectString(_trait.effect.replace("#", "🎲") ?? "").split("\n\n");
+    console.log(ee)
+
     const req = toPillElement(
         _trait.req?.toString().replace(" 0", "") ?? "",
         ","
@@ -52,10 +59,36 @@ export default function TraitCard({
             </div>
             
             <div className={graid}/>
-            <div
+            {/* <div
                 dangerouslySetInnerHTML={{ __html: ee }}
                 className="whitespace-pre-wrap text-left m-5 indent-5 text-sm"
-            ></div>
+            ></div> */}
+            <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                    ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
+                }}
+                className="text-left"
+            >
+                {ee[0]}
+            </Markdown>
+
+            <div className="mt-2.5 w-full text-center border-b-2 border-solid border-body-700/20">
+                {/* <div className="px-2.5 py-2 bg-dark-400 border-2 border-solid border-body-700/20">TEST</div> */}
+            </div>
+
+            <Markdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                    ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
+                }}
+                className="text-left"
+            >
+                {ee[1]}
+            </Markdown>
+            {/* <MarkdownRenderer markdown={ee} /> */}
         </div>
     );
 }

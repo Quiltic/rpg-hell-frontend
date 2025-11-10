@@ -1,245 +1,245 @@
 [
-    {"name": "battle ready", "tags": [], "effect": "You have +2 to Initiative rolls, and can use BODY when doing any roll based on Combat (History of a Battle, info on Weapons/Armor, etc).\nBody 3 - At the start of combat you are Empowered.", "req": "Body 1", "extra": ""
+    {"name": "battle ready", "tags": [], "effect": "You have +2 to Initiative rolls, and can use BODY when doing any roll based on Combat (History of a Battle, info on Weapons/Armor, etc).\n\nBody 3 - At the start of combat you are Empowered.", "req": ["body 1"], "extra": ""
     },
-    {"name": "Frenzy", "tags": [], "effect": "When you take damage you may spend 1 Strain to become Empowered until the end of your next Turn.\nBody 3 - While you are Empowered after you do an Attack you may remove Empowered to do another Attack with the same sum.", "req": "Body 1", "extra": ""
+    {"name": "Frenzy", "tags": [], "effect": "When you take damage you may spend 1 Strain to become Empowered until the end of your next Turn.\n\nBody 3 - While you are Empowered after you do an Attack you may remove Empowered to do another Attack with the same sum.", "req": ["body 1"], "extra": ""
     },
-    {"name": "tag team", "tags": [], "effect": "At the end of your turn, Mark all targets you damaged this turn until the start of your next turn.\nOnce per round, if a Marked target dies or the Mark is consumed you refund 2 Strain.\nBody 2 - You gain +1 Speed while you are Empowered or when moving towards a creature that has a Negative Status (Burn, Wet, Slowed, Marked, Charmed, etc).", "req": "Body 1", "extra": ""
+    {"name": "tag team", "tags": [], "effect": "At the end of your turn, Mark all targets you damaged this turn until the start of your next turn.\nOnce per round, if a Marked target dies or the Mark is consumed you refund 2 Strain.\n\nBody 2 - You gain +1 Speed while you are Empowered or when moving towards a creature that has a Negative Status (Burn, Wet, Slowed, Marked, Charmed, etc).", "req": ["body 1"], "extra": ""
     },
-    {"name": "Saw it Coming", "tags": [], "effect": "Once per turn, when you fail a Dodge roll you may spend Empowered or 2 Strain to roll a d4 and add its value to the Dodge roll. This may change the outcome of the Dodge roll.\nYou gain an additional 1d4 when doing checks or contests related to Traps.\nBody 4 - Once per turn, when you succeed on a Dodge roll refund 1 Strain.", "req": "Body 2", "extra": ""
+    {"name": "Saw it Coming", "tags": [], "effect": "Once per turn, when you fail a Dodge roll you may spend Empowered or 2 Strain to roll a d4 and add its value to the Dodge roll. This may change the outcome of the Dodge roll.\nYou gain an additional 1d4 when doing checks or contests related to Traps.\n\nBody 4 - Once per turn, when you succeed on a Dodge roll refund 1 Strain.", "req": ["body 2"], "extra": ""
     },
-    {"name": "parkourist", "tags": [], "effect": "You can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.\nBody 3 - You can climb and swim without doing Body rolls.", "req": "Body 2", "extra": ""
+    {"name": "parkourist", "tags": [], "effect": "You can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.\n\nBody 3 - You can climb and swim without doing Body rolls.", "req": ["body 2"], "extra": ""
     },
-    {"name": "bouncer", "tags": [], "effect": "When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nWhile you have a target grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any knockback damage.\nBody 3 - Once per Turn, refund 1 Strain when you grapple a creature.", "req": "Body 2", "extra": ""
+    {"name": "bouncer", "tags": [], "effect": "When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nWhile you have a target grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any knockback damage.\n\nBody 3 - Once per Turn, refund 1 Strain when you grapple a creature.", "req": ["body 2"], "extra": ""
     },
-    {"name": "whirlwind", "tags": [], "effect": "You can move through dense crowds, or tiles that are occupied by creatures as if it was rough terrain.\nAdditionally, once per turn, refund 3 Strain when you do a Melee Attack against 2 or more creatures in a turn.\nBody 4 - When you hit a creature with a Melee Attack you may spend Empowered to do half damage to a target within 1 tile of the hit creature.", "req": "Body 3", "extra": ""
+    {"name": "whirlwind", "tags": [], "effect": "You can move through dense crowds, or tiles that are occupied by creatures as if it was rough terrain.\nAdditionally, once per turn, refund 3 Strain when you do a Melee Attack against 2 or more creatures in a turn.\n\nBody 4 - When you hit a creature with a Melee Attack you may spend Empowered to do half damage to a target within 1 tile of the hit creature.", "req": ["body 3"], "extra": ""
     },
-    {"name": "defender", "tags": [], "effect": "When you hit a target with Melee Attack you may spend 1 Strain to have them be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.\nBody 4 - You may spend Empowered or remove Marked from the target instead of spending Strain to Root a target.", "req": "Body 3", "extra": ""
+    {"name": "defender", "tags": [], "effect": "When you hit a target with Melee Attack you may spend 1 Strain to have them be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.\n\nBody 4 - You may spend Empowered or remove Marked from the target instead of spending Strain to Root a target.", "req": ["body 3"], "extra": ""
     },
-    {"name": "Smother", "tags": [], "effect": "When you first grapple a creature, while you have a creature Grappled, you may have them be Blinded or Silenced.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.\nBody 4 - You may Grapple 2 targets at the same time. While Grappling 2 targets you can only Move or do actions related to Grappling.", "req": "Body 3", "extra": ""
+    {"name": "Smother", "tags": [], "effect": "When you first grapple a creature, while you have a creature Grappled, you may have them be Blinded or Silenced.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.\n\nBody 4 - You may Grapple 2 targets at the same time. While Grappling 2 targets you can only Move or do actions related to Grappling.", "req": ["body 3"], "extra": ""
     },
-    {"name": "Melee Weapon Master", "tags": [], "effect": "When using a Side Melee Weapon (such as a Dagger or Fists) you may give a 6 instead of ## for a Weapon or Art Attack. This Attack gains +2 to its sum.\nWhen using a Two Handed Melee Weapon it gains Reaching 2 (or +1 Reaching if it has Reaching).\nWhen using a Hammer you may have the target go Prone instead of applying Knockback.", "req": "Body 4", "extra": ""
+    {"name": "Melee Weapon Master", "tags": [], "effect": "When using a Side Melee Weapon (such as a Dagger or Fists) you may give a 6 instead of ## for a Weapon or Art Attack. This Attack gains +2 to its sum.\nWhen using a Two Handed Melee Weapon it gains Reaching 2 (or +1 Reaching if it has Reaching).\nWhen using a Hammer you may have the target go Prone instead of applying Knockback.", "req": ["body 4"], "extra": ""
     },
-    {"name": "True Strikes", "tags": [], "effect": "When you give a 12 or higher on a Melee Attack you do not gain the Weapon Downside.\nWhen you give a 8 or less on a Melee Attack you are unaffected by Blind.", "req": "Body 4", "extra": ""
+    {"name": "True Strikes", "tags": [], "effect": "When you give a 12 or higher on a Melee Attack you do not gain the Weapon Downside.\nWhen you give a 8 or less on a Melee Attack you are unaffected by Blind.", "req": ["body 4"], "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["Body 4"], "extra": ""
-    },
-
-
-
-
-
-    {"name": "acute memory", "tags": [], "effect": "When you make a MIND check to remember something, you may get +1 to the roll.\nAdditionally, you can spend 1 minute to perfectly memorize something. You do not need to do a MIND roll when trying to recall this information.\nMind 3 - When you do a (Proficiency) roll, you may refund 2 Strain.", "req": "Mind 1", "extra": ""
-    },
-    {"name": "Focus Fire", "tags": [], "effect": "When you damage a creature you may spend 1 Strain to Mark them. When a Marked creature dies, you become Empowered until the end of your next turn.\nMind 2 - You may spend a Locked Dice to move Marked from one creature you can see to another you can see.", "req": "Mind 1", "extra": ""
-    },
-    {"name": "Investigator", "tags": [], "effect": "When you do a Senses roll you may gain a Clue. You may have up to 1+MIND Clues. Later you may spend a Clue to; Mark a target you can see for up to 1 hour or gain +1d4 on a Charm contest.\nMind 3 -  Once per turn, when you fail a check you may spend a Clue to roll 1d4 and add its value to the roll. This may change the outcome of the roll.", "req": "Mind 1", "extra": ""
-    },
-    {"name": "Patient", "tags": [], "effect": "At the end of your turn (10 seconds) increase your Locked dice by 1, to a maximum of your MIND. If you do not have a Locked dice Lock a 1.\nMind 3 - The maximum is your LEVEL rather than your MIND.", "req": "Mind 2", "extra": ""
-    },
-    {"name": "snake eyes", "tags": [], "effect": "Once per turn, when you roll 2 ones (Snake Eyes), you refund 1 Strain and may spend 1 Strain to re-roll them.\nMind 3 - When you roll Snake Eyes you may add a 2 to the roll.", "req": "Mind 2", "extra": ""
-    },
-    {"name": "Multitasking", "tags": [], "effect": "You may Lock up to 2 dice at a time.\nMind 4 - You may Lock up to 3 dice at a time.", "req": "Mind 2", "extra": ""
-    },
-    {"name": "duelist", "tags": [], "effect": "While you are wielding a Weapon in one hand and nothing in the other, that weapon does 1 extra damage. Fists do not count towards this trait, both for damage or offhanded.\nYou may spend Empowered to gain +2 to any roll.\nMind 4 - When you are Attacked by a Marked target you may remove Marked and gain +1 Dodge for the Attack.", "req": "Mind 3", "extra": ""
-    },
-    {"name": "sniper", "tags": [], "effect": "Your Weapon Attacks do an additional +1 damage if the target is 12 or more tiles away.\nYou are able to see things up to 1 large tile (2,160x2,160 tiles) away as clear as if it was near you and you are able to read lips if you know the language.", "req": "Mind 3", "extra": ""
-    },
-    {"name": "Threat Assessment", "tags": [], "effect": "When you Mark a target, Mark an additional target you can see with the same duration.\nMind 4 - At the beginning of combat Mark a target you can see until the end of your next turn.", "req": "Mind 3", "extra": ""
-    },
-    {"name": "eggs in one basket", "tags": [], "effect": "You do not lose unspent dice at the end of your turns. Unused dice, up to a maximum of 2xMIND, may be kept and used on your next turn. These dice are not Locked and cannot be Locked until the start of your next turn.", "req": "Mind 4", "extra": ""
-    },
-    {"name": "Ranged Weapon Master", "tags": [], "effect": "Your Ranged Weapons have +2 Range.\nWhen using a Loading Weapon you may spend 2 ammo to gain the Weapon Bonus.\nWhen using a Bow, creatures you target do not gain +1 Dodge while Hunkered Down.", "req": "Mind 4", "extra": ""
-    },
-    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["Mind 4"], "extra": ""
+    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["body 4"], "extra": ""
     },
 
 
 
 
 
-    {"name": "soul covenant", "tags": [], "effect": "Make a pact, oath, or pledge to a powerful entity. (A god, demon, dragon, eldritch being, etc.) Work with your GM to create this covenant. For example, a god may ask you to 'Protect the forest.', or a demon may want you to 'Sacrifice a soul every day!'. Should you fail to keep your covenant you may lose access to this Trait.\nPick any Art of Level 6 or less (regardless of if you have the stats). Once per Rest, you can offer something to your Patron to activate this Art without spending Strain. For example, a god may ask for a prayer, or a demon may ask for blood.\nSoul 4 - You may activate this 3 times per Rest. ", "req": "Soul 1", "extra": ""
+    {"name": "acute memory", "tags": [], "effect": "When you make a MIND check to remember something, you may get +1 to the roll.\nAdditionally, you can spend 1 minute to perfectly memorize something. You do not need to do a MIND roll when trying to recall this information.\n\nMind 3 - When you do a (Proficiency) roll, you may refund 2 Strain.", "req": ["mind 1"], "extra": ""
     },
-    {"name": "familiar", "tags": [], "effect": "At the end of a Rest create a Familiar Follower. The Familiar has 2xLEVEL Max Health and Strain, +1 Dodge, 7 Speed, 1 in a Main-Stat (Body, Mind, or Soul), 2 in one Sub-Stat of your choice and 1 in another. They know the Art ‘telepathy' and have a Spectral Attack (See Weapons), You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead), 3 level one Arts of your choice (it does not need the stat in order to take an Art), and appearance each time it is created.\nWhen you gain a stat increase the Familiar gains +1 in a Sub-Stat of your choice. You may only ever have 1 Familiar at a time, if you were to create a Familiar while one already exists the first one morphs into the new one.\nSoul 3 - You may pick 4 Arts of level one or two of your choice for the Familiar.\nSoul 4 - Choose one (you cannot change this choice later). The Familiar can Fly, learn 1 Art you know, or gain +1 to a Main Stat.", "req": "Soul 1", "extra": ""
+    {"name": "Focus Fire", "tags": [], "effect": "When you damage a creature you may spend 1 Strain to Mark them. When a Marked creature dies, you become Empowered until the end of your next turn.\n\nMind 2 - You may spend a Locked Dice to move Marked from one creature you can see to another you can see.", "req": ["mind 1"], "extra": ""
     },
-    {"name": "Soul Bound Relic", "tags": [], "effect": "At the end of a Rest you may bind a small item to your soul. While a creature is holding or wearing the Relic you may cast spells that target only them (or items they are carrying) as if you were able to touch them or be 1 tile away from them.\nAlternatively if you are within 1 large tile (2,160x2,160 tiles) of the Relic you may spend 3 Strain to teleport within 1 tile of the Relic.\nSoul 3 - Creatures holding or wearing the Relic may spend 2 Strain to gain an extra 1d4 on their next check.", "req": "Soul 1", "extra": ""
+    {"name": "Investigator", "tags": [], "effect": "When you do a Senses roll you may gain a Clue. You may have up to 1+MIND Clues. Later you may spend a Clue to; Mark a target you can see for up to 1 hour or gain +1d4 on a Charm contest.\n\nMind 3 -  Once per turn, when you fail a check you may spend a Clue to roll 1d4 and add its value to the roll. This may change the outcome of the roll.", "req": ["mind 1"], "extra": ""
     },
-    {"name": "Boon Infusion", "tags": [], "effect": "When you spend Strain to activate a non-Attack Art you may spend 1 Strain to give the affected target(s) Blessed or Empowered for 1 hour. This bonus is given after the Art.\nSoul 3 - When you spend or unlock a Locked dice you may gain Blessed or Empowered.", "req": "Soul 2", "extra": ""
+    {"name": "Patient", "tags": [], "effect": "At the end of your turn (10 seconds) increase your Locked dice by 1, to a maximum of your MIND. If you do not have a Locked dice Lock a 1.\n\nMind 3 - The maximum is your LEVEL rather than your MIND.", "req": ["mind 2"], "extra": ""
     },
-    {"name": "soul blade ", "tags": [], "effect": "Turn a Melee Weapon you wield into your Soul Weapon. This weapon does damage equal to 1+SOUL or if it's two handed 3+SOUL, has Returning, can Glow, and cannot be broken except by spells.\nSoul 4 - The weapon gains; Bonus: Gain Blessed or Empowered until the end of your turn.", "req": "Soul 2", "extra": ""
+    {"name": "snake eyes", "tags": [], "effect": "Once per turn, when you roll 2 ones (Snake Eyes), you refund 1 Strain and may spend 1 Strain to re-roll them.\n\nMind 3 - When you roll Snake Eyes you may add a 2 to the roll.", "req": ["mind 2"], "extra": ""
     },
-    {"name": "magical knowledge", "tags": [], "effect": "You learn 2 additional Arts of your choice that you meet the requirements for.\nSoul 4 - You learn an additional Art of your choice that you meet the requirements for (3 gained from this Trait).", "req": "Soul 2", "extra": ""
+    {"name": "Multitasking", "tags": [], "effect": "You may Lock up to 2 dice at a time.\n\nMind 4 - You may Lock up to 3 dice at a time.", "req": ["mind 2"], "extra": ""
     },
-    {"name": "Powered Alignment", "tags": [], "effect": "While you are Empowered, you have +1 Speed and +1 on Weapon Attack Sums.\nWhile you are Blessed, you refund 1 Strain at the end of your turn and may give Glow on targets you touch or hit.", "req": "Soul 3", "extra": ""
+    {"name": "duelist", "tags": [], "effect": "While you are wielding a Weapon in one hand and nothing in the other, that weapon does 1 extra damage. Fists do not count towards this trait, both for damage or offhanded.\nYou may spend Empowered to gain +2 to any roll.\n\nMind 4 - When you are Attacked by a Marked target you may remove Marked and gain +1 Dodge for the Attack.", "req": ["mind 3"], "extra": ""
     },
-    {"name": "???", "tags": [], "effect": "Once per turn, while you are Blessed or Empowered you can remove Blessed or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\nSoul 4 - You may turn 1 Ward into Blessed or Empowered, and may turn Blessed into Empowered or vice versa. ", "req": "Soul 3", "extra": ""
+    {"name": "sniper", "tags": [], "effect": "Your Weapon Attacks do an additional +1 damage if the target is 12 or more tiles away.\nYou are able to see things up to 1 large tile (2,160x2,160 tiles) away as clear as if it was near you and you are able to read lips if you know the language.", "req": ["mind 3"], "extra": ""
     },
-    {"name": "summoners command", "tags": [], "effect": "At the start of your turn you may have all of your Followers move without spending a dice.\nSoul 4 - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.", "req": "Soul 3", "extra": ""
+    {"name": "Threat Assessment", "tags": [], "effect": "When you Mark a target, Mark an additional target you can see with the same duration.\n\nMind 4 - At the beginning of combat Mark a target you can see until the end of your next turn.", "req": ["mind 3"], "extra": ""
     },
-    {"name": "power from within", "tags": [], "effect": "Arts you or an ally activate that affect just you or items you wield, cost 1 less Strain, to a minimum of 1.", "req": "Soul 4", "extra": ""
+    {"name": "eggs in one basket", "tags": [], "effect": "You do not lose unspent dice at the end of your turns. Unused dice, up to a maximum of 2xMIND, may be kept and used on your next turn. These dice are not Locked and cannot be Locked until the start of your next turn.", "req": ["mind 4"], "extra": ""
     },
-    {"name": "signature art", "tags": [], "effect": "When you take this Trait choose an Art you know.  You may activate that Art up to your SOUL times per Break or Rest without spending Strain.\nYou cannot change this chosen Art except through extremely powerful sources, and if you remove this Art from your known Arts you cannot use this Trait.", "req": "Soul 4", "extra": ""
+    {"name": "Ranged Weapon Master", "tags": [], "effect": "Your Ranged Weapons have +2 Range.\nWhen using a Loading Weapon you may spend 2 ammo to gain the Weapon Bonus.\nWhen using a Bow, creatures you target do not gain +1 Dodge while Hunkered Down.", "req": ["mind 4"], "extra": ""
     },
-    {"name": "purified soul", "tags": [], "effect": "When you die you turn into a spirit. While as a spirit you have the Undead tag, have half health, are permanently Slowed, +1 Dodge against non-Art attacks, can move through non-metal walls, and cannot carry or use items. If you die as a Spirit you cannot be resurrected. When your body is resurrected, either from a spell or from a Potion of Life you must be present or it will fail.", "req": "Soul 4", "extra": ""
-    },
-
-
-
-
-
-    {"name": "art token", "tags": [], "effect": "You may spend Strain to activate an Art you know, turning the activation into a Token of your choosing. Later a creature can spend 1 minute destroying the Token to activate the imbued Art without spending Strain or dice. You may have up to ARCANA number of Tokens at a time.", "req": "Arcana 1", "extra": ""
-    },
-    {"name": "art manipulator", "tags": [], "effect": "When you activate an Art you may spend 1 Strain then pick 1 of the following:\nThe Arts effects happen at a later time based on a specific trigger.\nAn Art requires 1 less dice to cast. Use a 3 for the missing dice value.\nAn Art activates without any noticeable movement or sounds.\nArcana 2 - You may apply any number of these effects instead of just 1.", "req": "Arcana 1", "extra": ""
-    },
-    {"name": "Split Art", "tags": [], "effect": "Once per turn, when you activate an Art that has a single target you may spend 2 Strain to duplicate it and pick a different target.\nArcana 3 - You may do this up to your ARCANA times per turn.", "req": "Arcana 2", "extra": ""
-    },
-    {"name": "Arcane Sense", "tags": [], "effect": "You are able to sense magical effects within 2 tiles around you. Objects and creatures that are affected by magic glow based on how powerful the magic is. You may spend 3 Strain to increase this distance by ARCANA for 1 minute.\nArcana 4 - Your passive magical sense is your ARCANA tiles away instead of 2.", "req": "Arcana 2", "extra": ""
-    },
-    {"name": "Compressed Arts", "tags": [], "effect": "When you activate an Art that covers an area, you may instead compress it to a singular target within the Art's range. Effects from the Art happen twice on the singular target. (Targets that do a Dodge, Contest, or similar roll must do it twice.)\nArcana 4 - Effects happen three times against a singular target.", "req": "Arcana 3", "extra": ""
-    },
-    {"name": "art augmenter", "tags": [], "effect": "When you activate an Art you may spend 1 Strain then pick 1 of the following:\nAn Art with Range has its range doubled. Art's with a range of Touch have Reaching 2.\nChange any Statuses given by an Art to either 2 Burn, Wet, Marked, Charmed, 1 Stun, Blessed, or Empowered. It lasts for the same duration as the original Status.\nArts that deal damage do an additional 2 damage.\nArcana 4 - You may apply any number of these effects instead of just 1.", "req": "Arcana 3", "extra": ""
-    },
-    {"name": "Fine Control", "tags": [], "effect": "When you activate an Art that has an area effect, you may choose any number of targets that are not affected by the Art.", "req": "Arcana 4", "extra": ""
-    },
-    {"name": "Stacking Arts", "tags": [], "effect": "When you activate an Art you may activate a different Art with the same triggers or conditions on the same target without spending more dice (you still spend Strain). For instance you may activate the Arts 'Cleave' and 'Smite' on the same Weapon Attack.", "req": ["Arcana 4"], "extra": ""
+    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["mind 4"], "extra": ""
     },
 
 
 
 
 
-    {"name": "show, don't tell", "tags": [], "effect": "Whenever you speak or do a performance you can subtly add a message into it. You may target any number of creatures you can see to learn the message. Then the creature(s), and only the creature(s), will learn your message regardless of distance.\nCharm 2 - Creatures you have Charmed and allies can be targeted regardless of if you can see them.", "req": "Charm 1", "extra": ""
+    {"name": "soul covenant", "tags": [], "effect": "Make a pact, oath, or pledge to a powerful entity. (A god, demon, dragon, eldritch being, etc.) Work with your GM to create this covenant. For example, a god may ask you to 'Protect the forest.', or a demon may want you to 'Sacrifice a soul every day!'. Should you fail to keep your covenant you may lose access to this Trait.\nPick any Art of Level 6 or less (regardless of if you have the stats). Once per Rest, you can offer something to your Patron to activate this Art without spending Strain. For example, a god may ask for a prayer, or a demon may ask for blood.\n\nSoul 4 - You may activate this 3 times per Rest. ", "req": ["soul 1"], "extra": ""
     },
-    {"name": "Intoxicating Presence", "tags": [], "effect": "When a creature first sees you, you may do a Charm contest against them. If you win, the creature is Charmed for up to 1 hour.\nCharm 3 -  When you Attack a target that is Charmed you may remove Charmed to refund 3 Strain.", "req": "Charm 1", "extra": ""
+    {"name": "familiar", "tags": [], "effect": "At the end of a Rest create a Familiar Follower. The Familiar has 2xLEVEL Max Health and Strain, +1 Dodge, 7 Speed, 1 in a Main-Stat (Body, Mind, or Soul), 2 in one Sub-Stat of your choice and 1 in another. They know the Art 'telepathy' and have a Spectral Attack (See Weapons), You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead), 3 level one Arts of your choice (it does not need the stat in order to take an Art), and appearance each time it is created.\n- When you gain a stat increase the Familiar gains +1 in a Sub-Stat of your choice. You may only ever have 1 Familiar at a time, if you were to create a Familiar while one already exists the first one morphs into the new one.\n\nSoul 3 - You may pick 4 Arts of level one or two of your choice for the Familiar.\n\nSoul 4 - Choose one (you cannot change this choice later). The Familiar can Fly, learn 1 Art you know, or gain +1 to a Main Stat.", "req": ["soul 1"], "extra": ""
     },
-    {"name": "lead them along", "tags": [], "effect": "Creatures you have Charmed have -1 on all rolls that do not relate to you.\nCharm 3 - You have +1 on Contests against creatures you have Charmed.", "req": "Charm 2", "extra": ""
+    {"name": "Soul Bound Relic", "tags": [], "effect": "At the end of a Rest you may bind a small item to your soul. While a creature is holding or wearing the Relic you may cast spells that target only them (or items they are carrying) as if you were able to touch them or be 1 tile away from them.\n- Alternatively if you are within 1 large tile (2,160x2,160 tiles) of the Relic you may spend 3 Strain to teleport within 1 tile of the Relic.\n\nSoul 3 - Creatures holding or wearing the Relic may spend 2 Strain to gain an extra 1d4 on their next check.", "req": ["soul 1"], "extra": ""
     },
-    {"name": "Hidden in Plain Sight", "tags": [], "effect": "You may use CHARM instead of THIEVING when doing stealth rolls.\nCharm 3 - While you are not directly interacting with a Charmed creature, you are Obscured from them.", "req": "Charm 2", "extra": ""
+    {"name": "Boon Infusion", "tags": [], "effect": "When you spend Strain to activate a non-Attack Art you may spend 1 Strain to give the affected target(s) Blessed or Empowered for 1 hour. This bonus is given after the Art.\n\nSoul 3 - When you spend or unlock a Locked dice you may gain Blessed or Empowered.", "req": ["soul 2"], "extra": ""
     },
-    {"name": "saving face", "tags": [], "effect": "When you do a Charm roll you may spend 2 Strain to add a d4 to the roll sum. This may be done after seeing the value but before results are announced.\nCharm 4 - If you do a Charm roll against a target that is Charmed you may remove Charmed instead of spending Strain on this Trait.", "req": "Charm 3", "extra": ""
+    {"name": "soul blade ", "tags": [], "effect": "Turn a Melee Weapon you wield into your Soul Weapon. This weapon does damage equal to 1+SOUL or if it's two handed 3+SOUL, has Returning, can Glow, and cannot be broken except by spells.\n\nSoul 4 - The weapon gains; Bonus: Gain Blessed or Empowered until the end of your turn.", "req": ["soul 2"], "extra": ""
     },
-    {"name": "Target Audience", "tags": [], "effect": "When you activate an Art you may choose up to 2+CHARM creatures. Those creatures, and only those creatures, are effected and see, hear, or feel the Art.\nCharm 4 - Charmed creatures do not count against the number of chosen creatures.", "req": "Charm 3", "extra": ""
+    {"name": "magical knowledge", "tags": [], "effect": "You learn 2 additional Arts of your choice that you meet the requirements for.\n\nSoul 4 - You learn an additional Art of your choice that you meet the requirements for (3 gained from this Trait).", "req": ["soul 2"], "extra": ""
     },
-    {"name": "the show must go on", "tags": [], "effect": "When you activate a Focused Art on a creature that has been Charmed you may spend Charmed to double the duration of the Art.\nWhile you are Performing you cannot be interrupted by Charm effects. If you have an Aura active you cannot gain stacks of Blind, Stun, or Slow.\nOnce per Rest, you may ignore the first time you would gain a stack of Death's Door.", "req": "Charm 4", "extra": ""
+    {"name": "Powered Alignment", "tags": [], "effect": "While you are Empowered, you have +1 Speed and +1 on Weapon Attack Sums.\nWhile you are Blessed, you refund 1 Strain at the end of your turn and may give Glow on targets you touch or hit.", "req": ["soul 3"], "extra": ""
     },
-    {"name": "rendition", "tags": [], "effect": "Your illusions are so real that they have physical form. These illusions only feel real and cannot interact with the world aside from touch (they cannot do damage, activate Arts, use Traits, etc). Physical illusions have 1 health.", "req": "Charm 4", "extra": ""
+    {"name": "???", "tags": [], "effect": "Once per turn, while you are Blessed or Empowered you can remove Blessed or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Blessed or Empowered, and may turn Blessed into Empowered or vice versa. ", "req": ["soul 3"], "extra": ""
+    },
+    {"name": "summoners command", "tags": [], "effect": "At the start of your turn you may have all of your Followers move without spending a dice.\n\nSoul 4 - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.", "req": ["soul 3"], "extra": ""
+    },
+    {"name": "power from within", "tags": [], "effect": "Arts you or an ally activate that affect just you or items you wield, cost 1 less Strain, to a minimum of 1.", "req": ["soul 4"], "extra": ""
+    },
+    {"name": "signature art", "tags": [], "effect": "When you take this Trait choose an Art you know.  You may activate that Art up to your SOUL times per Break or Rest without spending Strain.\nYou cannot change this chosen Art except through extremely powerful sources, and if you remove this Art from your known Arts you cannot use this Trait.", "req": ["soul 4"], "extra": ""
+    },
+    {"name": "purified soul", "tags": [], "effect": "When you die you turn into a spirit. While as a spirit you have the Undead tag, have half health, are permanently Slowed, +1 Dodge against non-Art attacks, can move through non-metal walls, and cannot carry or use items. If you die as a Spirit you cannot be resurrected. When your body is resurrected, either from a spell or from a Potion of Life you must be present or it will fail.", "req": ["soul 4"], "extra": ""
     },
 
-    
 
 
 
-    {"name": "gear enhancements", "tags": [], "effect": "At the end of a Rest you may enhance up to 1+CRAFTING items (weapons or armors). Items can only have 1 enhancement given this way at a time, and you may only have up to 1+CRAFTING enhanced items.\nA weapon enhanced this way gains one of the following: +1 to the Bonus Threshold, Glow, or Bonus: refund 1 Strain.\nAn armor enhanced this way gains one of the following: remove the Speed Penalty, +1 Ward on Rest, or Once per Break when you lose all SHIELDING you refund 3 Strain.\nCrafting 3 - Items may have 2 enhancements given this way at a time.", "req": "Crafting 1", "extra": ""
+
+    {"name": "art token", "tags": [], "effect": "You may spend Strain to activate an Art you know, turning the activation into a Token of your choosing. Later a creature can spend 1 minute destroying the Token to activate the imbued Art without spending Strain or dice. You may have up to ARCANA number of Tokens at a time.", "req": ["arcana 1"], "extra": ""
     },
-    {"name": "build them break them", "tags": [], "effect": "Followers you create have an additional Shielding equal to your CRAFTING.\nYou do additional damage to objects and structures equal to your CRAFTING.\nCrafting 4 - You have +2 damage against Constructs.", "req": "Crafting 1", "extra": ""
+    {"name": "art manipulator", "tags": [], "effect": "When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- The Arts effects happen at a later time based on a specific trigger.\n- An Art requires 1 less dice to cast. Use a 3 for the missing dice value.\n- An Art activates without any noticeable movement or sounds.\n\nArcana 2 - You may apply any number of these effects instead of just 1.", "req": ["arcana 1"], "extra": ""
     },
-    {"name": "fast hands", "tags": [], "effect": "At the beginning of your turn, you may reload up to 2 ammo into your Loading weapons without spending dice.\nYou may spend 2 Strain instead of dice when using a Gadget or Alchemy item (use a 6 for any sum).\nCrafting 3 - You may spend 2 Strain instead of dice to activate any Item (use a 6 for any sum). You cannot do Attacks with this action.", "req": "Crafting 2", "extra": ""
+    {"name": "Split Art", "tags": [], "effect": "Once per turn, when you activate an Art that has a single target you may spend 2 Strain to duplicate it and pick a different target.\n\nArcana 3 - You may do this up to your ARCANA times per turn.", "req": ["arcana 2"], "extra": ""
     },
-    {"name": "Field Repair", "tags": [], "effect": "At the end of a Break or Rest give yourself and up to 8 targets Bonus SHIELDING equal to your CRAFTING.\nCrafting 3 - You may give 1 Ward instead of Bonus SHIELDING.", "req": "Crafting 2", "extra": ""
+    {"name": "Arcane Sense", "tags": [], "effect": "You are able to sense magical effects within 2 tiles around you. Objects and creatures that are affected by magic glow based on how powerful the magic is. You may spend 3 Strain to increase this distance by ARCANA for 1 minute.\n\nArcana 4 - Your passive magical sense is your ARCANA tiles away instead of 2.", "req": ["arcana 2"], "extra": ""
     },
-    {"name": "tool for all jobs", "tags": [], "effect": "You may create one of the following: an Omni-tool (acts as all tools), Launcher (double your Throw Range), or a Gadget Belt (refund 1 Strain when you use a Gadget). You may only ever have one of these at a time and making a new one destroys the old one.\nAdditionally, you may spend ## and 2 Strain to reforge a non-alchemical non-magical non-complex item into another thing of similar typing. For instance you can turn a Melee Weapon into a different Melee Weapon.\nCrafting 4 - You may reforge complex items.", "req": "Crafting 3", "extra": ""
+    {"name": "Compressed Arts", "tags": [], "effect": "When you activate an Art that covers an area, you may instead compress it to a singular target within the Art's range. Effects from the Art happen twice on the singular target. (Targets that do a Dodge, Contest, or similar roll must do it twice.)\n\nArcana 4 - Effects happen three times against a singular target.", "req": ["arcana 3"], "extra": ""
     },
-    {"name": "Smith's Sparks", "tags": [], "effect": "Your Melee Weapons have; Bonus: If you hit, give the target 2 Burn.\nYou don't gain Burn from non-Trait or Art sources.\nCrafting 4 - Your Followers gain this Trait.", "req": "Crafting 3", "extra": ""
+    {"name": "art augmenter", "tags": [], "effect": "When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- An Art with Range has its range doubled. Art's with a range of Touch have Reaching 2.\n- Change any Statuses given by an Art to either 2 Burn, Wet, Marked, Charmed, 1 Stun, Blessed, or Empowered. It lasts for the same duration as the original Status.\n- Arts that deal damage do an additional 2 damage.\n\nArcana 4 - You may apply any number of these effects instead of just 1.", "req": ["arcana 3"], "extra": ""
     },
-    {"name": "Master Craftsman", "tags": [], "effect": "When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.", "req": "Crafting 4", "extra": ""
+    {"name": "Fine Control", "tags": [], "effect": "When you activate an Art that has an area effect, you may choose any number of targets that are not affected by the Art.", "req": ["arcana 4"], "extra": ""
     },
-    {"name": "Masterwork Refinement", "tags": [], "effect": "At the end of a Rest you may refine up to 1+CRAFTING items (weapons or armors). Items can only have 1 refinement given this way at a time, and you may only have up to 1+CRAFTING refined items.\nA weapon enhanced this way gains one of the following: +1 to the Downside Threshold, Returning, or this weapon can gain its Bonus twice.\nAn armor enhanced this way gains one of the following: +LEVEL Shielding on Rest, +1 Dodge, or Replace any Dodge given with 3xDODGE Max Strain. ", "req": ["Crafting 4"], "extra": ""
+    {"name": "Stacking Arts", "tags": [], "effect": "When you activate an Art you may activate a different Art with the same triggers or conditions on the same target without spending more dice (you still spend Strain). For instance you may activate the Arts 'Cleave' and 'Smite' on the same Weapon Attack.", "req": ["arcana 4"], "extra": ""
+    },
+
+
+
+
+
+    {"name": "show, don't tell", "tags": [], "effect": "Whenever you speak or do a performance you can subtly add a message into it. You may target any number of creatures you can see to learn the message. Then the creature(s), and only the creature(s), will learn your message regardless of distance.\n\nCharm 2 - Creatures you have Charmed and allies can be targeted regardless of if you can see them.", "req": ["charm 1"], "extra": ""
+    },
+    {"name": "Intoxicating Presence", "tags": [], "effect": "When a creature first sees you, you may do a Charm contest against them. If you win, the creature is Charmed for up to 1 hour.\n\nCharm 3 -  When you Attack a target that is Charmed you may remove Charmed to refund 3 Strain.", "req": ["charm 1"], "extra": ""
+    },
+    {"name": "lead them along", "tags": [], "effect": "Creatures you have Charmed have -1 on all rolls that do not relate to you.\n\nCharm 3 - You have +1 on Contests against creatures you have Charmed.", "req": ["charm 2"], "extra": ""
+    },
+    {"name": "Hidden in Plain Sight", "tags": [], "effect": "You may use CHARM instead of THIEVING when doing stealth rolls.\n\nCharm 3 - While you are not directly interacting with a Charmed creature, you are Obscured from them.", "req": ["charm 2"], "extra": ""
+    },
+    {"name": "saving face", "tags": [], "effect": "When you do a Charm roll you may spend 2 Strain to add a d4 to the roll sum. This may be done after seeing the value but before results are announced.\n\nCharm 4 - If you do a Charm roll against a target that is Charmed you may remove Charmed instead of spending Strain on this Trait.", "req": ["charm 3"], "extra": ""
+    },
+    {"name": "Target Audience", "tags": [], "effect": "When you activate an Art you may choose up to 2+CHARM creatures. Those creatures, and only those creatures, are effected and see, hear, or feel the Art.\n\nCharm 4 - Charmed creatures do not count against the number of chosen creatures.", "req": ["charm 3"], "extra": ""
+    },
+    {"name": "the show must go on", "tags": [], "effect": "When you activate a Focused Art on a creature that has been Charmed you may spend Charmed to double the duration of the Art.\nWhile you are Performing you cannot be interrupted by Charm effects. If you have an Aura active you cannot gain stacks of Blind, Stun, or Slow.\nOnce per Rest, you may ignore the first time you would gain a stack of Death's Door.", "req": ["charm 4"], "extra": ""
+    },
+    {"name": "rendition", "tags": [], "effect": "Your illusions are so real that they have physical form. These illusions only feel real and cannot interact with the world aside from touch (they cannot do damage, activate Arts, use Traits, etc). Physical illusions have 1 health.", "req": ["charm 4"], "extra": ""
     },
 
     
 
 
 
-    {"name": "trained medic", "tags": [], "effect": "When you use a Bandage you may spend ## and the Bandage to heal 4+2xMEDICINE.\nYou may spend 1 minute examining a body to not need to roll Medicine in order to get information about wounds or cause of death.\nMedicine 2 - When you use a Medkit, you heal 2+MEDICINE.", "req": "Medicine 1", "extra": ""
+    {"name": "gear enhancements", "tags": [], "effect": "At the end of a Rest you may enhance up to 1+CRAFTING items (weapons or armors). Items can only have 1 enhancement given this way at a time, and you may only have up to 1+CRAFTING enhanced items.\n- A weapon enhanced this way gains one of the following: +1 to the Bonus Threshold, Glow, or Bonus: refund 1 Strain.\n- An armor enhanced this way gains one of the following: remove the Speed Penalty, +1 Ward on Rest, or Once per Break when you lose all SHIELDING you refund 3 Strain.\n\nCrafting 3 - Items may have 2 enhancements given this way at a time.", "req": ["crafting 1"], "extra": ""
     },
-    {"name": "alchemical brewer", "tags": [], "effect": "At the end of a Rest you may create up to your MEDICINE non-Magical Alchemical items. You may only ever have up to your MEDICINE Alchemical items made this way at a time.\nMedicine 3 - You may spend ### and 2 Strain or 1 hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.", "req": "Medicine 1", "extra": ""
+    {"name": "build them break them", "tags": [], "effect": "Followers you create have an additional Shielding equal to your CRAFTING.\nYou do additional damage to objects and structures equal to your CRAFTING.\n\nCrafting 4 - You have +2 damage against Constructs.", "req": ["crafting 1"], "extra": ""
     },
-    {"name": "Hex", "tags": [], "effect": "When you activate a targeted Art you may Focus on the Art for up to 1 minute, save any dice spent. At the beginning of your turn you may re-activate the Art on the same target with the same dice sum by spending half the Art's Strain cost (rounded up, to a minimum of 1).\nMedicine 3 - If your target dies or goes unconscious you may spend 2 Strain to move the hex to a new target you can see.", "req": ["Medicine 2"], "extra": ""
+    {"name": "fast hands", "tags": [], "effect": "At the beginning of your turn, you may reload up to 2 ammo into your Loading weapons without spending dice.\nYou may spend 2 Strain instead of dice when using a Gadget or Alchemy item (use a 6 for any sum).\n\nCrafting 3 - You may spend 2 Strain instead of dice to activate any Item (use a 6 for any sum). You cannot do Attacks with this action.", "req": ["crafting 2"], "extra": ""
     },
-    {"name": "Field Tending", "tags": [], "effect": "At the end of a Break you may roll a number of d4 equal to your MEDICINE. You pick any number of Creatures you can see. Heal a total amount of health equal to the dice rolled. The healing may be given to one creature or divided as among several. You cannot target Undead or Constructs.\nMedicine 4 - When you heal a creature you may spend 4 Strain to remove a Death's Door stack.", "req": "Medicine 2", "extra": ""
+    {"name": "Field Repair", "tags": [], "effect": "At the end of a Break or Rest give yourself and up to 8 targets Bonus SHIELDING equal to your CRAFTING.\n\nCrafting 3 - You may give 1 Ward instead of Bonus SHIELDING.", "req": ["crafting 2"], "extra": ""
     },
-    {"name": "Empowering Remedies", "tags": [], "effect": "When you heal a creature, or when they consume an Alchemical item you made, the creature becomes Empowered until the end of their next turn.\nMedicine 4 - When you heal a creature, or when they consume an alchemical item you made, the creature refunds 1 Strain.", "req": "Medicine 3", "extra": ""
+    {"name": "tool for all jobs", "tags": [], "effect": "You may create one of the following: an Omni-tool (acts as all tools), Launcher (double your Throw Range), or a Gadget Belt (refund 1 Strain when you use a Gadget). You may only ever have one of these at a time and making a new one destroys the old one.\nAdditionally, you may spend ## and 2 Strain to reforge a non-alchemical non-magical non-complex item into another thing of similar typing. For instance you can turn a Melee Weapon into a different Melee Weapon.\n\nCrafting 4 - You may reforge complex items.", "req": ["crafting 3"], "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["Medicine 3"], "extra": ""
+    {"name": "Smith's Sparks", "tags": [], "effect": "Your Melee Weapons have; Bonus: If you hit, give the target 2 Burn.\nYou don't gain Burn from non-Trait or Art sources.\n\nCrafting 4 - Your Followers gain this Trait.", "req": ["crafting 3"], "extra": ""
     },
-    {"name": "power from pain", "tags": [], "effect": "While your Health is less than half your Max Health you deal 1 extra damage on Attacks and Arts you cast cost 1 less. While you have stacks of Death's Door you deal 1 extra damage on Attacks and Arts you cast cost 1 less. These effects stack with one another. You retain this trait even while Shapeshifted.", "req": "Medicine 4", "extra": ""
+    {"name": "Master Craftsman", "tags": [], "effect": "When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.", "req": ["crafting 4"], "extra": ""
     },
-    {"name": "Necromancer", "tags": [], "effect": "Followers you create have +1 damage while they are within 6 tiles of you, and your Undead Followers can be healed by your healing Arts (not medkit or bandage).\nWhen you cast an Art you may spend 2 health (ignores Shielding) to increase any damage by 1d4.", "req": "Medicine 4", "extra": ""
-    },
-
-    
-
-
-
-    {"name": "Hunter", "tags": [], "effect": "While you have no Prey you may remove Marked from a creature you can see and designate them as your Prey. You and your Followers have +1 to Attack and Contest sums against your Prey (this effect stacks with Marked), and once per Break or Rest when your Prey is killed or incapacitated you refund 6 Strain.\nNature 2 - You may spend 1 Strain to Mark your Prey.", "req": "Nature 1", "extra": ""
-    },
-    {"name": "WildShape", "tags": [], "effect": "Spend 1 Strain to change into a new animal form. This change lasts until you dismiss it, gain stacks of Death's Door, or your next Break or Rest. While in this form you gain the form bonus, must use the given weapon, and cannot use Items or non-Attack Arts that target others.\nYour Health, Shielding, Dodge, Strain, and Stats remain unchanged. When you change you may pick Aquatic, Packmate, or Insect.\nNature 2: You may pick Shelled, Digger, or Serpent\nNature 3: You may pick Strider, Winged, or Stalker\nNature 4: You may pick Evolved, Hybrid, or Mythical", "req": "Nature 1", "extra": "Aquatic - Ram (see Weapons). You can breathe air instead of water, and may swim your Speed.\nPackmate - Claws. You do +1 damage if an ally is within 1 tile of you and may spend 2 Strain to give an ally +1d4 on a check.\nInsect - Bite. You may spend 1 Strain to create up to 3 tiles of tough sticky silk or goo. If you Grapple a creature you may use this silk or goo to give you +NATURE on Grapple contests against them.\nShelled - Bite. When you take damage you may retract into your shell and gain +1 Dodge until the start of your next turn. (This effect does not stack.) \nDigger - Claws. You may move your speed through soft material such as dirt or gravel and may spend 1 Strain to move through hard materials such as stone.\nSerpent - Venomous Bite. When you first Grapple a target you may spend 1 Strain to do an Attack against them (use a value of 9 for the Attack Sum). You can 'see' heat, giving you +1d4 on Senses rolls that would benefit from this.\nStrider - Ram. You have +1 Speed, and may pull or carry heavy amounts without rolling Body.\nWinged - Claws. You may Fly. While flying you take +1 damage whenever you would take damage.\nStalker - Ripping Claws. When you make an Attack while Hidden you gain +2 damage on the attack. You may spend # to roll to Hide while in cover.\nEvolved - Pick a form of Nature 3 or less. It gains +1 damage, +1 Dodge, and if it has an ability that costs strain it costs 1 less.\nHybrid - Pick two forms of Nature 3 or less. Gain the weapons and bonuses of both.\nMythical - Pick a form of Nature 3 or less. You may activate any Art you know."
-    },
-    {"name": "Hunters Instincts", "tags": [], "effect": "You always know the rough direction of Marked targets, and if the target is a creature you know what types it has and its highest Stat.\nWhen you or your Followers damage a Marked creature, if they are Focusing, you may remove Marked to break the target's Focus.\nNature 3 - While you are tracking or can see a Marked target, the target cannot lose Marked.", "req": "Nature 2", "extra": ""
-    },
-    {"name": "Beastbound", "tags": [], "effect": "You have bonded with a Beast Follower. The Beast has 2xNATURE+LEVEL Max Health, LEVEL Strain, 0 Dodge, 6 Speed, 1 Body or Mind (Your choice), 2 Nature, 1 in a Sub-stat of your choosing, and 0 for all other Stats. The Beast has the Arts 'track creature', 'guardian's riposte', and a level one Art of your choice (it does not need the stat in order to take an Art). It has the type Animal and a Claw Attack (See Weapons).\nWhen you gain a stat increase the Beast gains +1 in a Sub-Stat of your choice. If the Beast was to go to 0 health they go unconscious instead of dying.\nSoul 3 - The Beast gains +1 Dodge and may spend 1 Strain to become Empowered.\nSoul 4 - The Beast does 1 extra damage to targets you Mark or damage on your turn.", "req": "Nature 2", "extra": ""
-    },
-    {"name": "heightened senses", "tags": [], "effect": "You can see in poorly lit areas as if they were illuminated, and gain +1 on Senses rolls.\nNature 4 - You have +1d4 instead of +1 on Senses rolls.", "req": "Nature 3", "extra": ""
-    },
-    {"name": "expert elementalist ", "tags": [], "effect": "Whenever you spend Strain, if that spell applies Burn, Wet, Slow, or does Knockback, you can spend 1 Strain to do actions based on stacks given. Multiple actions may be activated per Spell.\nBurn - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\nWet - Also give Blessed or do a Soul contest to make the target Prone.\nSlow - Give the target 2 Stun instead of Slow.\nKnockback - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.", "req": "Nature 3", "extra": ""
-    },
-    {"name": "Feral", "tags": [], "effect": "When you or a Follower kill a creature you gain +1 damage and Max Strain for 1 hour. (This refunds 1 Strain)\nYou do not get attacked by creatures with the Animal type under normal circumstances or until you attack them.", "req": "Nature 4", "extra": ""
-    },
-    {"name": "Floral", "tags": [], "effect": "At the end of a Rest pick Grow, Wither, or Harvest.\nGrow: Your Arts that affect an area have +1 to the radius. When you heal a creature with Blessed, you heal an extra 1d4 instead of 1.\nWither: Creatures that are affected by Arts that have an area do -1 damage on Attacks, and you may spend 1 Strain to give them -1d4 on a check or contest.\nHarvest: Once per turn, when you damage a creature with an Art, you may heal 2 health or gain Empowered until the end of your turn.", "req": "Nature 4", "extra": ""
+    {"name": "Masterwork Refinement", "tags": [], "effect": "At the end of a Rest you may refine up to 1+CRAFTING items (weapons or armors). Items can only have 1 refinement given this way at a time, and you may only have up to 1+CRAFTING refined items.\n- A weapon enhanced this way gains one of the following: +1 to the Downside Threshold, Returning, or this weapon can gain its Bonus twice.\n- An armor enhanced this way gains one of the following: +LEVEL Shielding on Rest, +1 Dodge, or Replace any Dodge given with 3xDODGE Max Strain. ", "req": ["crafting 4"], "extra": ""
     },
 
     
 
 
 
-    {"name": "Cat Burglar", "tags": [], "effect": "You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\nThieving 2 - You make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.", "req": "Thieving 1", "extra": ""
+    {"name": "trained medic", "tags": [], "effect": "When you use a Bandage you may spend ## and the Bandage to heal 4+2xMEDICINE.\nYou may spend 1 minute examining a body to not need to roll Medicine in order to get information about wounds or cause of death.\n\nMedicine 2 - When you use a Medkit, you heal 2+MEDICINE.", "req": ["medicine 1"], "extra": ""
     },
-    {"name": "Assassin", "tags": [], "effect": "When you Attack a Marked target you may remove Marked to increase the Attack's damage by a number of d4 equal to your THIEVING. This must be announced before the target does a Dodge roll.\nThieving 3 - If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.", "req": "Thieving 1", "extra": ""
+    {"name": "alchemical brewer", "tags": [], "effect": "At the end of a Rest you may create up to your MEDICINE non-Magical Alchemical items. You may only ever have up to your MEDICINE Alchemical items made this way at a time.\n\nMedicine 3 - You may spend ### and 2 Strain or 1 hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.", "req": ["medicine 1"], "extra": ""
     },
-    {"name": "now you see me", "tags": [], "effect": "When you Move while under the effects of a movement based Art or Trait you are Invisible. You are not Invisible during your turn, only when moving.\nAdditionally, while you are Hidden you may spend # (1 dice) and 1 Strain to turn Invisible until the end of your turn (10 seconds).\nThieving 4 - While you are Empowered you may remove Empowered to become Invisible for up to 1 minute or until you activate an Art or Attack a target.", "req": "Thieving 2", "extra": ""
+    {"name": "Hex", "tags": [], "effect": "When you activate a targeted Art you may Focus on the Art for up to 1 minute, save any dice spent. At the beginning of your turn you may re-activate the Art on the same target with the same dice sum by spending half the Art's Strain cost (rounded up, to a minimum of 1).\n\nMedicine 3 - If your target dies or goes unconscious you may spend 2 Strain to move the hex to a new target you can see.", "req": ["medicine 2"], "extra": ""
     },
-    {"name": "spell thief", "tags": [], "effect": "When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to 1+SOUL at a time.\nThieving 3 - You may know up to 1 + SOUL + THIEVING.", "req": "Thieving 2", "extra": ""
+    {"name": "Field Tending", "tags": [], "effect": "At the end of a Break you may roll a number of d4 equal to your MEDICINE. You pick any number of Creatures you can see. Heal a total amount of health equal to the dice rolled. The healing may be given to one creature or divided as among several. You cannot target Undead or Constructs.\n\nMedicine 4 - When you heal a creature you may spend 4 Strain to remove a Death's Door stack.", "req": ["medicine 2"], "extra": ""
     },
-    {"name": "obscured power", "tags": [], "effect": "While you are Hidden or Obscured you may conceal the fact that you are activating a Trait or Art. The Trait or Art makes no noise (unless the it is designed to) and activating a non-damaging Trait or Art does not break you out of Hidden.\nThieving 4 - Activating a non-damaging Trait or Art does not break you out of Invisibility.", "req": "Thieving 3", "extra": ""
+    {"name": "Empowering Remedies", "tags": [], "effect": "When you heal a creature, or when they consume an Alchemical item you made, the creature becomes Empowered until the end of their next turn.\n\nMedicine 4 - When you heal a creature, or when they consume an alchemical item you made, the creature refunds 1 Strain.", "req": ["medicine 3"], "extra": ""
     },
-    {"name": "eyes of riches", "tags": [], "effect": "You can see in poorly lit areas as if they were illuminated. You have learned real from fake and gain 1d4 when checking for an item's authenticity or to gauge its price.\nThieving 4 - When you gain Blinded you may spend 1 Strain to remove Blinded.", "req": "Thieving 3", "extra": ""
+    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["medicine 3"], "extra": ""
     },
-    {"name": "master thief ", "tags": [], "effect": "When you become Obscured (such as when you enter Fog) you may spend 1 Strain to become Hidden instead.", "req": "Thieving 4", "extra": ""
+    {"name": "power from pain", "tags": [], "effect": "While your Health is less than half your Max Health you deal 1 extra damage on Attacks and Arts you cast cost 1 less. While you have stacks of Death's Door you deal 1 extra damage on Attacks and Arts you cast cost 1 less. These effects stack with one another. You retain this trait even while Shapeshifted.", "req": ["medicine 4"], "extra": ""
     },
-    {"name": "Trained", "tags": [], "effect": "When you attack a target that has Marked you may change the Attack Sum to 5. Additionally, you get +1 on contests, or Thieving checks you initiate against a Marked target.", "req": "Thieving 4", "extra": ""
+    {"name": "Necromancer", "tags": [], "effect": "Followers you create have +1 damage while they are within 6 tiles of you, and your Undead Followers can be healed by your healing Arts (not medkit or bandage).\nWhen you cast an Art you may spend 2 health (ignores Shielding) to increase any damage by 1d4.", "req": ["medicine 4"], "extra": ""
+    },
+
+    
+
+
+
+    {"name": "Hunter", "tags": [], "effect": "While you have no Prey you may remove Marked from a creature you can see and designate them as your Prey. You and your Followers have +1 to Attack and Contest sums against your Prey (this effect stacks with Marked), and once per Break or Rest when your Prey is killed or incapacitated you refund 6 Strain.\n\nNature 2 - You may spend 1 Strain to Mark your Prey.", "req": ["nature 1"], "extra": ""
+    },
+    {"name": "WildShape", "tags": [], "effect": "Spend 1 Strain to change into a new animal form. This change lasts until you dismiss it, gain stacks of Death's Door, or your next Break or Rest. While in this form you gain the form bonus, must use the given weapon, and cannot use Items or non-Attack Arts that target others.\n- Your Health, Shielding, Dodge, Strain, and Stats remain unchanged. When you change you may pick Aquatic, Packmate, or Insect.\n\nNature 2: You may pick Shelled, Digger, or Serpent\n\nNature 3: You may pick Strider, Winged, or Stalker\n\nNature 4: You may pick Evolved, Hybrid, or Mythical", "req": ["nature 1"], "extra": "Aquatic - Ram (see Weapons). You can breathe air instead of water, and may swim your Speed.\nPackmate - Claws. You do +1 damage if an ally is within 1 tile of you and may spend 2 Strain to give an ally +1d4 on a check.\nInsect - Bite. You may spend 1 Strain to create up to 3 tiles of tough sticky silk or goo. If you Grapple a creature you may use this silk or goo to give you +NATURE on Grapple contests against them.\nShelled - Bite. When you take damage you may retract into your shell and gain +1 Dodge until the start of your next turn. (This effect does not stack.) \nDigger - Claws. You may move your speed through soft material such as dirt or gravel and may spend 1 Strain to move through hard materials such as stone.\nSerpent - Venomous Bite. When you first Grapple a target you may spend 1 Strain to do an Attack against them (use a value of 9 for the Attack Sum). You can 'see' heat, giving you +1d4 on Senses rolls that would benefit from this.\nStrider - Ram. You have +1 Speed, and may pull or carry heavy amounts without rolling Body.\nWinged - Claws. You may Fly. While flying you take +1 damage whenever you would take damage.\nStalker - Ripping Claws. When you make an Attack while Hidden you gain +2 damage on the attack. You may spend # to roll to Hide while in cover.\nEvolved - Pick a form of Nature 3 or less. It gains +1 damage, +1 Dodge, and if it has an ability that costs strain it costs 1 less.\nHybrid - Pick two forms of Nature 3 or less. Gain the weapons and bonuses of both.\nMythical - Pick a form of Nature 3 or less. You may activate any Art you know."
+    },
+    {"name": "Hunters Instincts", "tags": [], "effect": "You always know the rough direction of Marked targets, and if the target is a creature you know what types it has and its highest Stat.\nWhen you or your Followers damage a Marked creature, if they are Focusing, you may remove Marked to break the target's Focus.\n\nNature 3 - While you are tracking or can see a Marked target, the target cannot lose Marked.", "req": ["nature 2"], "extra": ""
+    },
+    {"name": "Beastbound", "tags": [], "effect": "You have bonded with a Beast Follower. The Beast has 2xNATURE+LEVEL Max Health, LEVEL Strain, 0 Dodge, 6 Speed, 1 Body or Mind (Your choice), 2 Nature, 1 in a Sub-stat of your choosing, and 0 for all other Stats. The Beast has the Arts 'track creature', 'guardian's riposte', and a level one Art of your choice (it does not need the stat in order to take an Art). It has the type Animal and a Claw Attack (See Weapons).\n- When you gain a stat increase the Beast gains +1 in a Sub-Stat of your choice. If the Beast was to go to 0 health they go unconscious instead of dying.\n\nSoul 3 - The Beast gains +1 Dodge and may spend 1 Strain to become Empowered.\n\nSoul 4 - The Beast does 1 extra damage to targets you Mark or damage on your turn.", "req": ["nature 2"], "extra": ""
+    },
+    {"name": "heightened senses", "tags": [], "effect": "You can see in poorly lit areas as if they were illuminated, and gain +1 on Senses rolls.\n\nNature 4 - You have +1d4 instead of +1 on Senses rolls.", "req": ["nature 3"], "extra": ""
+    },
+    {"name": "expert elementalist ", "tags": [], "effect": "Whenever you spend Strain, if that spell applies Burn, Wet, Slow, or does Knockback, you can spend 1 Strain to do actions based on stacks given. Multiple actions may be activated per Spell.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Blessed or do a Soul contest to make the target Prone.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.", "req": ["nature 3"], "extra": ""
+    },
+    {"name": "Feral", "tags": [], "effect": "When you or a Follower kill a creature you gain +1 damage and Max Strain for 1 hour. (This refunds 1 Strain)\nYou do not get attacked by creatures with the Animal type under normal circumstances or until you attack them.", "req": ["nature 4"], "extra": ""
+    },
+    {"name": "Floral", "tags": [], "effect": "At the end of a Rest pick Grow, Wither, or Harvest.\n- **Grow:** Your Arts that affect an area have +1 to the radius. When you heal a creature with Blessed, you heal an extra 1d4 instead of 1.\n- **Wither:** Creatures that are affected by Arts that have an area do -1 damage on Attacks, and you may spend 1 Strain to give them -1d4 on a check or contest.\n- **Harvest:** Once per turn, when you damage a creature with an Art, you may heal 2 health or gain Empowered until the end of your turn.", "req": ["nature 4"], "extra": ""
+    },
+
+    
+
+
+
+    {"name": "Cat Burglar", "tags": [], "effect": "You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\n\nThieving 2 - You make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.", "req": ["thieving 1"], "extra": ""
+    },
+    {"name": "Assassin", "tags": [], "effect": "When you Attack a Marked target you may remove Marked to increase the Attack's damage by a number of d4 equal to your THIEVING. This must be announced before the target does a Dodge roll.\n\nThieving 3 - If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.", "req": ["thieving 1"], "extra": ""
+    },
+    {"name": "now you see me", "tags": [], "effect": "When you Move while under the effects of a movement based Art or Trait you are Invisible. You are not Invisible during your turn, only when moving.\nAdditionally, while you are Hidden you may spend # (1 dice) and 1 Strain to turn Invisible until the end of your turn (10 seconds).\n\nThieving 4 - While you are Empowered you may remove Empowered to become Invisible for up to 1 minute or until you activate an Art or Attack a target.", "req": ["thieving 2"], "extra": ""
+    },
+    {"name": "spell thief", "tags": [], "effect": "When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to 1+SOUL at a time.\n\nThieving 3 - You may know up to 1 + SOUL + THIEVING.", "req": ["thieving 2"], "extra": ""
+    },
+    {"name": "obscured power", "tags": [], "effect": "While you are Hidden or Obscured you may conceal the fact that you are activating a Trait or Art. The Trait or Art makes no noise (unless the it is designed to) and activating a non-damaging Trait or Art does not break you out of Hidden.\n\nThieving 4 - Activating a non-damaging Trait or Art does not break you out of Invisibility.", "req": ["thieving 3"], "extra": ""
+    },
+    {"name": "eyes of riches", "tags": [], "effect": "You can see in poorly lit areas as if they were illuminated. You have learned real from fake and gain 1d4 when checking for an item's authenticity or to gauge its price.\n\nThieving 4 - When you gain Blinded you may spend 1 Strain to remove Blinded.", "req": ["thieving 3"], "extra": ""
+    },
+    {"name": "master thief ", "tags": [], "effect": "When you become Obscured (such as when you enter Fog) you may spend 1 Strain to become Hidden instead.", "req": ["thieving 4"], "extra": ""
+    },
+    {"name": "Trained", "tags": [], "effect": "When you attack a target that has Marked you may change the Attack Sum to 5. Additionally, you get +1 on contests, or Thieving checks you initiate against a Marked target.", "req": ["thieving 4"], "extra": ""
     },
 
 
 
 
 
-    {"name": "Unshakable Devotion", "tags": [], "effect": "Your damaging Arts no-longer break Charmed. (Damage caused by other effects, such as Knockback or Burn, also do not break Charmed.)", "req": ["Arcana 4", "Charm 4"], "extra": ""
+    {"name": "Unshakable Devotion", "tags": [], "effect": "Your damaging Arts no-longer break Charmed. (Damage caused by other effects, such as Knockback or Burn, also do not break Charmed.)", "req": ["arcana 4", "charm 4"], "extra": ""
     },
-    {"name": "Artificer", "tags": [], "effect": "Items you make or enhance can be altered or modified by your Traits as if they were Arts.", "req": ["Arcana 4", "Crafting 4"], "extra": ""
+    {"name": "Artificer", "tags": [], "effect": "Items you make or enhance can be altered or modified by your Traits as if they were Arts.", "req": ["arcana 4", "crafting 4"], "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["Arcana 4", "Nature 4"], "extra": ""
+    {"name": "MISSING TRAIT", "tags": ["piss"], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["arcana 4", "nature 4"], "extra": ""
     },
-    {"name": "Invert Anima", "tags": [], "effect": "When you spend Strain on a Damaging Attack or Art you may heal any target(s) rather than do damage for the amount of damage they would take. If you activate a Focus Art this effect lasts for the entire duration.", "req": ["Arcana 4", "Medicine 4"], "extra": ""
+    {"name": "Invert Anima", "tags": [], "effect": "When you spend Strain on a Damaging Attack or Art you may heal any target(s) rather than do damage for the amount of damage they would take. If you activate a Focus Art this effect lasts for the entire duration.", "req": ["arcana 4", "medicine 4"], "extra": ""
     },
-    {"name": "Stolen Knowledge", "tags": [], "effect": "After another creature activates an Art you may spend a Lock Slot (preventing you from Locking a dice) to steal the Art. The creature forgets the Art and you know the Art until your next Break or Rest. (Arts that last more than one turn do not end from this action, such as Focus or Summon Arts)", "req": ["Arcana 4", "Thieving 4"], "extra": ""
+    {"name": "Stolen Knowledge", "tags": [], "effect": "After another creature activates an Art you may spend a Lock Slot (preventing you from Locking a dice) to steal the Art. The creature forgets the Art and you know the Art until your next Break or Rest. (Arts that last more than one turn do not end from this action, such as Focus or Summon Arts)", "req": ["arcana 4", "thieving 4"], "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["Charm 4", "Crafting 4"], "extra": ""
+    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["charm 4", "crafting 4"], "extra": ""
     },
-    {"name": "Flourishing", "tags": [], "effect": "Once per turn, after you apply Charmed to a creature you may activate an Art that doesn't cost Strain without spending dice. Use an 6 for any sums needed.\nOnce per turn, after you apply Rooted to a creature you may do a Charm contest against them. If you win they gain Charmed for as long as they are Rooted.", "req": ["Charm 4", "Nature 4"], "extra": ""
+    {"name": "Flourishing", "tags": [], "effect": "Once per turn, after you apply Charmed to a creature you may activate an Art that doesn't cost Strain without spending dice. Use an 6 for any sums needed.\nOnce per turn, after you apply Rooted to a creature you may do a Charm contest against them. If you win they gain Charmed for as long as they are Rooted.", "req": ["charm 4", "nature 4"], "extra": ""
     },
-    {"name": "Triage", "tags": [], "effect": "", "req": ["Charm 4", "Medicine 4"], "extra": ""
+    {"name": "Triage", "tags": [], "effect": "When you heal a creature, activate a non-damaging Art, or give Charmed, Empowered, or Blessed; you or the target may refund 1 Strain.", "req": ["charm 4", "medicine 4"], "extra": ""
     },
-    {"name": "Charlatan", "tags": [], "effect": "You have +THIEVING on all checks or contests against creatures you have Charmed.\nWhen you would give Charmed to a creature you may instead give them Marked or Feared for the same duration.", "req": ["Charm 4", "Thieving 4"], "extra": ""
+    {"name": "Charlatan", "tags": [], "effect": "You have +THIEVING on all checks or contests against creatures you have Charmed.\nWhen you would give Charmed to a creature you may instead give them Marked or Feared for the same duration.", "req": ["charm 4", "thieving 4"], "extra": ""
     },
-    {"name": "Synthetic Pollination", "tags": [], "effect": "Once per turn, when you or a Follower gain a positive effect from an Art or Item, you may spend 3 Strain to give that effect to up to 3 other creatures within 8 tiles of you.", "req": ["Crafting 4", "Nature 4"], "extra": ""
+    {"name": "Synthetic Pollination", "tags": [], "effect": "Once per turn, when you or a Follower gain a positive effect from an Art or Item, you may spend 3 Strain to give that effect to up to 3 other creatures within 8 tiles of you.", "req": ["crafting 4", "nature 4"], "extra": ""
     },
-    {"name": "Master of Ephemera", "tags": [], "effect": "When you activate an Item, or when another creature consumes an Alchemical item you made, double the duration, gain +1 radius on area effects, do +2 damage, and/or give +LEVEL Bonus Shielding to any affected targets.", "req": ["Crafting 4", "Medicine 4"], "extra": ""
+    {"name": "Master of Ephemera", "tags": [], "effect": "When you activate an Item, or when another creature consumes an Alchemical item you made, double the duration, gain +1 radius on area effects, do +2 damage, and/or give +LEVEL Bonus Shielding to any affected targets.", "req": ["crafting 4", "medicine 4"], "extra": ""
     },
-    {"name": "Natural Conduction", "tags": [], "effect": "When you deal damage to a creature you may instead make the creature spend half as much Strain (rounded up) and deal 2 damage.\nWhen you heal another creature you may instead make the creature refund half as much Strain (rounded up) and not heal.", "req": ["Crafting 4", "Thieving 4"], "extra": ""
+    {"name": "Natural Conduction", "tags": [], "effect": "When you deal damage to a creature you may instead make the creature spend half as much Strain (rounded up) and deal 2 damage.\nWhen you heal another creature you may instead make the creature refund half as much Strain (rounded up) and not heal.", "req": ["crafting 4", "thieving 4"], "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["Nature 4", "Medicine 4"], "extra": ""
+    {"name": "MISSING TRAIT", "tags": [], "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": ["nature 4", "Medicine 4"], "extra": ""
     },
-    {"name": "Apex Predator", "tags": [], "effect": "When you or a Follower kill a creature you gain a Hunted Token. You or a Follower may spend a Hunted Token to have +1d4 damage on an Attack, give Marked to any target you can see or gain Empowered for up to 1 hour.", "req": ["Nature 4", "Thieving 4"], "extra": ""
+    {"name": "Apex Predator", "tags": [], "effect": "When you or a Follower kill a creature you gain a Hunted Token. You or a Follower may spend a Hunted Token to have +1d4 damage on an Attack, give Marked to any target you can see or gain Empowered for up to 1 hour.", "req": ["nature 4", "thieving 4"], "extra": ""
     },
-    {"name": "Surgeon", "tags": [], "effect": "Once per Rest, when you heal a creature you may reduce their Death's Door by 1.\nYour healing may also reattach limbs or permanently modify the appearance of the creature.", "req": ["Medicine 4", "Thieving 4"], "extra": ""
+    {"name": "Surgeon", "tags": [], "effect": "Once per Rest, when you heal a creature you may reduce their Death's Door by 1.\nYour healing may also reattach limbs or permanently modify the appearance of the creature.", "req": ["medicine 4", "thieving 4"], "extra": ""
     }
 ]

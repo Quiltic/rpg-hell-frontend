@@ -23,7 +23,7 @@ export default function TraitsTable({
                     <th className="hidden md:table-cell">Name</th>
                     <th className="table-cell md:hidden w-[30%]">Trait</th>
                     <th className="hidden md:table-cell">Requirements</th>
-                    <th className="hidden md:table-cell">Dice</th>
+                    {/* <th className="hidden md:table-cell">Dice</th> */}
                     <th>Effect</th>
                     {moveTrait != undefined && (
                         <th className="hidden md:table-cell">
@@ -51,8 +51,8 @@ export default function TraitsTable({
                                     {trait.name}
                                 </span>{" "}
                                 <br />
-                                Dice:{" "}
-                                {trait.dice ? "#".repeat(trait.dice ?? 1) : "P"}
+                                {/* Dice:{" "} */}
+                                {/* {trait.dice ? "#".repeat(trait.dice ?? 1) : "P"} */}
                                 <div className="flex flex-col items-center">
                                     {req}
                                 </div>{" "}
@@ -79,9 +79,9 @@ export default function TraitsTable({
                             >
                                 {req}
                             </td>
-                            <td className="hidden md:table-cell">
+                            {/* <td className="hidden md:table-cell">
                                 {trait.dice ? "#".repeat(trait.dice ?? 1) : "P"}
-                            </td>
+                            </td> */}
                             <td
                                 dangerouslySetInnerHTML={{ __html: ee }}
                                 className="whitespace-pre-wrap text-left"
