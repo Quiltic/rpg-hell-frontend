@@ -29,9 +29,24 @@ import DicePopup2 from "../ui/Popups/dicePopup2";
 import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { ClassDictionary } from "clsx";
 import Checkbox from "../ui/Checkbox";
+import TraitSimpleListing from "../RulebookPages/TraitCardStuff/traitSimpleListing";
 
 
 // import traitJson from "../../assets/OfflineJsons/traits.json";
+
+const IterativeTraitLevels = [
+    "Body",
+    "Mind",
+    "Soul",
+    "Arcana",
+    "Charm",
+    "Crafting",
+    "Medicine",
+    "Nature",
+    "Thieving",
+    // "Monster",
+];
+
 
 
 export default function JoshhellscapePage() {
@@ -50,9 +65,48 @@ export default function JoshhellscapePage() {
     // }, [strain]);
 
 
+    // filter(
+    //     (t) => {
+    //         try {
+    //             const temp = [t.name.toLowerCase(),(t as Trait).effect?.toLowerCase().replace("\n","")," "].join(";|;");
+    //             return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
+    //         } catch (error) {
+    //             console.error('Bad regex:', error);
+    //         }
+    //         return (false)
+    //     }
+    //         // t.name.toLowerCase().includes(searchValue) ||
+    //         // (t as Trait).effect?.toLowerCase().includes(searchValue)
+    // );
+    // return;
+
+    // IterativeTraitLevels.map((n, i) => {
+    //                         return (
+    //                             <Tab.Panel key={i}>
+    //                                 <TraitsTable
+    //                                     displayedTraits={displayedTraits.filter(
+    //                                         (s) => {
+    //                                             return s.req
+    //                                                     ?.toString()
+    //                                                     .includes(n.toLowerCase());
+    //                                         }
+    //                                     )}
+                                        
+    //                                     moveTrait={(trait) => {
+    //                                         addToPinnedTraits(trait);
+    //                                     }}
+    //                                 />
+    //                             </Tab.Panel>
+    //                         );
+    //                     })
+
+    // const traits = traitsList.filter( (t) => {return t.req?.toString().includes('body')} );
+    // console.log(traits);
+
     return (
         <div>
-            <TraitCard _trait={traitsList[0]}></TraitCard>
+            {/* <TraitCard _trait={traits[0]}></TraitCard> */}
+            <TraitSimpleListing></TraitSimpleListing>
         </div>
     );
 }

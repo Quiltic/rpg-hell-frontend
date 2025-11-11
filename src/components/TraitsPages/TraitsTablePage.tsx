@@ -23,7 +23,7 @@ const IterativeTraitLevels = [
     "Medicine",
     "Nature",
     "Thieving",
-    "Monster",
+    // "Monster",
 ];
 
 export default function TraitsTablePage() {

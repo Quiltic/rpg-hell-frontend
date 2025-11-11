@@ -32,8 +32,9 @@ export default function TraitCard({
 
     
 
-    const ee = formatEffectString(_trait.effect.replace("#", "🎲") ?? "").split("\n\n");
-    console.log(ee)
+    const ee = formatEffectString(_trait.effect.replace(/\#/gi, "⚀") ?? "").split("\n\n");
+    // console.log(ee) ⚄
+    // .replace('###', "⚀⚁⚂").replace('##', "⚀⚁").replace('#', "⚀")
 
     const req = toPillElement(
         _trait.req?.toString().replace(" 0", "") ?? "",
@@ -63,7 +64,7 @@ export default function TraitCard({
                 dangerouslySetInnerHTML={{ __html: ee }}
                 className="whitespace-pre-wrap text-left m-5 indent-5 text-sm"
             ></div> */}
-            <Markdown
+            {/* <Markdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
@@ -72,23 +73,30 @@ export default function TraitCard({
                 className="text-left"
             >
                 {ee[0]}
-            </Markdown>
+            </Markdown> */}
 
-            <div className="mt-2.5 w-full text-center border-b-2 border-solid border-body-700/20">
-                {/* <div className="px-2.5 py-2 bg-dark-400 border-2 border-solid border-body-700/20">TEST</div> */}
-            </div>
-
-            <Markdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-                components={{
-                    ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
-                }}
-                className="text-left"
-            >
-                {ee[1]}
-            </Markdown>
-            {/* <MarkdownRenderer markdown={ee} /> */}
+            {ee.map((line, i) => {
+                return (
+                <>
+                <Markdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeRaw]}
+                    components={{
+                        ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
+                    }}
+                    className="text-left"
+                >
+                    {line}
+                </Markdown>
+                
+                { i < ee.length-1 && 
+                    <div className="mt-2.5 w-full text-center border-b-2 border-solid border-body-700/20">
+                        {/* <div className="px-2.5 py-2 bg-dark-400 border-2 border-solid border-body-700/20">TEST</div> */}
+                    </div>
+                }
+                </>
+            );
+            })}
         </div>
     );
 }
