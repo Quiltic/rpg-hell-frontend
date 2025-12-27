@@ -4,11 +4,10 @@
 /* eslint-disable */
 
 export type Trait = {
-    id?: number;
     name: string;
+    tags: Array<string>;
     effect: string;
-    req?: Array<string>;
-    dice: number;
-    is_passive?: boolean;
+    req: Array<string>;
+    extra: string;
 };
 

@@ -13,7 +13,6 @@ export function useItems(changeToRefresh:number = 0) {
         resetFilter: resetFilterItems,
     } = useApiClass<Item>(
         eApiClass.Item,
-        ItemsService.getAllItems,
         "pinnedItemNames",
         changeToRefresh
     );
