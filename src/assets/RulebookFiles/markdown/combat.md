@@ -55,12 +55,22 @@ You may only have a max of 4 Ward at any given point in time.
 
 ### Death's Door
 
-When you are put at 0 or less health you do not immediately die. Rather, you gain stacks of Death's Door. You gain 1 stack of Death's Door by having 0 or less health at the start of your Turn, or by having negative twice your level or less health at the end of a turn.
+When you are put at 0 or less health you do not immediately die. Rather, you gain **Bleeding Out** and stacks of **Death's Door**. When you have 0 or less life in a turn (every 10 seconds) you heal your level and gain **Bleeding Out** and a stack of **Death's Door**. While you are **Bleeding Out** at the end of your turn (or every 10 seconds) you must roll a d12. If you roll a 6 or less you gain a stack of **Death's Door**. If you roll a 7 or higher, another creature heals you, or another creature rolls a 9 or higher on a Medicine Check you lose **Bleeding Out**.
 
 While you have stacks of Death's Door you gain a specific ailment.
-- At Death's Door 1, you have half your Speed (rounded up).
-- At Death's Door 2, you are Prone and cannot get up.
-- At Death's Door 3, you become unconscious, and cannot be woken up until you lose Death's Door stacks or are healed for more than half your Max Health.
-- At Death's Door 4, You Die.
+- At Death's Door 1, you are permanently Slowed.
+- At Death's Door 2, you become unconscious, and cannot be woken up until you lose Death's Door stacks or are healed for more than half your Max Health.
+- At Death's Door 3, You Die.
 
 You lose all stacks of Death's Door at the end of a Rest.
+
+
+### Fall Damage
+
+If you fall from more than 3 tiles up you take damage equal to how many tiles you have fallen. For example if you fell from 3 tiles you take no damage, but if you fall from 7 tiles up you would take 7 damage.
+
+
+
+### Knockback Damage
+
+If you are knocked back into non-destructible surface (wall) you take damage for every tile you do not move. For example; if you get knocked back 5 tiles and hit a wall after 2 tiles you take 3 damage.

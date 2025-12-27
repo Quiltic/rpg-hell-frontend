@@ -18,7 +18,7 @@ You may do a Check when trying to do an action. When you do roll 1d12 \+ require
 
 For GM’s; here are some example levels for difficulty of checks.
 
-| Easy | Average | Difficult |  |  |
+| Easy | Average | Difficult | Very Difficult | Nearly Impossible |
 | :---- | :---- | :---- | :---- | :---- |
 | 5 | 9 | 12 | 14 | 17 |
 
@@ -112,12 +112,14 @@ You lose all stacks of Death's Door at the end of a Rest.
 
 ### Fall Damage
 
-If a target falls 3 or more tiles they take damage equal to how far they fell \-3.
+If you fall from more than 3 tiles up you take damage equal to how many tiles you have fallen. For example if you fell from 3 tiles you take no damage, but if you fall from 7 tiles up you would take 7 damage.
+
 
 
 ### Knockback Damage
 
-Sasdas
+If you are knocked back into non-destructible surface (wall) you take damage for every tile you do not move. For example; if you get knocked back 5 tiles and hit a wall after 2 tiles you take 3 damage.
+
 
 
 ### Hoard Rules

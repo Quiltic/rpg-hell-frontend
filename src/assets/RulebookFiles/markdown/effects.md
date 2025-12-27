@@ -1,13 +1,14 @@
 # States
 
 - ***Aura*** - Lasts a number of turns equal to dice spent, effects everything within 2 tiles of you.
+
 - ***Focus*** - Lasts until you roll a 1 on a Dodge roll, the duration ends, you have 0 health, gain stacks of Stun, cast another Focus Spell, or drop the spell.
 
-- ***Death's Door*** - At 1 stack of Death's Door you are perminatnly Slowed. At 2 stacks of Death's Door you become unconscious and cannot wake up. At 3 stacks of Death's Door you die. You lose all stacks of Death's Door at the end of a Rest.
+- ***Death's Door*** - At 1 stack of Death's Door you are permanently Slowed. At 2 stacks of Death's Door you become unconscious and cannot wake up. At 3 stacks of Death's Door you die. You lose all stacks of Death's Door at the end of a Rest.
 
 - ***Follower*** - Followers take a turn immediately after you however they will only ever roll 3d6. All of your Followers use these same 3 dice regardless of type.
 
-- ***Grappled*** - You cannot move, may give
+- ***Grappled*** - You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body contest against the source of the grapple to remove this effect. 
 
 - ***Obscured*** - You cannot be targeted by non-area ranged actions, or seen from a distance.
 
@@ -49,9 +50,12 @@ Effects are things that are applied to you or you apply to others. There is no m
 
 ### Boons
 
-- ***Blessed*** - You heal 1 extra when being healed and can spend Blessed to gain a d4 on a check.
 
 - ***Empowered*** - You may spend Empowered to gain an Attack’s Bonus or to re-roll a d4.
+
+- ***Rallied*** - You may spend Rallied to gain a d4 on a check or contest. (Choosing to add a d4 must be done before rolling a d12)
+
+- Reinforced - When you roll a Check, Contest, or Dodge roll you may not have less than +1 on the roll.
 
 - ***Invisible*** - You cannot be seen and gain an additional 1d4 on rolls to become Hidden.
 
