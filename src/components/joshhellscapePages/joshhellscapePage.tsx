@@ -32,7 +32,7 @@ import Checkbox from "../ui/Checkbox";
 import TraitSimpleListing from "../RulebookPages/TraitCardStuff/traitSimpleListing";
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
-const STUPID_COLOR_TYPESCRIPT_BS = [
+// const STUPID_COLOR_TYPESCRIPT_BS = [
 
 // import traitJson from "../../assets/OfflineJsons/traits.json";
 
