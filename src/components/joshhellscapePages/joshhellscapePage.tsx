@@ -30,6 +30,10 @@ import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { ClassDictionary } from "clsx";
 import Checkbox from "../ui/Checkbox";
 import TraitSimpleListing from "../RulebookPages/TraitCardStuff/traitSimpleListing";
+import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
+import CreatureSheet from "../CreaturesPages/creatureSheet";
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 // const STUPID_COLOR_TYPESCRIPT_BS = [
@@ -51,11 +55,42 @@ const IterativeTraitLevels = [
 
 
 
+const displayedCreature = {
+    "name":"Decaying Zombie",
+    "types":"Undead",
+    "level":0.5,
+    "health":0,
+    "shielding":2,
+    "dodge":-1,
+    "ward":0,
+    "strain":0,
+    "speed":5,
+    "stats": {
+       "body":1,
+        "mind":0,
+        "soul":0,
+        "arcana":-2,
+        "crafting":0,
+        "charm":-2,
+        "nature":0,
+        "medicine":0,
+        "thieving":0 
+    },
+    "actives":"**Decaying Claws** - Spend ##; Melee Attack. On Hit: Do 3 damage, and the target cannot Heal until the start of your next turn. Bonus: Gain +2 damage.\n\n**Lunge** - Spend ## and 1 Strain; Move 3 tiles then do a Decaying Claws Attack.",
+    "passives":"**Undying Form** - At 0 Health roll 1d6. On a 2 or higher it lives on 1 hp. Increase this difficulty by 1 each time it survives.",
+    "descriptor":"A dead and decaying reanimated corpse of some creature. They are usually found near older necromantic powers or after said powers have stopped.",
+    "how_act":"Group, Overwhelm, Dim Witted"
+}
+
+
 export default function JoshhellscapePage() {
 
     const {allTraits: traitsList} = useTraits();
     const {allSpells: spellsList} = useSpells();
     const {allItems: itemsList} = useItems();
+
+
+
 
     // console.log(traitsList[0]);
 
@@ -106,9 +141,13 @@ export default function JoshhellscapePage() {
     // console.log(traits);
 
     return (
-        <div>
-            {/* <TraitCard _trait={traits[0]}></TraitCard> */}
-            <TraitSimpleListing></TraitSimpleListing>
+        <div className="flex flex-row">
+            <CreatureSheet
+                displayedCreature={displayedCreature}
+            />
+            <CreatureSheet
+                displayedCreature={displayedCreature}
+            />
         </div>
     );
 }

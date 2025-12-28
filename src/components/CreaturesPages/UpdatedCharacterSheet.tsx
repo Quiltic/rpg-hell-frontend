@@ -11,7 +11,7 @@ import { useSpells } from "../../hooks/useSpells";
 import { useTraits } from "../../hooks/useTraits";
 import { useItems } from "../../hooks/useItems";
 import { CreatureNew } from "../../client/models/CreatureNew";
-import CleanCombobox from "./CleanCombobox";
+import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 import TraitCard from "../RulebookPages/TraitCardStuff/traitCard";
 import { list } from "postcss";
 import TraitCardHolder from "../RulebookPages/TraitCardStuff/traitCardHolder";

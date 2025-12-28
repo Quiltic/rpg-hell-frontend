@@ -8,7 +8,7 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import jsonTraits from "../../assets/OfflineJsons/traits.json";
 import jsonSpells from "../../assets/OfflineJsons/spells.json";
 import jsonItems from "../../assets/OfflineJsons/items.json";
-import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
+import jsonCreatures from "../../assets/OfflineJsons/creatures.json";
 
 import useApi from "../../hooks/useApi";
 
