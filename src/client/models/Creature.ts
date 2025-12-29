@@ -13,6 +13,7 @@ export type Creature = {
     health: number;
     shielding: number;
     dodge: number;
+    cd: number;
     ward: number;
     strain: number;
     speed: number;

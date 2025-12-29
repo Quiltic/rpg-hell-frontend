@@ -136,7 +136,7 @@ export default function CreatureSheet({
                         </div>
 
                         <div className="dark:bg-dark-300 p-2 rounded-md">
-                            CD: {4+Math.floor(displayedCreature.level/2)}
+                            CD: {displayedCreature.cd}
                         </div>
 
                     </div>

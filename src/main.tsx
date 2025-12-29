@@ -22,7 +22,7 @@ import UpdateDBSpellsPage from "./components/SpellsPages/UpdateDBSpellsPage.tsx"
 import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
 import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
-import CreatureCreatorBadPage from "./components/joshhellscapePages/creaturecreatorBAD.tsx";
+import CreatureCreator from "./components/CreaturesPages/CreatureCreator.tsx";
 import WepCreatorPage from "./components/ItemPages/WepCreatorPage.tsx";
 import CharacterCreationRulebookPage from "./components/RulebookPages/SubPages/CharacterCreationPage.tsx";
 import CharacterExamplesPage from "./components/RulebookPages/SubPages/CharacterExamplesPage.tsx";
@@ -58,7 +58,7 @@ const router = createBrowserRouter(
                     element: <JoshhellscapePage />,
                 },
                 {
-                    path: "update-db",
+                    path: "tools",
                     children: [
                         {
                             path: "",
@@ -78,15 +78,11 @@ const router = createBrowserRouter(
                         },
                         {
                             path: "creatures",
-                            element: <CreatureCreatorBadPage />,
+                            element: <CreatureCreator />,
                         },
                         {
                             path: "wepcreator",
                             element: <WepCreatorPage />,
-                        },
-                        {
-                            path: "creaturescreatorbad",
-                            element: <CreatureCreatorBadPage />,
                         },
                     ],
                 },

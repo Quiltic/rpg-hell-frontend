@@ -6,6 +6,7 @@
     "health":0,
     "shielding":2,
     "dodge":-1,
+    "cd":4,
     "ward":0,
     "strain":0,
     "speed":5,
