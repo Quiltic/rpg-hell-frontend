@@ -1,30 +1,246 @@
 [
-{
-    "name":"Decaying Zombie",
-    "types":"Undead",
-    "level":0.5,
-    "health":0,
-    "shielding":2,
-    "dodge":-1,
-    "cd":4,
-    "ward":0,
-    "strain":0,
-    "speed":5,
-    "stats": {
-       "body":1,
-        "mind":0,
-        "soul":0,
-        "arcana":-2,
-        "crafting":0,
-        "charm":-2,
-        "nature":0,
-        "medicine":0,
-        "thieving":0 
+    {
+        "name": "Bird Swarm",
+        "types": "Animal",
+        "level": 3,
+        "health": 0,
+        "shielding": 0,
+        "dodge": 2,
+        "cd": 6,
+        "ward": 0,
+        "strain": 0,
+        "speed": 7,
+        "stats": {
+            "body": 0,
+            "mind": 2,
+            "soul": 1,
+            "arcana": 3,
+            "crafting": -1,
+            "charm": 2,
+            "nature": 4,
+            "medicine": -2,
+            "thieving": 0
+        },
+        "actives": "**Claw and Peck** - Spend ##; Melee Attack. On Hit: the target takes 2d4 damage. Bonus: +1d4 damage. Downside: -1d4 damage.",
+        "passives": "**Flight** - The Bird Swarm can fly and is unaffected by ground based effects.\n\n**Swarm** - The Bird Swarm can occupy another creature's space or vice versa and can't become Grappled. The swarm can move through any opening large enough for its individual birds.",
+        "descriptor": "A swarm of birds. Possibly influenced by outside sources or by familial bonds (such as a murder of crows).",
+        "how_act": "Surround, Overwhelm, Evade"
     },
-    "actives":"**Decaying Claws** - Spend ##; Melee Attack. On Hit: Do 3 damage, and the target cannot Heal until the start of your next turn. Bonus: Gain +2 damage.\n\n**Lunge** - Spend ## and 1 Strain; Move 3 tiles then do a Decaying Claws Attack.",
-    "passives":"**Undying Form** - At 0 Health roll 1d6. On a 2 or higher it lives on 1 hp. Increase this difficulty by 1 each time it survives.",
-    "descriptor":"A dead and decaying reanimated corpse of some creature. They are usually found near older necromantic powers or after said powers have stopped.",
-    "how_act":"Group, Overwhelm, Dim Witted"
-}
+    {
+        "name": "Rat Swarm",
+        "types": "Animal",
+        "level": 1,
+        "health": 0,
+        "shielding": 0,
+        "dodge": 0,
+        "cd": 4,
+        "ward": 0,
+        "strain": 0,
+        "speed": 5,
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": 0,
+            "crafting": 0,
+            "charm": -2,
+            "nature": 3,
+            "medicine": -2,
+            "thieving": 2
+        },
+        "actives": "**Bites and Scratches** - Spend ##; Melee Attack. On Hit: the target takes 2d4 damage. Bonus: +1d4 damage. Downside: -1d4 damage.",
+        "passives": "**Eaten to Bones** - When the Rats move onto a dead non-Construct creature it may consume the dead creature till its nothing but bones regaining 3d4 health.\n\n**Swarm** - The Bird Swarm can occupy another creature's space or vice versa and can't become Grappled. The swarm can move through any opening large enough for its individual birds.",
+        "descriptor": "A swarm of rats. Usually found in dark dirty areas. They tend to only have one goal of consuming and can be manipulated if given an easy meal.",
+        "how_act": "Overwhelm, Consume"
+    },
 
+
+
+
+
+
+
+
+    {
+        "name": "Decaying Zombie",
+        "types": "Undead",
+        "level": 0.5,
+        "health": 0,
+        "shielding": 2,
+        "dodge": -1,
+        "cd": 4,
+        "ward": 0,
+        "strain": 0,
+        "speed": 5,
+        "stats": {
+            "body": 1,
+            "mind": 0,
+            "soul": 0,
+            "arcana": -2,
+            "crafting": 0,
+            "charm": -2,
+            "nature": 0,
+            "medicine": 0,
+            "thieving": 0
+        },
+        "actives": "**Decaying Claws** - Spend ##; Melee Attack. On Hit: Do 3 damage, and the target cannot Heal until the start of your next turn. Bonus: Gain +2 damage.\n\n**Lunge** - Spend ## and 1 Strain; Move 3 tiles then do a Decaying Claws Attack.",
+        "passives": "**Undying Form** - At 0 Health roll 1d6. On a 2 or higher it lives on 1 hp. Increase this difficulty by 1 each time it survives.",
+        "descriptor": "A dead and decaying reanimated corpse of some creature. They are usually found near older necromantic powers or after said powers have stopped.",
+        "how_act": "Group, Overwhelm, Dim Witted"
+    },
+    {
+        "name": "Fresh Zombie",
+        "types": "Undead",
+        "level": 1,
+        "health": 0,
+        "shielding": 2,
+        "dodge": 0,
+        "cd": 4,
+        "ward": 0,
+        "strain": 0,
+        "speed": 5,
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": -2,
+            "crafting": 0,
+            "charm": -2,
+            "nature": 0,
+            "medicine": 0,
+            "thieving": 0
+        },
+        "actives": "**Decaying Claws** - Spend ##; Melee Attack. On Hit: Do 3 damage, and the target cannot Heal until the start of your next turn. Bonus: Gain +2 damage.\n\n**Lunge** - Spend ## and 1 Strain; Move 3 tiles then do a Decaying Claws Attack.",
+        "passives": "**Undying Form** - At 0 Health roll 1d6. On a 2 or higher it lives on 1 hp. Increase this difficulty by 1 each time it survives.",
+        "descriptor": "A Zombie which has yet to start to decay. Usually found in the presence of Necromancers or at the heart of Undead Groves.",
+        "how_act": "Group, Overwhelm, Dim Witted"
+    },
+
+
+
+
+
+
+
+
+
+
+    {
+        "name": "Groveling",
+        "types": "Monstrosity",
+        "level": 1,
+        "health": 0,
+        "shielding": 3,
+        "dodge": 0,
+        "cd": 4,
+        "ward": 0,
+        "strain": 0,
+        "speed": 4,
+        "stats": {
+            "body": 1,
+            "mind": 0,
+            "soul": 1,
+            "arcana": -2,
+            "crafting": -2,
+            "charm": 0,
+            "nature": 2,
+            "medicine": 1,
+            "thieving": 2
+        },
+        "actives": "**Tendrils** - Spend ##; Reaching 2 Attack. On Hit: Do 2 damage. Bonus: Root the target.\n\n**Entrench** - Spend # and 1 Strain; Root the Groveling then gain spent dice Shielding. (Remember the )",
+        "passives": "**Flame Weakness** - When the Groveling gains Burn gain twice the amount.\n\n**Nutrients** - While the Groveling is Rooted or Slowed it heals 1 Health at the end of its turn. If it is on a dead creature it heals 3 instead.",
+        "descriptor": "A small plant/myconid creature which can be found plentifully inside Groves. While slow they can be dangerous in numbers, and tend to pretend to be other plant/mushrooms before striking.",
+        "how_act": "Stalker, Tanky, Groups"
+    },
+    {
+        "name": "Mossy Choker",
+        "types": "Monstrosity",
+        "level": 1,
+        "health": 0,
+        "shielding": 3,
+        "dodge": 0,
+        "cd": 4,
+        "ward": 0,
+        "strain": 0,
+        "speed": 5,
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": -1,
+            "crafting": -2,
+            "charm": 2,
+            "nature": 1,
+            "medicine": -1,
+            "thieving": 2
+        },
+        "actives": "**Pounce** - Spend ##; Jump the Mossy Chokers SPEED. Do a Grapple contest against any creature that is within 1 tile (at end of jump).",
+        "passives": "**Strangle** - While a creature is Grappled by the Mossy Choker they take 5 damage at the start of their turn.",
+        "descriptor": "A slime which pretends to be a patch of Moss on trees or ledges. When its prey is below it, the Mossy Choker will pounce and choke its prey to death. However, the Mossy Choker can be easily spotted as they tend to be on the bottom of branches or in direct sunlight, unlike the moss they try to mimic.",
+        "how_act": "Ambusher, Grappler"
+    },
+
+
+
+
+
+
+
+
+
+    
+    {
+        "name": "City Guard",
+        "types": "Humanoid",
+        "level": 2,
+        "health": 0,
+        "shielding": 6,
+        "dodge": 0,
+        "cd": 5,
+        "ward": 0,
+        "strain": 0,
+        "speed": 6,
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": -1,
+            "crafting": -1,
+            "charm": 1,
+            "nature": -1,
+            "medicine": 2,
+            "thieving": 1
+        },
+        "actives": "**Baton** - Spend ##; Melee Attack. On Hit: Do 3 damage. Bonus: If you hit, give the target 1 Stun.",
+        "passives": "**To the Ground** - The Guard has +1d4 on Grapple contests, and may spend 1 Strain to force a Grappled target to go Prone.\n\n**Person of Authority** - Civilians are more likely to listen to this character.",
+        "descriptor": "Your average city guard. ",
+        "how_act": "Protect, Guard, Subdue, Detain"
+    },
+    {
+        "name": "City Guard (Ranged)",
+        "types": "Humanoid",
+        "level": 2,
+        "health": 0,
+        "shielding": 4,
+        "dodge": 0,
+        "cd": 5,
+        "ward": 0,
+        "strain": 0,
+        "speed": 6,
+        "stats": {
+            "body": 0,
+            "mind": 2,
+            "soul": 0,
+            "arcana": -1,
+            "crafting": -1,
+            "charm": 1,
+            "nature": -1,
+            "medicine": 2,
+            "thieving": 1
+        },
+        "actives": "**Rifle** - Spend ##; 12 Ranged Attack; On Hit: Do 2 damage. Bonus: If you hit, remove 3 Shielding then do 2 damage.\n\n**Mark** - Spend #; Give a target you can see Marked until the start of your next turn.",
+        "passives": "**To the Ground** - The Guard has +1d4 on Grapple contests, and may spend 1 Strain to force a Grappled target to go Prone.\n\n**Person of Authority** - Civilians are more likely to listen to this character.",
+        "descriptor": "Your average city guard. With a Gun. ",
+        "how_act": "Protect, Guard, Subdue, Detain"
+    }
 ]
