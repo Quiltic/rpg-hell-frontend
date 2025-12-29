@@ -9,6 +9,7 @@ import SearchGroup from "../search/SearchGroup";
 import { Tab } from "@headlessui/react";
 import { useCreatures } from "../../hooks/useCreatures";
 import CreaturesTable from "./CreaturesTable";
+import { Button } from "../ui/Button/Button";
 
 
 const IterativeCreatureLevels = [
@@ -56,15 +57,17 @@ function getTabWidth(lengthOfName: number) {
 
 export default function CreatureCreator() {
 
-
     const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
 
     const {
         displayedCreatures,
-        addToPinnedCreatures,
         filterCreatures,
         resetFilterCreatures,
     } = useCreatures();
+
+    function addToPinnedCreatures(s: Creature) {
+        setCurCreature(s);
+    }
 
     return (
         <div className="flex flex-col">
@@ -373,8 +376,20 @@ export default function CreatureCreator() {
 
             </div>
 
-            <textarea name="json" id="json" className="bg-dark-600 rounded-md border-solid border-2 border-body-700/20 h-44 m-4 p-2" value={JSON.stringify(curCreature)}/>
+            <textarea name="json" id="json" className="bg-dark-600 rounded-md border-solid border-2 border-body-700/20 h-44 m-4 p-2" value={JSON.stringify(curCreature).concat(",")}/>
 
+            <div className="flex justify-center">
+                <Button
+                    title="Clear"
+                    className="w-[20%]"
+                    variant={"medicine"}
+                    onClick={() => {setCurCreature(displayedCreature)}}
+                >
+                    Clear
+                </Button>
+            </div>
+            
+            
             <h1>Creatures</h1>
 
             <Tab.Group as="div" className="w-full ">
