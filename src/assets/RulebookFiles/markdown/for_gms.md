@@ -39,3 +39,15 @@ An NPC's level is similar to what level a player of the same level should be to 
 | Very Easy | Easier | Balanced | Difficult | Boss |
 | :---- | :---- | :---- | :---- | :---- |
 | -X > A player level | -3 | 0 | +3 | A player level < +X |
+
+### Creating Bosses
+
+When making a boss give them the Boss Passive (listed below), +2 levels, +2 Combat Dice, +2 Main Stats, update their Health and Strain, and give at least 1 special Active or Passive.
+It is also possible not all bosses can be beaten directly. So it is recommended to give an alternate win condition when designing a boss. For instance the boss *Golem-Brood Spider Queen (Boss)* was given the alternate win of dropping a floating building on it. The arena was set up in such a way that floating labs where placed all around it and by popping the balloons that held them up they could crush the Queen.
+
+
+
+- **Boss** - Roll initiative twice, gaining a turn on both rolls. (Re-roll if you get 2 of the same rolls.) At the end of their turn roll and Lock a dice. They can Lock up to 2 dice.
+
+Some examples of special Actives and Passives:
+- 

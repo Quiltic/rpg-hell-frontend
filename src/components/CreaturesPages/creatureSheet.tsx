@@ -14,9 +14,9 @@ export default function CreatureSheet({
 
     return (
         <div>
-            <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
+            <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-2" >
                 {/* Name/Level/Types */}
-                <div className="flex flex-row items-center bg-dark rounded-md justify-between">
+                <div className="grid w-full grid-cols-[3fr_1fr_2fr] items-center bg-dark rounded-md justify-between">
                     <div className="text-lg font-bold capitalize p-2">
                         {displayedCreature.name ?? ""}
                     </div>
@@ -77,17 +77,9 @@ export default function CreatureSheet({
                     {/* HP/Shielding/Dodge/Ward */}
                     <div className="flex flex-col justify-between">
                         
-                        {displayedCreature.health != 0 && 
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
-                                HEALTH: {displayedCreature.health}
-                            </div>
-                        }
-                        {displayedCreature.health == 0 &&
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
-                                HEALTH: {4*displayedCreature.stats.body+3*displayedCreature.stats.mind+2*displayedCreature.stats.soul+Math.ceil(displayedCreature.level)}
-                            </div>
-                        }
-                        
+                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                            HEALTH: {displayedCreature.health || 4*displayedCreature.stats.body+3*displayedCreature.stats.mind+2*displayedCreature.stats.soul+Math.ceil(displayedCreature.level)}
+                        </div>
 
                         { displayedCreature.shielding > 0 &&
                         <div className="dark:bg-dark-300 p-2 rounded-md">
@@ -136,16 +128,16 @@ export default function CreatureSheet({
                         </div>
 
                         <div className="dark:bg-dark-300 p-2 rounded-md">
-                            CD: {displayedCreature.cd}
+                            CD: {displayedCreature.cd || 4+Math.floor(displayedCreature.level/2)}
                         </div>
 
                     </div>
 
                 </div>
 
-                <div className="flex flex-row items-center bg-dark rounded-md justify-between">
+                <div className="grid grid-cols-2 items-top bg-dark rounded-md justify-between">
                     {/* Active */}
-                    <div className="bg-dark-400 rounded-md p-1 m-2">
+                    <div className="bg-dark-400 rounded-md p-1 mr-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ACTIVES</h3>
                         <Markdown
                             remarkPlugins={[remarkGfm]}
@@ -160,7 +152,7 @@ export default function CreatureSheet({
                     </div>
                         
                     {/* Passive */}
-                    <div className="bg-dark-400 rounded-md p-1 m-2">
+                    <div className="bg-dark-400 rounded-md p-1 ml-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">PASSIVES</h3>
                         <Markdown
                             remarkPlugins={[remarkGfm]}

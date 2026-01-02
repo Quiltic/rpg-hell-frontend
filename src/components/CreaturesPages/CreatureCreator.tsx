@@ -336,14 +336,14 @@ export default function CreatureCreator() {
                         </div>
 
                         <div className="flex flex-row items-center dark:bg-dark-300 p-2 rounded-md">
-                            CD: 
-                            <input
+                            CD: {4+Math.floor(displayedCreature.level/2)}
+                            {/* <input
                                 type="number"
                                 className="h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
                                 value={curCreature.cd}
                                 min="4"
                                 onChange={(e) => setCurCreature({...curCreature, cd: parseFloat(e.target.value)})}
-                            />
+                            /> */}
                         </div>
 
                     </div>
