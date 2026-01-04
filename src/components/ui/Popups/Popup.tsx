@@ -2,7 +2,8 @@
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { cn } from "../../../styling/utilites";
 // import { Button } from "../Button/Button";
 
 
@@ -11,15 +12,17 @@ type Props = {
     displayedContent:any;
     isOpen: boolean;
     setIsOpen: (s: boolean) => void;
+    isSmol: boolean;
 };
 
 export default function Popup({
     displayedContentName: displayedContentName,
     displayedContent: displayedContent,
     isOpen: isOpen,
-    setIsOpen: setIsOpen
+    setIsOpen: setIsOpen,
+    isSmol: isSmol = false
 }: Props) {
-    // const [isOpen, setIsOpen] = useState(false);
+    // const [sizeClass, setSizeClass] = useState("h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-light dark:bg-dark");
 
     function closeModal() {
         setIsOpen(false);
@@ -28,6 +31,7 @@ export default function Popup({
     // function openModal() {
     //     setIsOpen(true);
     // }
+
 
     return (
         <>
@@ -56,7 +60,8 @@ export default function Popup({
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-[95%] lg:w-[80%] h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-light dark:bg-dark">
+                                
+                                <Dialog.Panel className={cn(isSmol ? "w-[100%] lg:w-[32%]":"w-[95%] lg:w-[80%]","h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-light dark:bg-dark")}>
                                     <Dialog.Title
                                         as="div"
                                         className="text-lg font-medium leading-6 flex flex-row justify-between"
