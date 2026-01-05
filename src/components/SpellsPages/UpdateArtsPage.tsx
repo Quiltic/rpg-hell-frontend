@@ -61,6 +61,9 @@ const tagList = [
     "spell",
     "weapon",
     "movement",
+    "buff",
+    "debuff",
+    "aoe",
     "MONSTER",
     "BROKEN",
 ];
@@ -112,7 +115,7 @@ export default function UpdateArtPage() {
                                 placeholder="Name"
                                 className="h-9 rounded-lg p-2 m-1 w-[100%] shadow-md"
                                 value={curArt.name}
-                                onChange={(e) => setCurArt({...curArt, name: e.target.value})}
+                                onChange={(e) => setCurArt({...curArt, name: e.target.value.toLowerCase()})}
                             />
                         </div>
                         

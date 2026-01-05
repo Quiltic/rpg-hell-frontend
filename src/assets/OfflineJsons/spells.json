@@ -1,46 +1,74 @@
 [
     {"name":"overwatch","level":1,"stat":"Body","tags":"technique, weapon, reaction","strain":0,"dice":1,"effect":"Reaction (Locked #); Melee Attack against a target that moves into/out of your Weapon Range. Use 3+# for sum. ","activators":1},
     {"name":"fortify","level":1,"stat":"Body","tags":"technique, protection","strain":2,"dice":1,"effect":"Spend # and 2 Strain; Until the beginning of your next turn you are Rooted, immune to Knockback, and gain Bonus SHIELDING equal to the dice spent.","activators":1},
-    {"name":"Flex","level":1,"stat":"Body","tags":"technique, power","strain":0,"dice":1,"effect":"Spend #; If a 5 or 6 is given, become Empowered until the end of your turn.","activators":1},    
-    {"name":"Charge","level":1,"stat":"Body","tags":"technique, movement","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Move your SPEED. If you move at least 3 tiles, do a Melee Attack against a target you move next to.","activators":1},
+    {"name":"flex","level":1,"stat":"Body","tags":"technique, power","strain":0,"dice":1,"effect":"Spend #; If a 5 or 6 is given, become Empowered until the end of your turn.","activators":1},    
+    {"name":"charge","level":1,"stat":"Body","tags":"technique, movement","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Move your SPEED. If you move at least 3 tiles, do a Melee Attack against a target you move next to.","activators":1},
 
-    {"name":"Destructive Swing","level":2,"stat":"Body","tags":"technique, weapon, power","strain":0,"dice":2,"effect":"Spend ##; Do a Melee Weapon Attack with -3 to the Attack Sum. (This -3 does not give Bonuses or Downsides only the original sum does). This Attack gains +5 damage.","activators":3},
+    {"name":"destructive swing","level":2,"stat":"Body","tags":"technique, weapon, power","strain":0,"dice":2,"effect":"Spend ##; Do a Melee Weapon Attack with -3 to the Attack Sum. (This -3 does not give Bonuses or Downsides only the original sum does). This Attack gains +5 damage.","activators":3},
     {"name":"guardian's riposte","level":2,"stat":"Body","tags":"technique, weapon, reaction","strain":0,"dice":1,"effect":"Reaction (Locked #); Do a Melee Weapon Attack against a target that Attacks you or ally within 1 tile of you. Use 3+# for sum.","activators":3},
     {"name":"bull rush","level":2,"stat":"Body","tags":"technique, movement","strain":1,"dice":1,"effect":"Spend # and 1 Strain; Move your SPEED, you may move through creatures and weak walls. You Knockback creatures you moved through equal to your BODY, or destroy segments of the wall you move through. ","activators":1},
-    {"name":"Get Behind Me","level":2,"stat":"Body","tags":"technique, protection","strain":0,"dice":1,"effect":"Spend #; until the start of your next turn (10 seconds), you Obscure anything behind you. You must be larger than things that are behind you for this effect to work.","activators":1},
+    {"name":"get behind me","level":2,"stat":"Body","tags":"technique, protection","strain":0,"dice":1,"effect":"Spend #; until the start of your next turn (10 seconds), you Obscure anything behind you. You must be larger than things that are behind you for this effect to work.","activators":1},
 
     {"name":"cleave","level":3,"stat":"Body","tags":"technique, weapon","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Do a Melee Weapon Attack against up to 3 targets within 1 tile of you.","activators":1},
-    {"name":"Headbutt","level":3,"stat":"Body","tags":"technique, support","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Fist Attack. If you hit, give the target 2 Stun, or if you are Grappling the target give them 4 Stun instead. Downside: Gain 1 Stun.","activators":1},
+    {"name":"headbutt","level":3,"stat":"Body","tags":"technique, support","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Fist Attack. If you hit, give the target 2 Stun, or if you are Grappling the target give them 4 Stun instead. Downside: Gain 1 Stun.","activators":1},
     {"name":"i’ll take it","level":3,"stat":"Body","tags":"technique, protection, reaction","strain":1,"dice":1,"effect":"Reaction (Locked #) and 1 Strain; When a creature within 1 tile of you fails a Dodge roll against an Attack, you may take the Attack instead.","activators":3},
-    {"name":"Battle Trance","level":3,"stat":"Body","tags":"technique, buff, self","strain":4,"dice":1,"effect":"Spend # and 4 Strain; Focus on the Battle. For the next minute you have +1 to BODY rolls and at the beginning of your turn you are Empowered until the end of your turn.","activators":3},
+    {"name":"battle trance","level":3,"stat":"Body","tags":"technique, buff, self","strain":4,"dice":1,"effect":"Spend # and 4 Strain; Focus on the Battle. For the next minute you have +1 to BODY rolls and at the beginning of your turn you are Empowered until the end of your turn.","activators":3},
 
-    {"name":"Power Swing","level":4,"stat":"Body","tags":"technique, utility, weapon","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Melee Weapon Attack. If you hit gain one of the following bonuses:\n- Replace any damage done with Knockback.\n- Give the target 2 Stun.\n- Do not gain the Attack Downside on this Attack.\n","activators":1},
+    {"name":"power swing","level":4,"stat":"Body","tags":"technique, utility, weapon","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Melee Weapon Attack. If you hit gain one of the following bonuses:\n- Replace any damage done with Knockback.\n- Give the target 2 Stun.\n- Do not gain the Attack Downside on this Attack.\n","activators":1},
     {"name":"meteor leap","level":4,"stat":"Body","tags":"technique, movement, weapon","strain":0,"dice":2,"effect":"Spend ##; Do a jump that sends you up to 2xBody tiles. If you land on a target, do a Weapon Attack with a bonus to the damage equal to half (rounded up) of how far you fell. You do not take fall damage if you hit the target.","activators":1},
     {"name":"lightstep aura","level":4,"stat":"Body","tags":"technique, aura, movement","strain":4,"dice":1,"effect":"Spend # and 4 Strain; Once per turn, when a target starts its turn in or enters your Aura they gain +1 SPEED until the beginning of your next turn. (This affects you and can affect enemies.)","activators":5},
 
-    {"name":"Bring it Down","level":5,"stat":"Body","tags":"technique, weapon, damage","strain":4,"dice":2,"effect":"Spend ## and 4 Strain; Do a Melee Weapon Attack. If you hit do BODY bonus damage or if the target is Large or a structure do 2xBODY bonus damage instead.","activators":1},
+    {"name":"bring it down","level":5,"stat":"Body","tags":"technique, weapon, damage","strain":4,"dice":2,"effect":"Spend ## and 4 Strain; Do a Melee Weapon Attack. If you hit do BODY bonus damage or if the target is Large or a structure do 2xBODY bonus damage instead.","activators":1},
     {"name":"long volley","level":5,"stat":"Body","tags":"technique, utility","strain":1,"dice":1,"effect":"Spend # an 1 Strain; The next target you Throw has its Range increased by 2x the value of the dice spent. ","activators":1},
-    {"name":"Harden","level":5,"stat":"Body","tags":"technique, protection, self, focus","strain":4,"dice":1,"effect":"Spend # and 4 Strain; Focus on hardening your body for up to 1 minute. While hardened you take 1 less damage from Attacks (minimum of 1) and gain +1 Body on checks.","activators":1},
+    {"name":"harden","level":5,"stat":"Body","tags":"technique, protection, self, focus","strain":4,"dice":1,"effect":"Spend # and 4 Strain; Focus on hardening your body for up to 1 minute. While hardened you take 1 less damage from Attacks (minimum of 1) and gain +1 Body on checks.","activators":1},
 
-    {"name":"Feel the Way","level":6,"stat":"Body","tags":"technique, focus, utility","strain":3,"dice":1,"effect":"Spend # and 3 Strain; Focus on your Senses for up to 1 minute. For this duration you are Blinded, but you can target anything within BODY+MIND tiles of you, and are immune to illusions based on sight.","activators":1},
-    {"name":"Power Though","level":6,"stat":"Body","tags":"technique, utility, reaction","strain":0,"dice":1,"effect":"Reaction (Locked #); You may use Body instead of Mind or Soul in a contest or gain Empowered until the start of your next turn.","activators":1},
+    {"name":"feel the way","level":6,"stat":"Body","tags":"technique, focus, utility","strain":3,"dice":1,"effect":"Spend # and 3 Strain; Focus on your Senses for up to 1 minute. For this duration you are Blinded, but you can target anything within BODY+MIND tiles of you, and are immune to illusions based on sight.","activators":1},
+    {"name":"power though","level":6,"stat":"Body","tags":"technique, utility, reaction","strain":0,"dice":1,"effect":"Reaction (Locked #); You may use Body instead of Mind or Soul in a contest or gain Empowered until the start of your next turn.","activators":1},
 
-    {"name":"Double Strike","level":7,"stat":"Body","tags":"technique, weapon","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Melee Weapon Attack. Afterwards do another Melee Weapon Attack with the same attack sum.","activators":1},
+    {"name":"double strike","level":7,"stat":"Body","tags":"technique, weapon","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Melee Weapon Attack. Afterwards do another Melee Weapon Attack with the same attack sum.","activators":1},
 
-    {"name":"Armor Rip","level":8,"stat":"Body","tags":"technique, power","strain":5,"dice":2,"effect":"Spend ## and 5 Strain; Do a Grapple contest against a target. If you win or are already Grappling the target, the target is Grappled and loses half of its Shielding (rounded up). If you lose, the target spends 3 Strain. (Targets that are immune to the Grappled condition can still lose Shielding)","activators":3},
+    {"name":"armor rip","level":8,"stat":"Body","tags":"technique, power","strain":5,"dice":2,"effect":"Spend ## and 5 Strain; Do a Grapple contest against a target. If you win or are already Grappling the target, the target is Grappled and loses half of its Shielding (rounded up). If you lose, the target spends 3 Strain. (Targets that are immune to the Grappled condition can still lose Shielding)","activators":3},
 
-    {"name":"Raw Power","level":9,"stat":"Body","tags":"technique, utility, reaction","strain":3,"dice":1,"effect":"Reaction (Locked #) and 3 Strain; You may use Body instead of other stats for a check or contest.","activators":1},
-    {"name":"Unbreakable","level":9,"stat":"Body","tags":"technique, self, protection, reaction","strain":3,"dice":1,"effect":"Reaction (Locked #) and 3 Strain; Set a single source of damage taken to 1.","activators":1},
-
-
+    {"name":"raw power","level":9,"stat":"Body","tags":"technique, utility, reaction","strain":3,"dice":1,"effect":"Reaction (Locked #) and 3 Strain; You may use Body instead of other stats for a check or contest.","activators":1},
+    {"name":"unbreakable","level":9,"stat":"Body","tags":"technique, self, protection, reaction","strain":3,"dice":1,"effect":"Reaction (Locked #) and 3 Strain; Set a single source of damage taken to 1.","activators":1},
 
 
 
 
 
+    {"name":"mark","level":1,"stat":"Mind","tags":"insight, ranged, debuff","strain":0,"dice":1,"effect":"Spend #; Give a target you can see Marked until the start of your next turn. If you give a 6, give them Marked for 1 hour instead.","activators":3},
+    {"name":"train of thought","level":1,"stat":"Mind","tags":"insight, dice, self","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Gain a dice with a value equal to the sum of the dice spent. (Add the dice together.)","activators":2},
+    {"name":"size up","level":1,"stat":"Mind","tags":"insight, utility, dice","strain":0,"dice":1,"effect":"Spend #; Look at a creature you can see then roll a d12. The next d12 roll you make against them (check, contest, dodge, etc) uses this value. You cannot activate this Art if you already have a rolled d12.","activators":1},
+    {"name":"point out","level":1,"stat":"Mind","tags":"insight, debuff, ranged","strain":0,"dice":2,"effect":"Spend ##; Do a Senses contest against all illusions, Hidden, and Invisible creatures and items you can see. If you win, the target gains Glow and Marked for 1 minute (6 turns). Or if it's an illusion it is dispelled.","activators":3},
+    
+    {"name":"feint","level":2,"stat":"Mind","tags":"technique, movement, weapon","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Do a Melee Weapon Attack then move 3 tiles, you gain +3 Dodge during this Attack and move.","activators":1},
+    {"name":"parry","level":2,"stat":"Mind","tags":"technique, reaction, protection","strain":1,"dice":1,"effect":"Reaction (Locked #) and 1 Strain; When you take damage from a Weapon Attack, reduce the damage by the dice spent (to a minimum of 1).","activators":1},
+    {"name":"command","level":2,"stat":"Mind","tags":"insight, buff, ranged, control","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Give a target the dice spent. They may use this dice on your turn to do any action.","activators":2},
+
+    {"name":"coordinated strike","level":3,"stat":"Mind","tags":"insight, weapon, control","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Weapon Attack, afterwards an ally within 1 tile of the target may make a Melee Attack against the target. They use a sum of 9 for this Attack.","activators":3},
+    {"name":"marking strike","level":3,"stat":"Mind","tags":"insight, weapon, debuff","strain":1,"dice":2,"effect":"Spend ## and 1 Strain; Do a Weapon Attack. If you hit, give the target Marked until the start of your next turn.","activators":3},
+    {"name":"think ahead","level":3,"stat":"Mind","tags":"insight, dice, self","strain":1,"dice":1,"effect":"Spend # and 1 Strain; Up to your MIND times per turn, gain 2 dice which are half of the dice given. This cannot split a 1. If this is used on an odd value, split into one dice of even value and one of odd value (5=>3,2).","activators":2},
+
+    {"name":"piercing shot","level":4,"stat":"Mind","tags":"technique, weapon","strain":2,"dice":2,"effect":"Spend ## and 2 Strain; Do a Weapon Attack. It damages all targets in a line up to your Weapons Range. This may go through weak walls.","activators":1},
+    {"name":"dolphin dive","level":4,"stat":"Mind","tags":"technique, movement","strain":0,"dice":1,"effect":"Spend #; Move your SPEED then go Prone.","activators":1},
+    {"name":"setup","level":4,"stat":"Mind","tags":"insight, dice, buff","strain":2,"dice":0,"effect":"Spend 1 minute and 2 Strain; Roll a d12 and save the result. You may use this value on any check or contest. You cannot get a new value with this Art until you spend a current value.","activators":2},
+
+    {"name":"shrapnel shot","level":5,"stat":"Mind","tags":"creation, aoe, weapon","strain":3,"dice":2,"effect":"Spend ## and 3 Strain; Using a Ranged Weapon, pick a point within your Weapon’s Range. Do a Ranged Weapon Attack against everything within 2 tiles of that point.","activators":1},
+    {"name":"line them up","level":5,"stat":"Mind","tags":"insight, debuff, ranged","strain":2,"dice":1,"effect":"Spend # and 2 Strain; Pick a number of targets equal to the dice spent. Give them Marked until the start of your next turn.","activators":2},
+    {"name":"change of thinking","level":5,"stat":"Mind","tags":"insight, dice","strain":2,"dice":1,"effect":"Spend # and 2 Strain; Gain a randomly rolled dice.","activators":2},
+
+    {"name":"ricochet","level":6,"stat":"Mind","tags":"technique, weapon","strain":3,"dice":2,"effect":"Spend ## and 3 Strain; Do a Ranged Weapon Attack. If you hit, pick a new target within 3 tiles of this one and repeat this Art without spending Strain or dice. Use the same Attack sum. (You cannot bounce to an already chosen target.)","activators":1},
+    {"name":"outsmart","level":6,"stat":"Mind","tags":"insight, reaction, dice, utility","strain":2,"dice":1,"effect":"Reaction (Locked #) and 2 Strain; When a creature that you can see does a roll, you may replace one of the dice rolled with the given dice. (If this is done with a d12 outside of combat roll the d12 then give them the roll regardless of value.)","activators":2},
+
+    {"name":"certainty","level":7,"stat":"Mind","tags":"insight, dice","strain":4,"dice":1,"effect":"Spend # and 4 Strain; Gain a dice with a value of your choosing. (If you spend a d12 you may only activate this when you are the one initiating the roll and cannot re-roll already rolled dice. You cannot use this for Dodge or defending against Contests.)","activators":2},
+    
+    {"name":"change the fates","level":9,"stat":"Mind","tags":"insight, dice, utility","strain":8,"dice":1,"effect":"Spend # and 8 Strain; Target a creature you can see, the next time the creature does a roll all dice rolled are the value given or as close as possible. (This cannot make dice higher than their max value. So a given 6 will not make a d4 into a d6.)","activators":6},
 
 
     
 
-    {"name":"Incinerate","level":8,"stat":"Nature","tags":"elemental, damage, spell","strain":0,"dice":2,"effect":"Spend ## and any amount of Strain; Do a Spell Attack against a target you can see within 18 tiles of you. On Hit: Give the target 2xStrain spent Burn. Bonus: Give 3xStrain spent Burn instead.","activators":7}
+
+    
+
+    {"name":"incinerate","level":8,"stat":"Nature","tags":"elemental, damage, spell","strain":0,"dice":2,"effect":"Spend ## and any amount of Strain; Do a Spell Attack against a target you can see within 18 tiles of you. On Hit: Give the target 2xStrain spent Burn. Bonus: Give 3xStrain spent Burn instead.","activators":7}
 ]
