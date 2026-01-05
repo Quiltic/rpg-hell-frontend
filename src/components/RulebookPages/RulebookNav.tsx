@@ -2,6 +2,11 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/Button/Button";
 
+import { TicketIcon } from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { SparklesIcon } from "@heroicons/react/24/outline";
+import { BugAntIcon } from "@heroicons/react/24/outline";
+
 type RulebookPage = {
     path: string;
     name: string;
@@ -19,8 +24,13 @@ type RulebookPage = {
 };
 
 const rulebookPages: RulebookPage[] = [
-    { path: "core-rules", name: "Core Rules", icon: <>⚖️</>, variant: "soul" },
-    { path: "combat", name: "Combat", icon: <>⚔️</>, variant: "body" },
+    {
+        path: "core-rules",
+        name: "Core Rules",
+        icon: <>⚖️</>,
+        variant: "nature",
+    },
+    { path: "combat", name: "Combat", icon: <>⚔️</>, variant: "crafting" },
     {
         path: "character-creation",
         name: "Character Creation",
@@ -31,20 +41,39 @@ const rulebookPages: RulebookPage[] = [
 ];
 
 const additionalRulebookPages: RulebookPage[] = [
-    { path: "effects", name: "Effects" },
-    { path: "stats", name: "Stats" },
-    { path: "character-examples", name: "Character Examples" },
-    { path: "misc-rules", name: "Miscellaneous Rules" },
+    { path: "effects", name: "Effects", icon: <>🌀</> },
+    { path: "stats", name: "Stats", icon: <>📊</> },
+    {
+        path: "character-examples",
+        name: "Character Examples",
+        icon: <>🧙🧌🧝</>,
+    },
+    { path: "misc-rules", name: "Miscellaneous Rules", icon: <>💡</> },
 ];
 
 const directoryPages: RulebookPage[] = [
-    { path: "traits", name: "Traits", icon: <>🎫</>, variant: "body" },
-    { path: "items", name: "Items", icon: <>🛡️</>, variant: "mind" },
-    { path: "spells", name: "Arts", icon: <>✨</>, variant: "soul" },
+    {
+        path: "traits",
+        name: "Traits",
+        icon: <TicketIcon className="h-6 w-6" />,
+        variant: "body",
+    },
+    {
+        path: "items",
+        name: "Items",
+        icon: <ShoppingBagIcon className="h-6 w-6" />,
+        variant: "mind",
+    },
+    {
+        path: "spells",
+        name: "Arts",
+        icon: <SparklesIcon className="h-6 w-6" />,
+        variant: "soul",
+    },
     {
         path: "creatures",
         name: "Creatures",
-        icon: <>🐢</>,
+        icon: <BugAntIcon className="h-6 w-6" />,
         variant: "medicine",
     },
 ];
@@ -53,9 +82,9 @@ export default function RulebookNavigation() {
     const location = useLocation();
     const rulebookBasePath = "/rulebook/";
     return (
-        <nav className="mx-auto max-w-4xl">
-            <h2>Rulebook Pages</h2>
-            <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
+        <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 dark:bg-dark-400">
+            <h2 className="mb-6">Rulebook Pages</h2>
+            <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
                 {directoryPages.map((page) => {
                     const absolutePath = `${rulebookBasePath}${page.path}`;
                     const isActive = location.pathname === absolutePath;
@@ -105,38 +134,36 @@ export default function RulebookNavigation() {
                     );
                 })}
             </div>
-
-            <ul className="mx-auto max-w-lg rounded-md bg-body-900/50 px-6 py-2 dark:bg-dark-300/80">
+            <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
                 {additionalRulebookPages.map((page) => {
                     const absolutePath = `${rulebookBasePath}${page.path}`;
                     const isActive = location.pathname === absolutePath;
-
                     return (
-                        <li key={page.path}>
-                            <Link
-                                to={absolutePath}
-                                className={isActive ? "font-bold" : ""}
-                                aria-current={isActive ? "page" : undefined}
+                        <Link
+                            to={absolutePath}
+                            className={isActive ? "font-bold" : ""}
+                            aria-current={isActive ? "page" : undefined}
+                        >
+                            <Button
+                                // leftIcon={page.icon}
+                                // variant={
+                                //     page.variant == undefined
+                                //         ? undefined
+                                //         : `link-${page.variant}`
+                                // }
+                                variant="dark"
+                                leftIcon={page.icon}
+                                size={"sm"}
+                                className={
+                                    isActive ? "ring-2 ring-light/75" : ""
+                                }
                             >
-                                <Button
-                                    // leftIcon={page.icon}
-                                    // variant={
-                                    //     page.variant == undefined
-                                    //         ? undefined
-                                    //         : `link-${page.variant}`
-                                    // }
-                                    variant="link"
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
-                                >
-                                    {page.name}
-                                </Button>
-                            </Link>
-                        </li>
+                                {page.name}
+                            </Button>
+                        </Link>
                     );
                 })}
-            </ul>
+            </div>
         </nav>
     );
 }
