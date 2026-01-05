@@ -12,7 +12,7 @@ import {
     ChevronIcon,
 } from "../../assets/IconSVGs/heroiconsSVG";
 import { Disclosure } from "@headlessui/react";
-import TraitSimpleListing from "./TraitCardStuff/traitSimpleListing";
+import TraitSimpleListing from "../TraitsPages/TraitCardStuff/traitSimpleListing";
 import RulebookNavigation from "./RulebookNav";
 
 import intro from "../../assets/RulebookFiles/markdown/intro.md";
