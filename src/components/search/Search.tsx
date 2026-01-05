@@ -101,7 +101,7 @@ function Search({
                     (s) =>
                         {
                             try {
-                                const temp = [s.name.toLowerCase(),(s as Spell).effect?.toLowerCase().replace("\n",""),(s as Spell).tags?.join(",").toLowerCase()].join(";|;");
+                                const temp = [s.name.toLowerCase(),(s as Spell).effect?.toLowerCase().replace("\n",""),(s as Spell).tags?.toLowerCase()].join(";|;");
                                 return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
                             } catch (error) {
                                 console.error('Bad regex:', error);

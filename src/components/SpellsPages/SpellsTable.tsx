@@ -2,7 +2,7 @@ import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Spell } from "../../client";
 // import { highlightKeywords } from "../../util/markdownTools";
 
-import { formatEffectString } from "../../util/textFormatting";
+import { formatEffectString, toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -46,8 +46,7 @@ export default function SpellsTable({
                                     {spell.name}
                                 </span>
                                 <br />
-                                Level: {spell.level} Stat:{" "}
-                                {spell.stat} Tags:{" "}
+                                Level: {spell.level} Stat:{" "} Tags:{" "}
                                 {spell.tags}{" "}
                                 {moveSpell != undefined && (
                                     <Button
@@ -70,7 +69,7 @@ export default function SpellsTable({
                                 {spell.level}
                             </td>
                             <td className="hidden md:table-cell">
-                                {spell.stat}
+                                {toPillElement(spell.stat+" "+(1+Math.floor((spell.level-1)/2)).toString(), ",")}
                             </td>
 
                             <td
