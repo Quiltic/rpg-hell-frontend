@@ -18,7 +18,7 @@ import CharacterSheetPage from "./components/CharacterSheet/CharacterSheet.tsx";
 import CreatureTablePage from "./components/CreaturesPages/CreaturesTablePage.tsx";
 import JoshhellscapePage from "./components/joshhellscapePages/joshhellscapePage.tsx";
 import UpdateDBTraitsPage from "./components/TraitsPages/UpdateDBTraitsPage.tsx";
-import UpdateDBSpellsPage from "./components/SpellsPages/UpdateDBSpellsPage.tsx";
+import UpdateDBSpellsPage from "./components/SpellsPages/UpdateArtsPage.tsx";
 import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
 import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
