@@ -64,6 +64,7 @@ const tagList = [
     "buff",
     "debuff",
     "aoe",
+    "follower",
     "MONSTER",
     "BROKEN",
 ];
