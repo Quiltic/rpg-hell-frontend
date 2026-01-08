@@ -82,88 +82,84 @@ export default function RulebookNavigation() {
     const location = useLocation();
     const rulebookBasePath = "/rulebook/";
     return (
-        <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 dark:bg-dark-400">
-            <h2 className="mb-6">Rulebook Pages</h2>
-            <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
-                {directoryPages.map((page) => {
-                    const absolutePath = `${rulebookBasePath}${page.path}`;
-                    const isActive = location.pathname === absolutePath;
-                    return (
-                        <Link
-                            to={absolutePath}
-                            className={isActive ? "font-bold" : ""}
-                            aria-current={isActive ? "page" : undefined}
-                        >
-                            <Button
-                                leftIcon={page.icon}
-                                variant={
-                                    page.variant == undefined
-                                        ? undefined
-                                        : `${page.variant}`
-                                }
-                                className={
-                                    isActive ? "ring-2 ring-light/75" : ""
-                                }
+        <>
+            <h2>Rulebook Pages</h2>
+            <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 dark:bg-dark-400">
+                <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
+                    {directoryPages.map((page) => {
+                        const absolutePath = `${rulebookBasePath}${page.path}`;
+                        const isActive = location.pathname === absolutePath;
+                        return (
+                            <Link
+                                to={absolutePath}
+                                className={isActive ? "font-bold" : ""}
+                                aria-current={isActive ? "page" : undefined}
                             >
-                                {page.name}
-                            </Button>
-                        </Link>
-                    );
-                })}
-            </div>
-            <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
-                {rulebookPages.map((page) => {
-                    const absolutePath = `${rulebookBasePath}${page.path}`;
-                    const isActive = location.pathname === absolutePath;
-                    return (
-                        <Link
-                            to={absolutePath}
-                            className={isActive ? "font-bold" : ""}
-                            aria-current={isActive ? "page" : undefined}
-                        >
-                            <Button
-                                leftIcon={page.icon}
-                                variant={page.variant}
-                                className={
-                                    isActive ? "ring-2 ring-light/75" : ""
-                                }
+                                <Button
+                                    leftIcon={page.icon}
+                                    variant={
+                                        page.variant == undefined
+                                            ? undefined
+                                            : `${page.variant}`
+                                    }
+                                    className={
+                                        isActive ? "ring-2 ring-light/75" : ""
+                                    }
+                                >
+                                    {page.name}
+                                </Button>
+                            </Link>
+                        );
+                    })}
+                </div>
+                <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
+                    {rulebookPages.map((page) => {
+                        const absolutePath = `${rulebookBasePath}${page.path}`;
+                        const isActive = location.pathname === absolutePath;
+                        return (
+                            <Link
+                                to={absolutePath}
+                                className={isActive ? "font-bold" : ""}
+                                aria-current={isActive ? "page" : undefined}
                             >
-                                {page.name}
-                            </Button>
-                        </Link>
-                    );
-                })}
-            </div>
-            <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
-                {additionalRulebookPages.map((page) => {
-                    const absolutePath = `${rulebookBasePath}${page.path}`;
-                    const isActive = location.pathname === absolutePath;
-                    return (
-                        <Link
-                            to={absolutePath}
-                            className={isActive ? "font-bold" : ""}
-                            aria-current={isActive ? "page" : undefined}
-                        >
-                            <Button
-                                // leftIcon={page.icon}
-                                // variant={
-                                //     page.variant == undefined
-                                //         ? undefined
-                                //         : `link-${page.variant}`
-                                // }
-                                variant="dark"
-                                leftIcon={page.icon}
-                                size={"sm"}
-                                className={
-                                    isActive ? "ring-2 ring-light/75" : ""
-                                }
+                                <Button
+                                    leftIcon={page.icon}
+                                    variant={page.variant}
+                                    className={
+                                        isActive ? "ring-2 ring-light/75" : ""
+                                    }
+                                >
+                                    {page.name}
+                                </Button>
+                            </Link>
+                        );
+                    })}
+                </div>
+                <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
+                    {additionalRulebookPages.map((page) => {
+                        const absolutePath = `${rulebookBasePath}${page.path}`;
+                        const isActive = location.pathname === absolutePath;
+                        return (
+                            <Link
+                                to={absolutePath}
+                                className={isActive ? "font-bold" : ""}
+                                aria-current={isActive ? "page" : undefined}
                             >
-                                {page.name}
-                            </Button>
-                        </Link>
-                    );
-                })}
-            </div>
-        </nav>
+                                <Button
+                                    variant="dark"
+                                    leftIcon={page.icon}
+                                    size={"sm"}
+                                    className={
+                                        isActive ? "ring-2 ring-light/75" : ""
+                                    }
+                                >
+                                    {page.name}
+                                </Button>
+                            </Link>
+                        );
+                    })}
+                </div>
+            </nav>
+        </>
     );
 }
