@@ -78,6 +78,7 @@ export default function UpdateArtPage() {
     const [verbalCheck, setVerbalCheck] = useState<boolean>( false );
     const [lightCheck, setLightCheck] = useState<boolean>( false );
 
+    
     const {
             displayedSpells,
             filterSpells,
@@ -255,7 +256,7 @@ export default function UpdateArtPage() {
                     title="Clear"
                     className="w-[20%]"
                     variant={"medicine"}
-                    onClick={() => {setCurArt(displayedArt)}}
+                    onClick={() => { setCurArt(displayedArt); setgesCheck(false); setVerbalCheck(false); setLightCheck(false); }}
                 >
                     Clear
                 </Button>
