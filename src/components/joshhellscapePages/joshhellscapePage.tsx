@@ -1,794 +1,580 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "../ui/Button/Button";
-import json from "../../assets/OfflineJsons/traits.json";
-import useApi from "../../hooks/useApi";
-import { Creature, Item, Spell, Trait } from "../../client";
-import { sortArrayByReqs, sortItems } from "../../util/sortingTools";
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
-import { classNames, getNames } from "../../util/tableTools";
-import { createItemLines, createTraitLines, dictionaryItems, sumTags, upgradeItem } from "../../util/creatureHelpers";
-import { useSpells } from "../../hooks/useSpells";
-import { useTraits } from "../../hooks/useTraits";
-import { useItems } from "../../hooks/useItems";
-import { CreatureNew } from "../../client/models/CreatureNew";
-import CleanCombobox from "./CleanCombobox";
-import TraitCard from "../RulebookPages/TraitCardStuff/traitCard";
-import { list } from "postcss";
-import TraitCardHolder from "../RulebookPages/TraitCardStuff/traitCardHolder";
-import TraitsTablePage from "../TraitsPages/TraitsTablePage";
-import { eApiClass } from "../../types/ApiClassUnions";
-import Search from "../search/Search";
+// import { Button } from "../ui/Button/Button";
+// import json from "../../assets/OfflineJsons/traits.json";
+// import useApi from "../../hooks/useApi";
+// import { sortArrayByReqs, sortItems } from "../../util/sortingTools";
+// import { formatEffectString, toPillElement } from "../../util/textFormatting";
+// import { createItemLines, createCreatureLines, dictionaryItems, sumTags, upgradeItem } from "../../util/creatureHelpers";
+// import { useSpells } from "../../hooks/useSpells";
+// import { useTrait } from "../../hooks/useCreatures";
+// import { useItems } from "../../hooks/useItems";
+// import { CreatureNew } from "../../client/models/CreatureNew";
+// import TraitCard from "../RulebookPages/TraitCardStuff/traitCard";
+// import { list } from "postcss";
+// import CreatureCardHolder from "../RulebookPages/CreatureCardStuff/traitCardHolder";
+// import CreaturesTablePage from "../CreaturesPages/CreaturesTablePage";
+// import Search from "../search/Search";
 
-import { FunnelIcon, MagnifyingGlassIcon, XMarkIcon, UserIcon, PlusIcon } from "@heroicons/react/20/solid";
-import ItemsTable from "../ItemPages/ItemsTable";
-import Popup from "../ui/Popups/Popup";
+// import { FunnelIcon, MagnifyingGlassIcon, XMarkIcon, UserIcon, PlusIcon } from "@heroicons/react/20/solid";
+// import ItemsTable from "../ItemPages/ItemsTable";
+// import Popup from "../ui/Popups/Popup";
+// import DicePopup from "../ui/Popups/dicePopup";
+// import DicePopup2 from "../ui/Popups/dicePopup2";
+// import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
+// import { ClassDictionary } from "clsx";
+// import Checkbox from "../ui/Checkbox";
+// import CreatureSimpleListing from "../RulebookPages/CreatureCardStuff/traitSimpleListing";
+// import Markdown from "react-markdown";
+// import rehypeRaw from "rehype-raw";
+// import remarkGfm from "remark-gfm";
+// import CreatureSheet from "../CreaturesPages/creatureSheet";
+// import StatsPage from "../RulebookPages/SubPages/StatsPage";
+
+
+
+import React, { useState, useEffect } from "react";
+import { Trait, Item, Spell, Creature } from "../../client";
+import { classNames, getNames } from "../../util/tableTools";
+import CleanCombobox from "./CleanCombobox";
+import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 import { Tab } from "@headlessui/react";
-import DicePopup from "../ui/Popups/dicePopup";
-import DicePopup2 from "../ui/Popups/dicePopup2";
-import { minusIcon, plusIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import { ClassDictionary } from "clsx";
-import Checkbox from "../ui/Checkbox";
+import { useCreatures } from "../../hooks/useCreatures";
+import CreaturesTable from "../CreaturesPages/CreaturesTable";
 
 
-// const wep4ListReaching = [
-//     "4-: you do not gain the benefit of Reaching. You have a Range of 1 instead of 2.",
+// i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
+// const STUPID_COLOR_TYPESCRIPT_BS = [
+
+// import traitJson from "../../assets/OfflineJsons/traits.json";
+
+// const IterativeCreatureLevels = [
+//     "Body",
+//     "Mind",
+//     "Soul",
+//     "Arcana",
+//     "Charm",
+//     "Crafting",
+//     "Medicine",
+//     "Nature",
+//     "Thieving",
+//     // "Monster",
 // ];
+const IterativeCreatureLevels = [
+        "Humanoid",
+        "Animal",
+        "Construct",
+        "Monstrosity",
+        "Planar",
+        "Undead",
+        "Mythic",
+    ];
+
 
 const displayedCreature = {
-        "name":"template thing",
-        "race":"animal,construct,monstrosity,planar,undead,mythic",
-        "level":10,
-        "body":3,
-        "mind":2,
-        "soul":1,
-        "arcana":4,
-        "crafting":3,
-        "charm":2,
-        "nature":4,
-        "medicine":3,
-        "thieving":2,
-        "augments":["heavy defense - armor 2,ward 1,dodge 2"],
-        "traits":"trained medic;|;spell manipulator;|;climber;|;swimmer;|;flight;|;rage targeting;|;deathless;|;construct;|;boss monster;|;battle hardened armor;|;large;|;turreted weapon;|;spectral artillery",
-        "arts":"conjure fog;|;ground slam;|;piercing shot",
-        "items":"popshard rifle;|;fists;|;heavy defense",
-        "notes":"A creation from an age long gone. Wandering aimlessly in pursuit of a new home and a new war to jump into.\n(The tank uses 4 Popshard Turreted Weapons, and has 2 mounted Popcannons. The Cannons cannot become Turrets.)"
-        }
-
-
-type dictItem = {
-    [name: string]: any;
-}
-type fakeItem = {
-    id: number;
-    effect: string;
-    cost: number;
-    craft: number;
-    req: Array<string>;
-    tags: dictItem;
+    "name":"",
+    "types":"",
+    "level":0,
+    "health":0,
+    "shielding":0,
+    "dodge":0,
+    "cd":4,
+    "ward":0,
+    "strain":0,
+    "speed":6,
+    "stats": {
+       "body":0,
+        "mind":0,
+        "soul":0,
+        "arcana":0,
+        "crafting":0,
+        "charm":0,
+        "nature":0,
+        "medicine":0,
+        "thieving":0 
+    },
+    "actives":"",
+    "passives":"",
+    "descriptor":"",
+    "how_act":""
 }
 
-
-
+function getTabWidth(lengthOfName: number) {
+    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
+}
 
 export default function JoshhellscapePage() {
 
-    const {allTraits: traitsList} = useTraits();
-    const {allSpells: spellsList} = useSpells();
-    const {allItems: itemsList} = useItems();
 
+    const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
 
-    const [health, setHealth] = useState(0);
-    const [maxHealth, setMaxHealth] = useState(0);
-    const [armor, setArmor] = useState(0);
-    const [maxArmor, setMaxArmor] = useState(0);
+    const {
+        allCreatures,
+        pinnedCreatures,
+        displayedCreatures,
+        addToPinnedCreatures,
+        removeFromPinnedCreatures,
+        filterCreatures,
+        resetFilterCreatures,
+    } = useCreatures();
 
-    const [strain, setStrain] = useState(0);
-    const [maxStrain, setMaxStrain] = useState(0);
-
-    const [dodge, setDodge] = useState(0);
-    const [restDodge, setRestDodge] = useState(0);
-    const [ward, setWard] = useState(0);
-    const [restWard, setRestWard] = useState(0);
-
-    const [speed, setSpeed] = useState(0);
+    // useEffect(() => {
+    //         // console.log(mainStat,secondStat,otherDrop);
+    //         const trait = {
+    //             id: curID,
+    //             name: nameText.toLowerCase(),
+    //             effect: effectText,
+    //             req: [mainStat, secondStat, otherDrop],
+    //             dice: 0,
+    //             is_passive: true,
+    //         };
     
-    const [items, setItems] = useState<Array<dictItem>>();
-    const [traits, setTraits] = useState<Array<dictItem>>();
+    //         if (diceCost != "P") {
+    //             trait.is_passive = false;
+    //             trait.dice = diceCost.split("#").length - 1;
+    //         }
+    
+    //         // remove the empty stuffs
+    //         trait.req = trait.req.filter((str) => str !== "");
+    
+    //         setCurCreature(trait);
+    //     }, [
+    //         nameText,
+    //         diceCost,
+    //         mainStat,
+    //         secondStat,
+    //         otherDrop,
+    //         effectText,
+    //         curID,
+    //     ]);
 
-    const [activesItems, setActivesItems] = useState<Array<any>>([]);
-    const [passivesItems, setPassivesItems] = useState<Array<any>>([]);
 
-    const [activesTraits, setActivesTraits] = useState<Array<any>>([]);
-    const [passivesTraits, setPassivesTraits] = useState<Array<any>>([]);
-
-
-    const formatTags = (tags: { [key: string]: number }): string => Object.entries(tags).map(([key, value]) => `${key} ${value}`).join(', ');
+    // console.log(traitsList[0]);
 
     
-    // Startup stat update
-    useEffect(() => {
-
-        let hpBonus = (displayedCreature.traits.includes("hearty") ? displayedCreature.body : 0);
-        
-        let startingStrain = Math.ceil(
-            displayedCreature.soul * 4 +
-            displayedCreature.mind * 3 +
-            displayedCreature.body * 2 
-        );
-
-        if (displayedCreature.traits.includes("blood magic")) {
-            hpBonus += startingStrain;
-            startingStrain = 0;
-        }
-    
-        const maxHealth = Math.ceil(
-            displayedCreature.level +
-            displayedCreature.body * 4 +
-            displayedCreature.mind * 3 +
-            displayedCreature.soul * 2 +
-            hpBonus
-        );
-
-        setStrain(startingStrain);
-        setMaxStrain(startingStrain);
-
-        setHealth(maxHealth);
-        setMaxHealth(maxHealth);
+    // useEffect(() => {
+    //     if (strain < 0) {
+    //         setHealth(health+strain);
+    //     }        
+    // }, [strain]);
 
 
-        if (itemsList.length > 0) {
-            let tempItems = dictionaryItems(getNames(displayedCreature.items, itemsList) as Item[]);
-            tempItems = upgradeItem(tempItems, displayedCreature.augments);
-            const itemTags = sumTags(tempItems);
-            setItems(Object.values(tempItems));
+    // filter(
+    //     (t) => {
+    //         try {
+    //             const temp = [t.name.toLowerCase(),(t as Creature).effect?.toLowerCase().replace("\n","")," "].join(";|;");
+    //             return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
+    //         } catch (error) {
+    //             console.error('Bad regex:', error);
+    //         }
+    //         return (false)
+    //     }
+    //         // t.name.toLowerCase().includes(searchValue) ||
+    //         // (t as Creature).effect?.toLowerCase().includes(searchValue)
+    // );
+    // return;
 
-        
-            const tempArmor = ("armor" in itemTags ? itemTags["armor"]*displayedCreature.level : 0) + ("heavy armor" in itemTags ? itemTags["heavy armor"]*displayedCreature.level + 4*displayedCreature.body + 3*displayedCreature.mind : 0) + ("medium armor" in itemTags ? itemTags["medium armor"]*displayedCreature.level + 2*displayedCreature.body + 2*displayedCreature.mind : 0);
-            setArmor(tempArmor);
-            setMaxArmor(tempArmor);
+    // IterativeCreatureLevels.map((n, i) => {
+    //                         return (
+    //                             <Tab.Panel key={i}>
+    //                                 <CreaturesTable
+    //                                     displayedCreatures={displayedCreatures.filter(
+    //                                         (s) => {
+    //                                             return s.req
+    //                                                     ?.toString()
+    //                                                     .includes(n.toLowerCase());
+    //                                         }
+    //                                     )}
+                                        
+    //                                     moveCreature={(trait) => {
+    //                                         addToPinnedCreatures(trait);
+    //                                     }}
+    //                                 />
+    //                             </Tab.Panel>
+    //                         );
+    //                     })
 
-            const tempWard = "ward" in itemTags ? itemTags["ward"] : 0;
-            const tempDodge = "dodge" in itemTags ? itemTags["dodge"] : 0;
-            setWard(tempWard);
-            setRestWard(tempWard);
-            setDodge(tempDodge);
-            setRestDodge(tempDodge);
-            
-            setSpeed(6 + ("speed" in itemTags ? itemTags["speed"] : 0) + (displayedCreature.traits.includes("quick runner") ? 1 : 0));
-
-
-            // console.log(tempItems,itemTags)
-        }
-        if (traitsList.length > 0) {
-            setTraits(getNames(displayedCreature.traits, traitsList) as Trait[]);
-            // console.log(getNames(displayedCreature.traits, traitsList) as Trait[])
-        }
-
-    }, [displayedCreature, itemsList, traitsList]); 
-
-    // Strain dmg
-    useEffect(() => {
-        if (strain < 0) {
-            setHealth(health+strain);
-        }        
-    }, [strain]);
-
-
-    // Set Actives/Passives for items
-    useEffect(() => {
-        
-        if (items!=undefined) {
-            let actives:any[] = [];
-            let passives:any[] = [];
-
-            const itemCheckList = ["weapon","grenade","throwable","potion","medicine"];
-
-            let isactive = false;
-
-            items.forEach(item => {
-                isactive = false;
-                itemCheckList.forEach(tag => {
-                    if (tag in item.tags)
-                        isactive = true;
-                });
-
-                if (isactive)
-                    actives.push(item);
-                else
-                    passives.push(item);
-            });
-
-            setActivesItems(actives);
-            setPassivesItems(passives);
-        }
-    }, [items]);
-
-
-    // set actives/passives for traits
-    useEffect(() => {
-        
-        if (traits!=undefined) {
-            let actives:any[] = [];
-            let passives:any[] = [];
-
-            const traitCheckList = "flight,climber,swimmer";
-
-            traits.forEach(trait => {
-                
-                if (!(traitCheckList.includes(trait.name.toLowerCase()))) {
-                    if (trait.effect.toLowerCase().includes("spend"))
-                        actives.push(trait);
-                    else
-                        passives.push(trait);
-                }
-            });
-
-            setActivesTraits(actives);
-            setPassivesTraits(passives);
-        }
-    }, [traits]);
-
-    function getTraitCost(traitEffect:string) {
-        const strain = traitEffect.match(/spend\s.*([0-9]+)\sstrain/i)?.[1] || "";
-        const dice = traitEffect.match(/spend\s(#*)/i)?.[1] || "";
-        return (strain.concat((dice != "" && strain != "") ? ", ": '', dice));
-    }
-    
-    
-    
-    function openPopup (type:number) {
-        setNumDice([0,0]);
-        setDiceBonus(type);
-        setDicePopupOpen(true);
-    }
-    const [diceBonus, setDiceBonus] = useState<number>(0);
-    const [numDice, setNumDice] = useState<Array<number>>([0,0]);
-    const [dicePopupOpen, setDicePopupOpen] = useState(false);
-    
-
-    function resetStats() {
-        setArmor(maxArmor);
-        setDodge(restDodge);
-        setWard(restWard);
-        setHealth(maxHealth);
-        setStrain(maxStrain);
-    }
-
-    const [restPopupOpen, setRestPopupOpen] = useState(false);    
-    const [checkbox, setCheckbox] = useState(false);
-
-
+    // const traits = traitsList.filter( (t) => {return t.req?.toString().includes('body')} );
+    // console.log(traits);
 
     return (
-        <div>
-
-            <DicePopup2 startingDice={numDice} startingBonus={diceBonus} setBonus={setDiceBonus} isOpen={dicePopupOpen} setIsOpen={setDicePopupOpen}/>
-            
-            {/* RestPopup */}
-            <Popup isOpen={restPopupOpen} setIsOpen={setRestPopupOpen} displayedContentName="Do Rest?" displayedContent={
-                <div className="">
-                    <div className="bg-dark-400 rounded-lg m-2 p-2">
-                        <div className="bg-dark-300 rounded-lg p-2 text-lg">
-                            Doing this action will reset your Health, Armor, Ward, Dodge, and Strain.
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-4 bg-dark-400 rounded-lg m-2">
-                        <Button
-                            variant={"nature"}
-                            className={
-                                "rounded-lg p-2 m-2 rounded-lg grid grid-cols-1 bg-nature"
-                            }
-                            onClick={() => {
-                                resetStats();
-                                setRestPopupOpen(false);
-                            }}
-                        >Rest</Button>
-
-                        <Button
-                            variant={"medicine"}
-                            className={
-                                "rounded-lg p-2 m-2 bg-medicine rounded-lg grid grid-cols-1"
-                            }
-                            onClick={() => {
-                                setRestPopupOpen(false);
-                            }}
-                        >Dont Rest</Button>
-
-                        <div></div> {/* Just a hollow thing for formating. */}
-
-                        <Checkbox isChecked={checkbox} setIsChecked={setCheckbox} text="Do not show this again."/>
-                            
-                    </div>
-                </div>
-            }/>
-
-
-            {/* Header */}
-            <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2">
-                <h2 className="bg-dark-300 rounded-lg p-4 m-2 justify-center items-center flex capitalize">
-                    {displayedCreature.name}
-                </h2>
-
-                <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-1">
-                    <div className="justify-end grid">
-                        Level: {displayedCreature.level}
-                    </div>
-
-                    <div className="capitalize justify-end grid">
-                        {/* I am so lazy here id rather split then recombine than do something smarter (its 11 pm) */}
-                        {displayedCreature.race.toString().split(",").join(", ")}
-                    </div>
-                </div>
-            </div>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col">
+            <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
                 
-                {/* 9 Stat List */}
-                <div className="bg-dark-400 rounded-lg m-2">
-                    <div className="grid grid-cols-3 gap-4 justify-left bg-dark-300 rounded-lg m-2 p-4">
-                        <Button
-                            variant={"body"}
-                            className={
-                                "text-xl font-bold rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.body)}}
-                        >Body {displayedCreature.body}</Button>
-
-                        <Button
-                            variant={"mind"}
-                            className={
-                                "text-xl font-bold rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.mind)}}
-                        >Mind {displayedCreature.mind}</Button>
-
-                        <Button
-                            variant={"soul"}
-                            className={
-                                "text-xl font-bold bg-soul rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.soul)}}
-                        >Soul {displayedCreature.soul}</Button>
+                {/* Name/Level/Types */}
+                <div className="flex flex-row items-center bg-dark rounded-md">
+                    
+                    <div className="w-[50%] rounded-lg bg-dark-400 p-2 m-2 ">
+                        <input
+                            type="text"
+                            placeholder="NAME"
+                            className="h-9 w-[100%] p-2 rounded-lg shadow-md"
+                            value={curCreature.name}
+                            onChange={(e) => setCurCreature({...curCreature, name: e.target.value})}
+                        />
                     </div>
-
-                    <div className="grid grid-cols-3 gap-4 justify-left bg-dark-300 rounded-lg m-2 p-6">
-
-                        <Button
-                            variant={"arcana"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.arcana)}}
-                        >Arcana {displayedCreature.arcana}</Button>
-
-                        <Button
-                            variant={"charm"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.charm)}}
-                        >Charm {displayedCreature.charm}</Button>
-
-                        <Button
-                            variant={"crafting"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.crafting)}}
-                        >Crafting {displayedCreature.crafting}</Button>
-
-                        <Button
-                            variant={"nature"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.nature)}}
-                        >Nature {displayedCreature.nature}</Button>
-
-                        <Button
-                            variant={"medicine"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.medicine)}}
-                        >Medicine {displayedCreature.medicine}</Button>
-
-                        <Button
-                            variant={"thieving"}
-                            className={
-                                "rounded-lg p-2"
-                            }
-                            onClick={() => {openPopup(displayedCreature.thieving)}}
-                        >Thieving {displayedCreature.thieving}</Button>
-                        
+                    
+                
+                    <div className="w-[17%] flex flex-row items-center rounded-md bg-dark-400 items-center capitalize p-2 m-2">
+                        Level: 
+                        <input
+                            type="number"
+                            className="h-9 w-[100%] rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                            value={curCreature.level}
+                            min="0"
+                            onChange={(e) => setCurCreature({...curCreature, level: parseFloat(e.target.value)})}
+                        />
+                    </div>
+                    <div className="w-[33%] flex flex-row items-center capitalize rounded-md bg-dark-400 p-2 m-2">
+                        <input
+                            type="text"
+                            placeholder="Types"
+                            className="h-9 rounded-lg p-2 m-1 shadow-md"
+                            value={curCreature.types}
+                            onChange={(e) => setCurCreature({...curCreature, types: e.target.value})}
+                        />
+                        <CleanCombobox
+                            items={IterativeCreatureLevels}
+                            className=""
+                            selected={""}
+                            setSelected={(val) => {
+                                if (curCreature.types == "") {
+                                    setCurCreature({...curCreature, types: val});
+                                } else {
+                                    setCurCreature({...curCreature, types: curCreature.types.concat(", ", val)});
+                                }
+                            }}
+                        />
                     </div>
                 </div>
 
-                {/* Other Stats */}
-                <div className="grid grid-cols-3 bg-dark-400 rounded-lg m-2">
-                    
-                    {/* Health/Armor/Ward/Dodge */}
-                    <div className="flex flex-col col-span-2">
-                        {/* Armor */}
-                        { maxArmor > 0 &&
-                            <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
-                                <div className="flex capitalize font-bold justify-start">
-                                    Armor:
-                                </div>
-                                
-                                <input
-                                    type="number"
-                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
-                                    value={armor}
-                                    min="0"
-                                    onChange={(e) => setArmor(parseInt(e.target.value))}
-                                />
-                                <div className="flex justify-start">
-                                    / {maxArmor}
-                                </div>
+                {/* Descriptor/How Act */}
+                <div className="flex flex-row italic bg-dark-400 m-2 ptlr-2">
+                    <textarea
+                        placeholder="Description of the creature and hints for narration for the GM."
+                        className="bg-dark-300 h-22 w-[100%] rounded-lg p-1 m-1"
+                        value={curCreature.descriptor}
+                        onChange={(e) => setCurCreature({...curCreature, descriptor: e.target.value})}
+                    />
+                </div>
+                <div className="flex flex-row italic bg-dark-400 pl-12">
+                    <textarea
+                        placeholder="How the creature should act; Group, Dangerous, Fishlike, Hungry"
+                        className="bg-dark-300 h-9 w-[50%] rounded-lg p-1 m-1"
+                        value={curCreature.how_act}
+                        onChange={(e) => setCurCreature({...curCreature, how_act: e.target.value})}
+                    />
+                </div>
 
-                                <div className="flex flex-row">
-                                    <Button  
-                                        leftIcon={plusIcon} 
-                                        variant="subtle"
-                                        className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
-                                        onClick={() => {
-                                            setArmor(armor+1);
-                                            }
-                                        }>
-                                    </Button>
-                                    <Button 
-                                        leftIcon={minusIcon} 
-                                        variant="subtle"
-                                        className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
-                                        onClick={() => {
-                                            setArmor(armor-1);
-                                            }
-                                        }>
-                                    </Button>
-                                </div>
 
-                            </div>
-                        }
-                        
-                        {/* Health */}
-                        <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
-                            <div className="flex capitalize font-bold">
-                                Health:
-                            </div>
-                            
+                {/* Line */}
+                <div className="flex flex-row items-center bg-dark-400 border-2 border-body-700/20 m-2"></div>
+
+                {/* Stats */}
+                <div className="flex flex-row justify-between m-1 p-1">
+
+                    {/* Scores */}
+                    <div className="grid grid-cols-3 gap-1 justify-left bg-body/10 dark:bg-dark-300 p-3 rounded-md flex-wrap ">    
+                        <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Body:
                             <input
                                 type="number"
-                                className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
-                                value={health}
-                                min="0"
-                                onChange={(e) => setHealth(parseInt(e.target.value))}
+                                className="bg-body h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.body}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, body: parseFloat(e.target.value)}})}
                             />
-                            <div className="flex justify-start">
-                                / {maxHealth}
-                            </div>
-
-                            <div className="flex flex-row">
-                                <Button  
-                                    leftIcon={plusIcon} 
-                                    variant="subtle"
-                                    className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
-                                    onClick={() => {
-                                        setHealth(health+1);
-                                        }
-                                    }>
-                                </Button>
-                                <Button 
-                                    leftIcon={minusIcon} 
-                                    variant="subtle"
-                                    className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
-                                    onClick={() => {
-                                        setHealth(health-1);
-                                        }
-                                    }>
-                                </Button>
-                            </div>
                         </div>
-                        
-                        
-                        {/* Dodge */}
-                        { restDodge > 0 &&
-                            <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
-                                <div className="flex capitalize font-bold">
-                                    Dodge:
-                                </div>
-                                
-                                <input
-                                    type="number"
-                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
-                                    value={dodge}
-                                    min="0"
-                                    onChange={(e) => setHealth(parseInt(e.target.value))}
-                                />
-
-                                <div></div>
-
-                                <div className="flex flex-row">
-                                    <Button  
-                                        leftIcon={plusIcon} 
-                                        variant="subtle"
-                                        className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
-                                        onClick={() => {
-                                            setDodge(dodge+1);
-                                            }
-                                        }>
-                                    </Button>
-                                    <Button 
-                                        leftIcon={minusIcon} 
-                                        variant="subtle"
-                                        className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
-                                        onClick={() => {
-                                            setDodge(dodge-1);
-                                            }
-                                        }>
-                                    </Button>
-                                </div>
-                            </div>
-                        }
-                        {/* Ward */}
-                        { restWard > 0 &&
-                            <div className="bg-dark-300 rounded-lg p-2 m-2 grid grid-cols-4 flex justify-end items-center">
-                                <div className="flex capitalize font-bold">
-                                    Ward:
-                                </div>
-                                
-                                <input
-                                    type="number"
-                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
-                                    value={ward}
-                                    min="0"
-                                    onChange={(e) => setHealth(parseInt(e.target.value))}
-                                />
-                                
-                                <div></div>
-
-                                <div className="flex flex-row">
-                                    <Button  
-                                        leftIcon={plusIcon} 
-                                        variant="subtle"
-                                        className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
-                                        onClick={() => {
-                                            setWard(ward+1);
-                                            }
-                                        }>
-                                    </Button>
-                                    <Button 
-                                        leftIcon={minusIcon} 
-                                        variant="subtle"
-                                        className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
-                                        onClick={() => {
-                                            setWard(ward-1);
-                                            }
-                                        }>
-                                    </Button>
-                                </div>
-
-                            </div>
-                        }
-                        
-                    </div>
-                    
-                    {/* Speed/Swim/Climb/Fly */}
-                    <div className="flex flex-col">
-                        <div className="bg-dark-300 rounded-lg p-2 m-2 flex justify-center font-bold text-lg items-center">
-                            Speed: {speed}
-                        </div>
-
-                        {/* Swim/CLimb/Fly */}
-                        { (displayedCreature.traits.includes("swimmer") || displayedCreature.traits.includes("climber") || displayedCreature.traits.includes("flight")) &&
-                            <div className="bg-dark-300 rounded-lg p-2 m-2 flex justify-start flex-col">
-                                { displayedCreature.traits.includes("swimmer") &&
-                                <div className="mb-2" >Can Swim</div>
-                                }
-                                {displayedCreature.traits.includes("climber") &&
-                                <div className="mb-2" >Can Climb</div>
-                                }
-                                {displayedCreature.traits.includes("flight") &&
-                                <div className="mb-2" >Can Fly</div>
-                                }
-                            </div>
-                        }
-                        
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            {/* Actives Bar */}
-            <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
-                <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
-                    Actives
-                </h2>
-                <div className="bg-dark-300 rounded-lg m-2 grid grid-cols-2 justify-end">
-                    <Button
-                        variant={"subtle"}
-                        className={
-                            "rounded-lg p-2 m-2"
-                        }
-                        onClick={() => {
-                            if (checkbox)
-                                resetStats();
-                            else
-                                setRestPopupOpen(true);
-                        }}
-                    >Rest</Button>
-
-                    <Button
-                        variant={"subtle"}
-                        className={
-                            "rounded-lg p-2 m-2"
-                        }
-                        onClick={() => {
-                            setNumDice(Array.apply(null, Array(4+Math.floor(displayedCreature.level/2))).map(Number.prototype.valueOf,0))
-                            setDiceBonus(0)
-                            setDicePopupOpen(true)
-                        }}
-                    >Combat Dice {4+Math.floor(displayedCreature.level/2)}</Button>
-                </div>
-
-            </div>
-
-            {/* Items */}
-            {activesItems!=undefined && activesItems.map((item) => {
-
-            return(
-            <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
-                <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
-                    {item.name}
-                </div>
-                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1">
-                    {'weapon' in item.tags ? "##" : 'throwable' in item.tags ? "##" : 'grenade' in item.tags ? "##" : "#"}
-                </div>
-                <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-3">
-                    {formatTags(item.tags).replace(/ 0/gi,"").replace(/, weapon/gi,"").replace(/, common/gi,"").replace(/, uncommon/gi,"").replace(/, rare/gi,"").replace(/, legendary/gi,"")}
-                </div>
-                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-6 whitespace-pre-wrap overflow-y-auto text-left">
-                    {item.effect}
-                </div>
-            </div>);
-
-            })}
-
-
-            {/* Traits */}
-            {activesTraits!=undefined && activesTraits.map((trait) => {
-                return(
-                <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
-                    <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
-                        {trait.name}
-                    </div>
-                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-1">
-                        {getTraitCost(trait.effect.toLowerCase())}
-                    </div>
-                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-9 whitespace-pre-wrap overflow-y-auto text-left">
-                        {trait.effect}
-                    </div>
-                </div>);
-            })}
-
-
-
-             {/* Passives Bar */}
-             <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
-                <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
-                    Passives
-                </h2>
-                <div className="bg-dark-300 rounded-lg m-2 grid grid-cols-2 justify-end">
-                </div>
-            </div>
-
-            {/* Items */}
-            {passivesItems!=undefined && passivesItems.map((item) => {
-                return(
-                <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
-                    <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
-                        {item.name}
-                    </div>
-                    <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-3">
-                        {formatTags(item.tags).replace(/ 0/gi,"").replace(/, weapon/gi,"").replace(/, common/gi,"").replace(/, uncommon/gi,"").replace(/, rare/gi,"").replace(/, legendary/gi,"")}
-                    </div>
-                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-7 whitespace-pre-wrap overflow-y-auto text-left">
-                        {item.effect}
-                    </div>
-                </div>);
-            })}
-
-            {/* Traits */}
-            {passivesTraits!=undefined && passivesTraits.map((trait) => {
-                return(
-                <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
-                    <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2">
-                        {trait.name}
-                    </div>
-                    <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-10 whitespace-pre-wrap overflow-y-auto text-left">
-                        {trait.effect}
-                    </div>
-                </div>);
-            })}
-
-
-
-            {/* Arts Bar */}
-            <div className="grid grid-cols-2 bg-dark-400 rounded-lg m-2 mt-10">
-                <h2 className="flex justify-center items-center bg-dark-300 rounded-lg m-2">
-                    Arts
-                </h2>
-                <div className="bg-dark-300 rounded-lg m-2 grid grid-cols-1 flex flex-row justify-end">
-                { maxStrain > 0 &&
-                        <div className="bg-dark-300 rounded-lg p-2 flex flex-row justify-center items-center">
-                            <div className="flex capitalize font-bold justify-start p-2">
-                                Strain:
-                            </div>
-                            
+                        <div className="bg-mind font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Mind:
                             <input
                                 type="number"
-                                className="flex flex-row h-9 w-20 rounded-lg p-2 shadow-md justify-end m-1"
-                                value={strain}
-                                max={maxStrain}
-                                onChange={(e) => setStrain(parseInt(e.target.value))}
+                                className="bg-mind h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.mind}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, mind: parseFloat(e.target.value)}})}
                             />
-                            <div className="flex justify-start">
-                                / {maxStrain}
-                            </div>
+                        </div>
+                        <div className="bg-soul font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Soul:
+                            <input
+                                type="number"
+                                className="bg-soul h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.soul}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, soul: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                        <div className="bg-arcana font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Arcana:
+                            <input
+                                type="number"
+                                className="bg-arcana h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.arcana}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, arcana: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                        <div className="bg-charm font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Charm:
+                            <input
+                                type="number"
+                                className="bg-charm h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.charm}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, charm: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                        <div className="bg-crafting font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Crafting:
+                            <input
+                                type="number"
+                                className="bg-crafting h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.crafting}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, crafting: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                        <div className="bg-medicine font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Medicine:
+                            <input
+                                type="number"
+                                className="bg-medicine h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.medicine}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, medicine: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                        <div className="bg-nature font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Nature: 
+                            <input
+                                type="number"
+                                className="bg-nature h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.nature}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, nature: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                        <div className="flex flex-row items-center bg-thieving font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            Thieving:
+                            <input
+                                type="number"
+                                className="bg-thieving h-9 rounded-lg justify-end m-1 p-2"
+                                value={curCreature.stats.thieving}
+                                min="-4"
+                                max="6"
+                                onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, thieving: parseFloat(e.target.value)}})}
+                            />
+                        </div>
+                    </div>
 
-                            <div className="flex flex-row p-2">
-                                <Button  
-                                    leftIcon={plusIcon} 
-                                    variant="subtle"
-                                    className="flex justify-center rounded-l-full rounded-r-none h-8 w-8"
-                                    onClick={() => {
-                                        setStrain(strain+1);
-                                        }
-                                    }>
-                                </Button>
-                                <Button 
-                                    leftIcon={minusIcon} 
-                                    variant="subtle"
-                                    className="flex justify-center rounded-r-full rounded-l-none h-8 w-8"
-                                    onClick={() => {
-                                        setStrain(strain-1);
-                                        }
-                                    }>
-                                </Button>
+                    {/* HP/Shielding/Dodge/Ward */}
+                    <div className="flex flex-col justify-between">
+                        
+                        {curCreature.health != 0 && 
+                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                                HEALTH: {curCreature.health}
+                            </div>
+                        }
+                        {curCreature.health == 0 &&
+                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                                HEALTH: {4*curCreature.stats.body+3*curCreature.stats.mind+2*curCreature.stats.soul+Math.ceil(curCreature.level)}
+                            </div>
+                        }
+                        
+                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="flex flex-row items-center">
+                                SHIELDING: 
+                                <input
+                                    type="number"
+                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                    value={curCreature.shielding}
+                                    min="0"
+                                    onChange={(e) => setCurCreature({...curCreature, shielding: parseFloat(e.target.value)})}
+                                />
                             </div>
                         </div>
-                    }
+
+                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="flex flex-row items-center">
+                                DODGE: 
+                                <input
+                                    type="number"
+                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                    value={curCreature.dodge}
+                                    min="-3"
+                                    onChange={(e) => setCurCreature({...curCreature, dodge: parseFloat(e.target.value)})}
+                                />
+                            </div>
+                        </div>
+                        
+                        { curCreature.ward > 0 &&
+                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                                WARD: {curCreature.ward}
+                            </div>
+                        }
+                    </div>
+
+                    {/* Strain/Speed/Combat Dice */}
+                    <div className="flex flex-col justify-between">
+                        {curCreature.strain != 0 && 
+                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                                STRAIN: {curCreature.strain}
+                            </div>
+                        }
+                        {curCreature.strain == 0 &&
+                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                                STRAIN: {2*curCreature.stats.body+3*curCreature.stats.mind+4*curCreature.stats.soul+Math.ceil(curCreature.level)}
+                            </div>
+                        }
+                        
+                        <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md">
+                            <div className="flex flex-row items-center">
+                                SPEED: 
+                                <input
+                                    type="number"
+                                    className="flex flex-row h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                    value={curCreature.speed}
+                                    min="0"
+                                    onChange={(e) => setCurCreature({...curCreature, speed: parseFloat(e.target.value)})}
+                                />
+                            </div>
+                            
+                            
+                            
+                            { curCreature.passives.includes("swim") &&
+                            <div>Can Swim</div>
+                            }
+                            
+                            {curCreature.passives.includes("climb") &&
+                            <div>Can Climb</div>
+                            }
+                            
+                            {(curCreature.passives.includes("flight") || curCreature.passives.includes("fly")) &&
+                            <div>Can Fly</div>
+                            }
+                        </div>
+
+                        <div className="flex flex-row items-center dark:bg-dark-300 p-2 rounded-md">
+                            CD: 
+                            <input
+                                type="number"
+                                className="h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                                value={curCreature.cd}
+                                min="4"
+                                onChange={(e) => setCurCreature({...curCreature, cd: parseFloat(e.target.value)})}
+                            />
+                        </div>
+
+                    </div>
+
                 </div>
+
+                <div className="grid grid-cols-2 items-center bg-dark rounded-md justify-between">
+                    {/* Active */}
+                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
+                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ACTIVES</h3>
+                        <textarea
+                            placeholder="**Reminder** - Spend ## and 3 Strain; You this is how actives should look."
+                            className="bg-dark-300 h-44 rounded-lg p-1 m-1"
+                            value={curCreature.actives}
+                            onChange={(e) => setCurCreature({...curCreature, actives: e.target.value})}
+                        />
+                    </div>
+                        
+                    {/* Passive */}
+                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
+                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">PASSIVES</h3>
+                        <textarea
+                            placeholder="**Reminder** - You this is how passives should look."
+                            className="bg-dark-300 h-44 rounded-lg p-1 m-1"
+                            value={curCreature.passives}
+                            onChange={(e) => setCurCreature({...curCreature, passives: e.target.value})}
+                        />
+                    </div>
+                </div>
+
             </div>
 
+            <textarea name="json" id="json" className="bg-dark-600 rounded-md border-solid border-2 border-body-700/20 h-44 m-4 p-2" value={JSON.stringify(curCreature)}/>
 
-            {/* Arts */}
-            {displayedCreature.arts && spellsList.length > 0 && (getNames(displayedCreature.arts, spellsList) as Spell[]).map((art) => {
+            <h1>Creatures</h1>
 
-            return(
-            <div className="bg-dark-400 grid grid-cols-12 rounded-lg m-2">
-                <div className="capitalize font-bold bg-dark-300 rounded-lg p-2 m-2 col-span-2 whitespace-pre-wrap overflow-y-auto flex items-center justify-center">
-                    {art.name}
-                    { art.tags.includes("focus") ? "\n(Focus)" : ""}
+            <Tab.Group as="div" className="w-full ">
+                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
+                    <Tab.List className="p-1 gap-2 flex flex-wrap">
+                        <Tab
+                            className={({ selected }) =>
+                                classNames(
+                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
+                                    selected ? "ring-2" : ""
+                                )
+                            }
+                        >
+                            All
+                        </Tab>
+                        {IterativeCreatureLevels.map((n, i) => {
+                            return (
+                                <Tab
+                                    key={i}
+                                    className={({ selected }) =>
+                                        classNames(
+                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
+                                            getTabWidth(n.length),
+                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
+                                            selected ? "ring-2" : ""
+                                        )
+                                    }
+                                >
+                                    {n}
+                                </Tab>
+                            );
+                        })}
+                    </Tab.List>
+                    <SearchGroup 
+                        filter={filterCreatures} 
+                        resetFilter={resetFilterCreatures}
+                        filterClass={eApiClass.Creature}
+                        tagList={[]}
+                    />
                 </div>
-                <div className={"text-xl font-bold rounded-lg bg-dark-300 rounded-lg p-2 m-2 col-span-1 flex items-center justify-center hover:ring-2 hover:ring-light/75 ".concat((art.tags.includes("technique") ? "hover:bg-body" : (art.tags.includes("insight") ? "hover:bg-mind" : "hover:bg-soul"))) }
-                    onClick={() => {setStrain(strain-(art.level ?? 0));}}>
-                    {art.level}{", "}{"#".repeat(art.dice ?? 1) ?? "P"}
-                </div>
-                <div className="bg-dark-300 rounded-lg p-2 m-2 col-span-8 whitespace-pre-wrap overflow-y-auto text-left">
-                    {art.effect}
-                </div>
-                <div className="capitalize bg-dark-300 rounded-lg p-2 m-2 col-span-1 text-sm">
-                    {art.tags.join(', ')}
-                </div>
-
-            </div>);
-
-            })}
-
+                <Tab.Panels>
+                    <Tab.Panel>
+                        <CreaturesTable
+                            displayedCreatures={displayedCreatures}
+                            moveCreature={(creature) => {
+                                addToPinnedCreatures(creature);
+                            }}
+                        />
+                    </Tab.Panel>
+                    {IterativeCreatureLevels.map((n, i) => {
+                        return (
+                            <Tab.Panel key={i}>
+                                <CreaturesTable
+                                    displayedCreatures={displayedCreatures.filter(
+                                        (s) => {
+                                            return s.types
+                                                ?.toString()
+                                                .toLowerCase()
+                                                .includes(n.toLowerCase());
+                                        }
+                                    )}
+                                    moveCreature={(creature) => {
+                                        addToPinnedCreatures(creature);
+                                    }}
+                                />
+                            </Tab.Panel>
+                        );
+                    })}
+                </Tab.Panels>
+            </Tab.Group>
         </div>
     );
 }

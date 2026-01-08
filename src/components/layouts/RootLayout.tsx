@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import { AuthProvider } from "../../context/AuthProvider";
 import Header from "../nav/Header";
 import ScrollButton from "../ui/ScrollButton";
-import DicePopup from "../ui/Popups/dicePopup";
+import RootDicePopup from "../ui/Popups/rootDicePopup";
 
 export default function RootLayout() {
     return (
@@ -16,7 +16,7 @@ export default function RootLayout() {
                         <Outlet />
                     </div>
                     <ScrollButton />
-                    <DicePopup/>
+                    <RootDicePopup/>
                 </AuthProvider>
             </div>
         </>

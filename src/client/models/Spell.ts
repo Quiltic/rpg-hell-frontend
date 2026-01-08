@@ -4,11 +4,15 @@
 /* eslint-disable */
 
 export type Spell = {
-    id?: number;
     name: string;
+    level: number;
+    stat: string;
+
+    tags?: string;
+    strain: number;
+    dice: number;
+    
     effect: string;
-    dice?: number;
-    level?: number;
-    tags: Array<string>;
+    activators: number;
 };
 

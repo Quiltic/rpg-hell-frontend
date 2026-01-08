@@ -1,8 +1,5 @@
 import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import { Spell, Trait, Item, Creature } from "../../client";
-import { getNames } from "../../util/tableTools";
-
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { Creature } from "../../client";
 import CreaturePopup from "../ui/Popups/characterSheetPopup";
 import { Button } from "../ui/Button/Button";
 
@@ -10,18 +7,12 @@ type Props = {
     displayedCreatures: Creature[];
     moveCreature?: (creature: Creature) => void;
     moveIsAdd?: boolean;
-    traitsList: Array<Trait>;
-    spellsList: Array<Spell>;
-    itemsList: Array<Item>;
 };
 
 export default function CreaturesTable({
     displayedCreatures: displayedCreatures,
     moveCreature,
-    moveIsAdd = true,
-    traitsList: traitsList,
-    spellsList: spellsList,
-    itemsList: itemsList,
+    moveIsAdd = true
 }: Props) {
     // const
 
@@ -40,12 +31,9 @@ export default function CreaturesTable({
             </thead>
             <tbody>
                 {displayedCreatures.map((creature, i) => {
-                    // const race = toPillElement(
-                    //     creature.race?.toString() ?? "",
-                    //     ";|;"
-                    // );
-                    const race =
-                        creature.race?.toString().replaceAll(",", ", ") ?? "";
+
+                    const race = creature.types;
+                        // creature.race?.toString().replaceAll(",", ", ") ?? "";
 
                     return (
                         <tr key={i}>
@@ -61,9 +49,6 @@ export default function CreaturesTable({
                             <td>
                                 <CreaturePopup
                                     displayedCreature={creature}
-                                    traitsList={traitsList}
-                                    spellsList={spellsList}
-                                    itemsList={itemsList}
                                 />
                             </td>
 

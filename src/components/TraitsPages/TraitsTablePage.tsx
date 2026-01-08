@@ -6,7 +6,6 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
 import SearchGroup from "../search/SearchGroup";
-import { useState } from "react";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -15,17 +14,16 @@ function getTabWidth(lengthOfName: number) {
 const tagList = [""];
 
 const IterativeTraitLevels = [
-    "Base",
     "Body",
     "Mind",
     "Soul",
     "Arcana",
     "Charm",
     "Crafting",
-    "Nature",
     "Medicine",
+    "Nature",
     "Thieving",
-    "Monster",
+    // "Monster",
 ];
 
 export default function TraitsTablePage() {
@@ -38,39 +36,10 @@ export default function TraitsTablePage() {
         filterTraits,
         resetFilterTraits,
     } = useTraits();
-
-    const [lookAtWhat, setLookAtWhat] = useState("all");
     
     return (
         <>
-            <h1 className="capitalize">{lookAtWhat.slice(0,-2)} Traits</h1>
-
-            <div className="flex row justify-center gap-2 p-3">
-                <Button
-                    onClick={() =>
-                        setLookAtWhat("ooc 0")
-                    }
-                    variant="nature"
-                >
-                    OOC
-                </Button>
-                <Button
-                        onClick={() =>
-                            setLookAtWhat("combat 0")
-                        }
-                        variant="medicine"
-                    >
-                        Combat
-                </Button>
-                <Button
-                        onClick={() =>
-                            setLookAtWhat("all")
-                        }
-                        variant="thieving"
-                    >
-                        All
-                </Button>
-            </div>
+            <h1 className="capitalize">Traits</h1>
 
             {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
             {
@@ -162,16 +131,7 @@ export default function TraitsTablePage() {
                 <Tab.Panels>
                     <Tab.Panel>
                         <TraitsTable
-                            //displayedTraits={displayedTraits}
-
-                            displayedTraits={displayedTraits.filter(
-                                (s) => {
-                                    if (lookAtWhat == "all") {
-                                        return (s);
-                                    }
-                                    return (s.req?.includes(lookAtWhat));
-                                }
-                            )}
+                            displayedTraits={displayedTraits}
 
                             moveTrait={(trait) => {
                                 addToPinnedTraits(trait);
@@ -184,14 +144,12 @@ export default function TraitsTablePage() {
                                 <TraitsTable
                                     displayedTraits={displayedTraits.filter(
                                         (s) => {
-                                            if (lookAtWhat == "all") {
-                                                return s.req
+                                            return s.req
                                                     ?.toString()
                                                     .includes(n.toLowerCase());
-                                            }
-                                            return ((s.req?.toString().includes(n.toLowerCase())) && (s.req?.includes(lookAtWhat)));
                                         }
                                     )}
+                                    
                                     moveTrait={(trait) => {
                                         addToPinnedTraits(trait);
                                     }}

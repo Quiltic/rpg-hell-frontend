@@ -27,3 +27,5 @@ Spells.csv
 jsonmaker.py
 data_file.csv
 json_to_mysql.py
+bun.lockb
+.vscode/settings.json

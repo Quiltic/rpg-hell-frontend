@@ -13,7 +13,7 @@ export function useTraits(changeToRefresh:number = 0) {
         resetFilter: resetFilterTraits,
     } = useApiClass<Trait>(
         eApiClass.Trait,
-        TraitsService.getAllTraits,
+        // TraitsService.getAllTraits,
         "pinnedTraitNames",
         changeToRefresh
     );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Spell, Trait, Item, Creature } from "../../client";
+import { Creature } from "../../client";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
@@ -7,7 +7,7 @@ import { Tab, Disclosure } from "@headlessui/react";
 
 import CreatureTable from "./CreaturesTable";
 
-import jsonCreatures from "../../assets/OfflineJsons/Creatures.json";
+import jsonCreatures from "../../assets/OfflineJsons/creatures.json";
 
 import { Button } from "../ui/Button/Button";
 import { sortArrayByLevel, sortArrayByReqs } from "../../util/sortingTools";
@@ -40,36 +40,10 @@ export default function CreatureTablePage() {
     const [clearButtonVisibility, setClearButtonVisibility] =
         useState("hidden");
 
-    const {
-        allTraits
-    } = useTraits();
-
-    const {
-        allSpells
-    } = useSpells();
-
-    const {
-        allItems
-    } = useItems();
-
     useEffect(() => {
         async function getCreatures() {
             let creatures: Creature[];
-            // try {
-            //     const creaturesRaw = await SpellsService.getAllSpells();
-
-            //     creatures = Object.values(creaturesRaw) as Creature[];
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
-            //         console.log(
-            //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-            //         );
             creatures = Object.values(jsonCreatures) as Creature[];
-            // creatures = Object.values(jsonCreaturesTest) as Creature[];
-            //     } else {
-            //         return;
-            //     }
-            // }
 
             creatures = sortArrayByLevel(creatures);
             setAllCreatures(creatures);
@@ -165,9 +139,6 @@ export default function CreatureTablePage() {
                                                 );
                                             }}
                                             moveIsAdd={false}
-                                            traitsList={allTraits}
-                                            spellsList={allSpells}
-                                            itemsList={allItems}
                                         />
                                         <hr />
                                     </Disclosure.Panel>
@@ -239,9 +210,6 @@ export default function CreatureTablePage() {
                             moveCreature={(creature) => {
                                 addToPinnedCreatures(creature);
                             }}
-                            traitsList={allTraits}
-                            spellsList={allSpells}
-                            itemsList={allItems}
                         />
                     </Tab.Panel>
                     {IterativeTraitLevels.map((n, i) => {
@@ -250,17 +218,14 @@ export default function CreatureTablePage() {
                                 <CreatureTable
                                     displayedCreatures={displayedCreatures.filter(
                                         (s) => {
-                                            return s.race
-                                                ?.toString()
+                                            return s.types
+                                                .toLowerCase()
                                                 .includes(n.toLowerCase());
                                         }
                                     )}
                                     moveCreature={(creature) => {
                                         addToPinnedCreatures(creature);
                                     }}
-                                    traitsList={allTraits}
-                                    spellsList={allSpells}
-                                    itemsList={allItems}
                                 />
                             </Tab.Panel>
                         );

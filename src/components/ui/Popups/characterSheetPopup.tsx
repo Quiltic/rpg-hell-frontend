@@ -2,27 +2,20 @@
 import { Spell, Trait, Item, Creature } from "../../../client";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import CreatureSheet from "../../CreaturesPages/characterSheet";
+import CreatureSheet from "../../CreaturesPages/creatureSheet";
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Button } from "../Button/Button";
 import { Fragment, useState } from "react";
 
 import { creaturesIcon } from "../../../assets/IconSVGs/heroiconsSVG";
-import UpdatedCharacterSheet from "../../joshhellscapePages/UpdatedCharacterSheet";
 
 type Props = {
     displayedCreature: Creature;
-    traitsList: Array<Trait>;
-    spellsList: Array<Spell>;
-    itemsList: Array<Item>;
 };
 
 export default function CreaturePopup({
-    displayedCreature: displayedCreature,
-    traitsList: traitsList,
-    spellsList: spellsList,
-    itemsList: itemsList,
+    displayedCreature: displayedCreature
 }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -87,11 +80,8 @@ export default function CreaturePopup({
                                         </div>
                                     </Dialog.Title>
 
-                                    <UpdatedCharacterSheet
+                                    <CreatureSheet
                                         displayedCreature={displayedCreature}
-                                        traitsList={traitsList}
-                                        spellsList={spellsList}
-                                        itemsList={itemsList}
                                     />
                                 </Dialog.Panel>
                             </Transition.Child>

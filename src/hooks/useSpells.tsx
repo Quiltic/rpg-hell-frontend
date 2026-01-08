@@ -13,7 +13,6 @@ export function useSpells(changeToRefresh:number = 0) {
         resetFilter: resetFilterSpells,
     } = useApiClass<Spell>(
         eApiClass.Spell,
-        SpellsService.getAllSpells,
         "pinnedSpellNames",
         changeToRefresh
     );

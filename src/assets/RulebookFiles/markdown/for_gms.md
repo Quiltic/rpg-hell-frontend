@@ -2,6 +2,14 @@
 
 This is a helpful little section for burgeoning GM's (Game Master) of this system.
 
+## Checks
+
+Here are some example levels for difficulty of checks.
+
+| Easy | Average | Difficult | Very Difficult | Nearly Impossible |
+| :---- | :---- | :---- | :---- | :---- |
+| 5 | 9 | 12 | 14 | 17 |
+
 ## Perception or Senses Checks
 
 As you may have seen there is no stat, skill, or otherwise which covers the large blanket of perception or using ones senses. This is by design, as there are so many ways to use ones senses that in any particular instance your players could easily use one of the core or sub stats instead. For instance when talking to a NPC (non-player character) they may find themselves needing to roll Charm in order to "sense" a lie. 
@@ -18,3 +26,28 @@ Here are a simplified listing of when it would be best to use a specific stat wh
 - Thieving: When looking for something of value or to find something hidden.
 
 There are more times when to ask for more specific skills or even let your players decide. You may even want them to use any number of stats when doing a "perception" check.
+
+
+## Enemy Encounters
+
+### Combat
+
+When choosing enemy NPC's This game uses Total Level. When making an encounter depending on how difficult you wish the encounter to be you make aim to have the total level of enemy group be similar to the level of the player group.
+
+An NPC's level is similar to what level a player of the same level should be to be able to fight and just barely win. When doing difficulty, combine all NPC creature levels together and compare it to the player group level. Below is an example range for how far you can go before an encounter is easer or harder.
+
+| Very Easy | Easier | Balanced | Difficult | Boss |
+| :---- | :---- | :---- | :---- | :---- |
+| -X > A player level | -3 | 0 | +3 | A player level < +X |
+
+### Creating Bosses
+
+When making a boss give them the Boss Passive (listed below), +2 levels, +2 Combat Dice, +2 Main Stats, update their Health and Strain, and give at least 1 special Active or Passive.
+It is also possible not all bosses can be beaten directly. So it is recommended to give an alternate win condition when designing a boss. For instance the boss *Golem-Brood Spider Queen (Boss)* was given the alternate win of dropping a floating building on it. The arena was set up in such a way that floating labs where placed all around it and by popping the balloons that held them up they could crush the Queen.
+
+
+
+- **Boss** - Roll initiative twice, gaining a turn on both rolls. (Re-roll if you get 2 of the same rolls.) At the end of their turn roll and Lock a dice. They can Lock up to 2 dice.
+
+Some examples of special Actives and Passives:
+- 
