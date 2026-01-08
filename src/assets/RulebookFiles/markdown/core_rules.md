@@ -103,8 +103,6 @@ You lose all stacks of Death's Door at the end of a Rest.
 	*You may only ever lock d6’s, and lose any unspent locked dice at the end of combat.*
 
 
-
-
 # Mysc Rules
 
 *This is a listing of various important rules that had no specific home.*
@@ -122,11 +120,11 @@ If you are knocked back into non-destructible surface (wall) you take damage for
 
 
 
-### Hoard Rules
+### Horde Rules
 
 *This rule is designed for players who summon a large amount of the same creature (such as from Summon Zombie.) These rules are already in place for premade creatures for GM’s.*
 
-A horde is 4 or more creatures of the same or similar type (zombies, dogs, monsters, etc). These creatures change from being individuals into 1 creature. Their Hp/Shielding is combined, they become a 2x2 (that can move through 1x1), they cannot be Grappled, Do two Attacks per Attack action (same sum), and when a target is hit by an Attack they must roll 1d4+(\# of creatures in hoard-4). The target then takes the effects of being hit that many times.
+A horde is 4 or more creatures of the same or similar type (zombies, dogs, monsters, etc). These creatures change from being individuals into 1 creature. Their Hp/Shielding is combined, they become a 2x2 (that can move through 1x1), they cannot be Grappled, Do two Attacks per Attack action (same sum), and when a target is hit by an Attack they must roll 1d4+(\# of creatures in horde-4). The target then takes the effects of being hit that many times.
 
 If the horde is hit by an Attack that would cover it in its entirety (aoe) they roll once for this and take twice the effect (if possible). If the horde loses half its health it breaks into 2 individual creatures.
 
@@ -164,43 +162,6 @@ When a player gains their first stack of Death’s Door per Rest they roll 1d6 g
 - 3: **Lasting Fears** \- You become forever terrified of the source that put you on Death’s Door. You gain Feared while the source or a similar source is nearby.  
 - 2: **Major Disfigurement** \- You gain massive scars or lose a medium part of you such as a finger. You have \-1 to Charm and cannot easily cover up the damage.  
 - 1: **Missing Part** \- You lose a hand, foot, eye, ear, etc. Until the part is replaced or healed you have \-1 on Senses rolls (eyes/ears/etc), cannot use two handed items (hand), or \-2 Speed (foot).
-
-
-
-# Character Creation
-
-## Level 1
-
-- Gain 2 Main-Stat increases (Body, Mind, or Soul)  
-- Set your Sub-Stats to 2,1,1,0,-1,-1. Assigning the values as you choose.  
-- Set your Combat Dice to 4  
-- Create 3 Stories for your character.  
-- Pick 2 Traits that you meet the requirements for.  
-- Learn 4 Arts  
-- Acquire 4d6+10 (or 24\) Coin.  
-- Acquire a Weapon of your choice.  
-- Acquire a Side Weapon or Shield.  
-- Don Armor  
-- Acquire a Bandage  
-- Pick a Gadget of your choice  
-- Acquire any 2 non-magic items of your choice.
-
-*See Deep Learning for optional character creation rules.*
-
-## Leveling Up
-
-- Pick a new Trait that you meet the requirements for.  
-- Learn another Art (3+LEVEL)  
-  - You may change out your Arts on Levelup
-
-**On Even Levels (2,4,6,8)**
-
-- Increase your combat Dice by 1
-
-**On Odd Levels (3,5,7,9)**
-
-- Gain \+1 to a Main-Stat (Body, Mind, Soul)  
-- Gain \+1 to two different Sub-Stats
 
 # Traits
 
