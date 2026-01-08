@@ -2,7 +2,7 @@ import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Spell } from "../../client";
 // import { highlightKeywords } from "../../util/markdownTools";
 
-import { formatEffectString } from "../../util/textFormatting";
+import { formatEffectString, toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -22,8 +22,8 @@ export default function SpellsTable({
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
                     <th className="table-cell md:hidden w-1/4">Spell</th>
-                    <th className="hidden md:table-cell">Strain</th>
-                    <th className="hidden md:table-cell">Dice</th>
+                    <th className="hidden md:table-cell">Level</th>
+                    <th className="hidden md:table-cell">Stat</th>
                     <th>Effect</th>
                     <th className="hidden md:table-cell">Tags</th>
                     {moveSpell != undefined && (
@@ -46,9 +46,8 @@ export default function SpellsTable({
                                     {spell.name}
                                 </span>
                                 <br />
-                                Strain: {spell.level} Dice:{" "}
-                                {"#".repeat(spell.dice ?? 1)} Tags:{" "}
-                                {spell.tags?.join(", ")}{" "}
+                                Level: {spell.level} Stat:{" "} Tags:{" "}
+                                {spell.tags}{" "}
                                 {moveSpell != undefined && (
                                     <Button
                                         variant={
@@ -70,7 +69,7 @@ export default function SpellsTable({
                                 {spell.level}
                             </td>
                             <td className="hidden md:table-cell">
-                                {"#".repeat(spell.dice ?? 1)}
+                                {toPillElement(spell.stat+" "+(1+Math.floor((spell.level-1)/2)).toString(), ",")}
                             </td>
 
                             <td
@@ -81,7 +80,7 @@ export default function SpellsTable({
                                 className="capitalize hidden md:table-cell"
                                 align="center"
                             >
-                                {spell.tags?.join(", ")}
+                                {spell.tags}
                             </td>
                             {moveSpell != undefined && (
                                 <td className="hidden md:table-cell">

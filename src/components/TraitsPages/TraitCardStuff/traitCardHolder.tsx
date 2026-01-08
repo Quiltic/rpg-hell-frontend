@@ -1,7 +1,7 @@
 
 import { Trait } from "../../../client";
 // import { getNames } from "../../../util/tableTools";
-import TraitCard from "./traitCard";
+import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
 
 type Props = {
     shownTraits: Trait[];

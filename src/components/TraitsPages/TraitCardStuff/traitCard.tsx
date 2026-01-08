@@ -32,8 +32,8 @@ export default function TraitCard({
 
     
 
-    const ee = formatEffectString(_trait.effect.replace(/\#/gi, "⚀") ?? "").split("\n\n");
-    // console.log(ee) ⚄
+    const ee = formatEffectString(_trait.effect).split("\n\n");
+    // console.log(ee) ⚄.replace(/\#/gi, "⚀") ?? ""
     // .replace('###', "⚀⚁⚂").replace('##', "⚀⚁").replace('#', "⚀")
 
     const req = toPillElement(
