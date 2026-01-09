@@ -71,6 +71,10 @@ const tagList = [
 
 const IterativeSpellLevels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+function getTabWidth(lengthOfName: number) {
+    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
+}
+
 export default function UpdateArtPage() {
     
     const [curArt, setCurArt] = useState<Spell>( displayedArt );
@@ -78,6 +82,8 @@ export default function UpdateArtPage() {
     const [gestureCheck, setgesCheck] = useState<boolean>( false );
     const [verbalCheck, setVerbalCheck] = useState<boolean>( false );
     const [lightCheck, setLightCheck] = useState<boolean>( false );
+
+    const [searchLvl, setSearchLvl] = useState(0);
 
     
     const {
@@ -106,6 +112,7 @@ export default function UpdateArtPage() {
     return (
         <div className="flex flex-col">
 
+            {/* Updater */}
             <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
                 <div className="grid w-full grid-cols-[3fr_1fr_2fr] items-center bg-dark rounded-md justify-between">
                     {/* Name/Activators/Level/Stat */}
@@ -268,24 +275,26 @@ export default function UpdateArtPage() {
 
             <Tab.Group as="div" className="w-full ">
                 <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
-                    <Tab.List className="p-1 gap-2 flex flex-wrap">
+                    <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-10",
+                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
                                     selected ? "ring-2" : ""
                                 )
                             }
                         >
                             All
                         </Tab>
-                        {IterativeSpellLevels.map((n, i) => {
+                        {statList.map((n, i) => {
                             return (
                                 <Tab
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light w-6",
+                                            "w-16 rounded-md bg-body-700/20 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
+                                            getTabWidth(n.length),
+                                            `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600 dark:ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -295,6 +304,19 @@ export default function UpdateArtPage() {
                             );
                         })}
                     </Tab.List>
+                    {/* Level */}
+                    <div className="flex flex-row justify-center items-center bg-dark-600 rounded-md m-1">
+                        <div className="capitalize m-1 ml-2">
+                            Level
+                        </div>
+                        <input
+                            type="number"
+                            className="flex flex-row h-6 rounded-lg p-2 m-1 w-16 shadow-md"
+                            value={searchLvl}
+                            min="0"
+                            onChange={(e) => setSearchLvl(parseInt(e.target.value))}
+                        />
+                    </div>
                     <SearchGroup 
                         filter={filterSpells} 
                         resetFilter={resetFilterSpells}
@@ -305,19 +327,28 @@ export default function UpdateArtPage() {
                 <Tab.Panels>
                     <Tab.Panel>
                         <SpellsTable
-                            displayedSpells={displayedSpells}
+                            displayedSpells={displayedSpells.filter(
+                                (s) => {
+                                    if (searchLvl)
+                                        return s.level == searchLvl;
+                                    return true;
+                                }
+                            )}
                             moveSpell={(spell) => {
                                 addToPinnedSpell(spell);
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeSpellLevels.map((n, i) => {
+                    {statList.map((n, i) => {
                         return (
                             <Tab.Panel key={i}>
                                 <SpellsTable
                                     displayedSpells={displayedSpells.filter(
                                         (s) => {
-                                            return s.level == n;
+                                            if (searchLvl){
+                                                return (s.stat == n) && (s.level == searchLvl);
+                                            }
+                                            return s.stat == n;
                                         }
                                     )}
                                     moveSpell={(spell) => {
