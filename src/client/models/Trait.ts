@@ -5,9 +5,9 @@
 
 export type Trait = {
     name: string;
-    tags: Array<string>;
+    tags: string;
     effect: string;
-    req: Array<string>;
+    req: string;
     extra: string;
 };
 
