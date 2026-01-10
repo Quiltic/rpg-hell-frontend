@@ -11,7 +11,8 @@ import { Disclosure, Switch, Tab } from "@headlessui/react";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-
+import MarkdownRenderer from "../../util/MarkdownRenderer";
+import art_key from "../../assets/RulebookFiles/markdown/spell_key.md";
 
 const tagList = [
     "elemental",
@@ -83,8 +84,9 @@ export default function SpellsTablePage() {
             <h1 className="capitalize">Arts</h1>
 
             {/* Download/Switch */}
-            <div className="flex justify-center items-center">
-                <div className="flex flex-row justify-center items-center bg-dark-400 rounded-md pl-4 p-2 m-2">
+            <div className="flex flex-col justify-center items-center">
+                <div className="bg-dark-400 rounded-md pl-4 p-2 m-2">
+                <div className="flex flex-row justify-center items-center">
                     <Button
                         onClick={() =>
                             download(
@@ -117,7 +119,35 @@ export default function SpellsTablePage() {
                             />
                         </Switch>
                     </div>
+
+                    {/* Line */}
+                    {/* <div className="flex flex-row items-center bg-dark-600 border-2 border-body-700/20 mt-6 mb-6 w-full"></div> */}
+                    
                 </div>
+
+                <Disclosure defaultOpen={false}>
+                    {({ open }) => (
+                        <>
+                            <Disclosure.Button>
+                                <Button
+                                    variant={"thieving"}
+                                    size={"md"}
+                                    className="mb-2"
+                                    open={open}
+                                    rightIcon={ChevronIcon}
+                                >
+                                    Key
+                                </Button>
+                            </Disclosure.Button>
+                            <Disclosure.Panel>
+                                <MarkdownRenderer markdown={art_key as string} have_header={false} />
+                            </Disclosure.Panel>
+                        </>
+                    )}
+                </Disclosure>
+
+                </div>
+
             </div>
             
             {/* Pinned */}

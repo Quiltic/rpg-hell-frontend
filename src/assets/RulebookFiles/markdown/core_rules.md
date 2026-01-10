@@ -29,60 +29,6 @@ If you are in combat you may give two dice of set values instead of giving \#\# 
 
 
 
-# Combat Rules
-
-Combat is split up into Rounds, each Round lasts 10 seconds and has 3 phases; Beginning which is where they take damage or effects from then roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they lose effects.
-
-
-## Initiative
-
-All creatures in combat must roll Initiative to see when they may do their Actions in Combat. This value is calculated by 1d12+SPEED. Ties are decided based on the creature's base Speed (highest first). Players always win if speeds are the same. Whichever creature has the highest Initiative goes first. Once all creatures have gone the Round is over and it goes back to being the first creature's turn.
-
-*The world and vehicles (earthquakes, neutral NPC's, carts, and other creature related actions) always go last in Initiative.*
-
-
-## Action Dice (AD)
-
-At the beginning of your turn you roll an amount of dice based on your COMBAT DICE (Temp name). COMBAT DICE can be calculated as 3+(LEVEL/2). You can spend these dice to do actions in Combat. Every action asks for a different amount of dice, denoted next to the Action as a number of \#. Depending on the action taken the values for the dice may or may not matter. For example, when you take/use the Art ‘Summon Zombie’ it requires you to give it \#\#\#, or three dice. This dice value does not matter as you will always do its effect. On the other hand the Art ‘Flex’ asks for \#, one dice, but requires a 5 or 6 to do its effect.
-
-Attacks and Contests are always \#\# (2 dice), Movement and buffs are usually \# (1 dice), and other Arts could have varying amounts, which are listed within them.
-
-
-## Attack Dice Values Matter
-
-All weapons have special actions when you wield them. In order to be able to get this effect you must have the required Stat values, denoted next to the weapon. If you don't have these requirements you can still use the weapon but you always gain the Weapon Downside.
-
-On Attacks when you give \#\# (2 dice) you take the sum of these dice, sometimes giving special effects. Higher sums are better than lower sums. By default the high value is 9 and the low value is 4\. : For example a sword (short or long) does 1 extra damage on a 9 or higher, and 1 less damage on a 4 or lower.
-
-
-## Damage and Armor
-
-*Your Health is how much you can take before you are put on Death's Door, and is calculated by Health \= LEVEL \+ 4\*BODY \+ 3\*MIND \+ 2\*SOUL.*
-
-Armors give special bonuses based on the type of armor. The most prevalent bonus is a special set of Health called Shielding. Different armors provide a varying amount of Shielding. Shielding is reduced before you take normal Health loss. Unlike normal Health, Shielding cannot be regained from healing or most Arts.
-
-*Shielding does not reduce damage from, Falling, Drowning, or Strain damage.*
-
-Some armors provide or remove Dodge. When you are Attacked, you roll 1d12+DODGE. If the value is higher than the Attack sum you do not get hit.
-
-Lastly, few armors provide Ward. When you do a Dodge roll you may reduce the number of Ward you have by 1 to redo the Dodge roll. You cannot remove stacks with ward once you have gained them. You may only have a max of your LEVEL Ward at any given point in time.
-
-All effects from Armor are regained at the end of a Rest.
-
-
-## Death's Door
-
-When you are put at 0 or less health you do not immediately die. Rather, you gain stacks of Death's Door. You gain 1 stack of Death's Door then set your health to your LEVEL.
-
-While you have stacks of Death's Door you gain a specific ailment.
-
-- **At Death's Door 1**, you are permanently Slowed.  
-- **At Death's Door 2**, you become unconscious, and cannot be woken up until you lose Death's Door stacks or are healed for more than half your Max Health.  
-- **At Death's Door 3**, You Die.
-
-You lose all stacks of Death's Door at the end of a Rest.
-
-
 ## Common Actions
 
 *These are actions every creature has access to.*
@@ -102,38 +48,32 @@ You lose all stacks of Death's Door at the end of a Rest.
 **Lock a Dice** \- Spend \#; Lock the dice spent. You may only ever have 1 Locked dice at a time. Locking a dice while having a Locked dice will replace the old dice with the new dice. You may later unlock that dice to spend on Arts or as a bonus dice in combat.  
 	*You may only ever lock d6’s, and lose any unspent locked dice at the end of combat.*
 
-
-# Mysc Rules
-
-*This is a listing of various important rules that had no specific home.*
-
-
-### Fall Damage
-
-If you fall from more than 3 tiles up you take damage equal to how many tiles you have fallen. For example if you fell from 3 tiles you take no damage, but if you fall from 7 tiles up you would take 7 damage.
+**Activate an Art** \- Spend dice, time, and or Strain to activate the art. Art's have recommended casting requirements. Your GM may be open to changing these or requiring them.
 
 
 
-### Knockback Damage
-
-If you are knocked back into non-destructible surface (wall) you take damage for every tile you do not move. For example; if you get knocked back 5 tiles and hit a wall after 2 tiles you take 3 damage.
-
-
-
-### Horde Rules
-
-*This rule is designed for players who summon a large amount of the same creature (such as from Summon Zombie.) These rules are already in place for premade creatures for GM’s.*
-
-A horde is 4 or more creatures of the same or similar type (zombies, dogs, monsters, etc). These creatures change from being individuals into 1 creature. Their Hp/Shielding is combined, they become a 2x2 (that can move through 1x1), they cannot be Grappled, Do two Attacks per Attack action (same sum), and when a target is hit by an Attack they must roll 1d4+(\# of creatures in horde-4). The target then takes the effects of being hit that many times.
-
-If the horde is hit by an Attack that would cover it in its entirety (aoe) they roll once for this and take twice the effect (if possible). If the horde loses half its health it breaks into 2 individual creatures.
+## Activating Arts
+Next to the names of Arts there are the tags Gesture, Vocal, and Spell. Arts may have more than one tag requiring you to follow through on all of them.
+- If an Art has the tag Gesture, you must make a noticeable gesture or movement. Some movements may be taking a specific stance, such as Bull Rush.
+- If an Art has the tag Vocal, you must make a sound or speak a phrase. Such as the Art Quip requiring you to do a quip. (This is just an example)
+- If an Art has the tag Light, you must have an open hand or an item with Glow in order to activate it. The open hand or items will illuminate when activating the Art.
 
 
-### Overlapping Creatures
 
-*This is for when multiple creatures are on the same tile. Some examples are when a large creature consumes another creature, when a swarm enters another creature's space, or when a living armor is worn by another creature.*   
-	  
-When creatures overlap the outermost creature takes all effects that would originate from other tiles (Attacks, Buffs, etc.). The outermost creature has \+1 on Grapple contests and Attack sums against the inner most creature.  
+## Perception or Senses Checks
+
+As you may have seen there is no stat, skill, or otherwise which covers the large blanket of perception or using ones senses. This is by design, as there are so many ways to use ones senses that in any particular instance your players could easily use one of the core or sub stats instead. For instance when talking to a NPC (non-player character) they may find themselves needing to roll Charm in order to "sense" a lie. 
+Another example may be the party walking through the woods and needing to see if they are being stalked by some creature. In this case they should use Nature instead.
+Here are a simplified listing of when it would be best to use a specific stat when asking for a "perception or sense" check.
+- Body: Getting a general feel of an area.
+- Mind: Investigation or looking at a more specific item or region.
+- Soul: Looking for Magical or Spiritual effects.
+- Arcana: When looking at a magical item or through some form of code.
+- Charm: Best used in conversations.
+- Crafting: When observing on a machine, mechanism, or blueprint.
+- Medicine: Inspecting wounds, strange liquids, or medical equipment.
+- Nature: When handling natural creatures or to find something in the wild.
+- Thieving: When looking for something of value or to find something hidden.
 
 
 
@@ -154,14 +94,14 @@ When making a new character, at level 1, a player may reduce a Sub-Stat by 1 in 
 
 ### Lasting Injuries
 
-When a player gains their first stack of Death’s Door per Rest they roll 1d6 gaining the below lasting injury. This injury does not go away on a Rest (except Temporarily Crippled) and can only be treated by level 7 or higher Art’s or specialists.
+When a player gains their first stack of Death’s Door per Rest they roll 1d6 gaining the below lasting injury. This injury does not go away on a Rest (except Temporarily Crippled) and can only be treated by some level 7 or higher Arts or specialists.
 
 - 6: **Nothing**  
 - 5: **Minor Disfigurement** \- You gain scars or lose a small part of you such as a tooth or patch of hair.  
 - 4: **Temporarily Crippled** \- You have \-1d4 on the highest value dice in a roll. This effect goes away at the end of a Rest.  
-- 3: **Lasting Fears** \- You become forever terrified of the source that put you on Death’s Door. You gain Feared while the source or a similar source is nearby.  
+- 3: **Lasting Fears** \- You become forever terrified of the source that put you on Death’s Door. You gain -1 on all rolls while the source or a similar source is nearby.  
 - 2: **Major Disfigurement** \- You gain massive scars or lose a medium part of you such as a finger. You have \-1 to Charm and cannot easily cover up the damage.  
-- 1: **Missing Part** \- You lose a hand, foot, eye, ear, etc. Until the part is replaced or healed you have \-1 on Senses rolls (eyes/ears/etc), cannot use two handed items (hand), or \-2 Speed (foot).
+- 1: **Missing Part** \- You lose a hand, foot, eye, ear, etc. Until the part is replaced or healed you have \-1 on Senses rolls (eyes/ears/etc), cannot use two handed items (hand), or \-1 Speed (foot).
 
 # Traits
 
@@ -175,21 +115,5 @@ When a player gains their first stack of Death’s Door per Rest they roll 1d6 g
 
 [https://docs.google.com/document/d/1KyOsjlENUIHloWgPB1HDwnuBKqF8JvePIP3Bj1KCcX0/edit?usp=sharing](https://docs.google.com/document/d/1KyOsjlENUIHloWgPB1HDwnuBKqF8JvePIP3Bj1KCcX0/edit?usp=sharing)
 
-# GM Help
 
-Stole this from Daggerheart
-
-| Meals for a party of adventurers per night | 1 Handful |
-| :---- | :---- |
-| Standard inn room per night | 1 Handful |
-| Luxury inn room per night | 1 Bag |
-| Carriage ride | 2 Handfuls |
-| Mount (horse, mule, etc.) | 3 Bags |
-| Specialized tools | 3 Handfuls |
-| Fine clothing | 3 Handfuls |
-| Luxury clothing | 1 Bag |
-| Tier 1 equipment (weapons, armor) | 1–5 Handfuls |
-| Tier 2 equipment (weapons, armor) | 1–2 Bags |
-| Tier 3 equipment (weapons, armor) | 5–10 Bags |
-| Tier 4 equipment (weapons, armor) | 1–2 Chests |
 

@@ -14,9 +14,10 @@ const flatten = (text: string, child: any) => {
 
 type markdownRendererProps = {
     markdown: string;
+    have_header: boolean;
 };
 
-export default function MarkdownRenderer({ markdown }: markdownRendererProps) {
+export default function MarkdownRenderer({ markdown, have_header=true }: markdownRendererProps) {
     const { formattedMarkdown, headings } = useMarkdown(markdown);
 
     const HeadingRenderer = useMemo(
@@ -39,7 +40,8 @@ export default function MarkdownRenderer({ markdown }: markdownRendererProps) {
 
     return (
         <div className="markdown-styles mx-auto max-w-4xl text-left">
-            <HeadingJumpTo headings={headings} />
+            {have_header && <HeadingJumpTo headings={headings} />}
+            
             <Markdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
