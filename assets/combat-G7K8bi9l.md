@@ -53,7 +53,7 @@ You may only have a max of 4 Ward at any given point in time.
 <span style="font-family: monospace; font-size: 1.3em">All effects from Armor are regained at the end of a Rest.</span>
 
 
-### Death's Door
+### Going to 0 and Death's Door
 
 When you are put at 0 or less health you do not immediately die. Rather, you gain **Bleeding Out** and stacks of **Death's Door**. When you have 0 or less life in a turn (every 10 seconds) you heal your level and gain **Bleeding Out** and a stack of **Death's Door**. While you are **Bleeding Out** at the end of your turn (or every 10 seconds) you must roll a d12. If you roll a 6 or less you gain a stack of **Death's Door**. If you roll a 7 or higher, another creature heals you, or another creature rolls a 9 or higher on a Medicine Check you lose **Bleeding Out**.
 
