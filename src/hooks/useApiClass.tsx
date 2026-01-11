@@ -156,9 +156,9 @@ export function useApiClass<T extends ApiClassUnion>(
     const removeFromPinned = useCallback(
         (s: T) => {
             const idx = pinned.indexOf(s);
-            const remainingTraits = pinned.slice();
-            remainingTraits.splice(idx, 1);
-            setPinned(remainingTraits);
+            const remaining = pinned.slice();
+            remaining.splice(idx, 1);
+            setPinned(remaining);
         },
         [pinned]
     );

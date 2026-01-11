@@ -6,7 +6,7 @@
 export type Spell = {
     name: string;
     level: number;
-    stat: string;
+    stat: "body"|"mind"|"soul"|"arcana"|"charm"|"crafting"|"medicine"|"nature"|"thieving" ;
 
     tags?: string;
     strain: number;
