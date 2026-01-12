@@ -193,7 +193,7 @@
 
     {"name": "cat burglar", "tags": "", "effect": "You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\n\nThieving 2 - You make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.", "req": "thieving 1", "extra": ""
     },
-    {"name": "aAssassin", "tags": "", "effect": "When you Attack a Marked target you may remove Marked to increase the Attack's damage by a number of d4 equal to your THIEVING. This must be announced before the target does a Dodge roll.\n\nThieving 3 - If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.", "req": "thieving 1", "extra": ""
+    {"name": "assassin", "tags": "", "effect": "When you Attack a Marked target you may remove Marked to increase the Attack's damage by a number of d4 equal to your THIEVING. This must be announced before the target does a Dodge roll.\n\nThieving 3 - If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.", "req": "thieving 1", "extra": ""
     },
     {"name": "now you see me", "tags": "", "effect": "When you Move while under the effects of a movement based Art or Trait you are Invisible. You are not Invisible during your turn, only when moving.\nAdditionally, while you are Hidden you may spend # (1 dice) and 1 Strain to turn Invisible until the end of your turn (10 seconds).\n\nThieving 4 - While you are Empowered you may remove Empowered to become Invisible for up to 1 minute or until you activate an Art or Attack a target.", "req": "thieving 2", "extra": ""
     },

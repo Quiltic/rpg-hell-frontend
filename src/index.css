@@ -147,7 +147,7 @@ table {
 }
 
 .md_list {
-  padding-left: 3%;
+  padding-left: 6%;
   list-style-type:"-";
   margin-top: 1%;
   text-indent: 2%;
@@ -156,3 +156,14 @@ table {
 ul li {
   margin-top: 1%;
 }
+
+.tooltip_hide {
+  display: none;
+  
+  @apply absolute border-solid border-2 border-body-700/20 mb-2 w-auto px-2 py-1 bg-dark-400 rounded shadow-lg left-1/2 transform -translate-x-1/2 z-20 
+
+}
+
+.tooltip_main:hover + .tooltip_hide {
+  display: block;
+  }

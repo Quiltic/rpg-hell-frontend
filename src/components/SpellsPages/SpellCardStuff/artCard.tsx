@@ -9,6 +9,7 @@ import { cn } from "../../../styling/utilites";
 type Props = {
     _spell: Spell;
     moveSpell?: (spell: Spell) => void;
+    _className?: string;
 };
 
 
@@ -40,7 +41,8 @@ const activatorHash = [
 
 export default function SpellCard({
     _spell: _spell = {"name":"LOADING TRAIT","level":1,"stat":"body","tags":"loading","strain":1,"dice":2,"effect":"Loading.","activators":7},
-    moveSpell
+    moveSpell,
+    _className
 }: Props) {    
 
     
@@ -63,7 +65,7 @@ export default function SpellCard({
     
 
     return (
-        <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" 
+        <div className={cn("flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4", _className)}
             onClick={() => {
                 if (moveSpell != undefined)
                     moveSpell(_spell);
