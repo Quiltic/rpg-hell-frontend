@@ -46,15 +46,15 @@ const tagList = [
 ];
 
 const statList = [
-    "Body",
-    "Mind",
-    "Soul",
-    "Arcana",
-    "Charm",
-    "Crafting",
-    "Medicine",
-    "Nature",
-    "Thieving",
+    "body",
+    "mind",
+    "soul",
+    "arcana",
+    "charm",
+    "crafting",
+    "medicine",
+    "nature",
+    "thieving",
     // "Monster",
 ];
 const IterativeSpellLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -221,7 +221,7 @@ export default function SpellsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "w-16 rounded-md bg-body-700/20 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
+                                            "capitalize w-16 rounded-md bg-body-700/20 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600 dark:ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""

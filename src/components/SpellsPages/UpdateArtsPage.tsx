@@ -25,15 +25,15 @@ const displayedArt = {
 }
 
 const statList = [
-    "Body",
-    "Mind",
-    "Soul",
-    "Arcana",
-    "Charm",
-    "Crafting",
-    "Medicine",
-    "Nature",
-    "Thieving",
+    "body",
+    "mind",
+    "soul",
+    "arcana",
+    "charm",
+    "crafting",
+    "medicine",
+    "nature",
+    "thieving",
     // "Monster",
 ];
 
