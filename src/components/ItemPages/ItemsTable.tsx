@@ -37,15 +37,14 @@ export default function ItemsTable({
                 {displayedItems.map((item, i) => {
                     const ee = formatEffectString(item.effect ?? "");
                     
-                    let req = null;
-                    ["body","mind","soul","arcana","charm","crafting","medicine","nature","thieving"].forEach(stat => {
-                        if (item.tags?.toLowerCase().includes(stat)) {
-                            req = toPillElement(
-                                item.tags?.split(", ")[item.tags?.split(", ").length - 1].replace(" 0", "") ?? "",
-                                ","
-                            );
+                    // to get stat req from the tags
+                    let reqlist = "";
+                    item.tags?.toLowerCase().split(", ").forEach(tag => {
+                        if ("body mind soul arcana charm crafting medicine nature thieving".includes(tag.substring(0,tag.length-2))) {
+                            reqlist = reqlist.concat(",",tag);
                         }
                     });
+                    const req = toPillElement( reqlist.substring(1).replace(" 0", "") ?? "", "," );
 
                     return (
                         <tr key={i}>

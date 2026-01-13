@@ -153,13 +153,16 @@ function sortItems(_list: any[]) {
 
     return listSortedByName.sort((l1: { rarity: string, tags: string; }, l2: { rarity: string, tags: string; }) => {
         const order = ["mundane","common","uncommon","rare","legendary"];
-        const IterativeItemLevels = ["weapon","armor","medicine","alchemical","consumable","tool","mysc","magical"];
+        const IterativeItemLevels = [
+            "weapon","armor","medicine","alchemical","consumable","tool","mysc","magical",
+            // "body","mind","soul","arcana","charm","crafting","medicine","nature","thieving",
+        ];
 
-        let firstItemLen = getMinOrderIndex(l1.tags.split(", "),IterativeItemLevels)*10; // mult by 10 so we get rarity folowed by req (## = rarity req)
-        let secondItemLen = getMinOrderIndex(l2.tags.split(", "),IterativeItemLevels)*10;
+        let firstItemLen = getMinOrderIndex(l1.tags.split(", "),IterativeItemLevels); 
+        let secondItemLen = getMinOrderIndex(l2.tags.split(", "),IterativeItemLevels);
 
-        firstItemLen += order.indexOf(l1.rarity);
-        secondItemLen += order.indexOf(l2.rarity);
+        firstItemLen += order.indexOf(l1.rarity)*10;// mult by 10 so we get rarity folowed by req (## = rarity type)
+        secondItemLen += order.indexOf(l2.rarity)*10;
         
         // get the length of the items req removing broken because it shouldent be there for this case
         // firstItemLen += l1.req.length;
