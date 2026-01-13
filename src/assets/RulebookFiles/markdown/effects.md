@@ -8,7 +8,7 @@
 
 - ***Bleeding Out*** - At the end of your turn roll a d12. If you roll a 6 or less you gain a stack of **Death's Door**. If you roll a 7 or higher, another creature heals you, or another creature rolls a 9 or higher on a Medicine Check you lose **Bleeding Out**.
 
-- ***Follower*** - Followers take a turn immediately after you however they will only ever roll 3d6. All of your Followers use these same 3 dice regardless of type.
+- ***Follower*** - Followers take a turn immediately before or after you (your choice, unless they where created that turn) however they will only ever roll 3d6. All of your Followers use these same 3 dice regardless of type.
 
 - ***Grappled*** - You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body contest against the source of the grapple to remove this effect. 
 
