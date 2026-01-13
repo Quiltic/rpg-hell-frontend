@@ -63,15 +63,15 @@
     },
     {"name": "soul bound relic", "tags": "", "effect": "At the end of a Rest you may bind a small item to your soul. While a creature is holding or wearing the Relic you may cast spells that target only them (or items they are carrying) as if you were able to touch them or be 1 tile away from them.\n- Alternatively if you are within 1 large tile (2,160x2,160 tiles) of the Relic you may spend 3 Strain to teleport within 1 tile of the Relic.\n\nSoul 3 - Creatures holding or wearing the Relic may spend 2 Strain to gain an extra 1d4 on their next check.", "req": "soul 1", "extra": ""
     },
-    {"name": "boon infusion", "tags": "", "effect": "When you spend Strain to activate a non-Attack Art you may spend 1 Strain to give the affected target(s) Blessed or Empowered for 1 hour. This bonus is given after the Art.\n\nSoul 3 - When you spend or unlock a Locked dice you may gain Blessed or Empowered.", "req": "soul 2", "extra": ""
+    {"name": "boon infusion", "tags": "", "effect": "When you spend Strain to activate a non-Attack Art you may spend 1 Strain to give the affected target(s) Rallied or Empowered for 1 hour. This bonus is given after the Art.\n\nSoul 3 - When you spend or unlock a Locked dice you may gain Rallied or Empowered.", "req": "soul 2", "extra": ""
     },
-    {"name": "soul blade ", "tags": "", "effect": "Turn a Melee Weapon you wield into your Soul Weapon. This weapon does damage equal to 1+SOUL or if it's two handed 3+SOUL, has Returning, can Glow, and cannot be broken except by spells.\n\nSoul 4 - The weapon gains; Bonus: Gain Blessed or Empowered until the end of your turn.", "req": "soul 2", "extra": ""
+    {"name": "soul blade ", "tags": "", "effect": "Turn a Melee Weapon you wield into your Soul Weapon. This weapon does damage equal to 1+SOUL or if it's two handed 3+SOUL, has Returning, can Glow, and cannot be broken except by spells.\n\nSoul 4 - The weapon gains; Bonus: Gain Rallied or Empowered until the end of your turn.", "req": "soul 2", "extra": ""
     },
     {"name": "magical knowledge", "tags": "", "effect": "You learn 2 additional Arts of your choice that you meet the requirements for.\n\nSoul 4 - You learn an additional Art of your choice that you meet the requirements for (3 gained from this Trait).", "req": "soul 2", "extra": ""
     },
-    {"name": "powered alignment", "tags": "", "effect": "While you are Empowered, you have +1 Speed and +1 on Weapon Attack Sums.\nWhile you are Blessed, you refund 1 Strain at the end of your turn and may give Glow on targets you touch or hit.", "req": "soul 3", "extra": ""
+    {"name": "powered alignment", "tags": "", "effect": "While you are Empowered, you have +1 Speed and +1 on Weapon Attack Sums.\nWhile you are Rallied, you refund 1 Strain at the end of your turn and may give Glow on targets you touch or hit.", "req": "soul 3", "extra": ""
     },
-    {"name": "???", "tags": "", "effect": "Once per turn, while you are Blessed or Empowered you can remove Blessed or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Blessed or Empowered, and may turn Blessed into Empowered or vice versa. ", "req": "soul 3", "extra": ""
+    {"name": "???", "tags": "", "effect": "Once per turn, while you are Rallied or Empowered you can remove Rallied or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Rallied or Empowered, and may turn Rallied into Empowered or vice versa. ", "req": "soul 3", "extra": ""
     },
     {"name": "summoners command", "tags": "", "effect": "At the start of your turn you may have all of your Followers move without spending a dice.\n\nSoul 4 - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.", "req": "soul 3", "extra": ""
     },
@@ -96,7 +96,7 @@
     },
     {"name": "compressed arts", "tags": "", "effect": "When you activate an Art that covers an area, you may instead compress it to a singular target within the Art's range. Effects from the Art happen twice on the singular target. (Targets that do a Dodge, Contest, or similar roll must do it twice.)\n\nArcana 4 - Effects happen three times against a singular target.", "req": "arcana 3", "extra": ""
     },
-    {"name": "art augmenter", "tags": "", "effect": "When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- An Art with Range has its range doubled. Art's with a range of Touch have Reaching 2.\n- Change any Statuses given by an Art to either 2 Burn, Wet, Marked, Charmed, 1 Stun, Blessed, or Empowered. It lasts for the same duration as the original Status.\n- Arts that deal damage do an additional 2 damage.\n\nArcana 4 - You may apply any number of these effects instead of just 1.", "req": "arcana 3", "extra": ""
+    {"name": "art augmenter", "tags": "", "effect": "When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- An Art with Range has its range doubled. Art's with a range of Touch have Reaching 2.\n- Change any Statuses given by an Art to either 2 Burn, Wet, Marked, Charmed, 1 Stun, Rallied, or Empowered. It lasts for the same duration as the original Status.\n- Arts that deal damage do an additional 2 damage.\n\nArcana 4 - You may apply any number of these effects instead of just 1.", "req": "arcana 3", "extra": ""
     },
     {"name": "fine control", "tags": "", "effect": "When you activate an Art that has an area effect, you may choose any number of targets that are not affected by the Art.", "req": "arcana 4", "extra": ""
     },
@@ -180,11 +180,11 @@
     },
     {"name": "heightened senses", "tags": "", "effect": "You can see in poorly lit areas as if they were illuminated, and gain +1 on Senses rolls.\n\nNature 4 - You have +1d4 instead of +1 on Senses rolls.", "req": "nature 3", "extra": ""
     },
-    {"name": "expert elementalist ", "tags": "", "effect": "Whenever you spend Strain, if that spell applies Burn, Wet, Slow, or does Knockback, you can spend 1 Strain to do actions based on stacks given. Multiple actions may be activated per Spell.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Blessed or do a Soul contest to make the target Prone.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.", "req": "nature 3", "extra": ""
+    {"name": "expert elementalist ", "tags": "", "effect": "Whenever you spend Strain, if that spell applies Burn, Wet, Slow, or does Knockback, you can spend 1 Strain to do actions based on stacks given. Multiple actions may be activated per Spell.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Rallied or do a Soul contest to make the target Prone.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.", "req": "nature 3", "extra": ""
     },
     {"name": "feral", "tags": "", "effect": "When you or a Follower kill a creature you gain +1 damage and Max Strain for 1 hour. (This refunds 1 Strain)\nYou do not get attacked by creatures with the Animal type under normal circumstances or until you attack them.", "req": "nature 4", "extra": ""
     },
-    {"name": "floral", "tags": "", "effect": "At the end of a Rest pick Grow, Wither, or Harvest.\n- **Grow:** Your Arts that affect an area have +1 to the radius. When you heal a creature with Blessed, you heal an extra 1d4 instead of 1.\n- **Wither:** Creatures that are affected by Arts that have an area do -1 damage on Attacks, and you may spend 1 Strain to give them -1d4 on a check or contest.\n- **Harvest:** Once per turn, when you damage a creature with an Art, you may heal 2 health or gain Empowered until the end of your turn.", "req": "nature 4", "extra": ""
+    {"name": "floral", "tags": "", "effect": "At the end of a Rest pick Grow, Wither, or Harvest.\n- **Grow:** Your Arts that affect an area have +1 to the radius. When you heal a creature with Rallied, you heal an extra 1d4 instead of 1.\n- **Wither:** Creatures that are affected by Arts that have an area do -1 damage on Attacks, and you may spend 1 Strain to give them -1d4 on a check or contest.\n- **Harvest:** Once per turn, when you damage a creature with an Art, you may heal 2 health or gain Empowered until the end of your turn.", "req": "nature 4", "extra": ""
     },
 
     
@@ -193,7 +193,7 @@
 
     {"name": "cat burglar", "tags": "", "effect": "You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\n\nThieving 2 - You make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.", "req": "thieving 1", "extra": ""
     },
-    {"name": "assassin", "tags": "", "effect": "When you Attack a Marked target you may remove Marked to increase the Attack's damage by a number of d4 equal to your THIEVING. This must be announced before the target does a Dodge roll.\n\nThieving 3 - If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.", "req": "thieving 1", "extra": ""
+    {"name":"assassin","tags":"","effect":"When you Attack a target with a negative status effect (Charmed, Marked, Slow, etc) you may remove a negative status effect to increase the Attack's damage by a number of d4 equal to your THIEVING. This must be announced before the target does a Dodge roll.\n\nThieving 3 - If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.","req":"thieving 1","extra":""
     },
     {"name": "now you see me", "tags": "", "effect": "When you Move while under the effects of a movement based Art or Trait you are Invisible. You are not Invisible during your turn, only when moving.\nAdditionally, while you are Hidden you may spend # (1 dice) and 1 Strain to turn Invisible until the end of your turn (10 seconds).\n\nThieving 4 - While you are Empowered you may remove Empowered to become Invisible for up to 1 minute or until you activate an Art or Attack a target.", "req": "thieving 2", "extra": ""
     },
@@ -226,7 +226,7 @@
     },
     {"name": "flourishing", "tags": "", "effect": "Once per turn, after you apply Charmed to a creature you may activate an Art that doesn't cost Strain without spending dice. Use an 6 for any sums needed.\nOnce per turn, after you apply Rooted to a creature you may do a Charm contest against them. If you win they gain Charmed for as long as they are Rooted.", "req": "charm 4, nature 4", "extra": ""
     },
-    {"name": "triage", "tags": "", "effect": "When you heal a creature, activate a non-damaging Art, or give Charmed, Empowered, or Blessed; you or the target may refund 1 Strain.", "req": "charm 4, medicine 4", "extra": ""
+    {"name": "triage", "tags": "", "effect": "When you heal a creature, activate a non-damaging Art, or give Charmed, Empowered, or Rallied; you or the target may refund 1 Strain.", "req": "charm 4, medicine 4", "extra": ""
     },
     {"name": "charlatan", "tags": "", "effect": "You have +THIEVING on all checks or contests against creatures you have Charmed.\nWhen you would give Charmed to a creature you may instead give them Marked or Feared for the same duration.", "req": "charm 4, thieving 4", "extra": ""
     },
