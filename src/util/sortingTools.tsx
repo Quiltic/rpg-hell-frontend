@@ -108,6 +108,42 @@ function sortArrayByReqs(_list: any[]) {
 }
 
 
+function sortSpells(_list: any[]) {
+    // returns a sorted array based on the objects Level
+
+    // I do not know why this needs to be flipped for just level, but for some reason it returns the list backwards only in this instance
+    let listSortedByName = listSortByName(_list);
+
+    listSortedByName = listSortedByName.sort((l1: { stat: any; }, l2: { stat: any; }) => {
+        
+        // get the length of the items req removing OOC because it shouldent be there for this case
+        let firstItemLen = l1.stat.length;
+        let secondItemLen = l2.stat.length;
+        
+        if (l1.stat?.includes("ooc 0") || l1.stat?.includes("broken 0")) {
+            firstItemLen--;
+        }
+        if (l2.stat?.includes("ooc 0") || l2.stat?.includes("broken 0")) {
+            secondItemLen--;
+        }
+
+        // if they are the same length sort by level
+        if (firstItemLen == secondItemLen) {
+            return (l1.stat ?? "") < (l2.stat ?? "0") ? -1 : 1;
+        }
+        
+        // Single items are selected before nonsingle
+        return (firstItemLen < secondItemLen) ? -1 : 1;
+        
+    });
+
+    // This will mostly be used for spells and creatures
+    return listSortedByName.sort((l1: { level: any; }, l2: { level: any; }) => {
+        return (l1.level ?? 0) - (l2.level ?? 0);
+    });
+}
+
+
 function sortItems(_list: any[]) {
     // I cant get it to sort items in the way i want with sort tags and sort req since they need to be sorted at the same time rather than one after another
 
@@ -149,4 +185,5 @@ export {
     sortArrayByReqs,
     sortArrayByTags,
     sortItems,
+    sortSpells
 };

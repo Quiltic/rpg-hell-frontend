@@ -5,7 +5,7 @@ import traitJson from "../assets/OfflineJsons/traits.json";
 import itemJson from "../assets/OfflineJsons/items.json";
 import spellJson from "../assets/OfflineJsons/spells.json";
 import creatureJson from "../assets/OfflineJsons/creatures.json";
-import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems } from "../util/sortingTools";
+import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems, sortSpells } from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";
 
 import { ApiClassUnion, eApiClass } from "../types/ApiClassUnions";
@@ -103,7 +103,7 @@ export function useApiClass<T extends ApiClassUnion>(
                     break;
 
                 case eApiClass.Spell:
-                    t = sortArrayByLevel(t);
+                    t = sortSpells(t);
                     break;
 
                 default:
@@ -184,3 +184,4 @@ export function useApiClass<T extends ApiClassUnion>(
         resetFilter,
     };
 }
+

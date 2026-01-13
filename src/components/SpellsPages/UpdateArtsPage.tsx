@@ -14,7 +14,7 @@ import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 const displayedArt = {
     "name":"",
     "level":1,
-    "stat":"Body",
+    "stat":"body",
     
     "tags":"",
     "strain":0,
