@@ -7,55 +7,56 @@ import { useItems } from "../../hooks/useItems";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 
-function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-14" : lengthOfName < 8 ? "w-20" : "w-28";
-}
 
 const tagList = [
+    "weapon",
+    "armor",
+    "medicine",
+    "alchemical",
+    "consumable",
+    "tool",
+    "mysc",
+    "magical",
+    "body _",
+    "mind _",
+    "soul _",
+    "arcana _",
+    "charm _",
+    "crafting _",
+    "medicine _",
+    "nature _",
+    "thieving _",
+    "MONSTER",
+    "BROKEN",
+    "OOC",
     "tiny",
     "small",
     "medium",
     "large",
     "huge",
     "bigabongus",
-    "grenade",
-    "medicine",
-    "item",
-    "weapon",
-    "alchemical",
-    "tool",
-    "rune",
-    "armor _",
-    "magical",
-    "common",
-    "uncommon",
-    "rare",
-    "legendary",
-    "consumable",
     "complex",
     "vehicle",
     "bound",
-    "1 damage",
     "loading _",
     "range _",
     "two handed",
     "throw range _",
     "glow",
-    "ward _",
-    "dodge _",
-    "speed _",
+    "side",
+    "upgraded",
+    "unique",
 ];
 
 const IterativeItemLevels = [
-    "Weapon",
-    "Armor",
-    "Rune",
-    "Medicine",
-    "Alchemical",
-    "Grenade",
-    "Tool",
-    "Item",
-    "Magical",
+    "weapon",
+    "armor",
+    "medicine",
+    "alchemical",
+    "consumable",
+    "tool",
+    "mysc",
+    "magical",
 ];
 
 export default function ItemsTablePage() {
@@ -123,13 +124,12 @@ export default function ItemsTablePage() {
             )}
 
             <Tab.Group as="div" className="w-full ">
-                <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
+                <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
                     <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
-                            key={0}
                             className={({ selected }) =>
                                 classNames(
-                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-body-700 hover:font-bold dark:bg-dark-600 dark:ring-light",
+                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -139,11 +139,11 @@ export default function ItemsTablePage() {
                         {IterativeItemLevels.map((n, i) => {
                             return (
                                 <Tab
-                                    key={i + 1}
+                                    key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "rounded-md bg-body-700/20 px-2 py-1 ring-body-700 hover:font-bold dark:bg-dark-600 dark:ring-light",
-                                            getTabWidth(n.length),
+                                            "w-16 rounded-md bg-body-700/20 p-2 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600 capitalize w-auto",
+                                            `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600 dark:ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -159,7 +159,6 @@ export default function ItemsTablePage() {
                         filterClass={eApiClass.Item}
                         tagList={tagList}
                     />
-                    
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
@@ -176,10 +175,7 @@ export default function ItemsTablePage() {
                                 <ItemsTable
                                     displayedItems={displayedItems.filter(
                                         (s) => {
-                                            return s.tags
-                                                ?.toString()
-                                                .toLowerCase()
-                                                .includes(n.toLowerCase());
+                                            return s.tags.includes(n);
                                         }
                                     )}
                                     moveItem={(item) => {

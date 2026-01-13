@@ -20,11 +20,12 @@ export default function ItemsTable({
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
                     <th className="table-cell md:hidden w-1/4be">Item</th>
-                    <th className="hidden md:table-cell">Requirements</th>
+                    <th className="hidden md:table-cell">Req</th>
+                    <th className="hidden md:table-cell">Rarity</th>
                     <th>Effect</th>
                     <th className="hidden md:table-cell">Tags</th>
                     <th className="hidden md:table-cell">Cost</th>
-                    <th className="hidden md:table-cell">Craft</th>
+                    {/* <th className="hidden md:table-cell">Craft</th> */}
                     {moveItem != undefined && (
                         <th className="hidden md:table-cell">
                             {moveIsAdd ? "Save" : "Unsave"}
@@ -35,10 +36,17 @@ export default function ItemsTable({
             <tbody>
                 {displayedItems.map((item, i) => {
                     const ee = formatEffectString(item.effect ?? "");
-                    const req = toPillElement(
-                        item.req?.toString().replace(" 0", "") ?? "",
-                        ","
-                    );
+                    
+                    let req = null;
+                    ["body","mind","soul","arcana","charm","crafting","medicine","nature","thieving"].forEach(stat => {
+                        if (item.tags?.toLowerCase().includes(stat)) {
+                            req = toPillElement(
+                                item.tags?.split(", ")[item.tags?.split(", ").length - 1].replace(" 0", "") ?? "",
+                                ","
+                            );
+                        }
+                    });
+
                     return (
                         <tr key={i}>
                             <td className="font-bold capitalize hidden md:table-cell">
@@ -49,9 +57,9 @@ export default function ItemsTable({
                                     {item.name}
                                 </span>
                                 <br />
-                                {req} Cost: {item.cost} Craft: {item.craft}{" "}
+                                Cost: {item.cost} {item.rarity} {" "}
                                 Tags:{" "}
-                                {item.tags?.join(", ").replace(/ 0/gi, "")}{" "}
+                                {item.tags?.replace(/ 0/gi, "")}{" "}
                                 {moveItem != undefined && (
                                     <Button
                                         variant={
@@ -76,20 +84,26 @@ export default function ItemsTable({
                                 {req}
                             </td>
                             <td
+                                className="capitalize hidden md:table-cell"
+                                align="center"
+                            >
+                                {item.rarity}
+                            </td>
+                            <td
                                 dangerouslySetInnerHTML={{ __html: ee }}
                                 className="whitespace-pre-wrap"
                             ></td>
                             <td className="capitalize hidden md:table-cell">
-                                {item.tags?.join(", ").replace(/ 0/gi, "")}
+                                {item.tags?.replace(/ 0/gi, "")}
                             </td>
                             <td className="hidden md:table-cell">
                                 {" "}
                                 {item.cost}{" "}
                             </td>
-                            <td className="hidden md:table-cell">
+                            {/* <td className="hidden md:table-cell">
                                 {" "}
                                 {item.craft}{" "}
-                            </td>
+                            </td> */}
                             {moveItem != undefined && (
                                 <td className="hidden md:table-cell">
                                     <Button

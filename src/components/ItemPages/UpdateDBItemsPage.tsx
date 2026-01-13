@@ -14,362 +14,229 @@ import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 import { useItems } from "../../hooks/useItems";
 
+const displayedItem = {
+        "name": "",
+        "description": "",
+        "effect": "",
+        "upgrades": [
+            ""
+        ],
+        "tags": "",
+        "rarity": "mundane",
+        "cost": 0
+    }
 
-function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
-}
-
-const statSkillList = [
-    "",
-    "base 0",
-    "body 1",
-    "mind 1",
-    "soul 1",
-    "arcana 1",
-    "charm 1",
-    "crafting 1",
-    "medicine 1",
-    "nature 1",
-    "thieving 1",
-    "body 2",
-    "mind 2",
-    "soul 2",
-    "arcana 2",
-    "charm 2",
-    "crafting 2",
-    "medicine 2",
-    "nature 2",
-    "thieving 2",
-    "body 3",
-    "mind 3",
-    "soul 3",
-    "arcana 3",
-    "charm 3",
-    "crafting 3",
-    "medicine 3",
-    "nature 3",
-    "thieving 3",
-    "body 4",
-    "mind 4",
-    "soul 4",
-    "arcana 4",
-    "charm 4",
-    "crafting 4",
-    "medicine 4",
-    "nature 4",
-    "thieving 4",
-    "MONSTER 0",
-    "BROKEN 0",
-    "OOC 0",
-];
+const rarityTiers = [
+    "mundane",
+    "common",
+    "uncommon",
+    "rare",
+    "legendary"
+]
 
 const tagList = [
+    "weapon",
+    "armor",
+    "medicine",
+    "alchemical",
+    "consumable",
+    "tool",
+    "mysc",
+    "magical",
+    "body _",
+    "mind _",
+    "soul _",
+    "arcana _",
+    "charm _",
+    "crafting _",
+    "medicine _",
+    "nature _",
+    "thieving _",
+    "MONSTER",
+    "BROKEN",
+    "OOC",
     "tiny",
     "small",
     "medium",
     "large",
     "huge",
     "bigabongus",
-    "grenade",
-    "medicine",
-    "item",
-    "weapon",
-    "alchemical",
-    "tool",
-    "rune",
-    "armor _",
-    "unarmored",
-    "non-magic",
-    "magical",
-    "common",
-    "uncommon",
-    "rare",
-    "legendary",
-    "consumable",
     "complex",
     "vehicle",
     "bound",
-    "1 damage",
     "loading _",
     "range _",
     "two handed",
     "throw range _",
     "glow",
-    "ward _",
-    "dodge _",
-    "speed _",
+    "side",
+    "upgraded",
+    "unique",
 ];
 
 const IterativeItemLevels = [
-    "Weapon",
-    "Armor",
-    "Rune",
-    "Medicine",
-    "Alchemical",
-    "Grenade",
-    "Tool",
-    "Item",
-    "Magical",
+    "weapon",
+    "armor",
+    "medicine",
+    "alchemical",
+    "consumable",
+    "tool",
+    "mysc",
+    "magical",
 ];
 
 export default function UpdateDBItemsPage() {
-    const { ItemsService } = useApi();
+    
+    const [curItem, setCurItem] = useState<Item>( displayedItem );
 
-    const [changeToRefresh, setChangeToRefresh] = useState(0);
+    const [searchRare, setSearchRare] = useState("");
+
+
+    function addToPinnedItem(s: Item) {
+        setCurItem(s);
+    }
     
     const {
         displayedItems,
         filterItems,
         resetFilterItems,
-    } = useItems(changeToRefresh);
-
-    
-
-
-    const [curID, setCurID] = useState(0);
-    const [nameText, setNameText] = useState("");
-    const [effectText, setEffectText] = useState("");
-    const [reqs, setReqs] = useState("");
-    const [craft, setCraft] = useState(0);
-    const [cost, setCost] = useState(0);
-    const [tags, setTags] = useState("tiny");
-    const [curItem, setCurItem] = useState<Item>();
-
-    
-
-    function addToPinnedItem(s: Item) {
-        setCurID(s.id);
-        setNameText(s.name);
-        setEffectText(s.effect.replace(/"/g, '') ?? "");
-        setTags(s.tags.toString().replace(/ 0/gi, ""));
-        setReqs(s.req.toString());
-        setCost(s.cost);
-        setCraft(s.craft);
-    }
-
-    function removeFromPinnedItem() {
-        // Set inputs to nothing
-        setCurID(0);
-        setNameText("");
-        setEffectText("");
-        setTags("tiny");
-        setReqs("");
-        setCost(0);
-        setCraft(0);
-        setEffectText("");
-    }
-
-    async function handleCreateNew() {
-        console.log(curItem);
-        if (curItem == undefined) {
-            return;
-        }
-        if (curItem?.name != "") {
-            const reply = await ItemsService.putItem({
-                requestBody: curItem,
-            });
-            console.log(reply);
-        }
-        // Set inputs to nothing
-        removeFromPinnedItem();
-        setChangeToRefresh(changeToRefresh+1);
-    }
-
-    async function handleUpdate() {
-        console.log(curItem);
-        if (curItem == undefined) {
-            return;
-        }
-        if (curItem?.name != "") {
-            const reply = await ItemsService.updateItem({
-                name: curItem?.name,
-                requestBody: curItem,
-            });
-            console.log(reply);
-        }
-        // Set inputs to nothing
-        removeFromPinnedItem();
-        setChangeToRefresh(changeToRefresh+1);
-    }
-
-    async function handleDelete() {
-        console.log(curItem);
-        if (curItem?.id == undefined) {
-            return;
-        }
-        if (curItem?.name != "") {
-            const reply = await ItemsService.deleteItem({ id: curItem?.id });
-            console.log(reply);
-        }
-        // Set inputs to nothing
-        removeFromPinnedItem();
-        setChangeToRefresh(changeToRefresh+1);
-    }
-
-    useEffect(() => {
-        // console.log(mainStat,secondStat,otherDrop);
-        const item = {
-            id: curID,
-            name: nameText.toLowerCase(),
-            effect: effectText.replace(/"/g, ''),
-            req: reqs.split(","),
-            cost: cost,
-            craft: craft,
-            tags: tags.replace(/, /g, ',').split(","),
-        };
-
-        item.tags = item.tags.filter((str) => str !== "");
-        item.req = item.req.filter((str) => str !== "");
-
-        setCurItem(item);
-    }, [curID, nameText, effectText, tags, reqs, cost, craft]);
-
-    // Styling:
+    } = useItems();
 
     return (
-        <>
-            <div className="grid grid-rows-auto-auto-auto-1fr-auto gap-4 p-4 bg-dark-400 rounded-md">
-                <div className="grid grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-8 gap-4 p-2 bg-dark-300 rounded-lg">
-                    <div className="md:col-span-2 md:row-span-2 justify-center">
-                        <div className="flex flex-row capitalize">Name</div>
-                        <input
-                            type="text"
-                            placeholder="Feather"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={nameText}
-                            onChange={(e) => setNameText(e.target.value)}
-                        />
-                    </div>
-                    <div className="md:col-span-2">
-                        <div className="flex flex-row capitalize">
-                            Requirements
+        <div className="flex flex-col">
+            {/* Updater */}
+            <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
+                <div className="grid w-full grid-cols-[3fr_1fr] items-center bg-dark rounded-md justify-between">
+                    {/* Name/Activators/Level/Stat */}
+                    <div className="flex flex-col bg-dark-400 rounded-md m-2 p-2">
+                        {/* Name */}
+                        <div className="bg-dark-300 p-2 m-1 rounded-md">
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                className="h-9 rounded-lg p-2 m-1 w-[100%] shadow-md"
+                                value={curItem.name}
+                                onChange={(e) => setCurItem({...curItem, name: e.target.value.toLowerCase()})}
+                            />
                         </div>
-                        <input
-                            type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={reqs}
-                            onChange={(e) => setReqs(e.target.value)}
-                        />
-                        <CleanCombobox
-                            items={statSkillList}
-                            className="flex flex-row"
-                            selected={""}
-                            setSelected={(val) => {
-                                setReqs(reqs.concat(",", val));
-                            }}
+                        
+
+                        {/* Tags */}
+                        <div className="flex flex-row justify-center items-center w-auto">
+                            <div className="grid w-full grid-cols-[3fr_1fr] bg-dark-300 rounded-md m-2 p-2">
+                                <input
+                                    type="text"
+                                    placeholder="Tags"
+                                    className="h-9 rounded-lg p-1 mt-1 w-auto shadow-md m-1"
+                                    value={curItem.tags}
+                                    onChange={(e) => setCurItem({...curItem, tags: e.target.value})}
+                                />
+                                <CleanCombobox
+                                    items={tagList}
+                                    className=""
+                                    selected={""}
+                                    setSelected={(val) => {
+                                        if (curItem.tags == "") {
+                                            setCurItem({...curItem, tags: val});
+                                        } else {
+                                            setCurItem({...curItem, tags: curItem.tags?.concat(", ", val)});
+                                        }
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-col bg-dark-400 rounded-md m-2 p-2">
+                        <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md m-1">
+                            {/* rarity */}
+                            <CleanCombobox
+                                items={rarityTiers}
+                                className="m-1 mb-2 w-auto"
+                                selected={curItem.rarity}
+                                setSelected={(val) => {
+                                    setCurItem({...curItem, rarity: val})
+                                }}
+                            />
+                        </div>
+
+                        {/* cost */}
+                        <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md m-1">
+                            <div className="capitalize m-1 ml-2">
+                                Cost
+                            </div>
+                            <input
+                                type="number"
+                                className="flex flex-row h-9 rounded-lg p-2 m-1 w-16 shadow-md"
+                                value={curItem.cost}
+                                min="0"
+                                onChange={(e) => setCurItem({...curItem, cost: parseInt(e.target.value)})}
+                            />
+                        </div>
+                    </div>
+
+                </div>
+                {/* Effect */}
+                <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
+                    <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">EFFECT</h3>
+                    <textarea
+                        placeholder="What item do?"
+                        className="bg-dark-300 h-44 rounded-lg p-1 m-1"
+                        value={curItem.effect}
+                        onChange={(e) => setCurItem({...curItem, effect: e.target.value})}
+                    />
+                </div>
+                <div className="grid w-full grid-cols-[1fr_1fr]">
+                    {/* Description */}
+                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
+                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">Description</h3>
+                        <textarea
+                            placeholder="**Reminder** - Text here will become italics, use this for how to describe the item"
+                            className="bg-dark-300 h-22 rounded-lg p-1 m-1"
+                            value={curItem.description}
+                            onChange={(e) => setCurItem({...curItem, description: e.target.value})}
                         />
                     </div>
-                    <div className="md:col-span-2">
-                        <div className="flex flex-row capitalize">tags</div>
-                        <input
-                            type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={tags}
-                            onChange={(e) => setTags(e.target.value)}
-                        />
-                        <CleanCombobox
-                            items={tagList}
-                            className="flex flex-row"
-                            selected={""}
-                            setSelected={(val) => {
-                                setTags(tags.concat(",", val));
-                            }}
-                        />
-                    </div>
-                    <div className="md:col-span-1 md:row-span-2">
-                        <div className="flex flex-row capitalize">cost</div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={cost}
-                            min="0"
-                            onChange={(e) => setCost(parseInt(e.target.value))}
-                        />
-                    </div>
-                    <div className="md:col-span-1 md:row-span-2">
-                        <div className="flex flex-row capitalize">craft</div>
-                        <input
-                            type="number"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={craft}
-                            min="0"
-                            max="9"
-                            onChange={(e) => setCraft(parseInt(e.target.value))}
+                    {/* Upgrades */}
+                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
+                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">Upgrades</h3>
+                        <textarea
+                            placeholder="**Reminder** (right now there is only 1 upgrade in this slot. IM LAZY) - Upgrade_Name - Effect"
+                            className="bg-dark-300 h-22 rounded-lg p-1 m-1"
+                            value={curItem.upgrades}
+                            onChange={(e) => setCurItem({...curItem, upgrades: [e.target.value]})}
                         />
                     </div>
                 </div>
 
-                <div className="">Effect</div>
-                <textarea
-                    placeholder="A light little feather."
-                    className="bg-dark-300 h-44 rounded-lg p-2"
-                    value={effectText}
-                    onChange={(e) => setEffectText(e.target.value)}
-                />
-
-                <div className="grid grid-cols-3 gap-4">
-                    {displayedItems.filter((t) => t.name == curItem?.name)
-                        .length > 0 ? (
-                        <>
-                            <span />
-                            <Button
-                                title="Delete"
-                                className="flex flex-row"
-                                variant={"body"}
-                                onClick={handleDelete}
-                            >
-                                Delete
-                            </Button>
-                            <Button
-                                title="Update"
-                                className="flex flex-row"
-                                variant={"soul"}
-                                onClick={handleUpdate}
-                            >
-                                Update
-                            </Button>
-                        </>
-                    ) : (
-                        <>
-                            <span />
-                            <span />
-                            <Button
-                                title="Create New"
-                                className="flex flex-row"
-                                variant={"nature"}
-                                onClick={handleCreateNew}
-                            >
-                                Create New
-                            </Button>
-                        </>
-                    )}
-                </div>
-                {/* <Popup displayedContentName={popupName} displayedContent={popupData} popupIsOpen={popupIsOpen} setPopupIsOpen={(val) => {setPopupIsOpen(val);}} /> */}
             </div>
+            
 
+            
+
+
+            <textarea name="json" id="json" className="bg-dark-600 rounded-md border-solid border-2 border-body-700/20 h-44 m-4 p-2" value={JSON.stringify(curItem).concat(",")}/>
+
+            <div className="flex justify-center">
+                <Button
+                    title="Clear"
+                    className="w-[20%]"
+                    variant={"medicine"}
+                    onClick={() => { setCurItem(displayedItem);}}
+                >
+                    Clear
+                </Button>
+            </div>
+            
+            
             <h1>Items</h1>
-
-            {curItem?.name && (
-                <>
-                    <div className="justify-start">
-                        <h1>Active Item</h1>
-                        <ItemsTable
-                            displayedItems={[curItem]}
-                            moveItem={removeFromPinnedItem}
-                            moveIsAdd={false}
-                        />
-                        <hr />
-                    </div>
-                </>
-            )}
 
             <Tab.Group as="div" className="w-full ">
                 <div className="md:flex md:flex-column md:justify-between py-1 w-full align-middle">
-                    <Tab.List className="p-1 gap-2 flex flex-wrap">
+                    <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 py-1 w-10 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
+                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -382,8 +249,8 @@ export default function UpdateDBItemsPage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light",
-                                            getTabWidth(n.length),
+                                            "w-16 rounded-md bg-body-700/20 p-2 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600 capitalize w-auto",
+                                            `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600 dark:ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
                                         )
                                     }
@@ -409,16 +276,13 @@ export default function UpdateDBItemsPage() {
                             }}
                         />
                     </Tab.Panel>
-                    {IterativeItemLevels.map((n) => {
+                    {IterativeItemLevels.map((n, i) => {
                         return (
-                            <Tab.Panel>
+                            <Tab.Panel key={i}>
                                 <ItemsTable
                                     displayedItems={displayedItems.filter(
                                         (s) => {
-                                            return s.tags
-                                                ?.toString()
-                                                .toLowerCase()
-                                                .includes(n.toLowerCase());
+                                            return s.tags.includes(n);
                                         }
                                     )}
                                     moveItem={(item) => {
@@ -430,6 +294,6 @@ export default function UpdateDBItemsPage() {
                     })}
                 </Tab.Panels>
             </Tab.Group>
-        </>
+        </div>
     );
 }

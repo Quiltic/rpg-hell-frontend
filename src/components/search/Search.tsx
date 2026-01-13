@@ -82,7 +82,7 @@ function Search({
                     (i) =>
                         {
                             try {
-                                const temp = [i.name.toLowerCase(),(i as Item).effect?.toLowerCase().replace(/(\r\n|\n|\r)/gm, ""),(i as Item).tags?.join(",").toLowerCase()].join(";|;");
+                                const temp = [i.name.toLowerCase(),(i as Item).effect?.toLowerCase().replace(/(\r\n|\n|\r)/gm, ""),(i as Item).tags?.toLowerCase()].join(";|;");
                                 // if (i.name.includes("silver"))
                                 //     console.log(temp,(temp.match(new RegExp(searchValue, "g"))?.length != undefined ? true : false))
                                 return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)

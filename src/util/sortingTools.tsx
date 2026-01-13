@@ -149,28 +149,33 @@ function sortItems(_list: any[]) {
 
     // first sorts by name so that items that dont have req can be properly sorted
     const listSortedByName = listSortByName(_list);
+    console.log(_list);
 
-    return listSortedByName.sort((l1: { req: any, tags: any; }, l2: { req: any, tags: any; }) => {
-        const order = ["common 0","uncommon 0","rare 0","legendary 0"];
+    return listSortedByName.sort((l1: { rarity: string, tags: string; }, l2: { rarity: string, tags: string; }) => {
+        const order = ["mundane","common","uncommon","rare","legendary"];
+        const IterativeItemLevels = ["weapon","armor","medicine","alchemical","consumable","tool","mysc","magical"];
 
-        let firstItemLen = getMinOrderIndex(l1.tags,order)*10; // mult by 10 so we get rarity folowed by req (## = rarity req)
-        let secondItemLen = getMinOrderIndex(l2.tags,order)*10;
+        let firstItemLen = getMinOrderIndex(l1.tags.split(", "),IterativeItemLevels)*10; // mult by 10 so we get rarity folowed by req (## = rarity req)
+        let secondItemLen = getMinOrderIndex(l2.tags.split(", "),IterativeItemLevels)*10;
+
+        firstItemLen += order.indexOf(l1.rarity);
+        secondItemLen += order.indexOf(l2.rarity);
         
         // get the length of the items req removing broken because it shouldent be there for this case
-        firstItemLen += l1.req.length;
-        secondItemLen += l2.req.length;
+        // firstItemLen += l1.req.length;
+        // secondItemLen += l2.req.length;
         
-        if (l1.req?.includes("broken 0")) {
-            firstItemLen--;
-        }
-        if (l2.req?.includes("broken 0")) {
-            secondItemLen--;
-        }
+        // if (l1.req?.includes("broken 0")) {
+        //     firstItemLen--;
+        // }
+        // if (l2.req?.includes("broken 0")) {
+        //     secondItemLen--;
+        // }
 
         // if they are the same length sort by level
-        if (firstItemLen == secondItemLen) {
-            return (l1.req ?? "") < (l2.req ?? "0") ? -1 : 1;
-        }
+        // if (firstItemLen == secondItemLen) {
+        //     return (l1.req ?? "") < (l2.req ?? "0") ? -1 : 1;
+        // }
         
         // Single items are selected before nonsingle
         return (firstItemLen < secondItemLen) ? -1 : 1;

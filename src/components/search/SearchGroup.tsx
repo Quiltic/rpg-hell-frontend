@@ -44,7 +44,7 @@ export default function SearchGroup({
             setTags(tags.slice(1))
 
         if (tags != ""){
-            const strings = tags.replace(/, | ,/g, ',').split(',');
+            const strings = tags.replace(/, | ,/g, ', ').split(', ');
             temptags = getAllCombinations(strings);
         }
         
@@ -131,7 +131,7 @@ export default function SearchGroup({
                             className="flex flex-row"
                             selected={""}
                             setSelected={(val) => {
-                                setTags(tags.concat(",", val));
+                                setTags(tags.concat(", ", val));
                             }}
                         />
                     </div>

@@ -4,12 +4,11 @@
 /* eslint-disable */
 
 export type Item = {
-    id?: number;
     name: string;
+    description?: string;
     effect: string;
-    req?: Array<string>;
+    upgrades: Array<string>;
+    tags: string;
+    rarity: string;
     cost?: number;
-    craft?: number;
-    tags: Array<string>;
 };
-
