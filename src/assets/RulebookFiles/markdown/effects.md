@@ -18,9 +18,9 @@
 
 
 
-# Effects
+# Statuses
 
-Effects are things that are applied to you or you apply to others. There is no maximum number of effects you can have at once. 
+Statuses are things that are applied to you or you apply to others. There is no maximum number of Statuses you can have at once. 
 
 ### Elemental Banes
 
