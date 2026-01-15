@@ -140,7 +140,7 @@
     },
     {"name":"master craftsman","tags":"","effect":"When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value. \nFollowers you create have an additional 1 Speed.","req":"crafting 3","extra":""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "crafting 4", "extra": ""
+    {"name":"modular upgrade","req":"crafting 4","tags":"","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may mod this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""
     },
     {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "crafting 4", "extra": ""
     },
@@ -214,7 +214,7 @@
 
     {"name": "unshakable devotion", "tags": "", "effect": "Your damaging Arts no-longer break Charmed. (Damage caused by other effects, such as Knockback or Burn, also do not break Charmed.)", "req": "arcana 4, charm 4", "extra": ""
     },
-    {"name": "artificer", "tags": "", "effect": "Items you make or enhance can be altered or modified by your Traits as if they were Arts.", "req": "arcana 4, crafting 4", "extra": ""
+    {"name": "artificer", "tags": "", "effect": "When you spend Strain to activate a Weapon Attack or Art that targets an Item, you may reduce this strain cost by 1 (to a minimum of 0).", "req": "arcana 4, crafting 4", "extra": ""
     },
     {"name": "MISSING TRAIT", "tags": "piss", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "arcana 4, nature 4", "extra": ""
     },

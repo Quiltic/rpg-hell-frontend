@@ -1,4 +1,4 @@
-import { Tab, Disclosure } from "@headlessui/react";
+import { Tab, Disclosure, Switch } from "@headlessui/react";
 import ItemsTable from "./ItemsTable";
 import { Button } from "../ui/Button/Button";
 import { classNames, download } from "../../util/tableTools";
@@ -6,6 +6,9 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useItems } from "../../hooks/useItems";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
+import { useState } from "react";
+import MarkdownRenderer from "../../util/MarkdownRenderer";
+import item_key from "../../assets/RulebookFiles/markdown/item_key.md";
 
 
 const tagList = [
@@ -70,24 +73,78 @@ export default function ItemsTablePage() {
         resetFilterItems,
     } = useItems();
 
+    const [enabled, setEnabled] = useState(false);
+
     return (
         <>
             <h1>Items</h1>
-            {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
-            {
-                <Button
-                    onClick={() =>
-                        download(
-                            JSON.stringify(allItems, null, 2),
-                            "items.json",
-                            "text/json"
-                        )
-                    }
-                    variant="link-soul"
-                >
-                    Download Items Json
-                </Button>
-            }
+
+            {/* Download/Switch */}
+            <div className="flex flex-col justify-center items-center">
+                <div className="bg-dark-400 rounded-md pl-4 p-2 m-2">
+                <div className="flex flex-row justify-center items-center m-2">
+                    <Button
+                        onClick={() =>
+                            download(
+                                JSON.stringify(allItems, null, 2),
+                                "items.json",
+                                "text/json"
+                            )
+                        }
+                        variant="thieving"
+                    >
+                        Download Items Json
+                    </Button>
+
+                    {/* <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md p-2 m-2">
+                        {enabled && <p className="flex flex-row justify-center items-center m-2">Switch to Table</p>}
+                        {!enabled && <p className="flex flex-row justify-center items-center m-2">Switch to Block</p>}
+                        
+                        <Switch
+                            checked={enabled}
+                            onChange={setEnabled}
+                            className={`${
+                                enabled ? 'bg-body' : 'bg-dark-700'
+                            } relative inline-flex h-6 w-11 items-center rounded-full`}
+                            >
+                            <span className="sr-only">Switch to Block Mode</span>
+                            <span
+                                className={`${
+                                enabled ? 'translate-x-6' : 'translate-x-1'
+                                } inline-block h-4 w-4 transform rounded-full bg-light transition`}
+                            />
+                        </Switch>
+                    </div> */}
+
+                    {/* Line */}
+                    {/* <div className="flex flex-row items-center bg-dark-600 border-2 border-body-700/20 mt-6 mb-6 w-full"></div> */}
+                    
+                </div>
+
+                <Disclosure defaultOpen={false}>
+                    {({ open }) => (
+                        <>
+                            <Disclosure.Button>
+                                <Button
+                                    variant={"thieving"}
+                                    size={"md"}
+                                    className="mb-2"
+                                    open={open}
+                                    rightIcon={ChevronIcon}
+                                >
+                                    Key
+                                </Button>
+                            </Disclosure.Button>
+                            <Disclosure.Panel>
+                                <MarkdownRenderer markdown={item_key as string} have_header={false} />
+                            </Disclosure.Panel>
+                        </>
+                    )}
+                </Disclosure>
+
+                </div>
+
+            </div>
 
             {pinnedItems.length > 0 && (
                 <>

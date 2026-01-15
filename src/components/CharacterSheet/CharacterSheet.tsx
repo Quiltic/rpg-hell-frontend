@@ -5,110 +5,40 @@ import { Button } from "../../components/ui/Button/Button";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 
-import jsonTraits from "../../assets/OfflineJsons/traits.json";
-import jsonSpells from "../../assets/OfflineJsons/spells.json";
-import jsonItems from "../../assets/OfflineJsons/items.json";
-import jsonCreatures from "../../assets/OfflineJsons/creatures.json";
-
-import useApi from "../../hooks/useApi";
-
-import { Spell, Trait, Item, Creature } from "../../client";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import TraitsTable from "../TraitsPages/TraitsTable";
 import ItemsTable from "../ItemPages/ItemsTable";
 import CreatureTable from "../CreaturesPages/CreaturesTable";
 
 import { download, getPersistentPinnedNames } from "../../util/tableTools";
-import {
-    filterBROKENandMONSTER,
-    filterBROKENandMONSTERreq,
-    sortArrayByLevel,
-    sortArrayByReqs,
-} from "../../util/sortingTools";
 
 import markdown from "./tempsheet";
+import { useTraits } from "../../hooks/useTraits";
+import { useSpells } from "../../hooks/useSpells";
+import { useItems } from "../../hooks/useItems";
+import { useCreatures } from "../../hooks/useCreatures";
 
 export default function CharacterSheetPage() {
-    const { SpellsService, TraitsService, ItemsService } = useApi();
 
-    const [pinnedSpells, setPinnedSpells] = useState<Array<Spell>>([]);
-    const [pinnedTraits, setPinnedTraits] = useState<Array<Trait>>([]);
-    const [pinnedItems, setPinnedItems] = useState<Array<Item>>([]);
-    const [pinnedCreatures, setPinnedCreatures] = useState<Array<Creature>>([]);
-
-    const [spells, setSpells] = useState<Array<Spell>>([]);
-    const [traits, setTraits] = useState<Array<Trait>>([]);
-    const [items, setItems] = useState<Array<Item>>([]);
+    const {
+        pinnedTraits
+    } = useTraits();
+    const {
+        pinnedSpells
+    } = useSpells();
+    const {
+        pinnedItems
+    } = useItems();
+    const {
+        pinnedCreatures
+    } = useCreatures();
 
     const [tempSheet, setTempSheet] = useState(markdown);
-    const [traitText, setTraitText] = useState<Array<string>>([]);
-    const [itemText, setItemText] = useState<Array<string>>([]);
-    const [spellText, setSpellText] = useState<Array<string>>([]);
 
     function clearCharacterSheet() {
         setTempSheet(markdown);
         window.localStorage.setItem("tempSheet", "");
     }
-
-    // useEffect(() => {
-    //     let traitLines = [
-    //         "TRAITS",
-    //         ...pinnedTraits.map((t) => {
-    //             return `${t.name} - ${t.dice} - ${t.effect}`;
-    //         }),
-    //     ];
-
-    //     if( traitLines.length > 1) {
-    //         if (traitLines[1].includes('Object "" not found.')) {
-    //             traitLines = [""];
-    //         }
-    //     }
-
-    //     setTempSheet(tempSheet.concat('\n',traitLines.join('\n')));
-    // },[pinnedTraits]);
-
-    // useEffect(() => {
-    //     let itemLines = [
-    //         "ITEMS",
-    //         ...pinnedItems.map((i) => {
-    //             return `${i.name} - ${i.tags} - ${i.effect}`;
-    //         }),
-    //     ];
-
-    //     if( itemLines.length > 1) {
-    //         if (itemLines[1].includes('Object "" not found.')) {
-    //             itemLines = [""];
-    //         }
-    //     }
-
-    //     setTempSheet(tempSheet.concat('\n',itemLines.join('\n')));
-    // },[pinnedItems]);
-
-    // useEffect(() => {
-    //     let spellLines = [
-    //         "SPELLS",
-    //         ...pinnedSpells.map((s) => {
-    //             return `${s.name} - ${"#".repeat(s.dice ?? 1) ?? "P"}, ST ${
-    //                 s.level
-    //             } - ${s.effect}`;
-    //         }),
-    //     ];
-
-    //     if( spellLines.length > 1) {
-    //         if (spellLines[1].includes('Object "" not found.')) {
-    //             spellLines = [""];
-    //         }
-    //     }
-
-    //     setTempSheet(tempSheet.concat('\n',spellLines.join('\n')));
-    // },[pinnedSpells]);
-
-    // useEffect (() => {
-    //     // some magical fuckery
-    //     const bigList = [...traitText, ...itemText, ...spellText].join("\n");
-    //     setTempSheet(tempSheet.concat(bigList));
-
-    // }, [traitText,itemText,spellText])
 
     useEffect(() => {
         if (tempSheet != markdown) {
@@ -121,138 +51,6 @@ export default function CharacterSheetPage() {
             }
         }
     }, [tempSheet]);
-
-    useEffect(() => {
-        async function getSpells() {
-            let spells: Spell[];
-            try {
-                const spellsRaw = await SpellsService.getAllSpells();
-
-                spells = Object.values(spellsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    spells = Object.values(jsonSpells);
-                // } else {
-                //     return;
-                // }
-            }
-            spells = sortArrayByLevel(spells);
-            setSpells(spells);
-
-            const persistentPinnedSpells = getPersistentPinnedNames(
-                "pinnedSpellNames",
-                spells
-            );
-            if (persistentPinnedSpells) {
-                setPinnedSpells(persistentPinnedSpells);
-            }
-        }
-
-        getSpells();
-    }, [SpellsService]);
-
-    useEffect(() => {
-        async function getTraits() {
-            let traits: Trait[];
-            try {
-                const traitsRaw = await TraitsService.getAllTraits();
-                traits = Object.values(traitsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    traits = Object.values(jsonTraits);
-                // } else {
-                //     return;
-                // }
-            }
-            traits = sortArrayByReqs(traits);
-            setTraits(traits);
-
-            // traits = filterBROKENandMONSTERreq(traits);
-
-            const persistentPinnedTraits = getPersistentPinnedNames(
-                "pinnedTraitNames",
-                traits
-            );
-            if (persistentPinnedTraits) {
-                setPinnedTraits(persistentPinnedTraits);
-            }
-        }
-
-        getTraits();
-    }, [TraitsService]);
-
-    useEffect(() => {
-        async function getItems() {
-            let items: Item[];
-            try {
-                const itemsRaw = await ItemsService.getAllItems();
-                items = Object.values(itemsRaw);
-            } catch (e) {
-                // if (e instanceof Error && e.message == "Network Error") {
-                    console.log(
-                        "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-                    );
-                    items = Object.values(jsonItems);
-                // } else {
-                //     return;
-                // }
-            }
-
-            items = sortArrayByReqs(items ?? []);
-            setItems(items);
-
-            // items = filterBROKENandMONSTER(items);
-
-            const persistentPinnedItems = getPersistentPinnedNames(
-                "pinnedItemNames",
-                items
-            );
-
-            if (persistentPinnedItems) {
-                setPinnedItems(persistentPinnedItems);
-            }
-        }
-
-        getItems();
-    }, [ItemsService]);
-
-    useEffect(() => {
-        async function getCreatures() {
-            let creatures: Creature[];
-            // try {
-            //     const spellsRaw = await SpellsService.getAllSpells();
-
-            //     spells = Object.values(spellsRaw);
-            // } catch (e) {
-            //     if (e instanceof Error && e.message == "Network Error") {
-            //         console.log(
-            //             "WARNING YOU ARE OFFLINE! A backup is being used, however it is not up to date and may have incorect data."
-            //         );
-            creatures = Object.values(jsonCreatures);
-            //     } else {
-            //         return;
-            //     }
-            // }
-
-            creatures = sortArrayByLevel(creatures);
-            const persistentPinnedCreatures = getPersistentPinnedNames(
-                "pinnedCreatureNames",
-                creatures
-            );
-
-            if (persistentPinnedCreatures) {
-                setPinnedCreatures(persistentPinnedCreatures);
-            }
-        }
-
-        getCreatures();
-    }, []);
 
     return (
         <>
@@ -388,9 +186,6 @@ export default function CharacterSheetPage() {
                                     <Disclosure.Panel>
                                         <CreatureTable
                                             displayedCreatures={pinnedCreatures}
-                                            traitsList={traits}
-                                            spellsList={spells}
-                                            itemsList={items}
                                         />
                                         <hr />
                                     </Disclosure.Panel>

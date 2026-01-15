@@ -19,3 +19,15 @@ If the horde is hit by an Attack that would cover it in its entirety (aoe) they 
 When creatures overlap the outermost creature takes all effects that would originate from other tiles (Attacks, Buffs, etc.). The outermost creature has \+1 on Grapple contests and Attack sums against the inner most creature.  
 
 
+# Weapon Rules
+
+- You CAN NOT get Attack Bonuses multiple times per Attack, such as if you give a 6 on an Attack Sum and spend Empowered. 
+- If something was to give a Bonus to a weapon (such as an Enchantment) it becomes a part of the weapon’s Bonus.
+- You may dual wield weapons if both weapons are Side weapons. When you do, you may combine the On Hit, Bonus, and Downside of both weapons into one Attack.
+- After you do an Attack with a non-Side weapon you may spend # to do another Attack with +3 on the Attack Sum if you are using a Side Weapon.
+
+
+# Armor
+
+Shielding is only given at the end of a Rest. Swapping into armor that gives Shielding does not give Shielding on equip, and un-equipping armor that gives Shielding removes any Shielding granted.
+

@@ -142,10 +142,13 @@ export function useApiClass<T extends ApiClassUnion>(
         (s: T) => {
             const newPersist = [...pinned, s];
             if (c == eApiClass.Spell) {
-                setPinned(sortArrayByLevel(newPersist));
+                setPinned(sortSpells(newPersist));
                 return;
-            } else if (c == eApiClass.Trait || c == eApiClass.Item) {
+            } else if (c == eApiClass.Trait) {
                 setPinned(sortArrayByReqs(newPersist));
+                return;
+            } else if (c == eApiClass.Item) {
+                setPinned(sortItems(newPersist));
                 return;
             }
             setPinned(newPersist);
