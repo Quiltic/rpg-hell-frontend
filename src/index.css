@@ -167,3 +167,7 @@ ul li {
 .tooltip_main:hover + .tooltip_hide {
   display: block;
   }
+
+.boxed_text {
+  @apply p-2 m-2 bg-dark-400 italic rounded-md justify-center items-center flex border-solid border-2 border-body-700/20 w-auto flex-col
+}

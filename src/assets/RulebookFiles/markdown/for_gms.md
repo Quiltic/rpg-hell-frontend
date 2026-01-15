@@ -71,3 +71,20 @@ Stole this from Daggerheart
 | Tier 2 equipment (weapons, armor) | 1–2 Bags |
 | Tier 3 equipment (weapons, armor) | 5–10 Bags |
 | Tier 4 equipment (weapons, armor) | 1–2 Chests |
+
+
+### Structures and Objects
+
+| Durability | HP | Special |
+| :---- | :---- | :---- |
+| Flimsy | 2-3 | |
+| Wooden | 8 | Double gained Burn stacks |
+| Reinforced Wood | 12 | |
+| Hard (Stone) | 10 | Cannot gain Burn. |
+| Metalic | 12 | Cannot gain Burn. |
+
+| Thickness | HP Mult | Special |
+| :---- | :---- | :---- |
+| Thin | 1 | |
+| Wall | 2 | Does not take damage from Attacks that deal 3 or less damage. |
+| Thick Wall | 3 | Does not take damage from Attacks that deal 5 or less damage. |

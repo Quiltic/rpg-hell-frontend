@@ -47,7 +47,7 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
 }
 
-function download(content, fileName: string, contentType: string) {
+function download(content:any, fileName: string, contentType: string) {
     var a = document.createElement("a");
     var file = new Blob([content], { type: contentType });
     a.href = URL.createObjectURL(file);
