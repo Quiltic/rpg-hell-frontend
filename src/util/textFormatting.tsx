@@ -2,6 +2,13 @@ import Pill from "../components/ui/Pill";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
+    const rarityTiers = {
+        "mundane":"dark-300",
+        "common":"thieving",
+        "uncommon":"nature",
+        "rare":"mind",
+        "legendary":"arcana"
+    }
     if (!_string) {
         return "";
     }
@@ -14,6 +21,9 @@ export function toPillElement(_string: string, splitter: string) {
     // Try to make the names, requirements, tags, ect. uppercase
     const pills = _string.split(splitter).map((word, i) => {
         const parts = word.split(" ");
+        if (parts[0] in rarityTiers) {
+            parts[0] = rarityTiers[parts[0]];
+        }
         const isBroken: boolean = parts[0].toLowerCase() == "broken";
         return (
             <Pill

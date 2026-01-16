@@ -171,3 +171,7 @@ ul li {
 .boxed_text {
   @apply p-2 m-2 bg-dark-400 italic rounded-md justify-center items-center flex border-solid border-2 border-body-700/20 w-auto flex-col
 }
+
+hr {
+  @apply bg-body-700/20
+}

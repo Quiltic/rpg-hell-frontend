@@ -9,6 +9,8 @@ import SearchGroup from "../search/SearchGroup";
 import { useState } from "react";
 import MarkdownRenderer from "../../util/MarkdownRenderer";
 import item_key from "../../assets/RulebookFiles/markdown/item_key.md";
+import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
+import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 
 
 const tagList = [
@@ -62,6 +64,15 @@ const IterativeItemLevels = [
     "magical",
 ];
 
+const rarityTiers = [
+    "any",
+    "mundane",
+    "common",
+    "uncommon",
+    "rare",
+    "legendary"
+]
+
 export default function ItemsTablePage() {
     const {
         allItems,
@@ -74,6 +85,7 @@ export default function ItemsTablePage() {
     } = useItems();
 
     const [enabled, setEnabled] = useState(false);
+    const [searchRarity, setSearchRarity] = useState("any");
 
     return (
         <>
@@ -96,7 +108,7 @@ export default function ItemsTablePage() {
                         Download Items Json
                     </Button>
 
-                    {/* <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md p-2 m-2">
+                    <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md p-2 m-2">
                         {enabled && <p className="flex flex-row justify-center items-center m-2">Switch to Table</p>}
                         {!enabled && <p className="flex flex-row justify-center items-center m-2">Switch to Block</p>}
                         
@@ -114,7 +126,7 @@ export default function ItemsTablePage() {
                                 } inline-block h-4 w-4 transform rounded-full bg-light transition`}
                             />
                         </Switch>
-                    </div> */}
+                    </div>
 
                     {/* Line */}
                     {/* <div className="flex flex-row items-center bg-dark-600 border-2 border-body-700/20 mt-6 mb-6 w-full"></div> */}
@@ -146,6 +158,7 @@ export default function ItemsTablePage() {
 
             </div>
 
+            {/* Pinned */}
             {pinnedItems.length > 0 && (
                 <>
                     <div className="justify-start">
@@ -155,8 +168,8 @@ export default function ItemsTablePage() {
                                     <Disclosure.Button>
                                         <Button
                                             variant={"dark"}
-                                            className="mb-2 w-full"
                                             size={"xl"}
+                                            className="mb-2"
                                             open={open}
                                             rightIcon={ChevronIcon}
                                         >
@@ -164,19 +177,32 @@ export default function ItemsTablePage() {
                                         </Button>
                                     </Disclosure.Button>
                                     <Disclosure.Panel>
-                                        <ItemsTable
+                                        { enabled &&
+                                            <ItemCardHolder 
+                                                shownItems={pinnedItems}
+                                                moveItem={(item) => {
+                                                    removeFromPinnedItems(item);
+                                                }}
+                                            />
+                                        }
+                                        {!enabled &&
+                                            <ItemsTable
                                             displayedItems={pinnedItems}
                                             moveItem={(item) => {
                                                 removeFromPinnedItems(item);
                                             }}
                                             moveIsAdd={false}
-                                        />
-                                        <hr />
+                                            />
+                                        }
+                                        
+                                        {/* <hr /> */}
                                     </Disclosure.Panel>
                                 </>
                             )}
                         </Disclosure>
                     </div>
+                    {/* Line */}
+                    <div className="flex flex-row items-center bg-dark-600 border-2 border-body-700/20 mt-6 mb-6 w-full"></div>
                 </>
             )}
 
@@ -210,6 +236,19 @@ export default function ItemsTablePage() {
                             );
                         })}
                     </Tab.List>
+                    <div className="flex flex-row justify-center items-center bg-dark-600 rounded-md m-1">
+                        <div className="capitalize m-1 ml-2">
+                            Rarity
+                        </div>
+                        <CleanCombobox
+                            items={rarityTiers}
+                            className="m-1 -mt-4 w-auto h-6 capitalize"
+                            selected={searchRarity}
+                            setSelected={(val) => {
+                                setSearchRarity(val)
+                            }}
+                        />
+                    </div>
                     <SearchGroup 
                         filter={filterItems} 
                         resetFilter={resetFilterItems}
@@ -219,26 +258,67 @@ export default function ItemsTablePage() {
                 </div>
                 <Tab.Panels>
                     <Tab.Panel>
-                        <ItemsTable
-                            displayedItems={displayedItems}
+                        { enabled &&
+                            <ItemCardHolder 
+                                shownItems={displayedItems.filter(
+                                    (i) => {
+                                        if (searchRarity != "any")
+                                            return i.rarity == searchRarity;
+                                        return true;
+                                    }
+                                )}
+                                moveItem={(item) => {
+                                    addToPinnedItems(item);
+                                }}
+                            />
+                        }
+                        {!enabled &&
+                            <ItemsTable
+                            displayedItems={displayedItems.filter(
+                                (i) => {
+                                    if (searchRarity != "any")
+                                        return i.rarity == searchRarity;
+                                    return true;
+                                }
+                            )}
                             moveItem={(item) => {
                                 addToPinnedItems(item);
                             }}
                         />
+                        }
                     </Tab.Panel>
                     {IterativeItemLevels.map((n, i) => {
                         return (
                             <Tab.Panel key={i}>
-                                <ItemsTable
+                                { enabled &&
+                                    <ItemCardHolder shownItems={displayedItems.filter(
+                                        (i) => {
+                                            if (searchRarity != "any"){
+                                                return (i.tags.includes(n)) && (i.rarity == searchRarity);
+                                            }
+                                            return i.tags.includes(n);
+                                        }
+                                    )} key={i}
+                                    moveItem={(item) => {
+                                        addToPinnedItems(item);
+                                    }}
+                                    />
+                                }
+                                {!enabled &&
+                                    <ItemsTable
                                     displayedItems={displayedItems.filter(
-                                        (s) => {
-                                            return s.tags.includes(n);
+                                        (i) => {
+                                            if (searchRarity != "any"){
+                                                return (i.tags.includes(n)) && (i.rarity == searchRarity);
+                                            }
+                                            return i.tags.includes(n);
                                         }
                                     )}
                                     moveItem={(item) => {
                                         addToPinnedItems(item);
                                     }}
-                                />
+                                    />
+                                }
                             </Tab.Panel>
                         );
                     })}
