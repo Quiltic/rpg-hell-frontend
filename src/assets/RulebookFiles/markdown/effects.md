@@ -46,7 +46,7 @@ Statuses are things that are applied to you or you apply to others. There is no 
 
 - ***Rooted*** - Your SPEED is 0.
 
-- ***Stun*** - You roll X dice less when doing a roll. You cannot gain Stun the turn after you have Stun.
+- ***Stun*** - You roll X dice less when doing a roll. You cannot gain Stun the turn after you have Stun and can't roll less than 2 dice in a turn.
 
 
 

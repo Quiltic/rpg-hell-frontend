@@ -29,29 +29,6 @@ If you are in combat you may give two dice of set values instead of giving \#\# 
 
 
 
-## Common Actions
-
-*These are actions every creature has access to.*
-
-**Move** \- Spend \#; Move your SPEED. If you need to climb something, do a Body check.  
-*Jumping: When you do a move you may do a standing jump up 1+(BODY/2) or long-jump 2+BODY horizontally.*
-
-**Attack** \- Spend \#\#; Do a Weapon Attack within the weapons range. If a dice sum of 7 or less is given, gain the Attack Bonus. If a dice sum of 9 or higher is given, gain the Attack Downside.  
-*Dual Welding: You may dual wield weapons if both weapons are Side Weapons. When you do, you may combine the On Hit, Bonus, and Downside of both weapons into one Attack.*
-
-**Grapple** \- Spend \#\#; Do a Body Contest against a target within 1 tile of you. If you win, the target becomes Grappled by you.
-
-**Push** \- Spend \#\#; Do a Body Contest against a target within 1 tile of you. If you win, the target is pushed back 1+BODY tiles away from you. (This counts as Knockback and can do Knockback damage.)
-
-**Hide** \- Spend \#\#; Do a Thieving check, on a 9 or higher you are Hidden until you spend dice to do a non-Thieving action. (Movement does not break this.)
-
-**Lock a Dice** \- Spend \#; Lock the dice spent. You may only ever have 1 Locked dice at a time. Locking a dice while having a Locked dice will replace the old dice with the new dice. You may later unlock that dice to spend on Arts or as a bonus dice in combat.  
-	*You may only ever lock d6’s, and lose any unspent locked dice at the end of combat.*
-
-**Activate an Art** \- Spend dice, time, and or Strain to activate the art. Art's have recommended casting requirements. Your GM may be open to changing these or requiring them.
-
-
-
 ## Activating Arts
 Next to the names of Arts there are the tags Gesture, Vocal, and Spell. Arts may have more than one tag requiring you to follow through on all of them.
 - If an Art has the tag Gesture, you must make a noticeable gesture or movement. Some movements may be taking a specific stance, such as Bull Rush.

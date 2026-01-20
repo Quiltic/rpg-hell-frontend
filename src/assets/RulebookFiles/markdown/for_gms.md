@@ -30,7 +30,7 @@ There are more times when to ask for more specific skills or even let your playe
 
 ## Enemy Encounters
 
-### Combat
+### Creating Combat
 
 When choosing enemy NPC's This game uses Total Level. When making an encounter depending on how difficult you wish the encounter to be you make aim to have the total level of enemy group be similar to the level of the player group.
 
@@ -39,6 +39,7 @@ An NPC's level is similar to what level a player of the same level should be to 
 | Very Easy | Easier | Balanced | Difficult | Boss |
 | :---- | :---- | :---- | :---- | :---- |
 | -X > A player level | -3 | 0 | +3 | A player level < +X |
+
 
 ### Creating Bosses
 
@@ -51,6 +52,13 @@ It is also possible not all bosses can be beaten directly. So it is recommended 
 
 Some examples of special Actives and Passives:
 - 
+
+
+### Running Combat
+
+- When running combat it is recommended to intermix turns between the players and the gm.
+- When a Creature loses all Shielding they are **Armor Broken**
+- When a Creature is at half max health or less they are **Bloody**
 
 
 
