@@ -1,0 +1,331 @@
+[
+    {
+        "name": "Fighter",
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": -1,
+            "crafting": 1,
+            "charm": 1,
+            "nature": -1,
+            "medicine": 2,
+            "thieving": 0
+        },
+        "items": "short sword, shield, medium chainmail, bandage, antidote, frag grenade, medkit",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Body, where as for the Sub-stats we recommend putting it into Medicine and either Charm or Crafting"
+        ],
+        "traits": [
+            [
+                "battle ready",
+                "frenzy, braced for impact"
+            ],
+            [
+                "field repair, trained medic"
+            ],
+            [
+                "whirlwind, defender"
+            ]
+        ],
+        "arts": [
+            [
+                "overwatch",
+                "fortify",
+                "charge, flex",
+                "motivate, medical leeches"
+            ],
+            [
+                "destructive swing, spiny shield, bull rush"
+            ],
+            [
+                "cleave, i'll take it"
+            ]
+        ]
+    },
+    {
+        "name": "Sorcerer",
+        "stats": {
+            "body": 0,
+            "mind": 0,
+            "soul": 2,
+            "arcana": 2,
+            "crafting": -1,
+            "charm": 1,
+            "nature": 1,
+            "medicine": -1,
+            "thieving": 0
+        },
+        "items": "yoyo, dagger, clothing, bandage, soul stitch potion, fire breathing potion, alchemy tools",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Soul, where as for the Sub-stats we recommend putting it into Arcana (for *Art Augmenter*) and either Charm (for *Lightshow*) or Nature (for *Frozen Flames*)"
+        ],
+        "traits": [
+            [
+                "art manipulator",
+                "split art, intoxicating presence"
+            ],
+            [
+                "soul bound relic, arcane sense"
+            ],
+            [
+                "art augmenter"
+            ]
+        ],
+        "arts": [
+            [
+                "soul shard, ignition, short circuit",
+                "magic trick, dramaturgy, control elements",
+                "telepathy",
+                "minor illusion"
+            ],
+            [
+                "soul skip, elemental burst, soul pulse"
+            ],
+            [
+                "dispel magic, lightshow, frozen flames"
+            ]
+        ]
+    },
+    {
+        "name": "Ranger",
+        "stats": {
+            "body": 0,
+            "mind": 2,
+            "soul": 0,
+            "arcana": -1,
+            "crafting": 0,
+            "charm": -1,
+            "nature": 2,
+            "medicine": 1,
+            "thieving": 1
+        },
+        "items": "long bow, dagger, light leather, bandage, potion of animal speech potion, smoke grenade, trapper's tools",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Mind, where as for the Sub-stats we recommend putting it into Nature and either Medicine or Thieving"
+        ],
+        "traits": [
+            [
+                "hunter",
+                "beastbound, focus fire"
+            ],
+            [
+                "hunters instincts, snake eyes"
+            ],
+            [
+                "threat assessment"
+            ]
+        ],
+        "arts": [
+            [
+                "mark",
+                "track creature",
+                "vine whip, uncanny climb",
+                "nature's tools, dark mists"
+            ],
+            [
+                "rip and tear, precision strike"
+            ],
+            [
+                "marking strike, coordinated strike"
+            ]
+        ]
+    },
+    {
+        "name": "Thief",
+        "stats": {
+            "body": 1,
+            "mind": 1,
+            "soul": 0,
+            "arcana": 1,
+            "crafting": 1,
+            "charm": 0,
+            "nature": -1,
+            "medicine": -1,
+            "thieving": 2
+        },
+        "items": "dagger, hand crossbow, light leather, bandage, smoke grenade, soul stitch potion, thieves' tools",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "We recommend taking *Art Token* if you took *Spell Thief* or taking *Focus Fire* if you took *Assassin*.",
+            "Since you get +1 to a Main-stat we recommend putting it into Mind, where as for the Sub-stats we recommend putting it into Thieving and either Arcana or Charm"
+        ],
+        "traits": [
+            [
+                "cat burglar",
+                "assassin, spell thief"
+            ],
+            [
+                "focus fire, art token"
+            ],
+            [
+                "obscured power"
+            ]
+        ],
+        "arts": [
+            [
+                "phantom fishing rod",
+                "illusionary disguise",
+                "overwatch",
+                "telepathy, mark"
+            ],
+            [
+                "precision strike, shadow self"
+            ],
+            [
+                "hamstring, shadow step"
+            ]
+        ]
+    },
+    {
+        "name": "Bard",
+        "stats": {
+            "body": 0,
+            "mind": 1,
+            "soul": 1,
+            "arcana": 1,
+            "crafting": 0,
+            "charm": 2,
+            "nature": -1,
+            "medicine": -1,
+            "thieving": 1
+        },
+        "items": "rapier, hand crossbow, clothing, bandage, smoke grenade, basic poison, thieves' tools",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Mind, where as for the Sub-stats we recommend putting it into Charm and either Arcana or Thieving"
+        ],
+        "traits": [
+            [
+                "soul bound relic",
+                "intoxicating presence, show, don't tell"
+            ],
+            [
+                "lead them along, cat burglar"
+            ],
+            [
+                "saving face, target audience"
+            ]
+        ],
+        "arts": [
+            [
+                "illusionary disguise",
+                "minor illusion",
+                "enthrall, motivate",
+                "dramaturgy, magic trick"
+            ],
+            [
+                "big or small, footwork lure, for the crowd"
+            ],
+            [
+                "dance of fools, lightshow"
+            ]
+        ]
+    },
+    {
+        "name": "",
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": 2,
+            "crafting": 1,
+            "charm": 1,
+            "nature": 0,
+            "medicine": -1,
+            "thieving": -1
+        },
+        "items": "",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            ""
+        ],
+        "traits": [
+            [
+                "",
+                ""
+            ],
+            [
+                ""
+            ],
+            [
+                ""
+            ]
+        ],
+        "arts": [
+            [
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                ""
+            ],
+            [
+                ""
+            ]
+        ]
+    },
+    {
+        "name": "",
+        "stats": {
+            "body": 2,
+            "mind": 0,
+            "soul": 0,
+            "arcana": 2,
+            "crafting": 1,
+            "charm": 1,
+            "nature": 0,
+            "medicine": -1,
+            "thieving": -1
+        },
+        "items": "",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            ""
+        ],
+        "traits": [
+            [
+                "",
+                ""
+            ],
+            [
+                ""
+            ],
+            [
+                ""
+            ]
+        ],
+        "arts": [
+            [
+                "",
+                "",
+                "",
+                ""
+            ],
+            [
+                ""
+            ],
+            [
+                ""
+            ]
+        ]
+    }
+]

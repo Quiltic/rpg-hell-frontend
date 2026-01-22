@@ -21,7 +21,7 @@
     },
     {"name": "true strikes", "tags": "", "effect": "When you give a 12 or higher on a Melee Attack you do not gain the Weapon Downside.\nWhen you give a 8 or less on a Melee Attack you are unaffected by Blind.", "req": "body 4", "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "body 4", "extra": ""
+    {"name":"armored resilience","req":"body 4","tags":"","effect":"Once per turn, when you take damage, if you were to lose all Shielding (including Bonus Shielding) any additional damage (to health) is reduced to 0 for that source of damage.","extra":""
     },
 
 
@@ -159,7 +159,7 @@
     },
     {"name": "empowering remedies", "tags": "", "effect": "When you heal a creature, or when they consume an Alchemical item you made, the creature becomes Empowered until the end of their next turn.\n\nMedicine 4 - When you heal a creature, or when they consume an alchemical item you made, the creature refunds 1 Strain.", "req": "medicine 3", "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "medicine 3", "extra": ""
+    {"name":"group practice","req":"medicine 3","tags":"","effect":"When you Focus on an Art that targets ally or yourself you may activate this Art again on a different creature Focusing on all instances of that Art without losing Focus.","extra":""
     },
     {"name": "power from pain", "tags": "", "effect": "While your Health is less than half your Max Health you deal 1 extra damage on Attacks and Arts you cast cost 1 less. While you have stacks of Death's Door you deal 1 extra damage on Attacks and Arts you cast cost 1 less. These effects stack with one another. You retain this trait even while Shapeshifted.", "req": "medicine 4", "extra": ""
     },
@@ -214,7 +214,7 @@
 
     {"name": "unshakable devotion", "tags": "", "effect": "Your damaging Arts no-longer break Charmed. (Damage caused by other effects, such as Knockback or Burn, also do not break Charmed.)", "req": "arcana 4, charm 4", "extra": ""
     },
-    {"name": "artificer", "tags": "", "effect": "When you spend Strain to activate a Weapon Attack or Art that targets an Item, you may reduce this strain cost by 1 (to a minimum of 0).", "req": "arcana 4, crafting 4", "extra": ""
+    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.\nPossible name: *Artificer*.", "req": "arcana 4, crafting 4", "extra": ""
     },
     {"name": "MISSING TRAIT", "tags": "piss", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "arcana 4, nature 4", "extra": ""
     },
@@ -222,7 +222,7 @@
     },
     {"name": "stolen knowledge", "tags": "", "effect": "After another creature activates an Art you may spend a Lock Slot (preventing you from Locking a dice) to steal the Art. The creature forgets the Art and you know the Art until your next Break or Rest. (Arts that last more than one turn do not end from this action, such as Focus or Summon Arts)", "req": "arcana 4, thieving 4", "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "charm 4, crafting 4", "extra": ""
+    {"name":"gang up","req":"crafting 4, thieving 4","tags":"","effect":"When you or a creature you have effected with an Art (such as a buff or Follower) damage a target, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally creature within 3 tiles of you.","extra":""
     },
     {"name": "flourishing", "tags": "", "effect": "Once per turn, after you apply Charmed to a creature you may activate an Art that doesn't cost Strain without spending dice. Use an 6 for any sums needed.\nOnce per turn, after you apply Rooted to a creature you may do a Charm contest against them. If you win they gain Charmed for as long as they are Rooted.", "req": "charm 4, nature 4", "extra": ""
     },
@@ -234,9 +234,9 @@
     },
     {"name": "master of ephemera", "tags": "", "effect": "When you activate an Item, or when another creature consumes an Alchemical item you made, double the duration, gain +1 radius on area effects, do +2 damage, and/or give +LEVEL Bonus Shielding to any affected targets.", "req": "crafting 4, medicine 4", "extra": ""
     },
-    {"name": "natural conduction", "tags": "", "effect": "When you deal damage to a creature you may instead make the creature spend half as much Strain (rounded up) and deal 2 damage.\nWhen you heal another creature you may instead make the creature refund half as much Strain (rounded up) and not heal.", "req": "crafting 4, thieving 4", "extra": ""
+    {"name": "natural conduction", "tags": "", "effect": "When you deal damage to a creature you may instead make the creature spend half as much Strain (rounded up) and deal 2 damage.\nWhen you heal another creature you may instead make the creature refund half as much Strain (rounded up) and not heal.", "req": "nature 4, medicine 4", "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "nature 4, medicine 4", "extra": ""
+    {"name":"magnetic charm","req":"crafting 4, charm 4","tags":"","effect":"When you effect a creature with an Art or damage them, they may not use their Locked Dice until the end of your turn. When you Charm a creature you may steal any Locked Dice they have. Locking it yourself if you have space or just removing it if you don't. ","extra":""
     },
     {"name": "apex predator", "tags": "", "effect": "When you or a Follower kill a creature you gain a Hunted Token. You or a Follower may spend a Hunted Token to have +1d4 damage on an Attack, give Marked to any target you can see or gain Empowered for up to 1 hour.", "req": "nature 4, thieving 4", "extra": ""
     },

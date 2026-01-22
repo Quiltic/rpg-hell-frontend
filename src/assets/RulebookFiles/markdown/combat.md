@@ -53,7 +53,7 @@ On Attacks when you give ## (2 dice) you take the sum of these dice, sometimes g
 
 **Hunker Down** \- Spend #; Gain +1 Dodge against Ranged Attacks made against you until the beginning of your next turn.
 
-
+**Overwatch** \- Reaction (Locked #); Melee Attack against a target that moves into/out of your Weapon Range. Use 3+# for sum.
 
 
 ## Damage and Armor
@@ -116,11 +116,19 @@ While a creature is behind something that is covering at least half of them they
 
 *These rules are entirely optional and may be chosen or banned by the players/gm.*
 
+
+### Slower Healing/Rest
+
+At the end of a Rest players only lose one stack of Death's Door and Exhaustion instead of all stacks.
+
+
+
 ### Popcorn Initiative
 
 When doing combat it is popular to do a form of turn order called Popcorn Initiative. Here players and GM take turns doing turns while in combat. This is mostly done for a more dynamic and story driven combat experience.
 
 To do Popcorn Initiative the table rolls Initiative as normal. Highest goes first. If that is a player the GM then does a NPC's turn. Otherwise if its an NPC a player may choose to go next. Players must decide themselves who will go. Once an NPC or player has gone this round they must wait until all other players and NPC's have gone to do their next turn. 
+
 
 
 ### Flanking

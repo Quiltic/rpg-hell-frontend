@@ -38,7 +38,7 @@ Statuses are things that are applied to you or you apply to others. There is no 
 
 - ***Marked*** - Creatures get +1 on contest’s against you and you have -1 Dodge.
 
-- ***Charmed*** - You have -1d4 when doing negative actions (Attacks, Contests, etc.) and any Charm contests against the creature that Charmed you.
+- ***Charmed*** - You have -1d4 when doing negative actions (Attacks, Contests, etc.) and any Charm contests against the creature that Charmed you. The creature that Charmed you may spend Charmed to force you to re-roll any roll.
 
 - ***Blinded*** - Cannot do ranged actions, have -1 to Senses rolls, and enemies have +1 Dodge from your attacks.
 
@@ -53,9 +53,9 @@ Statuses are things that are applied to you or you apply to others. There is no 
 ### Boons
 
 
-- ***Empowered*** - You may spend Empowered to gain an Attack’s Bonus or to re-roll a d4.
+- ***Empowered*** - Increase the maximum value needed for an Attack's Bonus by 1 (from 7 to 8). Additionally, you may spend Empowered to gain the Attack's Bonus or not have an Attack’s Downside.
 
-- ***Rallied*** - You may spend Rallied to gain a d4 on a check or contest. (Choosing to add a d4 must be done before rolling a d12)
+- ***Rallied*** - Pick a Stat when you first gain Rallied. You get +1d4 on Checks and Contests on that stat.
 
 - ***Reinforced*** - When you roll a Check, Contest, or Dodge roll you may not have less than +1 on the roll.
 

@@ -54,6 +54,18 @@ Here are a simplified listing of when it would be best to use a specific stat wh
 
 
 
+## Exhaustion
+
+Certain activities or overexerting yourself may result in gaining Exhaustion. Some examples include not Resting, eating, or drinking for long periods of time.
+Some events or locations may even give Exhaustion. Such as being outside in a blizzard or moving through poorly pathed swamps.
+
+
+While you have Exhaustion you gain the following debuffs. All stacks of Exhaustion go away after a Rest.
+- You have -1 in all Checks and Contests for every stack of Exhaustion. 
+- You have -3 Max Strain for every stack of Exhaustion.
+- Every 3 stacks of Exhaustion you gain one stack of Death's Door.
+
+
 # Optional Rules
 
 *These rules are entirely optional and may be chosen or banned by the players/gm.*
