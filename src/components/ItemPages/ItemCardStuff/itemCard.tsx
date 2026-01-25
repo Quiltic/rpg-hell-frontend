@@ -30,7 +30,7 @@ const STUPID_COLOR_TYPESCRIPT_BS = [
 ];
 
 export default function ItemCard({
-    _item: _item = {"name":"LOADING TRAIT","level":1,"stat":"body","tags":"loading","strain":1,"dice":2,"effect":"Loading.","activators":7},
+    _item: _item = {"name":"LOADING ITEM","description":"LOADING","upgrades":[],"tags":"loading","rarity":"common","cost":2,"effect":"Loading."},
     moveItem,
     _className
 }: Props) {    
@@ -85,10 +85,9 @@ export default function ItemCard({
                 {_item.description}
             </div>
 
-            {ee.map((line, i) => {
+            {ee.map((line, id) => {
                 return (
-                <>
-                <Markdown
+                <Markdown key={id}
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
                     components={{
@@ -98,19 +97,14 @@ export default function ItemCard({
                 >
                     {line}
                 </Markdown>
-                
-                {/* { i < ee.length-1 && 
-                    <div className="mt-2.5 w-full text-center border-b-2 border-solid border-body-700/20"/>
-                } */}
-                </>
             );
             })}
 
 
-            {_item.upgrades && _item.upgrades.map((upgrade, i) => {
+            {_item.upgrades && _item.upgrades.map((upgrade, id) => {
                 const line = formatEffectString(upgrade);
                 return (
-                <>
+                <div key={id}>
                 <hr className="-mb-4"/>
                 <p className="font-semibold underline ">
                     Upgrade
@@ -129,7 +123,7 @@ export default function ItemCard({
                 {/* { i < ee.length-1 && 
                     <div className="mt-2.5 w-full text-center border-b-2 border-solid border-body-700/20"/>
                 } */}
-                </>
+                </div>
             );
             })}
         </div>

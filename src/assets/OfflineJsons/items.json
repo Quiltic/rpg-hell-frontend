@@ -391,7 +391,7 @@
     {
         "name": "shield",
         "description": "",
-        "effect": "Uses 1 hand. At the end of a Rest gain your LEVEL Shielding. While held you may spend # to Hunker Down without cover.\n",
+        "effect": "Uses 1 hand. At the end of a Rest gain your LEVEL Shielding. While held when you Hunker Down you act as having Half Cover from Ranged Attacks.",
         "upgrades": [
             "Tower - +LEVEL Shielding",
             "Warded - Gain 1 Ward at the end of a Rest."

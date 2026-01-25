@@ -1,6 +1,7 @@
 [
     {
         "name": "Fighter",
+        "mainStat":"body",
         "stats": {
             "body": 2,
             "mind": 0,
@@ -33,9 +34,9 @@
         ],
         "arts": [
             [
-                "overwatch",
+                "flex",
                 "fortify",
-                "charge, flex",
+                "charge",
                 "motivate, medical leeches"
             ],
             [
@@ -48,6 +49,7 @@
     },
     {
         "name": "Sorcerer",
+        "mainStat":"arcana",
         "stats": {
             "body": 0,
             "mind": 0,
@@ -95,6 +97,7 @@
     },
     {
         "name": "Ranger",
+        "mainStat":"nature",
         "stats": {
             "body": 0,
             "mind": 2,
@@ -142,6 +145,7 @@
     },
     {
         "name": "Thief",
+        "mainStat":"thieving",
         "stats": {
             "body": 1,
             "mind": 1,
@@ -189,6 +193,7 @@
     },
     {
         "name": "Bard",
+        "mainStat":"charm",
         "stats": {
             "body": 0,
             "mind": 1,
@@ -205,7 +210,7 @@
         "level_explanation": [
             "",
             "",
-            "Since you get +1 to a Main-stat we recommend putting it into Mind, where as for the Sub-stats we recommend putting it into Charm and either Arcana or Thieving"
+            "Since you get +1 to a Main-stat we recommend putting it into Soul, where as for the Sub-stats we recommend putting it into Charm and either Arcana or Thieving"
         ],
         "traits": [
             [
@@ -235,11 +240,60 @@
         ]
     },
     {
-        "name": "",
+        "name": "Paladin",
+        "mainStat":"medicine",
         "stats": {
-            "body": 2,
+            "body": 1,
             "mind": 0,
-            "soul": 0,
+            "soul": 1,
+            "arcana": 1,
+            "crafting": 0,
+            "charm": 2,
+            "nature": -1,
+            "medicine": 1,
+            "thieving": -1
+        },
+        "items": "paladin hammer, shield, light leather, bandage, antidote, stone skin potion, medkit",
+        "quick_exp": "",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Soul, where as for the Sub-stats we recommend putting it into Medicine and either Arcana or Charm."
+        ],
+        "traits": [
+            [
+                "tag team",
+                "hidden in plain sight, trained medic"
+            ],
+            [
+                "art token"
+            ],
+            [
+                "soul blade"
+            ]
+        ],
+        "arts": [
+            [
+                "charge, fortify",
+                "bless, heckle",
+                "blood transfusions, medical leeches",
+                "magic trick, divine detection, covenant whispers"
+            ],
+            [
+                "smite, guardian's riposte, taunt"
+            ],
+            [
+                "headbutt, undeniable challenge, healing bloom"
+            ]
+        ]
+    },
+    {
+        "name": "",
+        "mainStat":"",
+        "stats": {
+            "body": 0,
+            "mind": 0,
+            "soul": 2,
             "arcana": 2,
             "crafting": 1,
             "charm": 1,
@@ -283,6 +337,7 @@
     },
     {
         "name": "",
+        "mainStat":"",
         "stats": {
             "body": 2,
             "mind": 0,

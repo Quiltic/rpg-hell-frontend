@@ -33,7 +33,7 @@ export default function Tooltip({
         <div className={cn("flex flex-col w-auto mr-1 ml-1",className)}>
             <div className="relative group">
                 {/* <!-- Tooltip Words --> */}
-                <div className="tooltip_main">
+                <div className="tooltip_main underline decoration-dotted">
                     {text}
                 </div>
                 

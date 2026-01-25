@@ -57,7 +57,7 @@
 
 
 
-    {"name": "soul covenant", "tags": "", "effect": "Make a pact, oath, or pledge to a powerful entity. (A god, demon, dragon, eldritch being, etc.) Work with your GM to create this covenant. For example, a god may ask you to 'Protect the forest.', or a demon may want you to 'Sacrifice a soul every day!'. Should you fail to keep your covenant you may lose access to this Trait.\nPick any Art of Level 6 or less (regardless of if you have the stats). Once per Rest, you can offer something to your Patron to activate this Art without spending Strain. For example, a god may ask for a prayer, or a demon may ask for blood.\n\nSoul 4 - You may activate this 3 times per Rest. ", "req": "soul 1", "extra": ""
+    {"name": "soul covenant", "tags": "", "effect": "Make a pact, oath, or pledge to a powerful entity. (A god, demon, dragon, eldritch being, etc.) Work with your GM to create this covenant. For example, a god may ask you to 'Protect the forest.', or a demon may want you to 'Sacrifice a soul every day!'. Should you fail to keep your covenant you may lose access to this Trait.\nPick any Art of Level 6 or less (regardless of if you have the stats). Once per Rest, you can offer something to your Patron to activate this Art without spending Strain. For example, a god may ask for a prayer, or a demon may ask for blood.\n\nSoul 4 - You may activate this 3 times per Rest.", "req": "soul 1", "extra": ""
     },
     {"name": "familiar", "tags": "", "effect": "At the end of a Rest create a Familiar Follower. The Familiar has 2xLEVEL Max Health and Strain, +1 Dodge, 7 Speed, 1 in a Main-Stat (Body, Mind, or Soul), 2 in one Sub-Stat of your choice and 1 in another. They know the Art 'telepathy' and have a Spectral Attack (See Weapons), You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead), 3 level one Arts of your choice (it does not need the stat in order to take an Art), and appearance each time it is created.\n- When you gain a stat increase the Familiar gains +1 in a Sub-Stat of your choice. You may only ever have 1 Familiar at a time, if you were to create a Familiar while one already exists the first one morphs into the new one.\n\nSoul 3 - You may pick 4 Arts of level one or two of your choice for the Familiar.\n\nSoul 4 - Choose one (you cannot change this choice later). The Familiar can Fly, learn 1 Art you know, or gain +1 to a Main Stat.", "req": "soul 1", "extra": ""
     },
@@ -65,13 +65,13 @@
     },
     {"name": "boon infusion", "tags": "", "effect": "When you spend Strain to activate a non-Attack Art you may spend 1 Strain to give the affected target(s) Rallied or Empowered for 1 hour. This bonus is given after the Art.\n\nSoul 3 - When you spend or unlock a Locked dice you may gain Rallied or Empowered.", "req": "soul 2", "extra": ""
     },
-    {"name": "soul blade ", "tags": "", "effect": "Turn a Melee Weapon you wield into your Soul Weapon. This weapon does damage equal to 1+SOUL or if it's two handed 3+SOUL, has Returning, can Glow, and cannot be broken except by spells.\n\nSoul 4 - The weapon gains; Bonus: Gain Rallied or Empowered until the end of your turn.", "req": "soul 2", "extra": ""
+    {"name": "soul blade", "tags": "", "effect": "Turn a Melee Weapon you wield into your Soul Weapon. This weapon does damage equal to 1+SOUL or if it's two handed 3+SOUL, has Returning, can Glow, and cannot be broken except by spells.\n\nSoul 4 - The weapon gains; Bonus: Gain Rallied or Empowered until the end of your turn.", "req": "soul 2", "extra": ""
     },
     {"name": "magical knowledge", "tags": "", "effect": "You learn 2 additional Arts of your choice that you meet the requirements for.\n\nSoul 4 - You learn an additional Art of your choice that you meet the requirements for (3 gained from this Trait).", "req": "soul 2", "extra": ""
     },
     {"name": "powered alignment", "tags": "", "effect": "While you are Empowered, you have +1 Speed and +1 on Weapon Attack Sums.\nWhile you are Rallied, you refund 1 Strain at the end of your turn and may give Glow on targets you touch or hit.", "req": "soul 3", "extra": ""
     },
-    {"name": "???", "tags": "", "effect": "Once per turn, while you are Rallied or Empowered you can remove Rallied or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Rallied or Empowered, and may turn Rallied into Empowered or vice versa. ", "req": "soul 3", "extra": ""
+    {"name": "???", "tags": "", "effect": "Once per turn, while you are Rallied or Empowered you can remove Rallied or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Rallied or Empowered, and may turn Rallied into Empowered or vice versa.", "req": "soul 3", "extra": ""
     },
     {"name": "summoners command", "tags": "", "effect": "At the start of your turn you may have all of your Followers move without spending a dice.\n\nSoul 4 - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.", "req": "soul 3", "extra": ""
     },
@@ -180,7 +180,7 @@
     },
     {"name": "heightened senses", "tags": "", "effect": "You can see in poorly lit areas as if they were illuminated, and gain +1 on Senses rolls.\n\nNature 4 - You have +1d4 instead of +1 on Senses rolls.", "req": "nature 3", "extra": ""
     },
-    {"name": "expert elementalist ", "tags": "", "effect": "Whenever you spend Strain, if that spell applies Burn, Wet, Slow, or does Knockback, you can spend 1 Strain to do actions based on stacks given. Multiple actions may be activated per Spell.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Rallied or do a Soul contest to make the target Prone.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.", "req": "nature 3", "extra": ""
+    {"name": "expert elementalist", "tags": "", "effect": "Whenever you spend Strain, if that spell applies Burn, Wet, Slow, or does Knockback, you can spend 1 Strain to do actions based on stacks given. Multiple actions may be activated per Spell.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Rallied or do a Soul contest to make the target Prone.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.", "req": "nature 3", "extra": ""
     },
     {"name": "feral", "tags": "", "effect": "When you or a Follower kill a creature you gain +1 damage and Max Strain for 1 hour. (This refunds 1 Strain)\nYou do not get attacked by creatures with the Animal type under normal circumstances or until you attack them.", "req": "nature 4", "extra": ""
     },
@@ -203,7 +203,7 @@
     },
     {"name": "eyes of riches", "tags": "", "effect": "You can see in poorly lit areas as if they were illuminated. You have learned real from fake and gain 1d4 when checking for an item's authenticity or to gauge its price.\n\nThieving 4 - When you gain Blinded you may spend 1 Strain to remove Blinded.", "req": "thieving 3", "extra": ""
     },
-    {"name": "master thief ", "tags": "", "effect": "When you become Obscured (such as when you enter Fog) you may spend 1 Strain to become Hidden instead.", "req": "thieving 4", "extra": ""
+    {"name": "master thief", "tags": "", "effect": "When you become Obscured (such as when you enter Fog) you may spend 1 Strain to become Hidden instead.", "req": "thieving 4", "extra": ""
     },
     {"name": "trained", "tags": "", "effect": "When you attack a target that has Marked you may change the Attack Sum to 5. Additionally, you get +1 on contests, or Thieving checks you initiate against a Marked target.", "req": "thieving 4", "extra": ""
     },
@@ -236,7 +236,7 @@
     },
     {"name": "natural conduction", "tags": "", "effect": "When you deal damage to a creature you may instead make the creature spend half as much Strain (rounded up) and deal 2 damage.\nWhen you heal another creature you may instead make the creature refund half as much Strain (rounded up) and not heal.", "req": "nature 4, medicine 4", "extra": ""
     },
-    {"name":"magnetic charm","req":"crafting 4, charm 4","tags":"","effect":"When you effect a creature with an Art or damage them, they may not use their Locked Dice until the end of your turn. When you Charm a creature you may steal any Locked Dice they have. Locking it yourself if you have space or just removing it if you don't. ","extra":""
+    {"name":"magnetic charm","req":"crafting 4, charm 4","tags":"","effect":"When you effect a creature with an Art or damage them, they may not use their Locked Dice until the end of your turn. When you Charm a creature you may steal any Locked Dice they have. Locking it yourself if you have space or just removing it if you don't.","extra":""
     },
     {"name": "apex predator", "tags": "", "effect": "When you or a Follower kill a creature you gain a Hunted Token. You or a Follower may spend a Hunted Token to have +1d4 damage on an Attack, give Marked to any target you can see or gain Empowered for up to 1 hour.", "req": "nature 4, thieving 4", "extra": ""
     },

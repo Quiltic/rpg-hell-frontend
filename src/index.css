@@ -164,6 +164,10 @@ ul li {
 
 }
 
+.tooltip_hide:hover {
+  display: block;
+}
+
 .tooltip_main:hover + .tooltip_hide {
   display: block;
   }

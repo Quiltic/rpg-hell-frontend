@@ -8,6 +8,8 @@ import { cn } from "../../../styling/utilites";
 
 type Props = {
     _trait: Trait;
+    moveTrait?: (item: Trait) => void;
+    _className?: string;
 };
 
 
@@ -28,11 +30,13 @@ const STUPID_COLOR_TYPESCRIPT_BS = [
 ];
 
 export default function TraitCard({
-    _trait: _trait = {"name": "LOADING TRAIT", "tags": ["loading"], "effect": "Loading.", "req": ["loading 1"], "extra": ""},
+    _trait: _trait = {"name": "LOADING TRAIT", "tags": "loading", "effect": "Loading.", "req": "loading 1", "extra": ""},
+    moveTrait,
+    _className
 }: Props) {    
 
     
-
+    // console.log(_trait);
     const ee = formatEffectString(_trait.effect).split("\n\n");
     // console.log(ee) ⚄.replace(/\#/gi, "⚀") ?? ""
     // .replace('###', "⚀⚁⚂").replace('##', "⚀⚁").replace('#', "⚀")
@@ -43,13 +47,18 @@ export default function TraitCard({
     );
 
     // gives automatic gradients for trait color bar
-    let graid = `bg-gradient-to-br from-${_trait.req[0].toString().replace(/[0-9\s]/g, '') ?? ""}-400 to-${_trait.req[0]?.toString().replace(/[0-9\s]/g, '') ?? ""}-400 p-2`;
-    if (_trait.req.length > 1) {
-        graid = `bg-gradient-to-br from-${_trait.req[0].toString().replace(/[0-9\s]/g, '') ?? ""}-400 to-${_trait.req[1].toString().replace(/[0-9\s]/g, '') ?? ""}-400 p-2`;
+    let graid = `bg-gradient-to-br from-${_trait.req.replace(/[0-9\s]/g, '') ?? ""}-400 to-${_trait.req.replace(/[0-9\s]/g, '') ?? ""}-400 p-2`;
+    if (_trait.req.split(", ").length > 1) {
+        graid = `bg-gradient-to-br from-${_trait.req.split(", ")[0].replace(/[0-9\s]/g, '') ?? ""}-400 to-${_trait.req.split(", ")[1].toString().replace(/[0-9\s]/g, '') ?? ""}-400 p-2`;
     }
 
     return (
-        <div className="flex flex-col m-4">
+        <div className={cn("flex flex-col m-4", _className)}
+            onClick={() => {
+                if (moveTrait != undefined)
+                    moveTrait(_trait);
+            }}
+        >
             <div className="grid grid-cols-[2fr_1fr] -mb-5">
                 <div className="lg:text-lg font-bold capitalize bg-dark-600 rounded-t-lg border-solid border-2 border-body-700/20 m-4 p-2">
                     {_trait.name ?? ""}
