@@ -31,7 +31,7 @@ export default function Tooltip({
     window.addEventListener("scroll", toggleVisible);
 
     return (
-        <div className={cn("flex flex-col w-auto mr-1 ml-1",className)}>
+        <div className={cn("mr-1 ml-1",className)}>
             <div className="relative group">
                 {/* <!-- Tooltip Words --> */}
                 <div className="tooltip_main underline decoration-dotted">
@@ -39,7 +39,7 @@ export default function Tooltip({
                 </div>
                 
                 {/* Tooltip Show */}
-                <div className={cn("tooltip_hide", (top ? "bottom-full" : "top-full"))}>
+                <div className={cn("tooltip_hide", (top ? "bottom-[60%]" : "top-full"))}>
                     {display}
                 </div>
             </div>

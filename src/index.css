@@ -160,7 +160,7 @@ ul li {
 .tooltip_hide {
   display: none;
   
-  @apply absolute border-solid border-2 border-body-700/20 mb-2 w-auto px-2 py-1 bg-dark-400 rounded shadow-lg left-1/2 transform -translate-x-1/2 z-20 
+  @apply absolute border-solid border-2 border-body-700/20 mb-2 px-2 py-1 bg-dark-400 rounded shadow-lg left-1/2 transform -translate-x-1/2 z-20 
 
 }
 
@@ -173,7 +173,7 @@ ul li {
   }
 
 .boxed_text {
-  @apply p-2 m-2 bg-dark-400 italic rounded-md justify-center items-center flex border-solid border-2 border-body-700/20 w-auto flex-col
+  @apply p-2 m-2 bg-dark-400 italic rounded-md justify-center items-center border-solid border-2 border-body-700/20
 }
 
 hr {

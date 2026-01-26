@@ -8,6 +8,7 @@ import { useTraits } from "../../../hooks/useTraits";
 import ExampleCharSheet from "../../CharacterSheet/InteractiveCharSheets/ExampleCharSheet";
 import { Button } from "../../ui/Button/Button";
 import example_char_sheets from "../../../assets/OfflineJsons/example_char_sheets.json"
+import Tooltip from "../../ui/Tooltip";
 
 const example_displayedCreature = {
         "name": "",
@@ -59,7 +60,7 @@ export default function CharacterExamplesPage() {
                             onClick={() => {setCurCreature(char)}}
                             className="m-2 p-2"
                         >
-                            {char.name}
+                            <Tooltip text={char.name} display={<div className="italic">{char.quick_exp}</div>}/>
                         </Button>
                     )})
                 }

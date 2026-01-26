@@ -53,21 +53,21 @@ export default function TraitCard({
     }
 
     return (
-        <div className={cn("flex flex-col m-4", _className)}
+        <div className={cn("m-4", _className)}
             onClick={() => {
                 if (moveTrait != undefined)
                     moveTrait(_trait);
             }}
         >
-            <div className="grid grid-cols-[2fr_1fr] -mb-5">
-                <div className="lg:text-lg font-bold capitalize bg-dark-600 rounded-t-lg border-solid border-2 border-body-700/20 m-4 p-2">
+            {/* <div className="grid grid-cols-[2fr_1fr] -mb-5"> */}
+                <div className="lg:text-lg font-bold capitalize bg-dark-600 rounded-t-lg border-solid border-2 border-body-700/20 m-4 p-2 -mb-1">
                     {_trait.name ?? ""}
-                </div>
-                <div className="flex flex-col capitalize bg-dark-600 rounded-t-lg border-solid border-2 border-body-700/20 m-4 p-2">
+                {/* </div>
+                <div className="flex flex-col capitalize bg-dark-600 rounded-t-lg border-solid border-2 border-body-700/20 m-4 p-2"> */}
                     {req}
                 </div>
-            </div>
-            <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20" >
+            {/* </div> */}
+            <div className="bg-dark-400 rounded-md border-solid border-2 border-body-700/20" >
                 <div className={graid}/>
                 {/* <div
                     dangerouslySetInnerHTML={{ __html: ee }}
@@ -93,13 +93,13 @@ export default function TraitCard({
                         components={{
                             ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
                         }}
-                        className="text-left mb-2.5"
+                        className="text-left mb-2.5 p-2"
                     >
                         {line}
                     </Markdown>
                     
                     { i < ee.length-1 && 
-                        <div className="mt-2.5 w-full text-center border-b-2 border-solid border-body-700/20">
+                        <div className="mt-2.5 text-center border-b-2 border-solid border-body-700/20">
                             {/* <div className="px-2.5 py-2 bg-dark-400 border-2 border-solid border-body-700/20">TEST</div> */}
                         </div>
                     }
