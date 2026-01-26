@@ -17,8 +17,8 @@ export default function SpellsTable({
     moveIsAdd = true,
 }: Props) {
     return (
-        <table className="border-collapse table-fixed md:table-auto dark:text-light text-dark rounded-md">
-            <thead className="dark:bg-dark-700 bg-light-300 font-bold">
+        <table className="border-collapse table-fixed md:table-auto text-light rounded-md">
+            <thead className="bg-dark-700 font-bold">
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
                     <th className="table-cell md:hidden w-1/4">Spell</th>

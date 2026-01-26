@@ -114,7 +114,7 @@ export default function Login() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                         >
-                            <Popover.Panel className="relative z-10 mt-3 right-3 px-2 w-40 h-20 rounded-lg bg-light-100 dark:bg-dark-100">
+                            <Popover.Panel className="relative z-10 mt-3 right-3 px-2 w-40 h-20 rounded-lg bg-dark-100">
                                 <div className="grid h-20 content-evenly grid-cols-1">
                                     {auth.admin && (
                                         <>

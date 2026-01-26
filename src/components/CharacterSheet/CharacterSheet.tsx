@@ -78,7 +78,7 @@ export default function CharacterSheetPage() {
             <textarea
                 rows={40}
                 placeholder="Whip around like a yoyo"
-                className="bg-body-700/20 dark:bg-dark-300 h-[60%] w-[100%] rounded-lg p-2 my-2"
+                className="bg-dark-300 h-[60%] w-[100%] rounded-lg p-2 my-2"
                 value={tempSheet}
                 onChange={(e) => setTempSheet(e.target.value)}
             />

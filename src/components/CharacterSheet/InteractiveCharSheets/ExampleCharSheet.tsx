@@ -154,7 +154,7 @@ export default function ExampleCharSheet({
                     <div className="flex flex-col justify-between m-1 p-1">
 
                         {/* Scores */}
-                        <div className="grid grid-cols-3 gap-1 justify-left bg-body/10 dark:bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
+                        <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
                             <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
                                 Body {_displayedCreature.stats.body > 0 ? "+":""}{_displayedCreature.stats.body}
                             </div>
@@ -184,12 +184,12 @@ export default function ExampleCharSheet({
                             </div>
                         </div>
 
-                        <div className="flex flex-col justify-between dark:bg-dark-400 m-2 p-2 w-full rounded-md">
+                        <div className="flex flex-col justify-between bg-dark-400 m-2 p-2 w-full rounded-md">
                             
                             {/* HP/Shielding/Dodge/Ward/Strain/Speed/Combat Dice */}
                             <div className="flex flex-row w-full justify-between">
 
-                                <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md m-2">
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
                                     HEALTH:
                                     <div className="flex flex-row justify-center items-center">
                                         <input
@@ -203,7 +203,7 @@ export default function ExampleCharSheet({
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md m-2">
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
                                     SHIELDING:
                                     <div className="flex flex-row justify-center items-center">
                                         <input
@@ -217,21 +217,21 @@ export default function ExampleCharSheet({
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
                                     <div className="mb-2">
                                     DODGE: {_displayedCreature.items.includes("light leather") || _displayedCreature.items.includes("clothing") ? "+1": _displayedCreature.items.includes("heavy plate") ? "-1" : "0"}
                                     </div>
                                     
                                     SPEED: {_displayedCreature.items.includes("clothing") ? "7": _displayedCreature.items.includes("heavy plate") || _displayedCreature.items.includes("medium chainmail") ? "5" : "6"}
                                 </div>
-                                <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
                                     CD:
                                     <div className="flex flex-row justify-center items-center font-bold">
                                         {4+Math.floor(curLvl/2)}
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md m-2">
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
                                     STRAIN:
                                     <div className="flex flex-row justify-center items-center">
                                         <input
@@ -352,13 +352,16 @@ There is a link above for what a Story is!"
                                 <>
                                  {!(curTraits.includes(foundTrait)) && // foundTrait will always be found as it is found when giving all traits
                                  
-                                    <div className="flex flex-row justify-center items-center">
+                                    <div className="flex flex-row justify-center items-center"
+                                    onClick={() => {addChosenTrait(foundTrait)}}
+                                    >
                                         {front} we recommend taking <Tooltip text={list} key={id}
                                                 display={<>
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                 <TraitCard _trait={foundTrait} _className="m-1" moveTrait={() => addChosenTrait(foundTrait)}/>
                                                 </>} 
                                                 className="capitalize rounded-md bg-dark-300 p-1 m-1"
+                                                
                                         />
                                     </div>
                                  
@@ -380,7 +383,9 @@ There is a link above for what a Story is!"
                                                 <>
                                                 {!(curTraits.includes(foundTrait)) &&  // foundTrait will always be found as it is found when giving all traits
                                                 
-                                                <div key={id} className="flex flex-row justify-center items-center">
+                                                <div key={id} className="flex flex-row justify-center items-center"
+                                                onClick={() => {addChosenTrait(foundTrait)}}
+                                                >
                                                     <Tooltip text={t} key={id}
                                                             display={<>
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
@@ -431,7 +436,9 @@ There is a link above for what a Story is!"
                                 <>
                                  {!(curArts.includes(foundArt)) &&  // foundArt will always be found as it is found when giving all arts
                                  
-                                    <div className="flex flex-row justify-center items-center">
+                                    <div className="flex flex-row justify-center items-center"
+                                    onClick={() => {addChosenArt(foundArt)}}
+                                    >
                                         {front} we recommend taking <Tooltip text={list} key={id}
                                                 display={<>
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
@@ -459,7 +466,9 @@ There is a link above for what a Story is!"
                                                 <>
                                                 {!(curArts.includes(foundArt)) &&   // foundArt will always be found as it is found when giving all arts
                                                 
-                                                <div key={id} className="flex flex-row justify-center items-center">
+                                                <div key={id} className="flex flex-row justify-center items-center"
+                                                onClick={() => {addChosenArt(foundArt)}}
+                                                >
                                                     <Tooltip text={t} key={id}
                                                             display={<>
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>

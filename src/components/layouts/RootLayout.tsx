@@ -13,10 +13,11 @@ export default function RootLayout() {
                 <AuthProvider>
                     <Header />
                     <div className="max-w-7xl mx-auto p-2 md:p-8 text-center">
+                        {/* max-w-[96rem] */}
                         <Outlet />
                     </div>
                     <ScrollButton />
-                    <RootDicePopup/>
+                    <RootDicePopup startingDice={[1,1]} startingBonus={0} startOpen={false}/>
                 </AuthProvider>
             </div>
         </>

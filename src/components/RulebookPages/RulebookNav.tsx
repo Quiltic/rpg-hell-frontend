@@ -84,7 +84,7 @@ export default function RulebookNavigation() {
     return (
         <>
             <h2>Rulebook Pages</h2>
-            <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 dark:bg-dark-400">
+            <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 bg-dark-400">
                 <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
                     {directoryPages.map((page) => {
                         const absolutePath = `${rulebookBasePath}${page.path}`;

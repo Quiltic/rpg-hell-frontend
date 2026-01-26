@@ -17,8 +17,8 @@ export default function CreaturesTable({
     // const
 
     return (
-        <table className="border-collapse table-auto dark:text-light text-dark rounded-md">
-            <thead className="dark:bg-dark-400 bg-light-300 font-bold">
+        <table className="border-collapse table-auto text-light rounded-md">
+            <thead className="bg-dark-400 font-bold">
                 <tr>
                     <th>Name</th>
                     <th>Level</th>

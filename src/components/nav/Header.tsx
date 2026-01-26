@@ -17,17 +17,17 @@ const pages: HeaderPageLink[] = [
     {
         name: "Home",
         href: "/",
-        color: "dark:hover:text-body-700 dark:text-body-600 hover:underline",
+        color: "hover:text-body-700 text-body-600 hover:underline",
     },
     {
         name: "Rulebook",
         href: "rulebook",
-        color: "dark:hover:text-soul-700 dark:text-soul-600 hover:underline",
+        color: "hover:text-soul-700 text-soul-600 hover:underline",
     },
     {
         name: "Character Sheet",
         href: "character-sheet",
-        color: "dark:hover:text-mind-700 dark:text-mind-600 hover:underline",
+        color: "hover:text-mind-700 text-mind-600 hover:underline",
     },
 ];
 
@@ -38,7 +38,8 @@ function classNames(...classes: string[]) {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="header-bg-gradient dark:bg-dark-600">
+        <header className="bg-dark-600"> 
+        {/* header-bg-gradient dark:bg-dark-600 */}
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 px-8 py-4 md-px-8"
                 aria-label="Global"
@@ -89,7 +90,7 @@ export default function Header() {
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="bg-body-900 dark:bg-dark fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <Dialog.Panel className="bg-dark fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>

@@ -44,7 +44,7 @@ export default function CharacterSheetStatIncrementor({
             className={classNames(
                 color,
                 "grid grid-rows-1 grid-cols-6 w-full md:mw-72 h-14 justify-items-center align-middle items-center rounded-full text-3xl capitalize px-2 select-none",
-                statScore > 0 ? "ring-2 ring-dark dark:ring-light" : ""
+                statScore > 0 ? "ring-2 ring-light" : ""
             )}
         >
             <div

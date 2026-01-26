@@ -212,7 +212,7 @@ export default function ItemsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
+                                    "w-10 rounded-md px-2 py-1 ring-aabase hover:font-bold bg-dark-600",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -225,8 +225,8 @@ export default function ItemsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "w-16 rounded-md bg-body-700/20 p-2 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600 capitalize w-auto",
-                                            `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600 dark:ring-${n.toLowerCase()}-600`,
+                                            "w-16 rounded-md p-2 px-1 py-1 ring-aabase hover:font-bold bg-dark-600 capitalize w-auto",
+                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`, //text-${n.toLowerCase()} dark:
                                             selected ? "ring-2" : ""
                                         )
                                     }

@@ -44,7 +44,7 @@ export default function CreatureSheet({
                 <div className="flex flex-row justify-between m-1 p-1">
 
                     {/* Scores */}
-                    <div className="grid grid-cols-3 gap-1 justify-left bg-body/10 dark:bg-dark-300 p-3 rounded-md flex-wrap ">    
+                    <div className="grid grid-cols-3 gap-1 justify-left bg-dark-300 p-3 rounded-md flex-wrap ">    
                         <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
                             Body: {displayedCreature.stats.body}
                         </div>
@@ -77,22 +77,22 @@ export default function CreatureSheet({
                     {/* HP/Shielding/Dodge/Ward */}
                     <div className="flex flex-col justify-between">
                         
-                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                        <div className="bg-dark-300 p-2 rounded-md">
                             HEALTH: {displayedCreature.health || 4*displayedCreature.stats.body+3*displayedCreature.stats.mind+2*displayedCreature.stats.soul+Math.ceil(displayedCreature.level)}
                         </div>
 
                         { displayedCreature.shielding > 0 &&
-                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                        <div className="bg-dark-300 p-2 rounded-md">
                             SHIELDING: {displayedCreature.shielding}
                         </div>
                         }
 
-                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                        <div className="bg-dark-300 p-2 rounded-md">
                             DODGE: {displayedCreature.dodge}
                         </div>
                         
                         { displayedCreature.ward > 0 &&
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 WARD: {displayedCreature.ward}
                             </div>
                         }
@@ -101,17 +101,17 @@ export default function CreatureSheet({
                     {/* Strain/Speed/Combat Dice */}
                     <div className="flex flex-col justify-between">
                         {displayedCreature.strain != 0 && 
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 STRAIN: {displayedCreature.strain}
                             </div>
                         }
                         {displayedCreature.strain == 0 &&
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 STRAIN: {2*displayedCreature.stats.body+3*displayedCreature.stats.mind+4*displayedCreature.stats.soul+Math.ceil(displayedCreature.level)}
                             </div>
                         }
                         
-                        <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md">
+                        <div className="flex flex-col bg-dark-300 p-2 rounded-md">
                             SPEED: {displayedCreature.speed}
                             
                             { displayedCreature.passives.includes("swim") &&
@@ -127,7 +127,7 @@ export default function CreatureSheet({
                             }
                         </div>
 
-                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                        <div className="bg-dark-300 p-2 rounded-md">
                             CD: {displayedCreature.cd || 4+Math.floor(displayedCreature.level/2)}
                         </div>
 

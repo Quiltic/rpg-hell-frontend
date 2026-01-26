@@ -61,7 +61,7 @@ export default function Popup({
                                 leaveTo="opacity-0 scale-95"
                             >
                                 
-                                <Dialog.Panel className={cn(isSmol ? "w-[100%] lg:w-[32%]":"w-[95%] lg:w-[80%]","h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-light dark:bg-dark")}>
+                                <Dialog.Panel className={cn(isSmol ? "w-[100%] lg:w-[32%]":"w-[95%] lg:w-[80%]","h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-dark")}>
                                     <Dialog.Title
                                         as="div"
                                         className="text-lg font-medium leading-6 flex flex-row justify-between"

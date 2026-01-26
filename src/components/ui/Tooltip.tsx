@@ -19,10 +19,11 @@ export default function Tooltip({
     const [top, setTop] = useState(false);
 
     const toggleVisible = () => {
-        const scrolled = document.documentElement.scrollTop;
-        if (scrolled > 200) {
+        const scrolled = document.documentElement.getBoundingClientRect();
+        console.log(scrolled)
+        if (scrolled.top > 200) {
             setTop(false);
-        } else if (scrolled <= 200) {
+        } else if (scrolled.top <= 200) {
             setTop(true);
         }
     };

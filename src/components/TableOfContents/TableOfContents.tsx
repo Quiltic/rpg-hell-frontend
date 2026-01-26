@@ -105,32 +105,32 @@ const basicContents: TableOfContentsItem = {
                     subItems: [
                         {
                             name: "Arcana",
-                            className: "font-semibold text-arcana dark:text-arcana-700",
+                            className: "font-semibold text-arcana-700",
                             anchorHref: "traits-simple-arcana",
                         },
                         {
                             name: "Charm",
-                            className: "font-semibold text-charm dark:text-charm-700",
+                            className: "font-semibold text-charm-700",
                             anchorHref: "traits-simple-charm",
                         },
                         {
                             name: "Crafting",
-                            className: "font-semibold text-crafting dark:text-crafting-700",
+                            className: "font-semibold text-crafting-700",
                             anchorHref: "traits-simple-crafting",
                         },
                         {
                             name: "Nature",
-                            className: "font-semibold text-nature dark:text-nature-700",
+                            className: "font-semibold text-nature-700",
                             anchorHref: "traits-simple-nature",
                         },
                         {
                             name: "Medicine",
-                            className: "font-semibold text-medicine dark:text-medicine-700",
+                            className: "font-semibold text-medicine-700",
                             anchorHref: "traits-simple-medicine",
                         },
                         {
                             name: "Thieving",
-                            className: "font-semibold text-thieving dark:text-thieving-700",
+                            className: "font-semibold text-thieving-700",
                             anchorHref: "traits-simple-thieving",
                         },
                     ]
@@ -145,15 +145,15 @@ const basicContents: TableOfContentsItem = {
             subItems: [
                 {
                     name: "Techniques",
-                    className: "font-semibold text-body dark:text-body-700",
+                    className: "font-semibold text-body-700",
                 },
                 {
                     name: "Insights",
-                    className: "font-semibold text-body dark:text-mind-700",
+                    className: "font-semibold text-mind-700",
                 },
                 {
                     name: "Spells and Magic",
-                    className: "font-semibold text-body dark:text-soul-700",
+                    className: "font-semibold text-soul-700",
                 },
             ]
         },
@@ -206,19 +206,19 @@ const statsSkillsContents: TableOfContentsItem = {
             subItems: [
                 {
                     name: "Health",
-                    className: "font-semibold text-body dark:text-charm-700",
+                    className: "font-semibold text-charm-700",
                 },
                 {
                     name: "Armor",
-                    className: "font-semibold text-body dark:text-thieving-700",
+                    className: "font-semibold text-thieving-700",
                 },
                 {
                     name: "Max Strain",
-                    className: "font-semibold text-body dark:text-soul-700",
+                    className: "font-semibold text-soul-700",
                 },
                 {
                     name: "Speed",
-                    className: "font-semibold text-body dark:text-arcana-700",
+                    className: "font-semibold text-arcana-700",
                 },
             ],
         },
@@ -230,15 +230,15 @@ const statsSkillsContents: TableOfContentsItem = {
             subItems: [
                 {
                     name: "Body",
-                    className: "font-semibold text-body dark:text-body-700",
+                    className: "font-semibold text-body-700",
                 },
                 {
                     name: "Mind",
-                    className: "font-semibold text-mind dark:text-mind-700",
+                    className: "font-semibold text-mind-700",
                 },
                 {
                     name: "Soul",
-                    className: "font-semibold text-soul dark:text-soul-700",
+                    className: "font-semibold text-soul-700",
                 },
             ],
         },
@@ -250,27 +250,27 @@ const statsSkillsContents: TableOfContentsItem = {
             subItems: [
                 {
                     name: "Arcana",
-                    className: "font-semibold text-arcana dark:text-arcana-700",
+                    className: "font-semibold text-arcana-700",
                 },
                 {
                     name: "Charm",
-                    className: "font-semibold text-charm dark:text-charm-700",
+                    className: "font-semibold text-charm-700",
                 },
                 {
                     name: "Crafting",
-                    className: "font-semibold text-crafting dark:text-crafting-700",
+                    className: "font-semibold text-crafting-700",
                 },
                 {
                     name: "Nature",
-                    className: "font-semibold text-nature dark:text-nature-700",
+                    className: "font-semibold text-nature-700",
                 },
                 {
                     name: "Medicine",
-                    className: "font-semibold text-medicine dark:text-medicine-700",
+                    className: "font-semibold text-medicine-700",
                 },
                 {
                     name: "Thieving",
-                    className: "font-semibold text-thieving dark:text-thieving-700",
+                    className: "font-semibold text-thieving-700",
                 },
             ],
         },

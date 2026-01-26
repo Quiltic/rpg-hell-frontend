@@ -18,7 +18,7 @@ export default function HeadingJumpTo({
                     columnGap: "1rem",
                     maxHeight: "32rem",
                 }}
-                className="max-w-lg rounded-md bg-body-900/50 px-6 py-2 dark:bg-dark-300/80"
+                className="max-w-lg rounded-md px-6 py-2 bg-dark-300/80"
             >
                 {headings.map((h: Heading) => {
                     let c = "";

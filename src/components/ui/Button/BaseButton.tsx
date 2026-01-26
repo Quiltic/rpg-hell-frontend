@@ -65,7 +65,7 @@ export const BaseButton = React.forwardRef<
 
         return (
             <button //Most of the time I use a polymorphic component that change to a link when there is href in props
-                className={cn(baseButtonVariants({ size, className }), disabled==true ? " dark:bg-base bg-base hover:bg-base hover:dark:bg-base cursor-not-allowed opacity-50 hover" : "")}
+                className={cn(baseButtonVariants({ size, className }), disabled==true ? "bg-base hover:bg-base cursor-not-allowed opacity-50 hover" : "")}
                 ref={ref}
                 disabled={disabled || isLoading}
                 data-state={isLoading ? "loading" : undefined}

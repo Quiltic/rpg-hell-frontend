@@ -85,7 +85,7 @@ export default function CreatureSheet({
     }
 
     return (
-        <div className="flex flex-col m-5 p-4 dark:bg-dark-400 rounded-md">
+        <div className="flex flex-col m-5 p-4 bg-dark-400 rounded-md">
             <div className="flex justify-between mb-3">
                 <div className="name capitalize font-bold">{displayedCreature.name}</div>
                 <div className="level">LEVEL: {displayedCreature.level}</div>
@@ -94,7 +94,7 @@ export default function CreatureSheet({
 
             <div className="flex flex-row justify-between">
 
-                <div className="col-span-2 bg-body/10 dark:bg-dark-300 p-3 rounded-md flex-wrap ">
+                <div className="col-span-2 bg-dark-300 p-3 rounded-md flex-wrap ">
                     <div className="flex flex-row capitalize gap-1 items-center">
                         {stats}
                     </div>
@@ -106,7 +106,7 @@ export default function CreatureSheet({
                     </div>
                 </div>
 
-                <div className="flex flex-col mb-3 dark:bg-dark-300 p-3 rounded-md">
+                <div className="flex flex-col mb-3 bg-dark-300 p-3 rounded-md">
                     
                     <div>MAX HEALTH: {health}</div>
 
@@ -121,7 +121,7 @@ export default function CreatureSheet({
                     }
                 </div>
 
-                <div className="flex flex-col mb-3 dark:bg-dark-300 p-3 rounded-md">
+                <div className="flex flex-col mb-3 bg-dark-300 p-3 rounded-md">
                     <div>SPEED: {speed}</div>
                     { displayedCreature.traits.includes("swimmer") &&
                     <div>Can Swim</div>
@@ -137,7 +137,7 @@ export default function CreatureSheet({
             </div>
             <div className="mb-3">
                 <div className="font-bold mb-1">ACTIVES</div>
-                <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                <div className="flex justify-between mb-1 flex-grow p-4 bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                     {activeLines.join("\n")}
                 </div>
             </div>
@@ -145,7 +145,7 @@ export default function CreatureSheet({
             { passiveLines.length != 0 &&
                 <div className="mb-3">
                     <div className="font-bold mb-1">PASSIVES</div>
-                    <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                    <div className="flex justify-between mb-1 flex-grow p-4 bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {passiveLines.join("\n")}
                     </div>
                 </div>
@@ -154,7 +154,7 @@ export default function CreatureSheet({
             { itemLines.length != 0 &&
                 <div className="mb-3">
                     <div className="font-bold mb-1">ITEMS</div>
-                    <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                    <div className="flex justify-between mb-1 flex-grow p-4 bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {itemLines.join("\n")}
                     </div>
                 </div>
@@ -166,7 +166,7 @@ export default function CreatureSheet({
                         <div className="font-bold mb-1">ARTS</div>
                         <div className="font-bold mb-1">MAX STRAIN: {soulStrain}</div>
                     </div>
-                    <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                    <div className="flex justify-between mb-1 flex-grow p-4 bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                         {spellLines.join("\n")}
                     </div>
                 </div>
@@ -177,7 +177,7 @@ export default function CreatureSheet({
                 { displayedCreature.notes != "" &&
                     <>
                         <div className="font-bold mb-1">NOTES</div>
-                        <div className="flex justify-between mb-1 flex-grow p-4 bg-body/10 dark:bg-dark-300 whitespace-pre-wrap overflow-y-auto">
+                        <div className="flex justify-between mb-1 flex-grow p-4 bg-dark-300 whitespace-pre-wrap overflow-y-auto">
                             {displayedCreature.notes}
                         </div>
                     </>

@@ -469,7 +469,7 @@ export default function WepCreatorPage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-2 py-1 dark:bg-dark-600 bg-grey-400 rounded-md ring-light w-15",
+                                            "hover:font-bold px-2 py-1 bg-dark-600 rounded-md ring-light w-15",
                                             selected ? "ring-2" : ""
                                         )
                                     }

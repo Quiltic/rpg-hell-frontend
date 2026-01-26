@@ -102,7 +102,7 @@ export default function DicePopup({
                         <Tab.List className="flex flex-wrap gap-2">
                             <Tab className={({ selected }) =>
                                     cn("w-10 rounded-t-md px-2 py-1 ring-aabase hover:font-bold",
-                                        selected ? "ring-2 bg-body-400 dark:bg-dark-400" : "bg-body-700/20 dark:bg-dark-600"
+                                        selected ? "ring-2 bg-dark-400" : "bg-dark-600"
                                     )}>
                                 <img className="w-full object-cover"
                                     src={persDice}
@@ -111,8 +111,8 @@ export default function DicePopup({
                             </Tab>
                             <Tab
                                 className={({ selected }) =>
-                                    cn("w-10 rounded-t-md bg-body-700/20 px-2 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
-                                        selected ? "ring-2 bg-body-400 dark:bg-dark-400" : "bg-body-700/20 dark:bg-dark-600")
+                                    cn("w-10 rounded-t-md px-2 py-1 ring-aabase hover:font-bold bg-dark-600",
+                                        selected ? "ring-2 bg-dark-400" : "bg-dark-600")
                                 }
                             >
                                 <img className="w-full object-cover"
@@ -213,7 +213,7 @@ export default function DicePopup({
                         <input
                             placeholder="Bonus"
                             name="Bonus"
-                            className="w-[60%] lg:w-auto rounded-lg bg-body-700/40 p-2 active:ring-2 active:ring-dark-700 dark:bg-soul-700/10 dark:active:ring-light-600"
+                            className="w-[60%] lg:w-auto rounded-lg p-2 active:ring-2 bg-soul-700/10 active:ring-light-600"
                             value={Bonus}
                             onChange={(e) => SetBonus(Number(e.target.value))}
                         ></input>

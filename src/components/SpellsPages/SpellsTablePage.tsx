@@ -208,7 +208,7 @@ export default function SpellsTablePage() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "w-10 rounded-md bg-body-700/20 px-2 py-1 ring-aabase hover:font-bold dark:bg-dark-600",
+                                    "w-10 rounded-md px-2 py-1 ring-aabase hover:font-bold bg-dark-600",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -221,8 +221,8 @@ export default function SpellsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "capitalize w-16 rounded-md bg-body-700/20 px-1 py-1 ring-aabase hover:font-bold dark:bg-dark-600 w-auto",
-                                            `text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600 dark:ring-${n.toLowerCase()}-600`,
+                                            "capitalize w-16 rounded-md px-1 py-1 ring-aabase hover:font-bold bg-dark-600 w-auto",
+                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`, //text-${n.toLowerCase()} dark:
                                             selected ? "ring-2" : ""
                                         )
                                     }

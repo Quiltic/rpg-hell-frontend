@@ -20,7 +20,7 @@ function buildHref(baseHref: string | undefined, name: string) {
 
 function TableOfContentsSubBlock({ items: items }: SubItemProps) {
     return (
-        <ul className="ml-2 px-6 py-2 bg-body-900/50 dark:bg-dark-300/80 rounded-md">
+        <ul className="ml-2 px-6 py-2 bg-dark-300/80 rounded-md">
             {items.map((c) => {
                 if (c.collapsable) {
                     return (

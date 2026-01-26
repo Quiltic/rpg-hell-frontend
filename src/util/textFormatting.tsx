@@ -70,7 +70,7 @@ function highlightWord(text: string, word: string): string {
     const regex = new RegExp(`\\b(${word})\\b`, "gi");
     return text.replace(
         regex,
-        `<span class="text-${word} dark:text-${word}-700">$1</span>`
+        `<span class="text-${word}-700">$1</span>` //text-${word} dark:
     );
 }
 

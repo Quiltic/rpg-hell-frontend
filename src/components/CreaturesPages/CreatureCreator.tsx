@@ -146,7 +146,7 @@ export default function CreatureCreator() {
                 <div className="flex flex-row justify-between m-1 p-1">
 
                     {/* Scores */}
-                    <div className="grid grid-cols-3 gap-1 justify-left bg-body/10 dark:bg-dark-300 p-3 rounded-md flex-wrap ">    
+                    <div className="grid grid-cols-3 gap-1 justify-left bg-dark-300 p-3 rounded-md flex-wrap ">    
                         <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
                             Body:
                             <input
@@ -252,17 +252,17 @@ export default function CreatureCreator() {
                     <div className="flex flex-col justify-between">
                         
                         {curCreature.health != 0 && 
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 HEALTH: {curCreature.health}
                             </div>
                         }
                         {curCreature.health == 0 &&
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 HEALTH: {4*curCreature.stats.body+3*curCreature.stats.mind+2*curCreature.stats.soul+Math.ceil(curCreature.level)}
                             </div>
                         }
                         
-                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                        <div className="bg-dark-300 p-2 rounded-md">
                             <div className="flex flex-row items-center">
                                 SHIELDING: 
                                 <input
@@ -275,7 +275,7 @@ export default function CreatureCreator() {
                             </div>
                         </div>
 
-                        <div className="dark:bg-dark-300 p-2 rounded-md">
+                        <div className="bg-dark-300 p-2 rounded-md">
                             <div className="flex flex-row items-center">
                                 DODGE: 
                                 <input
@@ -289,7 +289,7 @@ export default function CreatureCreator() {
                         </div>
                         
                         { curCreature.ward > 0 &&
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 WARD: {curCreature.ward}
                             </div>
                         }
@@ -298,17 +298,17 @@ export default function CreatureCreator() {
                     {/* Strain/Speed/Combat Dice */}
                     <div className="flex flex-col justify-between">
                         {curCreature.strain != 0 && 
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 STRAIN: {curCreature.strain}
                             </div>
                         }
                         {curCreature.strain == 0 &&
-                            <div className="dark:bg-dark-300 p-2 rounded-md">
+                            <div className="bg-dark-300 p-2 rounded-md">
                                 STRAIN: {2*curCreature.stats.body+3*curCreature.stats.mind+4*curCreature.stats.soul+Math.ceil(curCreature.level)}
                             </div>
                         }
                         
-                        <div className="flex flex-col dark:bg-dark-300 p-2 rounded-md">
+                        <div className="flex flex-col bg-dark-300 p-2 rounded-md">
                             <div className="flex flex-row items-center">
                                 SPEED: 
                                 <input
@@ -335,7 +335,7 @@ export default function CreatureCreator() {
                             }
                         </div>
 
-                        <div className="flex flex-row items-center dark:bg-dark-300 p-2 rounded-md">
+                        <div className="flex flex-row items-center bg-dark-300 p-2 rounded-md">
                             CD: {4+Math.floor(displayedCreature.level/2)}
                             {/* <input
                                 type="number"
@@ -398,7 +398,7 @@ export default function CreatureCreator() {
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "hover:font-bold px-2 w-10 py-1 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
+                                    "hover:font-bold px-2 w-10 py-1 bg-dark-600 bg-body-700/20 rounded-md ring-light",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -411,7 +411,7 @@ export default function CreatureCreator() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "hover:font-bold px-1 py-1 w-16 dark:bg-dark-600 bg-body-700/20 rounded-md ring-body-700 dark:ring-light",
+                                            "hover:font-bold px-1 py-1 w-16 bg-dark-600 bg-body-700/20 rounded-md ring-light",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""

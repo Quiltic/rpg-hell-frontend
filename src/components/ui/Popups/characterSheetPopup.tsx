@@ -62,7 +62,7 @@ export default function CreaturePopup({
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="w-[95%] lg:w-[80%] h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-light dark:bg-dark">
+                                <Dialog.Panel className="w-[95%] lg:w-[80%] h-[50%] transform overflow-hidden rounded-2xl p-6 pt-0 text-left align-middle shadow-xl transition-all bg-dark">
                                     <Dialog.Title
                                         as="div"
                                         className="text-lg font-medium leading-6 flex flex-row justify-between"
