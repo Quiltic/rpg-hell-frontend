@@ -295,7 +295,7 @@ export default function ExampleCharSheet({
                         </div>
                     </div>
                     {/* Stories */}
-                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
+                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2 break-inside-avoid">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1 underline">
                             <a href="https://quiltic.github.io/rpg-hell-frontend/rulebook/character-creation#stories">
                                 Stories

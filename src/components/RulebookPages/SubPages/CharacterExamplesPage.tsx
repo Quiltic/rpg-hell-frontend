@@ -53,7 +53,7 @@ export default function CharacterExamplesPage() {
                 <MarkdownRenderer markdown={character_examples as string} have_header={false} />
             }
 
-            <div className="grid grid-cols-3 justify-between rounded-md bg-dark-400 m-2 p-2">
+            <div className="grid grid-cols-3 justify-between rounded-md bg-dark-400 m-2 p-2 print:hidden">
                 {curCreature.name == "" && example_char_sheets.map((char, id) => {
                         return (
                         <Button key={id} variant={char.mainStat}
@@ -73,6 +73,7 @@ export default function CharacterExamplesPage() {
                 <div className="flex flex-col">
                     <Button variant={"thieving"}
                         onClick={() => {setCurCreature(example_displayedCreature)}}
+                        className="print:hidden"
                     >
                         Back
                     </Button>

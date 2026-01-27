@@ -34,7 +34,7 @@ export default function RootDicePopup({
                 variant={"gradient"}
                 leftIcon={diceRollingIcon}
                 className={
-                    "m-2 bottom-10 left-14 rounded-full w-10 h-10 transform fixed"
+                    "m-2 bottom-10 left-14 rounded-full w-10 h-10 transform fixed print:hidden"
                 }
                 onClick={() => setIsOpen(true)}
             />
