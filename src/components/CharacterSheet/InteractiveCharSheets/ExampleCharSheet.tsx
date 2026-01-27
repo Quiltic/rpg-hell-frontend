@@ -94,16 +94,20 @@ export default function ExampleCharSheet({
     //     setMaxMain(2+Math.floor((curCreature.level-1)/2));
     // }, [curCreature.level]);
     useEffect(() => {
+        const bod = (_displayedCreature.stats.body + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0));
+        const min = (_displayedCreature.stats.mind + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0));
+        // const sou = (_displayedCreature.stats.soul + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0));
+
         const maxShield = (_displayedCreature.items.includes("shield") ? curLvl : 0) + 
         (_displayedCreature.items.includes("light leather") ? curLvl : 
-        _displayedCreature.items.includes("heavy plate") ? 4*_displayedCreature.stats.body+3*_displayedCreature.stats.mind+curLvl :
-        _displayedCreature.items.includes("medium chainmail") ? 2*_displayedCreature.stats.body+2*_displayedCreature.stats.mind+curLvl : 0);
+        _displayedCreature.items.includes("heavy plate") ? 4*bod+3*min+curLvl :
+        _displayedCreature.items.includes("medium chainmail") ? 2*bod+2*min+curLvl : 0);
         setCurShielding(maxShield);
         setCurMaxShield(maxShield);
     }, [curLvl, _displayedCreature]);
 
 
-    console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
+    // console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
 
 
     return (
@@ -120,7 +124,7 @@ export default function ExampleCharSheet({
             <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
                 
                 {/* Name/Level/Types */}
-                <div className="flex flex-row items-center bg-dark rounded-md">
+                <div className="flex lg:flex-row items-center bg-dark rounded-md">
                     
                     <div className="w-[50%] rounded-lg bg-dark-400 p-2 m-2 ">
                         <input
@@ -133,7 +137,7 @@ export default function ExampleCharSheet({
                     </div>
                     
                 
-                    <div className="w-[17%] flex flex-row items-center rounded-md bg-dark-400 items-center capitalize p-2 m-2">
+                    <div className="lg:w-[17%] flex flex-row items-center rounded-md bg-dark-400 items-center capitalize p-2 m-2">
                         Level: 
                         <input
                             type="number"
@@ -166,54 +170,62 @@ export default function ExampleCharSheet({
                         />
                     </div> */}
                 </div>
-                <div className="grid grid-cols-2 gap-1  bg-dark">
+                <div className="lg:grid lg:grid-cols-2 lg:gap-1 bg-dark">
                     {/* Stats */}
                     <div className="flex flex-col justify-between m-1 p-1">
 
                         {/* Scores */}
                         <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
-                            <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.body); setDice([0]);}}>
-                                Body {_displayedCreature.stats.body > 0 ? "+":""}{_displayedCreature.stats.body}
+                            <div className="bg-body text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.body); setDice([1]);}}>
+                                Body {_displayedCreature.stats.body > 0 ? "+":""}{_displayedCreature.stats.body
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)}
                             </div>
-                            <div className="bg-mind font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.mind); setDice([0]);}}>
-                                Mind {_displayedCreature.stats.mind > 0 ? "+":""}{_displayedCreature.stats.mind}
+                            <div className="bg-mind text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.mind); setDice([1]);}}>
+                                Mind {_displayedCreature.stats.mind > 0 ? "+":""}{_displayedCreature.stats.mind
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)}
                             </div>
-                            <div className="bg-soul font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.soul); setDice([0]);}}>
-                                Soul {_displayedCreature.stats.soul > 0 ? "+":""}{_displayedCreature.stats.soul}
+                            <div className="bg-soul text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.soul); setDice([1]);}}>
+                                Soul {_displayedCreature.stats.soul > 0 ? "+":""}{_displayedCreature.stats.soul
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)}
                             </div>
-                            <div className="bg-arcana font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.arcana); setDice([0]);}}>
-                                Arcana {_displayedCreature.stats.arcana > 0 ? "+":""}{_displayedCreature.stats.arcana}
+                            <div className="bg-arcana text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.arcana); setDice([1]);}}>
+                                Arcana {_displayedCreature.stats.arcana > 0 ? "+":""}{_displayedCreature.stats.arcana
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Arcana") ? 1 : 0)}
                             </div>
-                            <div className="bg-charm font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.charm); setDice([0]);}}>
-                                Charm {_displayedCreature.stats.charm > 0 ? "+":""}{_displayedCreature.stats.charm}
+                            <div className="bg-charm text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.charm); setDice([1]);}}>
+                                Charm {_displayedCreature.stats.charm > 0 ? "+":""}{_displayedCreature.stats.charm
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Charm") ? 1 : 0)}
                             </div>
-                            <div className="bg-crafting font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.crafting); setDice([0]);}}>
-                                Crafting {_displayedCreature.stats.crafting > 0 ? "+":""}{_displayedCreature.stats.crafting}
+                            <div className="bg-crafting text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.crafting); setDice([1]);}}>
+                                Crafting {_displayedCreature.stats.crafting > 0 ? "+":""}{_displayedCreature.stats.crafting
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Crafting") ? 1 : 0)}
                             </div>
-                            <div className="bg-medicine font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.medicine); setDice([0]);}}>
-                                Medicine {_displayedCreature.stats.medicine > 0 ? "+":""}{_displayedCreature.stats.medicine}
+                            <div className="bg-medicine text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.medicine); setDice([1]);}}>
+                                Medicine {_displayedCreature.stats.medicine > 0 ? "+":""}{_displayedCreature.stats.medicine
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Medicine") ? 1 : 0)}
                             </div>
-                            <div className="bg-nature font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.nature); setDice([0]);}}>
-                                Nature {_displayedCreature.stats.nature > 0 ? "+":""}{_displayedCreature.stats.nature}
+                            <div className="bg-nature text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.nature); setDice([1]);}}>
+                                Nature {_displayedCreature.stats.nature > 0 ? "+":""}{_displayedCreature.stats.nature
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Nature") ? 1 : 0)}
                             </div>
-                            <div className="bg-thieving font-bold rounded-xl p-1 m-1 pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.thieving); setDice([0]);}}>
-                                Thieving {_displayedCreature.stats.thieving > 0 ? "+":""}{_displayedCreature.stats.thieving}
+                            <div className="bg-thieving text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.thieving); setDice([1]);}}>
+                                Thieving {_displayedCreature.stats.thieving > 0 ? "+":""}{_displayedCreature.stats.thieving
+                                         + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Thieving") ? 1 : 0)}
                             </div>
                         </div>
 
-                        <div className="flex flex-col justify-between bg-dark-400 m-2 p-2 w-full rounded-md">
-                            
-                            {/* HP/Shielding/Dodge/Ward/Strain/Speed/Combat Dice */}
-                            <div className="flex flex-row w-full justify-between">
+                        {/* HP/Shielding/Dodge/Ward/Strain/Speed/Combat Dice */}
+                        <div className="flex flex-col justify-between bg-dark-400 m-2 p-2 w-full rounded-md text-sm lg:text-bas">
+                            <div className="lg:flex lg:flex-row grid grid-cols-2 w-full justify-between">
 
                                 <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
                                     HEALTH:
@@ -225,7 +237,10 @@ export default function ExampleCharSheet({
                                             min="0"
                                             onChange={(e) => setCurHP(parseFloat(e.target.value))}
                                         />
-                                        / {4*_displayedCreature.stats.body+3*_displayedCreature.stats.mind+2*_displayedCreature.stats.soul+Math.ceil(curLvl)}
+                                        / {4*(_displayedCreature.stats.body + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)) +
+                                           3*(_displayedCreature.stats.mind + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)) +
+                                           2*(_displayedCreature.stats.soul + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)) +
+                                           Math.ceil(curLvl)}
                                     </div>
                                 </div>
 
@@ -250,10 +265,10 @@ export default function ExampleCharSheet({
                                     
                                     SPEED: {_displayedCreature.items.includes("clothing") ? "7": _displayedCreature.items.includes("heavy plate") || _displayedCreature.items.includes("medium chainmail") ? "5" : "6"}
                                 </div>
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center"
+                                        onClick={() => {setOpenDice(true); setDiceBonus(0); setDice(new Array((4+Math.floor(curLvl/2))).fill(1));}}>
                                     CD:
-                                    <div className="flex flex-row justify-center items-center font-bold"
-                                        onClick={() => {setOpenDice(true); setDiceBonus(0); setDice(new Array((4+Math.floor(curLvl/2))).fill(0));}}>
+                                    <div className="flex flex-row justify-center items-center font-bold">
                                         {4+Math.floor(curLvl/2)}
                                     </div>
                                 </div>
@@ -268,7 +283,10 @@ export default function ExampleCharSheet({
                                             min="0"
                                             onChange={(e) => setCurStrain(parseFloat(e.target.value))}
                                         />
-                                        / {2*_displayedCreature.stats.body+3*_displayedCreature.stats.mind+4*_displayedCreature.stats.soul+Math.ceil(curLvl)}
+                                        / {2*(_displayedCreature.stats.body + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)) +
+                                           3*(_displayedCreature.stats.mind + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)) +
+                                           4*(_displayedCreature.stats.soul + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)) +
+                                           Math.ceil(curLvl)}
                                     </div>
                                 </div>
 
@@ -296,7 +314,7 @@ There is a link above for what a Story is!"
                     <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">WEAPONS</h3>
 
-                        <div className="grid grid-cols-2">
+                        <div className="lg:grid lg:grid-cols-2">
                             {items.map( (i,id) => {return (
                                 <>
                                 {(i.tags.includes("weapon") || i.tags.includes("side")) && <ItemCard _item={{...i, upgrades:[]}} _className="m-1"/>}
@@ -357,7 +375,7 @@ There is a link above for what a Story is!"
 
                 
 
-                <div className="grid grid-cols-2 items-center bg-dark rounded-md justify-between">
+                <div className="lg:grid lg:grid-cols-2 items-center bg-dark rounded-md justify-between">
                     {/* Traits */}
                     <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">TRAITS</h3>
@@ -432,7 +450,7 @@ There is a link above for what a Story is!"
 
 
 
-                        <div className="grid grid-cols-2">
+                        <div className="lg:grid lg:grid-cols-2">
 
                             {curTraits.map( (t:Trait, id:number) => { return (
                                 <TraitCard _trait={t} _className="m-1" moveTrait={() => removeChosenTrait(t)} key={id}/>
@@ -515,7 +533,7 @@ There is a link above for what a Story is!"
 
 
 
-                        <div className="grid grid-cols-2">
+                        <div className="lg:grid lg:grid-cols-2">
 
                             {curArts.map( (t:Spell, id:number) => { return (
                                 <ArtCard _spell={t} _className="m-1" moveSpell={() => removeChosenArt(t)} key={id}/>
