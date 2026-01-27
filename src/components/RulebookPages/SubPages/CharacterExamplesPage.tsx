@@ -78,9 +78,9 @@ export default function CharacterExamplesPage() {
                     </Button>
                     <ExampleCharSheet 
                         _displayedCreature={curCreature} 
-                        traits={displayedTraits.filter((t) => {return curCreature.traits.join(", ").includes(t.name)})}
-                        arts={displayedSpells.filter((a) => {return curCreature.arts.join(", ").includes(a.name)})}
-                        items={displayedItems.filter((i) => {return curCreature.items.split(", ").includes(i.name)})}
+                        traits={displayedTraits.filter((t) => {return curCreature.traits.join(". ").includes(t.name)})}
+                        arts={displayedSpells.filter((a) => {return curCreature.arts.join(". ").includes(a.name)})}
+                        items={displayedItems.filter((i) => {return curCreature.items.split(". ").includes(i.name)})}
                     />
                 </div>
             

@@ -71,7 +71,7 @@
     },
     {"name": "powered alignment", "tags": "", "effect": "While you are Empowered, you have +1 Speed and +1 on Weapon Attack Sums.\nWhile you are Rallied, you refund 1 Strain at the end of your turn and may give Glow on targets you touch or hit.", "req": "soul 3", "extra": ""
     },
-    {"name": "???", "tags": "", "effect": "Once per turn, while you are Rallied or Empowered you can remove Rallied or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Rallied or Empowered, and may turn Rallied into Empowered or vice versa.", "req": "soul 3", "extra": ""
+    {"name": "(tempname) boon's shield", "tags": "", "effect": "Once per turn, while you are Rallied or Empowered you can remove Rallied or Empowered to gain 1 Ward until the end of your next turn. You may have up to your LEVEL maximum Ward.\n\nSoul 4 - You may turn 1 Ward into Rallied or Empowered, and may turn Rallied into Empowered or vice versa.", "req": "soul 3", "extra": ""
     },
     {"name": "summoners command", "tags": "", "effect": "At the start of your turn you may have all of your Followers move without spending a dice.\n\nSoul 4 - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.", "req": "soul 3", "extra": ""
     },

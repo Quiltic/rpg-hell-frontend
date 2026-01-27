@@ -6,6 +6,7 @@ import ItemCard from "../../ItemPages/ItemCardStuff/itemCard";
 import Tooltip from "../../ui/Tooltip";
 import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
 import ArtCard from "../../SpellsPages/SpellCardStuff/artCard";
+import DicePopup from "../../ui/Popups/dicePopup";
 
 
 const example_displayedCreature = {
@@ -43,6 +44,9 @@ export default function ExampleCharSheet({
 }: Props) {  
 
 
+    const [openDice, setOpenDice] = useState( false );
+    const [dice, setDice] = useState( [1] );
+    const [diceBonus, setDiceBonus] = useState( 0 );
 
     // const [curCreature, setCurCreature] = useState( _displayedCreature );
     const [curLvl, setCurLvl] = useState( 1 );
@@ -98,8 +102,21 @@ export default function ExampleCharSheet({
         setCurMaxShield(maxShield);
     }, [curLvl, _displayedCreature]);
 
+
+    console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
+
+
     return (
         <div className="flex flex-col">
+            <DicePopup 
+                startingDice={dice} 
+                startingBonus={diceBonus} 
+                isOpen={openDice} 
+                setIsOpen={setOpenDice} 
+                setDice={setDice} 
+                setBonus={setDiceBonus}/>
+
+
             <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
                 
                 {/* Name/Level/Types */}
@@ -155,31 +172,40 @@ export default function ExampleCharSheet({
 
                         {/* Scores */}
                         <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
-                            <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.body); setDice([0]);}}>
                                 Body {_displayedCreature.stats.body > 0 ? "+":""}{_displayedCreature.stats.body}
                             </div>
-                            <div className="bg-mind font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-mind font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.mind); setDice([0]);}}>
                                 Mind {_displayedCreature.stats.mind > 0 ? "+":""}{_displayedCreature.stats.mind}
                             </div>
-                            <div className="bg-soul font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-soul font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.soul); setDice([0]);}}>
                                 Soul {_displayedCreature.stats.soul > 0 ? "+":""}{_displayedCreature.stats.soul}
                             </div>
-                            <div className="bg-arcana font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-arcana font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.arcana); setDice([0]);}}>
                                 Arcana {_displayedCreature.stats.arcana > 0 ? "+":""}{_displayedCreature.stats.arcana}
                             </div>
-                            <div className="bg-charm font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-charm font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.charm); setDice([0]);}}>
                                 Charm {_displayedCreature.stats.charm > 0 ? "+":""}{_displayedCreature.stats.charm}
                             </div>
-                            <div className="bg-crafting font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-crafting font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.crafting); setDice([0]);}}>
                                 Crafting {_displayedCreature.stats.crafting > 0 ? "+":""}{_displayedCreature.stats.crafting}
                             </div>
-                            <div className="bg-medicine font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-medicine font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.medicine); setDice([0]);}}>
                                 Medicine {_displayedCreature.stats.medicine > 0 ? "+":""}{_displayedCreature.stats.medicine}
                             </div>
-                            <div className="bg-nature font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-nature font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.nature); setDice([0]);}}>
                                 Nature {_displayedCreature.stats.nature > 0 ? "+":""}{_displayedCreature.stats.nature}
                             </div>
-                            <div className="bg-thieving font-bold rounded-xl p-1 m-1 pl-2 pr-2">
+                            <div className="bg-thieving font-bold rounded-xl p-1 m-1 pl-2 pr-2"
+                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.thieving); setDice([0]);}}>
                                 Thieving {_displayedCreature.stats.thieving > 0 ? "+":""}{_displayedCreature.stats.thieving}
                             </div>
                         </div>
@@ -226,7 +252,8 @@ export default function ExampleCharSheet({
                                 </div>
                                 <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
                                     CD:
-                                    <div className="flex flex-row justify-center items-center font-bold">
+                                    <div className="flex flex-row justify-center items-center font-bold"
+                                        onClick={() => {setOpenDice(true); setDiceBonus(0); setDice(new Array((4+Math.floor(curLvl/2))).fill(0));}}>
                                         {4+Math.floor(curLvl/2)}
                                     </div>
                                 </div>
@@ -288,7 +315,7 @@ There is a link above for what a Story is!"
                                 {
                                     (!i.tags.includes("weapon") && !i.tags.includes("side")) &&
                                     <Tooltip text={i.name} key={id}
-                                            display={<ItemCard _item={{...i, upgrades:[]}} _className="m-1"/>} 
+                                            display={<ItemCard _item={{...i, upgrades:[]}} _className="m-1 w-96"/>} 
                                             className="capitalize rounded-md bg-dark-300 p-1 m-1"
                                     />
                                 }
@@ -346,7 +373,7 @@ There is a link above for what a Story is!"
 
                             {curLvl >= val+1 && curTraits.length < curLvl+1 && _displayedCreature.traits[val].map((list:string, id:number) => { 
                             
-                            if (list.split(", ").length == 1) {
+                            if (list.split(". ").length == 1) {
                                 const foundTrait = traits.find((trait) => {return (trait.name == list)});
                                 return ( 
                                 <>
@@ -358,7 +385,7 @@ There is a link above for what a Story is!"
                                         {front} we recommend taking <Tooltip text={list} key={id}
                                                 display={<>
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                <TraitCard _trait={foundTrait} _className="m-1" moveTrait={() => addChosenTrait(foundTrait)}/>
+                                                <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
                                                 </>} 
                                                 className="capitalize rounded-md bg-dark-300 p-1 m-1"
                                                 
@@ -376,7 +403,7 @@ There is a link above for what a Story is!"
                                 { curTraits.length < curLvl+1 &&
                                     <div className="flex flex-row justify-center items-center">
                                         {front} pick one of the following: 
-                                        {list.split(", ").map( (t:string,id:number) => {
+                                        {list.split(". ").map( (t:string,id:number) => {
                                             const foundTrait = traits.find((trait) => {return (trait.name == t)});
                                             // console.log(traits)
                                             return (
@@ -389,7 +416,7 @@ There is a link above for what a Story is!"
                                                     <Tooltip text={t} key={id}
                                                             display={<>
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                            <TraitCard _trait={foundTrait} _className="m-1" moveTrait={() => addChosenTrait(foundTrait)}/>
+                                                            <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
                                                             </>} 
                                                             className="capitalize rounded-md bg-dark-300 p-1 m-1"
                                                     />
@@ -430,7 +457,7 @@ There is a link above for what a Story is!"
 
                             {curLvl >= val+1 && curArts.length < curLvl+3 && _displayedCreature.arts[val].map((list:string, id:number) => { 
                             
-                            if (list.split(", ").length == 1) {
+                            if (list.split(". ").length == 1) {
                                 const foundArt = arts.find((art) => {return (art.name == list)});
                                 return ( 
                                 <>
@@ -442,7 +469,7 @@ There is a link above for what a Story is!"
                                         {front} we recommend taking <Tooltip text={list} key={id}
                                                 display={<>
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                <ArtCard _spell={foundArt} _className="m-1" moveSpell={() => addChosenArt(foundArt)}/>
+                                                <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
                                                 </>} 
                                                 className="capitalize rounded-md bg-dark-300 p-1 m-1"
                                         />
@@ -459,7 +486,7 @@ There is a link above for what a Story is!"
                                 { curArts.length < curLvl+3 &&
                                     <div className="flex flex-row justify-center items-center">
                                         {front} pick one of the following: 
-                                        {list.split(", ").map( (t:string,id:number) => {
+                                        {list.split(". ").map( (t:string,id:number) => {
                                             const foundArt = arts.find((art) => {return (art.name == t)});
                                             // console.log(arts)
                                             return (
@@ -472,7 +499,7 @@ There is a link above for what a Story is!"
                                                     <Tooltip text={t} key={id}
                                                             display={<>
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                            <ArtCard _spell={foundArt} _className="m-1" moveSpell={() => addChosenArt(foundArt)}/>
+                                                            <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
                                                             </>} 
                                                             className="capitalize rounded-md bg-dark-300 p-1 m-1"
                                                     />
