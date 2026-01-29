@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import useMarkdown from "../hooks/useMarkdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -14,10 +14,13 @@ const flatten = (text: string, child: any) => {
 
 type markdownRendererProps = {
     markdown: string;
-    have_header: boolean;
+    have_header?: boolean;
 };
 
-export default function MarkdownRenderer({ markdown, have_header=true }: markdownRendererProps) {
+export default function MarkdownRenderer({
+    markdown,
+    have_header = true,
+}: markdownRendererProps) {
     const { formattedMarkdown, headings } = useMarkdown(markdown);
 
     const HeadingRenderer = useMemo(
@@ -38,10 +41,22 @@ export default function MarkdownRenderer({ markdown, have_header=true }: markdow
         [headings]
     );
 
+    useEffect(() => {
+        const anchor = window.location.hash.split("#")[1];
+        setTimeout(() => {
+            if (anchor) {
+                const anchorEl = document.getElementById(anchor);
+                if (anchorEl) {
+                    anchorEl.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        }, 100); // Wait for the markdown library to actually render the element
+    }, [formattedMarkdown]);
+
     return (
         <div className="markdown-styles mx-auto max-w-4xl text-left">
             {have_header && <HeadingJumpTo headings={headings} />}
-            
+
             <Markdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
@@ -52,7 +67,9 @@ export default function MarkdownRenderer({ markdown, have_header=true }: markdow
                     h4: HeadingRenderer,
                     h5: HeadingRenderer,
                     h6: HeadingRenderer,
-                    ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
+                    ul: ({ node, ...props }) => (
+                        <ul className="md_list" {...props} />
+                    ),
                 }}
             >
                 {formattedMarkdown}

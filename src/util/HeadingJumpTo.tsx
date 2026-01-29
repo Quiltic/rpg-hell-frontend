@@ -1,6 +1,6 @@
 import { Heading } from "../types/Heading";
 type HeadingJumpToProps = {
-    title: string;
+    title?: string;
     headings: Heading[];
 };
 export default function HeadingJumpTo({
@@ -18,7 +18,7 @@ export default function HeadingJumpTo({
                     columnGap: "1rem",
                     maxHeight: "32rem",
                 }}
-                className="max-w-lg rounded-md px-6 py-2 bg-dark-300/80"
+                className="max-w-lg rounded-md bg-dark-300/80 px-6 py-2"
             >
                 {headings.map((h: Heading) => {
                     let c = "";
@@ -37,7 +37,11 @@ export default function HeadingJumpTo({
                             break;
                     }
                     return (
-                        <li className={c} style={{ breakInside: "avoid" }}>
+                        <li
+                            className={c}
+                            style={{ breakInside: "avoid" }}
+                            key={h.slug}
+                        >
                             <a href={`#${h.slug}`}>{h.text}</a>
                         </li>
                     );
