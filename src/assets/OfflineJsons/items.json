@@ -852,5 +852,14 @@
         "tags": "magical, mysc",
         "rarity": "legendary",
         "cost": 0
+    },
+    {
+        "name": "holy water",
+        "description": "Water blessed with a divine power.",
+        "effect": "When in contact with a Monstrosity, Planar, or Undead they take 1d4 damage at the start of their turn and can't heal.\n\nSpend ##; Throw the water to a point up to 6 tiles away. Everything within 2 tiles of that point gains Wet.\nSpend # and the water; Apply to a weapon for 1 minute (6 turns). If the weapon hits, give Wet until the start of your next turn.",
+        "upgrades": [""],
+        "tags": "consumable, throw range 6",
+        "rarity": "common",
+        "cost": 0
     }
 ]

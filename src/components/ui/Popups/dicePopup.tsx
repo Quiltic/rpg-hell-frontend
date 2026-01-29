@@ -24,13 +24,13 @@ import rolling from "../../../assets/IconSVGs/dice/dice roll.gif";
 
 
 const diceSVGs = [
+    rolling,
     dice1,
     dice2,
     dice3,
     dice4,
     dice5,
-    dice6,
-    rolling
+    dice6
 ]
 const d12_diceSVGs = [
     d12_rolling,
@@ -46,7 +46,7 @@ function rollDice(amount: number, mult: number = 6) {
     let dice = [];
 
     for (let a = 0; a < amount; a++) {
-        const randomInRange = Math.floor(Math.random() * mult); // we dont +1 because then it goes 0-5 which matches up to the array
+        const randomInRange = Math.floor(Math.random() * mult)+1;
         dice.push(randomInRange);
     }
 
@@ -66,15 +66,15 @@ type Props = {
 
 
 export default function DicePopup({
-    startingDice: startingDice = [0,0],
+    startingDice: Dice = [1,1],
     startingBonus: Bonus = 0,
     isOpen: isOpen,
     setIsOpen: setIsOpen,
-    // setDice: SetDice,
+    setDice: SetDice,
     setBonus: SetBonus,
     }: Props) {
 
-    const [Dice, SetDice] = useState<number[]>(startingDice);
+    // const [Dice, SetDice] = useState<number[]>(startingDice);
     // const [Bonus, SetBonus] = useState(startingBonus);
     
     // const [isOpen, setIsOpen] = useState(startOpen);
@@ -84,7 +84,12 @@ export default function DicePopup({
     useEffect(() => {
         if (isOpen == true)
             setRandColor(colors[Math.floor(Math.random() * colors.length)]);
+
+        Dice.fill(1);
+        setDnum(Dice.length == 1 ? 12 : 6);
     }, [isOpen]);
+
+    // console.log(dnum);
 
     return (
         <>
@@ -92,9 +97,10 @@ export default function DicePopup({
             <Popup displayedContentName="Roll The Dice!" isOpen={isOpen} setIsOpen={setIsOpen} isSmol={true} displayedContent={
                 <>
                 <Tab.Group as="div" className="w-full "
+                    defaultIndex={Dice.length == 1 ? 1 : 0}
                     onChange={(index) => {
                         setDnum(index*6+6)
-                        SetDice(new Array(Dice.length).fill(0));
+                        SetDice(new Array(Dice.length).fill(1));
                         // console.log(index)
                     }}
                 >
@@ -133,7 +139,7 @@ export default function DicePopup({
                                             className={cn("w-auto m-4",Dice.length < 3 ? "h-12 lg:h-20":"h-10 lg:h-16")}
                                             key={i}
                                             src={diceSVGs[n]}
-                                            alt={(n+1).toString()}
+                                            alt={(n).toString()}
                                             onClick={() => {
 
                                                 if (Dice.length == 1) return
@@ -167,12 +173,12 @@ export default function DicePopup({
                                                 }}>
 
                                             <img className="w-full object-cover"
-                                                src={d12_diceSVGs[Math.min(n+1,1)]}
+                                                src={d12_diceSVGs[Math.min(n,1)]}
                                                 key={i}
                                                 alt={(n+1).toString()}
                                             />
                                             <div className="absolute -top-2 lg:top-0 left-0 w-full flex flex-col h-full">
-                                                <h1 className="text-xl lg:text-2xl text-dark" >{n+1 ? (n+1).toString(): ""}</h1>
+                                                <h1 className="text-xl lg:text-2xl text-dark" >{n != 0 ? (n).toString(): ""}</h1>
                                             </div>
                                         </div>
                                     );
@@ -188,7 +194,7 @@ export default function DicePopup({
 
                     
 
-                    <h1>Total: {Dice.reduce((total, dice) => total + dice+1)+1 != Dice.length*7 ? Dice.reduce((total, dice) => total + dice+1)+1+Bonus : "?"}</h1> 
+                    <h1>Total: {Dice.reduce((total, dice) => total + dice) != 0 ? Dice.reduce((total, dice) => total + dice)+Bonus : "?"}</h1> 
 
                     <div className="flex row items-center justify-around m-4 flex-wrap">
 
@@ -196,11 +202,11 @@ export default function DicePopup({
                         variant={randColor}
                         className="m-2"
                         onClick={() => {
-                            if (dnum == 6){
-                                SetDice(new Array(Dice.length).fill(6)); // 6
-                            } else {
-                                SetDice(new Array(Dice.length).fill(-1)); // 12
-                            }
+                            SetDice(new Array(Dice.length).fill(0));
+                            // if (dnum == 6){
+                            // } else {
+                            //     SetDice(new Array(Dice.length).fill(0)); // 12
+                            // }
 
                             setTimeout(() => {
                                 SetDice(rollDice(Dice.length,dnum))
@@ -211,6 +217,7 @@ export default function DicePopup({
                             Roll Dice
                         </Button>
                         <input
+                            type="number"
                             placeholder="Bonus"
                             name="Bonus"
                             className="w-[60%] lg:w-auto rounded-lg p-2 active:ring-2 bg-soul-700/10 active:ring-light-600"

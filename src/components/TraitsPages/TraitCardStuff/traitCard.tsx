@@ -53,7 +53,7 @@ export default function TraitCard({
     }
 
     return (
-        <div className={cn("m-4", _className)}
+        <div className={cn("m-4 max-h-96 overflow-auto break-inside-avoid", _className)}
             onClick={() => {
                 if (moveTrait != undefined)
                     moveTrait(_trait);
