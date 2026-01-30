@@ -180,6 +180,10 @@ hr {
   @apply bg-body-700/20
 }
 
+.clickable {
+  @apply cursor-pointer hover:opacity-70
+}
+
 
 /* 
 bg-body-900/50 dark:bg-dark-300/80

@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { cn } from "../../styling/utilites";
 
 // an example of what to give this
 // const people = [
@@ -21,6 +22,7 @@ type Props = {
     className: string;
     selected: string;
     setSelected: (s: string) => void;
+    color?: string;
 };
 
 export default function CleanCombobox({
@@ -28,6 +30,7 @@ export default function CleanCombobox({
     className: className,
     selected,
     setSelected,
+    color: color = "dark",
 }: Props) {
     // const [selected, setSelected] = useState<Prop>({'id':0,'name':""})
     const [query, setQuery] = useState("");
@@ -61,7 +64,7 @@ export default function CleanCombobox({
                 <div className="relative mt-1 w-full">
                     <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-light focus-visible:ring-offset-2 focus-visible:ring-offset-light sm:text-sm">
                         <Combobox.Input
-                            className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-light focus:ring-0"
+                            className={cn("w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-light focus:ring-0","bg-"+color)}
                             displayValue={(item: string) => item}
                             onChange={(event) => setQuery(event.target.value)}
                         />

@@ -65,7 +65,8 @@ export default function SpellCard({
     
 
     return (
-        <div className={cn("flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4 max-h-96 overflow-auto break-inside-avoid", _className)}
+        <div className={cn("flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4 max-h-96 overflow-auto break-inside-avoid",
+            (moveSpell!=undefined ? "clickable" : ""), _className)}
             onClick={() => {
                 if (moveSpell != undefined)
                     moveSpell(_spell);

@@ -13,7 +13,7 @@
             "medicine": 2,
             "thieving": 0
         },
-        "items": "short sword. shield. medium chainmail. bandage. antidote. frag grenade. medkit",
+        "items": "sword. shield. medium chainmail. bandage. antidote. frag grenade. medkit",
         "quick_exp": "Build a living tank and cut down your foes.",
         "level_explanation": [
             "",
@@ -26,7 +26,7 @@
                 "frenzy. braced for impact"
             ],
             [
-                "field repair. trained medic"
+                "trained medic. field repair"
             ],
             [
                 "whirlwind. defender"
@@ -40,7 +40,7 @@
                 "blood transfusions. medical leeches"
             ],
             [
-                "destructive swing. spiny shield. bull rush"
+                "destructive swing. bull rush. spiny shield"
             ],
             [
                 "cleave. i'll take it"
@@ -71,7 +71,7 @@
         "traits": [
             [
                 "focus fire",
-                "field repair. patient"
+                "investigator. patient"
             ],
             [
                 "snake eyes. multitasking"
@@ -83,8 +83,8 @@
         "arts": [
             [
                 "mark",
-                "train of thought",
-                "heckle. motivate. enthrall",
+                "motivate",
+                "heckle. enthrall. train of thought",
                 "pocket dimension. alarm. find object"
             ],
             [
@@ -218,7 +218,7 @@
                 "beastbound. focus fire"
             ],
             [
-                "hunters instincts. snake eyes"
+                "snake eyes. hunters instincts"
             ],
             [
                 "threat assessment"
@@ -235,7 +235,7 @@
                 "rip and tear. precision strike"
             ],
             [
-                "marking strike. coordinated strike"
+                "coordinated strike. marking strike"
             ]
         ]
     },
@@ -266,7 +266,7 @@
                 "split art. intoxicating presence"
             ],
             [
-                "soul bound relic. arcane sense"
+                "arcane sense"
             ],
             [
                 "art augmenter"
@@ -274,16 +274,16 @@
         ],
         "arts": [
             [
-                "soul shard. ignition. short circuit",
-                "magic trick. dramaturgy. control elements",
                 "telepathy",
-                "minor illusion"
+                "minor illusion",
+                "soul shard. ignition. short circuit",
+                "magic trick. dramaturgy. control elements"
             ],
             [
-                "soul skip. elemental burst. soul pulse"
+                "telekinetic toss. soul skip. elemental burst"
             ],
             [
-                "dispel magic. frozen flames"
+                "frozen flames. dispel magic"
             ]
         ]
     },
@@ -372,8 +372,8 @@
             [
                 "phantom fishing rod",
                 "illusionary disguise",
-                "overwatch",
-                "telepathy. mark"
+                "mark. arcane pop",
+                "telepathy. magic trick. pocket dimension"
             ],
             [
                 "precision strike. shadow self"
@@ -407,7 +407,7 @@
         "traits": [
             [
                 "soul bound relic",
-                "intoxicating presence. show. don't tell"
+                "intoxicating presence. show, don't tell"
             ],
             [
                 "lead them along. cat burglar"
@@ -420,7 +420,7 @@
             [
                 "illusionary disguise",
                 "minor illusion",
-                "enthrall. motivate",
+                "enthrall. motivate. heckle",
                 "dramaturgy. magic trick"
             ],
             [

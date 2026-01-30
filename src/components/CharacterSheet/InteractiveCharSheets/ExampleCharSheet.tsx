@@ -182,63 +182,63 @@ export default function ExampleCharSheet({
 
                         {/* Scores */}
                         <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
-                            <div className="bg-body text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-body text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.body
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Body {_displayedCreature.stats.body > 0 ? "+":""}{_displayedCreature.stats.body
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)}
                             </div>
-                            <div className="bg-mind text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-mind text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.mind
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Mind {_displayedCreature.stats.mind > 0 ? "+":""}{_displayedCreature.stats.mind
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)}
                             </div>
-                            <div className="bg-soul text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-soul text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.soul
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Soul {_displayedCreature.stats.soul > 0 ? "+":""}{_displayedCreature.stats.soul
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)}
                             </div>
-                            <div className="bg-arcana text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-arcana text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.arcana
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Arcana") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Arcana {_displayedCreature.stats.arcana > 0 ? "+":""}{_displayedCreature.stats.arcana
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Arcana") ? 1 : 0)}
                             </div>
-                            <div className="bg-charm text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-charm text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.charm
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Charm") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Charm {_displayedCreature.stats.charm > 0 ? "+":""}{_displayedCreature.stats.charm
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Charm") ? 1 : 0)}
                             </div>
-                            <div className="bg-crafting text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-crafting text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.crafting
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Crafting") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Crafting {_displayedCreature.stats.crafting > 0 ? "+":""}{_displayedCreature.stats.crafting
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Crafting") ? 1 : 0)}
                             </div>
-                            <div className="bg-medicine text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-medicine text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.medicine
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Medicine") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Medicine {_displayedCreature.stats.medicine > 0 ? "+":""}{_displayedCreature.stats.medicine
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Medicine") ? 1 : 0)}
                             </div>
-                            <div className="bg-nature text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-nature text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.nature
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Nature") ? 1 : 0)
                                 ); setDice([1]);}}>
                                 Nature {_displayedCreature.stats.nature > 0 ? "+":""}{_displayedCreature.stats.nature
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Nature") ? 1 : 0)}
                             </div>
-                            <div className="bg-thieving text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
+                            <div className="bg-thieving text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
                                 onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.thieving
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Thieving") ? 1 : 0)
                                 ); setDice([1]);}}>
@@ -289,7 +289,7 @@ export default function ExampleCharSheet({
                                     
                                     SPEED: {_displayedCreature.items.includes("clothing") ? "7": _displayedCreature.items.includes("heavy plate") || _displayedCreature.items.includes("medium chainmail") ? "5" : "6"}
                                 </div>
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center"
+                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center clickable"
                                         onClick={() => {setOpenDice(true); setDiceBonus(0); setDice(new Array((4+Math.floor(curLvl/2))).fill(1));}}>
                                     CD:
                                     <div className="flex flex-row justify-center items-center font-bold">
@@ -341,7 +341,7 @@ There is a link above for what a Story is!"
                         <div className="lg:grid lg:grid-cols-2">
                             {items.map( (i,id) => {return (
                                 <>
-                                {(i.tags.includes("weapon") || i.tags.includes("side")) && <ItemCard _item={{...i, upgrades:[]}} _className="m-1"/>}
+                                {(i.tags.includes("weapon") || i.tags.includes("side")) && <ItemCard _item={{...i, upgrades:[]}} _className="m-1" key={id}/>}
 
                                 </>
                             );})}
@@ -358,7 +358,7 @@ There is a link above for what a Story is!"
                                     (!i.tags.includes("weapon") && !i.tags.includes("side")) &&
                                     <Tooltip text={i.name} key={id}
                                             display={<ItemCard _item={{...i, upgrades:[]}} _className="m-1 w-96"/>} 
-                                            className="capitalize rounded-md bg-dark-300 p-1 m-1"
+                                            className="rounded-md bg-dark-300 p-1 m-1"
                                     />
                                 }
                                 
@@ -429,7 +429,7 @@ There is a link above for what a Story is!"
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                 <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
                                                 </>} 
-                                                className="capitalize rounded-md bg-dark-300 p-1 m-1"
+                                                className="rounded-md bg-dark-300 p-1 m-1"
                                                 
                                         />
                                     </div>
@@ -460,7 +460,7 @@ There is a link above for what a Story is!"
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                             <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
                                                             </>} 
-                                                            className="capitalize rounded-md bg-dark-300 p-1 m-1"
+                                                            className="rounded-md bg-dark-300 p-1 m-1"
                                                     />
                                                 </div>
                                                 }
@@ -513,7 +513,7 @@ There is a link above for what a Story is!"
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                 <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
                                                 </>} 
-                                                className="capitalize rounded-md bg-dark-300 p-1 m-1"
+                                                className="rounded-md bg-dark-300 p-1 m-1"
                                         />
                                     </div>
                                  
@@ -543,7 +543,7 @@ There is a link above for what a Story is!"
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                             <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
                                                             </>} 
-                                                            className="capitalize rounded-md bg-dark-300 p-1 m-1"
+                                                            className="rounded-md bg-dark-300 p-1 m-1"
                                                     />
                                                 </div>
                                                 }

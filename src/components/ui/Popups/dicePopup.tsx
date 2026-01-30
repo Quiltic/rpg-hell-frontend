@@ -130,13 +130,14 @@ export default function DicePopup({
                     </div>
                     <Tab.Panels>
                         <Tab.Panel>
+                            {/* d6 */}
                             <div className="flex mt-0 m-4 bg-dark-400 rounded-md justify-center">
                             <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",Dice.length < 5 ? "lg:w-[50%]":(Dice.length < 7 ? "lg:w-[70%]":(Dice.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
                                 {Dice.map((n,i) => {
                                     return (
                                         <img
                                         // cn("m-4 bg-dark-400 rounded-md grid-cols-6", Dice.length > 12 ? "grid-rows-3" : "grid-rows-2")
-                                            className={cn("w-auto m-4",Dice.length < 3 ? "h-12 lg:h-20":"h-10 lg:h-16")}
+                                            className={cn("w-auto m-4 clickable",Dice.length < 3 ? "h-12 lg:h-20":"h-10 lg:h-16")}
                                             key={i}
                                             src={diceSVGs[n]}
                                             alt={(n).toString()}
@@ -157,11 +158,12 @@ export default function DicePopup({
                             </div>
                         </Tab.Panel>
                         <Tab.Panel>
+                            {/* d12 */}
                             <div className="flex mt-0 m-4 bg-dark-400 rounded-md justify-center">
                             <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",Dice.length < 5 ? "lg:w-[50%]":(Dice.length < 7 ? "lg:w-[70%]":(Dice.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
                                 {Dice.map((n,i) => {
                                     return (
-                                        <div className={"group relative justify-center items-center w-auto m-4 h-16 lg:h-20"} 
+                                        <div className={"group relative justify-center items-center w-auto m-4 h-16 lg:h-20  clickable"} 
                                             onClick={() => {
 
                                                     if (Dice.length == 1) return
@@ -226,7 +228,7 @@ export default function DicePopup({
                         ></input>
 
                         <img
-                            className="h-16 w-auto m-2 bg-dark rounded-full"
+                            className="h-16 w-auto m-2 bg-dark rounded-full clickable"
                             src={persDice}
                             alt="Add Dice"
                             onClick={() => {

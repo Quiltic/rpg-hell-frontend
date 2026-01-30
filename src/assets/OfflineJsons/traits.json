@@ -34,7 +34,7 @@
     },
     {"name": "investigator", "tags": "", "effect": "When you do a Senses roll you may gain a Clue. You may have up to 1+MIND Clues. Later you may spend a Clue to; Mark a target you can see for up to 1 hour or gain +1d4 on a Charm contest.\n\nMind 3 -  Once per turn, when you fail a check you may spend a Clue to roll 1d4 and add its value to the roll. This may change the outcome of the roll.", "req": "mind 1", "extra": ""
     },
-    {"name": "patient", "tags": "", "effect": "At the end of your turn (10 seconds) increase your Locked dice by 1, to a maximum of your MIND. If you do not have a Locked dice Lock a 1.\n\nMind 3 - The maximum is your LEVEL rather than your MIND.", "req": "mind 2", "extra": ""
+    {"name": "patient", "tags": "", "effect": "At the end of your turn (10 seconds) increase your Locked Dice by 1, to a maximum of your MIND. If you do not have a Locked dice Lock a 1.\n\nMind 3 - The maximum is your LEVEL rather than your MIND.", "req": "mind 2", "extra": ""
     },
     {"name": "snake eyes", "tags": "", "effect": "Once per turn, when you roll 2 ones (Snake Eyes), you refund 1 Strain and may spend 1 Strain to re-roll them.\n\nMind 3 - When you roll Snake Eyes you may add a 2 to the roll.", "req": "mind 2", "extra": ""
     },

@@ -112,7 +112,7 @@
         "cost": 0
     },
     {
-        "name": "short sword",
+        "name": "sword",
         "description": "",
         "effect": "On Hit: Do 3 damage. Bonus: Gain +2 damage.",
         "upgrades": [
@@ -144,9 +144,9 @@
         "cost": 0
     },
     {
-        "name": "longsword",
+        "name": "greatsword",
         "description": "",
-        "effect": "On Hit: Do 5 damage. Bonus: Gain +2 damage. Downside: -2 damage.",
+        "effect": "On Hit: Do 4 damage. Bonus: Gain +2 damage. Downside: -2 damage.",
         "upgrades": [],
         "tags": "weapon, two-handed, body 1",
         "rarity": "mundane",
@@ -155,7 +155,7 @@
     {
         "name": "greataxe",
         "description": "",
-        "effect": " On Hit: Do 4 damage. Bonus: If you hit, remove 4 Shielding then do On Hit. Downside: -2 damage.",
+        "effect": " On Hit: Do 4 damage. Bonus: If you hit, remove 5 Shielding then do On Hit. Downside: -2 damage.",
         "upgrades": [
             "Halberd - This weapon gains 2 Reaching but has -1 damage."
         ],
