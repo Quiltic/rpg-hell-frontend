@@ -7,7 +7,6 @@ export default function RulebookPage() {
     return (
         <>
             <RulebookNavigation />
-
             <MarkdownRenderer markdown={intro as string} />
         </>
     );
