@@ -150,7 +150,7 @@ export default function WepCreatorPage() {
     }
 
     async function handleCreateNew() {
-        console.log(curItem);
+        //console.log(curItem);
         if (curItem == undefined) {
             return;
         }
@@ -158,7 +158,7 @@ export default function WepCreatorPage() {
             const reply = await ItemsService.putItem({
                 requestBody: curItem,
             });
-            console.log(reply);
+            //console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedItem();
@@ -166,7 +166,7 @@ export default function WepCreatorPage() {
     }
 
     async function handleUpdate() {
-        console.log(curItem);
+        //console.log(curItem);
         if (curItem == undefined) {
             return;
         }
@@ -175,7 +175,7 @@ export default function WepCreatorPage() {
                 name: curItem?.name,
                 requestBody: curItem,
             });
-            console.log(reply);
+            //console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedItem();
@@ -183,13 +183,13 @@ export default function WepCreatorPage() {
     }
 
     async function handleDelete() {
-        console.log(curItem);
+        //console.log(curItem);
         if (curItem?.id == undefined) {
             return;
         }
         if (curItem?.name != "") {
             const reply = await ItemsService.deleteItem({ id: curItem?.id });
-            console.log(reply);
+            //console.log(reply);
         }
         // Set inputs to nothing
         removeFromPinnedItem();
@@ -284,7 +284,7 @@ export default function WepCreatorPage() {
                 } 
             }
         }
-        console.log(finalTags)
+        //console.log(finalTags)
         setTags(finalTags.concat(",weapon,common"));
         setReqs(reqTemp);
         

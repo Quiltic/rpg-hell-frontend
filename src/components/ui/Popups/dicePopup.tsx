@@ -163,7 +163,8 @@ export default function DicePopup({
                             <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",Dice.length < 5 ? "lg:w-[50%]":(Dice.length < 7 ? "lg:w-[70%]":(Dice.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
                                 {Dice.map((n,i) => {
                                     return (
-                                        <div className={"group relative justify-center items-center w-auto m-4 h-16 lg:h-20  clickable"} 
+                                        <div className={"group relative justify-center items-center w-auto m-4 h-16 lg:h-20  clickable"}
+                                            key={i} 
                                             onClick={() => {
 
                                                     if (Dice.length == 1) return

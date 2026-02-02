@@ -149,7 +149,7 @@ function sortItems(_list: any[]) {
 
     // first sorts by name so that items that dont have req can be properly sorted
     const listSortedByName = listSortByName(_list);
-    console.log(_list);
+    // console.log(_list);
 
     return listSortedByName.sort((l1: { rarity: string, tags: string; }, l2: { rarity: string, tags: string; }) => {
         const order = ["mundane","common","uncommon","rare","legendary"];

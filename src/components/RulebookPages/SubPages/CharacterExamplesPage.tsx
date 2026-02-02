@@ -77,6 +77,7 @@ export default function CharacterExamplesPage() {
 
                             <Link
                                 to={absolutePath}
+                                key={id}
                                 // className={""}
                                 // aria-current={isActive ? "page" : undefined}
                             >
