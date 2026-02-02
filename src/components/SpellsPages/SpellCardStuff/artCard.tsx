@@ -94,6 +94,7 @@ export default function SpellCard({
                 return (
                 <>
                 <Markdown
+                    key={i}
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
                     components={{

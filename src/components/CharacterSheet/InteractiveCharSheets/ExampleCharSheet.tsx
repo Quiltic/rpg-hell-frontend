@@ -429,6 +429,7 @@ There is a link above for what a Story is!"
                                  
                                     <div className="flex flex-row justify-center items-center"
                                     onClick={() => {addChosenTrait(foundTrait)}}
+                                    key={id}
                                     >
                                         {front} we recommend taking <Tooltip text={capitalize(list)} key={id}
                                                 display={<>
@@ -511,7 +512,7 @@ There is a link above for what a Story is!"
                                 <>
                                  {!(curArts.includes(foundArt)) &&  // foundArt will always be found as it is found when giving all arts
                                  
-                                    <div className="flex flex-row justify-center items-center"
+                                    <div key={id} className="flex flex-row justify-center items-center"
                                     onClick={() => {addChosenArt(foundArt)}}
                                     >
                                         {front} {artPickOptions[id][0]} <Tooltip text={capitalize(list)} key={id}
@@ -532,7 +533,7 @@ There is a link above for what a Story is!"
                             return (
                                 <>
                                 { curArts.length < curLvl+3 &&
-                                    <div className="flex flex-row justify-center items-center">
+                                    <div key={id} className="flex flex-row justify-center items-center">
                                         {front} {artPickOptions[id][1]} 
                                         {list.split(". ").map( (s:string,id:number) => {
                                             const foundArt = arts.find((art) => {return (art.name == s)});

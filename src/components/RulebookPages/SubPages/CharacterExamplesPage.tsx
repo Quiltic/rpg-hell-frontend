@@ -11,6 +11,7 @@ import exampleCharSheets from "../../../assets/OfflineJsons/example_char_sheets.
 import Tooltip from "../../ui/Tooltip";
 import { cn } from "../../../styling/utilites";
 import { Link, useParams } from "react-router-dom";
+import RulebookNavigation from "../RulebookNav";
 
 const exampleDisplayedCreature = {
         "name": "all",
@@ -65,10 +66,10 @@ export default function CharacterExamplesPage() {
     
     return (
         <div className="flex flex-col">
-            {/* <RulebookNavigation /> */}
 
             {curCreature.name == "all" &&
             <>
+                <RulebookNavigation />
                 <MarkdownRenderer markdown={characterExamples as string} have_header={false} />
                 <div className="grid grid-cols-3 justify-between rounded-md bg-dark-400 m-2 p-2 print:hidden">
                     {curCreature.name == "all" && exampleCharSheets.map((char, id) => {
