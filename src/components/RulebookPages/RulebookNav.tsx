@@ -86,7 +86,7 @@ export default function RulebookNavigation() {
             <h2>Rulebook Pages</h2>
             <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 bg-dark-400">
                 <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
-                    {directoryPages.map((page) => {
+                    {directoryPages.map((page, id) => {
                         const absolutePath = `${rulebookBasePath}${page.path}`;
                         const isActive = location.pathname === absolutePath;
                         return (
@@ -94,6 +94,7 @@ export default function RulebookNavigation() {
                                 to={absolutePath}
                                 className={isActive ? "font-bold" : ""}
                                 aria-current={isActive ? "page" : undefined}
+                                key={id}
                             >
                                 <Button
                                     leftIcon={page.icon}
@@ -113,7 +114,7 @@ export default function RulebookNavigation() {
                     })}
                 </div>
                 <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
-                    {rulebookPages.map((page) => {
+                    {rulebookPages.map((page, id) => {
                         const absolutePath = `${rulebookBasePath}${page.path}`;
                         const isActive = location.pathname === absolutePath;
                         return (
@@ -121,6 +122,7 @@ export default function RulebookNavigation() {
                                 to={absolutePath}
                                 className={isActive ? "font-bold" : ""}
                                 aria-current={isActive ? "page" : undefined}
+                                key={id}
                             >
                                 <Button
                                     leftIcon={page.icon}
@@ -136,7 +138,7 @@ export default function RulebookNavigation() {
                     })}
                 </div>
                 <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
-                    {additionalRulebookPages.map((page) => {
+                    {additionalRulebookPages.map((page, id) => {
                         const absolutePath = `${rulebookBasePath}${page.path}`;
                         const isActive = location.pathname === absolutePath;
                         return (
@@ -144,6 +146,7 @@ export default function RulebookNavigation() {
                                 to={absolutePath}
                                 className={isActive ? "font-bold" : ""}
                                 aria-current={isActive ? "page" : undefined}
+                                key={id}
                             >
                                 <Button
                                     variant="dark"
