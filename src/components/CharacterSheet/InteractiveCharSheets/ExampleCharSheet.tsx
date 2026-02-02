@@ -7,9 +7,10 @@ import Tooltip from "../../ui/Tooltip";
 import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
 import ArtCard from "../../SpellsPages/SpellCardStuff/artCard";
 import DicePopup from "../../ui/Popups/dicePopup";
+import { capitalize } from "../../../util/textFormatting";
 
 
-const example_displayedCreature = {
+const exampleDisplayedCreature = {
         "name": "",
         "stats": {
             "body": 0,
@@ -29,6 +30,11 @@ const example_displayedCreature = {
         "arts": [["","","",""],[""],[""]]
     }
 
+const artPickOptions = [[" we recommend taking:"," pick one of the following:"],
+                        [" we recommend taking:"," pick one of the following:"],
+                        [" for combat:"," for combat take one:"],
+                        [" for utility:"," for utility take one:"]];
+
 type Props = {
     _displayedCreature: any;
     traits: Trait[];
@@ -37,12 +43,11 @@ type Props = {
 };
 
 export default function ExampleCharSheet({
-    _displayedCreature: _displayedCreature = example_displayedCreature,
+    _displayedCreature: _displayedCreature = exampleDisplayedCreature,
     traits:traits,
     arts:arts,
     items:items,
 }: Props) {  
-
 
     const [openDice, setOpenDice] = useState( false );
     const [dice, setDice] = useState( [1] );
@@ -176,6 +181,7 @@ export default function ExampleCharSheet({
                         />
                     </div> */}
                 </div>
+                {/* Stats/Stories/Weps/Items */}
                 <div className="lg:grid lg:grid-cols-2 lg:gap-1 bg-dark">
                     {/* Stats */}
                     <div className="flex flex-col justify-between m-1 p-1">
@@ -356,7 +362,7 @@ There is a link above for what a Story is!"
                                 <>
                                 {
                                     (!i.tags.includes("weapon") && !i.tags.includes("side")) &&
-                                    <Tooltip text={i.name} key={id}
+                                    <Tooltip text={capitalize(i.name)} key={id}
                                             display={<ItemCard _item={{...i, upgrades:[]}} _className="m-1 w-96"/>} 
                                             className="rounded-md bg-dark-300 p-1 m-1"
                                     />
@@ -398,7 +404,7 @@ There is a link above for what a Story is!"
                 <div className="flex flex-row items-center bg-dark-400 border-2 border-body-700/20 m-2"></div>
 
                 
-
+                {/* Traits/Arts */}
                 <div className="lg:grid lg:grid-cols-2 items-center bg-dark rounded-md justify-between">
                     {/* Traits */}
                     <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
@@ -424,7 +430,7 @@ There is a link above for what a Story is!"
                                     <div className="flex flex-row justify-center items-center"
                                     onClick={() => {addChosenTrait(foundTrait)}}
                                     >
-                                        {front} we recommend taking <Tooltip text={list} key={id}
+                                        {front} we recommend taking <Tooltip text={capitalize(list)} key={id}
                                                 display={<>
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                 <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
@@ -455,7 +461,7 @@ There is a link above for what a Story is!"
                                                 <div key={id} className="flex flex-row justify-center items-center"
                                                 onClick={() => {addChosenTrait(foundTrait)}}
                                                 >
-                                                    <Tooltip text={t} key={id}
+                                                    <Tooltip text={capitalize(t)} key={id}
                                                             display={<>
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                             <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
@@ -508,7 +514,7 @@ There is a link above for what a Story is!"
                                     <div className="flex flex-row justify-center items-center"
                                     onClick={() => {addChosenArt(foundArt)}}
                                     >
-                                        {front} we recommend taking <Tooltip text={list} key={id}
+                                        {front} {artPickOptions[id][0]} <Tooltip text={capitalize(list)} key={id}
                                                 display={<>
                                                 <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                 <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
@@ -527,9 +533,9 @@ There is a link above for what a Story is!"
                                 <>
                                 { curArts.length < curLvl+3 &&
                                     <div className="flex flex-row justify-center items-center">
-                                        {front} pick one of the following: 
-                                        {list.split(". ").map( (t:string,id:number) => {
-                                            const foundArt = arts.find((art) => {return (art.name == t)});
+                                        {front} {artPickOptions[id][1]} 
+                                        {list.split(". ").map( (s:string,id:number) => {
+                                            const foundArt = arts.find((art) => {return (art.name == s)});
                                             // console.log(arts)
                                             return (
                                                 <>
@@ -538,7 +544,7 @@ There is a link above for what a Story is!"
                                                 <div key={id} className="flex flex-row justify-center items-center"
                                                 onClick={() => {addChosenArt(foundArt)}}
                                                 >
-                                                    <Tooltip text={t} key={id}
+                                                    <Tooltip text={capitalize(s)} key={id}
                                                             display={<>
                                                             <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
                                                             <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>

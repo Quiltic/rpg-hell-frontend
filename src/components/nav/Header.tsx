@@ -29,6 +29,11 @@ const pages: HeaderPageLink[] = [
         href: "character-sheet",
         color: "hover:text-mind-700 text-mind-600 hover:underline",
     },
+    {
+        name: "Tools",
+        href: "tools",
+        color: "hover:text-crafting-700 text-crafting-600 hover:underline",
+    },
 ];
 
 function classNames(...classes: string[]) {

@@ -44,7 +44,7 @@ const additionalRulebookPages: RulebookPage[] = [
     { path: "effects", name: "Effects", icon: <>🌀</> },
     { path: "stats", name: "Stats", icon: <>📊</> },
     {
-        path: "character-examples",
+        path: "character-examples/all",
         name: "Character Examples",
         icon: <>🧙🧌🧝</>,
     },

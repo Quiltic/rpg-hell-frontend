@@ -119,7 +119,7 @@ const router = createBrowserRouter(
                             element: <CharacterCreationRulebookPage />,
                         },
                         {
-                            path: "character-examples",
+                            path: "character-examples/:example",
                             element: <CharacterExamplesPage />,
                         },
                         {
