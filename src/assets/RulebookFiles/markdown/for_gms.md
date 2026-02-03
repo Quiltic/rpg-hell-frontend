@@ -64,10 +64,12 @@ Some examples of special Actives and Passives:
 
 ## More
 
+### Costs for things
 Stole this from Daggerheart
 
-| Meals for a party of adventurers per night | 1 Handful |
+| Item | Cost |
 | :---- | :---- |
+| Meals for a party of adventurers per night | 1 Handful |
 | Standard inn room per night | 1 Handful |
 | Luxury inn room per night | 1 Bag |
 | Carriage ride | 2 Handfuls |

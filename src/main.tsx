@@ -33,6 +33,7 @@ import ForGMsPage from "./components/RulebookPages/SubPages/GMRulesPage.tsx";
 import IntroPage from "./components/RulebookPages/SubPages/IntroPage.tsx";
 import MiscellaneousRulesPage from "./components/RulebookPages/SubPages/MiscellaneousRulesPage.tsx";
 import StatsPage from "./components/RulebookPages/SubPages/StatsPage.tsx";
+import LootGeneratorPage from "./components/ToolsPages/LootGeneratorPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -83,6 +84,10 @@ const router = createBrowserRouter(
                         {
                             path: "wepcreator",
                             element: <WepCreatorPage />,
+                        },
+                        {
+                            path: "loot-generator",
+                            element: <LootGeneratorPage />,
                         },
                     ],
                 },
