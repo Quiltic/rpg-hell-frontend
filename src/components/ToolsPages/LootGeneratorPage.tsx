@@ -7,6 +7,7 @@ import ItemCardHolder from "../ItemPages/ItemCardStuff/itemCardHolder";
 import { Switch } from "@headlessui/react";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 import { capitalize } from "../../util/textFormatting";
+import Tooltip from "../ui/Tooltip";
 
 
 const rarityTiers = [
@@ -45,12 +46,12 @@ export default function LootGeneratorPage() {
     const [card, setCard] = useState(false);
     
     const [totalValue, setTotalValue] = useState(30);
-    const [rairity, setRairity] = useState(["mundane", "common", "uncommon", "rare"]);
+    const [rairity, setRairity] = useState(["mundane", "common", "uncommon"]);
     const [usableTypes, setUsableTypes] = useState(ItemTypes);
 
 
     // const [expectedValue, setExpectedValue] = useState<number>();
-    const [partyLevel, setPartyLevel] = useState<number>(1);
+    const [partyLevel, setPartyLevel] = useState<number>(4);
     // const [maxRairity, setMaxRairity] = useState("any");
 
 
@@ -72,6 +73,7 @@ export default function LootGeneratorPage() {
         else
             setRairity(rairity.concat([rar]));
 
+        console.log(rairity);
     };
 
     function getCost(item: Item): number {
@@ -161,9 +163,26 @@ export default function LootGeneratorPage() {
 
     useEffect(() => {
 
-        setTotalValue(totalValue * partyLevel);
+        setTotalValue(10 * partyLevel);
+
+        
         
     }, [partyLevel]);
+
+    useEffect(() => {
+
+        if (totalValue >= 320){
+            setRairity(["legendary", "rare", "uncommon"]);
+        }
+        else if (totalValue >= 200){
+            setRairity(["rare", "uncommon"]);
+        }
+        else if (totalValue >= 120){
+            setRairity(["rare", "common", "uncommon"]);
+        } else
+            setRairity(["mundane", "common", "uncommon"]);
+        
+    }, [totalValue]);
     
     return (
         <div className="">
@@ -173,17 +192,23 @@ export default function LootGeneratorPage() {
                     <h3 className="m-2">Controls</h3>
                     <Button variant={"thieving"}
                         onClick={() => {getRandomItems()}}
-                        className="print:hidden m-2 p-2"
+                        className="print:hidden p-2 pl-4 pr-4 m-2"
                     >
                         Generate List
                     </Button>
                     <Button variant={"medicine"}
-                        onClick={() => {setCurItems([])}}
-                        className="print:hidden m-2 p-2"
+                        onClick={() => {
+                            setCurItems([]);
+                            setPartyLevel(4);
+                            setUsableTypes(ItemTypes);
+                            setRairity(["mundane", "common", "uncommon"]);
+                        }}
+                        className="print:hidden p-2 pl-4 pr-4 m-2"
                     >
-                        Clear
+                        Reset
                     </Button>
                     
+                    {/* Rarities */}
                     <div className="bg-dark-300 rounded-md m-2 p-2 justify-center items-center">
                         <div className="mb-1">
                             Rarities to include:
@@ -209,20 +234,21 @@ export default function LootGeneratorPage() {
                             })}
                         </div>
                     </div>
-                    <div className="justify-center items-center bg-dark-300 rounded-md m-2 p-2 ">
-                        <div className="flex flex-row justify-center items-center">
-                            Parties Level
+                    {/* Total Player Lvl and Cost */}
+                    <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md m-2 p-2 ">
+                        <div className="justify-center items-center">
+                            
+                            <Tooltip text={"Parties Total Level"} display={"Combine the level of your party to get the approximate value."}/>
                             <input
                                 type="number"
                                 className="h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
                                 value={partyLevel}
                                 min="1"
-                                max="10"
                                 onChange={(e) => setPartyLevel(parseFloat(e.target.value))}
                             />
                         </div>
-                        <div className="flex flex-row justify-center items-center">
-                            Max Value
+                        <div className="justify-center items-center">
+                            <Tooltip text={"Approximate Cost"} display={"The item list will go above this value."}/>
                             <input
                                 type="number"
                                 className="h-9 rounded-lg p-2 mt-1 shadow-md justify-end m-1"
@@ -233,6 +259,7 @@ export default function LootGeneratorPage() {
                         </div>
                     </div>
                     
+                    {/* Types */}
                     <div className="bg-dark-300 rounded-md m-2 p-2 justify-center items-center">
                         <div className="mb-1">
                             Types to include:
