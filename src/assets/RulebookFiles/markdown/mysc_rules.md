@@ -19,7 +19,7 @@ If the horde is hit by an Attack that would cover it in its entirety (aoe) they 
 When creatures overlap the outermost creature takes all effects that would originate from other tiles (Attacks, Buffs, etc.). The outermost creature has \+1 on Grapple contests and Attack sums against the inner most creature.  
 
 
-# Weapon Rules
+## Weapon Rules
 
 - You CAN NOT get Attack Bonuses multiple times per Attack, such as if you give a 6 on an Attack Sum and spend Empowered. 
 - If something was to give a Bonus to a weapon (such as an Enchantment) it becomes a part of the weapon’s Bonus.
@@ -27,7 +27,19 @@ When creatures overlap the outermost creature takes all effects that would origi
 - After you do an Attack with a non-Side weapon you may spend # to do another Attack with +3 on the Attack Sum if you are using a Side Weapon.
 
 
-# Armor
+## Armor
 
 Shielding is only given at the end of a Rest. Swapping into armor that gives Shielding does not give Shielding on equip, and un-equipping armor that gives Shielding removes any Shielding granted.
 
+## Crafting
+
+When first wanting to craft an item you spend half the required cost. Then during a Rest, if you have the required tools (such as needing a forge for metal weapons), you make progress on creating the item. See the table below for approximate times. If you spend all day working on making the item then you may count this as 2 Rests. You may even gain a level of Exhaustion to count a Rest or day as being worth one more.
+
+| Item | Time |
+| :---- | :---- |
+| Mundane (small items) | Can be done over a Break or instantly. |
+| Mundane (weapons, armor) | 1 to 2 Rests |
+| Common | 1 to 3 Rests |
+| Uncommon | 1 to 2 Days |
+| Rare | Months |
+| Legendary | Months to Years |

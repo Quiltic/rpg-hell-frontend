@@ -77,10 +77,11 @@ Stole this from Daggerheart
 | Specialized tools | 3 Handfuls |
 | Fine clothing | 3 Handfuls |
 | Luxury clothing | 1 Bag |
-| Tier 1 equipment (weapons, armor) | 1–5 Handfuls |
-| Tier 2 equipment (weapons, armor) | 1–2 Bags |
-| Tier 3 equipment (weapons, armor) | 5–10 Bags |
-| Tier 4 equipment (weapons, armor) | 1–2 Chests |
+| Mundane (weapons, armor) | 1–5 Handfuls |
+| Common (weapons, armor) | 1–2 Bags |
+| Uncommon (weapons, armor) | 5–10 Bags |
+| Rare (weapons, armor) | 1–2 Chests |
+| Legendary (weapons, armor) | 4-6 Chests |
 
 
 ### Structures and Objects
