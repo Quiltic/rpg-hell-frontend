@@ -59,7 +59,7 @@ export default function ItemCard({
     
 
     return (
-        <div className={cn("flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4 max-h-96 overflow-auto break-inside-avoid", 
+        <div className={cn("flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4 max-h-96 print:max-h-full overflow-auto break-inside-avoid", 
              (moveItem!=undefined ? "clickable" : ""), _className)}
             onClick={() => {
                 if (moveItem != undefined)

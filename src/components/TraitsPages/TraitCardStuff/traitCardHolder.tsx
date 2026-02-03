@@ -37,7 +37,7 @@ export default function TraitCardHolder({
                 })}
             </div> */}
             
-            <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-2">
                 {/* <h3 className="capitalize" >{_header[1]}</h3>
                 <h3 className="capitalize" >{_header[2]}</h3>
                 <h3 className="capitalize" >{_header[3]}</h3>

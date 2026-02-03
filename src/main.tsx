@@ -34,6 +34,7 @@ import IntroPage from "./components/RulebookPages/SubPages/IntroPage.tsx";
 import MiscellaneousRulesPage from "./components/RulebookPages/SubPages/MiscellaneousRulesPage.tsx";
 import StatsPage from "./components/RulebookPages/SubPages/StatsPage.tsx";
 import LootGeneratorPage from "./components/ToolsPages/LootGeneratorPage.tsx";
+import FullDoc from "./components/RulebookPages/FullDoc.tsx";
 
 const router = createBrowserRouter(
     [
@@ -101,6 +102,10 @@ const router = createBrowserRouter(
                         {
                             path: "",
                             element: <RulebookPage />,
+                        },
+                        {
+                            path: "full-doc",
+                            element: <FullDoc />,
                         },
                         {
                             path: "spells",

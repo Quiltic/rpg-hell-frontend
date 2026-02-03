@@ -42,13 +42,13 @@ const rulebookPages: RulebookPage[] = [
 
 const additionalRulebookPages: RulebookPage[] = [
     { path: "effects", name: "Effects", icon: <>🌀</> },
-    { path: "stats", name: "Stats", icon: <>📊</> },
     {
         path: "character-examples/all",
         name: "Character Examples",
         icon: <>🧙🧌🧝</>,
     },
     { path: "misc-rules", name: "Miscellaneous Rules", icon: <>💡</> },
+    { path: "full-doc", name: "Printable", icon: <>🗎</> },
 ];
 
 const directoryPages: RulebookPage[] = [
@@ -83,8 +83,8 @@ export default function RulebookNavigation() {
     const rulebookBasePath = "/rulebook/";
     return (
         <>
-            <h2>Rulebook Pages</h2>
-            <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 bg-dark-400">
+            <h2 className="print:hidden">Rulebook Pages</h2>
+            <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 bg-dark-400 print:hidden">
                 <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
                     {directoryPages.map((page, id) => {
                         const absolutePath = `${rulebookBasePath}${page.path}`;

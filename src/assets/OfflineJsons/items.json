@@ -336,9 +336,7 @@
         "name": "naturalist's shillelagh",
         "description": "",
         "effect": "On Hit: Do 2 damage. Bonus: If you hit, choose:  give 1 Burn, Wet until the end of their next turn, or do 1 damage to a new target within 1 tile of the main target.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "weapon, glow, soul 1",
         "rarity": "mundane",
         "cost": 0
@@ -857,9 +855,7 @@
         "name": "missing step boots",
         "description": "A pair of boots with no tread.",
         "effect": "While worn, the creature leaves no traces while stepping with the boots. **This does not prevent Arts like 'Track Creature' from detecting the wearer.**",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -868,9 +864,7 @@
         "name": "pan of the divine chef",
         "description": "A seemingly normal pan. With the initial B on the handle. ",
         "effect": "When this pan is held above a heat source, once per Rest, roll a d6. If the result is a 4 or higher an exquisite meal forms on the pan. Up to 6 creatures may eat the meal. If a 3 or less is rolled the same meal will appear but will be an Illusion.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -879,9 +873,7 @@
         "name": "decanter of sauces",
         "description": "A ceramic decanter with illustrations of sauce chefs on the side.",
         "effect": "The decanter has up to 6 charges and regains 1 charge every 3 hours. A creature may pour the decanter naming a sauce to pour up to one bowl of fresh sauce.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -890,9 +882,7 @@
         "name": "parachute ring",
         "description": "A silver ring with a cloud emblem pressed into it.",
         "effect": "Once a day, when the wearer falls 8 or more tiles the ring will cast 'Spectral Parachute' on the wearer.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -901,9 +891,7 @@
         "name": "jailers vase",
         "description": "An unusually sturdy pink glass vase with ornate visages of the things it contains.",
         "effect": "When a creature looks through the mouth of the vase any willing target  they look at through the bottom of the vase will be absorbed and displayed on the side of the vase. *(Items are always willing)*\nWhen a creature looks through the bottom of the vase the visage that faces up will be released into the world and removed from the side of the vase.\nTargets absorbed by the vase do not progress through time and are \"frozen\" in whatever state they entered the vase. Creatures who are about 5ft tall (~1.5 m) are about 1 inch tall (~2.5 cm) tall on the vase.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "legendary",
         "cost": 0
@@ -923,9 +911,7 @@
         "name": "winged cloak",
         "description": "A full cloak with embroidery of wings along the outside.",
         "effect": "When a creature wearing the cloak flares it open they are able to Fly. This effect lasts for up to an hour before needing to recharge over the course of a Rest.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -934,9 +920,7 @@
         "name": "magic candies",
         "description": "A small colorful bag containing various magic candies.",
         "effect": "When found contains 2d6+3 magic candies. A creature may spend # (dice) to remove a candy from the bag. When they do roll a dice and gain one of the candies. A candy can be eaten with an additional # (dice).\n*1: Shocking Sucker* - A small yellow and white sucker, which when eaten gives 1 additional speed for 1 minute.\n*2: Gummy Dragon* - A randomly colored gummy dragon, which when eaten adds 1 to any dice you lock. This does not effect 6's and lasts for 1 minute.\n*3: Balloon Gum* - A block of pink bubblegum, which when eaten lets you blow a massive bubble to slow your falling to 4 tiles a round, and not letting you take fall damage. The balloon lasts for 5 minutes or until popped.\n*4: Back Breaker* - A heavy grey and blue jawbreaker, which when eaten gives you an extra dice when you try to push or lift something. This lasts for 10 minutes.\n*5: Turtle Cookie* - A sugar cookie in the shape of a Turtle, which when eaten lets you hold your breath for an hour.\n*6: Beetle Juice* - A little vial of purple liquid with the tag Beetle Juice on it. When drank gives you 5 Bonus Shielding which last until your next Rest.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -967,9 +951,7 @@
         "name": "dragon egg pendant",
         "description": "A small silver dragon egg on a golden chain.",
         "effect": "Once per day, a creature can kiss the pendant to change any dice rolled into a 6.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -978,9 +960,7 @@
         "name": "ghost cloak",
         "description": "An almost fully transparent cloak with a blue and white tinge.",
         "effect": "Once a wearer becomes Hidden while wearing this cloak they become Bound to the cloak. While Bound the wearer can walk through non-metal walls as if it was Rough Terrain by spending 2 Strain per tile.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -989,9 +969,7 @@
         "name": "goggles of magic sight",
         "description": "A set of purple tinted Goggles with glowing runes on the outer bands.",
         "effect": "While wearing these goggles the user can spend ## (2 dice) to be able to sense magical effects within 6 tiles around them for up to 10 minutes. Objects and creatures that are affected by magic glow based on how powerful the magic is. The goggles can be activated once per Break.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1000,9 +978,7 @@
         "name": "owl eyes",
         "description": "A set of large round glasses with a rune on the nose guard.",
         "effect": "While wearing these glasses the user can see in poorly light areas as if they were illuminated. This effect does not work in complete darkness, such as in a cave system or in magical darkness.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1011,9 +987,7 @@
         "name": "orb of scrying",
         "description": "A smooth orb, with moving smoke floating within.",
         "effect": "The user places their hand on the orb and thinks of a place or person. The orb will activate the Art 'Farsight' at the location of the person or place. The distance from the place is still based on how well the user knows them. The user does not need to Focus on the Art and it lasts for the entire duration. The orb can be activated once per Rest.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1022,9 +996,7 @@
         "name": "ring of illusions",
         "description": "A ring carved with ever changing runes that seem to describe any number of lost secrets.",
         "effect": "The ring will binding to a user after they wear it for 1 hour. Once bound to a user, they can activate the Art 'Minor Illusion' at will, and 'Greater Illusion' once per Break without spending Strain.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc, bound",
         "rarity": "uncommon",
         "cost": 0
@@ -1033,9 +1005,7 @@
         "name": "ring of invisibility",
         "description": "A ring carved with completely clear runes that give the illusion of being holes in the ring.",
         "effect": "Once per Break, while being worn the wearer may spend # (1 dice) to cast Invisibility, without spending Strain.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1044,9 +1014,7 @@
         "name": "sandles of speed",
         "description": "A set of leather sandals with golden inlay that looks like wind.",
         "effect": "While worn, the user has an additional 2 Speed.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1055,9 +1023,7 @@
         "name": "scarf of the fish's tale",
         "description": "An ornate scarf decorated with a story of love lost at sea.",
         "effect": "The scarf will bind to a user when, while worn, the user gets stacks of Wet. Once bound to a user, while worn, they are able to breathe underwater and can “talk” to aquatic life.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc, bound",
         "rarity": "uncommon",
         "cost": 0
@@ -1066,9 +1032,7 @@
         "name": "sending skulls",
         "description": "A set of small skull earrings with a silver hook. Always found as a set of 2 or more.",
         "effect": "While worn, the wearer can hear anything said within 1 tile of any other paired sending skull. The skulls are paired when created and will become useless if only 1 is made or remains.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -1077,9 +1041,7 @@
         "name": "shield necklace",
         "description": "A silver necklace with a pendent in the shape of a shield.",
         "effect": "While worn the user gains +2 Ward at the end of a Rest.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1088,9 +1050,7 @@
         "name": "slate of knowledge",
         "description": "A smooth flat plate of slate.",
         "effect": "The slate has a library of information stored within. All relating to a specific or general topic. When a question written in runic is scratched onto a face, if the Slate has knowledge about that topic, it will fill the rest of that face with knowledge written in runic about that topic. If it does not know information about that topic it will fill the face with random symbols. The face can be wiped clean to ask another question. A Slate cannot gain, or lose knowledge once created.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1111,9 +1071,7 @@
         "name": "wand of cubes",
         "description": "A long rectangular wand, made of some kind of unidentifiable stone.",
         "effect": "A user may activate the wand by pointing it in a direction and saying 'Cube'. Up to three times per Break the wand will activate the Art 'Cube' in the spot the user points to. The wand focuses on the spell, lasting the entire duration of the spell or until it is recast using this wand.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -1145,9 +1103,7 @@
         "name": "cane of the crowmaster",
         "description": "A short ebony cane with a silver crow head carved as the topper.",
         "effect": "The wielder may spend ### (3 dice) to bind this item to themself and summon a Crow to the top of the cane. The Crow acts as a Follower and obeys your orders. You may only ever have 1 Crow from this staff. Alternatively, if you have a bird Follower you may instead summon the bird instead. The bird will also be bound to the cane if you do this.\nYou may spend # (1 dice) to teleport the Crow or follower bird to the top of the cane. When the Crow or follower bird dies you may gain 6 Strain to revive them. You may may do this for up to 10 minutes after they die, after which they are permanently dead and cannot be revived using this cane. (Crows can be re-summoned after 1 day without Strain cost).\nOn Hit: Do 2 damage. Bonus: If you hit, choose:  give 1 Burn, Wet until the end of their next turn, or do 1 damage to a new target within 1 tile of the main target.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "weapon, glow, soul 1, magical, bound",
         "rarity": "rare",
         "cost": 0
@@ -1156,9 +1112,7 @@
         "name": "bag of bartering",
         "description": "An empty messenger bag designed to look like a common shop.",
         "effect": "When an item is placed into the bag, the item will disappear and the bag will fill with its equivalent worth of money as if it was sold to a shop.\nWhen money is placed into the bag, it will disappear and a non-magical item of equivalent value will enter the bag. If you state the name of a non-magical item, the item named (or similar) will enter the bag instead.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1167,9 +1121,7 @@
         "name": "bandana of the darkened skies",
         "description": "A dark grey bandana with silver threading.",
         "effect": "Wear the bandana at night time to bind to it. While bound to a user they may activate the Art 'Shadow Step' at will. Still spending Dice and Strain.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc, bound",
         "rarity": "rare",
         "cost": 0
@@ -1189,9 +1141,7 @@
         "name": "book of the radiant constellations",
         "description": "A book with a blue crystal spine and black pages. Every page depicts a different constellation: Archer, Dragon, Goblet, Lamp, Tree, and the Turtle.",
         "effect": "A creature can spend # (1 dice) to rip a page out of the book activating the respective constellations Art without spending Strain. The creature still must Focus on Arts that require it. Once a page is removed it cannot be added back to the book. \n- *Archer:* 'Starfall'\n- *Dragon:* 'Dragon Form'\n- *Goblet:* 'Wave'\n- *Lamp:* 'Elemental Burst'\n- *Tree:* 'Healing Bloom'\n- *Turtle:* 'Fortify'",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1200,9 +1150,7 @@
         "name": "crystal of grandeur",
         "description": "A clear diamond monocle with silver and gold handles.",
         "effect": "While looking through the lens items of value will begin to give a golden glow. The more valuable the item is the brighter the glow. The glow will pass through up to 1 tile worth of non-metal walls or floors.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1234,9 +1182,7 @@
         "name": "everlasting flask",
         "description": "A perpetually half full flask with gold vines wrapping around the outer shell and a series of runes etched around the lip.",
         "effect": "When the flask is poured it will spend a charge to produce a dosage worth of liquid. The amount a dosage is depends on liquid. For instance if wine is poured out the flask will give 1 cup worth of liquid, while if you have a poison only a small amount will come out. You can pour in a new liquid to change what liquid the flask contains and depending on the rarity of the liquid determines how many charges the flask has. \n\n- Mundane (water, beer, etc) has infinite charges per Rest.\n- Common (oil, milk, etc) have 5 charges per Rest.\n- Un-common (honey, expensive wine, etc.) have 3 charges per Rest.\n- Rare has 1 charge per Rest.\n- This item can't re-create Legendary liquids.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1245,9 +1191,7 @@
         "name": "glutton's fork",
         "description": "A fork with iridescent metal head and a wooden handle.",
         "effect": "Three times per Rest a creature may spend # (1 dice) to stab the fork into any non-organic material. Whatever the fork was stabbed into becomes edible. Consumed items heal and refund Strain to the user equal to the items rarity. Common items heal and refund 1 Strain. Uncommon: 2, Rare: 4, and Legendary: 8. Magical items grant double the heal and Strain refunded.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -1256,9 +1200,7 @@
         "name": "hat of dimensions",
         "description": "A nondescript hat with an extremely dense set of runes on the inner tag.",
         "effect": "When put on the wearer will be transported to a different dimension, determined when the hat was made. The wearer will stay in this dimension until they take the hat off, at which point they will return to their original dimension.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "legendary",
         "cost": 0
@@ -1267,9 +1209,7 @@
         "name": "immovable rod",
         "description": "A silver rod with a button on either end of it.",
         "effect": "A user may spend # (1 dice) to press either button. When either button is pressed the rod magically freezes in place, becoming immovable even in the air. Either button can be pressed again to undo this effect.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "rare",
         "cost": 0
@@ -1278,9 +1218,7 @@
         "name": "marksman's arcane eye",
         "description": "A stone eye, with a pupil of blue and gold runes.",
         "effect": "Once inserted into the users head the eye binds itself to the user. While you have a creature Marked you are able to see a glowing outline of them, even through walls. You are always able to see the target marked this way, even if they are Hidden or Obscured.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc, bound",
         "rarity": "rare",
         "cost": 0
@@ -1300,9 +1238,7 @@
         "name": "rocket maul",
         "description": "A pointed maul with an orange and red crystal embedded within its head. Metal piping can be seen forcing explosive force from the crystal to the back of the maul.",
         "effect": "The wielder can spend # (1 dice) and 1 Strain to activate the explosive crystal. Your next Weapon Attack you do with this weapon, does an an additional 6 damage, but counts as an attack sum of 4 or less, regardless of dice given.\n\nThis Weapon does double damage against objects and structures.\nOn Hit: Do 4 damage.\nBonus: If you hit, you may do 4 Knockback.\nDownside: You gain Slow until the start of your next turn.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "weapon, two handed, magical",
         "rarity": "uncommon",
         "cost": 0
@@ -1311,9 +1247,7 @@
         "name": "undying heart",
         "description": "A heart that continues to beat even when its body is lost.",
         "effect": "The heart can be consumed to permanently increases Max Health by 5.\nFound in a 'dead' Lich. This is needed to craft a potion of Life.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc, consumable",
         "rarity": "legendary",
         "cost": 0
@@ -1322,9 +1256,7 @@
         "name": "tome of the all knowing",
         "description": "A book with a wooden face for a front cover and pages written in ever changing runes.",
         "effect": "When held the mask will awaken and will state the following: 'I am the Tome of the All Knowing. I can answer almost any question. I have the power to answer (number of charges) questions. Ask.' \n\nAfter which it will sit there waiting for a question to be spoken aloud. The first question spoken aloud within 6 tiles of the held book will be answered if possible. The book will then lose 1 charge and say the above line again. The book starts with 1d6 worth of charges. Once all charges have been spent the book will go to sleep. For every year the book is asleep it will regain 1 charge.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "legendary",
         "cost": 0
@@ -1333,9 +1265,7 @@
         "name": "phoenix feather",
         "description": "A golden glimmering orange feather that is warm to the touch.",
         "effect": "If a creature dies while in possession of the feather the feather turns to dust, the creature's Health is set to 1, and they lose all stacks of Death's Door and Exhaustion.\nThis is needed to craft a potion of Life.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc, consumable",
         "rarity": "legendary",
         "cost": 0
@@ -1344,9 +1274,7 @@
         "name": "potion of life",
         "description": "The potion looks like a vibrant slew of purples, oranges, and reds all dancing around a single point in the center.",
         "effect": "Pour this over a dead creature. If the creature is not cursed as an Undead, they are revived. The creature's Soul must be free and the creature cannot have been dead for more than 1 month.\nIn order to craft you must combine a Phoenix Feather, Undying Heart, and Holy Water.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, consumable, alchemical",
         "rarity": "legendary",
         "cost": 0
@@ -1355,9 +1283,7 @@
         "name": "skipping ammo",
         "description": "A special ammo with a spell rune carved onto its side.",
         "effect": "When fired from a ranged weapon the shot will teleport to the target. This shot cannot be Dodged or multi-targeted (such as from the art 'Redirect'). This shot will ignore creatures, objects, or walls that are in the way. However, you must still be able to Attack the target normally to hit them.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1366,9 +1292,7 @@
         "name": "spellshot ammo",
         "description": "A special ammo with a spell rune carved onto its side.",
         "effect": "When found or made pick an Art that costs 4 or less.\nWhen fired from a ranged weapon apply the effect of the carved Art to the target. If the Art has no target (such as an area Art) the target is the center of the Art.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "mysc, magical",
         "rarity": "uncommon",
         "cost": 0
@@ -1377,9 +1301,7 @@
         "name": "tracker's watch",
         "description": "A wristwatch with only a single arrowhead on its face.",
         "effect": "A creature can bind to the watch by wearing it for 24 hours. Once bound a creature can spend # (1 dice) to tap its face to activate the Art 'Find Object' or 'Track Creature' without spending Strain or excess time. When the chosen target is within 8 tiles of the watch, they gain Marked for 10 minutes.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "mysc, magical, bound",
         "rarity": "uncommon",
         "cost": 0
@@ -1388,9 +1310,7 @@
         "name": "runeshot pistol",
         "description": "A pistol with 3 barrels. Gold runes adorn the outside of each barrel.",
         "effect": "On Hit: Do 2 damage.\nBonus: Spend 2 Strain to leave a trail of sparking runes along the path of the shot. This trail lasts until the beginning of your next turn. If a creature walks within 1 tile of this path they take 1 damage and are knocked back 1 tile. Multiple paths can be placed on the same line, stacking this effect.\nDownside: Your hand slips, doing 2 less damage to Shielding.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "weapon, range 12, loading 3, arcana 1, magical",
         "rarity": "rare",
         "cost": 0
@@ -1443,9 +1363,7 @@
         "name": "philosopher's stone",
         "description": "A small red/pink stone that numbs the touch.",
         "effect": "A creature may activate the Art 'Equivalent Exchange' without spending strain.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "legendary",
         "cost": 0
@@ -1465,9 +1383,7 @@
         "name": "potion of the ages",
         "description": "The potion looks like a red wine, with an almost grainy texture to it.",
         "effect": "When ingested, roll a d12. You de-age an amount of years equal to this roll.\n\nIn order to craft you must combine blood from a dragon, a pure diamond, white sand, and 'Holy Water'.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "legendary",
         "cost": 0
@@ -1487,9 +1403,7 @@
         "name": "waterlight candle",
         "description": "A blue hued candle.",
         "effect": "This candle can't be put out by liquids.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -1520,9 +1434,7 @@
         "name": "enchanting instrument",
         "description": "",
         "effect": "The wielder may spend ## (2 dice) to do a Charm contest against a creature that can hear them. If they win, the target is Charmed for 1 minute.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "tool, magical",
         "rarity": "common",
         "cost": 0
@@ -1542,9 +1454,7 @@
         "name": "re-arranging lock",
         "description": "A lock with an unusual keyhole",
         "effect": "When a creature tries to pick this lock they have -1d4 on Thieving rolls.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "common",
         "cost": 0
@@ -1553,9 +1463,7 @@
         "name": "banana of the darkened skies",
         "description": "Its just a slightly overripe banana. Nothing magical about it. Nope nope nope.",
         "effect": "When consumed the banana activates the Art 'Dawn or Dusk' choosing Dusk.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, consumable",
         "rarity": "uncommon",
         "cost": 0
@@ -1662,9 +1570,7 @@
         "name": "holy water",
         "description": "Water blessed with a divine power.",
         "effect": "When in contact with a Monstrosity, Planar, or Undead they take 1d4 damage at the start of their turn and can't heal.\n\nSpend ##; Throw the water to a point up to 6 tiles away. Everything within 2 tiles of that point gains Wet.\nSpend # and the water; Apply to a weapon for 1 minute (6 turns). If the weapon hits, give Wet until the start of your next turn.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "consumable, throw range 6",
         "rarity": "common",
         "cost": 0

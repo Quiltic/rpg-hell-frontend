@@ -31,7 +31,7 @@ const ScrollButton = () => {
             variant={"subtle"}
             leftIcon={ChevronIcon}
             className={classNames(
-                "bottom-10 right-14 rounded-full w-10 h-10 rotate-180 transform",
+                "bottom-10 right-14 rounded-full w-10 h-10 rotate-180 transform print:hidden",
                 visible ? "fixed " : "hidden"
             )}
             onClick={scrollToTop}

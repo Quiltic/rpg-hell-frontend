@@ -53,7 +53,7 @@ export default function TraitCard({
     }
 
     return (
-        <div className={cn("m-4 max-h-96 overflow-auto break-inside-avoid", (moveTrait!=undefined ? "clickable" : ""), _className)}
+        <div className={cn("m-4 max-h-96 print:max-h-full overflow-auto break-inside-avoid", (moveTrait!=undefined ? "clickable" : ""), _className)}
             onClick={() => {
                 if (moveTrait != undefined)
                     moveTrait(_trait);
@@ -94,7 +94,7 @@ export default function TraitCard({
                         components={{
                             ul: ({ node, ...props }) => <ul className="md_list" {...props} />,
                         }}
-                        className="text-left mb-2.5 p-2"
+                        className={cn("text-left mb-2.5 p-2",(line.length > 300 ? "text-sm": ""))}
                     >
                         {line}
                     </Markdown>
