@@ -116,7 +116,7 @@
         "description": "",
         "effect": "On Hit: Do 3 damage. Bonus: Gain +2 damage.",
         "upgrades": [
-            "Even Shorter - This weapon gains Side (counts as a Side Weapon)",
+            "Short - This weapon gains Side (counts as a Side Weapon)",
             "Sharpened - +1 Damage"
         ],
         "tags": "weapon, body 1",
@@ -1557,6 +1557,104 @@
             ""
         ],
         "tags": "magical, consumable",
+        "rarity": "uncommon",
+        "cost": 0
+    },
+    {
+        "name": "bonebreaker knuckles",
+        "description": "A pair of steel knuckles with leather padding.",
+        "effect": "When this weapon does damage it does 1 additional damage this turn. This effect stacks.\n\nOn Hit: Do 1+BODY damage. Bonus: If you or the target are Grappled, gain +2 damage.",
+        "upgrades": [
+            "Spiked - +1 Damage"
+        ],
+        "tags": "weapon, two-handed, body 3",
+        "rarity": "uncommon",
+        "cost": 0
+    },
+    {
+        "name": "harpoon",
+        "description": "",
+        "effect": "On Hit: Do 3 damage.\nBonus: Do a Body contest against the target. If you win, pull the target 6 tiles towards you. If you lose, pull 3 tiles instead.\nDownside: Do not Autoload at the end of your turn.",
+        "upgrades": [
+            "Chain Launcher - Gain +1d4 on the Body contest to pull."
+        ],
+        "tags": "weapon, two-handed, range 12, loading 1, autoload",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "shellbreaker axe",
+        "description": "A special type of axe designed to hunt Dragon Turtles near the northern wastes. ",
+        "effect": "On Hit: Remove 3 Shielding then do 2 damage.\nBonus: If you hit, remove 3 Shielding then do On Hit.\nDownside: -1 Damage.",
+        "upgrades": [],
+        "tags": "weapon, side, throwable, body 2",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "silver sword",
+        "description": "",
+        "effect": "If the target is a Monstrosity, Planar, or Undead do an extra 1d4+1 damage.\nOn Hit: Do 3 damage.\nBonus: Gain +2 damage.",
+        "upgrades": [
+            "Short - This weapon gains Side (counts as a Side Weapon)",
+            "Sharpened - +1 Damage"
+        ],
+        "tags": "weapon, body 1",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "giant-feller greatsword",
+        "description": "",
+        "effect": "This weapon does +1d4 damage against Large creatures. \n\nOn Hit: Do 4 damage.\nBonus: Gain +2 damage.\nDownside: -2 damage.",
+        "upgrades": [],
+        "tags": "weapon, two-handed, body 4",
+        "rarity": "uncommon",
+        "cost": 0
+    },
+    {
+        "name": "mythic slayer greataxe",
+        "description": "A greataxe with etchings of multiple mythic creatures being slayed by an axe.",
+        "effect": "This weapon does double damage against Mythical creatures.\n\nOn Hit: Do 4 damage.\nBonus: If you hit, remove 5 Shielding then do On Hit.\nDownside: -2 damage.",
+        "upgrades": [
+            "Halberd - This weapon gains 2 Reaching but has -1 damage."
+        ],
+        "tags": "weapon, two-handed, body 1, arcana 1",
+        "rarity": "rare",
+        "cost": 0
+    },
+    {
+        "name": "sparkmaster rapier",
+        "description": "A slightly jagged rapier witch seems to spark when in contact with other metal.",
+        "effect": "This weapon binds to a user once they touch this weapon to another source of metal. Once bound to a user, they may activate the Arts 'Short Circuit', 'Chain Lightning', and 'Volatile Steps' (choosing Wind) once per Rest without spending Strain.\n\nOn Hit: Do 2 damage.\nBonus: You may move 3 tiles before or after the Attack.",
+        "upgrades": [
+            "Light - Bonus: +1 tile to move",
+            "Gilded - Damage becomes CHARM-1"
+        ],
+        "tags": "weapon, mind 1, magical, bound",
+        "rarity": "rare",
+        "cost": 0
+    },
+    {
+        "name": "naturewound bow",
+        "description": "Seemingly living branches wound into a short-bow.",
+        "effect": "The wielder may activate the Art 'Nature's Tools' at will.\n\nOn Hit: Do 2 damage.\nBonus: If you hit, give the target Slow until the start of your next turn.",
+        "upgrades": [
+            "Composite - +1 damage, +3 range",
+            "Seriated Arrows - On Hit: Do 1 damage at the start of the hit target's next turn. (This effect stacks.)"
+        ],
+        "tags": "weapon, two-handed, range 15, nature 1",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "livingwood armor",
+        "description": "Light armor made from the bark and roots of an Ironwood bush.",
+        "effect": "While worn, the wearer can not lose Shielding from 1 damage or less.\n\nAt the end of a Rest gain your LEVEL Shielding. While worn gives +1 Dodge.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat. Gain +SUB-STAT Shielding."
+        ],
+        "tags": "armor",
         "rarity": "uncommon",
         "cost": 0
     },
