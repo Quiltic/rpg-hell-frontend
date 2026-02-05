@@ -1,4 +1,4 @@
-# Key
+## Key
 
 - ***Side*** - Can be used in the offhand and taken as a Side Weapon
 - ***Versatile*** - One-handed normally but gain +2 dmg if Two-handed

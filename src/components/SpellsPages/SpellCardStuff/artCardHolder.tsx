@@ -16,7 +16,7 @@ export default function SpellCardHolder({
 
     return (
         
-        <div className="grid grid-cols-1 md:grid-cols-3 -m-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-2 -m-4">
             {_shownSpells.map((spell, i) => {
                 if (spell.name != 'Error') {
                     return (

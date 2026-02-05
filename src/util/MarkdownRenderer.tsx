@@ -54,7 +54,7 @@ export default function MarkdownRenderer({
     }, [formattedMarkdown]);
 
     return (
-        <div className="markdown-styles mx-auto max-w-4xl text-left">
+        <div className="markdown-styles mx-auto max-w-4xl text-left break-inside-avoid">
             {have_header && <HeadingJumpTo headings={headings} />}
 
             <Markdown
