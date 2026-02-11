@@ -247,7 +247,7 @@ export default function UpdateArtPage() {
                         placeholder="**Reminder** - Spend ## and 3 Strain;"
                         className="bg-dark-300 h-44 rounded-lg p-1 m-1"
                         value={curArt.effect}
-                        onChange={(e) => setCurArt({...curArt, effect: e.target.value})}
+                        onChange={(e) => setCurArt({...curArt, effect: e.target.value.replace("\"","'")})}
                     />
                 </div>
 

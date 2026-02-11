@@ -182,7 +182,7 @@ export default function UpdateDBTraitsPage() {
 Upgrade ? - Weeeee!"
                         className="bg-dark-300 h-44 rounded-lg p-1 m-1"
                         value={curTrait.effect}
-                        onChange={(e) => setCurTrait({...curTrait, effect: e.target.value})}
+                        onChange={(e) => setCurTrait({...curTrait, effect: e.target.value.replace("\"","'")})}
                     />
                 </div>
 
