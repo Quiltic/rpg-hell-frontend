@@ -47,7 +47,7 @@
     {
         "name": "hand crossbow",
         "description": "",
-        "effect": "On Hit: Do 1 damage. Bonus: Gain +2 damage. Downside: Do not Autoload at the end of your turn.",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +2 damage. Downside: Do not Autoload at the end of your turn.",
         "upgrades": [
             "Repeater - +2 Ammo (Loading 3)"
         ],
@@ -166,7 +166,7 @@
     {
         "name": "crossbow",
         "description": "",
-        "effect": "On Hit: Do 3 damage. Bonus: If you hit, remove 3 Shielding then do On Hit. Downside: Do not Autoload at the end of your turn.",
+        "effect": "On Hit: Do 3 damage. Bonus: If you hit, remove 5 Shielding then do On Hit. Downside: Do not Autoload at the end of your turn.",
         "upgrades": [
             "Balista - +2 Damage,-1 Speed while carried"
         ],
@@ -212,7 +212,7 @@
     {
         "name": "long bow",
         "description": "",
-        "effect": "On Hit: Do 3 damage. Bonus: Gain +2 damage. Downside: -2 Damage.",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +2 damage. Downside: -2 Damage.",
         "upgrades": [
             "Arching - Targets do not gain the Hunker Down bonus to Dodge.",
             "Stiff - +2 damage, -8 Range"
@@ -248,7 +248,7 @@
     {
         "name": "popshard rifle",
         "description": "",
-        "effect": "This weapon has +8 Range while you are Prone. On Hit: Do 3 damage. Bonus: If you hit, remove 3 Shielding then do On Hit. Downside: -1 Ammo.",
+        "effect": "This weapon has +8 Range while you are Prone. On Hit: Do 3 damage. Bonus: If you hit, remove 5 Shielding then do On Hit. Downside: -1 Ammo.",
         "upgrades": [
             "Longnose - +8 Range, while Prone gain +16 Range instead of +8",
             "Heavyshard - +3 damage,-3 Ammo (Loading 1)",

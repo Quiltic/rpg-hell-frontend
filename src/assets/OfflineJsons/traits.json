@@ -50,7 +50,7 @@
     },
     {"name": "ranged weapon master", "tags": "", "effect": "Your Ranged Weapons have +2 Range.\nWhen using a Loading Weapon you may spend 2 ammo to gain the Weapon Bonus.\nWhen using a Bow, creatures you target do not gain +1 Dodge while Hunkered Down.", "req": "mind 4", "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.", "req": "mind 4", "extra": ""
+    {"name":"(tempname) aikido","req":"mind 4","tags":"core","effect":"When you successfully Dodge a roll or win a contest you did not initiate Lock a 1. \nAdditionally, once per turn, you may activate an Art by using a Locked Dice. This Art must cost only one dice and is classified as a Reaction.","extra":"Things that make an Art cost # instead of ## can let this trait activate; such as 'Art Manipulator'."
     },
 
 
@@ -219,7 +219,7 @@
 
     {"name": "unshakable devotion", "tags": "", "effect": "Your damaging Arts no-longer break Charmed. (Damage caused by other effects, such as Knockback or Burn, also do not break Charmed.)", "req": "arcana 4, charm 4", "extra": ""
     },
-    {"name": "MISSING TRAIT", "tags": "", "effect": "This trait is missing. If you have any ideas plz msg @Bertle.\nPossible name: *Artificer*.", "req": "arcana 4, crafting 4", "extra": ""
+    {"name":"artificer","tags":"","effect":"You may Bind to any number of magic items.\nArts you activate that target an item and have a duration have no maximum duration and do not require Focus. (You cannot apply the same Art on the same target multiple times.)\nArt created structures (such as Cube) you create have no duration.","req":"arcana 4, crafting 4","extra":""
     },
     {"name":"leyline traveler","req":"arcana 4, nature 4","tags":"","effect":"When you activate a Trait or Art that effects an area, you may spend 1 Strain to teleport into an unoccupied space you can see inside of that area. If the Art is instantaneous you may choose to teleport before or after the effects take place.","extra":""
     },
