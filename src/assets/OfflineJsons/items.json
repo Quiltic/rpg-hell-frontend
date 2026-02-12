@@ -1622,6 +1622,7 @@
         "rarity": "uncommon",
         "cost": 0
     },
+    {"name":"feather of flight","description":"A large white feather with hints of gold at the end.","effect":"Once per Rest the wielder may activate the Art 'Wings' without spending Strain.","upgrades":[""],"tags":"magical","rarity":"rare","cost":0},
     {
         "name": "holy water",
         "description": "Water blessed with a divine power.",
