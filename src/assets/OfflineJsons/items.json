@@ -312,11 +312,13 @@
         "cost": 0
     },
     {
-        "name": "crystal staff",
+        "name": "staff",
         "description": "",
         "effect": "On Hit: Do 3 damage. Bonus: If you hit, give the target 1 Stun. Downside: No Reaching.",
-        "upgrades": [],
-        "tags": "weapon, two-handed, glow, reaching 2, soul 1",
+        "upgrades": [
+            "Crystalize - Give the staff Glow."
+        ],
+        "tags": "weapon, two-handed, reaching 2",
         "rarity": "mundane",
         "cost": 0
     },

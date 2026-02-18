@@ -232,7 +232,7 @@
                 "nature's tools. dark mists"
             ],
             [
-                "rip and tear. precision strike"
+                "rip and tear. precision strike. toppling bola"
             ],
             [
                 "coordinated strike. marking strike"
@@ -266,7 +266,7 @@
                 "split art. intoxicating presence"
             ],
             [
-                "arcane sense"
+                "latent magics, arcane sense"
             ],
             [
                 "art augmenter"
@@ -406,7 +406,7 @@
         ],
         "traits": [
             [
-                "soul bound relic",
+                "investigator",
                 "intoxicating presence. show, don't tell"
             ],
             [
@@ -428,6 +428,150 @@
             ],
             [
                 "dance of fools. lightshow"
+            ]
+        ]
+    },
+    {
+        "name": "Druid",
+        "mainStat":"nature",
+        "stats": {
+            "body": 1,
+            "mind": 0,
+            "soul": 1,
+            "arcana": 1,
+            "crafting": -1,
+            "charm": 0,
+            "nature": 2,
+            "medicine": -1,
+            "thieving": 1
+        },
+        "items": "naturalist's shillelagh. shield. light leather. bandage. potion of animal speech potion. basic poison. trapper's tools",
+        "quick_exp": "Transform into a beast or control the world around you.",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Body, where as for the Sub-stats we recommend putting it into Nature and Arcana"
+        ],
+        "traits": [
+            [
+                "wildShape",
+                "frenzy. nature reserve"
+            ],
+            [
+                "hunter. latent magics"
+            ],
+            [
+                "natural energies"
+            ]
+        ],
+        "arts": [
+            [
+                "nature's tools",
+                "fortify",
+                "charge. vine whip",
+                "uncanny climb. track creature. dark mists"
+            ],
+            [
+                "rip and tear. big or small. thorny roots"
+            ],
+            [
+                "cleave. winds grace. summon packmates"
+            ]
+        ]
+    },
+    {
+        "name": "Monk",
+        "mainStat":"mind",
+        "stats": {
+            "body": 1,
+            "mind": 1,
+            "soul": 0,
+            "arcana": -1,
+            "crafting": -1,
+            "charm": 0,
+            "nature": 2,
+            "medicine": 1,
+            "thieving": 1
+        },
+        "items": "hand wraps. staff. clothing. bandage. smoke grenade. dragon's power potion. medkit",
+        "quick_exp": "Stand your ground and run around.",
+        "level_explanation": [
+            "",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Mind, where as for the Sub-stats we recommend putting it into Nature and Thieving"
+        ],
+        "traits": [
+            [
+                "acute memory",
+                "cat burglar. battle ready"
+            ],
+            [
+                "alchemical brewer. nature reserve"
+            ],
+            [
+                "patient. multitasking. natural energies"
+            ]
+        ],
+        "arts": [
+            [
+                "uncanny climb",
+                "size up. reach for it",
+                "flex. sleeping powder. curse of pain",
+                "medical leeches. control elements. phantom fishing rod"
+            ],
+            [
+                "parry. wind launch. destructive swing. feint"
+            ],
+            [
+                "still winds. think ahead. hamstring"
+            ]
+        ]
+    },
+    {
+        "name": "Mystic",
+        "mainStat":"arcana",
+        "stats": {
+            "body": 0,
+            "mind": 0,
+            "soul": 2,
+            "arcana": 2,
+            "crafting": 0,
+            "charm": 1,
+            "nature": -2,
+            "medicine": -1,
+            "thieving": 2
+        },
+        "items": "crystal lanturn. dagger. clothing. bandage. water breathing potion. levitation potion. grapple rope",
+        "quick_exp": "Power gained. But at what cost?",
+        "level_explanation": [
+            "Uses the optional rule, Deep Learning, for -Nature +Thieving",
+            "",
+            "Since you get +1 to a Main-stat we recommend putting it into Soul, where as for the Sub-stats we recommend putting it into Charm and Thieving"
+        ],
+        "traits": [
+            [
+                "arcane sense",
+                "soul covenant. spell thief"
+            ],
+            [
+                "soul blade. show, don't tell"
+            ],
+            [
+                "obscured power"
+            ]
+        ],
+        "arts": [
+            [
+                "telepathy",
+                "phantom fishing rod",
+                "enthrall. arcane pop",
+                "minor illusion. covenant whispers. illusionary disguise"
+            ],
+            [
+                "telekinetic toss. shadow self"
+            ],
+            [
+                "dance of fools. intrusive thoughts"
             ]
         ]
     }
