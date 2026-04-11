@@ -172,7 +172,7 @@
 
 
 
-    {"name": "hunter", "tags": "core", "effect": "While you have no Prey you may pick a creature you can see and designate them as your Prey. You and your Followers have +1 to Attack and Contest sums against your Prey (this effect stacks with Marked), and once per Break or Rest when your Prey is killed or incapacitated you refund 6 Strain.\n\nNature 2 - You may spend 1 Strain to Mark your Prey.", "req": "nature 1", "extra": ""
+    {"name": "hunter", "tags": "core", "effect": "At the beginning of your turn if you have no Prey, you may pick a creature you can see and designate them as your Prey. You and your Followers have +1 to Attack and Contest sums against your Prey (this effect stacks with Marked), and when your Prey is killed or incapacitated you may refund 1 Strain.\n\nNature 2 - You may spend 1 Strain to Mark your Prey.", "req": "nature 1", "extra": ""
     },
     {"name":"beastbound","tags":"core","effect":"You have bonded with a Beast Follower. The Beast has 2xNATURE+LEVEL Max Health, LEVEL Strain, 0 Dodge, 6 Speed, 1 Body or Mind (Your choice), 2 Nature, and 0 for all other Stats. The Beast has the Art 'track creature' and 2 level one Arts of your choice (it does not need the stat in order to take an Art). It has the type Animal, can be ridden as a Mount, and a Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club').\n- When you gain a stat increase the Beast gains +1 in a Sub-Stat of your choice. If the Beast was to go to 0 health they go unconscious instead of dying.\n\nNature 3 - The Beast gains +1 Dodge and either a Spit Attack ('Short Bow') or +1 Speed.\nNature 4 - The Beast does +1 damage and learns an additional level 3 or less Art.","req":"nature 1","extra":""
     },

@@ -538,7 +538,7 @@
     {
         "name": "tinker's tools",
         "description": "",
-        "effect": "Spend # and 2-CRAFTING Strain (min 0); Make any non-magical non-alchemical common or uncommon item. It lasts 1 minute then breaks.",
+        "effect": "Spend # and 2-CRAFTING Strain (min 0); Quickly make any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp). It lasts until your next Break or Rest then breaks.",
         "upgrades": [],
         "tags": "tool",
         "rarity": "common",
