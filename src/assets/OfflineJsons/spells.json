@@ -1,4 +1,5 @@
 [
+
     {"name":"overwatch","level":0,"stat":"default","tags":"technique, weapon, reaction","strain":0,"dice":1,"effect":"Reaction (Locked #); Melee Attack against a target that moves into/out of your Weapon Range. Use 3+# for sum.","activators":1},
     {"name":"move","level":0,"stat":"default","tags":"movement","strain":0,"dice":1,"effect":"Spend #; Move your SPEED. If you need to climb something, do a Body check.\n- Jumping: When you do a move you may do a standing jump up 1+(BODY/2) or long-jump 2+BODY horizontally.","activators":1},
     

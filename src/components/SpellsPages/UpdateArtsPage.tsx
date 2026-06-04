@@ -38,31 +38,29 @@ const statList = [
 ];
 
 const tagList = [
-    "elemental",
-    "divine",
-    "utility",
-    "creation",
-    "control",
-    "divination",
-    "protection",
-    "power",
-    "healing",
-    "illusion",
-    "ranged",
-    "touch",
-    "self",
-    "focus",
-    "reaction",
-    "damage",
-    "technique",
-    "aura",
-    "insight",
-    "dice",
-    "spell",
+    "attack",
     "weapon",
-    "movement",
+    "physical",
+    "elemental",
+    "spirit",
+    "healing",
+
+    "utility",
+    "control",
+    "protection",
+    
     "buff",
     "debuff",
+    "movement",
+    
+    "self",
+    "touch",
+    "ranged",
+    "focus",
+    "reaction",
+    "dice",
+    
+    "spell",
     "aoe",
     "follower",
     "MONSTER",
@@ -98,13 +96,17 @@ export default function UpdateArtPage() {
 
     useEffect(() => {
         
-        var snipit = curArt.effect.substring(0,curArt.effect.indexOf(";"));
+        var startingLine = curArt.effect.indexOf(";");
+        if (startingLine < 1)
+            startingLine = curArt.effect.indexOf(".");
+
+        var snipit = curArt.effect.substring(0,);
         
         var strainSnip = snipit.search(/([0-9]*) Strain/g);
         var strain = parseInt(snipit.substring(strainSnip,strainSnip+8).replace(" Strain",""));
         // console.log(!isNaN(strain));
 
-        var dice = snipit.match(/#/g)?.length;
+        var dice = snipit.match(/([#⚂])/g)?.length;
         
         setCurArt({...curArt, strain: !isNaN(strain) ? strain : 0, dice: dice ? dice : 0})
     }, [curArt.effect]);
