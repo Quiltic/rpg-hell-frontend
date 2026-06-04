@@ -47,7 +47,7 @@
     {
         "name": "hand crossbow",
         "description": "",
-        "effect": "On Hit: Do 1 damage. Bonus: Gain +2 damage. Downside: Do not Autoload at the end of your turn.",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +2 damage. Downside: Do not Autoload at the end of your turn.",
         "upgrades": [
             "Repeater - +2 Ammo (Loading 3)"
         ],
@@ -166,7 +166,7 @@
     {
         "name": "crossbow",
         "description": "",
-        "effect": "On Hit: Do 3 damage. Bonus: If you hit, remove 3 Shielding then do On Hit. Downside: Do not Autoload at the end of your turn.",
+        "effect": "On Hit: Do 3 damage. Bonus: If you hit, remove 5 Shielding then do On Hit. Downside: Do not Autoload at the end of your turn.",
         "upgrades": [
             "Balista - +2 Damage,-1 Speed while carried"
         ],
@@ -212,7 +212,7 @@
     {
         "name": "long bow",
         "description": "",
-        "effect": "On Hit: Do 3 damage. Bonus: Gain +2 damage. Downside: -2 Damage.",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +2 damage. Downside: -2 Damage.",
         "upgrades": [
             "Arching - Targets do not gain the Hunker Down bonus to Dodge.",
             "Stiff - +2 damage, -8 Range"
@@ -248,7 +248,7 @@
     {
         "name": "popshard rifle",
         "description": "",
-        "effect": "This weapon has +8 Range while you are Prone. On Hit: Do 3 damage. Bonus: If you hit, remove 3 Shielding then do On Hit. Downside: -1 Ammo.",
+        "effect": "This weapon has +8 Range while you are Prone. On Hit: Do 3 damage. Bonus: If you hit, remove 5 Shielding then do On Hit. Downside: -1 Ammo.",
         "upgrades": [
             "Longnose - +8 Range, while Prone gain +16 Range instead of +8",
             "Heavyshard - +3 damage,-3 Ammo (Loading 1)",
@@ -312,11 +312,13 @@
         "cost": 0
     },
     {
-        "name": "crystal staff",
+        "name": "staff",
         "description": "",
         "effect": "On Hit: Do 3 damage. Bonus: If you hit, give the target 1 Stun. Downside: No Reaching.",
-        "upgrades": [],
-        "tags": "weapon, two-handed, glow, reaching 2, soul 1",
+        "upgrades": [
+            "Crystalize - Give the staff Glow."
+        ],
+        "tags": "weapon, two-handed, reaching 2",
         "rarity": "mundane",
         "cost": 0
     },
@@ -1564,6 +1566,73 @@
         ],
         "tags": "armor",
         "rarity": "uncommon",
+        "cost": 0
+    },
+    {
+        "name": "bright candle",
+        "description": "A white and yellow candle with ornate imagery of the sun.",
+        "effect": "While lit this candle illuminates everything within 8 tiles of it. All creatures have -1d4 on Thieving while in this light.\nSpend # to light, and this candle lasts for up to 1 hour before it runs out. Remove time in increments of 1 minute.",
+        "upgrades": [
+            "Super Bright - This candle effects everything within 18 tiles of it instead of 8.",
+            "Glowing - Everything within this area gains Glow."
+        ],
+        "tags": "magical, consumable",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "perfume scented candle",
+        "description": "A red and pink candle with ornate imagery of love.",
+        "effect": "While lit this candle gives off a faint pink glow and a strong perfume scent that can be smelled within 8 tiles of it. All creatures that can smell the candle have -1d4 on Charm contests against the creature that lit it.\nSpend # to light, and this candle lasts for up to 10 minutes before it runs out. Remove time in increments of 1 minute.\n",
+        "upgrades": [
+            "Charming - When first smelled the candle activates the Art 'Taunt' (with a Charm of 0) against the creature that smelled it. (Aside from the creature that lit it.)"
+        ],
+        "tags": "magical, consumable",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "hardening wax candle",
+        "description": "A grey candle that can easily be confused for some kind of stone.",
+        "effect": "Spend ## and this candle. Do a Thrown Attack against a target within 6 tiles of you. On Hit: The target becomes covered in a rocky wax gaining 6 Stun and Rooted until the start of your next turn.",
+        "upgrades": [
+            "Stone Wax - Target a point within 6 tiles of you that you can see. Do a Thrown Attack against all targets within 1 tile of this point, instead of a single target."
+        ],
+        "tags": "magical, consumable, throw range 6",
+        "rarity": "common",
+        "cost": 0
+    },
+    {
+        "name": "enchantable candle",
+        "description": "A plain candle of semi-enchanted wax.",
+        "effect": "A creature may enchant this candle with a Focus Art they know. While lit the candle will activate the enchanted Focus Art targeting the creature that lit it. The creature does not need to Focus on this Art or spend dice or Strain.\nSpend # to light, and this candle lasts for up to 10 minutes before it runs out. Remove time in increments of 1 minute.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "magical, mysc",
+        "rarity": "uncommon",
+        "cost": 0
+    },
+    {
+        "name": "custodian's key",
+        "description": "A simple key that seems to fit in any keyhole. Its only unique marking is a single green rune etched into it.",
+        "effect": "When this key is put into any entryway's keyhole it will open to a small room no larger than 2x4 tiles in size. This is a pocket dimension, which can contain almost anything the first time you open it (GM's Discretion). Should the bearer of the key close the door while inside, the exit door will connect to the original door if it is closed. Otherwise it will open the nearest closed door.",
+        "upgrades": [
+            "Larger Room - The room can be up to 3x larger. (This upgrade can stack.)"
+        ],
+        "tags": "magical, tool",
+        "rarity": "uncommon",
+        "cost": 0
+    },
+    {
+        "name": "feather of flight",
+        "description": "A large white feather with hints of gold at the end.",
+        "effect": "Once per Rest the wielder may activate the Art 'Wings' without spending Strain.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "magical",
+        "rarity": "rare",
         "cost": 0
     },
     {

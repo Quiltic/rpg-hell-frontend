@@ -6,7 +6,7 @@ import { Tab } from "@headlessui/react";
 import { cn } from "../../../styling/utilites";
 import Popup from "./Popup";
 
-import d12 from "../../../assets/IconSVGs/dice/d12.png";
+import d12_img from "../../../assets/IconSVGs/dice/d12.png";
 import d12_rolling from "../../../assets/IconSVGs/dice/d12-dice-roll.gif";
 
 import {
@@ -34,7 +34,7 @@ const diceSVGs = [
 ]
 const d12_diceSVGs = [
     d12_rolling,
-    d12
+    d12_img
 ]
 
 
@@ -74,7 +74,8 @@ export default function DicePopup({
     setBonus: SetBonus,
     }: Props) {
 
-    // const [Dice, SetDice] = useState<number[]>(startingDice);
+    const [d6, Setd6] = useState<number[]>(Dice);
+    const [d12, Setd12] = useState<number[]>([1]);
     // const [Bonus, SetBonus] = useState(startingBonus);
     
     // const [isOpen, setIsOpen] = useState(startOpen);
@@ -82,12 +83,27 @@ export default function DicePopup({
     const [dnum, setDnum] = useState(6);
 
     useEffect(() => {
+        setDnum(Dice.length == 1 ? 12 : 6);
+
         if (isOpen == true)
             setRandColor(colors[Math.floor(Math.random() * colors.length)]);
 
-        Dice.fill(1);
-        setDnum(Dice.length == 1 ? 12 : 6);
+        // Dice.fill(1);
     }, [isOpen]);
+
+    useEffect(() => {
+        // we check the dice length = 1 due to the d12 roller
+        if ((Dice.length != d6.length) && (Dice.length != 1)) {
+            Setd6(Dice);
+            d6.fill(1);
+        }
+    }, [Dice]);
+
+    // unsure how to make it only reset the d12 if the bonus is changed from on open
+    // useEffect(() => {
+    //     if (isOpen == false)
+    //         Setd12([1]);
+    // }, [Bonus]);
 
     // console.log(dnum);
 
@@ -100,7 +116,7 @@ export default function DicePopup({
                     defaultIndex={Dice.length == 1 ? 1 : 0}
                     onChange={(index) => {
                         setDnum(index*6+6)
-                        SetDice(new Array(Dice.length).fill(1));
+                        // SetDice(new Array(Dice.length).fill(1));
                         // console.log(index)
                     }}
                 >
@@ -122,7 +138,7 @@ export default function DicePopup({
                                 }
                             >
                                 <img className="w-full object-cover"
-                                    src={d12}
+                                    src={d12_img}
                                     alt={"d12"}
                                 />
                             </Tab>
@@ -132,21 +148,22 @@ export default function DicePopup({
                         <Tab.Panel>
                             {/* d6 */}
                             <div className="flex mt-0 m-4 bg-dark-400 rounded-md justify-center">
-                            <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",Dice.length < 5 ? "lg:w-[50%]":(Dice.length < 7 ? "lg:w-[70%]":(Dice.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
-                                {Dice.map((n,i) => {
+                            <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",d6.length < 5 ? "lg:w-[50%]":(d6.length < 7 ? "lg:w-[70%]":(d6.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
+                                {/* make a visual for every dice in the d6 pool */}
+                                {d6.map((n,i) => {
                                     return (
                                         <img
                                         // cn("m-4 bg-dark-400 rounded-md grid-cols-6", Dice.length > 12 ? "grid-rows-3" : "grid-rows-2")
-                                            className={cn("w-auto m-4 clickable",Dice.length < 3 ? "h-12 lg:h-20":"h-10 lg:h-16")}
+                                            className={cn("w-auto m-4 clickable",d6.length < 3 ? "h-12 lg:h-20":"h-10 lg:h-16")}
                                             key={i}
                                             src={diceSVGs[n]}
                                             alt={(n).toString()}
                                             onClick={() => {
 
-                                                if (Dice.length == 1) return
+                                                if (d6.length == 1) return // can never have less than 1 dice
 
-                                                SetDice(prevDice => 
-                                                    prevDice.filter((_, a) => a !== i)
+                                                Setd6(prevDice => 
+                                                    prevDice.filter((_, a) => a !== i) // find and remove the clicked dice
                                                 );
                                                 
                                             }}
@@ -160,16 +177,17 @@ export default function DicePopup({
                         <Tab.Panel>
                             {/* d12 */}
                             <div className="flex mt-0 m-4 bg-dark-400 rounded-md justify-center">
-                            <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",Dice.length < 5 ? "lg:w-[50%]":(Dice.length < 7 ? "lg:w-[70%]":(Dice.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
-                                {Dice.map((n,i) => {
+                            <div className={cn("flex flex-row items-center flex-wrap justify-center w-[100%]",d12.length < 5 ? "lg:w-[50%]":(d12.length < 7 ? "lg:w-[70%]":(d12.length < 9 ? "lg:w-[90%]":"lg:w-[100%]")))}>
+                                {/* make a visual for every dice in the d12 pool */}
+                                {d12.map((n,i) => {
                                     return (
                                         <div className={"group relative justify-center items-center w-auto m-4 h-16 lg:h-20  clickable"}
                                             key={i} 
                                             onClick={() => {
 
-                                                    if (Dice.length == 1) return
+                                                    if (d12.length == 1) return
 
-                                                    SetDice(prevDice => 
+                                                    Setd12(prevDice => 
                                                         prevDice.filter((_, a) => a !== i)
                                                     );
                                                     
@@ -196,8 +214,13 @@ export default function DicePopup({
                 </Tab.Group>
 
                     
-
-                    <h1>Total: {Dice.reduce((total, dice) => total + dice) != 0 ? Dice.reduce((total, dice) => total + dice)+Bonus : "?"}</h1> 
+                    {/* headers are hidden if they arnt the one being looked at */}
+                    <h1 className={cn("",dnum == 6 ? "" : "hidden")}>
+                        Total: {d6.reduce((total, dice) => total + dice) != 0 ? d6.reduce((total, dice) => total + dice)+Bonus : "?"}
+                    </h1> 
+                    <h1 className={cn("",dnum == 12 ? "" : "hidden")}>
+                        Total: {d12.reduce((total, dice) => total + dice) != 0 ? d12.reduce((total, dice) => total + dice)+Bonus : "?"}
+                    </h1> 
 
                     <div className="flex row items-center justify-around m-4 flex-wrap">
 
@@ -205,15 +228,19 @@ export default function DicePopup({
                         variant={randColor}
                         className="m-2"
                         onClick={() => {
-                            SetDice(new Array(Dice.length).fill(0));
-                            // if (dnum == 6){
-                            // } else {
-                            //     SetDice(new Array(Dice.length).fill(0)); // 12
-                            // }
 
-                            setTimeout(() => {
-                                SetDice(rollDice(Dice.length,dnum))
-                            }, 500);
+                            if (dnum == 6){
+                                Setd6(new Array(d6.length).fill(0));
+                                setTimeout(() => {
+                                    Setd6(rollDice(d6.length,dnum))
+                                }, 500);
+                            } else {
+                                Setd12(new Array(d12.length).fill(0)); // 12
+                                setTimeout(() => {
+                                    Setd12(rollDice(d12.length,dnum))
+                                }, 500);
+                            }
+
                             }
                         }
                         >
@@ -233,8 +260,11 @@ export default function DicePopup({
                             src={persDice}
                             alt="Add Dice"
                             onClick={() => {
+                                if (dnum == 6)
+                                    Setd6(prevDice => [...prevDice,Math.floor(Math.random() * 6)].sort((a,b) => b-a));
+                                else
+                                    Setd12(prevDice => [...prevDice,Math.floor(Math.random() * 12)].sort((a,b) => b-a));
 
-                                SetDice(prevDice => [...prevDice,Math.floor(Math.random() * 6)].sort((a,b) => b-a));
 
                             }}
                         ></img>

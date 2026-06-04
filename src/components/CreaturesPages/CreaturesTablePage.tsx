@@ -11,6 +11,8 @@ import { Button } from "../ui/Button/Button";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useCreatures } from "../../hooks/useCreatures";
 import { cn } from "../../styling/utilites";
+import { eApiClass } from "../../types/ApiClassUnions";
+import Search from "../search/Search";
 
 
 const IterativeTraitLevels = [
@@ -113,7 +115,13 @@ export default function CreatureTablePage() {
                         })}
                     </Tab.List>
                     <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
-                        <MagnifyingGlassIcon className="h-6 w-6 text-light" />
+                        <Search
+                            filter={filterCreatures}
+                            resetFilter={resetFilterCreatures}
+                            filterClass={eApiClass.Creature}
+                            initialSearch={searchValue}
+                        />
+                        {/* <MagnifyingGlassIcon className="h-6 w-6 text-light" />
 
                         <input
                             value={searchValue}
@@ -132,7 +140,7 @@ export default function CreatureTablePage() {
                                 setSearchValue("");
                                 setClearButtonVisibility("hidden");
                             }}
-                        />
+                        /> */}
                     </div>
                 </div>
                 <Tab.Panels>

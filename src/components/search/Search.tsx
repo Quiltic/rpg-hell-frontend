@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
 import { ApiClassUnion, eApiClass } from "../../types/ApiClassUnions";
-import { Item, Spell, Trait } from "../../client";
+import { Creature, Item, Spell, Trait } from "../../client";
 
 type Props = {
     filter: (fn: (t: ApiClassUnion) => boolean) => void;
@@ -114,6 +114,19 @@ function Search({
                 return;
             }
             case eApiClass.Creature: {
+                filter(
+                    (c) => {
+                        try {
+                            const temp = [c.name.toLowerCase(),(c as Creature).how_act?.toLowerCase().replace("\n","")," "].join(";|;");
+                            return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
+                        } catch (error) {
+                            console.error('Bad regex:', error);
+                        }
+                        return (false)
+                    }
+                        // t.name.toLowerCase().includes(searchValue) ||
+                        // (t as Trait).effect?.toLowerCase().includes(searchValue)
+                );
                 return;
             }
         }

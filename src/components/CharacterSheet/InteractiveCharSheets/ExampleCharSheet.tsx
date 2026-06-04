@@ -189,65 +189,65 @@ export default function ExampleCharSheet({
                         {/* Scores */}
                         <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
                             <div className="bg-body text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.body
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.body
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Body {_displayedCreature.stats.body > 0 ? "+":""}{_displayedCreature.stats.body
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Body") ? 1 : 0)}
                             </div>
                             <div className="bg-mind text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.mind
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.mind
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); ;}}>
                                 Mind {_displayedCreature.stats.mind > 0 ? "+":""}{_displayedCreature.stats.mind
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Mind") ? 1 : 0)}
                             </div>
                             <div className="bg-soul text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.soul
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.soul
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Soul {_displayedCreature.stats.soul > 0 ? "+":""}{_displayedCreature.stats.soul
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Soul") ? 1 : 0)}
                             </div>
                             <div className="bg-arcana text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.arcana
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.arcana
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Arcana") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Arcana {_displayedCreature.stats.arcana > 0 ? "+":""}{_displayedCreature.stats.arcana
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Arcana") ? 1 : 0)}
                             </div>
                             <div className="bg-charm text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.charm
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.charm
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Charm") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Charm {_displayedCreature.stats.charm > 0 ? "+":""}{_displayedCreature.stats.charm
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Charm") ? 1 : 0)}
                             </div>
                             <div className="bg-crafting text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.crafting
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.crafting
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Crafting") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Crafting {_displayedCreature.stats.crafting > 0 ? "+":""}{_displayedCreature.stats.crafting
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Crafting") ? 1 : 0)}
                             </div>
                             <div className="bg-medicine text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.medicine
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.medicine
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Medicine") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Medicine {_displayedCreature.stats.medicine > 0 ? "+":""}{_displayedCreature.stats.medicine
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Medicine") ? 1 : 0)}
                             </div>
                             <div className="bg-nature text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.nature
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.nature
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Nature") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Nature {_displayedCreature.stats.nature > 0 ? "+":""}{_displayedCreature.stats.nature
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Nature") ? 1 : 0)}
                             </div>
                             <div className="bg-thieving text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2 clickable"
-                                onClick={() => {setOpenDice(true); setDiceBonus(_displayedCreature.stats.thieving
+                                onClick={() => {setDiceBonus(_displayedCreature.stats.thieving
                                      + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Thieving") ? 1 : 0)
-                                ); setDice([1]);}}>
+                                ); setDice([1]); setOpenDice(true); }}>
                                 Thieving {_displayedCreature.stats.thieving > 0 ? "+":""}{_displayedCreature.stats.thieving
                                          + (curLvl == 3 && _displayedCreature.level_explanation[2].includes("Thieving") ? 1 : 0)}
                             </div>

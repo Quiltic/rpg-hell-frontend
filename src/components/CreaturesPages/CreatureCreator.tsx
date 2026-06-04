@@ -19,7 +19,7 @@ const IterativeCreatureLevels = [
         "Monstrosity",
         "Planar",
         "Undead",
-        "Mythic",
+        "Mythic"
     ];
 
 
@@ -82,7 +82,7 @@ export default function CreatureCreator() {
                             placeholder="NAME"
                             className="h-9 w-[100%] p-2 rounded-lg shadow-md"
                             value={curCreature.name}
-                            onChange={(e) => setCurCreature({...curCreature, name: e.target.value})}
+                            onChange={(e) => setCurCreature({...curCreature, name: e.target.value.toLowerCase()})}
                         />
                     </div>
                     
@@ -126,7 +126,7 @@ export default function CreatureCreator() {
                         placeholder="Description of the creature and hints for narration for the GM."
                         className="bg-dark-300 h-22 w-[100%] rounded-lg p-1 m-1"
                         value={curCreature.descriptor}
-                        onChange={(e) => setCurCreature({...curCreature, descriptor: e.target.value})}
+                        onChange={(e) => setCurCreature({...curCreature, descriptor: e.target.value.replace("\"","'")})}
                     />
                 </div>
                 <div className="flex flex-row italic bg-dark-400 pl-12">
@@ -134,7 +134,7 @@ export default function CreatureCreator() {
                         placeholder="How the creature should act; Group, Dangerous, Fishlike, Hungry"
                         className="bg-dark-300 h-9 w-[50%] rounded-lg p-1 m-1"
                         value={curCreature.how_act}
-                        onChange={(e) => setCurCreature({...curCreature, how_act: e.target.value})}
+                        onChange={(e) => setCurCreature({...curCreature, how_act: e.target.value.replace("\"","'")})}
                     />
                 </div>
 
@@ -358,7 +358,7 @@ export default function CreatureCreator() {
                             placeholder="**Reminder** - Spend ## and 3 Strain; You this is how actives should look."
                             className="bg-dark-300 h-44 rounded-lg p-1 m-1"
                             value={curCreature.actives}
-                            onChange={(e) => setCurCreature({...curCreature, actives: e.target.value})}
+                            onChange={(e) => setCurCreature({...curCreature, actives: e.target.value.replace("\"","'")})}
                         />
                     </div>
                         
@@ -369,7 +369,7 @@ export default function CreatureCreator() {
                             placeholder="**Reminder** - You this is how passives should look."
                             className="bg-dark-300 h-44 rounded-lg p-1 m-1"
                             value={curCreature.passives}
-                            onChange={(e) => setCurCreature({...curCreature, passives: e.target.value})}
+                            onChange={(e) => setCurCreature({...curCreature, passives: e.target.value.replace("\"","'")})}
                         />
                     </div>
                 </div>

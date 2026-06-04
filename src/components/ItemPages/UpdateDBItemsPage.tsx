@@ -182,7 +182,7 @@ export default function UpdateDBItemsPage() {
                         placeholder="What item do?"
                         className="bg-dark-300 h-44 rounded-lg p-1 m-1"
                         value={curItem.effect}
-                        onChange={(e) => setCurItem({...curItem, effect: e.target.value})}
+                        onChange={(e) => setCurItem({...curItem, effect: e.target.value.replace("\"","'")})}
                     />
                 </div>
                 <div className="grid w-full grid-cols-[1fr_1fr]">
@@ -193,7 +193,7 @@ export default function UpdateDBItemsPage() {
                             placeholder="**Reminder** - Text here will become italics, use this for how to describe the item"
                             className="bg-dark-300 h-22 rounded-lg p-1 m-1"
                             value={curItem.description}
-                            onChange={(e) => setCurItem({...curItem, description: e.target.value})}
+                            onChange={(e) => setCurItem({...curItem, description: e.target.value.replace("\"","'")})}
                         />
                     </div>
                     {/* Upgrades */}
@@ -203,7 +203,7 @@ export default function UpdateDBItemsPage() {
                             placeholder="**Reminder** (right now there is only 1 upgrade in this slot. IM LAZY) - Upgrade_Name - Effect"
                             className="bg-dark-300 h-22 rounded-lg p-1 m-1"
                             value={curItem.upgrades}
-                            onChange={(e) => setCurItem({...curItem, upgrades: [e.target.value]})}
+                            onChange={(e) => setCurItem({...curItem, upgrades: [e.target.value.replace("\"","'")]})}
                         />
                     </div>
                 </div>
