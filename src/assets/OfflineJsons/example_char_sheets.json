@@ -1,7 +1,7 @@
 [
     {
         "name": "Fighter",
-        "mainStat":"body",
+        "mainStat": "body",
         "stats": {
             "body": 2,
             "mind": 0,
@@ -49,7 +49,7 @@
     },
     {
         "name": "Commander",
-        "mainStat":"mind",
+        "mainStat": "mind",
         "stats": {
             "body": 0,
             "mind": 2,
@@ -97,7 +97,7 @@
     },
     {
         "name": "Cleric",
-        "mainStat":"soul",
+        "mainStat": "soul",
         "stats": {
             "body": 0,
             "mind": 0,
@@ -145,7 +145,7 @@
     },
     {
         "name": "Smith",
-        "mainStat":"crafting",
+        "mainStat": "crafting",
         "stats": {
             "body": 2,
             "mind": 0,
@@ -193,7 +193,7 @@
     },
     {
         "name": "Ranger",
-        "mainStat":"nature",
+        "mainStat": "nature",
         "stats": {
             "body": 0,
             "mind": 2,
@@ -241,7 +241,7 @@
     },
     {
         "name": "Sorcerer",
-        "mainStat":"arcana",
+        "mainStat": "arcana",
         "stats": {
             "body": 0,
             "mind": 0,
@@ -289,7 +289,7 @@
     },
     {
         "name": "Paladin",
-        "mainStat":"medicine",
+        "mainStat": "medicine",
         "stats": {
             "body": 1,
             "mind": 0,
@@ -337,7 +337,7 @@
     },
     {
         "name": "Thief",
-        "mainStat":"thieving",
+        "mainStat": "thieving",
         "stats": {
             "body": 1,
             "mind": 1,
@@ -385,7 +385,7 @@
     },
     {
         "name": "Bard",
-        "mainStat":"charm",
+        "mainStat": "charm",
         "stats": {
             "body": 0,
             "mind": 1,
@@ -433,7 +433,7 @@
     },
     {
         "name": "Druid",
-        "mainStat":"nature",
+        "mainStat": "nature",
         "stats": {
             "body": 1,
             "mind": 0,
@@ -454,7 +454,7 @@
         ],
         "traits": [
             [
-                "wildShape",
+                "wildshape",
                 "frenzy. nature reserve"
             ],
             [
@@ -481,7 +481,7 @@
     },
     {
         "name": "Monk",
-        "mainStat":"mind",
+        "mainStat": "mind",
         "stats": {
             "body": 1,
             "mind": 1,
@@ -529,7 +529,7 @@
     },
     {
         "name": "Mystic",
-        "mainStat":"arcana",
+        "mainStat": "arcana",
         "stats": {
             "body": 0,
             "mind": 0,
