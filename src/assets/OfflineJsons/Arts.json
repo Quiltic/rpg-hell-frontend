@@ -1,652 +1,161 @@
 [
+    {"name": "destructive swing","level": 1,"stat": "body","tags": "weapon, buff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then do a Close Weapon Attack with -2 to the Attack Sum (this does not effect Bonuses and Downsides). This Attack gains +1 damage","activators": 3},
+    {"name": "headbutt","level": 1,"stat": "body","tags": "weapon, debuff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then do a Close Attack. On Hit: Give the target 2 Stun, or if you are Grappling the target give them 4 Stun instead. Bonus: +1 Stun. Downside: -1 Stun","activators": 1},
+    {"name":"charge","level":1,"stat":"body","tags":"weapon, movement","strain":1,"dice":2,"effect":"Spend ## and 1 Strain then move your Speed. If you moved at least 3 tiles, do a Close Attack against a target you move next to.","activators":1},
+    {"name": "cleave","level": 2,"stat": "body","tags": "weapon, aoe","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain, then do a Close Weapon Attack against all targets Close to you","activators": 1},
+    {"name": "meteor leap","level": 2,"stat": "body","tags": "weapon, movement","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain then jump 3xSpeed. If you land on or next to a target you may do a Close Attack against them","activators": 1},
+    {"name": "guardian's riposte","level": 2,"stat": "body","tags": "weapon","strain": 0,"dice": 2,"effect": "When a Creature Close to you Attacks you may spend a Locked ⚂ to do a Close Weapon Attack against them. Use 3+⚂ for the Attack sum.","activators": 1},
+    {"name": "defender","level": 1,"stat": "body","tags": "buff, protection","strain": 0,"dice": 2,"effect": "Spend a Locked ⚂ to do one of the following: Give a creature Close to you Obscured until the end of the turn. When a creature Close to you is Hit you may take the Hit instead. When you get Hit reduce damage by ⚂.","activators": 1},
+    {"name":"fortify","level":1,"stat":"body","tags":"buff, protection","strain":2,"dice":1,"effect":"Spend ⚂ and 2 Strain then until the beginning of your next turn you are Rooted, immune to Knockback, and take -1 Physical damage from all sources. (This Art does not stack.)","activators":1},
+    {"name": "reach for it","level": 2,"stat": "body","tags": "buff","strain": 1,"dice": 0,"effect": "Spend 1 Strain to increase the range of an action by 1 tier. Close -> Reaching -> Near -> Far -> Distant","activators": 1},
+    {"name": "bull rush","level": 1,"stat": "body","tags": "utility, movement","strain": 0,"dice": 1,"effect": "Spend ⚂ then Move. During this Move you may go through weak walls. You Knockback creatures you move into equal to your Physique, and destroy segments of t","activators": 1},
+    
+    
+    
+    
+    {"name": "maneuver","level": 1,"stat": "mind","tags": "weapon, buff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then do a Close Weapon Attack. You may choose to move 2 tiles before or after this Attack","activators": 1},
+    {"name": "marking strike","level": 1,"stat": "mind","tags": "weapon","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain, then do a Weapon Attack. If you hit, give the target Marked until the start of your next turn.","activators": 2},
+    {"name": "piercing shot","level": 2,"stat": "mind","tags": "weapon, buff","strain": 2,"dice": 2,"effect": "Spend ⚂⚂ and 2 Strain, then do a Weapon Attack. It damages all targets in a line up to your Weapons Range. This may go through weak walls","activators": 1},
+    {"name": "ricochet","level": 2,"stat": "mind","tags": "weapon","strain": 2,"dice": 2,"effect": "Spend ⚂⚂ and 2 Strain, then do a Ranged Weapon Attack. On Hit, pick a new target within 3 tiles of this one and repeat this Art without spending Strain or dice. Use the same Attack Sum. (You cannot bounce to an already chosen target.","activators": 5},
+    {"name": "train of thought","level": 1,"stat": "mind","tags": "buff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then gain a dice that has a value of the combined dice (to a maximum of a 6).","activators": 1},
+    {"name": "give orders","level": 1,"stat": "mind","tags": "buff","strain": 0,"dice": 2,"effect": "You may give ⚂⚂ to another creature. They may do any action(s) with these dice immediately. (These dice are lost if not used.)","activators": 3},
+    {"name": "find object","level": 1,"stat": "mind","tags": "utility","strain": 2,"dice": 1,"effect": "Spend a few minutes naming or describing an object. The object can be a general item, such as a sword or crate, or it can be more specific such as a letter with a gold bird on its front. You can be as specific as you would like, such as 'My golden short sword'. You then know the approximate distance and direction of the nearest object you described. This has a max range of 1 large tile (2,160x2,160 tiles), failing if no item is within this range. This effect lasts for a few hour or until you see/touch the object","activators": 2},
+    {"name": "plan ahead","level": 2,"stat": "mind","tags": "utility, buff","strain": 0,"dice": 1,"effect": "Spend ⚂ to roll 2d6 and Lock one of them","activators": 2},
+    
+    
+    
+    
+    
+    {"name":"shooting star","level":1,"stat":"soul","tags":"attack, debuff, spirit","strain":0,"dice":2,"effect":"Spend ⚂⚂ then do a Spirit Attack against a Nearby target. On Hit: Make the target illuminate the surrounding area and until the beginning of your next turn they take 1 damage for every tile they are forcefully moved. Bonus: Knockback the target 2 + your Ingenuity or Spirit.","activators":5},
+    {"name": "searing smite","level": 2,"stat": "soul","tags": "weapon, spirit","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain to do a Close Weapon Attack. The Attack gains: On Hit, the target is Marked until the beginning of your next turn and gains 3 Burn","activators": 7},
+    {"name":"bless","level":1,"stat":"soul","tags":"buff","strain":0,"dice":1,"effect":"Spend ⚂, 0 Strain, and pick a Close target. The target gets +1 Forward, then roll Spirit. On a Failure increase this Art's Strain cost by 1 until your next Rest.","activators":7},
+    {"name": "spirit shield","level": 1,"stat": "soul","tags": "buff, protection","strain": 2,"dice": 1,"effect": "Spend ⚂ and 2 Strain to give a Nearby Creature -1 damage from Physical, Elemental, or Soul sources until the beginning of your next turn. (This effect does not stack.)","activators": 7},
+    {"name": "holy veil","level": 2,"stat": "soul","tags": "buff, protection","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain. Pick a Nearby creature, they are covered in a blurry veil for up to 1 hour or until they are Hit. During this time they gain +1 Dodge and Ongoing to Hide","activators": 7},
+    {"name":"covenant whispers","level":1,"stat":"soul","tags":"utility","strain":0,"dice":0,"effect":"Spend 1 minute and 0 Strain to ask a powerful entity (a god, demon, dragon, eldritch being, etc) a question about the future. They will tell the truth but only with one word. For every time you activate this, increase the Strain cost by 2. This cost goes back to 0 at the end of a Rest.","activators":6},
+    {"name": "miracle","level": 3,"stat": "soul","tags": "utility","strain": 8,"dice": 4,"effect": "Once in a while, you may spend ⚂⚂⚂⚂ and 8 Strain to call forth a Miracle. Your GM determines what happens and it must only be beneficial to you and your group. This may auto pass a Check, activate an Art, make something almost impossible happen, ect","activators": 7},
+    
+    
+    
+    
+    
     {"name":"hollow shards","level":1,"stat":"arcana","tags":"attack, physical","strain":0,"dice":2,"effect":"Spend ⚂⚂ then do an Attack against a Nearby target. On Hit: Deal 1 physical damage and the next time you activate this Art it does 1 extra damage this turn. (Stacking.) Bonus: +1 to the Attack Sum.","activators":5},
     {"name":"force away","level":1,"stat":"arcana","tags":"attack, physical, aoe","strain":0,"dice":3,"effect":"Spend ⚂⚂⚂ then every creature you can Reach must roll Finesse. On a Partial they take 1 physical damage. On a Failure do the Partial and they get Knocked back 4 tiles.","activators":7},
     {"name":"splinters","level":2,"stat":"arcana","tags":"attack, physical","strain":1,"dice":2,"effect":"Spend ⚂⚂ and 1 Strain then do an Attack against up to 3 Nearby targets. You may pick the same target multiple times, making them do multiple Dodge rolls. On Hit: Deal 1 physical damage. Bonus: Pick 1 extra target. Downside: Pick 1 less target.","activators":5},
-
+    {"name": "weightless","level": 1,"stat": "arcana","tags": "utility","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain to make a target weightless for a few minutes. If the target is unwilling do an Ingenuity Contest, making them weightless if you win. While weightless the target is no longer tied down by gravity and can 'swim' through the air. All terrain is counted as Rough Terrain while 'swimming'.","activators": 7},
+    {"name": "magic trick","level": 1,"stat": "arcana","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ then pick *Move, Memory Perl, or Small Hole*; these effects last for a few minutes.\n- *Move* - Touch a small item. Once per turn, you may spend ⚂ to make that item move a few tiles in a straight line.\n- *Memory Perl* - Create a small Perl with 1 memory or thought that is no longer than 1 minute long. When a creature touches the Perl they then telepathically hear and/or see this memory/thought.\n- *Small Hole* - Create a portal, no larger than your fist, in front of you with an exit Close by. You do not need to see the exit point to make this portal. (It can be on the other side of a wall.)","activators": 7},
+    {"name": "telepathy","level": 1,"stat": "arcana","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ and 0 Strain then choose a willing Nearby Creature. You bind your mind to them then either of you may choose to see/hear through the other's senses instead of their own. They may also send/receive simple messages. Increase the Strain cost by 2 for each creature bound this way.","activators": 5},
+    {"name": "soul skip","level": 2,"stat": "arcana","tags": "utility, movement","strain": 1,"dice": 1,"effect": "Spend ⚂ and 1 Strain to teleport to a location you can see Nearby you.","activators": 7},
+    {"name":"farsight","level":3,"stat":"arcana","tags":"utility","strain":4,"dice":0,"effect":"Spend a few minutes and 4 Strain to start observing a location far away from you for a few hours. Pick a location you have been or know of. The better you know an area the closer you see it. For instance if you pick your home then you are able to be inside it and move around it. Or alternatively if you pick somewhere you have never been, such as a strange city, you are only able to observe it from far above it. You can see and hear through the location as if you were there but lose your own senses.","activators":7},
+    
+    
+    
+    
+    {"name": "footwork lure","level": 1,"stat": "charm","tags": "weapon, debuff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then do a Close Weapon Attack. On Hit, make the target move somewhere within Reaching of you","activators": 3},
+    {"name": "taunt","level": 1,"stat": "charm","tags": "debuff","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and do a Presence Contest against a creature Nearby. If you win, the target must interact with you and has -3 Forward to their next roll not pertaining to you. (This may make you the sole target of a creatures Attacks). If you lose, spend 1 Strain","activators": 2},
+    {"name": "heckle","level": 1,"stat": "charm","tags": "buff","strain": 2,"dice": 1,"effect": "When a Creature Attacks or does an Attack or rolls to Size Up or Manipulate Someone. Spend 2 Strain and a Locked ⚂ to give them bonus Soul Damage equal to your Presence, or Advantage on their check/contest. (This Art has no effect if either the creature or their target can't hear you.)","activators": 2},
+    {"name": "motivate","level": 2,"stat": "charm","tags": "buff","strain": 0,"dice": 1,"effect": "Once per turn, spend ⚂ and 1 Strain to give a creature nearby the ⚂. If this is used outside of combat give them +1 Forward. (To a max of +3 Forward)","activators": 2},
+    {"name": "maddening call","level": 2,"stat": "charm","tags": "debuff","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain. Pick a Nearby Creature, they must roll Presence. On a Failure (6-) they gain 3 Stun and -2 Forward. On a Partial, they gain 2 Stun and -1 Forward. (Minimum Forward is -3","activators": 2},
+    {"name":"point out","level":1,"stat":"charm","tags":"utility, debuff","strain":0,"dice":1,"effect":"Spend ⚂ to give a target you can see Marked until the start of your next turn. You gain +1 Forward on Size Up or Manipulate Someone against them.","activators":3},
+    {"name": "disguise","level": 1,"stat": "charm","tags": "utility","strain": 1,"dice": 3,"effect": "Over a few minutes, or if you spend ⚂⚂⚂ and 1 Strain a moment, give a creature Close to you a Disguise. The Disguise can change physical appearance, clothes, and/or the way they smell. While someone has this Disguise they get +1 Ongoing to act as the Disguise or to hide who they are. The Disguise lasts for a few hours or until they take damage.","activators": 1},
+    {"name": "minor illusion","level": 1,"stat": "charm","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ to make a simple Hologram thats no bigger than a person somewhere Nearby. The Hologram can be animated and lasts for a few minutes. A creature may do a Look Around or Investigate contest against you to discern if it's a Hologram.","activators": 5},
+    {"name": "dramaturgy","level": 1,"stat": "charm","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ then pick *Grow or Wither, Set the Stage, Strange Steps, or BE LOUD*; these effects last for a few minutes.\n- *Grow or Wither* - Touch a small plant or seed. You make that plant grow or die and decay.\n- *Set the Stage* - You create a weak illusion that can cover everything within 3 tiles of you. This illusion can do things such as make the room noticeably darker, add colored lighting, simple effects such as sparks or thin smoke, or other similar effects.\n- *Strange Steps* - Your footprints change, instead of leaving normal footprints you may instead grow small plants or flowers, leave behind illusionary fire, glowing foot prints, or a similar effect.\n- *BE LOUD* - Sounds you make become 3 times as loud.","activators": 7},
+    
+    
+    
+    
     {"name":"arc thrower","level":1,"stat":"crafting","tags":"attack, elemental","strain":0,"dice":2,"effect":"Spend ⚂⚂ then do a Elemental Attack against a Nearby Target. If you target a Gadget or Mechanism you may activate or deactivate it for 1 minute (6 turns). On Hit: Do 1 damage and 1 Burn. Bonus: Pick a new target within Reaching range and repeat this Attack.","activators":5},
-    
-    {"name":"blood thinning dart","level":1,"stat":"medicine","tags":"attack, debuff, spirit","strain":0,"dice":2,"effect":"Spend ⚂⚂ then pick a Nearby target, they must do a Physique roll. On a Partial they cant Heal until the start of your next turn. On a Failure do the Partial effect and they also take 1 Spirit damage.","activators":3},
-    {"name":"shooting star","level":1,"stat":"soul","tags":"attack, debuff, spirit","strain":0,"dice":2,"effect":"Spend ⚂⚂ then do a Spirit Attack against a Nearby target. On Hit: Make the target illuminate the surrounding area and until the beginning of your next turn they take 1 damage for every tile they are forcefully moved. Bonus: Knockback the target 2 + your Ingenuity or Spirit.","activators":5},
-
-
+    {"name": "shrapnel shot","level": 2,"stat": "crafting","tags": "weapon, aoe","strain": 3,"dice": 2,"effect": "Spend ⚂⚂ and 3 Strain, then pick a point within your Weapon's Range. Do Ranged Weapon Attack against everything within Reach of the tiles of that point.","activators": 1},
+    {"name": "field repair","level": 2,"stat": "crafting","tags": "buff","strain": 1,"dice": 1,"effect": "Spend ⚂ and 2 Strain then pick a target within Reach. Give that target ⚂ Temporary Shields and remove all Burn on them.","activators": 5},
+    {"name": "wondrous smells","level": 1,"stat": "crafting","tags": "buff","strain": 1,"dice": 1,"effect": "Spend ⚂ and 1 Strain; Give all creatures of your choice Nearby a Locked 1d6 (you roll), Empowered for 1 hour, or heals 1d4 HP.","activators": 5},
     {"name":"augment","level":1,"stat":"crafting","tags":"buff","strain":1,"dice":1,"effect":"Spend ⚂ and 1 Strain to do one of the following based on the ⚂'s value. These effects last a few minutes. 1,2: Give a creature +1 Speed. 3,4: Give a target 1 Shielding. 5,6: Give a Weapon +1 Burn on Hit.","activators":5},
-
-    {"name":"bless","level":1,"stat":"soul","tags":"buff","strain":0,"dice":1,"effect":"Spend ⚂, 0 Strain, and pick a Close target. The target gets +1 Forward, then roll Spirit. On a Failure increase this Art's Strain cost by 1 until your next Rest.","activators":7},
-
-
-
+    {"name": "oil patch","level": 1,"stat": "crafting","tags": "utility","strain": 0,"dice": 3,"effect": "Spend ⚂⚂⚂ then pick a surface Nearby. Cover every surface within 3 tiles of this point in Oil. If a creature moves across this patch they fall Prone unless the dice spent was a 5 or 6 (roll a d6 if not in combat). Targets covered in oil gain 3 extra Burn when they first gain Burn stacks. (Fire will spread through the oil)","activators": 5},
+    {"name":"alarm","level":1,"stat":"crafting","tags":"utility","strain":0,"dice":0,"effect":"Over a few minutes put a special Alarm on a location, container, or item Close to you. The Alarm goes off when something happens (such as being touched or moved) and can set off items, make a loud noise, or inform you specifically of being triggered.","activators":1},
     {"name":"heavy duty lock","level":1,"stat":"crafting","tags":"utility","strain":0,"dice":0,"effect":"Over a few moments put a special Lock on an entryway, container, or similar target Close to you. The Lock can be locked or unlocked by presenting some form of password or object (such as a special symbol) which is declared when made.","activators":1},
-
-
-    {
-        "name": "force away",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 3,
-        "effect": "Spend ⚂⚂⚂ then every creature you can Reach must roll Finesse. On a Partial they take 1 damage. On a Failure do the Partial and they get Knocked back 4 tiles",
-        "activators": 0
-    },
-    {
-        "name": "molly",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 3,
-        "effect": "Spend ⚂⚂⚂ and 1 Strain then pick a point Nearby. Everything within Reach of that point gains 2 Burn.",
-        "activators": 0
-    },
-    {
-        "name": "grenade",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 3,
-        "effect": "Spend ⚂⚂⚂ and 1 Strain then pick then pick a point Nearby. Everything within Reach of that point must roll Finesse. On a Partial they go Prone. On a Failure do the Partial effect and they take 1 damage",
-        "activators": 0
-    },
-    {
-        "name": "destructive swing",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then do a Close Weapon Attack with -2 to the Attack Sum (this does not effect Bonuses and Downsides). This Attack gains +1 damage",
-        "activators": 0
-    },
-    {
-        "name": "maneuver",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then do a Close Weapon Attack. You may choose to move 2 tiles before or after this Attack",
-        "activators": 0
-    },
-    {
-        "name": "footwork lure",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then do a Close Weapon Attack. On Hit, make the target move somewhere within Reaching of you",
-        "activators": 0
-    },
-    {
-        "name": "cleave",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain, then do a Close Weapon Attack against all targets Close to you",
-        "activators": 0
-    },
-    {
-        "name": "precision strike",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain, then do a Weapon Attack with +3 to the Attack Sum (this does not effect Bonuses and Downsides)",
-        "activators": 0
-    },
-    {
-        "name": "piercing shot",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain, then do a Weapon Attack. It damages all targets in a line up to your Weapons Range. This may go through weak walls",
-        "activators": 0
-    },
-    {
-        "name": "ricochet",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "2",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 2 Strain, then do a Nearby, Far, or Distant Weapon Attack. On Hit, pick a new target within 3 tiles of this one and repeat this Art without spending Strain or dice. Use the same Attack Sum. (You cannot bounce to an already chosen target.",
-        "activators": 0
-    },
-    {
-        "name": "headbutt",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then do a Close Attack. On Hit: Give the target 2 Stun, or if you are Grappling the target give them 4 Stun instead. Bonus: +1 Stun. Downside: -1 Stun",
-        "activators": 0
-    },
-    {
-        "name": "train of thought",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then gain a dice that has a value of the combined dice (to a maximum of a 6).",
-        "activators": 0
-    },
-    {
-        "name": "bull rush",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ then Move. During this Move you may go through weak walls. You Knockback creatures you move into equal to your Physique, and destroy segments of t",
-        "activators": 0
-    },
-    {
-        "name": "deployable wall",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂ then make a wall you can Reach that is up to 3 tiles long and 1 tile high. It has ⚂/3 Health (round up). (Objects always get Hit, Fail Checks, and lose Contests)",
-        "activators": 0
-    },
-    {
-        "name": "defender",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend a Locked ⚂ to do one of the following: Give a creature Close to you Obscured until the end of the turn. When a creature Close to you is Hit you may take the Hit instead. When you get Hit reduce damage by ⚂/3 (round up)",
-        "activators": 0
-    },
-    {
-        "name": "reach for it",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 0,
-        "effect": "Spend 1 Strain to increase the range of an action by 1 tier. Close -> Reaching -> Near -> Far -> Distant",
-        "activators": 0
-    },
-    {
-        "name": "taunt",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and do a Presence Contest against a creature Nearby. If you win, the target must interact with you and has -3 Forward to their next roll not pertaining to you. (This may make you the sole target of a creatures Attacks). If you lose, spend 1 Strain",
-        "activators": 0
-    },
-    {
-        "name": "smoke",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 3,
-        "effect": "Spend ⚂⚂⚂ then pick then pick a point Nearby. Everything within Reach of that point becomes Obscured for a minute",
-        "activators": 0
-    },
-    {
-        "name": "track creature",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ to follow the path of a creature which you have named or have evidence of. If the creature is within 1 days worth of travel of you, a path will appear in front of you guiding you along",
-        "activators": 0
-    },
-    {
-        "name": "disguise",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 3,
-        "effect": "Over a few minutes, or if you spend ⚂⚂⚂ and 1 Strain a moment, give a creature Close to you a Disguise. The Disguise can change physical appearance, clothes, and/or the way they smell. While someone has this Disguise they get +1 Ongoing to act as the Disguise or to hide who they are. The Disguise lasts for a few hours or until they take damage",
-        "activators": 0
-    },
-    {
-        "name": "hollow heart poison",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ and pick a Close Creature. For the next few hours their heart stops, skin turns pale, and they are perceived to be dead while not moving by all forms of investigation. Animals which normally feed on dead creatures will ignore them after inspection",
-        "activators": 0
-    },
-    {
-        "name": "uncanny climb",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Spend ⚂ and 1 Strain; Focus on making a creature you touch able to walk on walls and ceilings for up to 1 hour",
-        "activators": 0
-    },
-    {"name":"alarm","level":1,"stat":"crafting","tags":"utility","strain":0,"dice":0,"effect":"Over a few minutes put a special Alarm on a location, container, or item Close to you. The Alarm goes off when something happens (such as being touched or moved) and can set off items, make a loud noise, or inform you specifically of being triggered","activators":1},
-    {
-        "name": "weightless",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain to make a target weightless for a few minutes. If the target is unwilling do an Ingenuity Contest, making them weightless if you win. While weightless the target is no longer tied down by gravity and can 'swim' through the air. All terrain is counted as Rough Terrain while 'swimming'",
-        "activators": 0
-    },
-    {
-        "name": "hook shot",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ to pull a small object Far from you Close to you. If you target something larger do a Physique roll. On a Partial, pull the target 3+Physique tiles towards you. On a Success pull twice as far",
-        "activators": 0
-    },
-    {
-        "name": "hologram",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ to make a simple Hologram thats no bigger than a person somewhere Nearby. The Hologram can be animated and lasts for a few minutes. A creature may do a Look Around or Investigate contest against you to discern if it's a Hologram",
-        "activators": 0
-    },
-    {
-        "name": "party tricks",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ then pick *Grow or Wither, Set the Stage, Strange Steps, or BE LOUD*; these effects last for a few minutes.\n- *Grow or Withe",
-        "activators": 0
-    },
-    {
-        "name": "quantum toy",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ then pick *Move, Memory Perl, or Small Hole*; these effects last for a few minutes.\n- *Mov",
-        "activators": 0
-    },
-    {
-        "name": "mini terraformer",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ to change the general shape, color, and temperature of loose earth (such as dirt, gravel, or sand), non-special gasses (such as fog, smoke, or air), fires, and simple liquids (such as water or oil) up to a maximum of 1 cubic tile. \n- *Some examples are; being able to freeze water, ignite or snuff out small fires, dry wet objects or creatures, make air bubbles in water (extends breathable air to a few minutes), and remove grime from surfaces.",
-        "activators": 0
-    },
-    {
-        "name": "captain's orders",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "You may give ⚂⚂ to another creature. They may do any action(s) with these dice immediately. (These dice are lost if not used.",
-        "activators": 0
-    },
-    {
-        "name": "plan ahead",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ to roll 2d6 and Lock one of them",
-        "activators": 0
-    },
-    {"name":"cap mark","level":0,"stat":"mind","tags":"utility, debuff","strain":0,"dice":1,"effect":"Spend ⚂ to give a target you can see Marked until the start of your next turn. You gain +1 Forward on Size Up or Manipulate Someone against them.","activators":3},
+    {"name": "deployable wall","level": 2,"stat": "crafting","tags": "utility","strain": 0,"dice": 2,"effect": "Spend ⚂ then make a wall you can Reach that is up to 3 tiles long and 1 tile high. It has ⚂/3 Health (round up). (Objects always get Hit, Fail Checks, and lose Contests)","activators": 5},
+    {"name": "heat metal","level": 2,"stat": "crafting","tags": "utility, attack, elemental","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain to make a metal object Close to you glow white hot for a few minutes. You get +1 to Tinker on the object, and anything (other than you) that touches it gains 2 Burn once a turn.","activators": 7},
     
-    {
-        "name": "oil patch",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 3,
-        "effect": "Spend ⚂⚂⚂ then pick a surface Nearby. Cover every surface within 3 tiles of this point in Oil. If a creature moves across this patch they fall Prone unless the dice spent was a 5 or 6 (roll a d6 if not in combat). Targets covered in oil gain 3 extra Burn when they first gain Burn stacks. (Fire will spread through the oil)",
-        "activators": 0
-    },
-    {
-        "name": "field repair",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Spend ⚂ and 1 Strain then pick a target within Reach. Give that target a Temporary Shield and remove all Burn on them",
-        "activators": 0
-    },
-    {
-        "name": "super heat",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain to make a metal object Close to you glow white hot for a few minutes. You get +1 to Tinker on the object, and anything (other than you) that touches it gains 2 Burn once a turn",
-        "activators": 0
-    },
-    {
-        "name": "eye on the prize",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂ to give a target you can see Marked until the start of your next turn. If you give a 6, give them Marked for 1 hour instead. While the target is Marked this way you know the rough direction of the target regardless of distance",
-        "activators": 0
-    },
-    {
-        "name": "bola throw",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then pick a Nearby Creature, they must roll Finesse. On a Failure (6-) they gain Slow or if they already have Slow, become Prone. On a Partial, they gain Slow",
-        "activators": 0
-    },
-    {
-        "name": "vine whip",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Spend ⚂⚂ then do a Slashing Attack against a Nearby Target. On Hit: Do 1 damage and you may pull the target 3 tiles towards you. Or, if you target a surface, pull yourself Close to it. Bonus: Double the distance pulled",
-        "activators": 0
-    },
-    {
-        "name": "wondrous smells",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Spend ⚂ and 1 Strain; Give all creatures of your choice Nearby a Locked 1d6 (you roll), Empowered for 1 hour, or heals 1 HP",
-        "activators": 0
-    },
-    {
-        "name": "thorny roots",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 3,
-        "effect": "Spend ⚂⚂⚂ and pick up to 3xSpirit connected tiles on a surface. This region becomes Rough Terrain and you may spend 1 Strain to do 1 damage to any creature who moves inside it",
-        "activators": 0
-    },
-    {
-        "name": "meteor leap",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain then jump 3xSpeed. If you land on or next to a target you may do a Close Attack against them",
-        "activators": 0
-    },
-    {
-        "name": "bless",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "0",
-        "dice": 1,
-        "effect": "Spend ⚂, 0 Strain, and pick a Close target. The target gets +1 Forward, then roll Spirit. On a Failure increase this Trait'sStrain cost by 1 until your next Rest",
-        "activators": 0
-    },
-    {
-        "name": "cleanse the unworthy",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain to do a Close Weapon Attack. The Attack gains: On Hit, the target is Marked until the beginning of your next turn and gains 3 Burn",
-        "activators": 0
-    },
-    {
-        "name": "miracle",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "4",
-        "dice": 4,
-        "effect": "Once in a while, you may spend ⚂⚂⚂⚂ and 4 Strain to call forth a Miracle. Your GM determines what happens and it must only be beneficial to you and your group. This may auto pass a Check, activate an Art, make something almost impossible happen, ect",
-        "activators": 0
-    },
-    {
-        "name": "whispers in the void",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 0,
-        "effect": "Roll Awareness or Spirit. On a Failure spend 1 Strain and you hear nothing. On a Partial Success, spend 1 Strain and ask a question to the GM. They may only answer with 1 word. On a Success, do the same but don'tspend Strain",
-        "activators": 0
-    },
-    {
-        "name": "maddening call",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain. Pick a Nearby Creature, they must roll Presence. On a Failure (6-) they gain 3 Stun and -2 Forward. On a Partial, they gain 2 Stun and -1 Forward. (Minimum Forward is -3",
-        "activators": 0
-    },
-    {
-        "name": "telepathy",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂; Bind your mind to a willing creature'smind that you can see. You can choose to see/hear through their senses instead of your own or send/receive simple messages. You can only be bound to one creature at a time",
-        "activators": 0
-    },
-    {
-        "name": "wanderer'sveil",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain. Pick a Nearby creature, they are covered in a blurry veil for up to 1 hour or until they are Hit. During this time they gain +1 Dodge and Ongoing to Hide",
-        "activators": 0
-    },
-    {
-        "name": "wanderer'ssight",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 0,
-        "effect": "Spend 1 Strain to observe a far away location you are aware of. You may roll to Look Around in this area",
-        "activators": 0
-    },
-    {
-        "name": "parry",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Reaction (Locked ⚂) and 1 Strain; When you take damage from a Weapon Attack, reduce the damage by the dice spent (to a minimum of 1).",
-        "activators": 0
-    },
-    {
-        "name": "marking strike",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 1 Strain; Do a Weapon Attack. If you hit, give the target Marked until the start of your next turn.",
-        "activators": 0
-    },
-    {
-        "name": "shrapnel shot ",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "3",
-        "dice": 2,
-        "effect": "Spend ⚂⚂ and 3 Strain; Using a Ranged Weapon, pick a point within your Weapon'sRange. Do a Ranged Weapon Attack against everything within 2 tiles of that point.",
-        "activators": 0
-    },
-    {
-        "name": "fortify",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "2",
-        "dice": 1,
-        "effect": "Spend ⚂ and 2 Strain; Until the beginning of your next turn you are Rooted, immune to Knockback, and gain Bonus SHIELDING equal to the dice spent",
-        "activators": 0
-    },
-    {
-        "name": "get behind me",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂; until the start of your next turn (10 seconds), you Obscure anything behind you. You must be larger than things that are behind you for this effect to work",
-        "activators": 0
-    },
-    {
-        "name": "guardian'sriposte",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 2,
-        "effect": "Reaction (Locked ⚂); Do a Melee Weapon Attack against a target that Attacks you or ally within 1 tile of you. Use 3+⚂ for sum",
-        "activators": 0
-    },
-    {
-        "name": "i'll take it",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Reaction (Locked ⚂) and 1 Strain; When a creature within 1 tile of you fails a Dodge roll against an Attack, you may take the Attack instead",
-        "activators": 0
-    },
-    {
-        "name": "heckle",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Reaction (Locked ⚂) and 1 Strain; When a creature you can see does an Attack give them +CHARM damage On Hit. (This Art has no effect if the target of the Attack can'thear you.",
-        "activators": 0
-    },
-    {
-        "name": "motivate",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": 0,
-        "dice": 1,
-        "effect": "Spend ⚂; Give a creature that can see or hear you the dice spent on this Art. You can only use this Art a number of times per Rest equal to 2+MIND+CHARM. If this Art is used outside of combat it gives a random d4",
-        "activators": 0
-    },
-    {
-        "name": "find object",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "2",
-        "dice": 1,
-        "effect": "Spend ⚂ and 2 Strain; Name or describe an object. The object can be a general item, such as a sword or crate, or it can be more specific such as a letter with a gold bird on its front. You can be as specific as you would like, such as 'My golden short sword'. You then Focus on knowing the approximate distance and direction of the nearest object you described. This has a max range of 1 large tile (2,160x2,160 tiles), failing if no item is within this range. This effect lasts 1 hour or until you see/touch the object",
-        "activators": 0
-    },
-    {
-        "name": "sleeping powder",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 4,
-        "effect": "Spend ⚂⚂ and 1 Strain; Pick a point you can see within 18 tiles of you. Do a SOUL or MEDICINE contest against creatures within 3 tiles of this point. Constructs, Undead, and already asleep Creatures are unaffected.  If you win, for 1 minute, a creature spends ⚂⚂,  or until they take damage you forcefully put the creature to sleep. If you lose, the creature gains Slow until the end of their next turn instead",
-        "activators": 0
-    },
-    {
-        "name": "uncanny climb",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Spend ⚂ and 1 Strain; Focus on making a creature you touch able to walk on walls and ceilings for up to 1 hour",
-        "activators": 0
-    },
-    {
-        "name": "soul shield",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "2",
-        "dice": 1,
-        "effect": "Spend ⚂ and 2 Strain; Give a target within 8 tiles of you 1 Ward and Bonus SHIELDING equal to the dice spent until the beginning of your next turn",
-        "activators": 0
-    },
-    {
-        "name": "soul skip",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Spend ⚂ and 1 Strain; Teleport to a location within 6 tiles of you",
-        "activators": 0
-    },
+    
+    {"name": "vine whip","level": 1,"stat": "nature","tags": "attack, physical, debuff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then do an Attack against a Nearby Target. On Hit: Do Spirit Physical damage and you may pull the target 3 tiles towards you. Or, if you target a surface, pull yourself Close to it. Bonus: Double the distance pulled","activators": 5},
+    {"name": "thorny roots","level": 1,"stat": "nature","tags": "control, spirit","strain": 1,"dice": 3,"effect": "Spend ⚂⚂⚂ and pick up to 3xSpirit connected tiles on a surface. This region becomes Rough Terrain and you may spend 1 Strain to do 3 Soul damage to any creature who moves inside it.","activators": 7},
+    {"name": "tailing mark","level": 1,"stat": "nature","tags": "debuff","strain": 0,"dice": 1,"effect": "Spend ⚂ to give a target you can see Marked until the start of your next turn. If you give a 6, give them Marked for a few hours instead. While the target is Marked this way you know the rough direction of the target regardless of distance.","activators": 3},
+    {"name": "bola throw","level": 1,"stat": "nature","tags": "debuff","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ then pick a Nearby Creature, they must roll Finesse. On a Failure (6-) they gain Slow or if they already have Slow, become Prone. On a Partial, they gain Slow","activators": 0},
+    {"name": "uncanny climb","level": 1,"stat": "nature","tags": "utility, buff","strain": 1,"dice": 1,"effect": "Spend ⚂ and 1 Strain; Focus on making a creature you touch able to walk on walls and ceilings for up to 1 hour","activators": 5},
+    {"name": "control elements","level": 1,"stat": "nature","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ to change the general shape, color, and temperature of loose earth (such as dirt, gravel, or sand), non-special gasses (such as fog, smoke, or air), fires, and simple liquids (such as water or oil) up to a maximum of 1 cubic tile. \n- *Some examples are; being able to freeze water, ignite or snuff out small fires, dry wet objects or creatures, make air bubbles in water (extends breathable air to a few minutes), and remove grime from surfaces.","activators": 7},
+    {"name": "track creature","level": 1,"stat": "nature","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ to follow the path of a creature which you have named or have evidence of. If the creature is within 1 days worth of travel of you, a path will appear in front of you guiding you along","activators": 1},
+
+    
+    
+    
+    {"name":"blood thinning dart","level":1,"stat":"medicine","tags":"attack, debuff, spirit","strain":0,"dice":2,"effect":"Spend ⚂⚂ then pick a Nearby target, they must do a Physique roll. On a Partial they cant Heal until the start of your next turn. On a Failure do the Partial effect and they also take Spirit Soul damage.","activators":3},
+    {"name": "hollow heart poison","level": 2,"stat": "medicine","tags": "utility","strain": 0,"dice": 1,"effect": "Spend ⚂ and pick a Close Creature. For the next few hours their heart stops, skin turns pale, and they are perceived to be dead while not moving by all forms of magic and investigation. The target cant be detected via magic and Undead will ignore them.","activators": 5},
+    
+    
+    
+    {"name": "precision strike","level": 1,"stat": "thieving","tags": "weapon, buff","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain, then do a Weapon Attack with +3 to the Attack Sum (this does not effect Bonuses and Downsides)","activators": 1},
+    {"name": "hook shot","level": 1,"stat": "thieving","tags": "utility","strain": 0,"dice": 2,"effect": "Spend ⚂⚂ to pull a small object Far from you Close to you. If you target something larger do a Physique roll. On a Partial, pull the target 3+Physique tiles towards you. On a Success pull twice as far.","activators": 1},
+    {"name": "dark mists","level": 1,"stat": "thieving","tags": "utility","strain": 0,"dice": 3,"effect": "Spend ⚂⚂⚂ then pick then pick a point Nearby. Everything within Reach of that point becomes Obscured for a minute.","activators": 0},
+
+
+
+
+
+
+    {"name": "molly","level": 0,"stat": "","tags": "","strain": 1,"dice": 3,"effect": "Spend ⚂⚂⚂ and 1 Strain then pick a point Nearby. Everything within Reach of that point gains 2 Burn.","activators": 0},
+    {"name": "grenade","level": 0,"stat": "","tags": "","strain": 1,"dice": 3,"effect": "Spend ⚂⚂⚂ and 1 Strain then pick then pick a point Nearby. Everything within Reach of that point must roll Finesse. On a Partial they go Prone. On a Failure do the Partial effect and they take 1 damage","activators": 0},
+    
+    
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
+
+
+{
+    "name": "sleeping powder",
+    "level": 0,
+    "stat": "medicine",
+    "tags": "",
+    "strain": 1,"dice": 4,
+    "effect": "Spend ⚂⚂ and 1 Strain; Pick a point you can see within 18 tiles of you. Do a SOUL or MEDICINE contest against creatures within 3 tiles of this point. Constructs, Undead, and already asleep Creatures are unaffected.  If you win, for 1 minute, a creature spends ⚂⚂,  or until they take damage you forcefully put the creature to sleep. If you lose, the creature gains Slow until the end of their next turn instead","activators": 0
+},
+
+
+
+
+
+
+
     {
         "name": "big or small",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 2,
-        "effect": "Spend ⚂⚂ and 3 Strain; Focus on picking a target within 6 tiles of you. You cannot target objects being worn or carried by another creature or a target that is larger than 2 tiles square. If the target is unwilling, do an Arcana Contest against them. If you win, for up to the next hour, the target is either made Bigger or Smaller. \n- Bigger: The target doubles in size and weight, gains +1 to Body rolls, +1 to Melee Weapon damage, and -1 to Thieving rolls. If you target a creature all items they are wearing or carrying grow with the creature. Dropped items shrink to normal size and items picked up after becoming bigger do not grow.\n- Smaller: The target halves in size and weight, gets -1 to Body rolls,-1 to Melee Weapon damage, and +1 to Thieving rolls. You can not reduce damage below 1. If you target a creature all items they are wearing or carrying shrink with the creature. Dropped items grow to normal size and items picked up after becoming smaller do not shrink",
+        "effect": "Spend ⚂⚂ and 3 Strain; Focus on picking a target within 6 tiles of you. You cannot target objects being worn or carried by another creature or a target that is larger than 2 tiles square. If the target is unwilling, do an Arcana Contest against them. If you win, for up to the next hour, the target is either made Bigger or Smaller. \n- Bigger: The target doubles in size and weight, gains +1 to Physique rolls, +1 to Melee Weapon damage, and -1 to Thieving rolls. If you target a creature all items they are wearing or carrying grow with the creature. Dropped items shrink to normal size and items picked up after becoming bigger do not grow.\n- Smaller: The target halves in size and weight, gets -1 to Physique rolls,-1 to Melee Weapon damage, and +1 to Thieving rolls. You can not reduce damage below 1. If you target a creature all items they are wearing or carrying shrink with the creature. Dropped items grow to normal size and items picked up after becoming smaller do not shrink",
         "activators": 0
     },
     {
         "name": "rip and tear",
         "level": 0,
-        "stat": "",
+        "stat": "nature",
         "tags": "",
-        "strain": "1",
+        "strain": 1,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 1 Strain; Do a Weapon Attack, if you hit remove 8 Shielding then do the other Weapon effects",
         "activators": 0
@@ -654,9 +163,9 @@
     {
         "name": "spectral parachute",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "1",
+        "strain": 1,
         "dice": 1,
         "effect": "Spend ⚂ and 1 Strain; Pick up to 5 targets within 8 tiles of you. For the next 10 minutes, they are able to glide 2 tiles for every 1 tile they fall and cannot take fall damage",
         "activators": 0
@@ -664,9 +173,9 @@
     {
         "name": "healing drop",
         "level": 0,
-        "stat": "",
+        "stat": "medicine",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain; Heal a creature you can see within 8 tiles of you 2+MEDICINE. You cannot target Undead or Constructs",
         "activators": 0
@@ -674,9 +183,9 @@
     {
         "name": "if these walls could talk",
         "level": 0,
-        "stat": "",
+        "stat": "medicine",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 0,
         "effect": "Spend 1 minute and 3 Strain at a specific location; The spirits whisper what happened up to 24 hours prior. You may ask up to your MEDICINE number of questions. The spirits will answer the best they can but will never give more than a rough description. The spirits also cannot describe something that happened through magic or if it was hidden with magic, such as a creature moving under the Invisibility spell",
         "activators": 0
@@ -684,9 +193,9 @@
     {
         "name": "invisibility",
         "level": 0,
-        "stat": "",
+        "stat": "thieving",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain; Focus on making a creature you touch Invisible for up to 1 hour. If the creature does an Attack or activates an Art they lose Invisible. You may activate this Art again on a different creature Focusing on all instances of this spell without losing Focus or breaking Invisibility",
         "activators": 0
@@ -694,9 +203,9 @@
     {
         "name": "shadow self",
         "level": 0,
-        "stat": "",
+        "stat": "thieving",
         "tags": "",
-        "strain": "1",
+        "strain": 1,
         "dice": 2,
         "effect": "Spend ⚂ and 1 Strain; Turn your Shadow into a tangible creature. When cast or by spending ⚂ you may move your Shadow up to your SPEED. Your Shadow can manipulate items, and you may activate Arts or do Attacks through your shadow. Your Shadow has 1 Health and 0 Dodge. \n- While your shadow is a creature you do not have a shadow and if it was to die your shadow would be returned to you. You may have your shadow act independently of you, however it cannot activate Arts or do Attacks on its own. (It is not a Follower",
         "activators": 0
@@ -704,9 +213,9 @@
     {
         "name": "bound souls",
         "level": 0,
-        "stat": "",
+        "stat": "soul",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 1,
         "effect": "Spend ⚂ and 3 Strain; Focus on two willing creatures within 8 tiles of you. For the next hour, you bind the souls of both creatures together. While bound together whenever either creature is healed or takes damage instead both creatures gain half healing or half damage respectively (divided as people choose)",
         "activators": 0
@@ -714,9 +223,9 @@
     {
         "name": "spear of light or dark",
         "level": 0,
-        "stat": "",
+        "stat": "soul",
         "tags": "",
-        "strain": "1",
+        "strain": 1,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 1 Strain then pick Light or Dark; Make a Thrown Spell Attack against a target within 18 tiles of you. \n- *Light*: On Hit: Do 2+SOUL damage, and the target gains Glow until the start of your next turn. Bonus: You gain Rallied. Downside: Do 2 less damage and do not apply Glow.\n- *Dark*: On Hit: Do 2xSOUL damage. Bonus: You gain Empowered. Downside: Do SOUL damage instead",
         "activators": 0
@@ -724,9 +233,9 @@
     {
         "name": "lightshow",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
-        "strain": "1",
+        "strain": 1,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 1 Strain; Pick a tile you can see within 18 tiles of you. Do a Senses contest against all creatures within 3 tiles of this point. If you win, the target gains 2 Stun and is Blinded for a number of turns equal to the stat they rolled (minimum of 1). If you lose, the target is Blinded until the beginning of your next turn (10 seconds)",
         "activators": 0
@@ -734,9 +243,9 @@
     {
         "name": "dispel magic",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 1,
         "effect": "Spend ⚂ and 3 Strain; Pick a Target being affected by magic within 8 tiles of you. Reduce the magic'sduration by a number of turns (10 second intervals) based on the dice value given. If the magic has no duration or if its duration is an hour or longer it is instead suppressed (not active) for this duration instead",
         "activators": 0
@@ -744,9 +253,9 @@
     {
         "name": "intrusive thoughts",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 2 Strain; Do a Senses contest against a non-Undead/Construct creature you can see. If you win, you may read the creature'sinnermost thoughts for up to 10 minutes or may end it early to implant a thought into the target'smind. They believe the thought was their own. (The target does not need to act on the thought if it goes against their nature.) If you lose, you are able to read the creature'scurrent thoughts for up to 10 minutes. (This has no effect on creatures that don'tknow a language, such as an Animal.",
         "activators": 0
@@ -754,9 +263,9 @@
     {
         "name": "chain lightning",
         "level": 0,
-        "stat": "",
+        "stat": "crafting",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 3 Strain; Attack a target you can see within 18 tiles of you.  On Hit: Do 2+NATURE damage. Then pick a new target within 4 tiles of this one and do this Attack against them.  Bonus: If the target is Wet, remove Wet then pick a new target within 4 tiles of this one and do this Attack against them (This happens regardless of if it hits).  Downside: -2 damage",
         "activators": 0
@@ -764,9 +273,9 @@
     {
         "name": "wall of thorns",
         "level": 0,
-        "stat": "",
+        "stat": "nature",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 1,
         "effect": "Spend ⚂ and 3 Strain; Focus on summoning a Wall of Thorns within 6 tiles of you for up to 10 minutes. The Wall is up to 1 tile wide and can be up to 6 tiles long or tall. The Wall has 4+2xNATURE Health, and when a creature touches the wall you may deal 2 damage to them at the beginning of their turn. If a creature is knocked back into the Wall they take 4 extra damage. Creatures may climb the wall without doing a roll",
         "activators": 0
@@ -774,9 +283,9 @@
     {
         "name": "winds grace",
         "level": 0,
-        "stat": "",
+        "stat": "nature",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain; Focus on giving a creature you touch 2 Speed for up to 1 hour",
         "activators": 0
@@ -784,7 +293,7 @@
     {
         "name": "tent",
         "level": 0,
-        "stat": "",
+        "stat": "crafting",
         "tags": "",
         "strain": 0,
         "dice": 0,
@@ -794,9 +303,9 @@
     {
         "name": "shadow step",
         "level": 0,
-        "stat": "",
+        "stat": "thieving",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain; Teleport to a shadow you are aware of and would be completely covered by, that is within 18 tiles of you",
         "activators": 0
@@ -804,29 +313,19 @@
     {
         "name": "stepping stones",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 1,
         "effect": "Spend ⚂ and 3 Strain; Teleport to a location that you can see up to a total of 12 tiles away. You can break up this teleportation into any number of 'steps' where you can do other actions. If you do not use up all of the teleportation by the end of your turn you lose the remaining steps",
         "activators": 0
     },
     {
-        "name": "displacement",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "4",
-        "dice": 1,
-        "effect": "Spend ⚂ and 4 Strain; You become blurry gaining +1 Dodge and an additional d4 on rolls to Hide. This effect ends after 1 hour or until you take damage",
-        "activators": 0
-    },
-    {
         "name": "elemental aura",
         "level": 0,
-        "stat": "",
+        "stat": "nature",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain then pick 2 Burn, Wet, Marked, or Obscured; You may willingly gain the chosen Status, while this Aura is active. Once per turn, when a target starts its turn in or enters your Aura they gain the chosen Status",
         "activators": 0
@@ -834,29 +333,19 @@
     {
         "name": "final words",
         "level": 0,
-        "stat": "",
+        "stat": "medicine",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain; Target a dead non-Construct creature within 3 tiles of you. The soul of the creature will then awaken to answer up to 3 questions. The soul has all of its memories from when it was alive and maintains its personality. (There is a high chance that if you killed the creature it would not talk to you.) This spell cannot make the creature intelligent or teach them your language (such as with an animal). This spell will end once 3 questions are asked of it or after an hour",
         "activators": 0
     },
     {
-        "name": "hollow heart",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "1",
-        "dice": 1,
-        "effect": "Spend ⚂ and 1 Strain; Touch a willing creature. For the next hour their heart stops, skin turns pale, and they are perceived to be dead while not moving by both magic and investigation (They are still a creature). In this state they cannot be detected by magic and Undead will not attack them unless provoked",
-        "activators": 0
-    },
-    {
         "name": "flight",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 1,
         "effect": "Spend ⚂ and 3 Strain; Focus on giving a creature you touch the ability to fly for up to 1 hour",
         "activators": 0
@@ -864,19 +353,19 @@
     {
         "name": "fearsome roar",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
-        "strain": "2",
+        "strain": 2,
         "dice": 2,
-        "effect": "Spend ⚂⚂ and 2 Strain; Do a CHARM or BODY contest against all creatures of your choice that can hear you. Undead, Constructs, and creatures you choose are unaffected by this Art. If you win, the creature has -1 on all rolls against you (Attacks, Contests, etc) until the start of your next turn and must spend a dice on their next turn moving until they can no longer see you or run out of movement. If you lose, the creature cannot willingly move toward you on their next turn.",
+        "effect": "Spend ⚂⚂ and 2 Strain; Do a CHARM or PHYSIQUE contest against all creatures of your choice that can hear you. Undead, Constructs, and creatures you choose are unaffected by this Art. If you win, the creature has -1 on all rolls against you (Attacks, Contests, etc) until the start of your next turn and must spend a dice on their next turn moving until they can no longer see you or run out of movement. If you lose, the creature cannot willingly move toward you on their next turn.",
         "activators": 0
     },
     {
         "name": "haste",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "4",
+        "strain": 4,
         "dice": 1,
         "effect": "Spend ⚂ and 4 Strain; Focus on a willing creature you touch for 1 minute. When they do a roll give them 2d6 on that roll. When this Art ends the creature gains 10 Stun and is Rooted for 2 turns (20 seconds)",
         "activators": 0
@@ -884,9 +373,9 @@
     {
         "name": "telekinesis",
         "level": 0,
-        "stat": "",
+        "stat": "arcana",
         "tags": "",
-        "strain": "5",
+        "strain": 5,
         "dice": 7,
         "effect": "Spend ⚂⚂ and 5 Strain; Focus on moving targets around for up to 1 hour. When cast or by spending ⚂⚂, you may do an ARCANA contest against a creature or item within 18 tiles of you. If you win the target is Grappled by you and you may spend ⚂ to move the target up to 6 tiles. (This is classified as Knockback, and can take Knockback damage.) Creatures may break the Grapple by spending ⚂⚂ and doing an ARCANA contest against you. If you target an object you may manipulate it as if you were holding it",
         "activators": 0
@@ -894,9 +383,9 @@
     {
         "name": "grounding roots",
         "level": 0,
-        "stat": "",
+        "stat": "nature",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 3 Strain; Spell Attack a target within 36 tiles of you. On Hit: Do 2+2xNATURE damage. If the target is flying they are forced to the ground (They take fall damage if possible). Bonus: The target gains Rooted until the beginning of your next turn",
         "activators": 0
@@ -904,7 +393,7 @@
     {
         "name": "create airship",
         "level": 0,
-        "stat": "",
+        "stat": "crafting",
         "tags": "",
         "strain": "0",
         "dice": 0,
@@ -912,21 +401,11 @@
         "activators": 0
     },
     {
-        "name": "wall",
-        "level": 0,
-        "stat": "",
-        "tags": "",
-        "strain": "2",
-        "dice": 1,
-        "effect": "Spend ⚂ and 2 Strain; For up to 1 hour Focus on creating a Wall within 6 tiles of you. The Wall is up to 1 tile wide and can be up to 10 tiles long or tall. The Wall has 2+2xCRAFTING Health and Shielding. If a wall is made under a creature that creature is pushed up or to one side of the wall. If a creature cannot be pushed (from hitting a ceiling or wall) then the creature becomes Grappled and gains 8 stacks of Stun. Creatures and objects cannot move through the wall once made",
-        "activators": 0
-    },
-    {
         "name": "life from death",
         "level": 0,
-        "stat": "",
+        "stat": "medicine",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 3 Strain; Pick a point within 18 tiles of you. Do a Spell Attack against every creature within 3 tiles of that point. On Hit, do MEDICINE damage to the target and Heal a creature you can see for that amount. (Each hit activates separately.) Bonus: Do 2xMedicine damage. Downside: This does not heal",
         "activators": 0
@@ -934,7 +413,7 @@
     {
         "name": "ritual of revival",
         "level": 0,
-        "stat": "",
+        "stat": "medicine",
         "tags": "",
         "strain": 0,
         "dice": 0,
@@ -946,7 +425,7 @@
         "level": 0,
         "stat": "",
         "tags": "",
-        "strain": "4",
+        "strain": 4,
         "dice": 1,
         "effect": "Spend ⚂ and 4 Strain; Focus on making a creature you touch into a misty form for up to 1 hour. While they are in this form they are able to fly and may move through cracks in walls",
         "activators": 0
@@ -954,9 +433,9 @@
     {
         "name": "mind control",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
-        "strain": "6",
+        "strain": 6,
         "dice": 3,
         "effect": "Spend ⚂⚂⚂ and 6 Strain; Focus on doing a Charm contest against a non-Undead/Construct creature you can see. If you win, for 1 minute the creature becomes a Follower of you. When the creature would normally take its turn, or if it takes damage from any source, redo this Charm contest (This may happen multiple times a turn.). If you lose or lost Focus, the creature gains 4 Stun",
         "activators": 0
@@ -964,7 +443,7 @@
     {
         "name": "enrapture",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
         "strain": 0,
         "dice": 0,
@@ -974,7 +453,7 @@
     {
         "name": "tell no lies",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
         "strain": 0,
         "dice": 0,
@@ -984,9 +463,9 @@
     {
         "name": "enthrall",
         "level": 0,
-        "stat": "",
+        "stat": "charm",
         "tags": "",
-        "strain": "3",
+        "strain": 3,
         "dice": 2,
         "effect": "Spend ⚂⚂ and 3 Strain or remove Charmed from the target; Do a Charm contest against a target you can see within 8 tiles of you. If you win, make them do any simple action that wouldn'tknowingly harm themselves. (Use a 4 for any sums needed.",
         "activators": 0
@@ -994,7 +473,7 @@
     {
         "name": "astral projection",
         "level": 0,
-        "stat": "",
+        "stat": "soul",
         "tags": "",
         "strain": 0,
         "dice": 0,
