@@ -76,7 +76,7 @@
     {"name": "oil patch","level": 1,"stat": "crafting","tags": "utility","strain": 0,"dice": 3,"effect": "Spend ⚂⚂⚂ then pick a surface Nearby. Cover every surface within 3 tiles of this point in Oil. If a creature moves across this patch they fall Prone unless the dice spent was a 5 or 6 (roll a d6 if not in combat). Targets covered in oil gain 3 extra Burn when they first gain Burn stacks. (Fire will spread through the oil)","activators": 5},
     {"name":"alarm","level":1,"stat":"crafting","tags":"utility","strain":0,"dice":0,"effect":"Over a few minutes put a special Alarm on a location, container, or item Close to you. The Alarm goes off when something happens (such as being touched or moved) and can set off items, make a loud noise, or inform you specifically of being triggered.","activators":1},
     {"name":"heavy duty lock","level":1,"stat":"crafting","tags":"utility","strain":0,"dice":0,"effect":"Over a few moments put a special Lock on an entryway, container, or similar target Close to you. The Lock can be locked or unlocked by presenting some form of password or object (such as a special symbol) which is declared when made.","activators":1},
-    {"name": "deployable wall","level": 2,"stat": "crafting","tags": "utility","strain": 0,"dice": 2,"effect": "Spend ⚂ then make a wall you can Reach that is up to 3 tiles long and 1 tile high. It has ⚂/3 Health (round up). (Objects always get Hit, Fail Checks, and lose Contests)","activators": 5},
+    {"name": "deployable wall","level": 2,"stat": "crafting","tags": "utility","strain": 2,"dice": 1,"effect": "Spend ⚂ and 2 Strain then make a wall you can Reach that is up to 3 tiles long and 1 tile high and has 2+⚂ health. (Objects always get Hit, Fail Checks, and lose Contests)","activators": 5},
     {"name": "heat metal","level": 2,"stat": "crafting","tags": "utility, attack, elemental","strain": 1,"dice": 2,"effect": "Spend ⚂⚂ and 1 Strain to make a metal object Close to you glow white hot for a few minutes. You get +1 to Tinker on the object, and anything (other than you) that touches it gains 2 Burn once a turn.","activators": 7},
     
     
@@ -143,15 +143,7 @@
         "dice": 2,
         "effect": "Spend ⚂⚂ and 1 Strain; Do a Weapon Attack, if you hit remove 8 Shielding then do the other Weapon effects",
         "activators": 3},
-    {
-        "name": "invisibility",
-        "level": 2,
-        "stat": "thieving",
-        "tags": "",
-        "strain": 2,
-        "dice": 1,
-        "effect": "Spend ⚂ and 2 Strain; Focus on making a creature you touch Invisible for up to 1 hour. If the creature does an Attack or activates an Art they lose Invisible. You may activate this Art again on a different creature Focusing on all instances of this spell without losing Focus or breaking Invisibility",
-        "activators": 1},
+    {"name": "invisibility","level": 2,"stat": "thieving","tags": "utility","strain": 2,"dice": 1,"effect": "Spend ⚂ and 2 Strain to make a creature you Touch Invisible for up to an hour. If the creature does an Attack or activates a another Art they lose Invisibility. (You may activate this Art again on a different creature without breaking Invisibility.) Increase the Strain cost by 1 for each creature made Invisible this way.","activators": 1},
     {
         "name": "dispel magic",
         "level": 0,
@@ -171,15 +163,7 @@
         "effect": "Spend ⚂⚂ and 2 Strain; Do a Senses contest against a non-Undead/Construct creature you can see. If you win, you may read the creature'sinnermost thoughts for up to 10 minutes or may end it early to implant a thought into the target'smind. They believe the thought was their own. (The target does not need to act on the thought if it goes against their nature.) If you lose, you are able to read the creature'scurrent thoughts for up to 10 minutes. (This has no effect on creatures that don'tknow a language, such as an Animal.",
         "activators": 0},
     {"name": "chain lightning","level": 2,"stat": "crafting","tags": "attack, elemental","strain": 3,"dice": 2,"effect": "Spend ⚂⚂ and 3 Strain then do an Attack against a Far target. On Hit: Do 2+Inginuity Elemental damage. Then pick a new target within Reach of this one and do this Attack against them. Bonus: Bounce to a new target even if you miss. Downside: -2 damage.\n(Use the same Attack Sum for all Attacks, and you cannot bounce to an already chosen target.)","activators": 7},
-    {
-        "name": "wall of thorns",
-        "level": 0,
-        "stat": "nature",
-        "tags": "",
-        "strain": 3,
-        "dice": 1,
-        "effect": "Spend ⚂ and 3 Strain; Focus on summoning a Wall of Thorns within 6 tiles of you for up to 10 minutes. The Wall is up to 1 tile wide and can be up to 6 tiles long or tall. The Wall has 4+2xNATURE Health, and when a creature touches the wall you may deal 2 damage to them at the beginning of their turn. If a creature is knocked back into the Wall they take 4 extra damage. Creatures may climb the wall without doing a roll",
-        "activators": 0},
+    {"name": "wall of thorns","level": 2,"stat": "nature","tags": "utility, phisical","strain": 3,"dice": 1,"effect": "Spend ⚂ and 2 Strain then make a wall you can Reach that is up to 3 tiles long and 1 tile high. It has 3 health and when a creature touches the wall you may deal 2 phisical damage to them at the beginning of their turn. If a creature is knocked back into the Wall they take 4 extra damage. Creatures may climb the wall without doing a roll. (Objects always get Hit, Fail Checks, and lose Contests).","activators": 7},
     {
         "name": "winds grace",
         "level": 2,
@@ -198,15 +182,7 @@
         "dice": 0,
         "effect": "Spend 1 minute; Create a spectral tent for 12 hours. The tent can be up to 2 tiles square on the outside and 6 tiles square on the inside. When created you may have the tent contain: up to 3 beds, an empty chest 1 tile large, a table of any size, any number of chairs, a light which illuminates the entire tent, and a rug. Items made this way cannot leave the tent. Creatures and items inside the tent are placed in the nearest open tile when the tent disappears",
         "activators": 0},
-    {
-        "name": "shadow step",
-        "level": 0,
-        "stat": "thieving",
-        "tags": "",
-        "strain": 2,
-        "dice": 1,
-        "effect": "Spend ⚂ and 2 Strain; Teleport to a shadow you are aware of and would be completely covered by, that is within 18 tiles of you",
-        "activators": 0},
+    {"name": "shadow step","level": 2,"stat": "thieving","tags": "utility, movement","strain": 2,"dice": 1,"effect": "Spend ⚂ and 2 Strain to teleport yourself and up to one other person Far away to a large enough shadow you are aware of.","activators": 1},
     {
         "name": "stepping stones",
         "level": 0,
@@ -234,15 +210,7 @@
         "dice": 1,
         "effect": "Spend ⚂ and 2 Strain; Target a dead non-Construct creature within 3 tiles of you. The soul of the creature will then awaken to answer up to 3 questions. The soul has all of its memories from when it was alive and maintains its personality. (There is a high chance that if you killed the creature it would not talk to you.) This spell cannot make the creature intelligent or teach them your language (such as with an animal). This spell will end once 3 questions are asked of it or after an hour",
         "activators": 0},
-    {
-        "name": "flight",
-        "level": 0,
-        "stat": "arcana",
-        "tags": "",
-        "strain": 3,
-        "dice": 1,
-        "effect": "Spend ⚂ and 3 Strain; Focus on giving a creature you touch the ability to fly for up to 1 hour",
-        "activators": 0},
+    {"name": "flight","level": 3,"stat": "arcana","tags": "utility, movement","strain": 3,"dice": 1,"effect": "Spend ⚂ and 3 Strain to make a creature you touch flight for up to an hour. Increase the Strain cost by 6 for each creature given flight this way.","activators": 7},
     {
         "name": "fearsome roar",
         "level": 0,
