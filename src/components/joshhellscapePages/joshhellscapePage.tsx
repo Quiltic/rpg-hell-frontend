@@ -77,10 +77,8 @@ const displayedCreature = {
     "health":0,
     "shielding":0,
     "dodge":0,
-    "cd":4,
     "ward":0,
     "strain":0,
-    "speed":6,
     "stats": {
        "body":0,
         "mind":0,
@@ -92,10 +90,12 @@ const displayedCreature = {
         "medicine":0,
         "thieving":0 
     },
-    "actives":"",
-    "passives":"",
-    "descriptor":"",
-    "how_act":""
+    "traits":"",
+    "arts":"",
+    "items":"",
+    "stories":"",
+    "discription":"",
+    "notes":""
 }
 
 function getTabWidth(lengthOfName: number) {
