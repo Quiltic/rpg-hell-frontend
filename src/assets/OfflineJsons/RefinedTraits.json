@@ -18,19 +18,18 @@ Fighter - Dps/Combat/Weps
     
     
 Survivor - Healing/Buffs/Movement
-    
-    {"name":"trained medic","req":"medicine 1","tags":"","effect":"When you use a Bandage you may spend ## and the Bandage to heal 2d4 + MEDICINE (Instead of 1+1d4).","extra":""},
+    {"name":"trained medic","req":"survivor 1","tags":"","effect":"When you use a Bandage you may spend ## and the Bandage to heal 2d4+[BODY or MIND] (Instead of 1+1d4).","extra":""},
     {"name":"escapist","req":"survivor 1","tags":"","effect":"When you roll a 3 or less on a Check, Contest, or Dodge roll (before bonuses) gain +1 on your next Check, Contest, or Dodge roll.","extra":""},
     {"name":"athlete","req":"survivor 1","tags":"","effect":"You are not Slowed when climbing or swimming and if you willingly move 2 times in a turn gain Warded until the end of your next Turn.","extra":""},
-    {"name":"momentum","req":"body 2","tags":"","effect":"After you willingly move you gain +1 Speed, to a maximum of your BODY, until the end of your turn.","extra":""},
+    {"name":"momentum","req":"survivor 1","tags":"","effect":"After you willingly move you gain +1 Speed, to a maximum of your BODY, until the end of your turn.","extra":""},
 
-    {"name":"last wind","req":"fighter 2","tags":"","effect":"Once per Break or Rest you may choose to gain +1d4 on a Check, heal 2+BODY, or refund 2+BODY Strain.","extra":""},
-    {"name":"field tending","req":"medicine 2","tags":"","effect":"At the end of a Break you may roll a number of d4 equal to your Finesse or Intellect. You pick any number of Creatures you can see. Heal a total amount of health equal to the dice rolled. The healing may be given to one creature or divided as among several. You cannot target Undead or Constructs.","extra":""},
+    {"name":"last wind","req":"survivor 2","tags":"","effect":"Once per Break or Rest you may choose to gain +1d4 on a Check, heal 2+BODY, or refund 2+BODY Strain.","extra":""},
+    {"name":"field tending","req":"survivor 2","tags":"","effect":"At the end of a Break you may roll a number of d4 equal to your [BODY or MIND]. You pick any number of Creatures you can see. Heal a total amount of health equal to the dice rolled. The healing may be given to one creature or divided as among several. You cannot target Undead or Constructs.","extra":""},
 
-    {"name":"???","req":"medicine 3","tags":"","effect":"When you would lose Focus (such as going unconscious or gaining a stack of Death's Door) you may spend 2 Strain to not lose Focus and/or retain any Summoned Followers.","extra":""},
-    {"name":"medical professional","req":"medicine 3","tags":"","effect":"All of your healing effects heal for an additional +1. Additionally, once per Rest, when you heal a creature you may remove a stack of Death's Door from them. ","extra":""},
+    {"name":"???","req":"survivor 3","tags":"","effect":"When you would lose Focus (such as going unconscious or gaining a stack of Death's Door) you may spend 2 Strain to not lose Focus.","extra":""},
+    {"name":"medical professional","req":"survivor 3","tags":"","effect":"All of your healing effects heal for an additional +1. Additionally, once per Rest, when you heal a creature you may remove a stack of Death's Door from them. ","extra":""},
 
-    {"name":"surgeon","req":"medicine 4","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Empowered or Warded: you or the target may refund 1 Strain. Additionally, your healing may reattach limbs or permanently modify the appearance of the creature.","extra":""},
+    {"name":"surgeon","req":"survivor 4","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Empowered or Warded: you or the target may refund 1 Strain. Additionally, your healing may reattach limbs or permanently modify the appearance of the creature.","extra":""},
     Missing
 
 
@@ -42,7 +41,7 @@ Anylist - Dice/Warded/Debuffs
     missing
 
     {"name":"multitasking","req":"mind 2","tags":"","effect":"You may Lock an additional dice.","extra":""},
-    {"name":"???","req":"medicine 2","tags":"","effect":"When you activate a non-damaging effect against a creature within 3 tiles of you, you may swap places with them. (This is not a teleport.)","extra":""},
+    {"name":"???","req":"Anylist 2","tags":"","effect":"When you activate a non-damaging effect against a creature within 3 tiles of you, you may swap places with them. (This is not a teleport.)","extra":""},
     
     {"name":"eggs in one basket","req":"mind 3","tags":"","effect":"You do not lose unspent dice at the end of your turns. Unused dice, up to a maximum of 2xMIND, may be kept and used on your next turn. These dice are not Locked and cannot be Locked until the start of your next turn.","extra":""},
     missing
@@ -64,7 +63,6 @@ Comander - Marked/Teams/Buffs
 
     {"name":"threat assessment","req":"mind 3","tags":"","effect":"When you Mark a target, Mark an additional target you can see for the same duration.","extra":""},
     missing
-    Art{"name":"focus fire","req":"mind 3","tags":"","effect":"When Marked is spent on a creature you may spend a Locked Dice to give the creature Marked until the beginning of your next turn.","extra":""},
 
     {"name":"warning signs","req":"mind 4","tags":"","effect":"Spend 2 strain to Mark an Attacking target. When a Marked creature does an Attack you may remove Marked to reduce the Attack Sum by 1.","extra":""},
     missing
@@ -116,7 +114,6 @@ Arcanist - Arts/Control/Basic
 
     {"name":"magical knowledge","req":"arcanist 2","tags":"","effect":"You learn 2 additional Arts of your choice that you meet the requirements for.","extra":""},
     {"name":"art augmenter","req":"arcanist 2","tags":"","effect":"When you activate an Art you may spend 2 Strain then pick 1 of the following:\n- An Art with Range has its range doubled. Art's with a range of Touch have Reaching 2.\n- Change any Statuses given by an Art to either 2 Burn, Wet, Marked, Charmed, 1 Stun, Warded, or Empowered. It lasts for the same duration as the original Status (or until end of turn).\n- Arts that deal damage do an additional 2 damage.","extra":""},
-    Art{"name":"arcane sense","req":"arcanist 2","tags":"","effect":"You are able to sense magical effects within 3 tiles around you. Objects and creatures that are affected by magic glow based on how powerful the magic is. You may spend 3 Strain to increase this distance by ARCANA for 1 minute.","extra":""},
     
     {"name":"signature art","req":"arcanist 3","tags":"","effect":"When you take this Trait choose an Art you know. You may activate that Art up to your SOUL times per Break or Rest without spending Strain.\nYou cannot change this chosen Art except through extremely powerful sources, and if you remove this Art from your known Arts you cannot use this Trait.","extra":""},
     {"name":"art ???","req":"arcanist 3","tags":"","effect":"When you activate an Art you may spend 3 Strain then pick 1 of the following:\n- Non-area Arts can have a second target. (Focusing on both effects if needed)\n- Arts with an area can be compressed to give a target the effect 3 times (rolling dodge/contests 3 times).\n- When you activate an Art that has an area effect, you may choose any number of targets that are not affected by the Art.","extra":""},
@@ -198,7 +195,7 @@ Urchin - Cloaked/Damage/Illusion
     {"name":"facade","req":"thieving 3","tags":"","effect":"When you get Hit, you may spend a Locked Dice and 4 Strain to leave an illusionary clone in your place. You then take half damage (minimum of 1) and may move up to 3 tiles in any direction. (This may still provoke Overwatch Attacks.)","extra":""},
     
     {"name":"shadow shapes","req":"thieving 4","tags":"","effect":"Your illusions are so real that they have physical form. These illusions only feel real and cannot interact with the world aside from touch (they cannot do damage, activate Arts, use Traits, etc). Physical illusions have 1 health.","extra":""},
-    {"name":"master thief","req":"thieving 4","tags":"","effect":"When you become Obscured (such as when you enter Fog) you may spend 1 Strain to become Cloaked instead.","extra":""},
+    {"name":"master thief","req":"thieving 4","tags":"","effect":"When you gain Cloaked you may spend 1 Strain to become Hidden as well.","extra":""},
     
     
   
