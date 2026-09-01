@@ -45,17 +45,34 @@ const tagList = [
 ];
 
 const statList = [
-    "body",
-    "mind",
-    "soul",
-    "arcana",
-    "charm",
-    "crafting",
-    "medicine",
-    "nature",
-    "thieving",
-    // "Monster",
+    "Fighter",
+    "Survivor",
+    "Analyst",
+    "Commander",
+    "Pious",
+    "Spirits",
+    "Arcanist",
+    "Craftsman",
+    "Druidic",
+    "Ranger",
+    "Urchin",
+    
+    "Elementalist",
 ];
+
+
+// [
+//     "body",
+//     "mind",
+//     "soul",
+//     "arcana",
+//     "charm",
+//     "crafting",
+//     "medicine",
+//     "nature",
+//     "thieving",
+//     // "Monster",
+// ];
 const IterativeSpellLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function getTabWidth(lengthOfName: number) {
@@ -294,11 +311,11 @@ export default function SpellsTablePage() {
                                     shownSpells={displayedSpells.filter((s) => {
                                         if (searchLvl) {
                                             return (
-                                                s.stat == n &&
+                                                s.stat == n.toLowerCase() &&
                                                 s.level == searchLvl
                                             );
                                         }
-                                        return s.stat == n;
+                                        return s.stat == n.toLowerCase();
                                     })}
                                     key={i}
                                     moveSpell={(spell) => {
@@ -312,11 +329,11 @@ export default function SpellsTablePage() {
                                         (s) => {
                                             if (searchLvl) {
                                                 return (
-                                                    s.stat == n &&
+                                                    s.stat == n.toLowerCase() &&
                                                     s.level == searchLvl
                                                 );
                                             }
-                                            return s.stat == n;
+                                            return s.stat == n.toLowerCase();
                                         }
                                     )}
                                     moveSpell={(spell) => {

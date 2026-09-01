@@ -14,17 +14,33 @@ function getTabWidth(lengthOfName: number) {
 const tagList = [""];
 
 const IterativeTraitLevels = [
-    "Body",
-    "Mind",
-    "Soul",
-    "Arcana",
-    "Charm",
-    "Crafting",
-    "Medicine",
-    "Nature",
-    "Thieving",
-    // "Monster",
+    "Fighter",
+    "Survivor",
+    "Analyst",
+    "Commander",
+    "Pious",
+    "Spirits",
+    "Arcanist",
+    "Craftsman",
+    "Druidic",
+    "Ranger",
+    "Urchin",
+    
+    "Elementalist",
 ];
+
+// [
+//     "Body",
+//     "Mind",
+//     "Soul",
+//     "Arcana",
+//     "Charm",
+//     "Crafting",
+//     "Medicine",
+//     "Nature",
+//     "Thieving",
+//     // "Monster",
+// ];
 
 export default function TraitsTablePage() {
     const {
