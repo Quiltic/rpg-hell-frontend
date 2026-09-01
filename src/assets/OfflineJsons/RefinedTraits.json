@@ -3,14 +3,14 @@
 Fighter - Dps/Combat/Weps
     {"name":"twin strikes","req":"fighter 1","tags":"","effect":"Once per turn, when you do an Attack you may spend 2 Strain or Empowered to do another Attack with the same Attack Sum.","extra":""},
     {"name":"defender","req":"fighter 1","tags":"","effect":"When you hit a target with Melee Attack you may spend 1 Strain or Empowered to have them be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.","extra":""},
-    Missing - OOC?
+    {"name":"vigilant","req":"fighter 1","tags":"","effect":"You cannot be surprised while you are keeping watch and may swap your Initiative value with another willing creature's.","extra":""},
     {"name":"battle ready","req":"fighter 1","tags":"","effect":"At the end of a Break or Rest you may perform a ritual. Then, choose one of the following benefits to gain at the beginning of your next combat:\n- You have +2 on Initiative.\n- Lock a 6.\n- You are Empowered for BODY turns.","extra":""},
     
     {"name":"whirlwind","req":"fighter 2","tags":"","effect":"You can move through dense crowds, or tiles that are occupied by creatures as if it was Rough Terrain.\nAdditionally, once per turn, refund 3 Strain when you do a Melee Attack against 2 or more creatures in a turn.","extra":""},
     {"name":"braced for impact","req":"fighter 2","tags":"","effect":"When you Hunker Down you take 1 less damage from Attacks (to a minimum of 1).\nAt the start of your turn, if you took damage since your last turn, refund 2 Strain.","extra":""},
 
     {"name":"melee weapon master","req":"fighter 3","tags":"","effect":"When you wield a Melee Weapon you get a bonus based on its type:\n- **One Handed**: +1 to the Bonus threshold (from 7 to 8).\n- **Two Handed**: Attacks gain 2 Reaching (or +1 Reaching if it has Reaching\n- **Side**: You may give a 6 instead of ## for an Attack. This Attack gains +2 to its sum.\n- **Hammer**: You may have the target go Prone instead of applying Knockback.","extra":""},
-    {"name":"guarding presence","req":"body 3","tags":"","effect":"While you are Hunkered Down your non-area Arts have +3 range.","extra":""},
+    {"name":"guarding presence","req":"fighter 3","tags":"","effect":"While you are Hunkered Down your non-area Arts have +3 range.","extra":""},
     
     {"name":"true strikes","req":"fighter 4","tags":"","effect":"When you give a 12 on a Melee Attack you do not gain the Weapon Downside.\nWhen you give a 8 or less on a Melee Attack you are unaffected by Blind","extra":""},
     {"name":"total defence","req":"fighter 4","tags":"","effect":"You gain Resistance to Physical damage, and may spend Strain instead of loosing health or shielding.","extra":""},
@@ -35,36 +35,36 @@ Survivor - Healing/Buffs/Movement
 
 
 Anylist - Dice/Warded/Debuffs
-    {"name":"snake eyes","req":"mind 1","tags":"","effect":"Once per turn, when you roll 2 ones (Snake Eyes), you refund 1 Strain and may spend 1 Strain to re-roll them.","extra":""},
-    {"name":"patient","req":"mind 1","tags":"","effect":" At the end of your turn (10 seconds) increase your Locked Dice by 1, to a maximum of 6. If you do not have a Locked dice Lock a 1.","extra":""},
-    {"name":"acute memory","tags":"","effect":"You can spend 1 minute to perfectly memorize something. You do not need to do a MIND roll when trying to recall this information. \nYou also always know the approximate time, what paths you took to get here, and have +1d4 against memory altering effects (such as from the Art 'Deja Vu').","req":"mind 1","extra":""},
+    {"name":"snake eyes","req":"anylist 1","tags":"","effect":"Once per turn, when you roll 2 ones (Snake Eyes), you refund 1 Strain and may spend 1 Strain to re-roll them.","extra":""},
+    {"name":"patient","req":"anylist 1","tags":"","effect":" At the end of your turn (10 seconds) increase your Locked Dice by 1, to a maximum of 6. If you do not have a Locked dice Lock a 1.","extra":""},
+    {"name":"acute memory","req":"anylist 1","tags":"","effect":"You can spend 1 minute to perfectly memorize something. You do not need to do a MIND roll when trying to recall this information. \nYou also always know the approximate time, what paths you took to get here, and have +1d4 against memory altering effects (such as from the Art 'Deja Vu').","extra":""},
     missing
 
-    {"name":"multitasking","req":"mind 2","tags":"","effect":"You may Lock an additional dice.","extra":""},
-    {"name":"???","req":"Anylist 2","tags":"","effect":"When you activate a non-damaging effect against a creature within 3 tiles of you, you may swap places with them. (This is not a teleport.)","extra":""},
+    {"name":"multitasking","req":"anylist 2","tags":"","effect":"You may Lock an additional dice.","extra":""},
+    {"name":"???","req":"anylist 2","tags":"","effect":"When you activate a non-damaging effect against a creature within 3 tiles of you, you may swap places with them. (This is not a teleport.)","extra":""},
     
-    {"name":"eggs in one basket","req":"mind 3","tags":"","effect":"You do not lose unspent dice at the end of your turns. Unused dice, up to a maximum of 2xMIND, may be kept and used on your next turn. These dice are not Locked and cannot be Locked until the start of your next turn.","extra":""},
-    missing
+    {"name":"eggs in one basket","req":"anylist 3","tags":"","effect":"You do not lose unspent dice at the end of your turns. Unused dice, up to a maximum of 2xMIND, may be kept and used on your next turn. These dice are not Locked and cannot be Locked until the start of your next turn.","extra":""},
+    {"name":"forethought","req":"anylist 3","tags":"","effect":"When you Lock a dice while already having a Locked dice you may instead add the new dice to the Locked dice's value. This cannot set the locked dice value to be higher than 6.\nAdditionally, once per turn, when you Lock a 1 or 6 refund 1 Strain.","extra":""},
     
-    {"name":"mastermind","req":"mind 4","tags":"","effect":"You may Lock an additional dice.","extra":""},
-    {"name":"(tempname) aikido","req":"mind 4","tags":"","effect":"When you successfully Dodge a roll or win a contest you did not initiate Lock a 1. \nAdditionally, once per turn, you may activate an Art by using a Locked Dice. This Art must cost only one dice and is classified as a Reaction.","extra":"Things that make an Art cost # instead of ## can let this trait activate; such as 'Art Manipulator'."},
+    {"name":"mastermind","req":"anylist 4","tags":"","effect":"You may Lock an additional dice.","extra":""},
+    {"name":"(tempname) aikido","req":"anylist 4","tags":"","effect":"When you successfully Dodge a roll or win a contest you did not initiate Lock a 1. \nAdditionally, once per turn, you may activate an Art by using a Locked Dice. This Art must cost only one dice and is classified as a Reaction.","extra":"Things that make an Art cost # instead of ## can let this trait activate; such as 'Art Manipulator'."},
 
 
 
 
 Comander - Marked/Teams/Buffs
-    {"name":"covering fire","req":"mind 1","tags":"","effect":"When you make two or more Attacks against a target in a turn they get -1 Speed and -1 on Contests until the end of their next turn.","extra":""},
-    {"name":"tag team","req":"mind 1","tags":"","effect":"At the end of your turn, Mark all targets you damaged this turn until the start of your next turn.\nOnce per round, if a Marked target dies or the Mark is spent you refund 2 Strain.\nYou may spend a Locked Dice to move Marked from one creature you can see to another you can see.","extra":""},
-    missing
+    {"name":"covering fire","req":"commander 1","tags":"","effect":"When you make two or more Attacks against a target in a turn they have -1 Speed and -1 on Contests until the end of their next turn.","extra":""},
+    {"name":"tag team","req":"commander 1","tags":"","effect":"At the end of your turn, Mark all targets you damaged this turn until the start of your next turn.\nOnce per round, if a Marked target dies or goes unconscious or the Marked is spent you refund 2 Strain.\nAdditionally, you may spend a Locked Dice to move Marked from one creature you can see to another you can see.","extra":""},
+    {"name":"make a plan","req":"commander 1","tags":"","effect":"Spend an hour or more making a plan with others. For each creature who helped make the plan (including yourself) gain a Planned token. You may then spend a Planned token to give a creature Advantage on a Check or Contest. You lose all tokens at the end of your next Rest.","extra":""},
+    {"name":"mentor","req":"commander 1","tags":"","effect":"When you Help someone you may Empower them instead of giving a bonus to the roll. (You must have a positive value in the Stat to Help.)","extra":""},
+
+    {"name":"coordinated strike","req":"commander 2","tags":"","effect":"When you Attack a target and remove Marked, pick an ally to do a Melee Attack against the same target (they must be in range). They use the same Attack Sum.","extra":""},
+    {"name":"???","req":"commander 2","tags":"","effect":"You may spend a # or a Locked Dice to move Marked from one creature you can see to another you can see.\nAdditionally, when a Marked creature dies or becomes unconscious, you become Empowered until the end of your next turn.","extra":""},
+
+    {"name":"threat assessment","req":"commander 3","tags":"","effect":"When you Mark a target, Mark an additional target you can see for the same duration.","extra":""},
     missing
 
-    {"name":"coordinated strike","req":"mind 2","tags":"","effect":"When you Attack a target and remove Marked, pick an ally to do a Melee Attack against the same target (they must be in range). They use the same Attack Sum.","extra":""},
-    {"name":"???","req":"mind 2","tags":"","effect":"You may spend a # or a Locked Dice to move Marked from one creature you can see to another you can see.\nAdditionally, when a Marked creature dies or becomes unconscious, you become Empowered until the end of your next turn.","extra":""},
-
-    {"name":"threat assessment","req":"mind 3","tags":"","effect":"When you Mark a target, Mark an additional target you can see for the same duration.","extra":""},
-    missing
-
-    {"name":"warning signs","req":"mind 4","tags":"","effect":"Spend 2 strain to Mark an Attacking target. When a Marked creature does an Attack you may remove Marked to reduce the Attack Sum by 1.","extra":""},
+    {"name":"warning signs","req":"commander 4","tags":"","effect":"Spend 2 strain to Mark an Attacking target. When a Marked creature does an Attack you may remove Marked to reduce the Attack Sum by 1.","extra":""},
     missing
 
 
@@ -127,18 +127,18 @@ Arcanist - Arts/Control/Basic
 
 
 Face? - Control/OOC/Buffs/Debuffs
-    {"name":"show, don't tell","req":"charm 1","tags":"","effect":"Whenever you speak or do a performance you can subtly add a message into it. You may target any number of creatures you can see to learn the message. Then the creature(s), and only the creature(s), will learn your message regardless of distance.","extra":""},
-    {"name":"???","req":"charm 1","tags":"","effect":"Up to CHARM times per Rest, you may give a creature that can see or hear you +1d4 on a Check or Contest.","extra":""},
-    {"name":"i know a guy","req":"charm 1","tags":"","effect":"When you are in a jam, describe someone your character would know. Give them a name, say how you think they could be useful, and choose one fact from below:\n- They owe me a favor, but they'll be hard to find. \n- They're going to ask for something in exchange. \n- They're always in a great deal of trouble. \n- We used to be together. It's a long story. \n- We didn't part on great terms.","extra":""},
+    {"name":"show, don't tell","req":"face 1","tags":"","effect":"Whenever you speak or do a performance you can subtly add a message into it. You may target any number of creatures you can see to learn the message. Then the creature(s), and only the creature(s), will learn your message regardless of distance.","extra":""},
+    {"name":"???","req":"face 1","tags":"","effect":"Up to CHARM times per Rest, you may give a creature that can see or hear you +1d4 on a Check or Contest.","extra":""},
+    {"name":"i know a guy","req":"face 1","tags":"","effect":"When you are in a jam, describe someone your character would know. Give them a name, say how you think they could be useful, and choose one fact from below:\n- They owe me a favor, but they'll be hard to find. \n- They're going to ask for something in exchange. \n- They're always in a great deal of trouble. \n- We used to be together. It's a long story. \n- We didn't part on great terms.","extra":""},
+    {"name":"???","req":"face 1","tags":"","effect":"When an ally within 3 tiles of you gains Cloaked, Empowered, or Warded, you may also gain it until the end of your next turn (20 seconds).","extra":""},
+    
+    {"name":"lead them along","req":"face 2","tags":"","effect":"When you win a CHARM contest against a creature you gain +1 on your next CHARM contest against them.","extra":""},
+    {"name":"hidden in plain sight","req":"face 2","tags":"","effect":"You may use CHARM instead of THIEVING when doing stealth rolls as part of a crowd or to hide your identity.\nAdditionally, you get Advantage when looking for someone in a crowd.","extra":""},
+    
+    {"name":"saving face","req":"face 3","tags":"","effect":"When you do a CHARM roll you may spend 2 Strain to gain +1d4 to the roll. This may be done after seeing the value but before results are announced.","extra":""},
     Missing
     
-    {"name":"lead them along","req":"charm 2","tags":"","effect":"When you win a CHARM contest against a creature you gain +1 on your next CHARM contest against them.","extra":""},
-    {"name":"hidden in plain sight","req":"charm 2","tags":"","effect":"You may use CHARM instead of THIEVING when doing stealth rolls as part of a crowd or to hide your identity.\nAdditionally, you get Advantage when looking for someone in a crowd.","extra":""},
-    
-    {"name":"saving face","req":"charm 3","tags":"","effect":"When you do a CHARM roll you may spend 2 Strain to gain +1d4 to the roll. This may be done after seeing the value but before results are announced.","extra":""},
-    Missing
-    
-    {"name":"magnetic charm","req":"charm 4","tags":"","effect":"When you win a CHARM Contest against a creature you may steal any Locked Dice they have. Locking it yourself if you have space or just removing it if you don't.","extra":""},
+    {"name":"magnetic charm","req":"face 4","tags":"","effect":"When you win a CHARM Contest against a creature you may steal any Locked Dice they have. Locking it yourself if you have space or just removing it if you don't.","extra":""},
     Missing
 
 
@@ -183,19 +183,19 @@ Ranger - Marked/Cloaked/Damage
 
 
 Urchin - Cloaked/Damage/Illusion
-    {"name":"cat burglar","req":"thieving 1","tags":"","effect":"You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\nAdditionally, you make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.","extra":""},
+    {"name":"cat burglar","req":"urchin 1","tags":"","effect":"You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\nAdditionally, you make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.","extra":""},
     {"name":"assassin","req":"urchin 1","tags":"","effect":"When you spend Cloaked on an Attack you may increase the Attack's damage by a number of d4 equal to your FINENESS instead of +1d6. This must be announced before the target does a Dodge roll.\nAdditionally, If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.","extra":""},
-    {"name":"spell thief","req":"thieving 1","tags":"","effect":"When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to SOUL+THIEVING+1 at a time.","extra":""},
-    {"name":"illusionist","req":"thieving 1","tags":"","effect":"Your Arts that create illusions can be activated without gestures or sounds, can be activated with +3 range, and last for twice as long.","extra":""},
+    {"name":"spell thief","req":"urchin 1","tags":"","effect":"When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to SOUL+THIEVING+1 at a time.","extra":""},
+    {"name":"illusionist","req":"urchin 1","tags":"","effect":"Your Arts that create illusions can be activated without gestures or sounds, can be activated with +3 range, and last for twice as long.","extra":""},
     
-    {"name":"eyes of the night","req":"thieving 2","tags":"","effect":"You can see in poorly light areas as if they were illuminated up to 18 tiles away, and can see through Obscured or Darkened areas you created.","extra":""},
-    {"name":"hidden power","req":"thieving 2","tags":"","effect":"While you are Hidden or Invisible you may conceal the fact that you are activating a Trait or Art. The Trait or Art makes no noise (unless the it is designed to) and activating a non-damaging Trait or Art does not break you out of Hidden or Invisibility.","extra":""},
+    {"name":"eyes of the night","req":"urchin 2","tags":"","effect":"You can see in poorly light areas as if they were illuminated up to 18 tiles away, and can see through Obscured or Darkened areas you created.","extra":""},
+    {"name":"hidden power","req":"urchin 2","tags":"","effect":"While you are Hidden or Invisible you may conceal the fact that you are activating a Trait or Art. The Trait or Art makes no noise (unless the it is designed to) and activating a non-damaging Trait or Art does not break you out of Hidden or Invisibility.","extra":""},
     
     Missing
-    {"name":"facade","req":"thieving 3","tags":"","effect":"When you get Hit, you may spend a Locked Dice and 4 Strain to leave an illusionary clone in your place. You then take half damage (minimum of 1) and may move up to 3 tiles in any direction. (This may still provoke Overwatch Attacks.)","extra":""},
+    {"name":"facade","req":"urchin 3","tags":"","effect":"When you get Hit, you may spend a Locked Dice and 4 Strain to leave an illusionary clone in your place. You then take half damage (minimum of 1) and may move up to 3 tiles in any direction. (This may still provoke Overwatch Attacks.)","extra":""},
     
-    {"name":"shadow shapes","req":"thieving 4","tags":"","effect":"Your illusions are so real that they have physical form. These illusions only feel real and cannot interact with the world aside from touch (they cannot do damage, activate Arts, use Traits, etc). Physical illusions have 1 health.","extra":""},
-    {"name":"master thief","req":"thieving 4","tags":"","effect":"When you gain Cloaked you may spend 1 Strain to become Hidden as well.","extra":""},
+    {"name":"shadow shapes","req":"urchin 4","tags":"","effect":"Your illusions are so real that they have physical form. These illusions only feel real and cannot interact with the world aside from touch (they cannot do damage, activate Arts, use Traits, etc). Physical illusions have 1 health.","extra":""},
+    {"name":"master thief","req":"urchin 4","tags":"","effect":"When you gain Cloaked you may spend 1 Strain to become Hidden as well.","extra":""},
     
     
   
@@ -328,6 +328,10 @@ Keep but do something with - You have +1 on Contests against creatures you have 
 {"name":"build them break them","req":"crafting 1","tags":"","effect":"Followers or Art created structures (such as Cube) you create have an additional Shielding equal to your CRAFTING.\nYou do additional damage to objects and structures equal to your CRAFTING.","extra":""},
 {"name":"field repair","req":"crafting 2","tags":"","effect":"When you give a target Bonus Shielding you may spend 1 extra Strain to repair that much Shielding (a creature cannot have more non-Bonus Shielding than what their normal armor would allow).\nAt the end of a Break or Rest give yourself and up to 8 targets Bonus Shielding equal to your CRAFTING or 1 Ward.","extra":""},
 {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.","extra":""},
+reforge
+apprentice blacksmith
+expert blacksmith
+Slapdash Solutions
 
 
 
