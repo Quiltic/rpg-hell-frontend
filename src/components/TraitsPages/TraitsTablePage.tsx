@@ -23,6 +23,7 @@ const IterativeTraitLevels = [
     "Arcanist",
     "Craftsman",
     "Druidic",
+    "Face",
     "Ranger",
     "Urchin",
     

@@ -22,8 +22,7 @@ export default function SpellsTable({
                 <tr>
                     <th className="hidden md:table-cell">Name</th>
                     <th className="table-cell md:hidden w-1/4">Spell</th>
-                    <th className="hidden md:table-cell">Level</th>
-                    <th className="hidden md:table-cell">Stat</th>
+                    <th className="hidden md:table-cell">Arch</th>
                     <th>Effect</th>
                     <th className="hidden md:table-cell">Tags</th>
                     {moveSpell != undefined && (
@@ -46,7 +45,7 @@ export default function SpellsTable({
                                     {spell.name}
                                 </span>
                                 <br />
-                                Level: {spell.level} Stat:{" "} Tags:{" "}
+                                Stat:{" "} Tags:{" "}
                                 {spell.tags}{" "}
                                 {moveSpell != undefined && (
                                     <Button
@@ -66,10 +65,7 @@ export default function SpellsTable({
                                 )}
                             </td>
                             <td className="hidden md:table-cell">
-                                {spell.level}
-                            </td>
-                            <td className="hidden md:table-cell">
-                                {toPillElement(spell.stat+" "+(1+Math.floor((spell.level-1)/2)).toString(), ",")}
+                                {toPillElement(spell.stat+" "+spell.level.toString(), ",")}
                             </td>
 
                             <td

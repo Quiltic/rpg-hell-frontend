@@ -54,6 +54,7 @@ const statList = [
     "Arcanist",
     "Craftsman",
     "Druidic",
+    "Face",
     "Ranger",
     "Urchin",
     
@@ -73,10 +74,10 @@ const statList = [
 //     "thieving",
 //     // "Monster",
 // ];
-const IterativeSpellLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const IterativeSpellLevels = [1, 2, 3, 4, 5];
 
 function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
+    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-14" : "w-20";
 }
 
 export default function SpellsTablePage() {

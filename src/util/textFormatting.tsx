@@ -7,7 +7,22 @@ export function toPillElement(_string: string, splitter: string) {
         "common":"thieving",
         "uncommon":"nature",
         "rare":"mind",
-        "legendary":"arcana"
+        "legendary":"arcana",
+
+        "fighter":"body",
+        "survivor":"medicine",
+        "analyst":"mind",
+        "commander":"mind",
+        "pious":"soul",
+        "spirits":"soul",
+        "arcanist":"arcana",
+        "craftsman":"crafting",
+        "druidic":"nature",
+        "face":"charm",
+        "ranger":"nature",
+        "urchin":"thieving",
+        
+        "elementalist":"nature",
     }
     if (!_string) {
         return "";

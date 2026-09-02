@@ -200,7 +200,25 @@ Urchin - Cloaked/Damage/Illusion
     
   
 
+Craftsman - Improve items/shielding/burn/Followers
 
+    {"name":"build them break them","req":"craftsman 1","tags":"","effect":"Followers or Art created structures (such as 'Deployable Wall') you create have a +1 Shielding.\nYou deal +[BODY or MIND] damage to objects and structures.","extra":""},
+    {"name":"???","req":"craftsman 1","tags":"","effect":"When you take this Trait pick a Weapon or Armor you own to hone it. You may only ever have 1 honed item and can spend 1 full day to change what is honed. At the end of a Rest pick one of the following bonuses to give the honed item: Lightweight, Resilient, or Glowing.\n- Lightweight - A Weapon losses Two Handed (if it has it) or gains Side if it is one-handed. Armor grants +1 Speed.\n- Resilient - A Weapon gains 'Bonus: Refund 1 Strain'. Armor gains +1 Shielding.\n- Glowing - The item can be used to activate Arts that use Light, and the user can spend # to illuminate 2 tiles around it (no cost to disable).","extra":""},
+    {"name":"slapdash solutions","req":"craftsman 1","tags":"","effect":"You can spend # and 1 Strain to quickly make or find any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp). It lasts until your next Break or Rest then breaks.","extra":""},
+    {"name":"creative innovations","req":"craftsman 1","tags":"","effect":"At the end of a Rest you may make one of the following: Golem Clay, a Remote Control, or a Power Glove. You may only ever have one of these at a time and making a new one destroys the old one.\n- *Golem Clay* - A handful of clay that can be formed into the shape of an animal. When the Art 'Awaken Item' is activated on it, it behaves as that animal and gains abilities that would relate to that animal and can't be changed while awakened. For example, a spider can climb walls and spin webs, while a bird can fly. The clay also has Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club') which best fits the animal that is made.\n- *Remote Control* - A handheld device that lets you activate or deactivate items or Arts you have activated, touched, or made. (There is no maximum distance for this.)\n- *Power Glove* - A 1 handed glove which does 1+CRAFTING damage On Hit. You may use this glove to lift targets using Crafting instead of Body.","extra":""},
+
+
+    {"name":"field repair","req":"crafting 2","tags":"","effect":"When you give a target Bonus Shielding you may spend 1 extra Strain to repair that much Shielding (a creature cannot have more non-Bonus Shielding than what their normal armor would allow).\nAt the end of a Break or Rest give yourself and up to 8 targets Bonus Shielding equal to your CRAFTING or 1 Ward.","extra":""},
+
+    {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.","extra":""},
+
+    {"name":"modular upgrade","req":"crafting 4","tags":"core","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may mod this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""},
+
+    'Refund 1 Strain when you give two 6's (sum of 12) for a Weapon Attack.'
+    Indestructible: Items with this tag cannot be broken, except by magic.
+
+    {"id": 136,"name": "reforge","effect": "While holding a non-magical non-complex item, you can spend 1 Strain to instantly reforge it into another non-magical non-complex item of equivalent rarity. Any Runes or attributes applied to it from other Traits are retained.","req": [  "crafting 2",  "body 1"],"dice": 0,"is_passive": true
+    },
 
 
 
@@ -325,13 +343,6 @@ Keep but do something with - You have +1 on Contests against creatures you have 
 
 
 
-{"name":"build them break them","req":"crafting 1","tags":"","effect":"Followers or Art created structures (such as Cube) you create have an additional Shielding equal to your CRAFTING.\nYou do additional damage to objects and structures equal to your CRAFTING.","extra":""},
-{"name":"field repair","req":"crafting 2","tags":"","effect":"When you give a target Bonus Shielding you may spend 1 extra Strain to repair that much Shielding (a creature cannot have more non-Bonus Shielding than what their normal armor would allow).\nAt the end of a Break or Rest give yourself and up to 8 targets Bonus Shielding equal to your CRAFTING or 1 Ward.","extra":""},
-{"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.","extra":""},
-reforge
-apprentice blacksmith
-expert blacksmith
-Slapdash Solutions
 
 
 
@@ -343,7 +354,6 @@ Logical Mind - Strain Self to tiker better - When you Tinker you may Lock one of
 Medicine 3 - You may spend ### and 2 Strain or 1 hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.
 
 {"name":"fast hands","tags":"","effect":"At the beginning of your turn, you may reload up to 2 ammo into your Loading weapons without spending dice.\nYou may spend 2 Strain instead of dice to activate any Item (use a 6 for any sum). You cannot do Attacks with this action.","req":"crafting 3","extra":""},
-{"name":"creative innovations","req":"crafting 1","tags":"","effect":"At the end of a Rest you may make one of the following: Golem Clay, a Remote Control, or a Power Glove. You may only ever have one of these at a time and making a new one destroys the old one.\n- *Golem Clay* - A handful of clay that can be formed into the shape of an animal. When the Art 'Awaken Item' is activated on it, it behaves as that animal and gains abilities that would relate to that animal and can't be changed while awakened. For example, a spider can climb walls and spin webs, while a bird can fly. The clay also has Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club') which best fits the animal that is made.\n- *Remote Control* - A handheld device that lets you activate or deactivate items or Arts you have activated, touched, or made. (There is no maximum distance for this.)\n- *Power Glove* - A 1 handed glove which does 1+CRAFTING damage On Hit. You may use this glove to lift targets using Crafting instead of Body.\n\nCrafting 3 - Golem Clay's awakened item can be reformed while the Art is active. Remote Control can control items or Arts as if you had full control of them (instead of activate or deactivate). Power Glove lets you move Art created structures (such as Cube) without doing any rolls.\n","extra":""},
 
 
 

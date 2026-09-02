@@ -52,11 +52,7 @@ export default function SpellCard({
     // .replace('###', "⚀⚁⚂").replace('##', "⚀⚁").replace('#', "⚀")
 
     const req = toPillElement(
-        _spell.stat+" "+(1+Math.floor((_spell.level-1)/2)).toString(),
-        ","
-    );
-    const level = toPillElement(
-        "Level: "+_spell.level.toString(),
+        _spell.stat+" "+(_spell.level).toString(),
         ","
     );
 
@@ -80,7 +76,7 @@ export default function SpellCard({
                     - ({activatorHash[_spell.activators-1]})
                 </div>
                 <div className="flex flex-col lg:flex-row items-center capitalize m-2">
-                    {req}{level}
+                    {req}
                 </div>
                 
             </div>
