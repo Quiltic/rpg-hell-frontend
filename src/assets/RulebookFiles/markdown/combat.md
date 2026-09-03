@@ -1,6 +1,6 @@
 # Combat
 
-Combat is split up into Rounds, each Round lasts 10 seconds and has 3 phases; Beginning which is where they take damage or effects from Stack Effects and roll their COMBAT DICE. Their Action phase which is where they can spend COMBAT DICE to do actions. Lastly their end phase, which is where they loose stacks or effects.
+Combat is split up into Rounds, with each Round lasting 10 seconds. To start you must do [Initative](#initative), though how your GM handles this may varies. Then when a character (player or NPC) start their turn, they take effects from Arts or afflctions then roll their [COMBAT DICE](#actiondice). These dice can be used to activate abilities and do [actions](#commonactions).
 
 ## Initiative
 
@@ -12,7 +12,7 @@ The world and vehicles (earthquakes, neutral NPC's, carts, and other creature re
 
 
 
-## Action Dice (AD)
+## Action Dice
 
 At the beginning of your turn you roll an amount of dice based on your __COMBAT DICE__ (Temp name). COMBAT DICE can be calculated as 4+(lvl/2) [rounded down].
 You can spend these dice to do actions in Combat. Every action asks for a different amount of dice, denoted next to the Action as a number of #. Depending on the action taken the values for the dice may or may not matter.

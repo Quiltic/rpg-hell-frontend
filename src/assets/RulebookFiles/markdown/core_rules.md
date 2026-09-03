@@ -2,7 +2,7 @@
 
 ### Important Notes
 
-This game uses weird dice, such as d4 (4 sided dice), d6 (normal 6 sided dice), and d12’s (12 sided dice). You will need these in order to play. The recommended number of dice is two d4, somewhere between six and nine d6, and two d12’s.
+This game uses weird dice, such as d4 (4 sided dice), d6 (normal 6 sided dice), and d12s (12 sided dice). You will need these in order to play. The recommended number of dice is two d4, somewhere between six and nine d6, and two d12’s.
 
 **As of writing this game is under development. Things will change so keep an eye on the docs.**
 
@@ -47,10 +47,8 @@ Here are a simplified listing of when it would be best to use a specific stat wh
 - Soul: Looking for Magical or Spiritual effects.
 - Arcana: When looking at a magical item or through some form of code.
 - Charm: Best used in conversations.
-- Crafting: When observing on a machine, mechanism, or blueprint.
-- Medicine: Inspecting wounds, strange liquids, or medical equipment.
+- Finesse: When trying to look for something with precision.
 - Nature: When handling natural creatures or to find something in the wild.
-- Thieving: When looking for something of value or to find something hidden.
 
 
 
@@ -69,11 +67,6 @@ While you have Exhaustion you gain the following debuffs. All stacks of Exhausti
 # Optional Rules
 
 *These rules are entirely optional and may be chosen or banned by the players/gm.*
-
-
-### I know a Guy
-
-When entering a new region each player may declare a character they have interacted with here in the past. They then describe their relation to the character, then roll a d6. On a 1;  the player owes the character a favor. On a 6; The character owes the player a favor. The player then describes how their last encounter ended.
 
 
 ### Deep Learning

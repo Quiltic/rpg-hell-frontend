@@ -4,8 +4,8 @@
 
 Your Main-stats (Body, Mind, and Soul) all start at 0. Then you gain 2 Main-stat increases, you may place these increases however you wish in your Main-stats. For instance you may have a Main-stat line of 2,0,0 (Body, Mind, Soul); or a Main-stat line of 0,1,1. 
 
-For your Sub-stats (Arcana, Charm, Crafting, Medicine, Nature, Thieving) you must use the following values: +2,+1,+1,0,-1,-1
-You may place these values in any Sub-stat you chose. For example you may have a Nature focused character who doesn't care for talking to people. That character may have a Sub-stat line of 0,-1,-1,+1,+2,+1 (Arcana, Charm, Crafting, Medicine, Nature, Thieving).
+For your Sub-stats (Arcana, Charm, Finesse, Nature) you must use the following values: +1,0,0,-1
+You may place these values in any Sub-stat you chose. For example you may have a Nature focused character who doesn't care for talking to people. That character may have a Sub-stat line of 0,-1,0,+1 (Arcana, Charm, Finesse, Nature).
 
 <div class="boxed_text">
 <span>Your MAX HEALTH is equal to 4xBODY + 3xMIND + 2xSOUL + LEVEL</span>
@@ -13,37 +13,54 @@ You may place these values in any Sub-stat you chose. For example you may have a
 Your MAX STRAIN is equal to 2xBODY + 3xMIND + 4xSOUL + LEVEL</span>
 </div>
 
+Then pick 2 Paths for your character. Each Path plays a little difrently, though they all can meld together.
 
-You create 3 [Stories](#stories) of your choice then gain 2 Traits and 4 Arts that you meet the requirements for.
+The base game Paths are:
+- *Fighter* - Offence and Defence in the heat of battle.
+- *Survivor* - Staying alive through healing and movement. 
+- *Analyst* - Manipulate the dice to get an advantage.
+- *Commander* - A team player through buffs and turns.
+- *Pious* - Religous life with heavy use of Arts.
+- *Spirits* - Summon spirits for friends or use them for harm.
+- *Arcanist* - Bend magic and Arts to your will.
+- *Druid* - Utilize the natural world to control or aid.
+- *Face* - Be a people person, manipulating enemies and aiding friends.
+- *Ranger* - Hunt alone or with a pack.
+- *Urchin* - Take everything from the shadows and illusions.
 
-For items you take 1 Weapon of your choice, a Side Weapon (must have the Side tag) or a Shield, any non-magical armor of your choice, a Gadget, and any 2 non-magical items of your Choice.
-Finally you gain 4d6+10 (or 24) Coin, and a Bandage.
+
+You create 3 [Stories](#stories) of your choice. These may help determine what you pick for your paths.
+
+Once you have decided what Paths you will use, look at Tier 1 for them and pick 2 Traits and 4 Arts from them.
+
+For items look at Tier 1 and pick 2 Weapons of your choice or 1 Weapon and a Shield, an armor, and a set of tools or 3 mundane items. *You cant use items you dont meet the requirements for.*
+Lastly, you get a bag of coin and a Bandage.
+
+
+*See [Deep Learning](#deep-learning) for optional character creation rules.*
+
 
 ### Quick list Level 1
 
 - Gain 2 Main-Stat increases (Body, Mind, or Soul)  
   - ***Remember to update your Health and Strain.***
-- Set your Sub-Stats to 2,1,1,0,-1,-1. Assigning the values as you choose.
-- Set your Combat Dice to 4  
-- Create 3 [Stories](#stories) for your character.  
-- Pick 2 Traits that you meet the requirements for.  
-- Learn 4 Arts  
-- Acquire 4d6+10 (or 24\) Plates ($).  
-- Acquire a Weapon of your choice.  
-- Acquire a Side Weapon or Shield.  
-- Don Armor  
-- Acquire a Bandage  
-- Pick a Gadget of your choice  
-- Acquire any 2 non-magic items of your choice.
+- Set your Sub-Stats to 1,0,0,-1. Assigning the values as you choose.
+- Set your Combat Dice to 4
+- Create 3 [Stories](#stories) for your character.
+- Pick 2 Paths.  
+- Pick 2 Traits from your Paths.  
+- Learn 4 Arts from your Paths.
+- Weild 2 Weapons of your choice or a Weapon and a Shield.  
+- Don Armor
+- Acquire a set of tools or 3 Mundane items of your choice.
+- Get a bag of coin and a Bandage.  
 
 
-*See [Deep Learning](#deep-learning) for optional character creation rules.*
 
 ## Leveling Up
 
-- Pick a new Trait that you meet the requirements for.  
-- Learn another Art (3+LEVEL)  
-  - You may change out your Arts on Levelup
+Every level you get 1 new Trait and Art from your Paths. You may take from any Tier you are at or below when you pick a new Trait or Art.
+- You may change your Arts when you level up.
 
 **On Even Levels (2,4,6,8)**
 
@@ -55,20 +72,28 @@ Finally you gain 4d6+10 (or 24) Coin, and a Bandage.
 - Gain \+1 to two different Sub-Stats
 
 
+
+When you hit level 3 you may take Tier 2, Traits, Arts, and Items.
+When you hit level 6 you may take Tier 3, Traits, Arts, and Items.
+When you hit level 8 you may take Tier 4, Traits, Arts, and Items.
+When you hit level 10 you may take 1 Trait and Art from any Path and any Tier.
+
+
+
 ## Handy Leveling Table
 
-| Level | # of Increases | # of Traits | # of Arts | Combat Dice |
-| --- | --- | --- | --- | --- |
-| 1 | 1 | 2 | 4 | 4 |
-| 2 | - | 3 | 5 | +5 |
-| 3 | 2 | 4 | 6 | 5 |
-| 4 | - | 5 | 7 | +6 |
-| 5 | 3 | 6 | 8 | 6 
-| 6 | - | 7 | 9 | +7 
-| 7 | 4 | 8 | 10 | 7 
-| 8 | - | 9 | 11 | +8 |
-| 9 | 5 | 10 | 12 | 8 
-| 10 | - | 11 | 13 | +9 
+| Level | Tier | # of Traits | # of Arts | Stat Increase | Combat Dice |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 1 | 2 | 4 | +2 | 4 |
+| 2 | 1 | 3 | 5 | 2 | +5 |
+| 3 | +2 | 4 | 6 | +3 | 5 |
+| 4 | 2 | 5 | 7 | 3 | +6 |
+| 5 | 2 | 6 | 8 | +4 | 6 
+| 6 | +3 | 7 | 9 | 4 | +7 
+| 7 | 3 | 8 | 10 | +5 | 7 
+| 8 | +4 | 9 | 11 | 5 | +8 |
+| 9 | 4 | 10 | 12 | +6 | 8 
+| 10 | ? | 11 | 13 | 6 | +9 
 
 
 
@@ -85,7 +110,6 @@ Make a short story or idea about your character. Each story you make gives you o
 - Old Languages, Animals, Machines, Pick-Pocketing, Religion, Geography, Local Legends/Stories, Acrobatics, 
 
 **Special Powers**
-- **Nature Speaker** - I was born in the wilds, its animals are my family. I may have conversations with animals. This does not make the animal intelligent, it only lets you converse with them. I may use NATURE or CHARM when doing these conversations.
 - **Mechanical Living** - I can change my parts. I can embed items within me at the end of a Rest. I can't embed more than my Level, but these items can't be dropped or forcefully taken from me.
 - **Criminal** - I have spent most of my life doing crime. Why stop now? I learn the location of the Black Market or Underground, if one exists, upon entering a city for the first time.
 - **Aquatic** - I can hold my breath for up to an hour.
