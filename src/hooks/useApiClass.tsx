@@ -3,7 +3,8 @@ import { useCallback, useContext, useEffect, useState } from "react";
 
 import traitJson from "../assets/OfflineJsons/traits.json";
 import itemJson from "../assets/OfflineJsons/items.json";
-import spellJson from "../assets/OfflineJsons/spells.json";
+// import spellJson from "../assets/OfflineJsons/spells.json";
+import spellJson from "../assets/OfflineJsons/Arts.json";
 import creatureJson from "../assets/OfflineJsons/creatures.json";
 import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems, sortSpells } from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";

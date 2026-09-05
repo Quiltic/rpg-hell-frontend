@@ -14,6 +14,9 @@ import CleanCombobox from "../../joshhellscapePages/CleanCombobox";
 import { Switch } from "@headlessui/react";
 import { Button } from "../../ui/Button/Button";
 import Popup from "../../ui/Popups/Popup";
+import { capitalize } from "../../../util/textFormatting";
+import { isElementOfType } from "react-dom/test-utils";
+import { eApiClass } from "../../../types/ApiClassUnions";
 
 
 const blank_displayedCreature = {
@@ -115,33 +118,48 @@ export default function PinnedCharSheet(
     const [curItems, setCurItems] = useState<Item[]>(pinnedItems);
 
 
+    // function modifyList(type:eApiClass, thing){
+
+        
+
+    //     const idx = list.indexOf(thing);
+    //     if (idx == -1)
+    //         return (setList(list.concat(thing))); // doesent actually return anything but makes it break out of the function
+        
+    //     const remaining = list; // copy the list
+    //     remaining.splice(idx, 1); // remove the item
+    //     // console.log(remaining);
+    //     setList(remaining);
+    // }
 
 
-    useEffect(() => {
-        if (edit && (curCreature.traits != ""))
-            setCurTraits(displayedTraits.filter((t) => {return curCreature.traits.includes(t.name)}));
-        else if (edit) {
-            setCurCreature({...curCreature, traits: pinnedTraits.map((t) => {return(t.name)}).join(";|;")});
-            setCurTraits(pinnedTraits);
-        }
-    }, [pinnedTraits]);
-    useEffect(() => {
-        if (edit && (curCreature.arts != ""))
-            setCurArts(displayedSpells.filter((a) => {return curCreature.arts.includes(a.name)}));
-        else if (edit) {
-            setCurCreature({...curCreature, arts: pinnedSpells.map((a) => {return(a.name)}).join(";|;")});
-            setCurArts(pinnedSpells);
-        }
-    }, [pinnedSpells]);
-    useEffect(() => {
-        if (!edit && (curCreature.items != ""))
-            setCurItems(displayedItems.filter((i) => {return curCreature.items.split(";|;").includes(i.name)}));
-        else if (edit) {
-            setCurCreature({...curCreature, items: pinnedItems.map((i) => {return(i.name)}).join(";|;")});
-            setCurItems(pinnedItems);
-        }
-        // console.log(curCreature.items);
-    }, [pinnedItems]);
+
+
+    // useEffect(() => {
+    //     if (edit && (curCreature.traits != ""))
+    //         setCurTraits(displayedTraits.filter((t) => {return curCreature.traits.includes(t.name)}));
+    //     else if (edit) {
+    //         setCurCreature({...curCreature, traits: pinnedTraits.map((t) => {return(t.name)}).join(";|;")});
+    //         setCurTraits(pinnedTraits);
+    //     }
+    // }, [pinnedTraits]);
+    // useEffect(() => {
+    //     if (edit && (curCreature.arts != ""))
+    //         setCurArts(displayedSpells.filter((a) => {return curCreature.arts.includes(a.name)}));
+    //     else if (edit) {
+    //         setCurCreature({...curCreature, arts: pinnedSpells.map((a) => {return(a.name)}).join(";|;")});
+    //         setCurArts(pinnedSpells);
+    //     }
+    // }, [pinnedSpells]);
+    // useEffect(() => {
+    //     if (!edit && (curCreature.items != ""))
+    //         setCurItems(displayedItems.filter((i) => {return curCreature.items.split(";|;").includes(i.name)}));
+    //     else if (edit) {
+    //         setCurCreature({...curCreature, items: pinnedItems.map((i) => {return(i.name)}).join(";|;")});
+    //         setCurItems(pinnedItems);
+    //     }
+    //     // console.log(curCreature.items);
+    // }, [pinnedItems]);
 
 
 
@@ -155,26 +173,13 @@ export default function PinnedCharSheet(
         setStatList(remaining);
     }
 
-
-    // function addChosenArt(s:Spell) {
-    //     if (!(curArts.includes(s)) && (curArts.length < curLvl+3)) {
-    //         setCurArts(curArts.concat(s));
-    //     }
-    // }
-    // function removeChosenArt(s:Spell) {
-    //     const idx = curArts.indexOf(s);
-    //     const remaining = curArts.slice();
-    //     remaining.splice(idx, 1);
-    //     setCurArts(remaining);
-    // }
-
-
     // const [maxMain, setMaxMain] = useState(2);
 
     // useEffect(() => {
     //     setMaxMain(2+Math.floor((curCreature.level-1)/2));
     // }, [curCreature.level]);
     useEffect(() => {
+        console.log(curCreature);
 
         let items = curCreature.items != "" ? pinnedItems.map((i) => {return(i.name)}).join(";|;") : curCreature.items;
         // console.log(items)
@@ -207,13 +212,26 @@ export default function PinnedCharSheet(
         setMaxMain(2+Math.floor((curCreature.level-1)/2));
         setMaxSub(2+2*(Math.floor((curCreature.level-1)/2)));
     }, [curCreature.level]);
+
+    // useEffect(() => {
+    //     setCurCreature({...curCreature, 
+    //         traits: curTraits.map((t) => {return(t.name)}).join(";|;"),
+    //         arts: curArts.map((a) => {return(a.name)}).join(";|;"),
+    //         items: curItems.map((i) => {return(i.name)}).join(";|;")
+    //     });
+    // }, [curArts,curItems,curTraits]);
     
     
     // console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
     
 
     function LoadChar(name:string) {
-        setCurCreature(JSON.parse(window.localStorage.getItem(name))); // as per always it will always be found due to the checks made outside of this
+        if (name == "default") {
+            setCurCreature(blank_displayedCreature);
+            window.localStorage.setItem("Temp Character Sheet", JSON.stringify(blank_displayedCreature));
+        }
+        else
+            setCurCreature(JSON.parse(window.localStorage.getItem(name))); // as per always it will always be found due to the checks made outside of this
     }
     
     function SaveChar() {
@@ -273,6 +291,14 @@ export default function PinnedCharSheet(
                         setLoad(val);
                     }}
                 />
+                <Button
+                    title="Clear"
+                    className="w-[20%]"
+                    variant={"medicine"}
+                    onClick={() => {LoadChar("default")}}
+                >
+                    Reset Character
+                </Button>
                 {/* <Button
                     title="Clear"
                     className="w-[20%]"
@@ -304,6 +330,7 @@ export default function PinnedCharSheet(
             </div>
 
 
+            {/* Main */}
             <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
                 
                 {/* Name/Level/Types */}
@@ -379,6 +406,7 @@ export default function PinnedCharSheet(
                              - curCreature.stats.medicine - curCreature.stats.nature - curCreature.stats.thieving
                         )}</div>}
 
+                        {/* Stats */}
                         <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
                             <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
                                 Body:
@@ -747,7 +775,7 @@ There is a link above for what a Story is!"
                             {curItems.map( (i,id) => {return (
                                 <>
                                 {(i.tags.includes("weapon") || i.tags.includes("side")) && 
-                                    <ItemCard _item={{...i, upgrades:[]}} _className="m-1" key={id}
+                                    <ItemCard _item={{...i, upgrades:[]}} _className="m-1" key={"weps_"+id}
                                     moveItem={() => {edit ? removeFromPinnedItems(i) : {}}}
                                 />}
 
@@ -760,11 +788,13 @@ There is a link above for what a Story is!"
                     <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ITEMS</h3>
                         <div className="grid grid-cols-2">
-                            {curItems.map( (i,id) => {return (
+                            {displayedItems.filter((item) => {
+                                return (curCreature.items.includes(item.name));
+                            }).map( (i,id) => {return (
                                 <>
                                 {
                                     (!i.tags.includes("weapon") && !i.tags.includes("side")) &&
-                                    <Tooltip text={i.name} key={id}
+                                    <Tooltip text={i.name} key={"items_"+id}
                                             display={
                                                 <ItemCard _item={{...i, upgrades:[]}} _className="m-1 w-96"
                                                 moveItem={() => {edit ? removeFromPinnedItems(i) : {}}}
@@ -816,13 +846,48 @@ There is a link above for what a Story is!"
                     <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">TRAITS</h3>
 
+                        {edit && curCreature.traits.split(".").length <= curCreature.level+1 &&
+                        <div className="lg:grid lg:grid-cols-3">
+                            {displayedTraits.filter((trait) => {
+                                if (curCreature.traits.includes(trait.name)) // no need to show a pinned item here
+                                    return false;
+                                let stat = trait.req.split(" ");
+                                return(curCreature.stats[stat[0]] >= parseInt(stat[1].replace(",","")));
+                            }
+                            ).map((statFoundTrait:Trait, id:number) => {
+                                // const foundArt = arts.find((art) => {return (art.name == list)});
+                                return ( 
+                                <>
+                                    {
+
+                                    <div key={"trait_pick_"+id} className="flex flex-row justify-center items-center"
+                                    onClick={() => {setCurCreature({...curCreature, traits: curCreature.traits+"."+statFoundTrait.name})}}
+                                    >
+                                        <Tooltip text={capitalize(statFoundTrait.name)}
+                                                display={<>
+                                                {/* <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PIN ME</h3> */}
+                                                <TraitCard _trait={statFoundTrait} _className="m-1 w-96 clickable"/>
+                                                </>} 
+                                                className="rounded-md bg-dark-300 p-1 m-1"
+                                        />
+                                    </div>
+                                    
+                                    }
+                                </>
+                                )
+                            })}
+                        </div>}
+
                         <div className="lg:grid lg:grid-cols-2">
 
-                            {curTraits.map( (t:Trait, id:number) => { return (
-                                <TraitCard _trait={t} _className="m-1" moveTrait={() => edit ? removeFromPinnedTraits(t) : {}} key={id}/>
+                            {displayedTraits.filter((trait) => {
+                                return (curCreature.traits.includes(trait.name));
+                            }).map( (t:Trait, id:number) => { return (
+                                <TraitCard _trait={t} _className="m-1" moveTrait={
+                                () => edit ? setCurCreature({...curCreature, traits: curCreature.traits.replace("."+t.name,'')})
+                                 : {}} key={"traits_"+id}/>
                             )})}
 
-                            
                         </div>
                     </div>
                         
@@ -830,13 +895,50 @@ There is a link above for what a Story is!"
                     <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
                         <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ARTS</h3>
 
+                        {edit && curCreature.arts.split(".").length <= curCreature.level+1 &&
+                        <div className="lg:grid lg:grid-cols-3">
+                            {displayedSpells.filter((art) => {
+                                if (curCreature.arts.includes(art.name)) // no need to show a pinned item here
+                                    return false;
+                                return(
+                                    (curCreature.stats[art.stat] >= (1+Math.floor((curCreature.level-1)/2))) &&
+                                    (curCreature.level >= art.level)
+                                );
+                            }
+                            ).map((statFoundArt:Spell, id:number) => {
+                                // const foundArt = arts.find((art) => {return (art.name == list)});
+                                return ( 
+                                <>
+                                    {
+
+                                    <div key={"art_pick_"+id} className="flex flex-row justify-center items-center"
+                                    onClick={() => {setCurCreature({...curCreature, arts: curCreature.arts+"."+statFoundArt.name})}}
+                                    >
+                                        <Tooltip text={capitalize(statFoundArt.name)}
+                                                display={<>
+                                                {/* <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PIN ME</h3> */}
+                                                <ArtCard _spell={statFoundArt} _className="m-1 w-96 clickable"/>
+                                                </>} 
+                                                className="rounded-md bg-dark-300 p-1 m-1"
+                                        />
+                                    </div>
+                                    
+                                    }
+                                </>
+                                )
+                            })}
+                        </div>}
+
                         <div className="lg:grid lg:grid-cols-2">
 
-                            {curArts.map( (s:Spell, id:number) => { return (
-                                <ArtCard _spell={s} _className="m-1" moveSpell={() => edit ? removeFromPinnedSpells(s) : {}} key={id}/>
+                            {displayedSpells.filter((art) => {
+                                return (curCreature.arts.includes(art.name));
+                            }).map( (t:Spell, id:number) => { return (
+                                <ArtCard _spell={t} _className="m-1" moveSpell={
+                                () => edit ? setCurCreature({...curCreature, arts: curCreature.arts.replace("."+t.name,'')})
+                                 : {}} key={"arts_"+id}/>
                             )})}
 
-                            
                         </div>
                     </div>
                 </div>

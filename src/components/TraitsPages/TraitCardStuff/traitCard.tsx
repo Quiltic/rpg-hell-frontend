@@ -88,7 +88,7 @@ export default function TraitCard({
                     return (
                     <>
                     <Markdown
-                        key={i}
+                        key={"trait_text_"+i}
                         remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeRaw]}
                         components={{
@@ -100,7 +100,7 @@ export default function TraitCard({
                     </Markdown>
                     
                     { i < ee.length-1 && 
-                        <div key={i} className="mt-2.5 text-center border-b-2 border-solid border-body-700/20">
+                        <div key={"trait_upgrade_line_"+i} className="mt-2.5 text-center border-b-2 border-solid border-body-700/20">
                             {/* <div className="px-2.5 py-2 bg-dark-400 border-2 border-solid border-body-700/20">TEST</div> */}
                         </div>
                     }
