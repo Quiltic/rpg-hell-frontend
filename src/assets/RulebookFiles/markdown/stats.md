@@ -1,5 +1,7 @@
-# Main-Stats
+# Stats
 
-# Sub-Stats
+## Main-Stats
 
-# Skills
+## Sub-Stats
+
+## Skills

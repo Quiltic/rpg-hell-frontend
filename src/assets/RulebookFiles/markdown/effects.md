@@ -1,64 +1,57 @@
 # States
 
-- ***Aura*** - Lasts a number of turns equal to dice spent, effects everything within 2 tiles of you.
+-   **_Aura_** - Lasts a number of turns equal to dice spent, effects everything within 2 tiles of you.
 
-- ***Focus*** - Lasts until you roll a 1 on a Dodge roll, the duration ends, you have 0 health, gain stacks of Stun, cast another Focus Spell, or drop the spell.
+-   **_Focus_** - Lasts until you roll a 1 on a Dodge roll, the duration ends, you have 0 health, gain stacks of Stun, cast another Focus Spell, or drop the spell.
 
-- ***Death's Door*** - At 1 stack of Death's Door you are permanently Slowed. At 2 stacks of Death's Door you become unconscious and cannot wake up. At 3 stacks of Death's Door you die. You lose all stacks of Death's Door at the end of a Rest.
+-   **_Death's Door_** - At 1 stack of Death's Door you are permanently Slowed. At 2 stacks of Death's Door you become unconscious and cannot wake up. At 3 stacks of Death's Door you die. You lose all stacks of Death's Door at the end of a Rest.
 
-- ***Bleeding Out*** - At the end of your turn roll a d12. If you roll a 6 or less you gain a stack of **Death's Door**. If you roll a 7 or higher, another creature heals you, or another creature rolls a 9 or higher on a Medicine Check you lose **Bleeding Out**.
+-   **_Bleeding Out_** - At the end of your turn roll a d12. If you roll a 6 or less you gain a stack of **Death's Door**. If you roll a 7 or higher, another creature heals you, or another creature rolls a 9 or higher on a Medicine Check you lose **Bleeding Out**.
 
-- ***Follower*** - Followers take a turn immediately before or after you (your choice, unless they where created that turn) however they will only ever roll 3d6. All of your Followers use these same 3 dice regardless of type.
+-   **_Follower_** - Followers take a turn immediately before or after you (your choice, unless they where created that turn) however they will only ever roll 3d6. All of your Followers use these same 3 dice regardless of type.
 
-- ***Grappled*** - You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body contest against the source of the grapple to remove this effect. 
+-   **_Grappled_** - You have a Speed of 0, cant do the Move action, and can't Attack anything other than the source of the grapple. You can spend 2 dice (##) to make a Body contest against the source of the grapple to remove this effect.
 
-- ***Obscured*** - You cannot be targeted by non-area ranged actions, or seen from a distance.
+-   **_Obscured_** - You cannot be targeted by non-area ranged actions, or seen from a distance.
 
-- ***Hidden*** - You cannot be seen or targeted directly and a creature must make a Senses contest against your Thieving to know of your presence. If you make an Attack while Hidden you gain +1 damage. You lose Hidden if you do any non-Thieving action against a creature or you are detected through a Senses roll. 
+-   **_Hidden_** - You cannot be seen or targeted directly and a creature must make a Senses contest against your Thieving to know of your presence. If you make an Attack while Hidden you gain +1 damage. You lose Hidden if you do any non-Thieving action against a creature or you are detected through a Senses roll.
 
+## Statuses
 
-
-# Statuses
-
-Statuses are things that are applied to you or you apply to others. There is no maximum number of Statuses you can have at once. 
+Statuses are things that are applied to you or you apply to others. There is no maximum number of Statuses you can have at once.
 
 ### Elemental Banes
 
-- ***Burn*** - At the beginning of your turn take damage equal to the amount of Burn then half the number of Burn stacks (rounded up).
+-   **_Burn_** - At the beginning of your turn take damage equal to the amount of Burn then half the number of Burn stacks (rounded up).
 
-- ***Wet*** - When applied to a target with Burn, remove Wet and all Burn. When a Wet creature gains Burn, they take damage equal to the Burn gained and lose Wet and all Burn.
+-   **_Wet_** - When applied to a target with Burn, remove Wet and all Burn. When a Wet creature gains Burn, they take damage equal to the Burn gained and lose Wet and all Burn.
 
-- ***Slow*** - You have half your SPEED (rounded up). 
+-   **_Slow_** - You have half your SPEED (rounded up).
 
-- ***Knockback*** - Are pushed back X tiles. If a target is pushed into another target both targets take damage equal to however much they would have moved.
-
-
+-   **_Knockback_** - Are pushed back X tiles. If a target is pushed into another target both targets take damage equal to however much they would have moved.
 
 ### Banes
 
-- ***Marked*** - Creatures get +1 on contest’s against you and you have -1 Dodge.
+-   **_Marked_** - Creatures get +1 on contest’s against you and you have -1 Dodge.
 
-- ***Charmed*** - You have -1d4 when doing negative actions (Attacks, Contests, etc.) and any Charm contests against the creature that Charmed you. The creature that Charmed you may spend Charmed to force you to re-roll any roll.
+-   **_Charmed_** - You have -1d4 when doing negative actions (Attacks, Contests, etc.) and any Charm contests against the creature that Charmed you. The creature that Charmed you may spend Charmed to force you to re-roll any roll.
 
-- ***Blinded*** - Cannot do ranged actions, have -1 to Senses rolls, and enemies have +1 Dodge from your attacks.
+-   **_Blinded_** - Cannot do ranged actions, have -1 to Senses rolls, and enemies have +1 Dodge from your attacks.
 
-- ***Glow*** - You emit light covering up to 2 tiles away from you. You cannot become Hidden or Invisible and lose either if you have them.
+-   **_Glow_** - You emit light covering up to 2 tiles away from you. You cannot become Hidden or Invisible and lose either if you have them.
 
-- ***Rooted*** - Your SPEED is 0.
+-   **_Rooted_** - Your SPEED is 0.
 
-- ***Stun*** - You roll X dice less when doing a roll. You cannot gain Stun the turn after you have Stun and can't roll less than 2 dice in a turn.
-
-
+-   **_Stun_** - You roll X dice less when doing a roll. You cannot gain Stun the turn after you have Stun and can't roll less than 2 dice in a turn.
 
 ### Boons
 
+-   **_Empowered_** - Increase the maximum value needed for an Attack's Bonus by 1 (from 7 to 8). Additionally, you may spend Empowered to gain the Attack's Bonus or not have an Attack’s Downside.
 
-- ***Empowered*** - Increase the maximum value needed for an Attack's Bonus by 1 (from 7 to 8). Additionally, you may spend Empowered to gain the Attack's Bonus or not have an Attack’s Downside.
+-   **_Rallied_** - Pick a Stat when you first gain Rallied. You get +1d4 on Checks and Contests on that stat.
 
-- ***Rallied*** - Pick a Stat when you first gain Rallied. You get +1d4 on Checks and Contests on that stat.
+-   **_Reinforced_** - When you roll a Check, Contest, or Dodge roll you may not have less than +1 on the roll.
 
-- ***Reinforced*** - When you roll a Check, Contest, or Dodge roll you may not have less than +1 on the roll.
+-   **_Invisible_** - You cannot be seen and gain an additional 1d4 on rolls to become Hidden.
 
-- ***Invisible*** - You cannot be seen and gain an additional 1d4 on rolls to become Hidden.
-
-- ***Ward*** - You may spend Ward to re-roll a Dodge or Contest roll, or to remove an Effect. You can have a maximum number of Ward equal to your LEVEL.
+-   **_Ward_** - You may spend Ward to re-roll a Dodge or Contest roll, or to remove an Effect. You can have a maximum number of Ward equal to your LEVEL.
