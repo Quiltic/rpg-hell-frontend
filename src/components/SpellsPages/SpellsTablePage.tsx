@@ -12,6 +12,7 @@ import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import MarkdownRenderer from "../../util/MarkdownRenderer";
 import art_key from "../../assets/RulebookFiles/markdown/spell_key.md";
+import { useKeyAnchor } from "../../hooks/useKeyAnchor";
 
 const tagList = [
     "elemental",
@@ -57,10 +58,9 @@ const statList = [
     "Face",
     "Ranger",
     "Urchin",
-    
+
     "Elementalist",
 ];
-
 
 // [
 //     "body",
@@ -81,6 +81,9 @@ function getTabWidth(lengthOfName: number) {
 }
 
 export default function SpellsTablePage() {
+    // Opens the Key panel below when linked to /rulebook/spells#key-spell-<slug>.
+    const keyAnchor = useKeyAnchor("key-spell-");
+
     const {
         allSpells,
         pinnedSpells,
@@ -151,7 +154,10 @@ export default function SpellsTablePage() {
                         {/* <div className="flex flex-row items-center bg-dark-600 border-2 border-body-700/20 mt-6 mb-6 w-full"></div> */}
                     </div>
 
-                    <Disclosure defaultOpen={false}>
+                    <Disclosure
+                        key={keyAnchor.remountKey}
+                        defaultOpen={keyAnchor.defaultOpen}
+                    >
                         {({ open }) => (
                             <>
                                 <Disclosure.Button>

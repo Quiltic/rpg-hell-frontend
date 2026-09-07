@@ -110,3 +110,5 @@ Prettier config is non-default: 4-space indent, double quotes, 80 cols, `prettie
 ### Comments
 
 default to writing no comments. Never write multi-paragraph docstrings or multi-line comment blocks — one short line max
+
+do not reference old code or functionality in comments
