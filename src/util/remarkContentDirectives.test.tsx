@@ -105,7 +105,7 @@ describe("remarkContentDirectives", () => {
         expect(textOf(p)).toBe('[nothing: unknown directive "nothing"]');
     });
 
-    it("renders through react-markdown with stat colouring and ids", () => {
+    it("renders through react-markdown with ids and inline markdown", () => {
         const { container } = render(
             <Markdown
                 remarkPlugins={[
@@ -120,9 +120,10 @@ describe("remarkContentDirectives", () => {
 
         const alpha = container.querySelector("#thing-alpha");
         expect(alpha?.tagName).toBe("LI");
-        expect(alpha?.querySelector("span.text-body-700")?.textContent).toBe(
-            "body"
-        );
+        // Colouring is remarkHighlightKeywords' job, not this plugin's; see
+        // remarkHighlightKeywords.test.tsx for the two running together.
+        expect(alpha?.querySelector("span")).toBeNull();
+        expect(alpha?.textContent).toMatch(/First body thing\./);
         // First <strong> is the bolded name; the second is the **bold** in the text.
         const strongs = container.querySelectorAll("#thing-beta strong");
         expect(strongs[1]?.textContent).toBe("bold");

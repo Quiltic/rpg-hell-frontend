@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import remarkDirective from "remark-directive";
 import { contentDirectives } from "./contentDirectives";
+import { remarkHighlightKeywords } from "./remarkHighlightKeywords";
 import Markdown from "react-markdown";
 import HeadingJumpTo from "./HeadingJumpTo";
 
@@ -23,7 +24,7 @@ export default function MarkdownRenderer({
     markdown,
     have_header = true,
 }: markdownRendererProps) {
-    const { formattedMarkdown, headings } = useMarkdown(markdown);
+    const { markdown: source, headings } = useMarkdown(markdown);
 
     const HeadingRenderer = useMemo(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,14 +54,19 @@ export default function MarkdownRenderer({
                 }
             }
         }, 100); // Wait for the markdown library to actually render the element
-    }, [formattedMarkdown]);
+    }, [source]);
 
     return (
         <div className="markdown-styles mx-auto max-w-4xl break-inside-avoid text-left">
             {have_header && <HeadingJumpTo headings={headings} />}
 
             <Markdown
-                remarkPlugins={[remarkGfm, remarkDirective, contentDirectives]}
+                remarkPlugins={[
+                    remarkGfm,
+                    remarkDirective,
+                    contentDirectives,
+                    remarkHighlightKeywords,
+                ]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
                     h1: HeadingRenderer,
@@ -74,7 +80,7 @@ export default function MarkdownRenderer({
                     ),
                 }}
             >
-                {formattedMarkdown}
+                {source}
             </Markdown>
         </div>
     );

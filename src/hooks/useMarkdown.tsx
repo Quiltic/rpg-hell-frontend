@@ -1,32 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { formatEffectString } from "../util/textFormatting";
+import { useEffect, useState } from "react";
 import { Heading } from "../types/Heading";
 import { extractHeadings } from "../util/MarkdownHeaderParsing";
 
-// import md from "../assets/markdown/md"
+// Fetches a rulebook .md url and pulls its headings out for the jump-to nav.
 export default function useMarkdown(md: string) {
-    const [rawMarkdown, setRawMarkdown] = useState("");
-    const [formattedMarkdown, setFormattedMarkdown] = useState("");
+    const [markdown, setMarkdown] = useState("");
     const [headings, setHeadings] = useState<Heading[]>([]);
 
     useEffect(() => {
         fetch(md)
             .then((res) => res.text())
-            .then((text) => setRawMarkdown(text));
+            .then((text) => setMarkdown(text));
     }, [md]);
 
     useEffect(() => {
-        setFormattedMarkdown(formatEffectString(rawMarkdown));
-    }, [rawMarkdown]);
-
-    useEffect(() => {
-        if (formattedMarkdown) {
-            const extracted = extractHeadings(formattedMarkdown);
-            setHeadings(extracted);
+        if (markdown) {
+            setHeadings(extractHeadings(markdown));
         }
-    }, [formattedMarkdown]);
+    }, [markdown]);
 
-    // add glossary formatter here
-
-    return { formattedMarkdown, rawMarkdown, headings };
+    return { markdown, headings };
 }

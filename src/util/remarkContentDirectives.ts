@@ -2,7 +2,6 @@ import { remark } from "remark";
 import { visit } from "unist-util-visit";
 import type { List, Paragraph, Root } from "mdast";
 import type { LeafDirective } from "mdast-util-directive";
-import { formatEffectString } from "./textFormatting";
 
 // A content source a `::name{...}` leaf directive can expand into a list.
 // Methods (not function properties) so a DirectiveSource<Effect> is assignable
@@ -73,13 +72,11 @@ export function expandDirective(
     }
 
     // Build markdown and re-parse it rather than assembling mdast by hand so
-    // bold, inline html, and the stat-colour spans injected by
-    // formatEffectString all come through the same way as hand-written bullets.
+    // bold and inline html come through the same way as hand-written bullets.
     const markdown = matches
         .map((record) => `-   ${source.toLine(record)}`)
         .join(tight ? "\n" : "\n\n");
-    const list = remark().parse(formatEffectString(markdown))
-        .children[0] as List;
+    const list = remark().parse(markdown).children[0] as List;
 
     list.children.forEach((item, i) => {
         item.data = {
