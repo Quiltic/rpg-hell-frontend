@@ -13,6 +13,6 @@
     {"name":"consumable","source":"item","effect":"Cannot be reacquired once used.","extra":""},
     {"name":"glow","source":"item","effect":"You may spend # to illuminate up to 2 tiles around the item. (Lasts until you dispel it.)","extra":""},
     {"name":"on hit","source":"item","effect":"Applied if the target fails a Dodge roll.","extra":""},
-    {"name":"bonus","source":"item","effect":"Is applied when giving an 7 or less for an Attack Sum.","extra":""},
-    {"name":"downside","source":"item","effect":"Is applied when giving an 11 or higher for an Attack Sum.","extra":""}
+    {"name":"bonus","source":"item","effect":"Is applied when giving an 7 or less for an Attack Sum.","extra":"","aliases":["bonuses"]},
+    {"name":"downside","source":"item","effect":"Is applied when giving an 11 or higher for an Attack Sum.","extra":"","aliases":["downsides"]}
 ]
