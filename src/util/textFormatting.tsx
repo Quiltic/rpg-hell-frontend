@@ -3,27 +3,27 @@ import Pill from "../components/ui/Pill";
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
     const rarityTiers = {
-        "mundane":"dark-300",
-        "common":"thieving",
-        "uncommon":"nature",
-        "rare":"mind",
-        "legendary":"arcana",
+        mundane: "dark-300",
+        common: "thieving",
+        uncommon: "nature",
+        rare: "mind",
+        legendary: "arcana",
 
-        "fighter":"body",
-        "survivor":"medicine",
-        "analyst":"mind",
-        "commander":"mind",
-        "pious":"soul",
-        "spirits":"soul",
-        "arcanist":"arcana",
-        "craftsman":"crafting",
-        "druidic":"nature",
-        "face":"charm",
-        "ranger":"nature",
-        "urchin":"thieving",
-        
-        "elementalist":"nature",
-    }
+        fighter: "body",
+        survivor: "medicine",
+        analyst: "mind",
+        commander: "mind",
+        pious: "soul",
+        spirits: "soul",
+        arcanist: "arcana",
+        craftsman: "crafting",
+        druidic: "nature",
+        face: "charm",
+        ranger: "nature",
+        urchin: "thieving",
+
+        elementalist: "nature",
+    };
     if (!_string) {
         return "";
     }
@@ -122,4 +122,8 @@ export function sumNumbersAfterWord(
 
 export function capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+// "death's door" -> "Death's Door". Only the first letter of each word changes.
+export function titleCase(str: string): string {
+    return str.split(" ").map(capitalize).join(" ");
 }

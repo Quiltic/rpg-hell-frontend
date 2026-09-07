@@ -18,7 +18,7 @@ function getChildrenText(nodeChildren: RootContent[]): string {
         .join("");
 }
 
-function generateSlug(text: string): string {
+export function generateSlug(text: string): string {
     return text
         .toLowerCase()
         .replace(/['".()!/:,]/g, "")

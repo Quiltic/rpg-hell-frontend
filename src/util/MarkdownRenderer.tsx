@@ -2,6 +2,8 @@ import React, { useEffect, useMemo } from "react";
 import useMarkdown from "../hooks/useMarkdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import remarkDirective from "remark-directive";
+import { contentDirectives } from "./contentDirectives";
 import Markdown from "react-markdown";
 import HeadingJumpTo from "./HeadingJumpTo";
 
@@ -54,11 +56,11 @@ export default function MarkdownRenderer({
     }, [formattedMarkdown]);
 
     return (
-        <div className="markdown-styles mx-auto max-w-4xl text-left break-inside-avoid">
+        <div className="markdown-styles mx-auto max-w-4xl break-inside-avoid text-left">
             {have_header && <HeadingJumpTo headings={headings} />}
 
             <Markdown
-                remarkPlugins={[remarkGfm]}
+                remarkPlugins={[remarkGfm, remarkDirective, contentDirectives]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
                     h1: HeadingRenderer,
