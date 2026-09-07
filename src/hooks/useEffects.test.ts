@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { allEffects, effectsInCategory, getEffect } from "./useEffects";
 import { allKeys } from "./useKeys";
 import { EFFECT_CATEGORIES } from "../types/Effect";
-import { STAT_COLORS } from "../util/textFormatting";
+import { STAT_COLORS } from "../util/statColors";
 
 describe("effects.json", () => {
     it("has only known categories", () => {

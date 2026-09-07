@@ -1,4 +1,6 @@
 import Pill from "../components/ui/Pill";
+import { scanText, spanEmit } from "./keywordScan";
+import { STAT_COLORS, statColorClass } from "./statColors";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
@@ -56,32 +58,19 @@ export function toPillElement(_string: string, splitter: string) {
     return pills;
 }
 
-// Stat words that are also Tailwind colour names (tailwind.config.js). Shared
-// with util/remarkHighlightKeywords.ts, which colours rulebook markdown after
-// it has been parsed.
-export const STAT_COLORS = [
-    "body",
-    "mind",
-    "soul",
-    "arcana",
-    "charm",
-    "crafting",
-    "nature",
-    "medicine",
-    "thieving",
-] as const;
+export { STAT_COLORS, statColorClass } from "./statColors";
 
-export function statColorClass(word: string): string {
-    return `text-${word.toLowerCase()}-700`;
-}
+const formatted = new Map<string, string>();
 
-// For plain effect strings that go straight to innerHTML (cards, tables,
-// tooltips). Do NOT run this over markdown source: it is syntax-blind and will
-// inject spans inside directive attributes, code fences, and link urls. Rulebook
-// markdown is coloured after parsing, by util/remarkHighlightKeywords.ts.
 export function formatEffectString(text: string): string {
-    text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-    return highlightKeywords(text);
+    const hit = formatted.get(text);
+    if (hit !== undefined) {
+        return hit;
+    }
+
+    const html = scanText(text, spanEmit);
+    formatted.set(text, html);
+    return html;
 }
 
 export function highlightKeywords(text: string): string {

@@ -1,6 +1,6 @@
 import { allEffects } from "../hooks/useEffects";
 import { allKeys } from "../hooks/useKeys";
-import { STAT_COLORS, statColorClass } from "./textFormatting";
+import { STAT_COLORS, statColorClass } from "./statColors";
 
 export type ScanEmit = {
     plain(text: string): string;

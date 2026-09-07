@@ -3,7 +3,7 @@ import { getKey } from "../hooks/useKeys";
 import { Effect } from "../types/Effect";
 import { Key, KeySource } from "../types/Key";
 import { ScanEmit, scanText } from "../util/keywordScan";
-import { statColorClass } from "../util/textFormatting";
+import { statColorClass } from "../util/statColors";
 import { generateSlug } from "../util/MarkdownHeaderParsing";
 
 export type GlossaryHit =
