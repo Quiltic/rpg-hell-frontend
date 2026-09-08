@@ -16,20 +16,6 @@ type Props = {
     _className?: string;
 };
 
-// i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
-const STUPID_COLOR_TYPESCRIPT_BS = [
-    "bg-gradient-to-br from-body-400 to-body-400 p-2",
-    "bg-gradient-to-br from-mind-400 to-mind-400 p-2",
-    "bg-gradient-to-br from-soul-400 to-soul-400 p-2",
-
-    "bg-gradient-to-br from-arcana-400 to-arcana-400 p-2",
-    "bg-gradient-to-br from-charm-400 to-charm-400 p-2",
-    "bg-gradient-to-br from-crafting-400 to-crafting-400 p-2",
-    "bg-gradient-to-br from-nature-400 to-nature-400 p-2",
-    "bg-gradient-to-br from-medicine-400 to-medicine-400 p-2",
-    "bg-gradient-to-br from-thieving-400 to-thieving-400 p-2",
-];
-
 export default function TraitCard({
     _trait: _trait = {
         name: "LOADING TRAIT",

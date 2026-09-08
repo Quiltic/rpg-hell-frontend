@@ -16,20 +16,6 @@ type Props = {
     _className?: string;
 };
 
-// i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
-const STUPID_COLOR_TYPESCRIPT_BS = [
-    "bg-gradient-to-br from-body to-body p-2",
-    "bg-gradient-to-br from-mind to-mind p-2",
-    "bg-gradient-to-br from-soul to-soul p-2",
-
-    "bg-gradient-to-br from-arcana to-arcana p-2",
-    "bg-gradient-to-br from-charm to-charm p-2",
-    "bg-gradient-to-br from-crafting to-crafting p-2",
-    "bg-gradient-to-br from-nature to-nature p-2",
-    "bg-gradient-to-br from-medicine to-medicine p-2",
-    "bg-gradient-to-br from-thieving to-thieving p-2",
-];
-
 export default function ItemCard({
     _item: _item = {
         name: "LOADING ITEM",
@@ -66,9 +52,6 @@ export default function ItemCard({
     );
 
     const level = toPillElement(_item.rarity.toString(), ",");
-
-    // gives automatic gradients for item color bar
-    // const graid = `bg-gradient-to-br from-${_item.stat.toLowerCase()} to-${_item.stat.toLowerCase()} p-2`;
 
     return (
         <KeywordTooltipLayer>
@@ -114,7 +97,6 @@ export default function ItemCard({
                     </div>
                 </div>
 
-                {/* <div className={graid}/> */}
                 <div className="items-left -mb-3 flex p-1 pl-2 italic text-light-300">
                     {_item.description}
                 </div>

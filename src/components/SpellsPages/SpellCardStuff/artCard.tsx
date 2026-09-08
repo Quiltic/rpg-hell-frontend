@@ -15,20 +15,6 @@ type Props = {
     _className?: string;
 };
 
-// i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
-const STUPID_COLOR_TYPESCRIPT_BS = [
-    "bg-gradient-to-br from-body to-body p-2",
-    "bg-gradient-to-br from-mind to-mind p-2",
-    "bg-gradient-to-br from-soul to-soul p-2",
-
-    "bg-gradient-to-br from-arcana to-arcana p-2",
-    "bg-gradient-to-br from-charm to-charm p-2",
-    "bg-gradient-to-br from-crafting to-crafting p-2",
-    "bg-gradient-to-br from-nature to-nature p-2",
-    "bg-gradient-to-br from-medicine to-medicine p-2",
-    "bg-gradient-to-br from-thieving to-thieving p-2",
-];
-
 const activatorHash = ["G", "V", "GV", "L", "GL", "VL", "GVL"];
 
 export default function SpellCard({
@@ -51,8 +37,7 @@ export default function SpellCard({
 
     const req = toPillElement(_spell.stat + " " + _spell.level.toString(), ",");
 
-    // gives automatic gradients for spell color bar
-    const graid = `bg-gradient-to-br from-${_spell.stat.toLowerCase()} to-${_spell.stat.toLowerCase()} p-2`;
+    const bar = `bg-${_spell.stat.toLowerCase()} p-2`;
 
     return (
         <KeywordTooltipLayer>
@@ -83,7 +68,7 @@ export default function SpellCard({
                     </div>
                 </div>
 
-                <div className={graid} />
+                <div className={bar} />
                 <div className="items-left -mb-3 flex p-1 pl-2 text-sm capitalize italic text-light-300">
                     {_spell.tags}
                 </div>
