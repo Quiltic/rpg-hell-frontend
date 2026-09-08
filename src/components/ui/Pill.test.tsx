@@ -9,5 +9,6 @@ describe("Pill", () => {
         const pill = screen.getByText("body 1");
         expect(pill).toBeInTheDocument();
         expect(pill).toHaveClass("bg-body");
+        expect(pill).toHaveClass("text-light");
     });
 });
