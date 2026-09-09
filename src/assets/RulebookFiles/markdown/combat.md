@@ -39,7 +39,7 @@ _Dual Welding: You may dual wield weapons if both weapons are Side Weapons. When
 
 **Push** \- Spend \#\#; Do a Body Contest against a target within 1 tile of you. If you win, the target is pushed back 1+BODY tiles away from you. (This counts as Knockback and can do Knockback damage.)
 
-**Hide** \- Spend \#\#; Do a Thieving check, on a 9 or higher you are Hidden until you spend dice to do a non-Thieving action. (Movement does not break this.)
+**Stealth** \- Spend \#\#; Gain Cloaked if you are not seen.
 
 **Lock a Dice** \- Spend \#; Lock the dice spent. You may only ever have 1 Locked dice at a time. Locking a dice while having a Locked dice will replace the old dice with the new dice. You may later unlock that dice to spend on Arts or as a bonus dice in combat.  
 _You may only ever lock d6’s, and lose any unspent locked dice at the end of combat._
@@ -72,15 +72,11 @@ You may only have a max of 4 Ward at any given point in time.
 
 ### Going to 0 and Death's Door
 
-When you are put at 0 or less health you do not immediately die. Rather, you gain **Bleeding Out** and stacks of **Death's Door**. When you have 0 or less life in a turn (every 10 seconds) you heal your level and gain **Bleeding Out** and a stack of **Death's Door**. While you are **Bleeding Out** at the end of your turn (or every 10 seconds) you must roll a d12. If you roll a 6 or less you gain a stack of **Death's Door**. If you roll a 7 or higher, another creature heals you, or another creature rolls a 9 or higher on a Medicine Check you lose **Bleeding Out**.
+When you are put at 0 or less health you do not immediately die. Rather, you gain **Bleeding Out** and stacks of **Death's Door**. When you have 0 or less life in a turn (every 10 seconds) you heal your level and gain **Bleeding Out** and a stack of **Death's Door**.
+::definitions{name="bleeding out"}
 
 While you have stacks of Death's Door you gain a specific ailment.
-
--   At Death's Door 1, you are permanently Slowed.
--   At Death's Door 2, you become unconscious, and cannot be woken up until you lose Death's Door stacks or are healed for more than half your Max Health.
--   At Death's Door 3, You Die.
-
-You lose all stacks of Death's Door at the end of a Rest.
+::definitions{name="death's door"}
 
 ### Fall Damage
 
