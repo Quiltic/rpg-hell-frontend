@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
-import InlineTooltip from "./InlineTooltip";
-import { GlossaryHit, resolveTerm } from "../../glossary/resolveTerm";
+import GlossaryTooltip from "./GlossaryTooltip";
+import { GlossaryHit, resolveTerm } from "./resolve";
 
 function hitFor(name: string): GlossaryHit {
     const hit = resolveTerm(name);
@@ -13,7 +13,7 @@ function hitFor(name: string): GlossaryHit {
 
 function setup(
     name: string,
-    props: Partial<Parameters<typeof InlineTooltip>[0]> = {}
+    props: Partial<Parameters<typeof GlossaryTooltip>[0]> = {}
 ) {
     const anchor = document.createElement("span");
     anchor.textContent = name;
@@ -21,7 +21,7 @@ function setup(
 
     const view = render(
         <MemoryRouter>
-            <InlineTooltip
+            <GlossaryTooltip
                 anchor={anchor}
                 hit={hitFor(name)}
                 tooltipId="kw-tip"
@@ -36,7 +36,7 @@ function setup(
     return { anchor, ...view };
 }
 
-describe("InlineTooltip", () => {
+describe("GlossaryTooltip", () => {
     it("shows the term, its category and its definition", () => {
         setup("burn");
         const tip = screen.getByRole("tooltip");

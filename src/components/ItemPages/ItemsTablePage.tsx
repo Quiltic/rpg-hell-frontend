@@ -7,9 +7,9 @@ import { useItems } from "../../hooks/useItems";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 import { useState } from "react";
-import MarkdownRenderer from "../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
 import item_key from "../../assets/RulebookFiles/markdown/item_key.md";
-import { useKeyAnchor } from "../../hooks/useKeyAnchor";
+import { useKeyAnchor } from "../../glossary/useKeyAnchor";
 import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 

@@ -1,9 +1,9 @@
-import KeywordTooltipLayer from "../ui/KeywordTooltipLayer";
+import { GlossaryTooltipLayer, formatEffectString } from "../../glossary";
 import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Spell } from "../../client";
 // import { highlightKeywords } from "../../util/markdownTools";
 
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -18,7 +18,7 @@ export default function SpellsTable({
     moveIsAdd = true,
 }: Props) {
     return (
-        <KeywordTooltipLayer>
+        <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
                 <thead className="bg-dark-700 font-bold">
                     <tr>
@@ -107,6 +107,6 @@ export default function SpellsTable({
                     })}
                 </tbody>
             </table>
-        </KeywordTooltipLayer>
+        </GlossaryTooltipLayer>
     );
 }

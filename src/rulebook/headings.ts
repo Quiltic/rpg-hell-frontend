@@ -2,7 +2,13 @@ import { remark } from "remark";
 import { visit } from "unist-util-visit";
 import { VFileCompatible } from "vfile";
 import type { RootContent, Heading as ASTHeadingNode } from "mdast";
-import { Heading } from "../types/Heading";
+import { generateSlug } from "../util/slug";
+
+export interface Heading {
+    level: number;
+    text: string;
+    slug: string;
+}
 
 function getChildrenText(nodeChildren: RootContent[]): string {
     return nodeChildren
@@ -16,14 +22,6 @@ function getChildrenText(nodeChildren: RootContent[]): string {
             return "";
         })
         .join("");
-}
-
-export function generateSlug(text: string): string {
-    return text
-        .toLowerCase()
-        .replace(/['".()!/:,]/g, "")
-        .replace(/\s+/g, "-")
-        .replace(/^-+|-+$/g, "");
 }
 
 /**

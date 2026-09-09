@@ -1,5 +1,5 @@
 import mysc_rules from "../../../assets/RulebookFiles/markdown/mysc_rules.md";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
 import RulebookNavigation from "../RulebookNav";
 
 export default function MiscellaneousRulesPage() {

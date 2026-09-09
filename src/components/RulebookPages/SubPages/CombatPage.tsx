@@ -1,5 +1,5 @@
 import combat from "../../../assets/RulebookFiles/markdown/combat.md";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
 import RulebookNavigation from "../RulebookNav";
 
 export default function CombatPage() {

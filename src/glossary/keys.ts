@@ -1,5 +1,16 @@
 import keysJson from "../assets/OfflineJsons/keys.json";
-import { Key, KeySource } from "../types/Key";
+
+export const KEY_SOURCES = ["spell", "item"] as const;
+
+export type KeySource = (typeof KEY_SOURCES)[number];
+
+export type Key = {
+    name: string;
+    source: KeySource;
+    effect: string;
+    extra?: string;
+    aliases?: string[];
+};
 
 // Static JSON, so a module constant. useKeys.test.ts validates every record,
 // which is what makes the cast safe.

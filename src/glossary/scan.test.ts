@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { keywordPatterns, scanText, spanEmit } from "./keywordScan";
+import { keywordPatterns, scanText, spanEmit } from "./scan";
 
 const scan = (text: string) => scanText(text, spanEmit);
 

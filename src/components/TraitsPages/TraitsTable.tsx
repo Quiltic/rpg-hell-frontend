@@ -1,8 +1,8 @@
-import KeywordTooltipLayer from "../ui/KeywordTooltipLayer";
+import { GlossaryTooltipLayer, formatEffectString } from "../../glossary";
 import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Trait } from "../../client";
 
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -18,7 +18,7 @@ export default function TraitsTable({
 }: Props) {
     return (
         // className="hidden md:table-cell"
-        <KeywordTooltipLayer>
+        <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
                 <thead className="bg-dark-400 font-bold">
                     <tr>
@@ -47,7 +47,7 @@ export default function TraitsTable({
                                 <td className="hidden font-bold capitalize md:table-cell">
                                     {trait.name}
                                 </td>
-                                <td className="min-w-24 table-cell capitalize md:hidden">
+                                <td className="table-cell min-w-24 capitalize md:hidden">
                                     {" "}
                                     <span className="font-bold underline">
                                         {trait.name}
@@ -111,6 +111,6 @@ export default function TraitsTable({
                     })}
                 </tbody>
             </table>
-        </KeywordTooltipLayer>
+        </GlossaryTooltipLayer>
     );
 }

@@ -1,5 +1,5 @@
 import stats from "../../../assets/RulebookFiles/markdown/stats.md";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
 import RulebookNavigation from "../RulebookNav";
 
 export default function StatsPage() {

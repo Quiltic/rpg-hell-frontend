@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { allKeys, getKey, keysFor } from "./useKeys";
-import { getEffect } from "./useEffects";
-import { KEY_SOURCES } from "../types/Key";
+import { KEY_SOURCES, allKeys, getKey, keysFor } from "./keys";
+import { getEffect } from "./effects";
 
 describe("keys.json", () => {
     it("has only known sources", () => {

@@ -12,7 +12,7 @@ import artKey from "../../assets/RulebookFiles/markdown/spell_key.md";
 import itemKey from "../../assets/RulebookFiles/markdown/item_key.md";
 // import creatureKey from "../../assets/RulebookFiles/markdown/creature_key.md";
 
-import MarkdownRenderer from "../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
 import { useTraits } from "../../hooks/useTraits";
 import { useItems } from "../../hooks/useItems";
 import { useSpells } from "../../hooks/useSpells";
@@ -21,20 +21,12 @@ import TraitCardHolder from "../TraitsPages/TraitCardStuff/traitCardHolder";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import ItemCardHolder from "../ItemPages/ItemCardStuff/itemCardHolder";
 
-
 export default function FullDoc() {
+    const { displayedTraits } = useTraits();
 
-    const {
-        displayedTraits
-    } = useTraits();
+    const { displayedSpells } = useSpells();
 
-    const {
-        displayedSpells
-    } = useSpells();
-    
-    const {
-        displayedItems
-    } = useItems();
+    const { displayedItems } = useItems();
 
     // const {
     //     displayedCreatures
@@ -46,35 +38,52 @@ export default function FullDoc() {
             <MarkdownRenderer markdown={intro as string} have_header={false} />
             <MarkdownRenderer markdown={core as string} have_header={false} />
             <MarkdownRenderer markdown={combat as string} have_header={false} />
-            <MarkdownRenderer markdown={char_creation as string} have_header={false} />
-            <MarkdownRenderer markdown={effects as string} have_header={false} />
+            <MarkdownRenderer
+                markdown={char_creation as string}
+                have_header={false}
+            />
+            <MarkdownRenderer
+                markdown={effects as string}
+                have_header={false}
+            />
             <MarkdownRenderer markdown={mysc as string} have_header={false} />
             <MarkdownRenderer markdown={gm as string} have_header={false} />
 
             <div className="break-inside-avoid">
                 <h1>Traits</h1>
                 {/* <MarkdownRenderer markdown={traitKey as string} have_header={false} /> */}
-                <TraitCardHolder shownTraits={displayedTraits} header={""} subNotes={[]}></TraitCardHolder>
+                <TraitCardHolder
+                    shownTraits={displayedTraits}
+                    header={""}
+                    subNotes={[]}
+                ></TraitCardHolder>
             </div>
-            
+
             <div className="break-inside-avoid">
                 <h1>Arts</h1>
-                <MarkdownRenderer markdown={artKey as string} have_header={false} />
-                <SpellCardHolder shownSpells={displayedSpells}></SpellCardHolder>
+                <MarkdownRenderer
+                    markdown={artKey as string}
+                    have_header={false}
+                />
+                <SpellCardHolder
+                    shownSpells={displayedSpells}
+                ></SpellCardHolder>
             </div>
 
             <div className="break-inside-avoid">
                 <h1>Items</h1>
-                <MarkdownRenderer markdown={itemKey as string} have_header={false} />
+                <MarkdownRenderer
+                    markdown={itemKey as string}
+                    have_header={false}
+                />
                 <ItemCardHolder shownItems={displayedItems}></ItemCardHolder>
             </div>
-            
-            {/* <div className="break-inside-avoid"> */}
-                {/* <h1>Creatures</h1> */}
-                {/* <MarkdownRenderer markdown={creatureKey as string} have_header={false} /> */}
-                {/* <CreatureCardHolder shownItems={displayedCreatures}></CreatureCardHolder> */}
-            {/* </div> */}
 
+            {/* <div className="break-inside-avoid"> */}
+            {/* <h1>Creatures</h1> */}
+            {/* <MarkdownRenderer markdown={creatureKey as string} have_header={false} /> */}
+            {/* <CreatureCardHolder shownItems={displayedCreatures}></CreatureCardHolder> */}
+            {/* </div> */}
         </>
     );
 }

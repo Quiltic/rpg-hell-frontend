@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import useMarkdown from "../hooks/useMarkdown";
+import useMarkdown from "./useMarkdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import remarkDirective from "remark-directive";

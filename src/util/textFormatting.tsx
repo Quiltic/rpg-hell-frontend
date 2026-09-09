@@ -1,6 +1,5 @@
 import Pill from "../components/ui/Pill";
-import { scanText, spanEmit } from "./keywordScan";
-import { STAT_COLORS, statColorClass } from "./statColors";
+import { STAT_COLORS, statColorClass } from "../styling/statColors";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
@@ -58,20 +57,7 @@ export function toPillElement(_string: string, splitter: string) {
     return pills;
 }
 
-export { STAT_COLORS, statColorClass } from "./statColors";
-
-const formatted = new Map<string, string>();
-
-export function formatEffectString(text: string): string {
-    const hit = formatted.get(text);
-    if (hit !== undefined) {
-        return hit;
-    }
-
-    const html = scanText(text, spanEmit);
-    formatted.set(text, html);
-    return html;
-}
+export { STAT_COLORS, statColorClass } from "../styling/statColors";
 
 export function highlightKeywords(text: string): string {
     let updatedText: string = text;

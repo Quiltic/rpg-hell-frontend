@@ -13,13 +13,9 @@ import {
     useFloating,
     useInteractions,
 } from "@floating-ui/react";
-import {
-    GlossaryHit,
-    definitionHtml,
-    rulebookHref,
-} from "../../glossary/resolveTerm";
-import { titleCase } from "../../util/textFormatting";
-import Pill from "./Pill";
+import { GlossaryHit, definitionHtml, rulebookHref } from "./resolve";
+import { titleCase } from "../util/textFormatting";
+import Pill from "../components/ui/Pill";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 
 type Props = {
@@ -45,7 +41,7 @@ function categoryLabel(hit: GlossaryHit): string {
     return hit.kind === "effect" ? hit.record.category : `${hit.source} key`;
 }
 
-export default function InlineTooltip({
+export default function GlossaryTooltip({
     anchor,
     hit,
     tooltipId,

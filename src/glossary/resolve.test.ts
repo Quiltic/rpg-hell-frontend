@@ -4,11 +4,11 @@ import {
     GlossaryHit,
     resolveTerm,
     rulebookHref,
-} from "./resolveTerm";
-import { allEffects } from "../hooks/useEffects";
-import { allKeys } from "../hooks/useKeys";
-import { effectsSource, keysSource } from "../util/contentDirectives";
-import { keywordPatterns } from "../util/keywordScan";
+} from "./resolve";
+import { allEffects } from "./effects";
+import { allKeys } from "./keys";
+import { effectsSource, keysSource } from "../rulebook/contentDirectives";
+import { keywordPatterns } from "./scan";
 
 describe("resolveTerm", () => {
     it("finds effects", () => {

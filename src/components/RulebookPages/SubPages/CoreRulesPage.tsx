@@ -1,5 +1,5 @@
 import core_rules from "../../../assets/RulebookFiles/markdown/core_rules.md";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
 import RulebookNavigation from "../RulebookNav";
 
 export default function CoreRulesPage() {

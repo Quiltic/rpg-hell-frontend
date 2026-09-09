@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
-import KeywordTooltipLayer from "./KeywordTooltipLayer";
+import GlossaryTooltipLayer from "./GlossaryTooltipLayer";
 
 const CLOSE_DELAY = 200;
 
@@ -20,14 +20,14 @@ function Keyword({ name, label }: { name: string; label: string }) {
 function renderLayer(ui: ReactNode, onCardClick?: () => void) {
     return render(
         <MemoryRouter>
-            <KeywordTooltipLayer>
+            <GlossaryTooltipLayer>
                 <div onClick={onCardClick}>{ui}</div>
-            </KeywordTooltipLayer>
+            </GlossaryTooltipLayer>
         </MemoryRouter>
     );
 }
 
-describe("KeywordTooltipLayer", () => {
+describe("GlossaryTooltipLayer", () => {
     const user = userEvent.setup();
 
     it("opens on hover, but not instantly", async () => {
@@ -100,12 +100,12 @@ describe("KeywordTooltipLayer", () => {
     it("shows one tooltip at a time across separate layers", async () => {
         render(
             <MemoryRouter>
-                <KeywordTooltipLayer>
+                <GlossaryTooltipLayer>
                     <Keyword name="burn" label="Burn" />
-                </KeywordTooltipLayer>
-                <KeywordTooltipLayer>
+                </GlossaryTooltipLayer>
+                <GlossaryTooltipLayer>
                     <Keyword name="ward" label="Ward" />
-                </KeywordTooltipLayer>
+                </GlossaryTooltipLayer>
             </MemoryRouter>
         );
 

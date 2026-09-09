@@ -47,8 +47,8 @@ describe("keyAnchorState", () => {
     it("uses the same ids contentDirectives generates", async () => {
         // Guards against the id scheme in contentDirectives.ts drifting away
         // from the prefixes this hook matches.
-        const { keysSource } = await import("../util/contentDirectives");
-        const { allKeys } = await import("./useKeys");
+        const { keysSource } = await import("../rulebook/contentDirectives");
+        const { allKeys } = await import("./keys");
 
         for (const key of allKeys) {
             const id = keysSource.idOf(key);

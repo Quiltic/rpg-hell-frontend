@@ -1,4 +1,4 @@
-import { Heading } from "./Heading";
+import { Heading } from "../rulebook/headings";
 
 export default interface HeadingRendererProps {
     node: {

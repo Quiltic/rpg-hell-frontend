@@ -1,11 +1,8 @@
-import KeywordTooltipLayer from "../../ui/KeywordTooltipLayer";
+import { GlossaryTooltipLayer, formatEffectString } from "../../../glossary";
 import Markdown from "react-markdown";
 import { Trait } from "../../../client";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
-import {
-    formatEffectString,
-    toPillElement,
-} from "../../../util/textFormatting";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
+import { toPillElement } from "../../../util/textFormatting";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { cn } from "../../../styling/utilites";
@@ -49,7 +46,7 @@ export default function TraitCard({
     }
 
     return (
-        <KeywordTooltipLayer>
+        <GlossaryTooltipLayer>
             <div
                 className={cn(
                     "m-4 max-h-96 break-inside-avoid overflow-auto print:max-h-full",
@@ -121,6 +118,6 @@ export default function TraitCard({
                     })}
                 </div>
             </div>
-        </KeywordTooltipLayer>
+        </GlossaryTooltipLayer>
     );
 }

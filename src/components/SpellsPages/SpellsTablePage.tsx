@@ -10,9 +10,9 @@ import { Disclosure, Switch, Tab } from "@headlessui/react";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import MarkdownRenderer from "../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
 import art_key from "../../assets/RulebookFiles/markdown/spell_key.md";
-import { useKeyAnchor } from "../../hooks/useKeyAnchor";
+import { useKeyAnchor } from "../../glossary/useKeyAnchor";
 
 const tagList = [
     "elemental",

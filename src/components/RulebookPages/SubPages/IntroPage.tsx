@@ -1,5 +1,5 @@
 import intro from "../../../assets/RulebookFiles/markdown/intro.md";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
 import RulebookNavigation from "../RulebookNav";
 
 export default function IntroPage() {

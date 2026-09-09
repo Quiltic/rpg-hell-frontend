@@ -1,6 +1,6 @@
-import { allEffects } from "../hooks/useEffects";
-import { allKeys } from "../hooks/useKeys";
-import { STAT_COLORS, statColorClass } from "./statColors";
+import { allEffects } from "./effects";
+import { allKeys } from "./keys";
+import { STAT_COLORS, statColorClass } from "../styling/statColors";
 
 export type ScanEmit = {
     plain(text: string): string;

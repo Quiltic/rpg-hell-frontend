@@ -1,14 +1,12 @@
-import { allEffects } from "../hooks/useEffects";
-import { allKeys } from "../hooks/useKeys";
-import { Effect } from "../types/Effect";
-import { Key } from "../types/Key";
-import { generateSlug } from "./MarkdownHeaderParsing";
+import { Effect, allEffects } from "../glossary/effects";
+import { Key, allKeys } from "../glossary/keys";
+import { generateSlug } from "../util/slug";
 import {
     DirectiveSource,
     DirectiveSources,
     remarkContentDirectives,
 } from "./remarkContentDirectives";
-import { titleCase } from "./textFormatting";
+import { titleCase } from "../util/textFormatting";
 
 function bullet(name: string, effect: string): string {
     return `**_${titleCase(name)}_** - ${effect}`;

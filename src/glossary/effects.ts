@@ -1,5 +1,21 @@
 import effectsJson from "../assets/OfflineJsons/effects.json";
-import { Effect, EffectCategory } from "../types/Effect";
+
+export const EFFECT_CATEGORIES = [
+    "character-state",
+    "elemental-bane",
+    "bane",
+    "boon",
+] as const;
+
+export type EffectCategory = (typeof EFFECT_CATEGORIES)[number];
+
+export type Effect = {
+    name: string;
+    category: EffectCategory;
+    effect: string;
+    extra?: string;
+    aliases?: string[];
+};
 
 // The JSON is static, so this is a module constant rather than hook state.
 // useEffects.test.ts checks every record is a valid Effect, which is what

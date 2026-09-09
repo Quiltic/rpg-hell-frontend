@@ -1,7 +1,7 @@
-import KeywordTooltipLayer from "../ui/KeywordTooltipLayer";
+import { GlossaryTooltipLayer, formatEffectString } from "../../glossary";
 import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Item } from "../../client";
-import { formatEffectString, toPillElement } from "../../util/textFormatting";
+import { toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 
 type Props = {
@@ -16,7 +16,7 @@ export default function ItemsTable({
     moveIsAdd = true,
 }: Props) {
     return (
-        <KeywordTooltipLayer>
+        <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
                 <thead className="bg-dark-400font-bold">
                     <tr>
@@ -63,7 +63,7 @@ export default function ItemsTable({
                                 <td className="hidden font-bold capitalize md:table-cell">
                                     {item.name}
                                 </td>
-                                <td className="min-w-24 table-cell capitalize md:hidden">
+                                <td className="table-cell min-w-24 capitalize md:hidden">
                                     <span className="font-bold underline">
                                         {item.name}
                                     </span>
@@ -137,6 +137,6 @@ export default function ItemsTable({
                     })}
                 </tbody>
             </table>
-        </KeywordTooltipLayer>
+        </GlossaryTooltipLayer>
     );
 }

@@ -1,10 +1,8 @@
-import { getEffect } from "../hooks/useEffects";
-import { getKey } from "../hooks/useKeys";
-import { Effect } from "../types/Effect";
-import { Key, KeySource } from "../types/Key";
-import { ScanEmit, scanText } from "../util/keywordScan";
-import { statColorClass } from "../util/statColors";
-import { generateSlug } from "../util/MarkdownHeaderParsing";
+import { Effect, getEffect } from "./effects";
+import { Key, KeySource, getKey } from "./keys";
+import { ScanEmit, scanText } from "./scan";
+import { statColorClass } from "../styling/statColors";
+import { generateSlug } from "../util/slug";
 
 export type GlossaryHit =
     | { kind: "effect"; record: Effect }

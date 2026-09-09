@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Heading } from "../types/Heading";
-import { extractHeadings } from "../util/MarkdownHeaderParsing";
+import { Heading, extractHeadings } from "./headings";
 
 // Fetches a rulebook .md url and pulls its headings out for the jump-to nav.
 export default function useMarkdown(md: string) {

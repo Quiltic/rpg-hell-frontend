@@ -1,5 +1,5 @@
 import effects from "../../../assets/RulebookFiles/markdown/effects.md";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
 import RulebookNavigation from "../RulebookNav";
 
 export default function EffectsPage() {

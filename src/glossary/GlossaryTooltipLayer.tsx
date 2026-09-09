@@ -6,8 +6,8 @@ import {
     useRef,
     useState,
 } from "react";
-import InlineTooltip from "./InlineTooltip";
-import { GlossaryHit, resolveTerm } from "../../glossary/resolveTerm";
+import GlossaryTooltip from "./GlossaryTooltip";
+import { GlossaryHit, resolveTerm } from "./resolve";
 
 const OPEN_DELAY = 300;
 const CLOSE_DELAY = 200;
@@ -17,7 +17,7 @@ type Active = { anchor: HTMLElement; hit: GlossaryHit };
 // Every mounted layer, so opening one closes the rest.
 const layers = new Set<() => void>();
 
-export default function KeywordTooltipLayer({
+export default function GlossaryTooltipLayer({
     children,
 }: {
     children: ReactNode;
@@ -121,7 +121,7 @@ export default function KeywordTooltipLayer({
         <div ref={rootRef} className="contents">
             {children}
             {active && (
-                <InlineTooltip
+                <GlossaryTooltip
                     anchor={active.anchor}
                     hit={active.hit}
                     tooltipId={tooltipId}

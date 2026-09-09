@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 import type { Html, Root, Text } from "mdast";
-import { STAT_COLORS, statColorClass } from "./statColors";
+import { STAT_COLORS, statColorClass } from "../styling/statColors";
 
 const KEYWORD_PATTERN = new RegExp(`\\b(${STAT_COLORS.join("|")})\\b`, "gi");
 

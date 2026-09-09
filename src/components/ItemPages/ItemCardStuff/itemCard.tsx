@@ -1,11 +1,8 @@
-import KeywordTooltipLayer from "../../ui/KeywordTooltipLayer";
+import { GlossaryTooltipLayer, formatEffectString } from "../../../glossary";
 import Markdown from "react-markdown";
 import { Item } from "../../../client";
-import MarkdownRenderer from "../../../util/MarkdownRenderer";
-import {
-    formatEffectString,
-    toPillElement,
-} from "../../../util/textFormatting";
+import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
+import { toPillElement } from "../../../util/textFormatting";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { cn } from "../../../styling/utilites";
@@ -54,7 +51,7 @@ export default function ItemCard({
     const level = toPillElement(_item.rarity.toString(), ",");
 
     return (
-        <KeywordTooltipLayer>
+        <GlossaryTooltipLayer>
             <div
                 className={cn(
                     "m-4 flex max-h-96 break-inside-avoid flex-col overflow-auto rounded-md border-2 border-solid border-body-700/20 bg-dark-400 print:max-h-full",
@@ -151,6 +148,6 @@ export default function ItemCard({
                         );
                     })}
             </div>
-        </KeywordTooltipLayer>
+        </GlossaryTooltipLayer>
     );
 }
