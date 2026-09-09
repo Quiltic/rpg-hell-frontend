@@ -47,12 +47,13 @@ describe("keyAnchorState", () => {
     it("uses the same ids contentDirectives generates", async () => {
         // Guards against the id scheme in contentDirectives.ts drifting away
         // from the prefixes this hook matches.
-        const { keysSource } = await import("../rulebook/contentDirectives");
-        const { allKeys } = await import("./keys");
+        const { KEY_ANCHOR_PREFIXES, allKeys, keysSource } = await import(
+            "./sources/keys"
+        );
 
         for (const key of allKeys) {
-            const id = keysSource.idOf(key);
-            const prefix = key.source === "item" ? "key-item-" : "key-spell-";
+            const id = keysSource.anchor(key);
+            const prefix = KEY_ANCHOR_PREFIXES[key.source];
             expect(keyAnchorState("#" + id, prefix).defaultOpen).toBe(true);
         }
     });

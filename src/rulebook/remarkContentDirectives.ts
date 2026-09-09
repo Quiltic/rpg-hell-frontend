@@ -7,11 +7,11 @@ import type { LeafDirective } from "mdast-util-directive";
 // Methods (not function properties) so a DirectiveSource<Effect> is assignable
 // to the DirectiveSource<Record<string, unknown>> the plugin stores.
 export type DirectiveSource<T> = {
-    records: T[];
+    records: readonly T[];
     // Markdown for one bullet, without the leading "-   ".
     toLine(record: T): string;
     // DOM id for the bullet's <li>, so it can be deep-linked.
-    idOf(record: T): string;
+    anchor(record: T): string;
 };
 
 type AnyRecord = Record<string, unknown>;
@@ -81,7 +81,7 @@ export function expandDirective(
     list.children.forEach((item, i) => {
         item.data = {
             ...item.data,
-            hProperties: { id: source.idOf(matches[i]) },
+            hProperties: { id: source.anchor(matches[i]) },
         };
     });
 

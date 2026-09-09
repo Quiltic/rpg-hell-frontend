@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { keywordPatterns, scanText, spanEmit } from "./scan";
+import { createScanner, keywordPatterns, scanText, spanEmit } from "./scan";
 
 const scan = (text: string) => scanText(text, spanEmit);
 
@@ -24,9 +24,10 @@ describe("boundaries", () => {
     });
 
     it("does not match a stat word inside a longer keyword", () => {
-        // `charm` is a stat colour, `charmed` a bane. The bane must win, and
-        // the stat pass must not also fire inside it.
-        expect(scan("Charmed")).toBe(
+        // `charm` is a stat colour. A keyword containing it must win, and the
+        // stat pass must not also fire inside it.
+        const fixture = createScanner([{ name: "charmed", effect: "" }]);
+        expect(fixture.scanText("Charmed", spanEmit)).toBe(
             '<span class="kw" data-kw="charmed" tabindex="0" role="button">Charmed</span>'
         );
     });
@@ -38,8 +39,8 @@ describe("boundaries", () => {
 
     it("matches multi-word terms and survives trailing punctuation", () => {
         expect(terms("On Hit: Do 1 damage.")).toEqual(["On Hit=on hit"]);
-        expect(terms("At 1 stack of Death's Door you are Slowed.")).toEqual([
-            "Death's Door=death's door",
+        expect(terms("You are Knocked Back, then Slowed.")).toEqual([
+            "Knocked Back=knockback",
             "Slowed=slow",
         ]);
     });
@@ -52,7 +53,8 @@ describe("casing and apostrophes", () => {
     });
 
     it("matches a curly apostrophe and keeps it in the output", () => {
-        const out = scan("Death’s Door");
+        const fixture = createScanner([{ name: "death's door", effect: "" }]);
+        const out = fixture.scanText("Death’s Door", spanEmit);
         expect(out).toContain('data-kw="death\'s door"');
         expect(out).toContain(">Death’s Door<");
     });

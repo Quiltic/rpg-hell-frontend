@@ -1,7 +1,6 @@
 import { GlossaryTooltipLayer, formatEffectString } from "../../glossary";
 import { PinIcon, RemoveIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { Spell } from "../../client";
-// import { highlightKeywords } from "../../util/markdownTools";
 
 import { toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";

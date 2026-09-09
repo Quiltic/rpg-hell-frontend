@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it, vi } from "vitest";
 import GlossaryTooltip from "./GlossaryTooltip";
-import { GlossaryHit, resolveTerm } from "./resolve";
+import { GlossaryHit, resolveTerm } from "../resolve";
 
 function hitFor(name: string): GlossaryHit {
     const hit = resolveTerm(name);
@@ -41,15 +41,15 @@ describe("GlossaryTooltip", () => {
         setup("burn");
         const tip = screen.getByRole("tooltip");
         expect(tip).toHaveTextContent("Burn");
-        expect(tip).toHaveTextContent("elemental-bane");
+        expect(tip).toHaveTextContent("bane");
         expect(tip).toHaveTextContent(
             hitFor("burn").record.effect.slice(0, 30)
         );
     });
 
     it("title-cases a stored lowercase name", () => {
-        setup("bleeding out");
-        expect(screen.getByRole("tooltip")).toHaveTextContent("Bleeding Out");
+        setup("on hit");
+        expect(screen.getByRole("tooltip")).toHaveTextContent("On Hit");
     });
 
     it("labels a key by its source rather than a category", () => {
@@ -64,13 +64,10 @@ describe("GlossaryTooltip", () => {
     });
 
     it("turns a nested keyword in the definition into a rulebook link", () => {
-        // `bleeding out` names **Death's Door** in its own text (Q14b).
-        setup("bleeding out");
-        const nested = screen.getByRole("link", { name: /death's door/i });
-        expect(nested).toHaveAttribute(
-            "href",
-            "/rulebook/effects#effect-deaths-door"
-        );
+        // `wet` names Burn in its own text.
+        setup("wet");
+        const nested = screen.getAllByRole("link", { name: /^burn$/i })[0];
+        expect(nested).toHaveAttribute("href", "/rulebook/effects#effect-burn");
     });
 
     it("does not link the term back to itself", () => {

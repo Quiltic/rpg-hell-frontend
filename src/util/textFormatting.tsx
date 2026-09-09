@@ -1,5 +1,4 @@
 import Pill from "../components/ui/Pill";
-import { STAT_COLORS, statColorClass } from "../styling/statColors";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
@@ -55,25 +54,6 @@ export function toPillElement(_string: string, splitter: string) {
         );
     });
     return pills;
-}
-
-export { STAT_COLORS, statColorClass } from "../styling/statColors";
-
-export function highlightKeywords(text: string): string {
-    let updatedText: string = text;
-
-    for (const color of STAT_COLORS) {
-        updatedText = highlightWord(updatedText, color);
-    }
-    return updatedText;
-}
-
-function highlightWord(text: string, word: string): string {
-    const regex = new RegExp(`\\b(${word})\\b`, "gi");
-    return text.replace(
-        regex,
-        `<span class="${statColorClass(word)}">$1</span>`
-    );
 }
 
 export function sumNumbersAfterWord(

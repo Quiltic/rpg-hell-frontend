@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
+import { KEY_ANCHOR_PREFIXES } from "./sources/keys";
 
-// The two prefixes remarkContentDirectives gives key list items, via
-// contentDirectives.ts `idOf`. See util/contentDirectives.ts.
-export type KeyAnchorPrefix = "key-item-" | "key-spell-";
+export type KeyAnchorPrefix =
+    (typeof KEY_ANCHOR_PREFIXES)[keyof typeof KEY_ANCHOR_PREFIXES];
 
 export type KeyAnchorState = {
     defaultOpen: boolean;

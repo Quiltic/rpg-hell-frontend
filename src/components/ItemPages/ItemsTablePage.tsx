@@ -9,7 +9,7 @@ import SearchGroup from "../search/SearchGroup";
 import { useState } from "react";
 import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
 import item_key from "../../assets/RulebookFiles/markdown/item_key.md";
-import { useKeyAnchor } from "../../glossary/useKeyAnchor";
+import { useKeyAnchor } from "../../glossary";
 import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 

@@ -118,7 +118,7 @@ describe("directives with a stat word in an attribute", () => {
                 { name: "beta", group: "other", text: "Another thing." },
             ],
             toLine: (r) => `**_${r.name}_** - ${r.text}`,
-            idOf: (r) => `thing-${r.name}`,
+            anchor: (r) => `thing-${r.name}`,
         },
     };
 

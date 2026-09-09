@@ -1,9 +1,40 @@
 import { describe, it, expect } from "vitest";
 import { formatEffectString } from "./format";
-import { highlightKeywords } from "../util/textFormatting";
+import { STAT_COLORS, statColorClass } from "../styling/statColors";
 import traits from "../assets/OfflineJsons/traits.json";
 import spells from "../assets/OfflineJsons/spells.json";
 import items from "../assets/OfflineJsons/items.json";
+
+// Stat-only colouring, one regex pass per stat word. The reference the
+// combined pass is measured against; kept here so it cannot drift with it.
+function statOnly(text: string): string {
+    return STAT_COLORS.reduce(
+        (out, word) =>
+            out.replace(
+                new RegExp(`\\b(${word})\\b`, "gi"),
+                `<span class="${statColorClass(word)}">$1</span>`
+            ),
+        text
+    );
+}
+
+describe("statOnly reference", () => {
+    it("wraps stat words", () => {
+        expect(statOnly("Roll body.")).toBe(
+            'Roll <span class="text-body-700">body</span>.'
+        );
+    });
+
+    it("keeps the source casing", () => {
+        expect(statOnly("Arcana")).toBe(
+            '<span class="text-arcana-700">Arcana</span>'
+        );
+    });
+
+    it("leaves other words alone", () => {
+        expect(statOnly("Roll two dice.")).toBe("Roll two dice.");
+    });
+});
 
 // The guarantee that makes the one-pass rewrite safe: adding keyword spans must
 // not have disturbed a single stat colour anywhere in the real content. Strip
@@ -50,7 +81,7 @@ describe("formatEffectString parity with stat-only colouring", () => {
             expect(
                 stripKeywords(formatEffectString(text)),
                 text.slice(0, 60)
-            ).toBe(highlightKeywords(text));
+            ).toBe(statOnly(text));
         }
     });
 

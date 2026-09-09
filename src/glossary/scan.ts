@@ -1,6 +1,6 @@
-import { allEffects } from "./effects";
-import { allKeys } from "./keys";
 import { STAT_COLORS, statColorClass } from "../styling/statColors";
+import { GlossaryRecord, normalizeName } from "./sources/source";
+import { GLOSSARY_SOURCES } from "./sources/sources";
 
 export type ScanEmit = {
     plain(text: string): string;
@@ -9,10 +9,6 @@ export type ScanEmit = {
 };
 
 const STAT_WORDS: ReadonlySet<string> = new Set(STAT_COLORS);
-
-function normalize(text: string): string {
-    return text.trim().toLowerCase().replace(/’/g, "'");
-}
 
 function escapeRegex(text: string): string {
     return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -28,19 +24,17 @@ type Index = {
     patterns: readonly string[];
 };
 
-let cached: Index | undefined;
-
-function buildIndex(): Index {
+function buildIndex(records: readonly GlossaryRecord[]): Index {
     const canonical = new Map<string, string>();
 
     const add = (pattern: string, name: string) => {
-        const key = normalize(pattern);
+        const key = normalizeName(pattern);
         if (key && !canonical.has(key)) {
             canonical.set(key, name);
         }
     };
 
-    for (const record of [...allEffects, ...allKeys]) {
+    for (const record of records) {
         add(toPattern(record.name), record.name);
         for (const alias of record.aliases ?? []) {
             add(alias, record.name);
@@ -64,19 +58,46 @@ function buildIndex(): Index {
     };
 }
 
-function index(): Index {
+export type Scanner = {
+    scanText(text: string, emit: ScanEmit): string;
+    keywordPatterns(): readonly string[];
+};
+
+// Scanner over an explicit record set. The module-level functions below use
+// every registered source; tests use this to scan against fixtures.
+export function createScanner(records: readonly GlossaryRecord[]): Scanner {
+    const index = buildIndex(records);
+    return {
+        scanText: (text, emit) => scanWith(index, text, emit),
+        keywordPatterns: () => index.patterns,
+    };
+}
+
+let cached: Scanner | undefined;
+
+function scanner(): Scanner {
     if (!cached) {
-        cached = buildIndex();
+        cached = createScanner(GLOSSARY_SOURCES.flatMap((s) => s.records));
     }
     return cached;
 }
 
 export function keywordPatterns(): readonly string[] {
-    return index().patterns;
+    return scanner().keywordPatterns();
 }
 
+/**
+ *
+ * @param text the string of text to be formatted.
+ * @param emit the formatter functions for each type of text instances to be formatted, returns html encoded text.
+ * @returns html encoded text decorated by the functions provided by emit
+ */
 export function scanText(text: string, emit: ScanEmit): string {
-    const { regex, canonical } = index();
+    return scanner().scanText(text, emit);
+}
+
+function scanWith(index: Index, text: string, emit: ScanEmit): string {
+    const { regex, canonical } = index;
     const seen = new Set<string>();
     let out = "";
     let last = 0;
@@ -85,7 +106,7 @@ export function scanText(text: string, emit: ScanEmit): string {
     let match: RegExpExecArray | null;
     while ((match = regex.exec(text)) !== null) {
         const matched = match[0];
-        const lower = normalize(matched);
+        const lower = normalizeName(matched);
 
         if (match.index > last) {
             out += emit.plain(text.slice(last, match.index));

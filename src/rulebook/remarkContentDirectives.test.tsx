@@ -23,7 +23,7 @@ const sources: DirectiveSources = {
     things: {
         records: fakes,
         toLine: (r) => `**_${r.name}_** - ${r.text}`,
-        idOf: (r) => `thing-${r.name}`,
+        anchor: (r) => `thing-${r.name}`,
     },
 };
 
@@ -142,17 +142,17 @@ describe("effects directive (real data)", () => {
         );
 
         const items = container.querySelectorAll("li");
-        expect(items).toHaveLength(6);
-        expect(items[0].id).toBe("effect-marked");
-        expect(items[0].querySelector("strong em")?.textContent).toBe("Marked");
+        expect(items).toHaveLength(8);
+        expect(items[0].id).toBe("effect-burn");
+        expect(items[0].querySelector("strong em")?.textContent).toBe("Burn");
     });
 
-    it("slugs apostrophes out of ids", () => {
+    it("slugs spaces out of ids", () => {
         const { container } = render(
             <Markdown remarkPlugins={[remarkDirective, contentDirectives]}>
-                {'::effects{name="death\'s door"}'}
+                {'::keys{name="on hit"}'}
             </Markdown>
         );
-        expect(container.querySelector("li")?.id).toBe("effect-deaths-door");
+        expect(container.querySelector("li")?.id).toBe("key-item-on-hit");
     });
 });

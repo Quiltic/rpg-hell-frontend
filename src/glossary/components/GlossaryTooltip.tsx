@@ -13,10 +13,12 @@ import {
     useFloating,
     useInteractions,
 } from "@floating-ui/react";
-import { GlossaryHit, definitionHtml, rulebookHref } from "./resolve";
-import { titleCase } from "../util/textFormatting";
-import Pill from "../components/ui/Pill";
+import { GlossaryHit, definitionHtml, rulebookHref } from "../resolve";
+import { titleCase } from "../../util/textFormatting";
+import Pill from "../../components/ui/Pill";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
+
+// Component rendered only by GlossaryTooltipLayer
 
 type Props = {
     anchor: HTMLElement;
@@ -27,19 +29,6 @@ type Props = {
     onDismiss: () => void;
     onNavigate: () => void;
 };
-
-const CATEGORY_COLORS: Record<string, string> = {
-    "character-state": "bg-body",
-    "elemental-bane": "bg-arcana",
-    bane: "bg-medicine",
-    boon: "bg-nature",
-    "item key": "bg-mind",
-    "spell key": "bg-soul",
-};
-
-function categoryLabel(hit: GlossaryHit): string {
-    return hit.kind === "effect" ? hit.record.category : `${hit.source} key`;
-}
 
 export default function GlossaryTooltip({
     anchor,
@@ -64,7 +53,7 @@ export default function GlossaryTooltip({
     const dismiss = useDismiss(context, { outsidePressEvent: "pointerdown" });
     const { getFloatingProps } = useInteractions([dismiss]);
 
-    const label = categoryLabel(hit);
+    const label = hit.source.label(hit.record);
     const href = rulebookHref(hit);
 
     useEffect(() => {
@@ -91,7 +80,7 @@ export default function GlossaryTooltip({
                         <span className="font-bold">
                             {titleCase(hit.record.name)}
                         </span>
-                        <Pill colorClassName={CATEGORY_COLORS[label]}>
+                        <Pill colorClassName={hit.source.pillColor(hit.record)}>
                             {label}
                         </Pill>
                     </div>

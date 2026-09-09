@@ -12,7 +12,7 @@ import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
 import art_key from "../../assets/RulebookFiles/markdown/spell_key.md";
-import { useKeyAnchor } from "../../glossary/useKeyAnchor";
+import { useKeyAnchor } from "../../glossary";
 
 const tagList = [
     "elemental",

@@ -1,37 +1,25 @@
-import { Effect, getEffect } from "./effects";
-import { Key, KeySource, getKey } from "./keys";
 import { ScanEmit, scanText } from "./scan";
 import { statColorClass } from "../styling/statColors";
-import { generateSlug } from "../util/slug";
+import { GlossaryRecord, GlossarySource, findRecord } from "./sources/source";
+import { GLOSSARY_SOURCES } from "./sources/sources";
 
-export type GlossaryHit =
-    | { kind: "effect"; record: Effect }
-    | { kind: "key"; source: KeySource; record: Key };
+export type GlossaryHit = {
+    source: GlossarySource;
+    record: GlossaryRecord;
+};
 
-// Resolves colissions to effects over keys.
-// TODO: deconfict one of the "Glow" instances
 export function resolveTerm(name: string): GlossaryHit | undefined {
-    const effect = getEffect(name);
-    if (effect) {
-        return { kind: "effect", record: effect };
-    }
-    for (const source of ["item", "spell"] as const) {
-        const key = getKey(source, name);
-        if (key) {
-            return { kind: "key", source, record: key };
+    for (const source of GLOSSARY_SOURCES) {
+        const record = findRecord(source.records, name);
+        if (record) {
+            return { source, record };
         }
     }
     return undefined;
 }
 
-export function rulebookHref(hit: GlossaryHit): string {
-    const slug = generateSlug(hit.record.name);
-    if (hit.kind === "effect") {
-        return `/rulebook/effects#effect-${slug}`;
-    }
-    return hit.source === "item"
-        ? `/rulebook/items#key-item-${slug}`
-        : `/rulebook/spells#key-spell-${slug}`;
+export function rulebookHref({ source, record }: GlossaryHit): string {
+    return `/rulebook/${source.page(record)}#${source.anchor(record)}`;
 }
 
 function escapeAttribute(text: string): string {
@@ -53,6 +41,6 @@ export function linkEmitFor(selfName: string): ScanEmit {
     };
 }
 
-export function definitionHtml(hit: GlossaryHit): string {
-    return scanText(hit.record.effect, linkEmitFor(hit.record.name));
+export function definitionHtml({ record }: GlossaryHit): string {
+    return scanText(record.short || record.effect, linkEmitFor(record.name));
 }

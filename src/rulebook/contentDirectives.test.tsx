@@ -27,7 +27,7 @@ describe("::keys", () => {
     it("renders the spell key as a tight list", () => {
         const c = renderMd('::keys{source="spell" tight}');
         const items = c.querySelectorAll("li");
-        expect(items).toHaveLength(4);
+        expect(items).toHaveLength(3);
         expect(items[0].id).toBe("key-spell-reaction");
         // tight: no <p> inside the <li>
         expect(items[0].querySelector("p")).toBeNull();
@@ -39,7 +39,7 @@ describe("::keys", () => {
     it("renders the item key as a loose list", () => {
         const c = renderMd('::keys{source="item"}');
         const items = c.querySelectorAll("li");
-        expect(items).toHaveLength(11);
+        expect(items).toHaveLength(10);
         expect(items[0].querySelector("p")).not.toBeNull();
         expect(c.querySelector("#key-item-on-hit strong em")?.textContent).toBe(
             "On Hit"
@@ -47,16 +47,18 @@ describe("::keys", () => {
         expect(c.querySelector("#key-item-reaching-x")).not.toBeNull();
     });
 
-    it("keeps the item Glow separate from the effect Glow", () => {
+    it("keeps a key and an effect with the same name apart by id", () => {
         const c = renderMd(
-            '::keys{source="item" name="glow"}\n\n::effects{name="glow"}'
+            '::keys{source="spell" name="focus"}\n\n::effects{name="focus"}'
         );
-        expect(c.querySelector("#key-item-glow")?.textContent).toMatch(
-            /illuminate/
-        );
-        expect(c.querySelector("#effect-glow")?.textContent).toMatch(
-            /emit light/
-        );
+        expect(c.querySelector("#key-spell-focus")).not.toBeNull();
+        expect(c.querySelector("#effect-focus")).not.toBeNull();
+    });
+
+    it("registers a directive for every glossary source", () => {
+        const c = renderMd('::effects{name="burn"}\n\n::keys{name="side"}');
+        expect(c.querySelector("#effect-burn")).not.toBeNull();
+        expect(c.querySelector("#key-item-side")).not.toBeNull();
     });
 
     it("fails loud for an unknown source", () => {

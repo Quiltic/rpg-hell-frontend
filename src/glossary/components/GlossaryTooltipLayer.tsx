@@ -7,7 +7,12 @@ import {
     useState,
 } from "react";
 import GlossaryTooltip from "./GlossaryTooltip";
-import { GlossaryHit, resolveTerm } from "./resolve";
+import { GlossaryHit, resolveTerm } from "../resolve";
+
+/**
+ * Renders a GlossaryTooltip over kw instances.
+ *
+ */
 
 const OPEN_DELAY = 300;
 const CLOSE_DELAY = 200;
