@@ -29,83 +29,88 @@ import { Button } from "../ui/Button/Button";
 // import CreatureSheet from "../CreaturesPages/creatureSheet";
 // import StatsPage from "../RulebookPages/SubPages/StatsPage";
 
-
-
 import React, { useState, useEffect } from "react";
 import { Trait, Item, Spell, Creature } from "../../client";
 import { classNames, getNames } from "../../util/tableTools";
 import CleanCombobox from "./CleanCombobox";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
-import { Tab } from "@headlessui/react";
+import { Switch, Tab } from "@headlessui/react";
 import { useCreatures } from "../../hooks/useCreatures";
 import CreaturesTable from "../CreaturesPages/CreaturesTable";
+import StatPillEditable from "./StatPillEditable";
 
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { BaseButton } from "../ui/Button/BaseButton";
+import { cn } from "../../styling/utilites";
+import Pill from "../ui/Pill";
+import BuilderStep1_2 from "../CharacterSheet/CharacterBuilder/BuilderStep1_2";
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 // const STUPID_COLOR_TYPESCRIPT_BS = [
 
 // import traitJson from "../../assets/OfflineJsons/traits.json";
 
-// const IterativeCreatureLevels = [
-//     "Body",
-//     "Mind",
-//     "Soul",
-//     "Arcana",
-//     "Charm",
-//     "Crafting",
-//     "Medicine",
-//     "Nature",
-//     "Thieving",
-//     // "Monster",
-// ];
-const IterativeCreatureLevels = [
-        "Humanoid",
-        "Animal",
-        "Construct",
-        "Monstrosity",
-        "Planar",
-        "Undead",
-        "Mythic",
-    ];
-
-
-const displayedCreature = {
-    "name":"",
-    "types":"",
-    "level":0,
-    "health":0,
-    "shielding":0,
-    "dodge":0,
-    "ward":0,
-    "strain":0,
-    "stats": {
-       "body":0,
-        "mind":0,
-        "soul":0,
-        "arcana":0,
-        "crafting":0,
-        "charm":0,
-        "nature":0,
-        "medicine":0,
-        "thieving":0 
+const playerCharacter = {
+    name: "",
+    level: 1,
+    stats: {
+        body: 0,
+        mind: 0,
+        soul: 0,
+        arcana: 0,
+        charm: 0,
+        finesse: 0,
+        nature: 0,
     },
-    "traits":"",
-    "arts":"",
-    "items":"",
-    "stories":"",
-    "discription":"",
-    "notes":""
-}
+    calculatedStats: {
+        // can be modified by player but is auto calculated if not
+        speed: 6,
+        dodge: 0,
+        shielding: 0,
 
+        maxHp: 0,
+        curHp: 0,
+        maxStrain: 0,
+        curStrain: 0,
+    },
+    items: [""], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
+    equipped: ["", "", ""], // lefthand, righthand, armor, mysc,,,,
+
+    paths: ["", "", ""], // get two at lvl 1 then one more at lvl 3
+    traits: [["", "", ""], ["", "", ""], ["", ""], ["", ""], [""]], // # of traits per tier, 3,3,2,2,1
+    arts: [["", "", "", "", ""], ["", "", ""], ["", ""], ["", ""], [""]], // # of Arts per tier, 5,3,2,2,1
+
+    stories: "",
+    description: "",
+    notes: "",
+};
+
+type statline =
+    | ""
+    | "body"
+    | "mind"
+    | "soul"
+    | "arcana"
+    | "charm"
+    | "finesse"
+    | "nature";
 
 export default function JoshhellscapePage() {
-
-
-
     // const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
-    const [type, setType] = useState( 0 );
-
+    const [player, setPlayer] = useState(playerCharacter);
+    const [chosenStats, setChosenStats] = useState<Array<statline>>([
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    ]); // bms -> bms -> strength -> flaw
+    const [useDeeperLearning, setUseDeeperLearning] = useState(false);
+    const [pointsLeft, setPointsLeft] = useState(2);
+    const [stepnum, setStepnum] = useState(1);
 
     // const {
     //     allCreatures,
@@ -117,93 +122,50 @@ export default function JoshhellscapePage() {
     //     resetFilterCreatures,
     // } = useCreatures();
 
-    // useEffect(() => {
-    //         // console.log(mainStat,secondStat,otherDrop);
-    //         const trait = {
-    //             id: curID,
-    //             name: nameText.toLowerCase(),
-    //             effect: effectText,
-    //             req: [mainStat, secondStat, otherDrop],
-    //             dice: 0,
-    //             is_passive: true,
-    //         };
-    
-    //         if (diceCost != "P") {
-    //             trait.is_passive = false;
-    //             trait.dice = diceCost.split("#").length - 1;
-    //         }
-    
-    //         // remove the empty stuffs
-    //         trait.req = trait.req.filter((str) => str !== "");
-    
-    //         setCurCreature(trait);
-    //     }, [
-    //         nameText,
-    //         diceCost,
-    //         mainStat,
-    //         secondStat,
-    //         otherDrop,
-    //         effectText,
-    //         curID,
-    //     ]);
+    useEffect(() => {
+        const tempStats = {
+            "": 0,
+            body: 0,
+            mind: 0,
+            soul: 0,
+            arcana: 0,
+            charm: 0,
+            finesse: 0,
+            nature: 0,
+        };
 
+        // main stats
+        tempStats[chosenStats[0]] += 1;
+        tempStats[chosenStats[1]] += 1;
 
-    // console.log(traitsList[0]);
+        // sub stats
+        tempStats[chosenStats[2]] += 1;
+        tempStats[chosenStats[3]] -= 1;
 
-    
-    // useEffect(() => {
-    //     if (strain < 0) {
-    //         setHealth(health+strain);
-    //     }        
-    // }, [strain]);
+        // deep learning
+        tempStats[chosenStats[4]] += 1;
+        tempStats[chosenStats[5]] -= 1;
 
-
-    // filter(
-    //     (t) => {
-    //         try {
-    //             const temp = [t.name.toLowerCase(),(t as Creature).effect?.toLowerCase().replace("\n","")," "].join(";|;");
-    //             return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
-    //         } catch (error) {
-    //             console.error('Bad regex:', error);
-    //         }
-    //         return (false)
-    //     }
-    //         // t.name.toLowerCase().includes(searchValue) ||
-    //         // (t as Creature).effect?.toLowerCase().includes(searchValue)
-    // );
-    // return;
-
-    // IterativeCreatureLevels.map((n, i) => {
-    //                         return (
-    //                             <Tab.Panel key={i}>
-    //                                 <CreaturesTable
-    //                                     displayedCreatures={displayedCreatures.filter(
-    //                                         (s) => {
-    //                                             return s.req
-    //                                                     ?.toString()
-    //                                                     .includes(n.toLowerCase());
-    //                                         }
-    //                                     )}
-                                        
-    //                                     moveCreature={(trait) => {
-    //                                         addToPinnedCreatures(trait);
-    //                                     }}
-    //                                 />
-    //                             </Tab.Panel>
-    //                         );
-    //                     })
-
-    // const traits = traitsList.filter( (t) => {return t.req?.toString().includes('body')} );
-    // console.log(traits);
+        setPlayer({ ...player, stats: tempStats });
+    }, [chosenStats]);
 
     return (
-        <div>
+        <div className="">
+            {/* <Button
+                disabled={chosenStats[4] == "nature"}
+                variant={chosenStats[5] == ""  ? "nature": chosenStats[5] == "nature"? "nature":"link-nature"}
+                className={cn("m-1",chosenStats[5] == "nature" ? "ring-2 ring-light/75" : "")}
+                onClick={()=>{setChosenStats(changeThing(chosenStats,4,"nature"));console.log(chosenStats);}}
+            >
+                Nature
+            </Button> */}
 
-        <Button>
-            
-        </Button>
+            <BuilderStep1_2
+                chosenStats={chosenStats}
+                setChosenStats={setChosenStats}
+                setStepnum={() => setStepnum(1)}
+                player={player}
+            ></BuilderStep1_2>
         </div>
     );
 }
-
-
