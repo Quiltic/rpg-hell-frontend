@@ -24,7 +24,7 @@ export default function MarkdownRenderer({
     markdown,
     have_header = true,
 }: markdownRendererProps) {
-    const { markdown: source, headings } = useMarkdown(markdown);
+    const { headings } = useMarkdown(markdown);
 
     const HeadingRenderer = useMemo(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,7 +46,7 @@ export default function MarkdownRenderer({
 
     useEffect(() => {
         const anchor = window.location.hash.split("#")[1];
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             if (anchor) {
                 const anchorEl = document.getElementById(anchor);
                 if (anchorEl) {
@@ -54,7 +54,8 @@ export default function MarkdownRenderer({
                 }
             }
         }, 100); // Wait for the markdown library to actually render the element
-    }, [source]);
+        return () => clearTimeout(timer);
+    }, [markdown]);
 
     return (
         <div className="markdown-styles mx-auto max-w-4xl break-inside-avoid text-left">
@@ -80,7 +81,7 @@ export default function MarkdownRenderer({
                     ),
                 }}
             >
-                {source}
+                {markdown}
             </Markdown>
         </div>
     );

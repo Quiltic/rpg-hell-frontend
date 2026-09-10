@@ -1,4 +1,4 @@
-import { ScanEmit, scanText } from "./scan";
+import { ScanEmit, escapeHtml, scanText } from "./scan";
 import { statColorClass } from "../styling/statColors";
 import { GlossaryRecord, GlossarySource, findRecord } from "./sources/source";
 import { GLOSSARY_SOURCES } from "./sources/sources";
@@ -22,21 +22,17 @@ export function rulebookHref({ source, record }: GlossaryHit): string {
     return `/rulebook/${source.page(record)}#${source.anchor(record)}`;
 }
 
-function escapeAttribute(text: string): string {
-    return text.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
-}
-
 export function linkEmitFor(selfName: string): ScanEmit {
     return {
-        plain: (text) => text,
+        plain: escapeHtml,
         stat: (matched, statWord) =>
-            `<span class="${statColorClass(statWord)}">${matched}</span>`,
+            `<span class="${statColorClass(statWord)}">${escapeHtml(matched)}</span>`,
         keyword: (matched, name) => {
             const hit = name === selfName ? undefined : resolveTerm(name);
             if (!hit) {
-                return matched;
+                return escapeHtml(matched);
             }
-            return `<a href="${escapeAttribute(rulebookHref(hit))}">${matched}</a>`;
+            return `<a href="${escapeHtml(rulebookHref(hit))}">${escapeHtml(matched)}</a>`;
         },
     };
 }

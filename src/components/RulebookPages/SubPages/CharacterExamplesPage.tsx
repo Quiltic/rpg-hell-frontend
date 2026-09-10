@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import characterExamples from "../../../assets/RulebookFiles/markdown/character_examples.md";
 import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
+import { markdownFile } from "../../../rulebook/pages";
 // import RulebookNavigation from "../RulebookNav";
 import { useSpells } from "../../../hooks/useSpells";
 import { useItems } from "../../../hooks/useItems";
@@ -62,7 +62,7 @@ export default function CharacterExamplesPage() {
                 <>
                     <RulebookNavigation />
                     <MarkdownRenderer
-                        markdown={characterExamples as string}
+                        markdown={markdownFile("character_examples.md")}
                         have_header={false}
                     />
                     <div className="m-2 grid grid-cols-3 justify-between rounded-md bg-dark-400 p-2 print:hidden">
@@ -91,7 +91,7 @@ export default function CharacterExamplesPage() {
                                             </h3>
                                             <div
                                                 className={cn(
-                                                    "m-2 text-wrap rounded-md p-2 italic",
+                                                    "text-wrap m-2 rounded-md p-2 italic",
                                                     "bg-" +
                                                         char.mainStat +
                                                         "-400"

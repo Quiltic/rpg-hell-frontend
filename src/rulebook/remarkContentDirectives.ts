@@ -43,10 +43,10 @@ export function expandDirective(
     node: LeafDirective,
     sources: DirectiveSources
 ): List | Paragraph {
-    const source = sources[node.name];
-    if (!source) {
+    if (!hasOwn(sources, node.name)) {
         return failure(node.name, `unknown directive "${node.name}"`);
     }
+    const source = sources[node.name];
 
     const attributes = node.attributes ?? {};
     const tight = TIGHT_ATTR in attributes;

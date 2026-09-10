@@ -6,6 +6,7 @@ import {
     effectsSource,
     getEffect,
 } from "./effects";
+import { generateSlug } from "../../util/slug";
 
 describe("effects.json", () => {
     it("has only known categories", () => {
@@ -51,9 +52,11 @@ describe("effectsSource", () => {
     });
 
     it("anchors every record on the effects page", () => {
-        expect(effectsSource.page(getEffect("burn")!)).toBe("effects");
-        expect(
-            effectsSource.anchor(getEffect("on hit") ?? getEffect("burn")!)
-        ).toBe("effect-burn");
+        for (const effect of allEffects) {
+            expect(effectsSource.page(effect)).toBe("effects");
+            expect(effectsSource.anchor(effect)).toBe(
+                `effect-${generateSlug(effect.name)}`
+            );
+        }
     });
 });

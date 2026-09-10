@@ -1,18 +1,7 @@
 import RulebookNavigation from "./RulebookNav";
 
-import intro from "../../assets/RulebookFiles/markdown/intro.md";
-import core from "../../assets/RulebookFiles/markdown/core_rules.md";
-import combat from "../../assets/RulebookFiles/markdown/combat.md";
-import char_creation from "../../assets/RulebookFiles/markdown/character_creation.md";
-import effects from "../../assets/RulebookFiles/markdown/effects.md";
-import mysc from "../../assets/RulebookFiles/markdown/mysc_rules.md";
-import gm from "../../assets/RulebookFiles/markdown/for_gms.md";
-// import traitKey from "../../assets/RulebookFiles/markdown/trait_key.md";
-import artKey from "../../assets/RulebookFiles/markdown/spell_key.md";
-import itemKey from "../../assets/RulebookFiles/markdown/item_key.md";
-// import creatureKey from "../../assets/RulebookFiles/markdown/creature_key.md";
-
 import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
+import { markdownFile, markdownFor } from "../../rulebook/pages";
 import { useTraits } from "../../hooks/useTraits";
 import { useItems } from "../../hooks/useItems";
 import { useSpells } from "../../hooks/useSpells";
@@ -35,19 +24,34 @@ export default function FullDoc() {
     return (
         <>
             <RulebookNavigation />
-            <MarkdownRenderer markdown={intro as string} have_header={false} />
-            <MarkdownRenderer markdown={core as string} have_header={false} />
-            <MarkdownRenderer markdown={combat as string} have_header={false} />
             <MarkdownRenderer
-                markdown={char_creation as string}
+                markdown={markdownFor("intro")!}
                 have_header={false}
             />
             <MarkdownRenderer
-                markdown={effects as string}
+                markdown={markdownFor("core-rules")!}
                 have_header={false}
             />
-            <MarkdownRenderer markdown={mysc as string} have_header={false} />
-            <MarkdownRenderer markdown={gm as string} have_header={false} />
+            <MarkdownRenderer
+                markdown={markdownFor("combat")!}
+                have_header={false}
+            />
+            <MarkdownRenderer
+                markdown={markdownFor("character-creation")!}
+                have_header={false}
+            />
+            <MarkdownRenderer
+                markdown={markdownFor("effects")!}
+                have_header={false}
+            />
+            <MarkdownRenderer
+                markdown={markdownFor("misc-rules")!}
+                have_header={false}
+            />
+            <MarkdownRenderer
+                markdown={markdownFor("for-gms")!}
+                have_header={false}
+            />
 
             <div className="break-inside-avoid">
                 <h1>Traits</h1>
@@ -62,7 +66,7 @@ export default function FullDoc() {
             <div className="break-inside-avoid">
                 <h1>Arts</h1>
                 <MarkdownRenderer
-                    markdown={artKey as string}
+                    markdown={markdownFile("spell_key.md")}
                     have_header={false}
                 />
                 <SpellCardHolder
@@ -73,7 +77,7 @@ export default function FullDoc() {
             <div className="break-inside-avoid">
                 <h1>Items</h1>
                 <MarkdownRenderer
-                    markdown={itemKey as string}
+                    markdown={markdownFile("item_key.md")}
                     have_header={false}
                 />
                 <ItemCardHolder shownItems={displayedItems}></ItemCardHolder>

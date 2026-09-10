@@ -2,21 +2,9 @@ import { describe, expect, it } from "vitest";
 import { GLOSSARY_SOURCES } from "./sources";
 import { STAT_COLORS } from "../../styling/statColors";
 import { resolveTerm } from "../resolve";
+import { RULEBOOK_PAGES } from "../../rulebook/pages";
 
-const RULEBOOK_PAGES = [
-    "intro",
-    "core-rules",
-    "stats",
-    "character-creation",
-    "combat",
-    "effects",
-    "misc-rules",
-    "for-gms",
-    "spells",
-    "traits",
-    "items",
-    "creatures",
-];
+const PAGE_SLUGS: string[] = RULEBOOK_PAGES.map((page) => page.slug);
 
 /** Every registered source is held to the same data rules. */
 describe.each(GLOSSARY_SOURCES.map((s) => [s.kind, s] as const))(
@@ -56,9 +44,7 @@ describe.each(GLOSSARY_SOURCES.map((s) => [s.kind, s] as const))(
 
         it("points every record at a real rulebook page", () => {
             for (const record of source.records) {
-                expect(RULEBOOK_PAGES, record.name).toContain(
-                    source.page(record)
-                );
+                expect(PAGE_SLUGS, record.name).toContain(source.page(record));
             }
         });
 

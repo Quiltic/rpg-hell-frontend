@@ -1,3 +1,4 @@
+import type { RulebookPageSlug } from "../../rulebook/pages";
 import { titleCase } from "../../util/textFormatting";
 
 /**
@@ -17,7 +18,7 @@ export type GlossaryRecord = {
 export type GlossarySource<T extends GlossaryRecord = GlossaryRecord> = {
     kind: string;
     records: readonly T[];
-    page(record: T): string;
+    page(record: T): RulebookPageSlug;
     anchor(record: T): string;
     label(record: T): string;
     pillColor(record: T): string;

@@ -10,7 +10,6 @@ import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import LoginCallbackPage from "./components/loginCallbackPage/LoginCallbackPage.tsx";
 import RickRoll from "./components/loginCallbackPage/RickRoll.tsx";
 
-import RulebookPage from "./components/RulebookPages/RulebookPage.tsx";
 import TraitsTablePage from "./components/TraitsPages/TraitsTablePage.tsx";
 import ItemsTablePage from "./components/ItemPages/ItemsTablePage.tsx";
 import SpellsTablePage from "./components/SpellsPages/SpellsTablePage.tsx";
@@ -24,17 +23,11 @@ import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
 import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
 import CreatureCreator from "./components/CreaturesPages/CreatureCreator.tsx";
 import WepCreatorPage from "./components/ItemPages/WepCreatorPage.tsx";
-import CharacterCreationRulebookPage from "./components/RulebookPages/SubPages/CharacterCreationPage.tsx";
 import CharacterExamplesPage from "./components/RulebookPages/SubPages/CharacterExamplesPage.tsx";
-import CombatPage from "./components/RulebookPages/SubPages/CombatPage.tsx";
-import CoreRulesPage from "./components/RulebookPages/SubPages/CoreRulesPage.tsx";
-import EffectsPage from "./components/RulebookPages/SubPages/EffectsPage.tsx";
-import ForGMsPage from "./components/RulebookPages/SubPages/GMRulesPage.tsx";
-import IntroPage from "./components/RulebookPages/SubPages/IntroPage.tsx";
-import MiscellaneousRulesPage from "./components/RulebookPages/SubPages/MiscellaneousRulesPage.tsx";
-import StatsPage from "./components/RulebookPages/SubPages/StatsPage.tsx";
 import LootGeneratorPage from "./components/ToolsPages/LootGeneratorPage.tsx";
 import FullDoc from "./components/RulebookPages/FullDoc.tsx";
+import RulebookMarkdownPage from "./rulebook/RulebookMarkdownPage.tsx";
+import { RULEBOOK_PAGES } from "./rulebook/pages.ts";
 
 const router = createBrowserRouter(
     [
@@ -101,7 +94,7 @@ const router = createBrowserRouter(
                     children: [
                         {
                             path: "",
-                            element: <RulebookPage />,
+                            element: <RulebookMarkdownPage slug="intro" />,
                         },
                         {
                             path: "full-doc",
@@ -123,43 +116,18 @@ const router = createBrowserRouter(
                             path: "creatures",
                             element: <CreatureTablePage />,
                         },
-                        // New pages in the rulebook update project
-                        {
-                            path: "character-creation",
-                            element: <CharacterCreationRulebookPage />,
-                        },
                         {
                             path: "character-examples/:example",
                             element: <CharacterExamplesPage />,
                         },
-                        {
-                            path: "combat",
-                            element: <CombatPage />,
-                        },
-                        {
-                            path: "core-rules",
-                            element: <CoreRulesPage />,
-                        },
-                        {
-                            path: "effects",
-                            element: <EffectsPage />,
-                        },
-                        {
-                            path: "for-gms",
-                            element: <ForGMsPage />,
-                        },
-                        {
-                            path: "intro",
-                            element: <IntroPage />,
-                        },
-                        {
-                            path: "misc-rules",
-                            element: <MiscellaneousRulesPage />,
-                        },
-                        {
-                            path: "stats",
-                            element: <StatsPage />,
-                        },
+                        ...RULEBOOK_PAGES.filter((page) => "file" in page).map(
+                            (page) => ({
+                                path: page.slug,
+                                element: (
+                                    <RulebookMarkdownPage slug={page.slug} />
+                                ),
+                            })
+                        ),
                     ],
                 },
                 {

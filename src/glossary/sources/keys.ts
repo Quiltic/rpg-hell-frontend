@@ -1,3 +1,4 @@
+import type { RulebookPageSlug } from "../../rulebook/pages";
 import keysJson from "../../assets/OfflineJsons/keys.json";
 import { generateSlug } from "../../util/slug";
 import { GlossarySource, bullet, normalizeName } from "./source";
@@ -15,7 +16,7 @@ export type Key = {
     aliases?: string[];
 };
 
-export const KEY_PAGES: Record<KeySource, string> = {
+export const KEY_PAGES: Record<KeySource, RulebookPageSlug> = {
     spell: "spells",
     item: "items",
 };

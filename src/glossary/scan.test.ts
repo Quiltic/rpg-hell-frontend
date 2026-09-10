@@ -131,6 +131,31 @@ describe("content that must pass through untouched", () => {
             []
         );
     });
+
+    it("escapes markup in plain text, matched terms and attributes", () => {
+        expect(scan("a < b & <body>")).toBe(
+            'a &lt; b &amp; &lt;<span class="text-body-700">body</span>&gt;'
+        );
+        const fixture = createScanner([{ name: 'a"b', effect: "" }]);
+        expect(fixture.scanText('a"b', spanEmit)).toBe(
+            '<span class="kw" data-kw="a&quot;b" tabindex="0" role="button">a&quot;b</span>'
+        );
+    });
+});
+
+describe("empty record sets", () => {
+    it("still colours stats and terminates with no keywords", () => {
+        const fixture = createScanner([]);
+        expect(fixture.scanText("Roll body.", spanEmit)).toBe(
+            'Roll <span class="text-body-700">body</span>.'
+        );
+        expect(fixture.keywordPatterns()).toEqual([]);
+    });
+
+    it("terminates when every name normalises away", () => {
+        const fixture = createScanner([{ name: "   ", effect: "" }]);
+        expect(fixture.scanText("plain text", spanEmit)).toBe("plain text");
+    });
 });
 
 describe("the index", () => {

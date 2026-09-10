@@ -31,8 +31,7 @@ export function keyAnchorState(
 // shut. Changing the key remounts the Disclosure open.
 //
 // Scrolling needs no code here. Opening the panel mounts a fresh
-// MarkdownRenderer, which already scrolls to location.hash once its markdown
-// has loaded.
+// MarkdownRenderer, which already scrolls to location.hash on mount.
 export function useKeyAnchor(prefix: KeyAnchorPrefix): KeyAnchorState {
     const { hash } = useLocation();
     return keyAnchorState(hash, prefix);

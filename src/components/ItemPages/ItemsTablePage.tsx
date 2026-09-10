@@ -8,7 +8,7 @@ import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 import { useState } from "react";
 import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
-import item_key from "../../assets/RulebookFiles/markdown/item_key.md";
+import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
@@ -166,7 +166,7 @@ export default function ItemsTablePage() {
                                 </Disclosure.Button>
                                 <Disclosure.Panel>
                                     <MarkdownRenderer
-                                        markdown={item_key as string}
+                                        markdown={markdownFile("item_key.md")}
                                         have_header={false}
                                     />
                                 </Disclosure.Panel>

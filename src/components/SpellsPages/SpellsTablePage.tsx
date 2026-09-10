@@ -11,7 +11,7 @@ import SpellsTable from "../SpellsPages/SpellsTable";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
-import art_key from "../../assets/RulebookFiles/markdown/spell_key.md";
+import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 
 const tagList = [
@@ -173,7 +173,7 @@ export default function SpellsTablePage() {
                                 </Disclosure.Button>
                                 <Disclosure.Panel>
                                     <MarkdownRenderer
-                                        markdown={art_key as string}
+                                        markdown={markdownFile("spell_key.md")}
                                         have_header={false}
                                     />
                                 </Disclosure.Panel>

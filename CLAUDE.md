@@ -32,9 +32,9 @@ Two dependency quirks to leave alone:
 -   **vitest is pinned to 3.x on purpose.** vitest 5 requires vite >= 6.4 and this repo is on vite 5, so installing vitest 5 fails at startup with `Package subpath './module-runner' is not defined`. Bump vite first if you want a newer vitest.
 -   **Do not import `@testing-library/jest-dom/vitest`.** bun installs jest-dom's optional vitest peer as a nested copy, so that entry point resolves the wrong vitest and its type augmentation targets the wrong module. `src/test/setup.ts` calls `expect.extend(matchers)` and `src/test/vitest.d.ts` re-declares the augmentation against the root vitest instead.
 
-Existing tests: `src/util/textFormatting.test.ts` and `src/components/ui/Pill.test.tsx`. The rest of `src/util/` (`sortingTools`, `tableTools`) is the easiest place to add more — plain objects in, plain values out, no DOM.
+Tests sit next to the file they cover. The JSON content files are validated by tests too (`glossary/sources/*.test.ts`, `rulebook/pages.test.ts`), so a content edit can fail the suite; read the assertion message before touching code. One failure is currently expected: `glossary/sources/keys.test.ts` reports that the Follower text differs between `keys.json` and `effects.json`. That is a content decision, not a code bug.
 
-`bunx tsc --noEmit` currently reports ~295 pre-existing errors across the app (mostly unused locals and loose `any`s), so it is only useful for checking whether _your_ files are clean, not as a pass/fail gate. Tests are not part of the deploy workflow (`.github/workflows/deploy.yml` runs install and build only).
+`bunx tsc --noEmit` currently reports ~283 pre-existing errors across the app (mostly unused locals and loose `any`s), so it is only useful for checking whether _your_ files are clean, not as a pass/fail gate. Tests are not part of the deploy workflow (`.github/workflows/deploy.yml` runs install and build only).
 
 ### Pre-commit hook (husky + lint-staged)
 
@@ -42,7 +42,7 @@ Existing tests: `src/util/textFormatting.test.ts` and `src/components/ui/Pill.te
 
 Two things it deliberately does _not_ do:
 
--   **No eslint.** The repo has ~271 pre-existing eslint errors across a third of its files, so a blocking `eslint --fix` would reject most commits. Run `bun run lint` manually; add eslint to the hook once that backlog is cleared.
+-   **No eslint.** The repo has ~279 pre-existing eslint errors across a third of its files, so a blocking `eslint --fix` would reject most commits. Run `bun run lint` manually; add eslint to the hook once that backlog is cleared.
 -   **No tests.** `bun run test` is vitest in watch mode and would hang the commit. Use `bun run test:run` if you ever want tests in a hook.
 
 `.prettierignore` excludes `src/client` (regenerated from `openapi.json`) and `src/assets/OfflineJsons` (hand-maintained as one compact object per line; prettier would expand each entry to ~7 lines and make the files unreadable to edit by hand).
@@ -61,38 +61,38 @@ The app is served from a subpath. `vite.config.ts` sets `base: "/rpg-hell-fronte
 
 ### Routing
 
-All routes are declared in one place: `src/main.tsx` (`createBrowserRouter`), wrapped by `components/layouts/RootLayout.tsx`. Top-level groups: `/` (App), `/rulebook/*`, `/tools/*`, `/character-sheet*`, `/joshhellscape`, `/callback`. Adding a page means adding the import and route object there.
+All routes are declared in one place: `src/main.tsx` (`createBrowserRouter`), wrapped by `components/layouts/RootLayout.tsx`. Top-level groups: `/` (App), `/rulebook/*`, `/tools/*`, `/character-sheet*`, `/joshhellscape`, `/callback`. Adding a page means adding the import and route object there, except for markdown rulebook pages, which come from `rulebook/pages.ts` (see below).
 
 ### Data flow: offline JSON is the source of truth
 
 The generated API client (`src/client`, from `openapi.json`, backend `https://portof.yokohama` configured in `hooks/useApi.tsx`) is **mostly bypassed**. Content is read from static JSON checked into `src/assets/OfflineJsons/` (`traits.json`, `spells.json`, `items.json`, `creatures.json`) and imported directly. The client is still live only for auth (`context/AuthProvider.tsx`, `components/auth/Login.tsx`) and `WepCreatorPage`. The commented-out fetch/auth-gated-"BROKEN"-filtering code in `hooks/useApiClass.tsx` and `hooks/useTraits.tsx` is the old online path — keep that in mind before "fixing" it.
 
-Effect definitions (states, banes, boons) live in `effects.json` with the shape `{name, category, effect, extra}` — lowercase `name`, `category` one of `character-state | elemental-bane | bane | boon`, array order is display order. They are typed by `types/Effect.ts`, read through `hooks/useEffects.tsx` (`allEffects`, `getEffect`, `effectsInCategory`; no pins or filters), and rendered into the rulebook by the `::effects{…}` directive described below. `useEffects.test.ts` validates the file.
-
 The generic hook `hooks/useApiClass.tsx` drives every content page: it picks the JSON by `eApiClass` (`types/ApiClassUnions.tsx`), sorts it with `util/sortingTools.tsx`, and exposes `{all, pinned, displayed, addToPinned, removeFromPinned, filter, resetFilter}`. `useTraits`/`useSpells`/`useItems`/`useCreatures` are thin per-type wrappers over it. Pins persist to `localStorage` under keys like `pinnedTraitNames`, stored as names joined by the `;|;` separator and re-resolved against the list on load (`util/tableTools.tsx`).
 
 Content objects are flat and stringly-typed (see `src/client/models/Trait.ts` etc.): `req`/`tags` are comma-separated strings like `"fighter 1"`, `"nature 2"`, not arrays. Sorting, filtering, and pill rendering all parse these strings.
 
+The vocabulary files (`effects.json`, `keys.json`) are not read through `useApiClass`. They belong to the glossary (`src/glossary/CLAUDE.md`).
+
 ### Editing game content
 
-JSON files are edited by hand or via the `/tools/*` "UpdateDB" pages (`UpdateDBTraitsPage`, `UpdateArtsPage`, `UpdateDBItemsPage`, `CreatureCreator`), which build an object and emit JSON to copy back into the asset file. The table pages also have "Download … Json" buttons using `download()` from `util/tableTools.tsx`. `src/assets/OfflineJsons/Out of date/` holds version-stamped archives; `RefinedTraits.json`/`RefinedArts.json`/`Arts.json` are currently unreferenced scratch data.
+All Game rules and content files (in the form of json and md files) should be edited by humans only.
 
-### Rulebook / markdown pipeline
+### Glossary and rulebook
 
-Rulebook prose lives as `.md` files in `src/assets/RulebookFiles/markdown/`, imported as URLs (`assetsInclude: ["**/*.md"]` in vite config, `declare module "*.md"` in `vite-env.d.ts`). Each subpage under `components/RulebookPages/SubPages/` is a thin wrapper: import the md, render `<MarkdownRenderer markdown={x as string} />`.
+Each folder carries its own `CLAUDE.md`, loaded automatically when you work on files inside it.
 
-`util/MarkdownRenderer.tsx` → `hooks/useMarkdown.tsx` fetches the file unmodified and extracts headings (`util/MarkdownHeaderParsing.tsx`) to build slugs/anchors and the jump-to nav, then renders via `react-markdown`. The remark chain is `remark-gfm`, `remark-directive`, `contentDirectives`, `remarkHighlightKeywords`, plus `rehype-raw`, which is required because the highlighter injects raw `<span>` tags.
+-   `src/glossary/CLAUDE.md`: vocabulary sources and the registry, the keyword scanner, tooltips. Read it before adding a glossary source, changing which words get tooltips, or wiring `formatEffectString` or `GlossaryTooltipLayer` into a new table or card.
+-   `src/rulebook/CLAUDE.md`: the page list, `?raw` loading, the remark chain, content directives, stat colouring. Read it before adding a rulebook page, editing a `.md` file that contains `::` directives, or changing how markdown renders.
 
-**Stat colouring runs after parsing, and must stay there.** `util/remarkHighlightKeywords.ts` visits `text` nodes and splits each stat word out into a raw `<span>`. It deliberately does _not_ use `formatEffectString` on the markdown source. That is how it used to work, and because that pass is a syntax-blind regex it rewrote markdown syntax as well as prose: `::effects{category="nature"}` became `::effects{category="<span …>nature</span>"}`, which parses as a paragraph rather than a directive, so `remarkContentDirectives` never saw it and none of its `[effects: …]` failure output fired — the list silently vanished and the raw `::effects{…}` line rendered as text. Same for code fences and link urls. Working on the parsed tree makes that impossible, since directive attributes, urls, and code are not `text` nodes. It also has to run _after_ `contentDirectives` so directive-generated bullets get coloured too. `formatEffectString` is still correct for the card/table/tooltip callers, which pass plain effect strings straight to `innerHTML`; note it is not idempotent (`\bnature\b` matches inside the `text-nature-700` class it just wrote), so never apply it twice to the same string.
-
-**Content directives.** `remark-directive` is enabled, and `util/contentDirectives.ts` registers sources for a leaf directive that expands into a bullet list from an offline JSON. `effects.md` is a skeleton of headings and prose with `::effects{category="bane"}` where each list used to be; the plugin (`util/remarkContentDirectives.ts`) filters records by the directive's attributes (every attribute is an equality filter; none = all records; `tight` renders a tight list), generates `-   **_Name_** - effect` markdown, re-parses it, and gives each `<li>` an `id` (`effect-<slug>`, same `generateSlug` as headings) so `/rulebook/effects#effect-burn` deep-links. A directive that matches nothing, names an unknown attribute, or an unregistered name renders a visible `[effects: …]` paragraph and logs a warning rather than disappearing. `keys.json` (`{name, source, effect, extra}`, `source` is `spell | item`; typed by `types/Key.ts`, read via `hooks/useKeys.tsx`) is the second source: `spell_key.md` is `::keys{source="spell" tight}` and `item_key.md` is `::keys{source="item"}`, with ids `key-<source>-<slug>`. Keys are per-table vocabulary — the item `glow` and the bane `glow` are different records on purpose, and Aura/Focus/Follower are deliberately duplicated between `keys.json` and `effects.json` (`useKeys.test.ts` fails if the copies drift). Adding another source means adding one entry to `contentDirectiveSources`. Because `remark-directive` is on for every rulebook file, a line starting with `::` or `:::` in any `.md` is parsed as a directive; `: text` (colon-space) is not.
+Dependency direction: `rulebook` imports `glossary`; `glossary` imports `util` and `styling`, and only the `RulebookPageSlug` type from `rulebook/pages.ts`.
 
 ### Color system (the load-bearing convention)
 
-Skill/stat names are also Tailwind color names: `body, mind, soul, arcana, charm, crafting, nature, medicine, thieving` (plus `core, base, dark, light, aabase`), defined in `tailwind.config.js`. Two things depend on this:
+Skill/stat names are also Tailwind color names: `body, mind, soul, arcana, charm, crafting, nature, medicine, thieving` (plus `core, base, dark, light, aabase`), defined in `tailwind.config.js`. Three things depend on this:
 
--   Stat words get wrapped in `text-<stat>-700`: `util/remarkHighlightKeywords.ts` for rulebook markdown, `highlightKeywords` in `util/textFormatting.tsx` for plain effect strings. Both read the same `STAT_COLORS` list.
+-   Stat words get wrapped in `text-<stat>-700`: `rulebook/remarkHighlightKeywords.ts` for rulebook markdown, `glossary/scan.ts` (through `formatEffectString`) for plain effect strings in cards, tables, and tooltips. Both read `STAT_COLORS` and `statColorClass` from `styling/statColors.ts`.
 -   `toPillElement` builds `bg-<word>` classes from `req`/`tags` strings, mapping rarity/class words (e.g. `legendary` → `arcana`, `craftsman` → `crafting`) onto the same palette.
+-   Each glossary source's `pillColor` returns a literal `bg-<color>` class for the tooltip pill.
 
 Because these class names are constructed at runtime, `tailwind.config.js` has a `safelist` regex for `(bg|ring|text)-<color>-<shade>`. Any new stat/rarity color must be added to the theme **and** covered by the safelist, or it will silently render with no color. Some components (e.g. `traitCard.tsx`) keep a dummy array of literal class strings for the same reason.
 

@@ -14,6 +14,14 @@ function escapeRegex(text: string): string {
     return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+export function escapeHtml(text: string): string {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
+
 function toPattern(name: string): string {
     return name.replace(/ x$/, "");
 }
@@ -48,11 +56,14 @@ function buildIndex(records: readonly GlossaryRecord[]): Index {
         .map((p) => escapeRegex(p).replace(/'/g, "['’]"))
         .join("|");
 
+    // an empty keyword branch would match zero-length and never advance
+    const alternatives = [`\\b(?:${STAT_COLORS.join("|")})\\b`];
+    if (keywordAlternation) {
+        alternatives.unshift(`\\b(?:${keywordAlternation})\\b`);
+    }
+
     return {
-        regex: new RegExp(
-            `\\b(?:${keywordAlternation})\\b|\\b(?:${STAT_COLORS.join("|")})\\b`,
-            "gi"
-        ),
+        regex: new RegExp(alternatives.join("|"), "gi"),
         canonical,
         patterns,
     };
@@ -136,9 +147,9 @@ function scanWith(index: Index, text: string, emit: ScanEmit): string {
 }
 
 export const spanEmit: ScanEmit = {
-    plain: (text) => text,
+    plain: escapeHtml,
     stat: (matched, statWord) =>
-        `<span class="${statColorClass(statWord)}">${matched}</span>`,
+        `<span class="${statColorClass(statWord)}">${escapeHtml(matched)}</span>`,
     keyword: (matched, name) =>
-        `<span class="kw" data-kw="${name}" tabindex="0" role="button">${matched}</span>`,
+        `<span class="kw" data-kw="${escapeHtml(name)}" tabindex="0" role="button">${escapeHtml(matched)}</span>`,
 };

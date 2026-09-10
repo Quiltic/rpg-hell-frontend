@@ -1,12 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { formatEffectString } from "./format";
+import { escapeHtml } from "./scan";
 import { STAT_COLORS, statColorClass } from "../styling/statColors";
 import traits from "../assets/OfflineJsons/traits.json";
 import spells from "../assets/OfflineJsons/spells.json";
 import items from "../assets/OfflineJsons/items.json";
 
-// Stat-only colouring, one regex pass per stat word. The reference the
-// combined pass is measured against; kept here so it cannot drift with it.
+// Stat-only colouring, one regex pass per stat word over escaped text. The
+// reference the combined pass is measured against; kept here so it cannot
+// drift with it.
 function statOnly(text: string): string {
     return STAT_COLORS.reduce(
         (out, word) =>
@@ -14,7 +16,7 @@ function statOnly(text: string): string {
                 new RegExp(`\\b(${word})\\b`, "gi"),
                 `<span class="${statColorClass(word)}">$1</span>`
             ),
-        text
+        escapeHtml(text)
     );
 }
 
@@ -33,6 +35,10 @@ describe("statOnly reference", () => {
 
     it("leaves other words alone", () => {
         expect(statOnly("Roll two dice.")).toBe("Roll two dice.");
+    });
+
+    it("escapes markup characters", () => {
+        expect(statOnly("a < b & c")).toBe("a &lt; b &amp; c");
     });
 });
 
