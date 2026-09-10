@@ -1,0 +1,121 @@
+[
+
+    {
+        "name":"fighter",
+        "source":"core",
+        "description": "",
+        "short":"Offense and Defense in the heat of battle.",
+        "icon":"🛡️",
+        "color":"body"
+    },
+    {
+        "name":"survivor",
+        "source":"core",
+        "description": "",
+        "short":"Staying alive through healing and movement.",
+        "icon":"❤️‍🩹",
+        "color":"medicine"
+    },
+    {
+        "name":"analyst",
+        "source":"core",
+        "description": "",
+        "short":"Manipulate the dice to get an advantage.",
+        "icon":"🧮",
+        "color":"mind"
+    },
+    {
+        "name":"commander",
+        "source":"core",
+        "description": "",
+        "short":"A team player through buffs and turns.",
+        "icon":"👥",
+        "color":"mind"
+    },
+    {
+        "name":"pious",
+        "source":"core",
+        "description": "",
+        "short":"Religious life with heavy use of Arts.",
+        "icon":"🕯️",
+        "color":"soul"
+    },
+    {
+        "name":"spirits",
+        "source":"core",
+        "description": "",
+        "short":"Summon spirits for friends or use them for harm.",
+        "icon":"👻",
+        "color":"soul"
+    },
+    {
+        "name":"arcanist",
+        "source":"core",
+        "description": "",
+        "short":"Bend magic and Arts to your will.",
+        "icon":"✨",
+        "color":"arcana"
+    },
+    {
+        "name":"druid",
+        "source":"core",
+        "description": "",
+        "short":"Utilize the natural world to control or aid.",
+        "icon":"🍃",
+        "color":"nature"
+    },
+    {
+        "name":"face",
+        "source":"core",
+        "description": "",
+        "short":"Be a people person, manipulating enemies and aiding friends.",
+        "icon":"🎭",
+        "color":"charm"
+    },
+    {
+        "name":"ranger",
+        "source":"core",
+        "description": "",
+        "short":"Hunt alone or with a pack.",
+        "icon":"🐾",
+        "color":"nature"
+    },
+    {
+        "name":"urchin",
+        "source":"core",
+        "description": "",
+        "short":"Take everything from the shadows and illusions.",
+        "icon":"🗡️",
+        "color":"thieving"
+    },
+
+
+
+
+
+    {
+        "name":"craftsman",
+        "source":"core2",
+        "description": "",
+        "short":"",
+        "icon":"⚙️",
+        "color":"crafting"
+    },
+    {
+        "name":"elementalist",
+        "source":"core2",
+        "description": "",
+        "short":"",
+        "icon":"⛅",
+        "color":"nature"
+    },
+    {
+        "name":"pugilist",
+        "source":"core2",
+        "description": "",
+        "short":"",
+        "icon":"✊",
+        "color":"body"
+    }
+    
+]

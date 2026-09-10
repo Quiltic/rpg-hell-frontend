@@ -17,17 +17,9 @@ Then pick 2 Paths for your character. Each Path plays a little difrently, though
 
 The base game Paths are:
 
--   _Fighter_ - Offence and Defence in the heat of battle.
--   _Survivor_ - Staying alive through healing and movement.
--   _Analyst_ - Manipulate the dice to get an advantage.
--   _Commander_ - A team player through buffs and turns.
--   _Pious_ - Religous life with heavy use of Arts.
--   _Spirits_ - Summon spirits for friends or use them for harm.
--   _Arcanist_ - Bend magic and Arts to your will.
--   _Druid_ - Utilize the natural world to control or aid.
--   _Face_ - Be a people person, manipulating enemies and aiding friends.
--   _Ranger_ - Hunt alone or with a pack.
--   _Urchin_ - Take everything from the shadows and illusions.
+::paths{source="core"}
+
+---
 
 You create 3 [Stories](#stories) of your choice. These may help determine what you pick for your paths.
 
