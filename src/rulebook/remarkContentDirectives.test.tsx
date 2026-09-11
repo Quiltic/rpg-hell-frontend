@@ -6,6 +6,7 @@ import rehypeRaw from "rehype-raw";
 import { remark } from "remark";
 import type { List, Paragraph, Root } from "mdast";
 import {
+    ContentBlock,
     DirectiveSources,
     remarkContentDirectives,
 } from "./remarkContentDirectives";
@@ -24,6 +25,13 @@ const sources: DirectiveSources = {
         records: fakes,
         toLine: (r) => `**_${r.name}_** - ${r.text}`,
         anchor: (r) => `thing-${r.name}`,
+    },
+    blocks: {
+        records: fakes,
+        toLine: (r) => `**_${r.name}_** - ${r.text}`,
+        anchor: (r) => `block-${r.name}`,
+        toBlock: (r) =>
+            r.name === "alpha" ? `${r.text}\n\n- one\n- two` : `${r.text}`,
     },
 };
 
@@ -127,6 +135,63 @@ describe("remarkContentDirectives", () => {
         // First <strong> is the bolded name; the second is the **bold** in the text.
         const strongs = container.querySelectorAll("#thing-beta strong");
         expect(strongs[1]?.textContent).toBe("bold");
+    });
+});
+
+describe("remarkContentDirectives with toBlock", () => {
+    it("expands a single match into a block carrying the id", () => {
+        const node = parse('::blocks{name="beta"}').children[0] as ContentBlock;
+        expect(node.type).toBe("contentBlock");
+        expect(node.data?.hName).toBe("div");
+        expect(node.data?.hProperties?.id).toBe("block-beta");
+        expect(node.children.map((c) => c.type)).toEqual(["paragraph"]);
+        expect(textOf(node)).toBe("Second bold thing.");
+    });
+
+    it("keeps every block of a multi-block effect", () => {
+        const node = parse('::blocks{name="alpha"}')
+            .children[0] as ContentBlock;
+        expect(node.children.map((c) => c.type)).toEqual(["paragraph", "list"]);
+    });
+
+    it("falls back to a list when several records match", () => {
+        const list = parse('::blocks{group="a"}').children[0] as List;
+        expect(list.type).toBe("list");
+        expect(list.children.map((li) => li.data?.hProperties?.id)).toEqual([
+            "block-alpha",
+            "block-beta",
+        ]);
+    });
+
+    it("leaves a source without toBlock on the list path", () => {
+        const list = parse('::things{name="beta"}').children[0] as List;
+        expect(list.type).toBe("list");
+    });
+
+    it("expands consecutive directives on adjacent lines", () => {
+        const tree = parse('::blocks{name="beta"}\n::blocks{name="gamma"}');
+        expect(tree.children.map((c) => c.type)).toEqual([
+            "contentBlock",
+            "contentBlock",
+        ]);
+    });
+
+    it("renders through react-markdown as a div with the id and inner list", () => {
+        const { container } = render(
+            <Markdown
+                remarkPlugins={[
+                    remarkDirective,
+                    remarkContentDirectives(sources),
+                ]}
+                rehypePlugins={[rehypeRaw]}
+            >
+                {'::blocks{name="alpha"}'}
+            </Markdown>
+        );
+        const div = container.querySelector("#block-alpha");
+        expect(div?.tagName).toBe("DIV");
+        expect(div?.querySelector("p")?.textContent).toBe("First body thing.");
+        expect(div?.querySelectorAll("ul li")).toHaveLength(2);
     });
 });
 

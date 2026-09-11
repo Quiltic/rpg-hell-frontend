@@ -126,9 +126,9 @@ describe("content that must pass through untouched", () => {
         expect(scan(text)).toBe(text);
     });
 
-    it("does not decorate core mechanics, which are out of scope for v1", () => {
+    it("decorates definitions but not undefined core mechanics", () => {
         expect(terms("Spend 2 Strain to make an Attack after a Rest.")).toEqual(
-            []
+            ["Rest=rest"]
         );
     });
 

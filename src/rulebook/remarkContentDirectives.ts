@@ -1,6 +1,6 @@
 import { remark } from "remark";
 import { visit } from "unist-util-visit";
-import type { List, Paragraph, Root } from "mdast";
+import type { BlockContent, List, Paragraph, Parent, Root } from "mdast";
 import type { LeafDirective } from "mdast-util-directive";
 
 // A content source a `::name{...}` leaf directive can expand into a list.
@@ -12,7 +12,21 @@ export type DirectiveSource<T> = {
     toLine(record: T): string;
     // DOM id for the bullet's <li>, so it can be deep-linked.
     anchor(record: T): string;
+    // Markdown for a single match placed on its own, rendered as a block.
+    toBlock?(record: T): string;
 };
+
+// Not named "definition": mdast uses that for link references.
+export interface ContentBlock extends Parent {
+    type: "contentBlock";
+    children: BlockContent[];
+}
+
+declare module "mdast" {
+    interface RootContentMap {
+        contentBlock: ContentBlock;
+    }
+}
 
 type AnyRecord = Record<string, unknown>;
 export type DirectiveSources = Record<string, DirectiveSource<AnyRecord>>;
@@ -28,6 +42,16 @@ function failure(name: string, reason: string): Paragraph {
     return { type: "paragraph", children: [{ type: "text", value }] };
 }
 
+// mdast-util-to-hast renders an unknown parent node as a div carrying hName
+// and hProperties, which gives the anchor one element to sit on.
+function block(id: string, markdown: string): ContentBlock {
+    return {
+        type: "contentBlock",
+        children: remark().parse(markdown).children as BlockContent[],
+        data: { hName: "div", hProperties: { id } },
+    };
+}
+
 function hasOwn(record: AnyRecord, key: string): boolean {
     return Object.prototype.hasOwnProperty.call(record, key);
 }
@@ -36,13 +60,13 @@ function describeFilters(filters: [string, string][]): string {
     return filters.map(([key, value]) => `${key}="${value}"`).join(" ");
 }
 
-// Turns one directive node into the list it stands for, or a visible failure
-// paragraph. Every attribute except `tight` is an equality filter on the
-// records; no attributes means every record.
+// Turns one directive node into the list or block it stands for, or a visible
+// failure paragraph. Every attribute except `tight` is an equality filter on
+// the records; no attributes means every record.
 export function expandDirective(
     node: LeafDirective,
     sources: DirectiveSources
-): List | Paragraph {
+): List | Paragraph | ContentBlock {
     if (!hasOwn(sources, node.name)) {
         return failure(node.name, `unknown directive "${node.name}"`);
     }
@@ -69,6 +93,11 @@ export function expandDirective(
             node.name,
             `no entries for ${describeFilters(filters) || "(all)"}`
         );
+    }
+
+    if (matches.length === 1 && source.toBlock) {
+        const [match] = matches;
+        return block(source.anchor(match), source.toBlock(match));
     }
 
     // Build markdown and re-parse it rather than assembling mdast by hand so

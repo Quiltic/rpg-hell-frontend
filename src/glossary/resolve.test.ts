@@ -23,6 +23,12 @@ describe("resolveTerm", () => {
         expect(found.record.effect).toMatch(/beginning of your turn/);
     });
 
+    it("finds definitions", () => {
+        const found = hit("death's door");
+        expect(found.source.kind).toBe("definitions");
+        expect(found.record.name).toBe("death's door");
+    });
+
     it("finds keys that are not effects", () => {
         expect(hit("on hit")).toEqual({
             source: keysSource,
@@ -84,6 +90,15 @@ describe("rulebookHref", () => {
         );
     });
 
+    it("uses a definition's own page", () => {
+        expect(rulebookHref(hit("death's door"))).toBe(
+            "/rulebook/combat#definition-deaths-door"
+        );
+        expect(rulebookHref(hit("rest"))).toBe(
+            "/rulebook/core-rules#definition-rest"
+        );
+    });
+
     it("strips apostrophes the same way the heading slugs do", () => {
         expect(rulebookHref(hit("reaching x"))).toBe(
             "/rulebook/items#key-item-reaching-x"
@@ -114,6 +129,11 @@ describe("rulebookHref", () => {
 });
 
 describe("definitionHtml", () => {
+    it("prefers short and falls back to effect when it is empty", () => {
+        expect(definitionHtml(hit("rest"))).toMatch(/^Spend 8 or more hours/);
+        expect(definitionHtml(hit("death's door"))).toMatch(/^- At 1 or more/);
+    });
+
     it("links nested terms out to the rulebook", () => {
         // Wet's own text names Burn.
         const html = definitionHtml(hit("wet"));

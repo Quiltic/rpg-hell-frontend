@@ -186,6 +186,10 @@ ul li {
     @apply ml-0 mt-1;
 }
 
+.tooltip_body ul {
+    @apply ml-4 mt-1 list-disc;
+}
+
 .boxed_text {
     @apply m-2 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400 p-2 italic;
 }
