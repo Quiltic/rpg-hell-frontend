@@ -2,51 +2,8 @@ import { useState } from "react";
 import { Switch } from "@headlessui/react";
 import { cn } from "../../../styling/utilites";
 import { Button } from "../../ui/Button/Button";
-
-type playerCharacter = {
-    name: string;
-    level: number;
-    stats: {
-        body: number;
-        mind: number;
-        soul: number;
-        arcana: number;
-        charm: number;
-        finesse: number;
-        nature: number;
-    };
-    calculatedStats: {
-        // can be modified by player but is auto calculated if not
-        speed: number;
-        dodge: number;
-        shielding: number;
-
-        maxHp: number;
-        curHp: number;
-        maxStrain: number;
-        curStrain: number;
-    };
-    items: Array<string>; // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
-    equipped: Array<string>; // lefthand, righthand, armor, mysc,,,,
-
-    paths: Array<string>; // get two at lvl 1 then one more at lvl 3
-    traits: Array<Array<string>>; // # of traits per tier, 3,3,2,2,1
-    arts: Array<Array<string>>; // # of Arts per tier, 5,3,2,2,1
-
-    stories: string;
-    description: string;
-    notes: string;
-};
-
-function changeThing(
-    changingArray: Array<any>,
-    location: number,
-    thingToChangeWith: any
-) {
-    changingArray[location] = thingToChangeWith;
-
-    return [...changingArray];
-}
+import { changeItemInArray } from "../../../util/creatureHelpers";
+import { playerCharacterType } from "../../../types/playerCharacterType";
 
 type statline =
     | ""
@@ -62,7 +19,7 @@ type Props = {
     chosenStats: Array<string>;
     setChosenStats: (list: Array<statline>) => void;
     setStepnum: () => void;
-    player: playerCharacter;
+    player: playerCharacterType;
 };
 
 export default function BuilderStep1_2({
@@ -102,7 +59,7 @@ export default function BuilderStep1_2({
                             )}
                             onClick={() => {
                                 setChosenStats(
-                                    changeThing(chosenStats, 0, "body")
+                                    changeItemInArray(chosenStats, 0, "body")
                                 );
                             }}
                         >
@@ -124,7 +81,7 @@ export default function BuilderStep1_2({
                             )}
                             onClick={() => {
                                 setChosenStats(
-                                    changeThing(chosenStats, 0, "mind")
+                                    changeItemInArray(chosenStats, 0, "mind")
                                 );
                             }}
                         >
@@ -146,7 +103,7 @@ export default function BuilderStep1_2({
                             )}
                             onClick={() => {
                                 setChosenStats(
-                                    changeThing(chosenStats, 0, "soul")
+                                    changeItemInArray(chosenStats, 0, "soul")
                                 );
                             }}
                         >
@@ -177,7 +134,11 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 1, "body")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            1,
+                                            "body"
+                                        )
                                     );
                                 }}
                             >
@@ -199,7 +160,11 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 1, "mind")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            1,
+                                            "mind"
+                                        )
                                     );
                                 }}
                             >
@@ -221,7 +186,11 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 1, "soul")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            1,
+                                            "soul"
+                                        )
                                     );
                                 }}
                             >
@@ -261,10 +230,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 2, "arcana")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            2,
+                                            "arcana"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             3,
                                             chosenStats[3] != "arcana"
@@ -292,10 +265,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 2, "charm")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            2,
+                                            "charm"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             3,
                                             chosenStats[3] != "charm"
@@ -323,10 +300,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 2, "finesse")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            2,
+                                            "finesse"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             3,
                                             chosenStats[3] != "finesse"
@@ -354,10 +335,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 2, "nature")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            2,
+                                            "nature"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             3,
                                             chosenStats[3] != "nature"
@@ -397,7 +382,7 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(
+                                            changeItemInArray(
                                                 chosenStats,
                                                 3,
                                                 "arcana"
@@ -424,7 +409,11 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(chosenStats, 3, "charm")
+                                            changeItemInArray(
+                                                chosenStats,
+                                                3,
+                                                "charm"
+                                            )
                                         );
                                     }}
                                 >
@@ -447,7 +436,7 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(
+                                            changeItemInArray(
                                                 chosenStats,
                                                 3,
                                                 "finesse"
@@ -474,7 +463,7 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(
+                                            changeItemInArray(
                                                 chosenStats,
                                                 3,
                                                 "nature"
@@ -520,10 +509,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 4, "arcana")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            4,
+                                            "arcana"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             5,
                                             chosenStats[5] != "arcana"
@@ -551,10 +544,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 4, "charm")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            4,
+                                            "charm"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             5,
                                             chosenStats[5] != "charm"
@@ -582,10 +579,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 4, "finesse")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            4,
+                                            "finesse"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             5,
                                             chosenStats[5] != "finesse"
@@ -613,10 +614,14 @@ export default function BuilderStep1_2({
                                 )}
                                 onClick={() => {
                                     setChosenStats(
-                                        changeThing(chosenStats, 4, "nature")
+                                        changeItemInArray(
+                                            chosenStats,
+                                            4,
+                                            "nature"
+                                        )
                                     );
                                     setChosenStats(
-                                        changeThing(
+                                        changeItemInArray(
                                             chosenStats,
                                             5,
                                             chosenStats[5] != "nature"
@@ -657,7 +662,7 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(
+                                            changeItemInArray(
                                                 chosenStats,
                                                 5,
                                                 "arcana"
@@ -684,7 +689,11 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(chosenStats, 5, "charm")
+                                            changeItemInArray(
+                                                chosenStats,
+                                                5,
+                                                "charm"
+                                            )
                                         );
                                     }}
                                 >
@@ -707,7 +716,7 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(
+                                            changeItemInArray(
                                                 chosenStats,
                                                 5,
                                                 "finesse"
@@ -734,7 +743,7 @@ export default function BuilderStep1_2({
                                     )}
                                     onClick={() => {
                                         setChosenStats(
-                                            changeThing(
+                                            changeItemInArray(
                                                 chosenStats,
                                                 5,
                                                 "nature"

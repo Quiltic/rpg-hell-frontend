@@ -1,5 +1,5 @@
 import { Button } from "../ui/Button/Button";
-// import json from "../../assets/OfflineJsons/traits.json";
+import pathJson from "../../assets/OfflineJsons/paths.json";
 // import useApi from "../../hooks/useApi";
 // import { sortArrayByReqs, sortItems } from "../../util/sortingTools";
 // import { formatEffectString, toPillElement } from "../../util/textFormatting";
@@ -46,6 +46,9 @@ import { BaseButton } from "../ui/Button/BaseButton";
 import { cn } from "../../styling/utilites";
 import Pill from "../ui/Pill";
 import BuilderStep1_2 from "../CharacterSheet/CharacterBuilder/BuilderStep1_2";
+import { changeItemInArray } from "../../util/creatureHelpers";
+import { capitalize } from "../../util/textFormatting";
+import BuilderStep3 from "../CharacterSheet/CharacterBuilder/BuilderStep3";
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 // const STUPID_COLOR_TYPESCRIPT_BS = [
@@ -78,7 +81,7 @@ const playerCharacter = {
     items: [""], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
     equipped: ["", "", ""], // lefthand, righthand, armor, mysc,,,,
 
-    paths: ["", "", ""], // get two at lvl 1 then one more at lvl 3
+    paths: ["", "", "Locked until Lvl 3"], // get two at lvl 1 then one more at lvl 3
     traits: [["", "", ""], ["", "", ""], ["", ""], ["", ""], [""]], // # of traits per tier, 3,3,2,2,1
     arts: [["", "", "", "", ""], ["", "", ""], ["", ""], ["", ""], [""]], // # of Arts per tier, 5,3,2,2,1
 
@@ -108,10 +111,12 @@ export default function JoshhellscapePage() {
         "",
         "",
     ]); // bms -> bms -> strength -> flaw
-    const [useDeeperLearning, setUseDeeperLearning] = useState(false);
     const [pointsLeft, setPointsLeft] = useState(2);
-    const [stepnum, setStepnum] = useState(1);
+    const [stepnum, setStepnum] = useState(3);
 
+    const pathList = pathJson.map((path) => path.name);
+
+    // console.log(pathJson[0]);
     // const {
     //     allCreatures,
     //     pinnedCreatures,
@@ -122,6 +127,7 @@ export default function JoshhellscapePage() {
     //     resetFilterCreatures,
     // } = useCreatures();
 
+    // update the stats based on what you chose
     useEffect(() => {
         const tempStats = {
             "": 0,
@@ -151,21 +157,22 @@ export default function JoshhellscapePage() {
 
     return (
         <div className="">
-            {/* <Button
-                disabled={chosenStats[4] == "nature"}
-                variant={chosenStats[5] == ""  ? "nature": chosenStats[5] == "nature"? "nature":"link-nature"}
-                className={cn("m-1",chosenStats[5] == "nature" ? "ring-2 ring-light/75" : "")}
-                onClick={()=>{setChosenStats(changeThing(chosenStats,4,"nature"));console.log(chosenStats);}}
-            >
-                Nature
-            </Button> */}
+            {stepnum == 1 && (
+                <BuilderStep1_2
+                    chosenStats={chosenStats}
+                    setChosenStats={setChosenStats}
+                    setStepnum={() => setStepnum(3)}
+                    player={player}
+                />
+            )}
 
-            <BuilderStep1_2
-                chosenStats={chosenStats}
-                setChosenStats={setChosenStats}
-                setStepnum={() => setStepnum(1)}
-                player={player}
-            ></BuilderStep1_2>
+            {stepnum == 3 && (
+                <BuilderStep3
+                    player={player}
+                    setPlayer={setPlayer}
+                    setStepnum={() => setStepnum(4)}
+                />
+            )}
         </div>
     );
 }
