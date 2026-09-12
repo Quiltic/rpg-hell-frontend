@@ -46,7 +46,7 @@ export default function SpellsTable({
                                         {spell.name}
                                     </span>
                                     <br />
-                                    Stat: Tags: {spell.tags}{" "}
+                                    Stat: {spell.stat} Tags: {spell.tags}{" "}
                                     {moveSpell != undefined && (
                                         <Button
                                             variant={
