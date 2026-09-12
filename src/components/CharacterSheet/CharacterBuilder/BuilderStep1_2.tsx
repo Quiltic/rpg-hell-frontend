@@ -837,12 +837,12 @@ export default function BuilderStep1_2({
                         <div className="flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
                             {useDeeperLearning && (
                                 <p className="m-2 flex flex-row items-center justify-center">
-                                    Use Deeper Learning
+                                    Disable Deeper Learning
                                 </p>
                             )}
                             {!useDeeperLearning && (
                                 <p className="m-2 flex flex-row items-center justify-center">
-                                    Disable Deeper Learning
+                                    Use Deeper Learning
                                 </p>
                             )}
 

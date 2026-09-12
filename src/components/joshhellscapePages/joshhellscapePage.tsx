@@ -50,12 +50,18 @@ import { changeItemInArray } from "../../util/creatureHelpers";
 import { capitalize } from "../../util/textFormatting";
 import BuilderStep3 from "../CharacterSheet/CharacterBuilder/BuilderStep3";
 
+import { PlusIcon } from "@heroicons/react/24/outline";
+import { useTraits } from "../../hooks/useTraits";
+import { playerCharacterType } from "../../types/playerCharacterType";
+import BuilderStep4 from "../CharacterSheet/CharacterBuilder/BuilderComponentStep4";
+import BuilderStep4_5 from "../CharacterSheet/CharacterBuilder/BuilderStep4_5";
+
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 // const STUPID_COLOR_TYPESCRIPT_BS = [
 
 // import traitJson from "../../assets/OfflineJsons/traits.json";
 
-const playerCharacter = {
+const playerCharacter: playerCharacterType = {
     name: "",
     level: 1,
     stats: {
@@ -82,8 +88,8 @@ const playerCharacter = {
     equipped: ["", "", ""], // lefthand, righthand, armor, mysc,,,,
 
     paths: ["", "", "Locked until Lvl 3"], // get two at lvl 1 then one more at lvl 3
-    traits: [["", "", ""], ["", "", ""], ["", ""], ["", ""], [""]], // # of traits per tier, 3,3,2,2,1
-    arts: [["", "", "", "", ""], ["", "", ""], ["", ""], ["", ""], [""]], // # of Arts per tier, 5,3,2,2,1
+    traits: ["", ""], // # of traits per tier, 3,3,2,2,1
+    arts: ["", "", "", ""], // # of Arts per tier, 5,3,2,2,1
 
     stories: "",
     description: "",
@@ -112,7 +118,7 @@ export default function JoshhellscapePage() {
         "",
     ]); // bms -> bms -> strength -> flaw
     const [pointsLeft, setPointsLeft] = useState(2);
-    const [stepnum, setStepnum] = useState(3);
+    const [stepnum, setStepnum] = useState(1);
 
     const pathList = pathJson.map((path) => path.name);
 
@@ -155,6 +161,16 @@ export default function JoshhellscapePage() {
         setPlayer({ ...player, stats: tempStats });
     }, [chosenStats]);
 
+    useEffect(() => {
+        if (player.traits.includes("magical knowledge")) {
+            if (player.arts.length <= 4)
+                setPlayer({ ...player, arts: player.arts.concat(["", ""]) });
+        } else {
+            if (player.arts.length > 4)
+                setPlayer({ ...player, arts: player.arts.slice(0, 4) });
+        }
+    }, [player.traits]);
+
     return (
         <div className="">
             {stepnum == 1 && (
@@ -171,6 +187,14 @@ export default function JoshhellscapePage() {
                     player={player}
                     setPlayer={setPlayer}
                     setStepnum={() => setStepnum(4)}
+                />
+            )}
+
+            {stepnum == 4 && (
+                <BuilderStep4_5
+                    player={player}
+                    setPlayer={setPlayer}
+                    setStepnum={() => setStepnum(6)}
                 />
             )}
         </div>
