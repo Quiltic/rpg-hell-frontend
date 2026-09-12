@@ -4,16 +4,15 @@
 
 ## Sources
 
-`sources/source.ts` defines the record shape (`{name, effect, short?, extra?, aliases?}`) and the `GlossarySource<T>` contract: `kind` (also the directive name), `records`, `page(record)` (a `RulebookPageSlug`), `anchor(record)` (the DOM id in the rulebook), `label`, `pillColor`, `toLine` (one bullet of markdown), and optional `toBlock`. Two sources exist:
+`sources/source.ts` defines the record shape (`{name, effect, short?, extra?, aliases?}`) and the `GlossarySource<T>` contract: `kind` (also the directive name), `records`, `page(record)` (a `RulebookPageSlug`), `anchor(record)` (the DOM id in the rulebook), `label`, `pillColor`, `toLine` (one bullet of markdown), and optional `toBlock` (the record on its own as markdown blocks, used when a directive matches one record). Three sources exist:
 
 -   `sources/effects.ts`: `effects.json`, `{name, category, effect, …}`, `category` one of `character-state | elemental-bane | bane | boon`. Exports `allEffects`, `getEffect`, `effectsInCategory`, `effectsSource`. Every record lives on the `effects` page under `effect-<slug>`.
 -   `sources/keys.ts`: `keys.json`, `{name, source, effect, …}`, `source` one of `spell | item`. Exports `allKeys`, `getKey` (scoped to a source on purpose), `keysFor`, `KEY_ANCHOR_PREFIXES`, `keysSource`. Spell keys live on the `spells` page, item keys on `items`, under `key-<source>-<slug>`.
+-   `sources/definitions.ts`: `definitions.json`, `{name, page, effect, short, …}`, `page` a `RulebookPageSlug`. Exports `allDefinitions`, `getDefinition`, `definitionsSource`. Each record is placed by hand with one `::definitions{name="…"}` on its `page` (checked by `rulebook/placements.test.ts`), under `definition-<slug>`. `short` is always present; empty means the tooltip shows `effect`.
 
 Record rules, enforced by `sources/sources.test.ts` for every registered source: names lowercase, unique within the source, straight apostrophes; array order is display order. Keys are per-table vocabulary, so the item `glow` and the bane `glow` are different records. Focus and Follower are deliberately in both `keys.json` and `effects.json`; `keys.test.ts` fails if the copies drift.
 
 `sources/sources.ts` is the registry, `GLOSSARY_SOURCES`. Order is precedence: when two sources hold the same name, the first wins, and `sources.test.ts` asserts the exact list of collisions so a new one is a deliberate choice. Adding a source means one file in `sources/` and one entry in the registry. That alone registers its `::kind{…}` directive in the rulebook, adds its names to the keyword scanner, and runs the generic source test over its data.
-
-`definitions.json` is checked in but nothing reads it yet; it is the next source to add.
 
 ## Scanning and formatting
 

@@ -26,7 +26,7 @@ Survivor - Healing/Buffs/Movement
     {"name":"last wind","req":"survivor 2","tags":"","effect":"Once per Break or Rest you may choose to gain +1d4 on a Check, heal 2+BODY, or refund 2+BODY Strain.","extra":""},
     {"name":"field tending","req":"survivor 2","tags":"","effect":"At the end of a Break you may roll a number of d4 equal to your [BODY or MIND]. You pick any number of Creatures you can see. Heal a total amount of health equal to the dice rolled. The healing may be given to one creature or divided as among several. You cannot target Undead or Constructs.","extra":""},
 
-    {"name":"imsofocused(???)","req":"survivor 3","tags":"","effect":"When you would lose Focus (such as going unconscious or gaining a stack of Death's Door) you may spend 2 Strain to not lose Focus.","extra":""},
+    {"name":"locked in","req":"survivor 3","tags":"","effect":"When you would lose Focus (such as going unconscious or gaining a stack of Death's Door) you may spend 2 Strain to not lose Focus.","extra":""},
     {"name":"medical professional","req":"survivor 3","tags":"","effect":"All of your healing effects heal for an additional +1. Additionally, once per Rest, when you heal a creature you may remove a stack of Death's Door from them. ","extra":""},
 
     {"name":"surgeon","req":"survivor 4","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Empowered or Warded: you or the target may refund 1 Strain. Additionally, your healing may reattach limbs or permanently modify the appearance of the creature.","extra":""},
@@ -41,13 +41,13 @@ Anylist - Dice/Warded/Debuffs
     missing
 
     {"name":"multitasking","req":"anylist 2","tags":"","effect":"You may Lock an additional dice.","extra":""},
-    {"name":"swapwithme(???)","req":"anylist 2","tags":"","effect":"When you activate a non-damaging effect against a creature within 3 tiles of you, you may swap places with them. (This is not a teleport.)","extra":""},
+    {"name":"bait and switch","req":"anylist 2","tags":"","effect":"When you activate a non-damaging effect against a creature within 3 tiles of you, you may swap places with them. (This is not a teleport.)","extra":""},
     
     {"name":"eggs in one basket","req":"anylist 3","tags":"","effect":"You do not lose unspent dice at the end of your turns. Unused dice, up to a maximum of 2xMIND, may be kept and used on your next turn. These dice are not Locked and cannot be Locked until the start of your next turn.","extra":""},
     {"name":"forethought","req":"anylist 3","tags":"","effect":"When you Lock a dice while already having a Locked dice you may instead add the new dice to the Locked dice's value. This cannot set the locked dice value to be higher than 6.\nAdditionally, once per turn, when you Lock a 1 or 6 refund 1 Strain.","extra":""},
     
     {"name":"mastermind","req":"anylist 4","tags":"","effect":"You may Lock an additional dice.","extra":""},
-    {"name":"(tempname) aikido","req":"anylist 4","tags":"","effect":"When you successfully Dodge a roll or win a contest you did not initiate Lock a 1. \nAdditionally, once per turn, you may activate an Art by using a Locked Dice. This Art must cost only one dice and is classified as a Reaction.","extra":"Things that make an Art cost # instead of ## can let this trait activate; such as 'Art Manipulator'."},
+    {"name":"reversal","req":"anylist 4","tags":"","effect":"When you successfully Dodge a roll or win a contest you did not initiate Lock a 1. \nAdditionally, once per turn, you may activate an Art by using a Locked Dice. This Art must cost only one dice and is classified as a Reaction.","extra":"Things that make an Art cost # instead of ## can let this trait activate; such as 'Art Manipulator'."},
 
 
 
@@ -59,7 +59,7 @@ Comander - Marked/Teams/Buffs
     {"name":"mentor","req":"commander 1","tags":"","effect":"When you Help someone you may Empower them instead of giving a bonus to the roll. (You must have a positive value in the Stat to Help.)","extra":""},
 
     {"name":"coordinated strike","req":"commander 2","tags":"","effect":"When you Attack a target and remove Marked, pick an ally to do a Melee Attack against the same target (they must be in range). They use the same Attack Sum.","extra":""},
-    {"name":"movemark(???)","req":"commander 2","tags":"","effect":"You may spend a # or a Locked Dice to move Marked from one creature you can see to another you can see.\nAdditionally, when a Marked creature dies or becomes unconscious, you become Empowered until the end of your next turn.","extra":""},
+    {"name":"change mark","req":"commander 2","tags":"","effect":"You may spend a # or a Locked Dice to move Marked from one creature you can see to another you can see.\nAdditionally, when a Marked creature dies or becomes unconscious, you become Empowered until the end of your next turn.","extra":""},
 
     {"name":"threat assessment","req":"commander 3","tags":"","effect":"When you Mark a target, Mark an additional target you can see for the same duration.","extra":""},
     missing
@@ -99,7 +99,7 @@ Spirits - Arts/OOC/Summons
     {"name":"blood sacrifice","req":"spirits 2","tags":"","effect":"When you do an Attack you may spend 2 Health (ignores Shielding) to increase any damage by 1d4.","extra":""},
     
     {"name":"group practice","req":"spirits 3","tags":"","effect":"When you Focus on an Art that targets ally or yourself you may give the Art's effects to an additional creature. (That creature must be a valid target for the Art.)","extra":""},
-    {"name":"buddycop(???)","req":"spirits 3","tags":"","effect":"At the end of a Rest you may create a Mount Follower. Describe your Mount and how you created it. This Mount has 3xSOUL Max Health, 9 Speed, 0 in all other stats, the Construct, Monstrosity, or Undead tag, and one of the following bonuses (this can be changed at the end of a Rest):\n- The Mount can Fly and Hover\n- The Mount can move through non-metal walls (taking its rider with it) but has 6 Speed (instead of 9).\n- The Mount is Resistant to Physical, and Elemental damage.","extra":""},
+    {"name":"faithful steed","req":"spirits 3","tags":"","effect":"At the end of a Rest you may create a Mount Follower. Describe your Mount and how you created it. This Mount has 3xSOUL Max Health, 9 Speed, 0 in all other stats, the Animal, Construct, Monstrosity, or Undead tag, and one of the following bonuses (this can be changed at the end of a Rest):\n- The Mount can Fly and Hover\n- The Mount can move through non-metal walls (taking its rider with it) but has 6 Speed (instead of 9).\n- The Mount is Resistant to Physical, and Elemental damage.","extra":""},
     
     {"name":"necromancer","req":"spirits 4","tags":"","effect":"Followers you create or summon have +1 damage while they are within 6 tiles of you, and your Undead Followers can be healed by your Traits and Arts (Not by a Medkit or Bandage).","extra":""},
     missing

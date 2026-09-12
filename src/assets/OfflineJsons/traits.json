@@ -173,7 +173,7 @@
     {"name":"illusionist","req":"urchin 1","tags":"","effect":"Your Arts that create illusions can be activated without gestures or sounds, can be activated with +3 range, and last for twice as long.","extra":""},
     
     {"name":"eyes of the night","req":"urchin 2","tags":"","effect":"You can see in poorly light areas as if they were illuminated up to 18 tiles away, and can see through Obscured or Darkened areas you created.","extra":""},
-    {"name":"hidden power","req":"urchin 2","tags":"","effect":"While you are Hidden or Invisible you may conceal the fact that you are activating a Trait or Art. The Trait or Art makes no noise (unless the it is designed to) and activating a non-damaging Trait or Art does not break you out of Hidden or Invisibility.","extra":""},
+    {"name":"hidden power","req":"urchin 2","tags":"","effect":"While you are Hidden or Invisible you may conceal the fact that you are activating a Trait or Art. The Trait or Art makes no noise (unless the it is designed to) and activating a non-damaging Trait or Art does not take you out of Hidden or Invisibility.","extra":""},
 
     {"name":"facade","req":"urchin 3","tags":"","effect":"When you get Hit, you may spend a Locked Dice and 4 Strain to leave an illusionary clone in your place. You then take half damage (minimum of 1) and may move up to 3 tiles in any direction. (This may still provoke Overwatch Attacks.)","extra":""},
     
