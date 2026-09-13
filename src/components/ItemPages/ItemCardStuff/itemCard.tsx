@@ -14,6 +14,7 @@ type Props = {
     _item: Item;
     moveItem?: (item: Item) => void;
     _className?: string;
+    showUpgrades?: boolean;
 };
 
 export default function ItemCard({
@@ -25,9 +26,11 @@ export default function ItemCard({
         rarity: "common",
         cost: 2,
         effect: "Loading.",
+        tier: 0,
     },
     moveItem,
     _className,
+    showUpgrades: showUpgrades = true,
 }: Props) {
     const ee = formatEffectString(_item.effect).split("\n\n");
     // console.log(ee) ⚄.replace(/\#/gi, "⚀") ?? ""
@@ -39,7 +42,7 @@ export default function ItemCard({
         .split(", ")
         .forEach((tag) => {
             if (
-                "body mind soul arcana charm crafting medicine nature thieving ".includes(
+                "body mind soul arcana charm finesse nature".includes(
                     tag.substring(0, tag.length - 1)
                 )
             ) {
@@ -120,6 +123,7 @@ export default function ItemCard({
                 })}
 
                 {_item.upgrades &&
+                    showUpgrades &&
                     _item.upgrades.map((upgrade, id) => {
                         const line = formatEffectString(upgrade);
                         return (

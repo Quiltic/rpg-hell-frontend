@@ -25,7 +25,7 @@ You create 3 [Stories](#stories) of your choice. These may help determine what y
 
 Once you have decided what Paths you will use, look at Tier 1 for them and pick 2 Traits and 4 Arts from them.
 
-For items look at Tier 1 and pick 2 Weapons of your choice or 1 Weapon and a Shield, an armor, and a set of tools or 3 mundane items. _You cant use items you dont meet the requirements for._
+For items look at Tier 1 and pick two Weapons of your choice or one Weapon and a Shield, an armor, a set of Tools and a Pack. _You cant use items you dont meet the requirements for._
 Lastly, you get a bag of coin and a Bandage.
 
 _See [Deeper Learning](#deep-learning) for optional character creation rules._
@@ -42,7 +42,7 @@ _See [Deeper Learning](#deep-learning) for optional character creation rules._
 -   Learn 4 Arts from your Paths.
 -   Weild 2 Weapons of your choice or a Weapon and a Shield.
 -   Don Armor
--   Acquire a set of tools or 3 Mundane items of your choice.
+-   Acquire a set of Tools and 1 Pack of your choice.
 -   Get a bag of coin and a Bandage.
 
 ## Leveling Up

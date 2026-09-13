@@ -2,10 +2,17 @@ import { useCallback, useContext, useEffect, useState } from "react";
 // import { CancelablePromise, Item, Spell, Trait } from "../client";
 
 import traitJson from "../assets/OfflineJsons/traits.json";
-import itemJson from "../assets/OfflineJsons/items.json";
+// import itemJson from "../assets/OfflineJsons/items.json";
+import itemJson from "../assets/OfflineJsons/RefinedItems.json";
 import spellJson from "../assets/OfflineJsons/spells.json"; //"../assets/OfflineJsons/spells.json";
 import creatureJson from "../assets/OfflineJsons/creatures.json";
-import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems, sortSpells } from "../util/sortingTools";
+import {
+    sortArrayByLevel,
+    sortArrayByReqs,
+    sortArrayByTags,
+    sortItems,
+    sortSpells,
+} from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";
 
 import { ApiClassUnion, eApiClass } from "../types/ApiClassUnions";
@@ -46,7 +53,6 @@ export function useApiClass<T extends ApiClassUnion>(
     // const { auth } = useContext(AuthContext);
 
     useEffect(() => {
-        
         async function getList() {
             let t: T[];
 
@@ -68,8 +74,6 @@ export function useApiClass<T extends ApiClassUnion>(
                     t = Object.values(creatureJson) as T[];
                     break;
             }
-            
-           
 
             // only auth people should be able to see broken stuff
             // if (!auth.isAuthenticated || !auth.admin) {
@@ -110,7 +114,6 @@ export function useApiClass<T extends ApiClassUnion>(
                     t = sortArrayByLevel(t);
                     break;
             }
-
 
             setAll(t);
             setDisplayed(t);
@@ -187,4 +190,3 @@ export function useApiClass<T extends ApiClassUnion>(
         resetFilter,
     };
 }
-

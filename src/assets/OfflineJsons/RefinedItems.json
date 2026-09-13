@@ -1,0 +1,701 @@
+[
+    {
+        "name": "fist",
+        "description": "",
+        "effect": "On Hit: Do 1 damage. Bonus: If you hit, move the target 2 tiles in any direction.",
+        "upgrades": [],
+        "tags": "weapon, side",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "dagger",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +1d4 damage.",
+        "upgrades": [
+            "Silent - This weapon has +2 damage while you are Hidden or when you use Cloaked.",
+            "Throwing - +6 Throw Range."
+        ],
+        "tags": "weapon, side, throw range 6",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "club",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: If you hit, give the target 1 Stun.",
+        "upgrades": [
+            "Batton - Bonus: +1 Stun.",
+            "Torch - On Hit: Give the target 2 Burn. Bonus: +1 Burn"
+        ],
+        "tags": "weapon",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "mace",
+        "description": "",
+        "effect": "This Weapon does 2 extra damage to Prone targets. On Hit: Do 2 damage. Bonus: If the target is Rooted they become Prone.",
+        "upgrades": [
+            "Knockdown - Bonus: If the target is Stunned they become Prone.",
+            "Glowy - This weapon gains Glow. (Can be used to cast spells)"
+        ],
+        "tags": "weapon",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "axe",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: If you hit, ignore Shielding. Downside: -1 Damage.",
+        "upgrades": [],
+        "tags": "weapon, side, throw range 6",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "hand crossbow",
+        "description": "",
+        "effect": "Can only fire once a turn. On Hit: Do 2 damage. Bonus: Gain +2 damage.",
+        "upgrades": [
+            "Repeater - Can fire any number of times a turn."
+        ],
+        "tags": "weapon, range 10, side",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "great hammer",
+        "description": "",
+        "effect": "This Weapon does double damage against objects and structures. On Hit: Do 4 damage. Bonus: If you hit, you may do 4 Knockback. Downside: You gain Slow until the start of your next turn.",
+        "upgrades": [
+            "Proven - Bonus: Do +2 damage instead of Knockback.",
+            "Delayed - Knockback accumulates from this weapon and happens at the end of your Turn."
+        ],
+        "tags": "weapon, two-handed",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "staff",
+        "description": "",
+        "effect": "On Hit: Do 3 damage. Bonus: If you hit, give the target 1 Stun. Downside: No Reaching.",
+        "upgrades": [
+            "Crystalize - Give the staff Glow."
+        ],
+        "tags": "weapon, two-handed, reaching 2",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    
+    
+
+
+
+
+    {
+        "name": "sword",
+        "description": "",
+        "effect": "On Hit: Do 3 damage. Bonus: Gain +2 damage.",
+        "upgrades": [
+            "Short - This weapon gains Side (counts as a Side Weapon)",
+            "Sharpened - +1 Damage"
+        ],
+        "tags": "weapon, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "greatsword",
+        "description": "",
+        "effect": "On Hit: Do 4 damage. Bonus: Gain +2 damage. Downside: -2 damage.",
+        "upgrades": [],
+        "tags": "weapon, two-handed, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "greataxe",
+        "description": "",
+        "effect": " On Hit: Do 4 damage. Bonus: If you hit, ignore Shielding. Downside: -2 damage.",
+        "upgrades": [
+            "Halberd - This weapon gains 2 Reaching but has -1 damage."
+        ],
+        "tags": "weapon, two-handed, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "spear",
+        "description": "",
+        "effect": "If this weapon is Two Handed gain +2 damage and +2 Reaching. On Hit: Do 2 damage. Bonus: Do a Weapon Attack against all targets in a 2 tile line. Downside: No Reaching. ",
+        "upgrades": [
+            "Pike - +2 Reaching, Downside becomes: -2 Reaching."
+        ],
+        "tags": "weapon, throw range 6, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "crossbow",
+        "description": "",
+        "effect": "On Hit: Do 3 damage. Bonus: If you hit, ignore Shielding. Downside: Do not Autoload at the end of your turn.",
+        "upgrades": [
+            "Balista - +2 Damage,-1 Speed while carried"
+        ],
+        "tags": "weapon, two-handed, range 12, loading 1, autoload, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "brass knuckles",
+        "description": "",
+        "effect": "On Hit: Do 1+BODY damage. Bonus: If you or the target are Grappled, gain +2 damage.",
+        "upgrades": [
+            "Spiked - +1 Damage"
+        ],
+        "tags": "weapon, two-handed, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    
+
+    
+    
+    
+    {
+        "name": "rapier",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: You may move 3 tiles before or after the Attack.",
+        "upgrades": [
+            "Light - Bonus: +1 tile to move",
+            "Gilded - Damage becomes CHARM-1"
+        ],
+        "tags": "weapon, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "short bow",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: If you hit, give the target Slow until the start of your next turn.",
+        "upgrades": [
+            "Composite - +1 damage, +6 range",
+            "Seriated Arrows - On Hit: Do 1 damage at the start of the hit target's next turn. (This effect stacks.)"
+        ],
+        "tags": "weapon, two-handed, range 10, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "long bow",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +2 damage. Downside: -2 Damage.",
+        "upgrades": [
+            "Arching - Targets do not gain the Hunker Down bonus to Dodge.",
+            "Stiff - +2 damage, -8 Range",
+            "Well Strung - +8 Range"
+        ],
+        "tags": "weapon, two-handed, range 16, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "stiletto dagger",
+        "description": "",
+        "effect": "On Hit: Do 1 damage. Bonus: If you hit, the target spends 1 Strain.",
+        "upgrades": [
+            "Pin - This weapon has +1d4 damage while you are Hidden or when you use Cloaked."
+        ],
+        "tags": "weapon, side, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "whip",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: Gain +2 Reaching.",
+        "upgrades": [
+            "Spiked - +1 Damage",
+            "Ribbon - Bonus: Do a Grapple contest against the target."
+        ],
+        "tags": "weapon, reaching 2",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "hand wraps",
+        "description": "",
+        "effect": "On Hit: Do 1+MIND damage. Bonus: If you hit, move the target 4 tiles in any direction.",
+        "upgrades": [
+            "Boxer - Do 1+BODY+MIND damage instead of 1+MIND",
+            "Rough - Bonus: If you spent Marked on this Attack you may make the target go Prone."
+        ],
+        "tags": "weapon, two-handed, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    
+    
+
+
+    
+    
+    
+    {
+        "name": "soul tome",
+        "description": "",
+        "effect": "Gain +1 Max Strain. You can only hold 1 at a time. On Hit: Do 1 damage. Bonus: Gain +1 damage.",
+        "upgrades": [
+            "Heavy Tome - Gain +2 Max Strain (3 in total), but -1 Speed while carried.",
+            "Painful Pages - +1 damage."
+        ],
+        "tags": "weapon, side, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "crystal lanturn",
+        "description": "",
+        "effect": "On Hit: Give 2 Burn. Bonus: +1 Burn",
+        "upgrades": [
+            "Residual Sparks - On Hit: Give the target Glow until the start of your next turn.",
+            "Flickering - +1 Burn and -3 Range."
+        ],
+        "tags": "weapon, glow, range 6, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "naturalist's shillelagh",
+        "description": "",
+        "effect": "On Hit: Do 2 damage. Bonus: If you hit, choose:  give 1 Burn, Wet until the end of their next turn, or do 1 damage to a new target within 1 tile of the main target.",
+        "upgrades": [],
+        "tags": "weapon, glow, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "paladin hammer",
+        "description": "",
+        "effect": "On Hit: Do 2 damage and if you are Blessed become Empowered until the end of your turn. Bonus: Spend 1 Strain then choose: +3 damage, if you hit do 5 Knockback, or heal your MEDICINE.",
+        "upgrades": [],
+        "tags": "weapon, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "yoyo",
+        "description": "",
+        "effect": "On Hit: Do 1 damage. Bonus: Refund 1 Strain. Downside: No Reaching.",
+        "upgrades": [
+            "Longer String - +2 Reaching, Downside becomes: -2 Reaching."
+        ],
+        "tags": "weapon, glow, reaching 2, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "mage gauntlets",
+        "description": "",
+        "effect": "On Hit: Do 1+SOUL damage. Bonus: If you hit, you may do 2 Knockback and may move 1 tile.",
+        "upgrades": [],
+        "tags": "weapon, two-handed, glow, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+
+
+
+
+
+    {
+        "name": "clothing",
+        "description": "",
+        "effect": "While worn gives +1 Speed and Dodge.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
+            "Soul Weave - Gain Warded at the end of a Rest.",
+            "Flowing - While Slowed gain +1 Speed."
+        ],
+        "tags": "armor, soul 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "heavy plate",
+        "description": "",
+        "effect": "While worn gain 2 Shielding and -1 Dodge.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
+            "Paladin - Gain Empowered or Warded at the start of Combat.",
+            "Fortified - Has +1 Shielding (for 3).",
+            "Quick Release - You may lose all Shielding to gain +2 Speed."
+        ],
+        "tags": "armor, body 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "light leather",
+        "description": "",
+        "effect": "While worn gives +LEVEL Max Health and +1 Dodge.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
+            "Warded - Gain Warded at the end of a Rest.",
+            "Stiffen - Gain +1 Shielding."
+        ],
+        "tags": "armor",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "medium chainmail",
+        "description": "",
+        "effect": "While worn gain 1 Shielding and -1 Speed.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
+            "Gilded - When you roll a 1 on a CHARM roll, you may re-roll it.",
+            "Embroidered - Gain Empowered at the start of Combat."
+        ],
+        "tags": "armor",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "shield",
+        "description": "",
+        "effect": "Uses 1 hand. While held you have +1 Shielding, and can Hunker Down even without some form of cover.",
+        "upgrades": [
+            "Tower - +1 Shielding",
+            "Warded - Gain Warded at the end of a Rest."
+        ],
+        "tags": "armor, side",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+
+
+
+
+
+
+    {
+        "name": "bandage",
+        "description": "",
+        "effect": "Spend # and the Bandage; Heal a creature within 1 tile of you 1+1d4.",
+        "upgrades": [],
+        "tags": "consumable, medicine",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "frag grenade",
+        "description": "",
+        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. Do a Thrown Attack against everything within 2 tiles of that point. \nOn Hit: Do 4 damage.\nBonus: Gain +2 damage.",
+        "upgrades": [],
+        "tags": "consumable, throw range 6",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "flash grenade",
+        "description": "",
+        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. Everything within 2 tiles of that point is Blinded until the end of their turn. If a target is already Blinded they gain 3 Stun.",
+        "upgrades": [],
+        "tags": "consumable, throw range 6",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "smoke grenade",
+        "description": "",
+        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. Everything within 2 tiles of that point is Obscured for 1 minute.",
+        "upgrades": [],
+        "tags": "consumable, throw range 6",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "molotov",
+        "description": "",
+        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. The grenade shatters on impact. Do a Thrown Attack against everything within 2 tiles of that point. Ground tiles ignite until the start of your next turn. Creatures which start their turn in this tile or move into it gain 2 Burn.\nOn Hit: Give 3 Burn.",
+        "upgrades": [],
+        "tags": "consumable, throw range 6",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+
+
+
+
+
+
+    {
+        "name": "medkit",
+        "description": "",
+        "effect": "Spend # and 1 Strain; Heal a creature within 1 tile of you 2+[BODY or MIND].",
+        "upgrades": [],
+        "tags": "tool, medicine",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "alchemy tools",
+        "description": "",
+        "effect": "You can use MIND or ARCANA to identify liquids. At the end of a Rest make up to 2 Alchemical items (see mysc rules Alchemy).",
+        "upgrades": [],
+        "tags": "tool, alchemical",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "grapple rope",
+        "description": "",
+        "effect": "Spend #; Attach or throw the grapple up to 12 tiles away. Once attached creatures may climb the rope without rolling.",
+        "upgrades": [],
+        "tags": "tool, throw range 12",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "thieves' tools",
+        "description": "",
+        "effect": "You can use MIND or FINESSE to disarm Traps or unlock entryways and items.",
+        "upgrades": [],
+        "tags": "tool",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "tinker's tools",
+        "description": "",
+        "effect": "At the end of a Break or Rest make any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp).",
+        "upgrades": [],
+        "tags": "tool",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "trapper's tools",
+        "description": "",
+        "effect": " Spend ## and 2 Strain then pick Tripwire, Snare, or Popmine: Place a Trap within 1 tile of you. Creatures may spend # to do a Senses roll against you to detect Traps. Traps last until you deactivate them or they are triggered.\n- *Tripwire* - Trap an area up to 1x3 tiles. Targets that move into this area go Prone, and may trigger attached Items.\n- *Snare* - Trap an area up to 2x2 tiles. This must be attached to a ceiling. Targets that move into this area are Grappled and go up to 4 tiles into the air. The snare has 1 Health and +3 Dodge against targets it Grapples.\n- *Popmine* - Trap a tile. Targets that move into the tile are moved up to 4 tiles in a direction. Direction chosen on placement. (This movement counts as Knockback and can take Knockback damage.)",
+        "upgrades": [],
+        "tags": "tool",
+        "rarity": "common",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "spyglass",
+        "description": "A brass folding spyglass with opaque blue glass.",
+        "effect": "This spyglass can be used to see anything up to the horizon clearly.",
+        "upgrades": [],
+        "tags": "tool",
+        "rarity": "uncommon",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "throwing knife set",
+        "description": "",
+        "effect": "Spend ##; Throw Attack a target up to 6 tiles away.\nOn Hit: Do 1 damage.\nBonus: Gain +2 damage.",
+        "upgrades": [],
+        "tags": "tool, throw range 6",
+        "rarity": "uncommon",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "tunneler's tools",
+        "description": "",
+        "effect": "Contains a lightsource and tools needed to spend 1 minute tunneling through 1 tile square of loose earth or stone. If you spend 1 minute and 2 strain you may tunnel through 1 tile square of solid stone.",
+        "upgrades": [],
+        "tags": "tool",
+        "rarity": "uncommon",
+        "cost": 0,
+        "tier": 1
+    },
+
+
+    {
+        "name": "adventurer's pack",
+        "description": "The most basic of gear every adventurer needs.",
+        "effect": "A bag containing, 10 tiles of Rope, a Lantern, a Firestarter, a Bedroll, Travel Rations, a Waterskin, and a small Knife.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "sailor's pack",
+        "description": "For those traveling the seas.",
+        "effect": "A bag containing, a Fishing Rod, a Waterproofing Kit, a Blanket, 2 Waterskins, and a small Knife.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "diplomat's pack",
+        "description": "For those traveling in escort.",
+        "effect": "A bag containing, extra clean Clothes, a blank Notebook, a waterproof Lockbox (with code), a fine Ink Pen, Soap, and a Blanket.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "entertainer's pack",
+        "description": "For the always moving show.",
+        "effect": "A bag containing, multiple Costumes, basic Makeup, a Mirror, an Instrument, a Lantern, a Firestarter, a Bedroll, and a Waterskin.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "burglar's pack",
+        "description": "For quick in and out jobs.",
+        "effect": "A bag containing, extra Bags, 5 tiles of Wire, a small Notebook, a charcoal Pencil, a Bell, a Crowbar, and a small Knife.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "scholar's pack",
+        "description": "For those getting important works from one place to another.",
+        "effect": "A Waterproof Bag containing, multiple Notebooks, Pens and Pencils, a Lantern, a Bedroll, and a Waterskin.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "pilgrim's pack",
+        "description": "For those on a pilgrimage.",
+        "effect": "A bag containing a Holy Symbol, special Incense, a Firestarter, a Blanket, Travel Rations, and a Waterskin.",
+        "upgrades": [
+            ""
+        ],
+        "tags": "pack",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "name": "popshard revolver",
+        "description": "",
+        "effect": "On Hit: Do 1 damage. Bonus: If you hit, you may spend 1 Strain then gain +1 damage and roll a d6. If the roll was less than or equal to the ammo left, spend 1 ammo, gain +1 damage, and roll again. Downside: -1 ammo.",
+        "upgrades": [
+            "Heavyshard- +2 damage,-3 Ammo (Loading 3)",
+            "Quickload - This weapon reloads at the beginning of your turn."
+        ],
+        "tags": "weapon, side, range 8, loading 6, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 2
+    },
+    {
+        "name": "popshard rifle",
+        "description": "",
+        "effect": "This weapon has +8 Range while you are Prone. On Hit: Do 3 damage. Bonus: If you hit, remove 5 Shielding then do On Hit. Downside: -1 Ammo.",
+        "upgrades": [
+            "Longnose - +8 Range, while Prone gain +16 Range instead of +8",
+            "Heavyshard - +3 damage,-3 Ammo (Loading 1)",
+            "Bayonet - This weapon can be used for Melee Attacks."
+        ],
+        "tags": "weapon, two-handed, range 16, loading 4, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 2
+    },
+    {
+        "name": "popshard shotgun",
+        "description": "",
+        "effect": "This weapon Attacks targets 1 tile to the left and right of the main target. On Hit: do 2 damage. Bonus: This weapon Attacks all targets within 1 tile of the main target.",
+        "upgrades": [
+            "Quickload - This weapon reloads at the beginning of your turn.",
+            "Sawed Off - This weapon hits 2 tiles to the left and right but has -2 Range",
+            "Bayonet - This weapon can be used for Melee Attacks."
+        ],
+        "tags": "weapon, range 6, loading 2, mind 1",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 2
+    }
+]
