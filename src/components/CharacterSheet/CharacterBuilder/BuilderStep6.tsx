@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Item } from "../../../client";
 import { useItems } from "../../../hooks/useItems";
 import { playerCharacterType } from "../../../types/playerCharacterType";
@@ -14,21 +14,9 @@ type Props = {
     setStepnum: () => void;
 };
 
-type statline =
-    | ""
-    | "body"
-    | "mind"
-    | "soul"
-    | "arcana"
-    | "charm"
-    | "finesse"
-    | "nature";
+type statline = "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 
-export default function BuilderStep6({
-    player: player,
-    setPlayer: setPlayer,
-    setStepnum: setStepnum,
-}: Props) {
+export default function BuilderStep6({ player: player, setPlayer: setPlayer, setStepnum: setStepnum }: Props) {
     const {
         allItems,
         pinnedItems,
@@ -39,7 +27,11 @@ export default function BuilderStep6({
         resetFilterItems,
     } = useItems();
 
-    // filterItems((item:Item)=>{return(item.tier <= 1)});
+    const onlyHigherTieredItems = useMemo(() => {
+        allItems.filter((item: Item) => {
+            return item.tier <= 1;
+        });
+    }, [allItems]);
 
     const [isOpen, setIsOpen] = useState(false);
     const [itemType, setItemType] = useState("");
@@ -92,17 +84,14 @@ export default function BuilderStep6({
                                 .filter((item) => {
                                     let reqMet = true;
 
-                                    let reqlist: Array<string> = [];
+                                    const reqlist: Array<string> = [];
                                     item.tags
                                         ?.toLowerCase()
                                         .split(", ")
                                         .forEach((tag) => {
                                             if (
                                                 "body mind soul arcana charm finesse nature".includes(
-                                                    tag.substring(
-                                                        0,
-                                                        tag.length - 1
-                                                    )
+                                                    tag.substring(0, tag.length - 1)
                                                 )
                                             ) {
                                                 reqlist.push(tag);
@@ -110,20 +99,14 @@ export default function BuilderStep6({
                                         });
                                     if (reqlist.length) {
                                         reqlist.forEach((tag) => {
-                                            const stat: statline =
-                                                tag.split(" ")[0];
+                                            const stat: statline = tag.split(" ")[0] as statline;
                                             const val = tag.split(" ")[1];
                                             console.log(player.stats[stat]);
-                                            reqMet =
-                                                reqMet &&
-                                                player.stats[stat] >=
-                                                    parseInt(val);
+                                            reqMet = reqMet && player.stats[stat] >= parseInt(val);
                                         });
                                     }
 
-                                    return (
-                                        item.tags.includes(itemType) && reqMet
-                                    );
+                                    return item.tags.includes(itemType) && reqMet;
                                 })
                                 .map((item, i) => {
                                     if (item.name != "Error") {
@@ -131,21 +114,14 @@ export default function BuilderStep6({
                                             <div
                                                 className="clickable"
                                                 onClick={() => {
-                                                    setChosenItems(
-                                                        changeItemInArray(
-                                                            chosenItems,
-                                                            picking,
-                                                            item
-                                                        )
-                                                    );
+                                                    setChosenItems(changeItemInArray(chosenItems, picking, item));
                                                     setPlayer({
                                                         ...player,
-                                                        equipped:
-                                                            changeItemInArray(
-                                                                player.equipped,
-                                                                picking,
-                                                                item.name
-                                                            ),
+                                                        equipped: changeItemInArray(
+                                                            player.equipped,
+                                                            picking,
+                                                            item.name
+                                                        ),
                                                     });
                                                     setIsOpen(false);
                                                 }}
@@ -164,9 +140,7 @@ export default function BuilderStep6({
                 }
             />
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">
-                    Step 6: Gear & Items
-                </h1>
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 6: Gear & Items</h1>
 
                 <div className="grid grid-cols-3 items-center justify-items-center">
                     {player.equipped[0] == "" && (
@@ -268,9 +242,7 @@ export default function BuilderStep6({
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
                 <Button
-                    disabled={
-                        player.items.includes("") || player.arts.includes("")
-                    }
+                    disabled={player.items.includes("") || player.arts.includes("")}
                     variant="nature"
                     className="m-2 ml-4 flex items-center justify-center"
                     onClick={setStepnum}
@@ -278,8 +250,8 @@ export default function BuilderStep6({
                     Continue
                 </Button>
             </div>
-            Weapon - Req Weapon or Shield Armor - Req Tool Pack Bag of Coin -
-            set Bandage - set textarea for anything else
+            Weapon - Req Weapon or Shield Armor - Req Tool Pack Bag of Coin - set Bandage - set textarea for anything
+            else
         </div>
     );
 }
