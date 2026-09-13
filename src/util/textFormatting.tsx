@@ -1,6 +1,4 @@
 import Pill from "../components/ui/Pill";
-import { scanText, spanEmit } from "./keywordScan";
-import { STAT_COLORS, statColorClass } from "./statColors";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
@@ -56,38 +54,6 @@ export function toPillElement(_string: string, splitter: string) {
         );
     });
     return pills;
-}
-
-export { STAT_COLORS, statColorClass } from "./statColors";
-
-const formatted = new Map<string, string>();
-
-export function formatEffectString(text: string): string {
-    const hit = formatted.get(text);
-    if (hit !== undefined) {
-        return hit;
-    }
-
-    const html = scanText(text, spanEmit);
-    formatted.set(text, html);
-    return html;
-}
-
-export function highlightKeywords(text: string): string {
-    let updatedText: string = text;
-
-    for (const color of STAT_COLORS) {
-        updatedText = highlightWord(updatedText, color);
-    }
-    return updatedText;
-}
-
-function highlightWord(text: string, word: string): string {
-    const regex = new RegExp(`\\b(${word})\\b`, "gi");
-    return text.replace(
-        regex,
-        `<span class="${statColorClass(word)}">$1</span>`
-    );
 }
 
 export function sumNumbersAfterWord(
