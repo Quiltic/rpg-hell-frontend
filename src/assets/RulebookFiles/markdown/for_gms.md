@@ -8,25 +8,13 @@ Here are some example levels for difficulty of checks.
 
 | Easy | Average | Difficult | Very Difficult | Nearly Impossible |
 | :--- | :------ | :-------- | :------------- | :---------------- |
-| 5    | 9       | 12        | 14             | 17                |
+| 4    | 7       | 10        | 13             | 16                |
 
-## Perception or Senses Checks
+## Senses Tips
 
-As you may have seen there is no stat, skill, or otherwise which covers the large blanket of perception or using ones senses. This is by design, as there are so many ways to use ones senses that in any particular instance your players could easily use one of the core or sub stats instead. For instance when talking to a NPC (non-player character) they may find themselves needing to roll Charm in order to "sense" a lie.
-Another example may be the party walking through the woods and needing to see if they are being stalked by some creature. In this case they should use Nature instead.
-Here are a simplified listing of when it would be best to use a specific stat when asking for a "perception or sense" check.
+We recommend when doing a general Senses Roll to either give the players free reign to pick any stat of their choice, or to give 2 stats that would mostly pertain to the roll. This will increase the amount your player succeed at sensing something, but try to only give them information that they could have gotten with that stat.
 
--   Body: Getting a general feel of an area.
--   Mind: Investigation or looking at a more specific item or region.
--   Soul: Looking for Magical or Spiritual effects.
--   Arcana: When looking at a magical item or through some form of code.
--   Charm: Best used in conversations.
--   Crafting: When observing on a machine, mechanism, or blueprint.
--   Medicine: Inspecting wounds, strange liquids, or medical equipment.
--   Nature: When handling natural creatures or to find something in the wild.
--   Thieving: When looking for something of value or to find something hidden.
-
-There are more times when to ask for more specific skills or even let your players decide. You may even want them to use any number of stats when doing a "perception" check.
+For instance if your in an inventor's messy overturned workshop and your party is trying to find the inventors hidden journal. You may have your party roll MIND or ARCANA to try and find it. If someone rolls a 8 ARCANA then you may want to say "Since the inventor liked little contraptions, you decide to look into his blueprints for a clue". Then have them find some kind of blueprint for a hidden door leading to the book.
 
 ## Enemy Encounters
 
@@ -34,13 +22,20 @@ There are more times when to ask for more specific skills or even let your playe
 
 When choosing enemy NPC's This game uses Total Level. When making an encounter depending on how difficult you wish the encounter to be you make aim to have the total level of enemy group be similar to the level of the player group.
 
-An NPC's level is similar to what level a player of the same level should be to be able to fight and just barely win. When doing difficulty, combine all NPC creature levels together and compare it to the player group level. Below is an example range for how far you can go before an encounter is easer or harder.
+An NPC's level is similar to what level a player of the same level should be to be able to fight and just barely win. When doing difficulty, combine all NPC creature Difficultly Levels (DLs) together and compare it to the player group level. Below is an example range for how far you can go before an encounter is easer or harder.
 
-| Very Easy           | Easier | Balanced | Difficult | Boss                |
-| :------------------ | :----- | :------- | :-------- | :------------------ |
-| -X > A player level | -3     | 0        | +3        | A player level < +X |
+| Very Easy       | Easier | Balanced | Difficult | Boss                |
+| :-------------- | :----- | :------- | :-------- | :------------------ |
+| -A player level | -      | 0        | +         | A player level < +X |
 
 ### Creating Bosses
+
+-   +2 Combat Dice
+-   Double HP or +2 Shielding or +1 Dodge
+-   Give 2 turns. One rolled for and one at end of initiative.
+-   Give special moves that happen once a round.
+-   Can Lock 2 dice.
+-   Give an objective other than just "kill boss"
 
 When making a boss give them the Boss Passive (listed below), +2 levels, +2 Combat Dice, +2 Main Stats, update their Health and Strain, and give at least 1 special Active or Passive.
 It is also possible not all bosses can be beaten directly. So it is recommended to give an alternate win condition when designing a boss. For instance the boss _Golem-Brood Spider Queen (Boss)_ was given the alternate win of dropping a floating building on it. The arena was set up in such a way that floating labs where placed all around it and by popping the balloons that held them up they could crush the Queen.
@@ -81,16 +76,16 @@ Stole this from Daggerheart
 
 ### Structures and Objects
 
-| Durability      | HP  | Special                   |
-| :-------------- | :-- | :------------------------ |
-| Flimsy          | 2-3 |                           |
-| Wooden          | 8   | Double gained Burn stacks |
-| Reinforced Wood | 12  |                           |
-| Hard (Stone)    | 10  | Cannot gain Burn.         |
-| Metalic         | 12  | Cannot gain Burn.         |
+| Durability      | HP  | Special            |
+| :-------------- | :-- | :----------------- |
+| Flimsy          | 2-3 |                    |
+| Wooden          | 8   | Double Burn stacks |
+| Reinforced Wood | 12  |                    |
+| Hard (Stone)    | 10  | Cannot gain Burn.  |
+| Metalic         | 12  | Cannot gain Burn.  |
 
 | Thickness  | HP Mult | Special                                                       |
 | :--------- | :------ | :------------------------------------------------------------ |
-| Thin       | 1       |                                                               |
-| Wall       | 2       | Does not take damage from Attacks that deal 3 or less damage. |
-| Thick Wall | 3       | Does not take damage from Attacks that deal 5 or less damage. |
+| Thin       | 1\*     |                                                               |
+| Wall       | 2\*     | Does not take damage from Attacks that deal 3 or less damage. |
+| Thick Wall | 3\*     | Does not take damage from Attacks that deal 5 or less damage. |

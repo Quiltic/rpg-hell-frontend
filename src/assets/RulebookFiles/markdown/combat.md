@@ -1,6 +1,6 @@
 # Combat
 
-Combat is split up into Rounds, with each Round lasting 10 seconds. To start you must do [Initative](##Initative), though how your GM handles this may varies. Then when a character (player or NPC) start their turn, they take effects from Arts or afflctions then roll their [COMBAT DICE](#actiondice). These dice can be used to activate abilities and do [actions](#commonactions).
+Combat is split up into Rounds, with each Round lasting 10 seconds. To start you must do [Initative](#initative), though how your GM handles this may varies. Then when a character (player or NPC) start their turn, they take effects from Arts or afflctions then roll their [COMBAT DICE](#actiondice). These dice can be used to activate abilities and do [actions](#commonactions).
 
 ## Initiative
 
@@ -49,6 +49,8 @@ _You may only ever lock d6’s, and lose any unspent locked dice at the end of c
 **Hunker Down** \- Spend #; Gain +1 Dodge against Ranged Attacks made against you until the beginning of your next turn.
 
 **Overwatch** \- Reaction (Locked #); Melee Attack against a target that moves into/out of your Weapon Range. Use 3+# for sum.
+
+**Use a Non-Attack Item** \- Spend #; Use the item, such as drinking a potion, using a Bandage, or pulling a lever. Some items may cost more # to use depending on their complexity.
 
 ## Damage and Armor
 
