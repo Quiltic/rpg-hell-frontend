@@ -55,6 +55,7 @@ import { useTraits } from "../../hooks/useTraits";
 import { playerCharacterType } from "../../types/playerCharacterType";
 import BuilderStep4 from "../CharacterSheet/CharacterBuilder/BuilderComponentStep4";
 import BuilderStep4_5 from "../CharacterSheet/CharacterBuilder/BuilderStep4_5";
+import BuilderStep6 from "../CharacterSheet/CharacterBuilder/BuilderStep6";
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 // const STUPID_COLOR_TYPESCRIPT_BS = [
@@ -96,27 +97,12 @@ const playerCharacter: playerCharacterType = {
     notes: "",
 };
 
-type statline =
-    | ""
-    | "body"
-    | "mind"
-    | "soul"
-    | "arcana"
-    | "charm"
-    | "finesse"
-    | "nature";
+type statline = "" | "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 
 export default function JoshhellscapePage() {
     // const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
     const [player, setPlayer] = useState(playerCharacter);
-    const [chosenStats, setChosenStats] = useState<Array<statline>>([
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-    ]); // bms -> bms -> strength -> flaw
+    const [chosenStats, setChosenStats] = useState<Array<statline>>(["", "", "", "", "", ""]); // bms -> bms -> strength -> flaw
     const [pointsLeft, setPointsLeft] = useState(2);
     const [stepnum, setStepnum] = useState(1);
 
@@ -163,11 +149,9 @@ export default function JoshhellscapePage() {
 
     useEffect(() => {
         if (player.traits.includes("magical knowledge")) {
-            if (player.arts.length <= 4)
-                setPlayer({ ...player, arts: player.arts.concat(["", ""]) });
+            if (player.arts.length <= 4) setPlayer({ ...player, arts: player.arts.concat(["", ""]) });
         } else {
-            if (player.arts.length > 4)
-                setPlayer({ ...player, arts: player.arts.slice(0, 4) });
+            if (player.arts.length > 4) setPlayer({ ...player, arts: player.arts.slice(0, 4) });
         }
     }, [player.traits]);
 
@@ -177,8 +161,8 @@ export default function JoshhellscapePage() {
                 <BuilderStep1_2
                     chosenStats={chosenStats}
                     setChosenStats={setChosenStats}
-                    setStepnum={() => setStepnum(3)}
                     player={player}
+                    setStepnum={() => setStepnum(3)}
                 />
             )}
 
@@ -195,6 +179,14 @@ export default function JoshhellscapePage() {
                     player={player}
                     setPlayer={setPlayer}
                     setStepnum={() => setStepnum(6)}
+                />
+            )}
+
+            {stepnum == 6 && (
+                <BuilderStep6
+                    player={player}
+                    setPlayer={setPlayer}
+                    setStepnum={() => setStepnum(7)}
                 />
             )}
         </div>

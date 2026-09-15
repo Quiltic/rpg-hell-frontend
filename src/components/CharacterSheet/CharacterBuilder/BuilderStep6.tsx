@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Item } from "../../../client";
 import { useItems } from "../../../hooks/useItems";
 import { playerCharacterType } from "../../../types/playerCharacterType";
@@ -6,7 +6,7 @@ import { Button } from "../../ui/Button/Button";
 import Popup from "../../ui/Popups/Popup";
 import { changeItemInArray } from "../../../util/creatureHelpers";
 import ItemCard from "../../ItemPages/ItemCardStuff/itemCard";
-import { PlusIcon } from "@heroicons/react/24/outline";
+import PickerPart from "./Parts/PickerPart";
 
 type Props = {
     player: playerCharacterType;
@@ -26,12 +26,6 @@ export default function BuilderStep6({ player: player, setPlayer: setPlayer, set
         filterItems,
         resetFilterItems,
     } = useItems();
-
-    const onlyHigherTieredItems = useMemo(() => {
-        allItems.filter((item: Item) => {
-            return item.tier <= 1;
-        });
-    }, [allItems]);
 
     const [isOpen, setIsOpen] = useState(false);
     const [itemType, setItemType] = useState("");
@@ -68,7 +62,35 @@ export default function BuilderStep6({ player: player, setPlayer: setPlayer, set
             cost: 0,
             tier: 0,
         }, // armor
+        {
+            name: "",
+            description: "",
+            effect: "",
+            upgrades: [""],
+            tags: "",
+            rarity: "",
+            cost: 0,
+            tier: 0,
+        }, // tool
+        {
+            name: "",
+            description: "",
+            effect: "",
+            upgrades: [""],
+            tags: "",
+            rarity: "",
+            cost: 0,
+            tier: 0,
+        }, // pack
     ]);
+
+    useEffect(() => {
+        filterItems((item) => {
+            return item.tier <= 1;
+        });
+        // console.log(displayedItems);
+    }, [allItems]);
+    // console.log(player.stats.mind);
 
     return (
         <div>
@@ -101,7 +123,8 @@ export default function BuilderStep6({ player: player, setPlayer: setPlayer, set
                                         reqlist.forEach((tag) => {
                                             const stat: statline = tag.split(" ")[0] as statline;
                                             const val = tag.split(" ")[1];
-                                            console.log(player.stats[stat]);
+                                            // console.log(player.stats.mind);
+                                            // console.log(player.stats[stat]);
                                             reqMet = reqMet && player.stats[stat] >= parseInt(val);
                                         });
                                     }
@@ -139,110 +162,11 @@ export default function BuilderStep6({ player: player, setPlayer: setPlayer, set
                     </>
                 }
             />
-            <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 6: Gear & Items</h1>
 
-                <div className="grid grid-cols-3 items-center justify-items-center">
-                    {player.equipped[0] == "" && (
-                        <div
-                            className="clickable m-4 flex
-                                    w-48 items-center justify-center rounded-md border-2 border-solid border-body-700/10 
-                                    bg-dark-300 p-2"
-                            onClick={() => {
-                                setPicking(0);
-                                setItemType("weapon");
-                                setIsOpen(true);
-                            }}
-                        >
-                            Weapon
-                            <PlusIcon className="h-12 w-12" />
-                        </div>
-                    )}
-
-                    {player.equipped[0] != "" && (
-                        <div
-                            className="clickable"
-                            onClick={() => {
-                                setPicking(0);
-                                setItemType("weapon");
-                                setIsOpen(true);
-                            }}
-                        >
-                            <ItemCard
-                                _item={chosenItems[0]}
-                                showUpgrades={false}
-                            />
-                        </div>
-                    )}
-
-                    {player.equipped[1] == "" && (
-                        <div
-                            className="clickable m-4 flex
-                                    w-48 items-center justify-center rounded-md border-2 border-solid border-body-700/10 
-                                    bg-dark-300 p-2"
-                            onClick={() => {
-                                setPicking(1);
-                                setItemType("weapon");
-                                setIsOpen(true);
-                            }}
-                        >
-                            Weapon or Shield
-                            <PlusIcon className="h-12 w-12" />
-                        </div>
-                    )}
-
-                    {player.equipped[1] != "" && (
-                        <div
-                            className="clickable"
-                            onClick={() => {
-                                setPicking(1);
-                                setItemType("weapon");
-                                setIsOpen(true);
-                            }}
-                        >
-                            <ItemCard
-                                _item={chosenItems[1]}
-                                showUpgrades={false}
-                            />
-                        </div>
-                    )}
-                    {player.equipped[2] == "" && (
-                        <div
-                            className="clickable m-4 flex
-                                    w-48 items-center justify-center rounded-md border-2 border-solid border-body-700/10 
-                                    bg-dark-300 p-2"
-                            onClick={() => {
-                                setPicking(2);
-                                setItemType("armor");
-                                setIsOpen(true);
-                            }}
-                        >
-                            Armor
-                            <PlusIcon className="h-12 w-12" />
-                        </div>
-                    )}
-
-                    {player.equipped[2] != "" && (
-                        <div
-                            className="clickable"
-                            onClick={() => {
-                                setPicking(2);
-                                setItemType("armor");
-                                setIsOpen(true);
-                            }}
-                        >
-                            <ItemCard
-                                _item={chosenItems[2]}
-                                showUpgrades={false}
-                            />
-                        </div>
-                    )}
-                </div>
-            </div>
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
                 <Button
-                    disabled={player.items.includes("") || player.arts.includes("")}
+                    disabled={player.equipped.includes("")}
                     variant="nature"
                     className="m-2 ml-4 flex items-center justify-center"
                     onClick={setStepnum}
@@ -250,8 +174,121 @@ export default function BuilderStep6({ player: player, setPlayer: setPlayer, set
                     Continue
                 </Button>
             </div>
-            Weapon - Req Weapon or Shield Armor - Req Tool Pack Bag of Coin - set Bandage - set textarea for anything
-            else
+
+            <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 6: Gear & Items</h1>
+
+                <div className="grid grid-cols-3 items-center justify-items-center">
+                    <PickerPart
+                        useEmpty={player.equipped[0] == ""}
+                        emptyButton={() => {
+                            setPicking(0);
+                            setItemType("weapon");
+                            setIsOpen(true);
+                        }}
+                        emptyText="Weapon"
+                        filled={
+                            <ItemCard
+                                _item={chosenItems[0]}
+                                showUpgrades={false}
+                            />
+                        }
+                        filledButton={() => {
+                            setPicking(0);
+                            setItemType("weapon");
+                            setIsOpen(true);
+                        }}
+                    />
+                    <PickerPart
+                        useEmpty={player.equipped[1] == ""}
+                        emptyButton={() => {
+                            setPicking(1);
+                            setItemType("weapon");
+                            setIsOpen(true);
+                        }}
+                        emptyText="Weapon or Shield"
+                        filled={
+                            <ItemCard
+                                _item={chosenItems[1]}
+                                showUpgrades={false}
+                            />
+                        }
+                        filledButton={() => {
+                            setPicking(1);
+                            setItemType("weapon");
+                            setIsOpen(true);
+                        }}
+                    />
+                    <PickerPart
+                        useEmpty={player.equipped[2] == ""}
+                        emptyButton={() => {
+                            setPicking(2);
+                            setItemType("armor");
+                            setIsOpen(true);
+                        }}
+                        emptyText="Armor"
+                        filled={
+                            <ItemCard
+                                _item={chosenItems[2]}
+                                showUpgrades={false}
+                            />
+                        }
+                        filledButton={() => {
+                            setPicking(2);
+                            setItemType("armor");
+                            setIsOpen(true);
+                        }}
+                    />
+                </div>
+
+                <div className="grid grid-cols-3">
+                    <PickerPart
+                        useEmpty={chosenItems[3].name == ""}
+                        emptyButton={() => {
+                            setPicking(3);
+                            setItemType("tool");
+                            setIsOpen(true);
+                        }}
+                        emptyText="Tool"
+                        filled={
+                            <ItemCard
+                                _item={chosenItems[3]}
+                                showUpgrades={false}
+                            />
+                        }
+                        filledButton={() => {
+                            setPicking(3);
+                            setItemType("tool");
+                            setIsOpen(true);
+                        }}
+                    />
+                    <PickerPart
+                        useEmpty={chosenItems[4].name == ""}
+                        emptyButton={() => {
+                            setPicking(4);
+                            setItemType("pack");
+                            setIsOpen(true);
+                        }}
+                        emptyText="Pack"
+                        filled={
+                            <ItemCard
+                                _item={chosenItems[4]}
+                                showUpgrades={false}
+                            />
+                        }
+                        filledButton={() => {
+                            setPicking(4);
+                            setItemType("pack");
+                            setIsOpen(true);
+                        }}
+                    />
+
+                    <ItemCard
+                        _item={allItems.find((item) => item.name == "bandage")} // yeah so it should always find this
+                        showUpgrades={false}
+                    />
+                </div>
+            </div>
         </div>
     );
 }

@@ -12,10 +12,7 @@ type Props = {
     setPlayer: (player: playerCharacterType) => void;
 };
 
-export default function BuilderComponentStep5({
-    player: player,
-    setPlayer: setPlayer,
-}: Props) {
+export default function BuilderComponentStep5({ player: player, setPlayer: setPlayer }: Props) {
     const [isOpen, setIsOpen] = useState(false);
     const [picking, setPicking] = useState(0);
 
@@ -95,7 +92,7 @@ export default function BuilderComponentStep5({
     return (
         <>
             <Popup
-                displayedContentName="Pick a Spell"
+                displayedContentName="Pick a Art"
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 isSmol={false}
@@ -108,15 +105,9 @@ export default function BuilderComponentStep5({
                                     player.paths.forEach((path) => {
                                         // Not already picked, and has the req path.
                                         hasPath =
-                                            !player.arts.includes(
-                                                spell.name.toLowerCase()
-                                            ) &&
+                                            !player.arts.includes(spell.name.toLowerCase()) &&
                                             (hasPath ||
-                                                (spell.stat
-                                                    ?.toString()
-                                                    .includes(
-                                                        path.toLowerCase()
-                                                    ) &&
+                                                (spell.stat?.toString().includes(path.toLowerCase()) &&
                                                     spell.level == 1));
                                     });
                                     return hasPath;
@@ -127,20 +118,10 @@ export default function BuilderComponentStep5({
                                             <div
                                                 className="clickable"
                                                 onClick={() => {
-                                                    setChosenSpells(
-                                                        changeItemInArray(
-                                                            chosenSpells,
-                                                            picking,
-                                                            spell
-                                                        )
-                                                    );
+                                                    setChosenSpells(changeItemInArray(chosenSpells, picking, spell));
                                                     setPlayer({
                                                         ...player,
-                                                        arts: changeItemInArray(
-                                                            player.arts,
-                                                            picking,
-                                                            spell.name
-                                                        ),
+                                                        arts: changeItemInArray(player.arts, picking, spell.name),
                                                     });
                                                     setIsOpen(false);
                                                 }}
@@ -159,9 +140,7 @@ export default function BuilderComponentStep5({
             />
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">
-                    Step 5: Spells
-                </h1>
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 5: Arts</h1>
 
                 <div className="grid grid-cols-2 items-center justify-items-center">
                     {player.arts.map((spell, id) => {
