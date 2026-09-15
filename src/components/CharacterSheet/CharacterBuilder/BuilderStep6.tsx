@@ -11,12 +11,20 @@ import PickerPart from "./Parts/PickerPart";
 type Props = {
     player: playerCharacterType;
     setPlayer: (player: playerCharacterType) => void;
+    chosenItems: Array<Item>;
+    setChosenItems: (item: Array<Item>) => void;
     setStepnum: () => void;
 };
 
 type statline = "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 
-export default function BuilderStep6({ player: player, setPlayer: setPlayer, setStepnum: setStepnum }: Props) {
+export default function BuilderStep6({
+    player: player,
+    setPlayer: setPlayer,
+    setStepnum: setStepnum,
+    chosenItems: chosenItems,
+    setChosenItems: setChosenItems,
+}: Props) {
     const {
         allItems,
         pinnedItems,
@@ -30,59 +38,6 @@ export default function BuilderStep6({ player: player, setPlayer: setPlayer, set
     const [isOpen, setIsOpen] = useState(false);
     const [itemType, setItemType] = useState("");
     const [picking, setPicking] = useState(0);
-
-    const [chosenItems, setChosenItems] = useState<Array<Item>>([
-        {
-            name: "",
-            description: "",
-            effect: "",
-            upgrades: [""],
-            tags: "",
-            rarity: "",
-            cost: 0,
-            tier: 0,
-        }, // wep 1
-        {
-            name: "",
-            description: "",
-            effect: "",
-            upgrades: [""],
-            tags: "",
-            rarity: "",
-            cost: 0,
-            tier: 0,
-        }, // wep 2
-        {
-            name: "",
-            description: "",
-            effect: "",
-            upgrades: [""],
-            tags: "",
-            rarity: "",
-            cost: 0,
-            tier: 0,
-        }, // armor
-        {
-            name: "",
-            description: "",
-            effect: "",
-            upgrades: [""],
-            tags: "",
-            rarity: "",
-            cost: 0,
-            tier: 0,
-        }, // tool
-        {
-            name: "",
-            description: "",
-            effect: "",
-            upgrades: [""],
-            tags: "",
-            rarity: "",
-            cost: 0,
-            tier: 0,
-        }, // pack
-    ]);
 
     useEffect(() => {
         filterItems((item) => {

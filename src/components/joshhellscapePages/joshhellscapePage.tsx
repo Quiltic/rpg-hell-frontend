@@ -103,6 +103,14 @@ export default function JoshhellscapePage() {
     // const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
     const [player, setPlayer] = useState(playerCharacter);
     const [chosenStats, setChosenStats] = useState<Array<statline>>(["", "", "", "", "", ""]); // bms -> bms -> strength -> flaw
+    const [chosenItems, setChosenItems] = useState<Array<Item>>([
+        { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // wep 1
+        { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // wep 2
+        { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // armor
+        { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // tool
+        { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // pack
+    ]);
+
     const [pointsLeft, setPointsLeft] = useState(2);
     const [stepnum, setStepnum] = useState(1);
 
@@ -148,6 +156,15 @@ export default function JoshhellscapePage() {
     }, [chosenStats]);
 
     useEffect(() => {
+        let itemList: Array<string> = [];
+        chosenItems.forEach((item) => {
+            itemList.push(item.name);
+        });
+
+        setPlayer({ ...player, items: itemList });
+    }, [chosenItems]);
+
+    useEffect(() => {
         if (player.traits.includes("magical knowledge")) {
             if (player.arts.length <= 4) setPlayer({ ...player, arts: player.arts.concat(["", ""]) });
         } else {
@@ -186,6 +203,8 @@ export default function JoshhellscapePage() {
                 <BuilderStep6
                     player={player}
                     setPlayer={setPlayer}
+                    chosenItems={chosenItems}
+                    setChosenItems={setChosenItems}
                     setStepnum={() => setStepnum(7)}
                 />
             )}
