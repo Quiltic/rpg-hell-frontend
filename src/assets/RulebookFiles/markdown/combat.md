@@ -74,7 +74,7 @@ You may only have a max of 4 Ward at any given point in time.
 
 ### Going to 0 and Death's Door
 
-When you are put at 0 or less health you do not immediately die. Rather, you gain **Bleeding Out** and stacks of **Death's Door**. When you have 0 or less life in a turn (every 10 seconds) you heal your level and gain **Bleeding Out** and a stack of **Death's Door**.
+When you are put at 0 or less health you do not immediately die. Rather, you gain a stack of **Death's Door** and while you are at 0 or less health you are **Bleeding Out**. _When you heal while having negative health you act as though you had 0 health._ If your health is reduced to negative of your Max Health you gain 2 stacks of Death's Door.
 ::definitions{name="bleeding out"}
 
 While you have stacks of Death's Door you gain a specific ailment.
