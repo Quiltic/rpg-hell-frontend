@@ -113,4 +113,26 @@ default to writing no comments. Never write multi-paragraph docstrings or multi-
 
 do not reference old code or functionality
 
-test files may have docstrings explaining each edge case test, try to stay concise.
+#### Docstrings
+
+test files may have docstrings explaining edge cases.
+
+reusable files and functions are allowed to have concise human tsdoc strings to be read by humans with short explanations including param, returns, and example blocks
+
+Example:
+
+````ts
+/**
+ * @param file - the name of the markdown file in `RulebookFiles/markdown`
+ * @returns the text from file
+ * @example
+ * ```typescript
+ * const effectsMarkdown = markdownFile("effects.md")
+ * ```
+ */
+export function markdownFile(file: string): string {
+    const text = markdown[MARKDOWN_DIR + file];
+    if (text === undefined) throw new Error(`no markdown file "${file}"`);
+    return text;
+}
+````

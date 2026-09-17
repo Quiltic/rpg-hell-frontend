@@ -1,7 +1,7 @@
 ---
 title: Core Rules
 order: 2
-tags: []
+tags: [main]
 ---
 
 # Basic Rules
