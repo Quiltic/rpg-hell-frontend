@@ -3,26 +3,27 @@ import { useState, useEffect } from "react";
 import { Tab } from "@headlessui/react";
 import { cn } from "../../styling/utilites";
 
-import d12_img from "../../../assets/IconSVGs/dice/d12.png";
-import d12_rolling from "../../../assets/IconSVGs/dice/d12-dice-roll.gif";
+import d12_img from "../../assets/IconSVGs/dice/d12.png";
+import d12_rolling from "../../assets/IconSVGs/dice/d12-dice-roll.gif";
 
 import { diceRollingIcon } from "../../assets/IconSVGs/dice/diceSVG";
-import dice1 from "../../../assets/IconSVGs/dice/dice-f-1.svg";
-import dice2 from "../../../assets/IconSVGs/dice/dice-f-2.svg";
-import dice3 from "../../../assets/IconSVGs/dice/dice-f-3.svg";
-import dice4 from "../../../assets/IconSVGs/dice/dice-f-4.svg";
-import dice5 from "../../../assets/IconSVGs/dice/dice-f-5.svg";
-import dice6 from "../../../assets/IconSVGs/dice/dice-f-6.svg";
-import persDice from "../../../assets/IconSVGs/dice/perspective-dice.svg";
-import rolling from "../../../assets/IconSVGs/dice/dice roll.gif";
+import dice1 from "../../assets/IconSVGs/dice/dice-f-1.svg";
+import dice2 from "../../assets/IconSVGs/dice/dice-f-2.svg";
+import dice3 from "../../assets/IconSVGs/dice/dice-f-3.svg";
+import dice4 from "../../assets/IconSVGs/dice/dice-f-4.svg";
+import dice5 from "../../assets/IconSVGs/dice/dice-f-5.svg";
+import dice6 from "../../assets/IconSVGs/dice/dice-f-6.svg";
+import persDice from "../../assets/IconSVGs/dice/perspective-dice.svg";
+import rolling from "../../assets/IconSVGs/dice/dice roll.gif";
 
 const diceSVGs = [rolling, dice1, dice2, dice3, dice4, dice5, dice6];
 const d12_diceSVGs = [d12_rolling, d12_img];
 
-const colors = ["body", "mind", "soul", "nature"];
+const buttonColorOptions = ["body", "mind", "soul", "nature"] as const;
+type buttonColor = (typeof buttonColorOptions)[number];
 
 function rollDice(amount: number, mult: number = 6) {
-    let dice = [];
+    const dice = [];
 
     for (let a = 0; a < amount; a++) {
         const randomInRange = Math.floor(Math.random() * mult) + 1;
@@ -55,13 +56,13 @@ export default function DiceRoller({
     // const [Bonus, SetBonus] = useState(startingBonus);
 
     // const [isOpen, setIsOpen] = useState(startOpen);
-    const [randColor, setRandColor] = useState("body");
+    const [randColor, setRandColor] = useState<buttonColor>("body");
     const [dnum, setDnum] = useState(6);
 
     useEffect(() => {
         setDnum(Dice.length == 1 ? 12 : 6);
 
-        if (isOpen == true) setRandColor(colors[Math.floor(Math.random() * colors.length)]);
+        if (isOpen == true) setRandColor(buttonColorOptions[Math.floor(Math.random() * buttonColorOptions.length)]);
 
         // Dice.fill(1);
     }, [isOpen]);
