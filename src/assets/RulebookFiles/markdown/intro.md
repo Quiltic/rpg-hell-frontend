@@ -1,3 +1,9 @@
+---
+title: Intro
+order: 1
+tags: []
+---
+
 # Introduction
 
 &ensp; Welcome to the RPG-hell rulebook! this page will serve as your starting point in this Tabletop Roleplaying Game. This game is still in active development so polish and fluff aren't the active priority; expect more words here in the future. I would recommend starting by reading the Core Rules.

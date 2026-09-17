@@ -1,3 +1,9 @@
+---
+title: Core Rules
+order: 2
+tags: [main]
+---
+
 # Basic Rules
 
 ## Important Notes

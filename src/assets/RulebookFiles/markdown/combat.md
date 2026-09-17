@@ -1,3 +1,9 @@
+---
+title: Combat
+order: 5
+tags: []
+---
+
 # Combat
 
 Combat is split up into Rounds, with each Round lasting 10 seconds. To start you must do [Initative](#initative), though how your GM handles this may varies. Then when a character (player or NPC) start their turn, they take effects from Arts or afflctions then roll their [COMBAT DICE](#actiondice). These dice can be used to activate abilities and do [actions](#commonactions).

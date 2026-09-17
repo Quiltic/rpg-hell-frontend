@@ -1,3 +1,9 @@
+---
+title: Miscellaneous Rules
+order: 7
+tags: []
+---
+
 # Miscellaneous Rules
 
 _This is a listing of various rules that had no specific home._

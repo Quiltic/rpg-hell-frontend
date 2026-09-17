@@ -1,12 +1,9 @@
-import { Heading } from "./headings";
+import { Heading } from "./sections";
 type HeadingJumpToProps = {
     title?: string;
     headings: Heading[];
 };
-export default function HeadingJumpTo({
-    title = "Page Sections",
-    headings,
-}: HeadingJumpToProps) {
+export default function HeadingJumpTo({ title = "Page Sections", headings }: HeadingJumpToProps) {
     return (
         <>
             <h2>{title}</h2>
