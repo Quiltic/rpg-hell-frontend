@@ -1,3 +1,9 @@
+---
+title: Effects
+order: 6
+tags: []
+---
+
 # States
 
 ::definitions{name="death's door"}

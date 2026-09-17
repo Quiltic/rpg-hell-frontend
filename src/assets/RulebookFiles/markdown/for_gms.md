@@ -1,3 +1,9 @@
+---
+title: For GMs
+order: 8
+tags: []
+---
+
 # Tips for GM's
 
 This is a helpful little section for burgeoning GM's (Game Master) of this system.
