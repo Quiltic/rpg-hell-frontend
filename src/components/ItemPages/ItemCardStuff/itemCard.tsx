@@ -1,7 +1,7 @@
 import { GlossaryTooltipLayer, formatEffectString } from "../../../glossary";
 import Markdown from "react-markdown";
 import { Item } from "../../../client";
-import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/render/MarkdownRenderer";
 import { toPillElement } from "../../../util/textFormatting";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -38,18 +38,11 @@ export default function ItemCard({
         ?.toLowerCase()
         .split(", ")
         .forEach((tag) => {
-            if (
-                "body mind soul arcana charm finesse nature".includes(
-                    tag.substring(0, tag.length - 1)
-                )
-            ) {
+            if ("body mind soul arcana charm finesse nature".includes(tag.substring(0, tag.length - 1))) {
                 reqlist = reqlist.concat(",", tag);
             }
         });
-    const req = toPillElement(
-        reqlist.substring(1).replace(" 0", "") ?? "",
-        ","
-    );
+    const req = toPillElement(reqlist.substring(1).replace(" 0", "") ?? "", ",");
 
     const level = toPillElement(_item.rarity.toString(), ",");
 
@@ -67,25 +60,17 @@ export default function ItemCard({
             >
                 <div className="flex flex-row items-center justify-between rounded-md bg-dark">
                     <div
-                        className={cn(
-                            "flex items-center capitalize",
-                            _item.tags.length > 20 ? "flex-col" : "flex-row"
-                        )}
+                        className={cn("flex items-center capitalize", _item.tags.length > 20 ? "flex-col" : "flex-row")}
                     >
                         <div
-                            className={cn(
-                                "p-2 text-lg font-bold capitalize",
-                                _item.name.length > 15 ? "text-sm" : ""
-                            )}
+                            className={cn("p-2 text-lg font-bold capitalize", _item.name.length > 15 ? "text-sm" : "")}
                         >
                             {_item.name ?? ""}
                         </div>
                         <div
                             className={cn(
                                 "items-left flex p-1 pl-2 capitalize italic text-light-300",
-                                _item.tags.length > 20
-                                    ? "-mt-2 text-xs"
-                                    : "text-sm"
+                                _item.tags.length > 20 ? "-mt-2 text-xs" : "text-sm"
                             )}
                         >
                             {_item.tags}
@@ -97,9 +82,7 @@ export default function ItemCard({
                     </div>
                 </div>
 
-                <div className="items-left -mb-3 flex p-1 pl-2 italic text-light-300">
-                    {_item.description}
-                </div>
+                <div className="items-left -mb-3 flex p-1 pl-2 italic text-light-300">{_item.description}</div>
 
                 {ee.map((line, id) => {
                     return (
@@ -109,7 +92,10 @@ export default function ItemCard({
                             rehypePlugins={[rehypeRaw]}
                             components={{
                                 ul: ({ node, ...props }) => (
-                                    <ul className="md_list" {...props} />
+                                    <ul
+                                        className="md_list"
+                                        {...props}
+                                    />
                                 ),
                             }}
                             className="text-left"
@@ -126,9 +112,7 @@ export default function ItemCard({
                         return (
                             <div key={id}>
                                 <hr className="-mb-4" />
-                                <p className="font-semibold underline ">
-                                    Upgrade
-                                </p>
+                                <p className="font-semibold underline ">Upgrade</p>
                                 <Markdown
                                     remarkPlugins={[remarkGfm]}
                                     rehypePlugins={[rehypeRaw]}

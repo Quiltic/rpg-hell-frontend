@@ -19,6 +19,8 @@ adding a page: make the `.md` file with a frontmatter block, add it to `RULEBOOK
 
 ### MarkdownRenderer
 
+lives in `render/` along with everything only it uses (the files in this section and the directive files below). `sections.ts`, `frontmatter.ts`, `pages.ts` and `pageList.ts` stay up top because the search index needs them too.
+
 `MarkdownRenderer.tsx` takes raw markdown text and turns it into the page. the steps in order:
 
 1. `useMarkdown.tsx` runs `extractHeadings` (from `sections.ts`) over the text to get every heading and its `slug`.

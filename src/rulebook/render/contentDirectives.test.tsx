@@ -31,9 +31,7 @@ describe("::keys", () => {
         expect(items[0].id).toBe("key-spell-reaction");
         // tight: no <p> inside the <li>
         expect(items[0].querySelector("p")).toBeNull();
-        expect(items[0].querySelector("strong em")?.textContent).toBe(
-            "Reaction"
-        );
+        expect(items[0].querySelector("strong em")?.textContent).toBe("Reaction");
     });
 
     it("renders the item key as a loose list", () => {
@@ -41,16 +39,12 @@ describe("::keys", () => {
         const items = c.querySelectorAll("li");
         expect(items).toHaveLength(10);
         expect(items[0].querySelector("p")).not.toBeNull();
-        expect(c.querySelector("#key-item-on-hit strong em")?.textContent).toBe(
-            "On Hit"
-        );
+        expect(c.querySelector("#key-item-on-hit strong em")?.textContent).toBe("On Hit");
         expect(c.querySelector("#key-item-reaching-x")).not.toBeNull();
     });
 
     it("keeps a key and an effect with the same name apart by id", () => {
-        const c = renderMd(
-            '::keys{source="spell" name="focus"}\n\n::effects{name="focus"}'
-        );
+        const c = renderMd('::keys{source="spell" name="focus"}\n\n::effects{name="focus"}');
         expect(c.querySelector("#key-spell-focus")).not.toBeNull();
         expect(c.querySelector("#effect-focus")).not.toBeNull();
     });

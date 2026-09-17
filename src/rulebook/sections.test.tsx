@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { extractHeadings, extractSections } from "./sections";
 import { RULEBOOK_PAGES, markdownFor } from "./pages";
-import MarkdownRenderer from "./MarkdownRenderer";
+import MarkdownRenderer from "./render/MarkdownRenderer";
 import combatHeadings from "./__fixtures__/combat-headings.json";
 
 const filePages = RULEBOOK_PAGES.filter((page) => "file" in page);

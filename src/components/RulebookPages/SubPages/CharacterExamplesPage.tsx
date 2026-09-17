@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../../rulebook/pages";
 // import RulebookNavigation from "../RulebookNav";
 import { useSpells } from "../../../hooks/useSpells";
@@ -78,23 +78,16 @@ export default function CharacterExamplesPage() {
                                     >
                                         <div
                                             key={id}
-                                            className={cn(
-                                                "clickable m-2 rounded-md p-2",
-                                                "bg-" + char.mainStat
-                                            )}
+                                            className={cn("clickable m-2 rounded-md p-2", "bg-" + char.mainStat)}
                                             onClick={() => {
                                                 setCurCreature(char);
                                             }}
                                         >
-                                            <h3 className="mt-0 font-bold">
-                                                {char.name}
-                                            </h3>
+                                            <h3 className="mt-0 font-bold">{char.name}</h3>
                                             <div
                                                 className={cn(
                                                     "text-wrap m-2 rounded-md p-2 italic",
-                                                    "bg-" +
-                                                        char.mainStat +
-                                                        "-400"
+                                                    "bg-" + char.mainStat + "-400"
                                                 )}
                                             >
                                                 {char.quick_exp}
@@ -127,17 +120,13 @@ export default function CharacterExamplesPage() {
                     <ExampleCharSheet
                         _displayedCreature={curCreature}
                         traits={displayedTraits.filter((t) => {
-                            return curCreature.traits
-                                .join(". ")
-                                .includes(t.name);
+                            return curCreature.traits.join(". ").includes(t.name);
                         })}
                         arts={displayedSpells.filter((a) => {
                             return curCreature.arts.join(". ").includes(a.name);
                         })}
                         items={displayedItems.filter((i) => {
-                            return curCreature.items
-                                .split(". ")
-                                .includes(i.name);
+                            return curCreature.items.split(". ").includes(i.name);
                         })}
                     />
                 </div>

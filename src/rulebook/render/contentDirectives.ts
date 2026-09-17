@@ -1,8 +1,5 @@
-import { GLOSSARY_SOURCES } from "../glossary";
-import {
-    DirectiveSources,
-    remarkContentDirectives,
-} from "./remarkContentDirectives";
+import { GLOSSARY_SOURCES } from "../../glossary";
+import { DirectiveSources, remarkContentDirectives } from "./remarkContentDirectives";
 
 // `::effects{category="bane"}` and `::keys{source="item"}` expand into the
 // bullets for every matching record, in file order. The directive name is the
@@ -12,6 +9,4 @@ export const contentDirectiveSources: DirectiveSources = Object.fromEntries(
 );
 
 // The plugin instance MarkdownRenderer passes to react-markdown.
-export const contentDirectives = remarkContentDirectives(
-    contentDirectiveSources
-);
+export const contentDirectives = remarkContentDirectives(contentDirectiveSources);

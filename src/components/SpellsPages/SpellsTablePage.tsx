@@ -10,7 +10,7 @@ import { Disclosure, Switch, Tab } from "@headlessui/react";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
-import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
+import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 
@@ -106,13 +106,7 @@ export default function SpellsTablePage() {
                 <div className="m-2 rounded-md bg-dark-400 p-2 pl-4">
                     <div className="flex flex-row items-center justify-center">
                         <Button
-                            onClick={() =>
-                                download(
-                                    JSON.stringify(allSpells, null, 2),
-                                    "spells.json",
-                                    "text/json"
-                                )
-                            }
+                            onClick={() => download(JSON.stringify(allSpells, null, 2), "spells.json", "text/json")}
                             variant="thieving"
                         >
                             Download Arts Json
@@ -120,14 +114,10 @@ export default function SpellsTablePage() {
 
                         <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
                             {enabled && (
-                                <p className="m-2 flex flex-row items-center justify-center">
-                                    Switch to Table
-                                </p>
+                                <p className="m-2 flex flex-row items-center justify-center">Switch to Table</p>
                             )}
                             {!enabled && (
-                                <p className="m-2 flex flex-row items-center justify-center">
-                                    Switch to Block
-                                </p>
+                                <p className="m-2 flex flex-row items-center justify-center">Switch to Block</p>
                             )}
 
                             <Switch
@@ -137,14 +127,10 @@ export default function SpellsTablePage() {
                                     enabled ? "bg-body" : "bg-dark-700"
                                 } relative inline-flex h-6 w-11 items-center rounded-full`}
                             >
-                                <span className="sr-only">
-                                    Switch to Block Mode
-                                </span>
+                                <span className="sr-only">Switch to Block Mode</span>
                                 <span
                                     className={`${
-                                        enabled
-                                            ? "translate-x-6"
-                                            : "translate-x-1"
+                                        enabled ? "translate-x-6" : "translate-x-1"
                                     } inline-block h-4 w-4 transform rounded-full bg-light transition`}
                                 />
                             </Switch>
@@ -206,9 +192,7 @@ export default function SpellsTablePage() {
                                             <SpellCardHolder
                                                 shownSpells={pinnedSpells}
                                                 moveSpell={(spell) => {
-                                                    removeFromPinnedSpells(
-                                                        spell
-                                                    );
+                                                    removeFromPinnedSpells(spell);
                                                 }}
                                             />
                                         )}
@@ -216,9 +200,7 @@ export default function SpellsTablePage() {
                                             <SpellsTable
                                                 displayedSpells={pinnedSpells}
                                                 moveSpell={(spell) => {
-                                                    removeFromPinnedSpells(
-                                                        spell
-                                                    );
+                                                    removeFromPinnedSpells(spell);
                                                 }}
                                                 moveIsAdd={false}
                                             />
@@ -235,7 +217,10 @@ export default function SpellsTablePage() {
                 </>
             )}
 
-            <Tab.Group as="div" className="w-full ">
+            <Tab.Group
+                as="div"
+                className="w-full "
+            >
                 <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
                     <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
@@ -274,9 +259,7 @@ export default function SpellsTablePage() {
                             className="m-1 flex h-6 w-16 flex-row rounded-lg p-2 shadow-md"
                             value={searchLvl}
                             min="0"
-                            onChange={(e) =>
-                                setSearchLvl(parseInt(e.target.value))
-                            }
+                            onChange={(e) => setSearchLvl(parseInt(e.target.value))}
                         />
                     </div>
                     <SearchGroup
@@ -317,10 +300,7 @@ export default function SpellsTablePage() {
                                 <SpellCardHolder
                                     shownSpells={displayedSpells.filter((s) => {
                                         if (searchLvl) {
-                                            return (
-                                                s.stat == n.toLowerCase() &&
-                                                s.level == searchLvl
-                                            );
+                                            return s.stat == n.toLowerCase() && s.level == searchLvl;
                                         }
                                         return s.stat == n.toLowerCase();
                                     })}
@@ -332,17 +312,12 @@ export default function SpellsTablePage() {
                             )}
                             {!enabled && (
                                 <SpellsTable
-                                    displayedSpells={displayedSpells.filter(
-                                        (s) => {
-                                            if (searchLvl) {
-                                                return (
-                                                    s.stat == n.toLowerCase() &&
-                                                    s.level == searchLvl
-                                                );
-                                            }
-                                            return s.stat == n.toLowerCase();
+                                    displayedSpells={displayedSpells.filter((s) => {
+                                        if (searchLvl) {
+                                            return s.stat == n.toLowerCase() && s.level == searchLvl;
                                         }
-                                    )}
+                                        return s.stat == n.toLowerCase();
+                                    })}
                                     moveSpell={(spell) => {
                                         addToPinnedSpells(spell);
                                     }}

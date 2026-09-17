@@ -5,11 +5,7 @@ import remarkDirective from "remark-directive";
 import rehypeRaw from "rehype-raw";
 import { remark } from "remark";
 import type { List, Paragraph, Root } from "mdast";
-import {
-    ContentBlock,
-    DirectiveSources,
-    remarkContentDirectives,
-} from "./remarkContentDirectives";
+import { ContentBlock, DirectiveSources, remarkContentDirectives } from "./remarkContentDirectives";
 import { contentDirectives } from "./contentDirectives";
 
 type Fake = { name: string; group: string; text: string };
@@ -30,8 +26,7 @@ const sources: DirectiveSources = {
         records: fakes,
         toLine: (r) => `**_${r.name}_** - ${r.text}`,
         anchor: (r) => `block-${r.name}`,
-        toBlock: (r) =>
-            r.name === "alpha" ? `${r.text}\n\n- one\n- two` : `${r.text}`,
+        toBlock: (r) => (r.name === "alpha" ? `${r.text}\n\n- one\n- two` : `${r.text}`),
     },
 };
 
@@ -64,10 +59,7 @@ describe("remarkContentDirectives", () => {
         expect(list.type).toBe("list");
         expect(list.spread).toBe(true);
         expect(list.children).toHaveLength(2);
-        expect(list.children.map((li) => li.data?.hProperties?.id)).toEqual([
-            "thing-alpha",
-            "thing-beta",
-        ]);
+        expect(list.children.map((li) => li.data?.hProperties?.id)).toEqual(["thing-alpha", "thing-beta"]);
         expect(textOf(list.children[0])).toMatch(/^alpha - First/);
     });
 
@@ -84,11 +76,7 @@ describe("remarkContentDirectives", () => {
 
     it("leaves surrounding content alone", () => {
         const tree = parse('# Title\n\nSome prose.\n\n::things{group="b"}\n');
-        expect(tree.children.map((c) => c.type)).toEqual([
-            "heading",
-            "paragraph",
-            "list",
-        ]);
+        expect(tree.children.map((c) => c.type)).toEqual(["heading", "paragraph", "list"]);
     });
 
     it("shows a visible failure for zero matches", () => {
@@ -116,10 +104,7 @@ describe("remarkContentDirectives", () => {
     it("renders through react-markdown with ids and inline markdown", () => {
         const { container } = render(
             <Markdown
-                remarkPlugins={[
-                    remarkDirective,
-                    remarkContentDirectives(sources),
-                ]}
+                remarkPlugins={[remarkDirective, remarkContentDirectives(sources)]}
                 rehypePlugins={[rehypeRaw]}
             >
                 {'::things{group="a"}'}
@@ -149,18 +134,14 @@ describe("remarkContentDirectives with toBlock", () => {
     });
 
     it("keeps every block of a multi-block effect", () => {
-        const node = parse('::blocks{name="alpha"}')
-            .children[0] as ContentBlock;
+        const node = parse('::blocks{name="alpha"}').children[0] as ContentBlock;
         expect(node.children.map((c) => c.type)).toEqual(["paragraph", "list"]);
     });
 
     it("falls back to a list when several records match", () => {
         const list = parse('::blocks{group="a"}').children[0] as List;
         expect(list.type).toBe("list");
-        expect(list.children.map((li) => li.data?.hProperties?.id)).toEqual([
-            "block-alpha",
-            "block-beta",
-        ]);
+        expect(list.children.map((li) => li.data?.hProperties?.id)).toEqual(["block-alpha", "block-beta"]);
     });
 
     it("leaves a source without toBlock on the list path", () => {
@@ -170,19 +151,13 @@ describe("remarkContentDirectives with toBlock", () => {
 
     it("expands consecutive directives on adjacent lines", () => {
         const tree = parse('::blocks{name="beta"}\n::blocks{name="gamma"}');
-        expect(tree.children.map((c) => c.type)).toEqual([
-            "contentBlock",
-            "contentBlock",
-        ]);
+        expect(tree.children.map((c) => c.type)).toEqual(["contentBlock", "contentBlock"]);
     });
 
     it("renders through react-markdown as a div with the id and inner list", () => {
         const { container } = render(
             <Markdown
-                remarkPlugins={[
-                    remarkDirective,
-                    remarkContentDirectives(sources),
-                ]}
+                remarkPlugins={[remarkDirective, remarkContentDirectives(sources)]}
                 rehypePlugins={[rehypeRaw]}
             >
                 {'::blocks{name="alpha"}'}
@@ -214,9 +189,7 @@ describe("effects directive (real data)", () => {
 
     it("slugs spaces out of ids", () => {
         const { container } = render(
-            <Markdown remarkPlugins={[remarkDirective, contentDirectives]}>
-                {'::keys{name="on hit"}'}
-            </Markdown>
+            <Markdown remarkPlugins={[remarkDirective, contentDirectives]}>{'::keys{name="on hit"}'}</Markdown>
         );
         expect(container.querySelector("li")?.id).toBe("key-item-on-hit");
     });
