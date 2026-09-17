@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 // import { CancelablePromise, Item, Spell, Trait } from "../client";
 
 import traitJson from "../assets/OfflineJsons/traits.json";
@@ -6,7 +6,12 @@ import itemJson from "../assets/OfflineJsons/items.json";
 // import spellJson from "../assets/OfflineJsons/spells.json";
 import spellJson from "../assets/OfflineJsons/Arts.json";
 import creatureJson from "../assets/OfflineJsons/creatures.json";
-import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems, sortSpells } from "../util/sortingTools";
+import {
+    sortArrayByLevel,
+    sortArrayByReqs,
+    sortItems,
+    sortSpells,
+} from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";
 
 import { ApiClassUnion, eApiClass } from "../types/ApiClassUnions";
@@ -47,7 +52,6 @@ export function useApiClass<T extends ApiClassUnion>(
     // const { auth } = useContext(AuthContext);
 
     useEffect(() => {
-        
         async function getList() {
             let t: T[];
 
@@ -69,8 +73,9 @@ export function useApiClass<T extends ApiClassUnion>(
                     t = Object.values(creatureJson) as T[];
                     break;
             }
-            
-           
+
+            // drop nameless entries because they cause problem.
+            t = t.filter((x) => x && x.name);
 
             // only auth people should be able to see broken stuff
             // if (!auth.isAuthenticated || !auth.admin) {
@@ -112,7 +117,6 @@ export function useApiClass<T extends ApiClassUnion>(
                     break;
             }
 
-
             setAll(t);
             setDisplayed(t);
 
@@ -126,7 +130,9 @@ export function useApiClass<T extends ApiClassUnion>(
             setHasInitializedPersistedTraits(true);
         }
 
-        getList();
+        getList().catch((err) => {
+            console.error(`Failed to load ${c} list:`, err);
+        });
     }, [c, pinnedKey, changeToRefresh]);
 
     useEffect(() => {
@@ -188,4 +194,3 @@ export function useApiClass<T extends ApiClassUnion>(
         resetFilter,
     };
 }
-
