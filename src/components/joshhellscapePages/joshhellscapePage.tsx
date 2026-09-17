@@ -56,6 +56,7 @@ import { playerCharacterType } from "../../types/playerCharacterType";
 import BuilderStep4 from "../CharacterSheet/CharacterBuilder/BuilderComponentStep4";
 import BuilderStep4_5 from "../CharacterSheet/CharacterBuilder/BuilderStep4_5";
 import BuilderStep6 from "../CharacterSheet/CharacterBuilder/BuilderStep6";
+import RefinedCharacterSheet from "../CharacterSheet/InteractiveCharSheets/RefinedCharacterSheet";
 
 // i fucking hate typescript, without this worthless variable the colors will simply NOT WORK
 // const STUPID_COLOR_TYPESCRIPT_BS = [
@@ -152,7 +153,14 @@ export default function JoshhellscapePage() {
         tempStats[chosenStats[4]] += 1;
         tempStats[chosenStats[5]] -= 1;
 
-        setPlayer({ ...player, stats: tempStats });
+        const hp = 4 * player.stats.body + 3 * player.stats.mind + 2 * player.stats.soul + player.level;
+        const strain = 2 * player.stats.body + 3 * player.stats.mind + 4 * player.stats.soul + player.level;
+
+        setPlayer({
+            ...player,
+            stats: tempStats,
+            calculatedStats: { ...player.calculatedStats, curHp: hp, maxHp: hp, curStrain: strain, maxStrain: strain },
+        });
     }, [chosenStats]);
 
     useEffect(() => {
@@ -208,6 +216,11 @@ export default function JoshhellscapePage() {
                     setStepnum={() => setStepnum(7)}
                 />
             )}
+
+            <RefinedCharacterSheet
+                player={player}
+                setPlayer={setPlayer}
+            ></RefinedCharacterSheet>
         </div>
     );
 }

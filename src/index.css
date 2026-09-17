@@ -202,6 +202,18 @@ hr {
     @apply cursor-pointer hover:opacity-70;
 }
 
+.backgroundBox {
+    @apply m-4 flex items-center justify-center rounded-md bg-dark-400 p-4;
+}
+
+.midgroundBox {
+    @apply m-2 items-center justify-center rounded-md bg-dark-300 p-2;
+}
+
+.center {
+    @apply flex items-center justify-center;
+}
+
 /* 
 bg-body-900/50 dark:bg-dark-300/80
 bg-body-700/20  dark:bg-dark-600
