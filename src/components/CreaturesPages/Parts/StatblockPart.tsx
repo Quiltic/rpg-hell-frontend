@@ -122,7 +122,7 @@ export default function Statblock({ player: player, setPlayer: setPlayer }: Prop
 
                     <div className="flex flex-row justify-between">
                         {/* Substats */}
-                        <div className="midgroundBox flex grow flex-col gap-2 p-2">
+                        <div className="m-2 flex flex-col items-stretch justify-center gap-2 rounded-md bg-dark-300 p-2">
                             <InteractableStat
                                 statValue={player.stats.arcana}
                                 statName="Arcana"
@@ -149,7 +149,7 @@ export default function Statblock({ player: player, setPlayer: setPlayer }: Prop
                             />
                         </div>
                         {/* Calculated Stats */}
-                        <div className="midgroundBox grid grow grid-rows-4 gap-2 p-2">
+                        <div className="m-2 flex grow flex-col items-stretch justify-center gap-2 rounded-md bg-dark-300 p-2">
                             <InteractableStat
                                 statValue={player.calculatedStats.maxHp}
                                 statName={`HP ${player.calculatedStats.curHp} / `}
