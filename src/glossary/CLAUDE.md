@@ -16,7 +16,7 @@ Record rules, enforced by `sources/sources.test.ts` for every registered source:
 
 ## Scanning and formatting
 
-`scan.ts` runs one regex over a plain effect string: glossary names and aliases (longest first, first occurrence per term) plus the stat words, so a term is never coloured or linked inside markup it just wrote. A `ScanEmit` decides what each match becomes. `spanEmit` produces `<span class="kw" data-kw="name">` for terms and `text-<stat>-700` spans for stat words; `formatEffectString` (`format.ts`) is `scanText` with that emitter, memoised, and is what the tables and cards pass to `innerHTML`. Aliases (`aliases` on a record) are extra spellings that resolve to the record, such as inflections; a name ending in ` x` is matched without the `x`. A glossary alias must never equal a stat word; `sources.test.ts` checks.
+`scan.ts` runs one regex over a plain effect string: glossary names and aliases (longest first, first occurrence per term) plus the stat words, so a term is never coloured or linked inside markup it just wrote. A `ScanEmit` decides what each match becomes. `spanEmit` produces `<span class="kw" data-kw="name">` for terms and `text-<stat>-700` spans for stat words; `formatEffectString` (`format.ts`) is `scanText` with that emitter, memoised, and is what the tables and cards pass to `innerHTML`. Aliases (`aliases` on a record) are extra spellings that resolve to the record, such as inflections; a name ending in ` x` is matched without the `x`. A glossary alias must never equal a stat word; `sources.test.ts` checks. `toPattern` is exported so the search index (`search/documents/glossary.ts`) lists the same stripped spelling as an alias.
 
 ## Tooltips
 
@@ -28,4 +28,4 @@ Tooltips are mounted only in the three tables and three card views, on purpose. 
 
 ## Dependencies
 
-`glossary` imports `util` and `styling`, and only the `RulebookPageSlug` type from `rulebook/pages.ts`. Nothing else from `rulebook` may be imported here; `rulebook` imports `glossary`, not the other way round.
+`glossary` imports `util` and `styling`, and only the `RulebookPageSlug` type from `rulebook/pages.ts`. Nothing else from `rulebook` may be imported here; `rulebook` and `search` import `glossary`, not the other way round. `search` and `scripts/build-search-index.ts` import `sources/sources.ts`, `resolve.ts` and `scan.ts` directly rather than `index.ts`, to keep the tooltip components out of the bun script.

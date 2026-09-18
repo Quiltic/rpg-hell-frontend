@@ -12,6 +12,7 @@
         "test": "vitest",
         "test:run": "vitest run",
         "preview": "vite preview",
+        "build-search-index": "bun scripts/build-search-index.ts",
         "generate-client": "openapi --input ./openapi.json --output ./src/client --client fetch --useOptions --useUnionTypes",
         "prepare": "husky"
     },

@@ -1,29 +1,32 @@
 import Pill from "../components/ui/Pill";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
+// Class, rarity and path words mapped onto the palette; shared by the pills and the search index.
+export const PILL_COLOR_WORDS: Record<string, string> = {
+    mundane: "dark-300",
+    common: "thieving",
+    uncommon: "nature",
+    rare: "mind",
+    legendary: "arcana",
+
+    fighter: "body",
+    survivor: "medicine",
+    analyst: "mind",
+    commander: "mind",
+    pious: "soul",
+    spirits: "soul",
+    arcanist: "arcana",
+    craftsman: "crafting",
+    druidic: "nature",
+    face: "charm",
+    ranger: "nature",
+    urchin: "thieving",
+
+    elementalist: "nature",
+};
+
+// const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
-    const rarityTiers = {
-        mundane: "dark-300",
-        common: "thieving",
-        uncommon: "nature",
-        rare: "mind",
-        legendary: "arcana",
-
-        fighter: "body",
-        survivor: "medicine",
-        analyst: "mind",
-        commander: "mind",
-        pious: "soul",
-        spirits: "soul",
-        arcanist: "arcana",
-        craftsman: "crafting",
-        druidic: "nature",
-        face: "charm",
-        ranger: "nature",
-        urchin: "thieving",
-
-        elementalist: "nature",
-    };
     if (!_string) {
         return "";
     }
@@ -36,17 +39,13 @@ export function toPillElement(_string: string, splitter: string) {
     // Try to make the names, requirements, tags, ect. uppercase
     const pills = _string.split(splitter).map((word, i) => {
         const parts = word.split(" ");
-        if (parts[0] in rarityTiers) {
-            parts[0] = rarityTiers[parts[0]];
+        if (parts[0] in PILL_COLOR_WORDS) {
+            parts[0] = PILL_COLOR_WORDS[parts[0]];
         }
         const isBroken: boolean = parts[0].toLowerCase() == "broken";
         return (
             <Pill
-                colorClassName={
-                    "bg-" +
-                    parts[0].toLowerCase() +
-                    (isBroken ? " ring-2 ring-medicine-500" : "")
-                }
+                colorClassName={"bg-" + parts[0].toLowerCase() + (isBroken ? " ring-2 ring-medicine-500" : "")}
                 key={i}
             >
                 {word}
@@ -56,19 +55,14 @@ export function toPillElement(_string: string, splitter: string) {
     return pills;
 }
 
-export function sumNumbersAfterWord(
-    itemList: string[],
-    findWord: string
-): number {
+export function sumNumbersAfterWord(itemList: string[], findWord: string): number {
     /*
     This function takes in a processed itemlist (name-##-effects-tags) and returns a total sum of all "tags" (damage 6)
     */
     let sum = 0;
 
     for (const item of itemList) {
-        const wordsAndNumbers = item
-            .substring(item.indexOf("- ") + 2)
-            .split(","); // remove everything before  '- ' (name) so that the split will get all info
+        const wordsAndNumbers = item.substring(item.indexOf("- ") + 2).split(","); // remove everything before  '- ' (name) so that the split will get all info
 
         for (const wordAndNumber of wordsAndNumbers) {
             const [word, valueStr] = wordAndNumber.split(" "); // change THING # into [THING,#]
