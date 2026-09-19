@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import type { Plugin } from "vite";
 
@@ -11,11 +12,18 @@ function runScript(): void {
 }
 
 export function searchIndexPlugin(): Plugin {
+    let testing = false;
     return {
         name: "search-index",
-        apply: (_config, env) => env.mode !== "test",
-        buildStart: () => runScript(),
+        config(_config, env) {
+            testing = env.mode === "test";
+        },
+        // under vitest only a fresh clone needs the files, for the static hash import
+        buildStart() {
+            if (!testing || !existsSync("src/generated/searchIndex.hash.ts")) runScript();
+        },
         configureServer(server) {
+            if (testing) return;
             const dirs = WATCHED_DIRS.map((dir) => resolve(server.config.root, dir));
             let timer: ReturnType<typeof setTimeout> | undefined;
             for (const dir of dirs) server.watcher.add(dir);

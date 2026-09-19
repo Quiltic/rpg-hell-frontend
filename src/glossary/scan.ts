@@ -10,7 +10,7 @@ export type ScanEmit = {
 
 const STAT_WORDS: ReadonlySet<string> = new Set(STAT_COLORS);
 
-function escapeRegex(text: string): string {
+export function escapeRegex(text: string): string {
     return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
@@ -146,4 +146,10 @@ export const spanEmit: ScanEmit = {
     stat: (matched, statWord) => `<span class="${statColorClass(statWord)}">${escapeHtml(matched)}</span>`,
     keyword: (matched, name) =>
         `<span class="kw" data-kw="${escapeHtml(name)}" tabindex="0" role="button">${escapeHtml(matched)}</span>`,
+};
+
+export const statOnlyEmit: ScanEmit = {
+    plain: escapeHtml,
+    stat: spanEmit.stat,
+    keyword: (matched) => escapeHtml(matched),
 };

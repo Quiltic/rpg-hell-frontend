@@ -18,6 +18,8 @@ export type SearchDocument = {
     glossary?: { kind: string; name: string };
 };
 
+export type SearchResult = SearchDocument & { score: number; terms: string[] };
+
 export type SearchIndexFile = {
     version: 1;
     hash: string;
