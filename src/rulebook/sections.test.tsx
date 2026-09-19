@@ -56,6 +56,13 @@ describe("extractSections", () => {
         expect(sections[1].body).toBe("intro\nafter");
     });
 
+    it("keeps the text inside an inline html tag and drops the tag", () => {
+        const sections = extractSections(
+            '# Stats\n\nis <span style="font-size: 1.3em">Max Strain = Level</span> here\n'
+        );
+        expect(sections[1].body).toBe("is Max Strain = Level here");
+    });
+
     it("contributes no heading and no body from a frontmatter block", () => {
         const sections = extractSections("---\ntitle: Combat\norder: 5\ntags: [x]\n---\n\n# Combat\n\ntext\n");
         expect(sections).toEqual([

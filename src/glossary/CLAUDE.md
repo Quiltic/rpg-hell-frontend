@@ -22,6 +22,8 @@ Record rules, enforced by `sources/sources.test.ts` for every registered source:
 
 Anything that renders `formatEffectString` output is wrapped in `<GlossaryTooltipLayer>` (`components/GlossaryTooltipLayer.tsx`). The layer listens for pointer and focus events on `.kw` elements, resolves `data-kw` through `resolveTerm` (`resolve.ts`, first source in registry order), and mounts one `GlossaryTooltip` (floating-ui, portalled). The tooltip body is `definitionHtml`: `short` when non-empty, otherwise `effect`, scanned again with an emitter that turns nested terms into links, then rendered through react-markdown. "Read in the rulebook" goes to `rulebookHref`, which is `/rulebook/<page>#<anchor>` from the source's `page` and `anchor`. Each source's `pillColor` returns a literal `bg-<color>` class for the tooltip pill so the class survives the Tailwind build (`sources.test.ts` asserts the shape).
 
+The definition body and the "Read in the rulebook" link are `components/GlossaryDefinition.tsx`, taking `{ hit, onNavigate? }`. The tooltip and the search results (`components/search/GlossaryResultDetail.tsx`) both render it, so a change to how a definition reads lands in both. `findRecord` and the `GlossaryHit` type are on the index so search can rebuild a hit from the `{ kind, name }` stored on a result.
+
 Tooltips are mounted only in the three tables and three card views, on purpose. There is no site-wide layer.
 
 `useKeyAnchor.tsx` exists because the spell and item key lists sit inside a collapsed `Disclosure` on the table pages. It returns `defaultOpen` and a `remountKey` for a hash matching the prefix, so `/rulebook/items#key-item-on-hit` opens the panel; scrolling is done by `rulebook/MarkdownRenderer.tsx`.

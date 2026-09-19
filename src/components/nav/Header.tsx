@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 // import Login from "../auth/Login";
 
 import GodHeadIcon from "../../assets/godhead.svg";
+import GlobalSearch from "../search/GlobalSearch";
 
 type HeaderPageLink = {
     name: string;
@@ -43,14 +44,17 @@ function classNames(...classes: string[]) {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     return (
-        <header className="bg-dark-600 print:hidden"> 
-        {/* header-bg-gradient dark:bg-dark-600 */}
+        <header className="bg-dark-600 print:hidden">
+            {/* header-bg-gradient dark:bg-dark-600 */}
             <nav
-                className="mx-auto flex max-w-7xl items-center justify-between md:justify-start md:gap-x-12 px-8 py-4 md-px-8"
+                className="md-px-8 mx-auto flex max-w-7xl items-center justify-between px-8 py-4 md:justify-start md:gap-x-12"
                 aria-label="Global"
             >
                 <div className="flex ">
-                    <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
+                    <a
+                        href="/rpg-hell-frontend"
+                        className="-m-1.5 p-1.5"
+                    >
                         <span className="sr-only">RPG Hell</span>
                         <img
                             className="h-12 w-auto"
@@ -59,29 +63,34 @@ export default function Header() {
                         ></img>
                     </a>
                 </div>
-                <div className="flex md:hidden">
+                <div className="flex gap-x-6 md:hidden">
+                    <GlobalSearch variant="icon" />
                     <button
                         type="button"
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        className="text-gray-700 -m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                        <Bars3Icon
+                            className="h-6 w-6"
+                            aria-hidden="true"
+                        />
                     </button>
                 </div>
                 <div className="hidden md:flex md:gap-x-12">
                     {pages.map((page, i) => (
-                        <Link to={page.href} key={i}>
-                            <span
-                                className={classNames(
-                                    page.color,
-                                    "text-gray-300 hover:text-gray-300 text-lg"
-                                )}
-                            >
+                        <Link
+                            to={page.href}
+                            key={i}
+                        >
+                            <span className={classNames(page.color, "text-gray-300 hover:text-gray-300 text-lg")}>
                                 {page.name}
                             </span>
                         </Link>
                     ))}
+                </div>
+                <div className="ml-auto hidden w-full max-w-sm md:block">
+                    <GlobalSearch variant="bar" />
                 </div>
 
                 {/* <div className="hidden md:flex md:flex-1 md:justify-end">
@@ -95,9 +104,12 @@ export default function Header() {
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="bg-dark fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <Dialog.Panel className="bg-dark-900 sm:ring-gray-900/10 fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-dark px-6 py-6 sm:max-w-sm sm:ring-1">
                     <div className="flex items-center justify-between">
-                        <a href="/rpg-hell-frontend" className="-m-1.5 p-1.5">
+                        <a
+                            href="/rpg-hell-frontend"
+                            className="-m-1.5 p-1.5"
+                        >
                             <span className="sr-only">Your Company</span>
                             <img
                                 className="h-12 w-auto"
@@ -107,22 +119,28 @@ export default function Header() {
                         </a>
                         <button
                             type="button"
-                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                            className="text-gray-700 -m-2.5 rounded-md p-2.5"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>
-                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                            <XMarkIcon
+                                className="h-6 w-6"
+                                aria-hidden="true"
+                            />
                         </button>
                     </div>
                     <div className="mt-6 flow-root">
-                        <div className="-my-6 divide-y divide-gray-500/10">
+                        <div className="divide-gray-500/10 -my-6 divide-y">
                             <div className="space-y-2 py-6">
                                 {pages.map((page, i) => (
-                                    <Link to={page.href} key={i}>
+                                    <Link
+                                        to={page.href}
+                                        key={i}
+                                    >
                                         <span
                                             className={classNames(
                                                 page.color,
-                                                "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                                                "hover:bg-gray-50 -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7"
                                             )}
                                         >
                                             {page.name}
