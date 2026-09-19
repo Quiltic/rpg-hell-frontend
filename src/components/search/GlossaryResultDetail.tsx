@@ -11,10 +11,7 @@ export default function GlossaryResultDetail({ result, onNavigate }: Props) {
     const hit = glossaryHitFor(result);
     if (!hit) return null;
     return (
-        <div
-            className="mt-2 border-t border-dark-300 pt-1"
-            onClick={(event) => event.stopPropagation()}
-        >
+        <div className="border-t border-dark-300 pt-1">
             <GlossaryDefinition
                 hit={hit}
                 onNavigate={onNavigate}

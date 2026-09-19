@@ -142,6 +142,7 @@ describe("GlobalSearch", () => {
             name: /read in the rulebook/i,
         });
         expect(link).toHaveAttribute("href", "/rulebook/effects#effect-burn");
+        expect(link.closest('[role="option"]')).toBeNull();
 
         await userEvent.click(screen.getByText("Burn"));
         expect(screen.queryByRole("link", { name: /read in the rulebook/i })).not.toBeInTheDocument();

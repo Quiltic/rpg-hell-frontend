@@ -1,6 +1,8 @@
+import { Fragment } from "react";
 import { Combobox } from "@headlessui/react";
 import type { SearchResult } from "../../search";
 import { cn } from "../../styling/utilites";
+import GlossaryResultDetail from "./GlossaryResultDetail";
 import SearchResultRow from "./SearchResultRow";
 
 export const SEE_ALL = "see-all";
@@ -34,19 +36,28 @@ export default function SearchDropdown({ results, showSeeAll, message, expanded,
             ) : (
                 <Combobox.Options>
                     {results.map((result) => (
-                        <Combobox.Option
-                            key={result.id}
-                            value={result.id}
-                            className="cursor-pointer"
-                        >
-                            {({ active }) => (
-                                <SearchResultRow
-                                    result={result}
-                                    active={active}
-                                    expanded={expanded.includes(result.id)}
-                                />
+                        <Fragment key={result.id}>
+                            <Combobox.Option
+                                value={result.id}
+                                className="cursor-pointer"
+                            >
+                                {({ active }) => (
+                                    <SearchResultRow
+                                        result={result}
+                                        active={active}
+                                        expanded={expanded.includes(result.id)}
+                                    />
+                                )}
+                            </Combobox.Option>
+                            {expanded.includes(result.id) && (
+                                <li
+                                    role="presentation"
+                                    className="px-3 pb-2"
+                                >
+                                    <GlossaryResultDetail result={result} />
+                                </li>
                             )}
-                        </Combobox.Option>
+                        </Fragment>
                     ))}
                     {showSeeAll && (
                         <Combobox.Option

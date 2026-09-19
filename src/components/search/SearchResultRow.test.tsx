@@ -51,12 +51,10 @@ describe("SearchResultRow", () => {
         expect(container.firstChild).toHaveClass("bg-light-500/20");
     });
 
-    it("shows the definition in place of the snippet when expanded", () => {
+    /** The caller renders the definition after the row, so no link sits inside an option. */
+    it("hides the snippet and renders no links when expanded", () => {
         renderRow({ result: glossaryResult, expanded: true });
         expect(screen.queryByText(/feels like a/)).not.toBeInTheDocument();
-        expect(screen.getByRole("link", { name: /read in the rulebook/i })).toHaveAttribute(
-            "href",
-            "/rulebook/effects#effect-burn"
-        );
+        expect(screen.queryByRole("link")).not.toBeInTheDocument();
     });
 });
