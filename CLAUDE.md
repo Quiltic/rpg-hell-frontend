@@ -90,7 +90,7 @@ Dependency direction: `rulebook` imports `glossary`; `glossary` imports `util` a
 
 `src/search/` is the site-wide search (`src/search/README.md` has the detail). The index is `src/generated/searchIndex.json`, written by `scripts/build-search-index.ts` through the Vite plugin in `search/vitePlugin.ts` at dev start, at build, and when the rulebook markdown or the offline JSON changes. `src/generated/` is built and gitignored; never edit or commit it. `SearchProvider` (mounted in `RootLayout`) loads the index into MiniSearch on idle and `useSearch()` exposes `{ status, ensure, search }`.
 
-The UI is in `src/components/search/`: `GlobalSearch` (mounted twice by `Header.tsx`, as a bar on desktop and as an icon with a full-screen dialog on mobile), `SearchDropdown`, `SearchResultRow` and `GlossaryResultDetail`. `GlobalSearch` is a Headless UI `Combobox` in `multiple` mode whose value is the list of expanded glossary rows, because single mode closes the list on every selection. Activating a glossary row opens its definition in place; every other row navigates to `result.to`. `Search.tsx` and `SearchGroup.tsx` in the same folder are the older per-table filter and are unrelated.
+The UI is in `src/components/search/`: `GlobalSearch` (mounted twice by `Header.tsx`, as a bar on desktop and as an icon with a full-screen dialog on mobile), `SearchDropdown`, `SearchResultRow`, `GlossaryResultDetail` and `SearchPage` (the `/search?q=` route: the full list, with the query kept in the URL). `GlobalSearch` is a Headless UI `Combobox` in `multiple` mode whose value is the list of expanded glossary rows, because single mode closes the list on every selection. Activating a glossary row opens its definition in place; every other row navigates to `result.to`. `Search.tsx` and `SearchGroup.tsx` in the same folder are the older per-table filter and are unrelated.
 
 Snippets are stat-colored only (`statOnlyEmit`); there are no glossary tooltips inside search results. The active-row tint is `bg-<color>-500/20` built at runtime from `result.color`, which the safelist already covers.
 
@@ -104,7 +104,7 @@ Skill/stat names are also Tailwind color names: `body, mind, soul, arcana, charm
 -   `toPillElement` builds `bg-<word>` classes from `req`/`tags` strings, mapping rarity/class words (e.g. `legendary` → `arcana`, `craftsman` → `crafting`) onto the same palette.
 -   Each glossary source's `pillColor` returns a literal `bg-<color>` class for the tooltip pill.
 
-Because these class names are constructed at runtime, `tailwind.config.js` has a `safelist` regex for `(bg|ring|text)-<color>-<shade>`. Any new stat/rarity color must be added to the theme **and** covered by the safelist, or it will silently render with no color. Some components (e.g. `traitCard.tsx`) keep a dummy array of literal class strings for the same reason.
+Because these class names are constructed at runtime, `tailwind.config.js` has a `safelist` regex for `(bg|ring|text)-<color>-<shade>`. A second, anchored entry adds the `hover:` and `group-focus-visible:` variants for only the search row tint (`bg-<color>-500/20`, `ring-<color>-600`); do not add `variants` to the broad pattern, it triples the CSS. Any new stat/rarity color must be added to the theme **and** covered by the safelist, or it will silently render with no color. Some components (e.g. `traitCard.tsx`) keep a dummy array of literal class strings for the same reason.
 
 ### UI conventions
 

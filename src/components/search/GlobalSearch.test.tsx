@@ -107,6 +107,25 @@ describe("GlobalSearch", () => {
         expect(location()).toBe("/search?q=true%20strike");
     });
 
+    /** Headless UI activates the first row as soon as the list opens. */
+    it("goes to /search on Enter when the rows are showing but none was chosen", async () => {
+        setup([traitResult]);
+        await userEvent.type(input(), "strike");
+        await screen.findByText("True Strikes");
+
+        await userEvent.keyboard("{Enter}");
+        expect(location()).toBe("/search?q=strike");
+    });
+
+    it("reaches the first row with one ArrowDown", async () => {
+        setup([traitResult, rulebookResult]);
+        await userEvent.type(input(), "strike");
+        await screen.findByText("True Strikes");
+
+        await userEvent.keyboard("{ArrowDown}{Enter}");
+        expect(location()).toBe("/rulebook/traits");
+    });
+
     it("navigates to the selected row on Enter", async () => {
         setup([traitResult, rulebookResult]);
         await userEvent.type(input(), "strike");

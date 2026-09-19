@@ -15,12 +15,15 @@ function SearchBox({ floating }: { floating: boolean }) {
     const [query, setQuery] = useState("");
     const [debounced, setDebounced] = useState("");
     const [expanded, setExpanded] = useState<string[]>([]);
+    // Headless UI activates the first row on open; it only counts once the user moves to a row
+    const [navigated, setNavigated] = useState(false);
     const openButton = useRef<HTMLButtonElement>(null);
     const input = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         setQuery("");
         setExpanded([]);
+        setNavigated(false);
     }, [location]);
 
     useEffect(() => {
@@ -57,7 +60,7 @@ function SearchBox({ floating }: { floating: boolean }) {
             onChange={activate}
             multiple
         >
-            {({ open, activeOption }) => (
+            {({ open }) => (
                 <div className="relative w-full">
                     <MagnifyingGlassIcon
                         className="pointer-events-none absolute left-3 top-2.5 h-5 w-5 text-light-300"
@@ -74,17 +77,19 @@ function SearchBox({ floating }: { floating: boolean }) {
                         onChange={(event) => {
                             ensure();
                             setQuery(event.target.value);
+                            setNavigated(false);
                         }}
                         onFocus={() => {
                             if (!open) openButton.current?.click();
                         }}
                         onKeyDown={(event) => {
-                            if (
-                                event.key === "Enter" &&
-                                activeOption === null &&
-                                trimmed &&
-                                !event.nativeEvent.isComposing
-                            ) {
+                            if (navigated || event.nativeEvent.isComposing) return;
+                            if (event.key === "ArrowDown" && open) {
+                                event.preventDefault();
+                                setNavigated(true);
+                            } else if (event.key === "ArrowUp") {
+                                setNavigated(true);
+                            } else if (event.key === "Enter" && trimmed) {
                                 event.preventDefault();
                                 seeAll();
                             }
@@ -118,6 +123,8 @@ function SearchBox({ floating }: { floating: boolean }) {
                             message={message}
                             expanded={expanded}
                             floating={floating}
+                            highlight={navigated}
+                            onPointerMove={() => setNavigated(true)}
                         />
                     )}
                 </div>
