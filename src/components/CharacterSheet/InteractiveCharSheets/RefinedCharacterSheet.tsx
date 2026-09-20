@@ -40,15 +40,15 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
     //     filterSpells,
     //     resetFilterSpells,
     // } = useSpells();
-    //  const {
-    //     allItems,
-    //     pinnedItems,
-    //     displayedItems,
-    //     addToPinnedItems,
-    //     removeFromPinnedItems,
-    //     filterItems,
-    //     resetFilterItems,
-    // } = useItems();
+    const {
+        allItems,
+        pinnedItems,
+        displayedItems,
+        addToPinnedItems,
+        removeFromPinnedItems,
+        filterItems,
+        resetFilterItems,
+    } = useItems();
 
     const [openDice, setOpenDice] = useState(false);
     const [dice, setDice] = useState([1]);
@@ -90,6 +90,49 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
         const remaining = curArts.slice();
         remaining.splice(idx, 1);
         setCurArts(remaining);
+    }
+
+    // OK SO HERE IS THE PROBLEM
+    // For some reason these functions run twice
+    // if they run twice everything blanks
+    // but for some reason every blank cant be removed
+
+    const [itemString, setItemString] = useState("");
+    function getItemString(items: Array<string>) {
+        let theBigstring = "";
+        console.log(items);
+        items.forEach((item: string) => {
+            if (item != "") {
+                const theItem = allItems.find(
+                    (searchingItem) => searchingItem.name == item.replace("(equ)", "").replace("\n", "")
+                );
+                console.log(theItem);
+                if (theItem) {
+                    theBigstring += capitalize(theItem.name) + " (found) -> " + theItem.effect + "\n\n";
+                } else {
+                    theBigstring = theBigstring + item + "\n\n";
+                }
+            }
+        });
+        console.log(theBigstring);
+        setItemString(theBigstring);
+    }
+
+    // idk how to load this without a useEffect :)
+    useEffect(() => {
+        getItemString(player.items);
+        console.log(player.items);
+    }, [allItems]);
+
+    function cleanupItems() {
+        console.log(itemString);
+        const itemArray: Array<string> = [];
+        itemString.split("\n\n").forEach((line) => {
+            // if it fails to split then it is a custom item, otherwise its a found item
+            itemArray.push(line.split(" (found) -> ")[0].toLowerCase());
+        });
+        console.log(itemArray);
+        setPlayer({ ...player, items: itemArray.filter((item) => item != "" && item != "\n") });
     }
 
     // const [maxMain, setMaxMain] = useState(2);
@@ -174,30 +217,25 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                         />
                     </div> */}
                 </div>
-                {/* Stats/Stories/Weps/Items */}
+                {/* Top Section -> Stats and Tabs */}
                 <div className="bg-dark lg:grid lg:grid-cols-2 lg:gap-1">
                     {/* Stats */}
                     <Statblock
                         player={player}
                         setPlayer={setPlayer}
                     />
-
+                    {/* Tabs -> Dice/Dmg */}
                     <Tab.Group
                         as="div"
-                        className="w-full "
+                        className="m-4 hidden md:block"
                         defaultIndex={0}
-                        // onChange={(index) => {
-                        //     setDnum(index*6+6)
-                        //     // SetDice(new Array(Dice.length).fill(1));
-                        //     // console.log(index)
-                        // }}
                     >
                         <div className="md:flex-column m-6 mb-0 w-full align-middle md:flex md:justify-between">
                             <Tab.List className="flex flex-wrap gap-2">
                                 <Tab
                                     className={({ selected }) =>
                                         cn(
-                                            "w-10 rounded-t-md px-2 py-1 ring-aabase hover:font-bold",
+                                            "rounded-t-md px-2 py-1 ring-aabase hover:font-bold",
                                             selected ? "bg-dark-400 ring-2" : "bg-dark-600"
                                         )
                                     }
@@ -207,7 +245,7 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                                 <Tab
                                     className={({ selected }) =>
                                         cn(
-                                            "w-10 rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
+                                            "rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
                                             selected ? "bg-dark-400 ring-2" : "bg-dark-600"
                                         )
                                     }
@@ -217,7 +255,7 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                             </Tab.List>
                         </div>
                         <Tab.Panels>
-                            <Tab.Panel>
+                            <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                                 <DiceRoller
                                     startingDice={dice}
                                     startingBonus={diceBonus}
@@ -226,7 +264,7 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                                     setBonus={setDiceBonus}
                                 />
                             </Tab.Panel>
-                            <Tab.Panel>
+                            <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                                 <DamageTaker
                                     player={player}
                                     setPlayer={setPlayer}
@@ -234,67 +272,80 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                             </Tab.Panel>
                         </Tab.Panels>
                     </Tab.Group>
-
-                    {/* Stories */}
-                    {/* <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2 break-inside-avoid">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">
-                            Damage and Healing
-                        </h3> */}
-
-                    {/*                         
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1 underline">
-                            <a href="https://quiltic.github.io/rpg-hell-frontend/rulebook/character-creation#stories">
-                                Stories
-                            </a>
-                        </h3>
-                        <textarea
-                            placeholder="Here is a spot for your Stories!
-There is a link above for what a Story is!"
-                            className="bg-dark-300 h-full rounded-lg p-1 m-1"
-                            value={curStories}
-                            onChange={(e) => setCurStories(e.target.value)}
-                        /> */}
-                    {/* </div> */}
-
-                    {/* Weps */}
-                    {/* <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">WEAPONS</h3>
-
-                        <div className="lg:grid lg:grid-cols-2">
-                            {items.map( (i,id) => {return (
-                                <>
-                                {(i.tags.includes("weapon") || i.tags.includes("side")) && <ItemCard _item={{...i, upgrades:[]}} _className="m-1" key={id}/>}
-
-                                </>
-                            );})}
-                        </div>
-                    </div> */}
-
-                    {/* Items */}
-                    {/* <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ITEMS</h3>
-                        <div className="grid grid-cols-2">
-                            {items.map( (i,id) => {return (
-                                <>
-                                {
-                                    (!i.tags.includes("weapon") && !i.tags.includes("side")) &&
-                                    <Tooltip text={capitalize(i.name)} key={id}
-                                            display={<ItemCard _item={{...i, upgrades:[]}} _className="m-1 w-96"/>} 
-                                            className="rounded-md bg-dark-300 p-1 m-1"
-                                    />
-                                }
-                                
-                                </>
-                            );})}
-                        </div>
-                        <textarea
-                            placeholder="For any new items you pick up along the way."
-                            className="bg-dark-300 h-auto w-[100%] rounded-lg p-1 m-1 mt-3"
-                            // value={curCreature.descriptor}
-                            // onChange={(e) => setCurCreature({...curCreature, descriptor: e.target.value})}
-                        />
-                    </div> */}
                 </div>
+                {/* Stories/Items(string)/Notes */}
+                <Tab.Group
+                    as="div"
+                    className="m-4"
+                    defaultIndex={0}
+                >
+                    <div className="md:flex-column m-6 mb-0 w-full align-middle md:flex md:justify-between">
+                        <Tab.List className="flex flex-wrap gap-2">
+                            <Tab
+                                className={({ selected }) =>
+                                    cn(
+                                        "rounded-t-md px-2 py-1 ring-aabase hover:font-bold",
+                                        selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                    )
+                                }
+                            >
+                                {/* The aim was to have it be a link if you already have it selected (one that opens a new tab) */}
+                                {/* <a href="https://quiltic.github.io/rpg-hell-frontend/rulebook/character-creation#stories"> */}
+                                Stories
+                                {/* </a> */}
+                            </Tab>
+                            <Tab
+                                className={({ selected }) =>
+                                    cn(
+                                        "rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
+                                        selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                    )
+                                }
+                            >
+                                Items
+                            </Tab>
+                            <Tab
+                                className={({ selected }) =>
+                                    cn(
+                                        "rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
+                                        selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                    )
+                                }
+                            >
+                                Notes
+                            </Tab>
+                        </Tab.List>
+                    </div>
+                    <Tab.Panels>
+                        <Tab.Panel className={"m-1 h-32 rounded-md p-2 ring-2 ring-aabase"}>
+                            <textarea
+                                placeholder="Here is a spot for your Stories!
+There is a link above for what a Story is!"
+                                className="m-1 h-full w-full rounded-lg bg-dark-300 p-1"
+                                value={player.stories}
+                                onChange={(text) => setPlayer({ ...player, stories: text.target.value })}
+                            />
+                        </Tab.Panel>
+                        <Tab.Panel className={"m-1 h-32 rounded-md p-2 ring-2 ring-aabase"}>
+                            <textarea
+                                placeholder="You gots no Items!"
+                                className="m-1 h-full w-full rounded-lg bg-dark-300 p-1"
+                                value={itemString}
+                                onChange={(text) => setItemString(text.target.value)}
+                                onBlur={() => cleanupItems()}
+                                // onFocus={() => getItemString(player.items)}
+                            />
+                        </Tab.Panel>
+                        <Tab.Panel className={"m-1 h-32 rounded-md p-2 ring-2 ring-aabase"}>
+                            <textarea
+                                placeholder="Here lies Notes... May they rest in piece."
+                                className="m-1 h-full w-full rounded-lg bg-dark-300 p-1"
+                                value={player.notes}
+                                onChange={(text) => setPlayer({ ...player, notes: text.target.value })}
+                            />
+                        </Tab.Panel>
+                    </Tab.Panels>
+                </Tab.Group>
 
                 {/* Descriptor/How Act */}
                 {/* <div className="flex flex-row italic bg-dark-400 m-2 ptlr-2">
