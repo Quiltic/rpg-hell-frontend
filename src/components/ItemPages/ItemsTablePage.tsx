@@ -7,7 +7,7 @@ import { useItems } from "../../hooks/useItems";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 import { useState } from "react";
-import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
+import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
@@ -53,25 +53,9 @@ const tagList = [
     "unique",
 ];
 
-const IterativeItemLevels = [
-    "weapon",
-    "armor",
-    "medicine",
-    "alchemical",
-    "consumable",
-    "tool",
-    "mysc",
-    "magical",
-];
+const IterativeItemLevels = ["weapon", "armor", "medicine", "alchemical", "consumable", "tool", "mysc", "magical"];
 
-const rarityTiers = [
-    "any",
-    "mundane",
-    "common",
-    "uncommon",
-    "rare",
-    "legendary",
-];
+const rarityTiers = ["any", "mundane", "common", "uncommon", "rare", "legendary"];
 
 export default function ItemsTablePage() {
     // Opens the Key panel below when linked to /rulebook/items#key-item-<slug>.
@@ -99,13 +83,7 @@ export default function ItemsTablePage() {
                 <div className="m-2 rounded-md bg-dark-400 p-2 pl-4">
                     <div className="m-2 flex flex-row items-center justify-center">
                         <Button
-                            onClick={() =>
-                                download(
-                                    JSON.stringify(allItems, null, 2),
-                                    "items.json",
-                                    "text/json"
-                                )
-                            }
+                            onClick={() => download(JSON.stringify(allItems, null, 2), "items.json", "text/json")}
                             variant="thieving"
                         >
                             Download Items Json
@@ -113,14 +91,10 @@ export default function ItemsTablePage() {
 
                         <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
                             {enabled && (
-                                <p className="m-2 flex flex-row items-center justify-center">
-                                    Switch to Table
-                                </p>
+                                <p className="m-2 flex flex-row items-center justify-center">Switch to Table</p>
                             )}
                             {!enabled && (
-                                <p className="m-2 flex flex-row items-center justify-center">
-                                    Switch to Block
-                                </p>
+                                <p className="m-2 flex flex-row items-center justify-center">Switch to Block</p>
                             )}
 
                             <Switch
@@ -130,14 +104,10 @@ export default function ItemsTablePage() {
                                     enabled ? "bg-body" : "bg-dark-700"
                                 } relative inline-flex h-6 w-11 items-center rounded-full`}
                             >
-                                <span className="sr-only">
-                                    Switch to Block Mode
-                                </span>
+                                <span className="sr-only">Switch to Block Mode</span>
                                 <span
                                     className={`${
-                                        enabled
-                                            ? "translate-x-6"
-                                            : "translate-x-1"
+                                        enabled ? "translate-x-6" : "translate-x-1"
                                     } inline-block h-4 w-4 transform rounded-full bg-light transition`}
                                 />
                             </Switch>
@@ -224,7 +194,10 @@ export default function ItemsTablePage() {
                 </>
             )}
 
-            <Tab.Group as="div" className="w-full ">
+            <Tab.Group
+                as="div"
+                className="w-full "
+            >
                 <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
                     <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
@@ -277,8 +250,7 @@ export default function ItemsTablePage() {
                         {enabled && (
                             <ItemCardHolder
                                 shownItems={displayedItems.filter((i) => {
-                                    if (searchRarity != "any")
-                                        return i.rarity == searchRarity;
+                                    if (searchRarity != "any") return i.rarity == searchRarity;
                                     return true;
                                 })}
                                 moveItem={(item) => {
@@ -289,8 +261,7 @@ export default function ItemsTablePage() {
                         {!enabled && (
                             <ItemsTable
                                 displayedItems={displayedItems.filter((i) => {
-                                    if (searchRarity != "any")
-                                        return i.rarity == searchRarity;
+                                    if (searchRarity != "any") return i.rarity == searchRarity;
                                     return true;
                                 })}
                                 moveItem={(item) => {
@@ -304,17 +275,12 @@ export default function ItemsTablePage() {
                             <Tab.Panel key={i}>
                                 {enabled && (
                                     <ItemCardHolder
-                                        shownItems={displayedItems.filter(
-                                            (i) => {
-                                                if (searchRarity != "any") {
-                                                    return (
-                                                        i.tags.includes(n) &&
-                                                        i.rarity == searchRarity
-                                                    );
-                                                }
-                                                return i.tags.includes(n);
+                                        shownItems={displayedItems.filter((i) => {
+                                            if (searchRarity != "any") {
+                                                return i.tags.includes(n) && i.rarity == searchRarity;
                                             }
-                                        )}
+                                            return i.tags.includes(n);
+                                        })}
                                         key={i}
                                         moveItem={(item) => {
                                             addToPinnedItems(item);
@@ -323,17 +289,12 @@ export default function ItemsTablePage() {
                                 )}
                                 {!enabled && (
                                     <ItemsTable
-                                        displayedItems={displayedItems.filter(
-                                            (i) => {
-                                                if (searchRarity != "any") {
-                                                    return (
-                                                        i.tags.includes(n) &&
-                                                        i.rarity == searchRarity
-                                                    );
-                                                }
-                                                return i.tags.includes(n);
+                                        displayedItems={displayedItems.filter((i) => {
+                                            if (searchRarity != "any") {
+                                                return i.tags.includes(n) && i.rarity == searchRarity;
                                             }
-                                        )}
+                                            return i.tags.includes(n);
+                                        })}
                                         moveItem={(item) => {
                                             addToPinnedItems(item);
                                         }}

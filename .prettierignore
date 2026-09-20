@@ -10,3 +10,6 @@ openapi.json
 # Hand-maintained as one compact object per line so the tables stay
 # editable by hand. Prettier would expand each entry to ~7 lines.
 src/assets/OfflineJsons
+
+# Search index written by scripts/build-search-index.ts on every dev start and build.
+src/generated/

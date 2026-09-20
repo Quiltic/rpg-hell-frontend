@@ -1,6 +1,6 @@
 import RulebookNavigation from "./RulebookNav";
 
-import MarkdownRenderer from "../../rulebook/MarkdownRenderer";
+import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile, markdownFor } from "../../rulebook/pages";
 import { useTraits } from "../../hooks/useTraits";
 import { useItems } from "../../hooks/useItems";
@@ -69,9 +69,7 @@ export default function FullDoc() {
                     markdown={markdownFile("spell_key.md")}
                     have_header={false}
                 />
-                <SpellCardHolder
-                    shownSpells={displayedSpells}
-                ></SpellCardHolder>
+                <SpellCardHolder shownSpells={displayedSpells}></SpellCardHolder>
             </div>
 
             <div className="break-inside-avoid">

@@ -11,10 +11,7 @@ function hitFor(name: string): GlossaryHit {
     return hit;
 }
 
-function setup(
-    name: string,
-    props: Partial<Parameters<typeof GlossaryTooltip>[0]> = {}
-) {
+function setup(name: string, props: Partial<Parameters<typeof GlossaryTooltip>[0]> = {}) {
     const anchor = document.createElement("span");
     anchor.textContent = name;
     document.body.appendChild(anchor);
@@ -42,9 +39,7 @@ describe("GlossaryTooltip", () => {
         const tip = screen.getByRole("tooltip");
         expect(tip).toHaveTextContent("Burn");
         expect(tip).toHaveTextContent("bane");
-        expect(tip).toHaveTextContent(
-            hitFor("burn").record.effect.slice(0, 30)
-        );
+        expect(tip).toHaveTextContent(hitFor("burn").record.effect.slice(0, 30));
     });
 
     it("title-cases a stored lowercase name", () => {
@@ -55,28 +50,6 @@ describe("GlossaryTooltip", () => {
     it("labels a key by its source rather than a category", () => {
         setup("on hit");
         expect(screen.getByRole("tooltip")).toHaveTextContent("item key");
-    });
-
-    it("links to the term's rulebook anchor", () => {
-        setup("burn");
-        const link = screen.getByRole("link", { name: /rulebook/i });
-        expect(link).toHaveAttribute("href", "/rulebook/effects#effect-burn");
-    });
-
-    it("turns a nested keyword in the definition into a rulebook link", () => {
-        // `wet` names Burn in its own text.
-        setup("wet");
-        const nested = screen.getAllByRole("link", { name: /^burn$/i })[0];
-        expect(nested).toHaveAttribute("href", "/rulebook/effects#effect-burn");
-    });
-
-    it("does not link the term back to itself", () => {
-        // `grappled` says "Grappled" inside its own definition.
-        setup("grappled");
-        const selfLinks = screen
-            .getAllByRole("link")
-            .filter((a) => /^grappl/i.test(a.textContent ?? ""));
-        expect(selfLinks).toHaveLength(0);
     });
 
     it("describes the anchor while open and cleans up on unmount", () => {

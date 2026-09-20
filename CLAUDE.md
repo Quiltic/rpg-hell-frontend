@@ -86,6 +86,16 @@ Each folder carries its own `CLAUDE.md`, loaded automatically when you work on f
 
 Dependency direction: `rulebook` imports `glossary`; `glossary` imports `util` and `styling`, and only the `RulebookPageSlug` type from `rulebook/pages.ts`.
 
+### Search
+
+`src/search/` is the site-wide search (`src/search/README.md` has the detail). The index is `src/generated/searchIndex.json`, written by `scripts/build-search-index.ts` through the Vite plugin in `search/vitePlugin.ts` at dev start, at build, and when the rulebook markdown or the offline JSON changes. `src/generated/` is built and gitignored; never edit or commit it. `SearchProvider` (mounted in `RootLayout`) loads the index into MiniSearch on idle and `useSearch()` exposes `{ status, ensure, search }`.
+
+The UI is in `src/components/search/`: `GlobalSearch` (mounted twice by `Header.tsx`, as a bar on desktop and as an icon with a full-screen dialog on mobile), `SearchDropdown`, `SearchResultRow` and `GlossaryResultDetail`. `GlobalSearch` is a Headless UI `Combobox` in `multiple` mode whose value is the list of expanded glossary rows, because single mode closes the list on every selection. Activating a glossary row opens its definition in place; every other row navigates to `result.to`. `Search.tsx` and `SearchGroup.tsx` in the same folder are the older per-table filter and are unrelated.
+
+Snippets are stat-colored only (`statOnlyEmit`); there are no glossary tooltips inside search results. The active-row tint is `bg-<color>-500/20` built at runtime from `result.color`, which the safelist already covers.
+
+Dependency direction: `search` imports `glossary`, `rulebook`, `util` and `styling`, and is imported by neither `glossary` nor `rulebook`.
+
 ### Color system (the load-bearing convention)
 
 Skill/stat names are also Tailwind color names: `body, mind, soul, arcana, charm, crafting, nature, medicine, thieving` (plus `core, base, dark, light, aabase`), defined in `tailwind.config.js`. Three things depend on this:

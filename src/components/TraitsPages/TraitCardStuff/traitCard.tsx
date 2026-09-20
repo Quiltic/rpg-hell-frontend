@@ -1,7 +1,7 @@
 import { GlossaryTooltipLayer, formatEffectString } from "../../../glossary";
 import Markdown from "react-markdown";
 import { Trait } from "../../../client";
-import MarkdownRenderer from "../../../rulebook/MarkdownRenderer";
+import MarkdownRenderer from "../../../rulebook/render/MarkdownRenderer";
 import { toPillElement } from "../../../util/textFormatting";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -29,10 +29,7 @@ export default function TraitCard({
     // console.log(ee) ⚄.replace(/\#/gi, "⚀") ?? ""
     // .replace('###', "⚀⚁⚂").replace('##', "⚀⚁").replace('#', "⚀")
 
-    const req = toPillElement(
-        _trait.req?.toString().replace(" 0", "") ?? "",
-        ","
-    );
+    const req = toPillElement(_trait.req?.toString().replace(" 0", "") ?? "", ",");
 
     // gives automatic gradients for trait color bar
     let graid = `bg-gradient-to-br from-${_trait.req.replace(/[0-9\s]/g, "") ?? ""}-400 to-${_trait.req.replace(/[0-9\s]/g, "") ?? ""}-400 p-2`;
@@ -97,10 +94,7 @@ export default function TraitCard({
                                             />
                                         ),
                                     }}
-                                    className={cn(
-                                        "mb-2.5 p-2 text-left",
-                                        line.length > 300 ? "text-sm" : ""
-                                    )}
+                                    className={cn("mb-2.5 p-2 text-left", line.length > 300 ? "text-sm" : "")}
                                 >
                                     {line}
                                 </Markdown>

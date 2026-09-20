@@ -1,6 +1,10 @@
 export { formatEffectString } from "./format";
+export { statOnlyEmit } from "./scan";
 export { default as GlossaryTooltipLayer } from "./components/GlossaryTooltipLayer";
+export { default as GlossaryDefinition } from "./components/GlossaryDefinition";
 export { useKeyAnchor } from "./useKeyAnchor";
 export { resolveTerm, rulebookHref } from "./resolve";
 export { GLOSSARY_SOURCES } from "./sources/sources";
+export { findRecord } from "./sources/source";
+export type { GlossaryHit } from "./resolve";
 export type { GlossaryRecord, GlossarySource } from "./sources/source";

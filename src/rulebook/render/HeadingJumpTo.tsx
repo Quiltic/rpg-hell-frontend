@@ -1,4 +1,4 @@
-import { Heading } from "./sections";
+import { Heading } from "../sections";
 type HeadingJumpToProps = {
     title?: string;
     headings: Heading[];

@@ -30,5 +30,7 @@ json_to_mysql.py
 bun.lockb
 .vscode/settings.json
 
+src/generated/
+
 docs
 .claude

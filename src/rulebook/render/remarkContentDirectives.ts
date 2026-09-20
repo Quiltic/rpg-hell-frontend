@@ -63,10 +63,7 @@ function describeFilters(filters: [string, string][]): string {
 // Turns one directive node into the list or block it stands for, or a visible
 // failure paragraph. Every attribute except `tight` is an equality filter on
 // the records; no attributes means every record.
-export function expandDirective(
-    node: LeafDirective,
-    sources: DirectiveSources
-): List | Paragraph | ContentBlock {
+export function expandDirective(node: LeafDirective, sources: DirectiveSources): List | Paragraph | ContentBlock {
     if (!hasOwn(sources, node.name)) {
         return failure(node.name, `unknown directive "${node.name}"`);
     }
@@ -78,21 +75,14 @@ export function expandDirective(
         .filter(([key]) => key !== TIGHT_ATTR)
         .map(([key, value]) => [key, value ?? ""] as [string, string]);
 
-    const unknownKey = filters.find(
-        ([key]) => !source.records.some((record) => hasOwn(record, key))
-    );
+    const unknownKey = filters.find(([key]) => !source.records.some((record) => hasOwn(record, key)));
     if (unknownKey) {
         return failure(node.name, `unknown attribute "${unknownKey[0]}"`);
     }
 
-    const matches = source.records.filter((record) =>
-        filters.every(([key, value]) => String(record[key]) === value)
-    );
+    const matches = source.records.filter((record) => filters.every(([key, value]) => String(record[key]) === value));
     if (matches.length === 0) {
-        return failure(
-            node.name,
-            `no entries for ${describeFilters(filters) || "(all)"}`
-        );
+        return failure(node.name, `no entries for ${describeFilters(filters) || "(all)"}`);
     }
 
     if (matches.length === 1 && source.toBlock) {
@@ -102,9 +92,7 @@ export function expandDirective(
 
     // Build markdown and re-parse it rather than assembling mdast by hand so
     // bold and inline html come through the same way as hand-written bullets.
-    const markdown = matches
-        .map((record) => `-   ${source.toLine(record)}`)
-        .join(tight ? "\n" : "\n\n");
+    const markdown = matches.map((record) => `-   ${source.toLine(record)}`).join(tight ? "\n" : "\n\n");
     const list = remark().parse(markdown).children[0] as List;
 
     list.children.forEach((item, i) => {

@@ -38,9 +38,11 @@ function blockText(node: RootContent): string {
         case "blockquote":
             return node.children.map(blockText).filter(Boolean).join("\n");
         case "table":
-            return node.children.map((row) => row.children.map((cell) => toString(cell)).join(" ")).join("\n");
+            return node.children
+                .map((row) => row.children.map((cell) => toString(cell, { includeHtml: false })).join(" "))
+                .join("\n");
         default:
-            return toString(node);
+            return toString(node, { includeHtml: false });
     }
 }
 

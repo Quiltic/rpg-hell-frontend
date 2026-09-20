@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { extractHeadings, extractSections } from "./sections";
 import { RULEBOOK_PAGES, markdownFor } from "./pages";
-import MarkdownRenderer from "./MarkdownRenderer";
+import MarkdownRenderer from "./render/MarkdownRenderer";
 import combatHeadings from "./__fixtures__/combat-headings.json";
 
 const filePages = RULEBOOK_PAGES.filter((page) => "file" in page);
@@ -54,6 +54,13 @@ describe("extractSections", () => {
     it("contributes nothing to body from a directive line", () => {
         const sections = extractSections('# Banes\n\nintro\n\n::effects{category="bane"}\n\nafter\n');
         expect(sections[1].body).toBe("intro\nafter");
+    });
+
+    it("keeps the text inside an inline html tag and drops the tag", () => {
+        const sections = extractSections(
+            '# Stats\n\nis <span style="font-size: 1.3em">Max Strain = Level</span> here\n'
+        );
+        expect(sections[1].body).toBe("is Max Strain = Level here");
     });
 
     it("contributes no heading and no body from a frontmatter block", () => {

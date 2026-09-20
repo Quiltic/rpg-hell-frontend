@@ -4,14 +4,8 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkDirective from "remark-directive";
 import rehypeRaw from "rehype-raw";
-import {
-    remarkHighlightKeywords,
-    splitOnKeywords,
-} from "./remarkHighlightKeywords";
-import {
-    DirectiveSources,
-    remarkContentDirectives,
-} from "./remarkContentDirectives";
+import { remarkHighlightKeywords, splitOnKeywords } from "./remarkHighlightKeywords";
+import { DirectiveSources, remarkContentDirectives } from "./remarkContentDirectives";
 
 // The full rulebook chain, in the order MarkdownRenderer uses.
 function renderMd(markdown: string, sources?: DirectiveSources) {
@@ -68,9 +62,7 @@ describe("remarkHighlightKeywords", () => {
 
     it("colours stat words in headings", () => {
         const c = renderMd("## Body checks");
-        expect(c.querySelector("h2 span.text-body-700")?.textContent).toBe(
-            "Body"
-        );
+        expect(c.querySelector("h2 span.text-body-700")?.textContent).toBe("Body");
     });
 
     it("leaves inline code alone", () => {
@@ -89,9 +81,7 @@ describe("remarkHighlightKeywords", () => {
         const c = renderMd("[body stat](/rulebook/body)");
         const link = c.querySelector("a");
         expect(link?.getAttribute("href")).toBe("/rulebook/body");
-        expect(link?.querySelector("span.text-body-700")?.textContent).toBe(
-            "body"
-        );
+        expect(link?.querySelector("span.text-body-700")?.textContent).toBe("body");
     });
 
     // The old pre-parse pass rewrote `body` inside the `text-body-700` class it
@@ -100,9 +90,7 @@ describe("remarkHighlightKeywords", () => {
     it("never rewrites the class of an existing colour span", () => {
         const c = renderMd('<span class="text-body-700">body</span>');
         const spans = c.querySelectorAll("span");
-        spans.forEach((span) =>
-            expect(span.getAttribute("class")).toBe("text-body-700")
-        );
+        spans.forEach((span) => expect(span.getAttribute("class")).toBe("text-body-700"));
         expect(c.textContent).toBe("body");
     });
 });
@@ -140,8 +128,6 @@ describe("directives with a stat word in an attribute", () => {
 
     it("colours stat words inside the expanded bullets", () => {
         const c = renderMd('::things{group="nature"}', sources);
-        expect(
-            c.querySelector("#thing-alpha span.text-body-700")?.textContent
-        ).toBe("body");
+        expect(c.querySelector("#thing-alpha span.text-body-700")?.textContent).toBe("body");
     });
 });

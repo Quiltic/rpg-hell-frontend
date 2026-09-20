@@ -78,7 +78,7 @@ Your Stats are broken up into Main-stats (BODY, MIND, SOUL) and Sub-stats (ARCAN
 
 A core part of the game, Traits and Arts are the most common sources of spending Strain, though how much they require varies.
 
--   <span style="font-family: monospace; font-size: 1.3em">Max Strain = Level + 2*Body + 3*Mind + 4\*Soul</span>
+-   <span style="font-family: monospace; font-size: 1.3em">Max Strain = Level + 2\*Body + 3\*Mind + 4\*Soul</span>
 -   Strain is spend as it is used and you Refund all Strain (set to max) at the end of a Break or Rest.
 -   You may go into the negatives for Strain costs. If you do, BEFORE the effect happens you take damage equal to how negative you are. For instance if you activate an Art that costs 3 and are at 1 Strain, you take 2 damage (1-3 = -2), then activate the Art.
 -   You cannot have more Strain then your Max Strain.
