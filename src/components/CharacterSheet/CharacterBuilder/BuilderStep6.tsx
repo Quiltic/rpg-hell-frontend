@@ -61,6 +61,7 @@ export default function BuilderStep6({
                                 .filter((item) => {
                                     let reqMet = true;
 
+                                    // See if the item has any stat req
                                     const reqlist: Array<string> = [];
                                     item.tags
                                         ?.toLowerCase()
@@ -74,6 +75,8 @@ export default function BuilderStep6({
                                                 reqlist.push(tag);
                                             }
                                         });
+
+                                    // See if we meet any stat req
                                     if (reqlist.length) {
                                         reqlist.forEach((tag) => {
                                             const stat: statline = tag.split(" ")[0] as statline;
@@ -84,7 +87,16 @@ export default function BuilderStep6({
                                         });
                                     }
 
-                                    return item.tags.includes(itemType) && reqMet;
+                                    // look through all search types to see if its what we want
+                                    const multiSearch = itemType.split(" | ");
+                                    let foundSearch = false;
+                                    multiSearch.forEach((search: string) => {
+                                        foundSearch = foundSearch || item.tags.includes(search);
+                                    });
+
+                                    //if req are met and its of the type we are looking for
+                                    return reqMet && foundSearch;
+                                    // }
                                 })
                                 .map((item, i) => {
                                     if (item.name != "Error") {
@@ -158,7 +170,7 @@ export default function BuilderStep6({
                         useEmpty={player.equipped[1] == ""}
                         emptyButton={() => {
                             setPicking(1);
-                            setItemType("weapon");
+                            setItemType("weapon | shield");
                             setIsOpen(true);
                         }}
                         emptyText="Weapon or Shield"
@@ -170,7 +182,7 @@ export default function BuilderStep6({
                         }
                         filledButton={() => {
                             setPicking(1);
-                            setItemType("weapon");
+                            setItemType("weapon | shield");
                             setIsOpen(true);
                         }}
                     />
