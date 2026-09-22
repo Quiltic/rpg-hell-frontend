@@ -214,6 +214,15 @@ hr {
     @apply flex items-center justify-center;
 }
 
+::highlight(search-query) {
+    background-color: rgb(212 178 84 / 0.35);
+}
+
+mark.search-query {
+    background-color: rgb(212 178 84 / 0.35);
+    color: inherit;
+}
+
 /* 
 bg-body-900/50 dark:bg-dark-300/80
 bg-body-700/20  dark:bg-dark-600

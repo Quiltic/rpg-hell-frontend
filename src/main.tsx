@@ -28,6 +28,7 @@ import LootGeneratorPage from "./components/ToolsPages/LootGeneratorPage.tsx";
 import FullDoc from "./components/RulebookPages/FullDoc.tsx";
 import RulebookMarkdownPage from "./rulebook/RulebookMarkdownPage.tsx";
 import { RULEBOOK_PAGES } from "./rulebook/pages.ts";
+import SearchPage from "./components/search/SearchPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -47,6 +48,10 @@ const router = createBrowserRouter(
                 {
                     path: "character-sheet2",
                     element: <CharacterSheetForm />,
+                },
+                {
+                    path: "search",
+                    element: <SearchPage />,
                 },
                 {
                     path: "joshhellscape",
@@ -120,14 +125,10 @@ const router = createBrowserRouter(
                             path: "character-examples/:example",
                             element: <CharacterExamplesPage />,
                         },
-                        ...RULEBOOK_PAGES.filter((page) => "file" in page).map(
-                            (page) => ({
-                                path: page.slug,
-                                element: (
-                                    <RulebookMarkdownPage slug={page.slug} />
-                                ),
-                            })
-                        ),
+                        ...RULEBOOK_PAGES.filter((page) => "file" in page).map((page) => ({
+                            path: page.slug,
+                            element: <RulebookMarkdownPage slug={page.slug} />,
+                        })),
                     ],
                 },
                 {

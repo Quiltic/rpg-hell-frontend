@@ -13,20 +13,11 @@ import { useCreatures } from "../../hooks/useCreatures";
 import { cn } from "../../styling/utilites";
 import { eApiClass } from "../../types/ApiClassUnions";
 import Search from "../search/Search";
+import { useSearchParams } from "react-router-dom";
 
-
-const IterativeTraitLevels = [
-    "Humanoid",
-    "Animal",
-    "Construct",
-    "Monstrosity",
-    "Planar",
-    "Undead",
-    "Mythic",
-];
+const IterativeTraitLevels = ["Humanoid", "Animal", "Construct", "Monstrosity", "Planar", "Undead", "Mythic"];
 
 export default function CreatureTablePage() {
-
     const {
         allCreatures,
         pinnedCreatures,
@@ -36,12 +27,12 @@ export default function CreatureTablePage() {
         filterCreatures,
         resetFilterCreatures,
     } = useCreatures();
+    const searchedName = useSearchParams()[0].get("q") ?? "";
 
     // const { TraitsService } = useApi();
 
     const [searchValue, setSearchValue] = useState("");
     const [clearButtonVisibility, setClearButtonVisibility] = useState("hidden");
-
 
     // Styling:
 
@@ -69,9 +60,7 @@ export default function CreatureTablePage() {
                                         <CreatureTable
                                             displayedCreatures={pinnedCreatures}
                                             moveCreature={(creature) => {
-                                                removeFromPinnedCreatures(
-                                                    creature
-                                                );
+                                                removeFromPinnedCreatures(creature);
                                             }}
                                             moveIsAdd={false}
                                         />
@@ -84,13 +73,16 @@ export default function CreatureTablePage() {
                 </>
             )}
 
-            <Tab.Group as="div" className="w-full ">
-                <div className="flex flex-column justify-between py-1 w-full align-middle">
-                    <Tab.List className="flex space-x-1 p-1 gap-1">
+            <Tab.Group
+                as="div"
+                className="w-full "
+            >
+                <div className="flex-column flex w-full justify-between py-1 align-middle">
+                    <Tab.List className="flex gap-1 space-x-1 p-1">
                         <Tab
                             className={({ selected }) =>
                                 cn(
-                                    "hover:font-bold px-2 w-10 py-1 bg-dark-600 rounded-md ring-light",
+                                    "w-10 rounded-md bg-dark-600 px-2 py-1 ring-light hover:font-bold",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -103,7 +95,7 @@ export default function CreatureTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         cn(
-                                            "hover:font-bold px-1 py-1 w-16 bg-dark-600 rounded-md ring-light w-auto",
+                                            "w-16 w-auto rounded-md bg-dark-600 px-1 py-1 ring-light hover:font-bold",
                                             `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
                                             selected ? "ring-2" : ""
                                         )
@@ -114,8 +106,10 @@ export default function CreatureTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <div className="flex flex-column items-center px-2 py-1 bg-dark-700 rounded-full">
+                    <div className="flex-column flex items-center rounded-full bg-dark-700 px-2 py-1">
                         <Search
+                            key={searchedName}
+                            initialValue={searchedName}
                             filter={filterCreatures}
                             resetFilter={resetFilterCreatures}
                             filterClass={eApiClass.Creature}
@@ -156,13 +150,9 @@ export default function CreatureTablePage() {
                         return (
                             <Tab.Panel key={i}>
                                 <CreatureTable
-                                    displayedCreatures={displayedCreatures.filter(
-                                        (s) => {
-                                            return s.types
-                                                .toLowerCase()
-                                                .includes(n.toLowerCase());
-                                        }
-                                    )}
+                                    displayedCreatures={displayedCreatures.filter((s) => {
+                                        return s.types.toLowerCase().includes(n.toLowerCase());
+                                    })}
                                     moveCreature={(creature) => {
                                         addToPinnedCreatures(creature);
                                     }}

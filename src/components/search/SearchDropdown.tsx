@@ -9,16 +9,29 @@ export const SEE_ALL = "see-all";
 
 type Props = {
     results: SearchResult[];
+    query: string;
     showSeeAll: boolean;
     message?: string;
     expanded: string[];
     floating: boolean;
+    highlight: boolean;
+    onPointerMove: () => void;
 };
 
 // Rendered inside the Combobox of GlobalSearch
-export default function SearchDropdown({ results, showSeeAll, message, expanded, floating }: Props) {
+export default function SearchDropdown({
+    results,
+    query,
+    showSeeAll,
+    message,
+    expanded,
+    floating,
+    highlight,
+    onPointerMove,
+}: Props) {
     return (
         <div
+            onPointerMove={onPointerMove}
             className={cn(
                 "max-h-[70vh] overflow-y-auto bg-dark-700 text-left",
                 floating
@@ -44,7 +57,7 @@ export default function SearchDropdown({ results, showSeeAll, message, expanded,
                                 {({ active }) => (
                                     <SearchResultRow
                                         result={result}
-                                        active={active}
+                                        active={active && highlight}
                                         expanded={expanded.includes(result.id)}
                                     />
                                 )}
@@ -54,7 +67,10 @@ export default function SearchDropdown({ results, showSeeAll, message, expanded,
                                     role="presentation"
                                     className="px-3 pb-2"
                                 >
-                                    <GlossaryResultDetail result={result} />
+                                    <GlossaryResultDetail
+                                        result={result}
+                                        query={query}
+                                    />
                                 </li>
                             )}
                         </Fragment>
@@ -68,7 +84,7 @@ export default function SearchDropdown({ results, showSeeAll, message, expanded,
                                 <div
                                     className={cn(
                                         "rounded-lg px-3 py-2 text-sm text-soul-700",
-                                        active && "bg-soul-500/20"
+                                        active && highlight && "bg-soul-500/20"
                                     )}
                                 >
                                     See all results

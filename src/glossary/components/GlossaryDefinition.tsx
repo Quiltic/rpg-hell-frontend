@@ -8,14 +8,16 @@ import { GlossaryHit, definitionHtml, rulebookHref } from "../resolve";
 type Props = {
     hit: GlossaryHit;
     onNavigate?: () => void;
+    href?: string;
 };
 
 /**
  * @param hit - the record to show and the source it came from
  * @param onNavigate - called when a link in the body or the rulebook link is clicked
+ * @param href - replaces the target of the rulebook link
  * @returns the definition body with nested terms as links, then the "Read in the rulebook" link
  */
-export default function GlossaryDefinition({ hit, onNavigate }: Props) {
+export default function GlossaryDefinition({ hit, onNavigate, href }: Props) {
     return (
         <>
             <Markdown
@@ -38,7 +40,7 @@ export default function GlossaryDefinition({ hit, onNavigate }: Props) {
             </Markdown>
 
             <Link
-                to={rulebookHref(hit)}
+                to={href ?? rulebookHref(hit)}
                 onClick={onNavigate}
                 className="mt-2 flex flex-row gap-1 text-sm text-soul-700 underline"
             >

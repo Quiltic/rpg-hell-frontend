@@ -6,6 +6,7 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
 import SearchGroup from "../search/SearchGroup";
+import { useSearchParams } from "react-router-dom";
 
 function getTabWidth(lengthOfName: number) {
     return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
@@ -26,7 +27,7 @@ const IterativeTraitLevels = [
     "Face",
     "Ranger",
     "Urchin",
-    
+
     "Elementalist",
 ];
 
@@ -53,7 +54,8 @@ export default function TraitsTablePage() {
         filterTraits,
         resetFilterTraits,
     } = useTraits();
-    
+    const searchedName = useSearchParams()[0].get("q") ?? "";
+
     return (
         <>
             <h1 className="capitalize">Traits</h1>
@@ -61,13 +63,7 @@ export default function TraitsTablePage() {
             {/* (auth.isAuthenticated || (window.localStorage.getItem("db_access") == "IWANTMYCOOKIE")) &&  */}
             {
                 <Button
-                    onClick={() =>
-                        download(
-                            JSON.stringify(allTraits, null, 2),
-                            "traits.json",
-                            "text/json"
-                        )
-                    }
+                    onClick={() => download(JSON.stringify(allTraits, null, 2), "traits.json", "text/json")}
                     variant="link-body"
                 >
                     Download Traits Json
@@ -107,13 +103,16 @@ export default function TraitsTablePage() {
                 </>
             )}
 
-            <Tab.Group as="div" className="w-full ">
+            <Tab.Group
+                as="div"
+                className="w-full "
+            >
                 <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
                     <Tab.List className="flex flex-wrap gap-2 p-1">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
-                                    "w-10 rounded-md px-2 py-1 ring-aabase hover:font-bold bg-dark-600",
+                                    "w-10 rounded-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
                                     selected ? "ring-2" : ""
                                 )
                             }
@@ -126,7 +125,7 @@ export default function TraitsTablePage() {
                                     key={i}
                                     className={({ selected }) =>
                                         classNames(
-                                            "w-16 rounded-md px-1 py-1 ring-aabase hover:font-bold bg-dark-600",
+                                            "w-16 rounded-md bg-dark-600 px-1 py-1 ring-aabase hover:font-bold",
                                             getTabWidth(n.length),
                                             `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`, //text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700
                                             selected ? "ring-2" : ""
@@ -138,8 +137,10 @@ export default function TraitsTablePage() {
                             );
                         })}
                     </Tab.List>
-                    <SearchGroup 
-                        filter={filterTraits} 
+                    <SearchGroup
+                        key={searchedName}
+                        initialName={searchedName}
+                        filter={filterTraits}
                         resetFilter={resetFilterTraits}
                         filterClass={eApiClass.Trait}
                         tagList={tagList}
@@ -149,7 +150,6 @@ export default function TraitsTablePage() {
                     <Tab.Panel>
                         <TraitsTable
                             displayedTraits={displayedTraits}
-
                             moveTrait={(trait) => {
                                 addToPinnedTraits(trait);
                             }}
@@ -159,14 +159,9 @@ export default function TraitsTablePage() {
                         return (
                             <Tab.Panel key={i}>
                                 <TraitsTable
-                                    displayedTraits={displayedTraits.filter(
-                                        (s) => {
-                                            return s.req
-                                                    ?.toString()
-                                                    .includes(n.toLowerCase());
-                                        }
-                                    )}
-                                    
+                                    displayedTraits={displayedTraits.filter((s) => {
+                                        return s.req?.toString().includes(n.toLowerCase());
+                                    })}
                                     moveTrait={(trait) => {
                                         addToPinnedTraits(trait);
                                     }}

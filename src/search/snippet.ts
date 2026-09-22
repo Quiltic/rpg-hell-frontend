@@ -1,4 +1,5 @@
-import { escapeHtml, escapeRegex, scanText, statOnlyEmit } from "../glossary/scan";
+import { escapeHtml, scanText, statOnlyEmit } from "../glossary/scan";
+import { escapeRegex } from "../util/regex";
 import type { SearchResult } from "./types";
 
 const LEAD = 40;

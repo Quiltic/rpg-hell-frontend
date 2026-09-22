@@ -6,13 +6,12 @@ import { getAllCombinations } from "../../util/tableTools";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 import { ApiClassUnion, eApiClass } from "../../types/ApiClassUnions";
 
-
-
 type Props = {
     filter: (fn: (t: ApiClassUnion) => boolean) => void;
     resetFilter: () => void;
     filterClass: eApiClass;
     tagList: string[];
+    initialName?: string;
 };
 
 export default function SearchGroup({
@@ -20,52 +19,41 @@ export default function SearchGroup({
     resetFilter: _resetFilter,
     filterClass: _filterClass,
     tagList: _tagList,
+    initialName,
 }: Props) {
-
-
     const [searchString, setSearchString] = useState("");
-    const [name, setName] = useState("");
+    const [name, setName] = useState(initialName ?? "");
     const [effect, setEffect] = useState("");
     const [tags, setTags] = useState("");
-    
+
     const [popupOpen, setPopupOpen] = useState(false);
 
-
     useEffect(() => {
-
         if (name == "" && effect == "" && tags == "") {
-            setSearchString("")
+            setSearchString("");
             return;
         }
 
-        let tempname, tempeffect, temptags  = ''; // here for cleanup and incase we need it for later
+        let tempname,
+            tempeffect,
+            temptags = ""; // here for cleanup and incase we need it for later
 
-        if (tags[0] == ",")
-            setTags(tags.slice(1))
+        if (tags[0] == ",") setTags(tags.slice(1));
 
-        if (tags != ""){
-            const strings = tags.replace(/, | ,/g, ', ').split(', ');
+        if (tags != "") {
+            const strings = tags.replace(/, | ,/g, ", ").split(", ");
             temptags = getAllCombinations(strings);
         }
-        
-        setSearchString(`(^(.*${name}.*);\\|;(.*${effect}.*);\\|;(.*${temptags}.*))`)
-        
-    }, [
-        name, effect, tags
-    ]);
+
+        setSearchString(`(^(.*${name}.*);\\|;(.*${effect}.*);\\|;(.*${temptags}.*))`);
+    }, [name, effect, tags]);
 
     //(\bcommon\b).*(alchemical|grenade)|(alchemical|grenade).*common  <= gives common items that are alchemical or grenades
     //(?<=;\|;).*(?:\b{whatever effect string I want}\b).*(?=;\|;)     <= gives things that only exist within the effect
     //^(.*);\|;(.*);\|;(.*{thingy}.*)                                  <= gives only things in the tags
     //^(.*{thingy}[^;]*);\|;([^;]*);\|;([^;]*)                         <= gives only things in the name
 
-
-    
-    
-    
-
     return (
-        
         <div>
             <div className="flex flex-row items-center">
                 <FunnelIcon
@@ -74,7 +62,10 @@ export default function SearchGroup({
                         setPopupOpen(true);
                     }}
                 />
-                <div className="p-1" hidden={(searchString != ""  && searchString != undefined) ? false : true}>
+                <div
+                    className="p-1"
+                    hidden={searchString != "" && searchString != undefined ? false : true}
+                >
                     <XCircleIcon
                         className="h-6 w-6 cursor-pointer opacity-50"
                         onClick={() => {
@@ -84,64 +75,64 @@ export default function SearchGroup({
                         }}
                     />
                 </div>
-                <div className="p-1" hidden={(searchString != ""  && searchString != undefined) ? true : false}>
+                <div
+                    className="p-1"
+                    hidden={searchString != "" && searchString != undefined ? true : false}
+                >
                     <Search
                         filter={_filter}
                         resetFilter={_resetFilter}
                         filterClass={_filterClass}
                         initialSearch={searchString}
-                        />
+                    />
                 </div>
             </div>
 
-
-            <Popup displayedContentName="advanced filtering" isOpen={popupOpen} setIsOpen={setPopupOpen} displayedContent={
-                <div className="bg-dark-400 p-4 m-4 mb-10 rounded-lg">
-                    <div className="md:col-span-2 md:row-span-2 justify-center">
-                        <h3 className="flex flex-row capitalize mt-1">Name</h3>
-                        <input
-                            type="text"
-                            placeholder="Feather"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
+            <Popup
+                displayedContentName="advanced filtering"
+                isOpen={popupOpen}
+                setIsOpen={setPopupOpen}
+                displayedContent={
+                    <div className="m-4 mb-10 rounded-lg bg-dark-400 p-4">
+                        <div className="justify-center md:col-span-2 md:row-span-2">
+                            <h3 className="mt-1 flex flex-row capitalize">Name</h3>
+                            <input
+                                type="text"
+                                placeholder="Feather"
+                                className="mt-1 flex h-9 w-[100%] flex-row rounded-lg p-2 shadow-md"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <div className="md:col-span-2">
+                            <h3 className="flex flex-row capitalize">Effect</h3>
+                            <input
+                                type="text"
+                                className="mt-1 flex h-9 w-[100%] flex-row rounded-lg p-2 shadow-md"
+                                value={effect}
+                                onChange={(e) => setEffect(e.target.value)}
+                            />
+                        </div>
+                        <div className="md:col-span-2">
+                            <h3 className="flex flex-row capitalize">tags</h3>
+                            <input
+                                type="text"
+                                className="mt-1 flex h-9 w-[100%] flex-row rounded-lg p-2 shadow-md"
+                                value={tags}
+                                onChange={(e) => setTags(e.target.value)}
+                            />
+                            <CleanCombobox
+                                items={_tagList}
+                                className="flex flex-row"
+                                selected={""}
+                                setSelected={(val) => {
+                                    setTags(tags.concat(", ", val));
+                                }}
+                            />
+                        </div>
                     </div>
-                    <div className="md:col-span-2">
-                        <h3 className="flex flex-row capitalize">
-                            Effect
-                        </h3>
-                        <input
-                            type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={effect}
-                            onChange={(e) => setEffect(e.target.value)}
-                        />
-                    </div>
-                    <div className="md:col-span-2">
-                        <h3 className="flex flex-row capitalize">tags</h3>
-                        <input
-                            type="text"
-                            className="flex flex-row h-9 rounded-lg p-2 mt-1 w-[100%] shadow-md"
-                            value={tags}
-                            onChange={(e) => setTags(e.target.value)}
-                        />
-                        <CleanCombobox
-                            items={_tagList}
-                            className="flex flex-row"
-                            selected={""}
-                            setSelected={(val) => {
-                                setTags(tags.concat(", ", val));
-                            }}
-                        />
-                    </div>
-                </div>
-
-            }/>
+                }
+            />
         </div>
-        
-
     );
 }
-
-

@@ -68,6 +68,14 @@ contains the functions that transform all of the sources to be wrapped into the 
 
 components import from `src/search` (`index.ts`) only.
 
+## Landing
+
+`navigate.ts` has `hrefFor(result, query)`, used by the dropdown and by `/search` when a row is opened. the query goes into the link at click time, not into the index.
+
+-   trait, art, item, creature: `<table route>?q=<name>`, lowercased and regex-escaped (`util/regex.ts`) because the table filter is a regex over lowercase text. the table page reads `q` and filters to that name; a name that starts other names (`dagger`, `stiletto dagger`) shows all of them
+-   rulebook: `<page>?q=<query>#<anchor>`, query before the hash so the router parses both. the page highlights the query, see `rulebook/CLAUDE.md`
+-   glossary: the same as rulebook, so the "Read in the rulebook" link lands highlighted. keys are the exception: they link into the arts and items table pages, where `?q=` would filter the table, so their `to` is left as it is (`TABLE_ROUTES`)
+
 ## vitePlugin
 
 `vitePlugin.ts` is registered in `vite.config.ts`. it runs the bun script when a build starts and fails the build if the script fails, so a broken index can't ship silently. in dev it runs once at startup, then watches `assets\RulebookFiles\markdown` and `assets\OfflineJsons` and reruns the script and reloads the browser when a file in either changes (debounced so one save runs it once). under vitest it only runs when `src\generated\searchIndex.hash.ts` is missing (a fresh clone), because `SearchProvider.tsx` imports that file statically, and it never watches.

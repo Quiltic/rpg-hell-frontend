@@ -102,3 +102,42 @@ describe("MarkdownRenderer scrolling", () => {
         late.remove();
     });
 });
+
+describe("MarkdownRenderer highlightQuery", () => {
+    function mountHighlighted(query?: string) {
+        const router = createMemoryRouter(
+            [
+                {
+                    path: "/rulebook/combat",
+                    element: (
+                        <MarkdownRenderer
+                            markdown={markdown}
+                            highlightQuery={query}
+                        />
+                    ),
+                },
+            ],
+            { initialEntries: ["/rulebook/combat#cover"] }
+        );
+        return render(<RouterProvider router={router} />);
+    }
+
+    it("marks the query in the rendered page", () => {
+        const { container } = mountHighlighted("cover");
+        const marked = [...container.querySelectorAll("mark.search-query")].map((m) => m.textContent);
+        expect(marked.length).toBeGreaterThan(0);
+        expect(new Set(marked)).toEqual(new Set(["Cover"]));
+    });
+
+    it("marks nothing without a query", () => {
+        const { container } = mountHighlighted();
+        expect(container.querySelector("mark.search-query")).toBeNull();
+    });
+
+    /** jsdom lays nothing out, so the highlight is never below the fold and the heading wins. */
+    it("still scrolls to the heading", () => {
+        mountHighlighted("more");
+        vi.advanceTimersToNextFrame();
+        expect(scrolledIds()).toEqual(["cover"]);
+    });
+});

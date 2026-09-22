@@ -6,6 +6,11 @@ export default {
             pattern:
                 /(bg|ring|text|from|to)-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|dark|light|aabase)(-(1|2|3|4|5|6|7|8|9)00|)/,
         },
+        {
+            pattern:
+                /^(bg-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|light)-500\/20|ring-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|light)-600)$/,
+            variants: ["hover", "group-focus-visible"],
+        },
     ],
     theme: {
         extend: {},

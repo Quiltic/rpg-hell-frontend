@@ -6,6 +6,7 @@ import { useState } from "react";
 import { classNames, download } from "../../util/tableTools";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
+import { useSearchParams } from "react-router-dom";
 import { Disclosure, Switch, Tab } from "@headlessui/react";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
@@ -93,6 +94,7 @@ export default function SpellsTablePage() {
         filterSpells,
         resetFilterSpells,
     } = useSpells();
+    const searchedName = useSearchParams()[0].get("q") ?? "";
 
     const [enabled, setEnabled] = useState(false);
     const [searchLvl, setSearchLvl] = useState(0);
@@ -263,6 +265,8 @@ export default function SpellsTablePage() {
                         />
                     </div>
                     <SearchGroup
+                        key={searchedName}
+                        initialName={searchedName}
                         filter={filterSpells}
                         resetFilter={resetFilterSpells}
                         filterClass={eApiClass.Spell}
