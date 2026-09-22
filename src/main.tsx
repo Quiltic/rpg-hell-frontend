@@ -29,6 +29,8 @@ import FullDoc from "./components/RulebookPages/FullDoc.tsx";
 import RulebookMarkdownPage from "./rulebook/RulebookMarkdownPage.tsx";
 import { RULEBOOK_PAGES } from "./rulebook/pages.ts";
 import SearchPage from "./components/search/SearchPage.tsx";
+import CharacterPage from "./components/CharacterSheet/CharacterPage.tsx";
+import CharacterBuilderPage from "./components/CharacterSheet/CharacterBuilder/CharacterBuilderPage.tsx";
 
 const router = createBrowserRouter(
     [
@@ -40,6 +42,20 @@ const router = createBrowserRouter(
                 {
                     path: "",
                     element: <App />,
+                },
+                {
+                    path: "characters",
+
+                    children: [
+                        {
+                            path: "",
+                            element: <CharacterPage />,
+                        },
+                        {
+                            path: "new",
+                            element: <CharacterBuilderPage />,
+                        },
+                    ],
                 },
                 {
                     path: "character-sheet",

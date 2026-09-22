@@ -4,6 +4,7 @@ import { playerCharacterType } from "../../types/playerCharacterType";
 import { capitalize } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 import RefinedCharacterSheet from "./InteractiveCharSheets/RefinedCharacterSheet";
+import Popup from "../ui/Popups/Popup";
 
 const blankPC: playerCharacterType = {
     name: "YOUSHOULDENTSEEMEE!",
@@ -40,6 +41,8 @@ const blankPC: playerCharacterType = {
 };
 
 export default function CharacterPage() {
+    const [areYouSurePopup, setAreYouSurePopup] = useState(false);
+
     const [curCharacter, setCurCharacter] = useState<playerCharacterType>(blankPC);
     const allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;");
 
@@ -55,19 +58,59 @@ export default function CharacterPage() {
 
     return (
         <div className="flex flex-col">
+            <Popup
+                displayedContentName={"Are You Sure?"}
+                displayedContent={
+                    <div>
+                        Do you really want to Delete {curCharacter.name}?
+                        <div className="m-4 flex flex-row items-center justify-between">
+                            <Button
+                                className="border-2 border-solid border-medicine-400"
+                                variant={"link-medicine"}
+                                onClick={() => {
+                                    window.localStorage.removeItem(`character-${curCharacter.name?.toLowerCase()}`);
+                                    allSavedCharacters?.filter((character: string) => {
+                                        return character != curCharacter.name;
+                                    });
+                                    setAreYouSurePopup(false);
+                                }}
+                            >
+                                Yes
+                            </Button>
+                            <Button
+                                className=""
+                                variant={"nature"}
+                                onClick={() => setAreYouSurePopup(false)}
+                            >
+                                No
+                            </Button>
+                        </div>
+                    </div>
+                }
+                isOpen={areYouSurePopup}
+                setIsOpen={setAreYouSurePopup}
+                isSmol={true}
+            ></Popup>
             {curCharacter.name == "YOUSHOULDENTSEEMEE!" && (
                 <div>
                     <div className="grid grid-cols-4">
                         {/* New/Search/ */}
                         <div className="cols-span-1 grid">
                             <div>Search</div>
-                            <Button>New</Button>
+                            <Link to={"/characters/new"}>
+                                <Button
+                                    className="border-2 border-solid border-nature"
+                                    variant={"link-nature"}
+                                >
+                                    New
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* List of People */}
                         <div className="cols-span-3 grid">
                             {allSavedCharacters?.map((character: string, id: number) => {
-                                const absolutePath = `/rulebook/characters/${character}`;
+                                const absolutePath = `/characters/${character}`;
                                 return (
                                     <Link
                                         to={absolutePath}
@@ -85,7 +128,28 @@ export default function CharacterPage() {
             )}
             {curCharacter.name != "YOUSHOULDENTSEEMEE!" && (
                 <div>
-                    <div>Return, Print, Text Vs, and Del</div>
+                    <div className="m-2 flex flex-row items-center justify-end rounded-md bg-dark-400 p-2">
+                        <Link to={"/characters"}>
+                            <Button
+                                className="border-2 border-solid border-medicine-400"
+                                variant={"link-medicine"}
+                            >
+                                Return
+                            </Button>
+                        </Link>
+
+                        <div>Print</div>
+
+                        <div>TextVs</div>
+
+                        <Button
+                            className=""
+                            variant={"medicine"}
+                            onClick={() => setAreYouSurePopup(true)}
+                        >
+                            Delete
+                        </Button>
+                    </div>
                     <RefinedCharacterSheet
                         player={curCharacter}
                         setPlayer={setCurCharacter}
