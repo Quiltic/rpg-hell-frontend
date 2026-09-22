@@ -8,13 +8,15 @@ import { capitalize } from "../../../util/textFormatting";
 type Props = {
     player: playerCharacterType;
     setPlayer: (player: playerCharacterType) => void;
-    setStepnum: () => void;
+    continueButton: () => void;
+    backButton: () => void;
 };
 
 export default function BuilderStep4({
     player: player,
     setPlayer: setPlayer,
-    setStepnum: setStepnum,
+    continueButton: continueButton,
+    backButton: backButton,
 }: Props) {
     const path1 = pathJson.filter((path) => {
         return player.paths[0] == path.name;
@@ -28,26 +30,33 @@ export default function BuilderStep4({
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
                 Paths Chosen:
-                <div className={`bg-${path1} m-2 rounded-md p-2`}>
-                    {capitalize(player.paths[0])}
-                </div>
-                <div className={`bg-${path2} m-2 rounded-md p-2`}>
-                    {capitalize(player.paths[1])}
-                </div>
+                <div className={`bg-${path1} m-2 rounded-md p-2`}>{capitalize(player.paths[0])}</div>
+                <div className={`bg-${path2} m-2 rounded-md p-2`}>{capitalize(player.paths[1])}</div>
                 <Button
-                    disabled={
-                        player.traits.includes("") || player.arts.includes("")
-                    }
+                    variant="link-medicine"
+                    className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"
+                    onClick={backButton}
+                >
+                    Back
+                </Button>
+                <Button
+                    disabled={player.traits.includes("") || player.arts.includes("")}
                     variant="nature"
                     className="m-2 ml-4 flex items-center justify-center"
-                    onClick={setStepnum}
+                    onClick={continueButton}
                 >
                     Continue
                 </Button>
             </div>
 
-            <BuilderComponentStep4 player={player} setPlayer={setPlayer} />
-            <BuilderComponentStep5 player={player} setPlayer={setPlayer} />
+            <BuilderComponentStep4
+                player={player}
+                setPlayer={setPlayer}
+            />
+            <BuilderComponentStep5
+                player={player}
+                setPlayer={setPlayer}
+            />
         </div>
     );
 }

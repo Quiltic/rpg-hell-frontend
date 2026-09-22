@@ -13,7 +13,8 @@ type Props = {
     // setPlayer: (player: playerCharacterType) => void;
     chosenItems: Array<Item>;
     setChosenItems: (item: Array<Item>) => void;
-    setStepnum: () => void;
+    continueButton: () => void;
+    backButton: () => void;
 };
 
 type statline = "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
@@ -21,7 +22,8 @@ type statline = "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nat
 export default function BuilderStep6({
     player: player,
     // setPlayer: setPlayer,
-    setStepnum: setStepnum,
+    continueButton: continueButton,
+    backButton: backButton,
     chosenItems: chosenItems,
     setChosenItems: setChosenItems,
 }: Props) {
@@ -133,10 +135,17 @@ export default function BuilderStep6({
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
                 <Button
+                    variant="link-medicine"
+                    className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"
+                    onClick={backButton}
+                >
+                    Back
+                </Button>
+                <Button
                     disabled={chosenItems.find((item) => item.name == "") ? true : false}
                     variant="nature"
                     className="m-2 ml-4 flex items-center justify-center"
-                    onClick={setStepnum}
+                    onClick={continueButton}
                 >
                     Continue
                 </Button>

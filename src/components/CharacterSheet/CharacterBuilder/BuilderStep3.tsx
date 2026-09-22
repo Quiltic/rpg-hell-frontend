@@ -10,13 +10,15 @@ import { playerCharacterType } from "../../../types/playerCharacterType";
 type Props = {
     player: playerCharacterType;
     setPlayer: (player: playerCharacterType) => void;
-    setStepnum: () => void;
+    continueButton: () => void;
+    backButton: () => void;
 };
 
 export default function BuilderStep3({
     player: player,
     setPlayer: setPlayer,
-    setStepnum: setStepnum,
+    continueButton: continueButton,
+    backButton: backButton,
 }: Props) {
     const pathList = pathJson.map((path) => path.name);
 
@@ -24,9 +26,7 @@ export default function BuilderStep3({
         <div className="">
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
-                <h1 className="m-4 rounded-md bg-dark-300 p-4">
-                    Step 3: Pick 2 Paths
-                </h1>
+                <h1 className="m-4 rounded-md bg-dark-300 p-4">Step 3: Pick 2 Paths</h1>
 
                 {/* Buttons */}
                 <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
@@ -58,12 +58,17 @@ export default function BuilderStep3({
                     />
 
                     <Button
-                        disabled={
-                            player.paths[0] == "" || player.paths[1] == ""
-                        }
+                        variant="link-medicine"
+                        className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"
+                        onClick={backButton}
+                    >
+                        Back
+                    </Button>
+                    <Button
+                        disabled={player.paths[0] == "" || player.paths[1] == ""}
                         variant="nature"
                         className="m-2 flex items-center justify-center"
-                        onClick={setStepnum}
+                        onClick={continueButton}
                     >
                         Continue
                     </Button>
@@ -81,29 +86,22 @@ export default function BuilderStep3({
                                     `${
                                         player.paths.includes(path.name)
                                             ? `ring-2 ring-light/75 bg-${path.color}`
-                                            : player.paths[0] != "" &&
-                                                player.paths[1] != ""
+                                            : player.paths[0] != "" && player.paths[1] != ""
                                               ? `bg-${path.color}-300`
                                               : `bg-${path.color}`
                                     }`
                                 )}
                                 onClick={() => {
                                     // console.log(path.name in player.paths);
-                                    const filledPaths =
-                                        player.paths[0] == "" ? 0 : 1;
+                                    const filledPaths = player.paths[0] == "" ? 0 : 1;
                                     setPlayer({
                                         ...player,
-                                        paths: changeItemInArray(
-                                            player.paths,
-                                            filledPaths,
-                                            path.name
-                                        ),
+                                        paths: changeItemInArray(player.paths, filledPaths, path.name),
                                     });
                                 }}
                             >
                                 <h3 className="mt-0 font-bold">
-                                    {path.icon} {capitalize(path.name)}{" "}
-                                    {path.icon}
+                                    {path.icon} {capitalize(path.name)} {path.icon}
                                 </h3>
                                 <div
                                     className={`text-wrap m-2 flex items-center justify-center rounded-md p-2 italic bg-${path.color}-400 h-16`}

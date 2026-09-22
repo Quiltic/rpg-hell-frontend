@@ -198,7 +198,8 @@ export default function JoshhellscapePage() {
                 <BuilderStep3
                     player={player}
                     setPlayer={setPlayer}
-                    setStepnum={() => setStepnum(4)}
+                    continueButton={() => setStepnum(4)}
+                    backButton={() => setStepnum(1)}
                 />
             )}
 
@@ -206,7 +207,8 @@ export default function JoshhellscapePage() {
                 <BuilderStep4_5
                     player={player}
                     setPlayer={setPlayer}
-                    setStepnum={() => setStepnum(6)}
+                    continueButton={() => setStepnum(6)}
+                    backButton={() => setStepnum(3)}
                 />
             )}
 
@@ -216,15 +218,27 @@ export default function JoshhellscapePage() {
                     // setPlayer={setPlayer}
                     chosenItems={chosenItems}
                     setChosenItems={setChosenItems}
-                    setStepnum={() => setStepnum(7)}
+                    continueButton={() => setStepnum(7)}
+                    backButton={() => setStepnum(4)}
                 />
             )}
 
             {stepnum == 7 && (
-                <RefinedCharacterSheet
-                    player={player}
-                    setPlayer={setPlayer}
-                ></RefinedCharacterSheet>
+                <>
+                    <div className="center m-2 flex flex-row bg-dark-400 p-2">
+                        <Button
+                            variant="link-medicine"
+                            className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"
+                            onClick={() => setStepnum(6)}
+                        >
+                            Back
+                        </Button>
+                    </div>
+                    <RefinedCharacterSheet
+                        player={player}
+                        setPlayer={setPlayer}
+                    ></RefinedCharacterSheet>
+                </>
             )}
         </div>
     );

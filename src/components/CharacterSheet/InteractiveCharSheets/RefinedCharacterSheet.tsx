@@ -5,7 +5,6 @@ import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
 import ArtCard from "../../SpellsPages/SpellCardStuff/artCard";
 import DicePopup from "../../ui/Popups/dicePopup";
 import { capitalize } from "../../../util/textFormatting";
-import Tooltip from "../../ui/Tooltip";
 import { playerCharacterType } from "../../../types/playerCharacterType";
 import { useItems } from "../../../hooks/useItems";
 import { useSpells } from "../../../hooks/useSpells";
@@ -58,6 +57,12 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
 
     const [itemString, setItemString] = useState("");
     const [equItems, setEquItems] = useState<Array<string>>([]);
+
+    // useEffect( () => {
+
+    //     window.localStorage.setItem(`character-${player.name}`, JSON.stringify(player));
+
+    // },[player]);
 
     // idk how to load this without a useEffect :)
     useEffect(() => {
