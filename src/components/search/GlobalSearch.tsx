@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Combobox, Dialog } from "@headlessui/react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSearch } from "../../search";
+import { hrefFor, useSearch } from "../../search";
 import SearchDropdown, { SEE_ALL } from "./SearchDropdown";
 import { glossaryHitFor } from "./glossaryHit";
 
@@ -51,7 +51,7 @@ function SearchBox({ floating }: { floating: boolean }) {
         const result = results.find((r) => r.id === id);
         if (!result) return;
         if (glossaryHitFor(result)) setExpanded(ids);
-        else navigate(result.to);
+        else navigate(hrefFor(result, debounced));
     }
 
     return (
@@ -119,6 +119,7 @@ function SearchBox({ floating }: { floating: boolean }) {
                     {open && trimmed && (
                         <SearchDropdown
                             results={results.slice(0, 3)}
+                            query={debounced}
                             showSeeAll={results.length > 3}
                             message={message}
                             expanded={expanded}

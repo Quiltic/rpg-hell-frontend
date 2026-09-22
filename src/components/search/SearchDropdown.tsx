@@ -9,6 +9,7 @@ export const SEE_ALL = "see-all";
 
 type Props = {
     results: SearchResult[];
+    query: string;
     showSeeAll: boolean;
     message?: string;
     expanded: string[];
@@ -20,6 +21,7 @@ type Props = {
 // Rendered inside the Combobox of GlobalSearch
 export default function SearchDropdown({
     results,
+    query,
     showSeeAll,
     message,
     expanded,
@@ -65,7 +67,10 @@ export default function SearchDropdown({
                                     role="presentation"
                                     className="px-3 pb-2"
                                 >
-                                    <GlossaryResultDetail result={result} />
+                                    <GlossaryResultDetail
+                                        result={result}
+                                        query={query}
+                                    />
                                 </li>
                             )}
                         </Fragment>

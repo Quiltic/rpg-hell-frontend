@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import useMarkdown from "./useMarkdown";
 import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
@@ -9,6 +9,7 @@ import { remarkHighlightKeywords } from "./remarkHighlightKeywords";
 import Markdown from "react-markdown";
 import HeadingJumpTo from "./HeadingJumpTo";
 import { useLocation } from "react-router-dom";
+import { useQueryHighlight } from "./useQueryHighlight";
 
 const SCROLL_RETRY_FRAMES = 60;
 
@@ -19,14 +20,31 @@ const flatten = (text: string, child: any) => {
         : React.Children.toArray(child.props.children).reduce(flatten, text);
 };
 
+const HEADINGS = "h1, h2, h3, h4, h5, h6";
+
+// the first highlight in the anchor's section, when the heading alone would leave it off screen
+function firstHighlightBelowFold(anchorEl: HTMLElement, ranges: Range[]): Element | undefined {
+    const follows = (a: Node, b: Node) => Boolean(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);
+    const range = ranges.find((r) => follows(anchorEl, r.startContainer) && !anchorEl.contains(r.startContainer));
+    const element = range?.startContainer.parentElement;
+    if (!element) return undefined;
+    const nextHeading = [...document.querySelectorAll(HEADINGS)].find((h) => follows(anchorEl, h));
+    if (nextHeading && !follows(element, nextHeading)) return undefined;
+    const distance = element.getBoundingClientRect().top - anchorEl.getBoundingClientRect().top;
+    return distance > window.innerHeight ? element : undefined;
+}
+
 type markdownRendererProps = {
     markdown: string;
     have_header?: boolean;
+    highlightQuery?: string;
 };
 
-export default function MarkdownRenderer({ markdown, have_header = true }: markdownRendererProps) {
+export default function MarkdownRenderer({ markdown, have_header = true, highlightQuery }: markdownRendererProps) {
     const { headings } = useMarkdown(markdown);
     const { hash } = useLocation();
+    const root = useRef<HTMLDivElement>(null);
+    const highlighted = useQueryHighlight(root, highlightQuery, markdown);
 
     const HeadingRenderer = useMemo(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -50,7 +68,9 @@ export default function MarkdownRenderer({ markdown, have_header = true }: markd
         const tryScroll = () => {
             const anchorEl = document.getElementById(anchor);
             if (anchorEl) {
-                anchorEl.scrollIntoView({ behavior: "smooth" });
+                (firstHighlightBelowFold(anchorEl, highlighted.current) ?? anchorEl).scrollIntoView({
+                    behavior: "smooth",
+                });
                 return;
             }
             attempts += 1;
@@ -60,10 +80,13 @@ export default function MarkdownRenderer({ markdown, have_header = true }: markd
         };
         frame = requestAnimationFrame(tryScroll);
         return () => cancelAnimationFrame(frame);
-    }, [markdown, hash]);
+    }, [markdown, hash, highlightQuery, highlighted]);
 
     return (
-        <div className="markdown-styles mx-auto max-w-4xl break-inside-avoid text-left">
+        <div
+            ref={root}
+            className="markdown-styles mx-auto max-w-4xl break-inside-avoid text-left"
+        >
             {have_header && <HeadingJumpTo headings={headings} />}
 
             <Markdown

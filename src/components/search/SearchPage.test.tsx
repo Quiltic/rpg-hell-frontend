@@ -49,7 +49,10 @@ describe("SearchPage", () => {
         expect(input()).toHaveValue("strike");
         expect(context.search).toHaveBeenLastCalledWith("strike", 200);
         expect(message()).toHaveTextContent("2 results for “strike”");
-        expect(screen.getByRole("link", { name: /True Strikes/ })).toHaveAttribute("href", "/rulebook/traits");
+        expect(screen.getByRole("link", { name: /True Strikes/ })).toHaveAttribute(
+            "href",
+            "/rulebook/traits?q=true%20strikes"
+        );
         expect(screen.getByRole("button", { name: /Burn/ })).toBeInTheDocument();
     });
 
@@ -120,7 +123,7 @@ describe("SearchPage", () => {
         expect(location()).toHaveTextContent("/search?q=burn");
         expect(screen.getByRole("link", { name: /read in the rulebook/i })).toHaveAttribute(
             "href",
-            "/rulebook/effects#effect-burn"
+            "/rulebook/effects?q=burn#effect-burn"
         );
 
         await userEvent.click(row);
@@ -130,6 +133,9 @@ describe("SearchPage", () => {
     /** A cached index can name a record that has since been renamed. */
     it("links a glossary row whose record is gone", () => {
         setup("/search?q=renamed", [staleGlossaryResult]);
-        expect(screen.getByRole("link", { name: /Renamed/ })).toHaveAttribute("href", "/rulebook/effects#effect-burn");
+        expect(screen.getByRole("link", { name: /Renamed/ })).toHaveAttribute(
+            "href",
+            "/rulebook/effects?q=renamed#effect-burn"
+        );
     });
 });

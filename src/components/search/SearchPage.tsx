@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { useSearch } from "../../search";
+import { hrefFor, useSearch } from "../../search";
 import { Button } from "../ui/Button/Button";
 import GlossaryResultDetail from "./GlossaryResultDetail";
 import SearchResultRow from "./SearchResultRow";
@@ -85,7 +85,7 @@ export default function SearchPage() {
                                 </button>
                             ) : (
                                 <Link
-                                    to={result.to}
+                                    to={hrefFor(result, trimmed)}
                                     className="group block rounded-lg hover:no-underline hover:opacity-100 focus:outline-none"
                                 >
                                     {row}
@@ -93,7 +93,10 @@ export default function SearchPage() {
                             )}
                             {expanded.includes(result.id) && (
                                 <div className="px-3 pb-2">
-                                    <GlossaryResultDetail result={result} />
+                                    <GlossaryResultDetail
+                                        result={result}
+                                        query={trimmed}
+                                    />
                                 </div>
                             )}
                         </li>

@@ -1,6 +1,7 @@
 import { STAT_COLORS, statColorClass } from "../styling/statColors";
 import { GlossaryRecord, normalizeName } from "./sources/source";
 import { GLOSSARY_SOURCES } from "./sources/sources";
+import { escapeRegex } from "../util/regex";
 
 export type ScanEmit = {
     plain(text: string): string;
@@ -9,10 +10,6 @@ export type ScanEmit = {
 };
 
 const STAT_WORDS: ReadonlySet<string> = new Set(STAT_COLORS);
-
-export function escapeRegex(text: string): string {
-    return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
 
 export function escapeHtml(text: string): string {
     return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

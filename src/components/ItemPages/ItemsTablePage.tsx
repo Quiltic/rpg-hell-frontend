@@ -6,6 +6,7 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useItems } from "../../hooks/useItems";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
+import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
@@ -70,6 +71,7 @@ export default function ItemsTablePage() {
         filterItems,
         resetFilterItems,
     } = useItems();
+    const searchedName = useSearchParams()[0].get("q") ?? "";
 
     const [enabled, setEnabled] = useState(false);
     const [searchRarity, setSearchRarity] = useState("any");
@@ -239,6 +241,8 @@ export default function ItemsTablePage() {
                         />
                     </div>
                     <SearchGroup
+                        key={searchedName}
+                        initialName={searchedName}
                         filter={filterItems}
                         resetFilter={resetFilterItems}
                         filterClass={eApiClass.Item}

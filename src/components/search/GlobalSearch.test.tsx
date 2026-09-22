@@ -123,7 +123,7 @@ describe("GlobalSearch", () => {
         await screen.findByText("True Strikes");
 
         await userEvent.keyboard("{ArrowDown}{Enter}");
-        expect(location()).toBe("/rulebook/traits");
+        expect(location()).toBe("/rulebook/traits?q=true%20strikes");
     });
 
     it("navigates to the selected row on Enter", async () => {
@@ -132,7 +132,7 @@ describe("GlobalSearch", () => {
         await screen.findByText("True Strikes");
 
         await userEvent.keyboard("{ArrowDown}{ArrowDown}{Enter}");
-        expect(location()).toBe("/rulebook/combat#making-a-strike");
+        expect(location()).toBe("/rulebook/combat?q=strike#making-a-strike");
     });
 
     it("navigates when a row is clicked", async () => {
@@ -140,7 +140,7 @@ describe("GlobalSearch", () => {
         await userEvent.type(input(), "strike");
 
         await userEvent.click(await screen.findByText("True Strikes"));
-        expect(location()).toBe("/rulebook/traits");
+        expect(location()).toBe("/rulebook/traits?q=true%20strikes");
     });
 
     it("goes to /search from the See all row", async () => {
@@ -160,7 +160,7 @@ describe("GlobalSearch", () => {
         const link = screen.getByRole("link", {
             name: /read in the rulebook/i,
         });
-        expect(link).toHaveAttribute("href", "/rulebook/effects#effect-burn");
+        expect(link).toHaveAttribute("href", "/rulebook/effects?q=burn#effect-burn");
         expect(link.closest('[role="option"]')).toBeNull();
 
         await userEvent.click(screen.getByText("Burn"));
@@ -173,7 +173,7 @@ describe("GlobalSearch", () => {
         await userEvent.click(await screen.findByText("Burn"));
 
         await userEvent.click(screen.getByRole("link", { name: /read in the rulebook/i }));
-        expect(location()).toBe("/rulebook/effects#effect-burn");
+        expect(location()).toBe("/rulebook/effects?q=burn#effect-burn");
         expect(input()).toHaveValue("");
     });
 
@@ -183,7 +183,7 @@ describe("GlobalSearch", () => {
         await userEvent.type(input(), "renamed");
 
         await userEvent.click(await screen.findByText("Renamed"));
-        expect(location()).toBe("/rulebook/effects#effect-burn");
+        expect(location()).toBe("/rulebook/effects?q=renamed#effect-burn");
     });
 
     it("clears the input on a route change", async () => {

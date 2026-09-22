@@ -92,6 +92,8 @@ Dependency direction: `rulebook` imports `glossary`; `glossary` imports `util` a
 
 The UI is in `src/components/search/`: `GlobalSearch` (mounted twice by `Header.tsx`, as a bar on desktop and as an icon with a full-screen dialog on mobile), `SearchDropdown`, `SearchResultRow`, `GlossaryResultDetail` and `SearchPage` (the `/search?q=` route: the full list, with the query kept in the URL). `GlobalSearch` is a Headless UI `Combobox` in `multiple` mode whose value is the list of expanded glossary rows, because single mode closes the list on every selection. Activating a glossary row opens its definition in place; every other row navigates to `result.to`. `Search.tsx` and `SearchGroup.tsx` in the same folder are the older per-table filter and are unrelated.
 
+Rows link through `hrefFor(result, query)` (`search/navigate.ts`). A content result goes to its table with `?q=<regex-escaped lowercase name>`; the four table pages read that and seed the table filter (`SearchGroup`'s `initialName`, or `Search`'s `initialValue` on the creatures page, each remounted with `key` when `q` changes). A rulebook result goes to `<page>?q=<query>#<anchor>` and the page highlights the query (`src/rulebook/CLAUDE.md`). A glossary row's "Read in the rulebook" link gets the same `?q=`, except for keys, which link into the arts and items table pages where `?q=` is the filter.
+
 Snippets are stat-colored only (`statOnlyEmit`); there are no glossary tooltips inside search results. The active-row tint is `bg-<color>-500/20` built at runtime from `result.color`, which the safelist already covers.
 
 Dependency direction: `search` imports `glossary`, `rulebook`, `util` and `styling`, and is imported by neither `glossary` nor `rulebook`.
