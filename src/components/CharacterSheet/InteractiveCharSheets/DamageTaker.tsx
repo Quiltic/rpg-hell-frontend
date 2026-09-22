@@ -55,7 +55,10 @@ export default function DamageTaker({ player: player, setPlayer: setPlayer }: Pr
                             calculatedStats: {
                                 ...player.calculatedStats,
                                 curHp: Math.min(
-                                    player.calculatedStats.curHp + damage,
+                                    Math.max(
+                                        player.calculatedStats.curHp,
+                                        0 // heal from 0
+                                    ) + damage,
                                     player.calculatedStats.maxHp // cant have more HP than max
                                 ),
                             },

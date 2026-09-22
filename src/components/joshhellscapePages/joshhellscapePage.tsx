@@ -86,7 +86,7 @@ const playerCharacter: playerCharacterType = {
         maxStrain: 0,
         curStrain: 0,
     },
-    items: [""], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
+    items: ["bandage", "$ - 1 bag"], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
     equipped: ["", "", ""], // lefthand, righthand, armor, mysc,,,,
 
     paths: ["", "", "Locked until Lvl 3"], // get two at lvl 1 then one more at lvl 3
