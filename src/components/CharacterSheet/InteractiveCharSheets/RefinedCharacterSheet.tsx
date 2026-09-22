@@ -16,30 +16,32 @@ import { Tab } from "@headlessui/react";
 import { cn } from "../../../styling/utilites";
 import DiceRoller from "../../ui/DiceRoller";
 
+import pathJson from "../../../assets/OfflineJsons/paths.json";
+
 type Props = {
     player: playerCharacterType;
     setPlayer: (player: playerCharacterType) => void;
 };
 
 export default function RefinedCharacterSheet({ player: player, setPlayer: setPlayer }: Props) {
-    //  const {
-    //     allTraits,
-    //     pinnedTraits,
-    //     displayedTraits,
-    //     addToPinnedTraits,
-    //     removeFromPinnedTraits,
-    //     filterTraits,
-    //     resetFilterTraits,
-    // } = useTraits();
-    //  const {
-    //     allSpells,
-    //     pinnedSpells,
-    //     displayedSpells,
-    //     addToPinnedSpells,
-    //     removeFromPinnedSpells,
-    //     filterSpells,
-    //     resetFilterSpells,
-    // } = useSpells();
+    const {
+        allTraits,
+        pinnedTraits,
+        displayedTraits,
+        addToPinnedTraits,
+        removeFromPinnedTraits,
+        filterTraits,
+        resetFilterTraits,
+    } = useTraits();
+    const {
+        allSpells,
+        pinnedSpells,
+        displayedSpells,
+        addToPinnedSpells,
+        removeFromPinnedSpells,
+        filterSpells,
+        resetFilterSpells,
+    } = useSpells();
     const {
         allItems,
         pinnedItems,
@@ -54,111 +56,138 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
     const [dice, setDice] = useState([1]);
     const [diceBonus, setDiceBonus] = useState(0);
 
-    // const [curCreature, setCurCreature] = useState( player );
-    const [curLvl, setCurLvl] = useState(1);
-    const [curMaxShield, setCurMaxShield] = useState(0);
-    const [curShielding, setCurShielding] = useState(0);
-
-    const [curHP, setCurHP] = useState(4 * player.stats.body + 3 * player.stats.mind + 2 * player.stats.soul + curLvl);
-    const [curStrain, setCurStrain] = useState(
-        2 * player.stats.body + 3 * player.stats.mind + 4 * player.stats.soul + curLvl
-    );
-
-    const [curStories, setCurStories] = useState("");
-    const [curTraits, setCurTraits] = useState<Trait[]>([]);
-    const [curArts, setCurArts] = useState<Spell[]>([]);
-
-    function addChosenTrait(t: Trait) {
-        if (!curTraits.includes(t) && curTraits.length < curLvl + 1) {
-            setCurTraits(curTraits.concat(t));
-        }
-    }
-    function removeChosenTrait(t: Trait) {
-        const idx = curTraits.indexOf(t);
-        const remaining = curTraits.slice();
-        remaining.splice(idx, 1);
-        setCurTraits(remaining);
-    }
-
-    function addChosenArt(s: Spell) {
-        if (!curArts.includes(s) && curArts.length < curLvl + 3) {
-            setCurArts(curArts.concat(s));
-        }
-    }
-    function removeChosenArt(s: Spell) {
-        const idx = curArts.indexOf(s);
-        const remaining = curArts.slice();
-        remaining.splice(idx, 1);
-        setCurArts(remaining);
-    }
-
-    // OK SO HERE IS THE PROBLEM
-    // For some reason these functions run twice
-    // if they run twice everything blanks
-    // but for some reason every blank cant be removed
-
     const [itemString, setItemString] = useState("");
-    function getItemString(items: Array<string>) {
-        let theBigstring = "";
-        console.log(items);
-        items.forEach((item: string) => {
-            if (item != "") {
-                const theItem = allItems.find(
-                    (searchingItem) => searchingItem.name == item.replace("(equ)", "").replace("\n", "")
-                );
-                console.log(theItem);
-                if (theItem) {
-                    theBigstring += capitalize(theItem.name) + " (found) -> " + theItem.effect + "\n\n";
-                } else {
-                    theBigstring = theBigstring + item + "\n\n";
-                }
-            }
-        });
-        console.log(theBigstring);
-        setItemString(theBigstring);
-    }
+    const [equItems, setEquItems] = useState<Array<string>>([]);
 
     // idk how to load this without a useEffect :)
     useEffect(() => {
-        getItemString(player.items);
-        console.log(player.items);
+        // console.log(allItems.length)
+        // console.log(player.items);
+        if (allItems.length != 0 && player.items.length != 0) {
+            // console.log(player.items);
+            getItemString(player.items);
+            // console.log(player.items);
+        }
     }, [allItems]);
 
-    function cleanupItems() {
-        console.log(itemString);
-        const itemArray: Array<string> = [];
-        itemString.split("\n\n").forEach((line) => {
-            // if it fails to split then it is a custom item, otherwise its a found item
-            itemArray.push(line.split(" (found) -> ")[0].toLowerCase());
+    function getItemString(items: Array<string>) {
+        let theBigstring = "";
+        const equArray: Array<string> = [];
+        // console.log(items);
+        items.forEach((item: string) => {
+            if (item != "") {
+                const theItem = allItems.find(
+                    (searchingItem) => searchingItem.name == item.replace("(equ)", "").replace("\n", "").toLowerCase()
+                );
+
+                // console.log(theItem);
+                if (theItem) {
+                    theBigstring += capitalize(item) + " (found) -> ";
+                    if (theItem.tags.includes("weapon")) theBigstring += theItem.tags.replace(/weapon../, "") + " - ";
+                    theBigstring += theItem.effect + "\n\n";
+                } else {
+                    theBigstring = theBigstring + item + "\n\n";
+                }
+
+                if (item.includes("(equ)")) equArray.push(item);
+            }
         });
-        console.log(itemArray);
-        setPlayer({ ...player, items: itemArray.filter((item) => item != "" && item != "\n") });
+        setEquItems(equArray);
+        // console.log(theBigstring);
+        setItemString(theBigstring);
+        // modifyPlayerStatsBasedOnItems();
     }
 
-    // const [maxMain, setMaxMain] = useState(2);
+    function cleanupItems() {
+        // getItemString(player.items);
+        // console.log(itemString);
+        const itemArray: Array<string> = [];
 
-    // useEffect(() => {
-    //     setMaxMain(2+Math.floor((curCreature.level-1)/2));
-    // }, [curCreature.level]);
-    // useEffect(() => {
-    //     // player.stats.body = player.stats.body + (curLvl == 3 && player.level_explanation[2].includes("Body") ? 1 : 0)
-    //     // player.stats.mind = player.stats.mind + (curLvl == 3 && player.level_explanation[2].includes("Mind") ? 1 : 0)
-    //     // player.stats.soul = player.stats.soul + (curLvl == 3 && player.level_explanation[2].includes("Soul") ? 1 : 0)
-    //     // player.stats.arcana = player.stats.arcana + (curLvl == 3 && player.level_explanation[2].includes("Arcana") ? 1 : 0)
+        itemString.split("\n\n").forEach((line) => {
+            // if it fails to split then it is a custom item, otherwise its a found item
+            const splitItem = line.split(" (found) -> ");
+            if (splitItem.length > 1) {
+                // console.log(splitItem[1].split(" - ").at(-1));
+                // dont want to del a deliberate change
+                if (
+                    allItems.find((searchingItem) => searchingItem.effect == splitItem[1].split(" - ").at(-1)) !=
+                    undefined
+                )
+                    itemArray.push(splitItem[0].toLowerCase());
+                else itemArray.push(line.replace(" (found) -> ", " (modified) -> "));
+            } else itemArray.push(line);
+        });
+        // console.log(itemArray);
+        setPlayer({
+            ...player,
+            items: itemArray.filter((item) => item != "" && item != "\n"),
+            calculatedStats: modifyPlayerStatsBasedOnItems(),
+        });
+    }
 
-    //     const bod = (player.stats.body + (curLvl == 3 && player.level_explanation[2].includes("Body") ? 1 : 0));
-    //     const min = (player.stats.mind + (curLvl == 3 && player.level_explanation[2].includes("Mind") ? 1 : 0));
-    //     // const sou = (player.stats.soul + (curLvl == 3 && player.level_explanation[2].includes("Soul") ? 1 : 0));
+    // FINE ILL TEST OUT AN AI CODE.
+    function extractNumber(text: string, regex: RegExp): number {
+        const match = text.match(regex);
 
-    //     const maxShield = (player.items.includes("shield") ? curLvl : 0) +
-    //     (player.items.includes("light leather") ? curLvl :
-    //     player.items.includes("heavy plate") ? 4*bod+3*min+curLvl :
-    //     player.items.includes("medium chainmail") ? 2*bod+2*min+curLvl : 0);
-    //     setCurShielding(maxShield);
-    //     setCurMaxShield(maxShield);
-    // }, [curLvl]);
+        if (!match) {
+            return 0;
+        }
 
-    // console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
+        // console.log("wha?",match);
+
+        // Prefer the first capturing group; otherwise use the full match.
+        const numberText = match[1] ?? match[0];
+        const value = Number.parseFloat(numberText);
+
+        return Number.isNaN(value) ? 0 : value;
+    }
+
+    // Put this on the onBlur for items
+    function modifyPlayerStatsBasedOnItems() {
+        // longwindedNameButYouKnowItDoesSayWhatItIs
+
+        const hp = 4 * player.stats.body + 3 * player.stats.mind + 2 * player.stats.soul + player.level;
+        const strain = 2 * player.stats.body + 3 * player.stats.mind + 4 * player.stats.soul + player.level;
+
+        const newCalculatedStats = {
+            speed: 6,
+            dodge: 0,
+            shielding: 0,
+
+            maxHp: hp,
+            maxStrain: strain,
+
+            curHp: player.calculatedStats.curHp,
+            curStrain: player.calculatedStats.curStrain,
+        };
+
+        // console.log(equItems);
+        equItems.forEach((equItem: string) => {
+            const foundItem = allItems.find((item) => item.name == equItem.replace("(equ)", ""));
+            // console.log(foundItem);
+            let item = equItem.toLowerCase();
+            if (foundItem) item = foundItem.effect.toLowerCase();
+
+            // console.log(item.replace("level",player.level.toString()),extractNumber(item.replace("level",player.level.toString()),
+            //     /\d max health/));
+            // console.log(item,extractNumber(item,/.\d dodge/))
+
+            newCalculatedStats.speed += extractNumber(item, /.\d speed/);
+            newCalculatedStats.dodge += extractNumber(item, /.\d dodge/);
+            newCalculatedStats.shielding += extractNumber(item, /.\d shielding/);
+
+            newCalculatedStats.maxHp += extractNumber(item.replace("level", player.level.toString()), /.\d max health/);
+            newCalculatedStats.maxStrain += extractNumber(
+                item.replace("level", player.level.toString()).toLowerCase(),
+                /.\d max strain/
+            );
+        });
+
+        // console.log(newCalculatedStats)
+        return newCalculatedStats;
+        // if (newCalculatedStats != player.calculatedStats)
+        //     setPlayer({ ...player, calculatedStats: newCalculatedStats });
+    }
 
     return (
         <div className="flex flex-col">
@@ -173,49 +202,26 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
 
             <div className="m-4 flex flex-col rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
                 {/* Name/Level/Types */}
-                <div className="flex items-center rounded-md bg-dark lg:flex-row">
-                    <div className="m-2 w-[50%] rounded-lg bg-dark-400 p-2 ">
+                <div className="grid grid-cols-2 rounded-md bg-dark-400">
+                    <div className="center m-2 flex rounded-lg bg-dark-300 p-2 ">
                         <input
                             type="text"
-                            placeholder={player.name}
-                            className="h-9 w-[100%] rounded-lg p-2 shadow-md"
-                            // value={curCreature.name}
-                            // onChange={(e) => setCurCreature({...curCreature, name: e.target.value})}
+                            placeholder={"Name"}
+                            className="w-full rounded-lg p-2 shadow-md"
+                            value={player.name}
+                            onChange={(e) => setPlayer({ ...player, name: e.target.value })}
                         />
                     </div>
 
-                    <div className="m-2 flex flex-row items-center items-center rounded-md bg-dark-400 p-2 capitalize lg:w-[17%]">
-                        Level:
-                        <input
-                            type="number"
-                            className="m-1 mt-1 h-9 w-[100%] justify-end rounded-lg p-2 shadow-md"
-                            value={curLvl}
-                            min="1"
-                            max="3"
-                            onChange={(e) => setCurLvl(parseFloat(e.target.value))}
-                        />
+                    <div className="m-2 flex flex-row items-center justify-end rounded-md bg-dark-400 p-2 capitalize">
+                        <div className="ml-2 mr-2 rounded-md bg-dark-300 p-2 text-lg font-bold md:text-xl">
+                            Level: {player.level}
+                        </div>
+                        <div className="text-mg ml-2 mr-2 rounded-md bg-nature-300 p-2 md:text-lg">Lvl Up</div>
+                        <div className="text-mg ml-2 mr-2 rounded-md bg-body-300 p-2 md:text-lg">Break</div>
+                        <div className="text-mg ml-2 mr-2 rounded-md bg-medicine-300 p-2 md:text-lg">Rest</div>
+                        <div className="text-mg ml-2 mr-2 rounded-md bg-dark-300 p-2 md:text-lg">Print</div>
                     </div>
-                    {/* <div className="w-[33%] flex flex-row items-center capitalize rounded-md bg-dark-400 p-2 m-2">
-                        <input
-                            type="text"
-                            placeholder="Types"
-                            className="h-9 rounded-lg p-2 m-1 shadow-md"
-                            value={curCreature.types}
-                            onChange={(e) => setCurCreature({...curCreature, types: e.target.value})}
-                        />
-                        <CleanCombobox
-                            items={IterativeCreatureLevels}
-                            className=""
-                            selected={""}
-                            setSelected={(val) => {
-                                if (curCreature.types == "") {
-                                    setCurCreature({...curCreature, types: val});
-                                } else {
-                                    setCurCreature({...curCreature, types: curCreature.types.concat(", ", val)});
-                                }
-                            }}
-                        />
-                    </div> */}
                 </div>
                 {/* Top Section -> Stats and Tabs */}
                 <div className="bg-dark lg:grid lg:grid-cols-2 lg:gap-1">
@@ -230,8 +236,41 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                         className="m-4 hidden md:block"
                         defaultIndex={0}
                     >
-                        <div className="md:flex-column m-6 mb-0 w-full align-middle md:flex md:justify-between">
+                        <div className="md:flex-column mb-0 ml-6 w-full align-middle md:flex md:justify-between">
                             <Tab.List className="flex flex-wrap gap-2">
+                                <Tab
+                                    className={({ selected }) =>
+                                        cn(
+                                            "rounded-t-md px-2 py-1 ring-aabase hover:font-bold",
+                                            selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                        )
+                                    }
+                                >
+                                    {/* The aim was to have it be a link if you already have it selected (one that opens a new tab) */}
+                                    {/* <a href="https://quiltic.github.io/rpg-hell-frontend/rulebook/character-creation#stories"> */}
+                                    Stories
+                                    {/* </a> */}
+                                </Tab>
+                                <Tab
+                                    className={({ selected }) =>
+                                        cn(
+                                            "rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
+                                            selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                        )
+                                    }
+                                >
+                                    Items
+                                </Tab>
+                                <Tab
+                                    className={({ selected }) =>
+                                        cn(
+                                            "rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
+                                            selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                        )
+                                    }
+                                >
+                                    Notes
+                                </Tab>
                                 <Tab
                                     className={({ selected }) =>
                                         cn(
@@ -256,6 +295,33 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                         </div>
                         <Tab.Panels>
                             <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
+                                <textarea
+                                    placeholder="Here is a spot for your Stories!
+There is a link above for what a Story is!"
+                                    className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
+                                    value={player.stories}
+                                    onChange={(text) => setPlayer({ ...player, stories: text.target.value })}
+                                />
+                            </Tab.Panel>
+                            <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
+                                <textarea
+                                    placeholder="You gots no Items!"
+                                    className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
+                                    value={itemString}
+                                    onChange={(text) => setItemString(text.target.value)}
+                                    onBlur={() => cleanupItems()}
+                                    onFocus={() => getItemString(player.items)}
+                                />
+                            </Tab.Panel>
+                            <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
+                                <textarea
+                                    placeholder="Here lies Notes... May they rest in piece."
+                                    className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
+                                    value={player.notes}
+                                    onChange={(text) => setPlayer({ ...player, notes: text.target.value })}
+                                />
+                            </Tab.Panel>
+                            <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                                 <DiceRoller
                                     startingDice={dice}
                                     startingBonus={diceBonus}
@@ -279,8 +345,18 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                     className="m-4"
                     defaultIndex={0}
                 >
-                    <div className="md:flex-column m-6 mb-0 w-full align-middle md:flex md:justify-between">
+                    <div className="md:flex-column ml-6 w-full align-middle md:flex md:justify-between">
                         <Tab.List className="flex flex-wrap gap-2">
+                            <Tab
+                                className={({ selected }) =>
+                                    cn(
+                                        "rounded-t-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
+                                        selected ? "bg-dark-400 ring-2" : "bg-dark-600"
+                                    )
+                                }
+                            >
+                                Closed
+                            </Tab>
                             <Tab
                                 className={({ selected }) =>
                                     cn(
@@ -317,29 +393,32 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                         </Tab.List>
                     </div>
                     <Tab.Panels>
-                        <Tab.Panel className={"m-1 h-32 rounded-md p-2 ring-2 ring-aabase"}>
+                        <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
+                            <div></div>
+                        </Tab.Panel>
+                        <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                             <textarea
                                 placeholder="Here is a spot for your Stories!
 There is a link above for what a Story is!"
-                                className="m-1 h-full w-full rounded-lg bg-dark-300 p-1"
+                                className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
                                 value={player.stories}
                                 onChange={(text) => setPlayer({ ...player, stories: text.target.value })}
                             />
                         </Tab.Panel>
-                        <Tab.Panel className={"m-1 h-32 rounded-md p-2 ring-2 ring-aabase"}>
+                        <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                             <textarea
                                 placeholder="You gots no Items!"
-                                className="m-1 h-full w-full rounded-lg bg-dark-300 p-1"
+                                className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
                                 value={itemString}
                                 onChange={(text) => setItemString(text.target.value)}
                                 onBlur={() => cleanupItems()}
-                                // onFocus={() => getItemString(player.items)}
+                                onFocus={() => getItemString(player.items)}
                             />
                         </Tab.Panel>
-                        <Tab.Panel className={"m-1 h-32 rounded-md p-2 ring-2 ring-aabase"}>
+                        <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                             <textarea
                                 placeholder="Here lies Notes... May they rest in piece."
-                                className="m-1 h-full w-full rounded-lg bg-dark-300 p-1"
+                                className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
                                 value={player.notes}
                                 onChange={(text) => setPlayer({ ...player, notes: text.target.value })}
                             />
@@ -347,211 +426,147 @@ There is a link above for what a Story is!"
                     </Tab.Panels>
                 </Tab.Group>
 
-                {/* Descriptor/How Act */}
-                {/* <div className="flex flex-row italic bg-dark-400 m-2 ptlr-2">
-                    <textarea
-                        placeholder="Description of the creature and hints for narration for the GM."
-                        className="bg-dark-300 h-22 w-[100%] rounded-lg p-1 m-1"
-                        value={curCreature.descriptor}
-                        onChange={(e) => setCurCreature({...curCreature, descriptor: e.target.value})}
-                    />
-                </div>
-                <div className="flex flex-row italic bg-dark-400 pl-12">
-                    <textarea
-                        placeholder="How the creature should act; Group, Dangerous, Fishlike, Hungry"
-                        className="bg-dark-300 h-9 w-[50%] rounded-lg p-1 m-1"
-                        value={curCreature.how_act}
-                        onChange={(e) => setCurCreature({...curCreature, how_act: e.target.value})}
-                    />
-                </div> */}
-
                 {/* Line */}
                 <div className="m-2 flex flex-row items-center border-2 border-body-700/20 bg-dark-400"></div>
 
-                {/* Traits/Arts */}
-                {/* <div className="lg:grid lg:grid-cols-2 items-center bg-dark rounded-md justify-between"> */}
-                {/* Traits */}
-                {/* <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">TRAITS</h3> */}
-                {/* <textarea
-                            placeholder="**Reminder** - Spend ## and 3 Strain; You this is how actives should look."
-                            className="bg-dark-300 h-44 rounded-lg p-1 m-1"
-                            value={curCreature.arts}
-                            onChange={(e) => setCurCreature({...curCreature, arts: e.target.value})}
-                        /> */}
+                {/* Traits/Arts/Equ items */}
+                <div className="center flex flex-row rounded-md bg-dark-400">
+                    {player.paths.map((pathName: string, id: number) => {
+                        const path = pathJson.find((p) => {
+                            return p.name == pathName;
+                        });
+                        return (
+                            <div
+                                key={id}
+                                className={`m-2 rounded-md p-2 text-lg font-bold md:text-xl bg-${path ? path?.color : "dark-300"}`}
+                            >
+                                {path ? `${path.icon} ${capitalize(path.name)} ${path.icon}` : `${pathName}`}
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="grid grid-cols-2">
+                    <div className="m-2 rounded-md bg-dark-400 p-2">
+                        <div className="m-2 rounded-md bg-dark-300 p-2">
+                            <h2 className="mt-0">Equipped Items</h2>
+                            {equItems.map((equItem: string, id: number) => {
+                                let HTML = <></>;
 
-                {/* {["At level 1 ", "At level 2 ", "At level 3 "].map( (front:string,val:number) => { return (
-                            <>
+                                // { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }
+                                // const equItem = invItem.includes("(equ)") ? invItem : "";
+                                // if (equItem) {
+                                const foundItem = allItems.find((item) => item.name == equItem.replace("(equ)", ""));
+                                if (foundItem) {
+                                    // modifyPlayerStatsBasedOnItems(foundItem.effect);
+                                    HTML = (
+                                        <div key={id}>
+                                            <ItemCard
+                                                _item={foundItem}
+                                                showUpgrades={false}
+                                            />
+                                        </div>
+                                    );
+                                } else {
+                                    // modifyPlayerStatsBasedOnItems(equItem);
 
-                            {curLvl >= val+1 && curTraits.length < curLvl+1 && player.traits[val].map((list:string, id:number) => { 
-                            
-                            if (list.split(". ").length == 1) {
-                                const foundTrait = traits.find((trait) => {return (trait.name == list)});
-                                return ( 
-                                <>
-                                 {!(curTraits.includes(foundTrait)) && // foundTrait will always be found as it is found when giving all traits
-                                 
-                                    <div className="flex flex-row justify-center items-center"
-                                    onClick={() => {addChosenTrait(foundTrait)}}
-                                    key={id}
-                                    >
-                                        {front} we recommend taking <Tooltip text={capitalize(list)} key={id}
-                                                display={<>
-                                                <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
-                                                </>} 
-                                                className="rounded-md bg-dark-300 p-1 m-1"
-                                                
-                                        />
-                                    </div>
-                                 
-                                 }
-                                </>
-                                )
-                            }
-                        
-                        
-                            return (
-                                <>
-                                { curTraits.length < curLvl+1 &&
-                                    <div className="flex flex-row justify-center items-center">
-                                        {front} pick one of the following: 
-                                        {list.split(". ").map( (t:string,id:number) => {
-                                            const foundTrait = traits.find((trait) => {return (trait.name == t)});
-                                            // console.log(traits)
-                                            return (
-                                                <>
-                                                {!(curTraits.includes(foundTrait)) &&  // foundTrait will always be found as it is found when giving all traits
-                                                
-                                                <div key={id} className="flex flex-row justify-center items-center"
-                                                onClick={() => {addChosenTrait(foundTrait)}}
-                                                >
-                                                    <Tooltip text={capitalize(t)} key={id}
-                                                            display={<>
-                                                            <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                            <TraitCard _trait={foundTrait} _className="m-1 w-96" moveTrait={() => addChosenTrait(foundTrait)}/>
-                                                            </>} 
-                                                            className="rounded-md bg-dark-300 p-1 m-1"
-                                                    />
-                                                </div>
-                                                }
-                                                </>
-                                        );})}
-                                    </div>
+                                    HTML = (
+                                        <div
+                                            key={id}
+                                            className="m-4 rounded-md border-2 border-solid border-body-700/20 bg-dark-400 p-2"
+                                        >
+                                            {equItem}
+                                        </div>
+                                    );
                                 }
-                                </>
-                            )})}</>)}
-                        )}
 
-
-
-                        <div className="lg:grid lg:grid-cols-2">
-
-                            {curTraits.map( (t:Trait, id:number) => { return (
-                                <TraitCard _trait={t} _className="m-1" moveTrait={() => removeChosenTrait(t)} key={id}/>
-                            )})}
-
-                            
+                                return HTML;
+                                // }
+                                // need the thing before this to make it not explode
+                                // if (equItem)
+                            })}
                         </div>
-                    </div> */}
 
-                {/* Arts */}
-                {/* <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ARTS</h3> */}
-                {/* <textarea
-                            placeholder="**Reminder** - Spend ## and 3 Strain; You this is how actives should look."
-                            className="bg-dark-300 h-44 rounded-lg p-1 m-1"
-                            value={curCreature.arts}
-                            onChange={(e) => setCurCreature({...curCreature, arts: e.target.value})}
-                        /> */}
-                {/* 
-                        {["At level 1 ", "At level 2 ", "At level 3 "].map( (front:string,val:number) => { return (
-                            <>
-
-                            {curLvl >= val+1 && curArts.length < curLvl+3 && player.arts[val].map((list:string, id:number) => { 
-                            
-                            if (list.split(". ").length == 1) {
-                                const foundArt = arts.find((art) => {return (art.name == list)});
-                                return ( 
-                                <>
-                                 {!(curArts.includes(foundArt)) &&  // foundArt will always be found as it is found when giving all arts
-                                 
-                                    <div key={id} className="flex flex-row justify-center items-center"
-                                    onClick={() => {addChosenArt(foundArt)}}
-                                    >
-                                        {front} {artPickOptions[id][0]} <Tooltip text={capitalize(list)} key={id}
-                                                display={<>
-                                                <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
-                                                </>} 
-                                                className="rounded-md bg-dark-300 p-1 m-1"
-                                        />
-                                    </div>
-                                 
-                                 }
-                                </>
-                                )
-                            }
-                        
-                        
-                            return (
-                                <>
-                                { curArts.length < curLvl+3 &&
-                                    <div key={id} className="flex flex-row justify-center items-center">
-                                        {front} {artPickOptions[id][1]} 
-                                        {list.split(". ").map( (s:string,id:number) => {
-                                            const foundArt = arts.find((art) => {return (art.name == s)});
-                                            // console.log(arts)
-                                            return (
-                                                <>
-                                                {!(curArts.includes(foundArt)) &&   // foundArt will always be found as it is found when giving all arts
-                                                
-                                                <div key={id} className="flex flex-row justify-center items-center"
-                                                onClick={() => {addChosenArt(foundArt)}}
-                                                >
-                                                    <Tooltip text={capitalize(s)} key={id}
-                                                            display={<>
-                                                            <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PICK ME</h3>
-                                                            <ArtCard _spell={foundArt} _className="m-1 w-96" moveSpell={() => addChosenArt(foundArt)}/>
-                                                            </>} 
-                                                            className="rounded-md bg-dark-300 p-1 m-1"
+                        {/* Traits */}
+                        <div className="center m-2 flex flex-col rounded-md bg-dark-300 p-2">
+                            <h2 className="mt-0">Traits</h2>
+                            {allTraits
+                                .filter((t) => {
+                                    return player.traits.includes(t.name);
+                                })
+                                .map((trait: Trait, id: number) => {
+                                    return (
+                                        <div key={id}>
+                                            {
+                                                trait.effect.toLowerCase().includes("refund") ? (
+                                                    <TraitCard
+                                                        _trait={trait}
+                                                        moveTrait={() => {
+                                                            const ref = trait.effect.toLowerCase().search(/refund \d/);
+                                                            const num = parseInt(
+                                                                trait.effect.substring(ref + 7, ref + 8)
+                                                            );
+                                                            const strainChange = Math.min(
+                                                                player.calculatedStats.curStrain + num,
+                                                                player.calculatedStats.maxStrain // cant have more than max
+                                                            );
+                                                            setPlayer({
+                                                                ...player,
+                                                                calculatedStats: {
+                                                                    ...player.calculatedStats,
+                                                                    curStrain: strainChange,
+                                                                },
+                                                            });
+                                                        }}
                                                     />
-                                                </div>
-                                                }
-                                                </>
-                                        );})}
-                                    </div>
-                                }
-                                </>
-                            )})}</>)}
-                        )}
-
-
-
-                        <div className="lg:grid lg:grid-cols-2">
-
-                            {curArts.map( (t:Spell, id:number) => { return (
-                                <ArtCard _spell={t} _className="m-1" moveSpell={() => removeChosenArt(t)} key={id}/>
-                            )})}
-
-                            
+                                                ) : (
+                                                    <TraitCard _trait={trait} />
+                                                ) // no need to click if no refund
+                                            }
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
-                </div> */}
+                    <div className="m-2 rounded-md bg-dark-400 p-2">
+                        {/* Arts */}
+                        <div className="m-2 grid grid-cols-2 rounded-md bg-dark-300 p-2">
+                            <h2 className="center mt-0 flex">Arts</h2>
+                            <div className="m-2 rounded-md bg-soul p-2 text-lg font-bold md:text-xl">
+                                Strain {player.calculatedStats.curStrain} / {player.calculatedStats.maxStrain}
+                            </div>
+                            {allSpells
+                                .filter((a) => {
+                                    return player.arts.includes(a.name);
+                                })
+                                .map((art: Spell, id: number) => {
+                                    return (
+                                        <div key={id}>
+                                            <ArtCard
+                                                _spell={art}
+                                                moveSpell={() => {
+                                                    const strainChange = player.calculatedStats.curStrain - art.strain;
+                                                    const hpChange =
+                                                        strainChange < 0
+                                                            ? player.calculatedStats.curHp + strainChange // negative strain = dmg
+                                                            : player.calculatedStats.curHp;
+
+                                                    setPlayer({
+                                                        ...player,
+                                                        calculatedStats: {
+                                                            ...player.calculatedStats,
+                                                            curStrain: strainChange,
+                                                            curHp: hpChange,
+                                                        },
+                                                    });
+                                                }}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            {/* <textarea name="json" id="json" className="bg-dark-600 rounded-md border-solid border-2 border-body-700/20 h-44 m-4 p-2" value={JSON.stringify(curCreature).concat(",")}/>
-
-            <div className="flex justify-center">
-                <Button
-                    title="Clear"
-                    className="w-[20%]"
-                    variant={"medicine"}
-                    onClick={() => {setCurCreature(player)}}
-                >
-                    Clear
-                </Button>
-            </div> */}
         </div>
     );
 }

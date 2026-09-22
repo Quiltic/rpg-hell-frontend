@@ -22,7 +22,6 @@ export type playerCharacterType = {
         curStrain: number;
     };
     items: Array<string>; // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
-    equipped: Array<string>; // lefthand, righthand, armor, mysc,,,,
 
     paths: Array<string>; // get two at lvl 1 then one more at lvl 3
     traits: Array<string>; // # of traits per tier, 3,3,2,2,1

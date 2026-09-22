@@ -86,8 +86,7 @@ const playerCharacter: playerCharacterType = {
         maxStrain: 0,
         curStrain: 0,
     },
-    items: ["bandage", "$ - 1 bag"], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
-    equipped: ["", "", ""], // lefthand, righthand, armor, mysc,,,,
+    items: ["$ - 1 bag", "bandage"], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
 
     paths: ["", "", "Locked until Lvl 3"], // get two at lvl 1 then one more at lvl 3
     traits: ["", ""], // # of traits per tier, 3,3,2,2,1
@@ -164,9 +163,13 @@ export default function JoshhellscapePage() {
     }, [chosenStats]);
 
     useEffect(() => {
-        let itemList: Array<string> = [];
-        chosenItems.forEach((item) => {
-            itemList.push(item.name);
+        let itemList: Array<string> = ["$ - 1 bag", "bandage"];
+
+        chosenItems.forEach((item, id) => {
+            if (item.name != "") {
+                if (id <= 2) itemList.push(item.name + "(equ)");
+                else itemList.push(item.name);
+            }
         });
 
         setPlayer({ ...player, items: itemList });
@@ -210,17 +213,19 @@ export default function JoshhellscapePage() {
             {stepnum == 6 && (
                 <BuilderStep6
                     player={player}
-                    setPlayer={setPlayer}
+                    // setPlayer={setPlayer}
                     chosenItems={chosenItems}
                     setChosenItems={setChosenItems}
                     setStepnum={() => setStepnum(7)}
                 />
             )}
 
-            <RefinedCharacterSheet
-                player={player}
-                setPlayer={setPlayer}
-            ></RefinedCharacterSheet>
+            {stepnum == 7 && (
+                <RefinedCharacterSheet
+                    player={player}
+                    setPlayer={setPlayer}
+                ></RefinedCharacterSheet>
+            )}
         </div>
     );
 }

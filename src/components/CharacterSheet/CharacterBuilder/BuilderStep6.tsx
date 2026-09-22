@@ -10,7 +10,7 @@ import PickerPart from "./Parts/PickerPart";
 
 type Props = {
     player: playerCharacterType;
-    setPlayer: (player: playerCharacterType) => void;
+    // setPlayer: (player: playerCharacterType) => void;
     chosenItems: Array<Item>;
     setChosenItems: (item: Array<Item>) => void;
     setStepnum: () => void;
@@ -20,7 +20,7 @@ type statline = "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nat
 
 export default function BuilderStep6({
     player: player,
-    setPlayer: setPlayer,
+    // setPlayer: setPlayer,
     setStepnum: setStepnum,
     chosenItems: chosenItems,
     setChosenItems: setChosenItems,
@@ -105,14 +105,14 @@ export default function BuilderStep6({
                                                 className="clickable"
                                                 onClick={() => {
                                                     setChosenItems(changeItemInArray(chosenItems, picking, item));
-                                                    setPlayer({
-                                                        ...player,
-                                                        equipped: changeItemInArray(
-                                                            player.equipped,
-                                                            picking,
-                                                            item.name
-                                                        ),
-                                                    });
+                                                    // setPlayer({
+                                                    //     ...player,
+                                                    //     equipped: changeItemInArray(
+                                                    //         player.equipped,
+                                                    //         picking,
+                                                    //         item.name
+                                                    //     ),
+                                                    // });
                                                     setIsOpen(false);
                                                 }}
                                             >
@@ -133,7 +133,7 @@ export default function BuilderStep6({
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
                 <Button
-                    disabled={player.equipped.includes("")}
+                    disabled={chosenItems.find((item) => item.name == "") ? true : false}
                     variant="nature"
                     className="m-2 ml-4 flex items-center justify-center"
                     onClick={setStepnum}
@@ -147,7 +147,7 @@ export default function BuilderStep6({
 
                 <div className="grid grid-cols-3 items-center justify-items-center">
                     <PickerPart
-                        useEmpty={player.equipped[0] == ""}
+                        useEmpty={chosenItems[0].name == ""}
                         emptyButton={() => {
                             setPicking(0);
                             setItemType("weapon");
@@ -167,7 +167,7 @@ export default function BuilderStep6({
                         }}
                     />
                     <PickerPart
-                        useEmpty={player.equipped[1] == ""}
+                        useEmpty={chosenItems[1].name == ""}
                         emptyButton={() => {
                             setPicking(1);
                             setItemType("weapon | shield");
@@ -187,7 +187,7 @@ export default function BuilderStep6({
                         }}
                     />
                     <PickerPart
-                        useEmpty={player.equipped[2] == ""}
+                        useEmpty={chosenItems[2].name == ""}
                         emptyButton={() => {
                             setPicking(2);
                             setItemType("armor");
