@@ -352,11 +352,11 @@
     {
         "name": "heavy plate",
         "description": "",
-        "effect": "While worn gain 2 Shielding and -1 Dodge.",
+        "effect": "While worn gain 1 Shielding and -1 Dodge.",
         "upgrades": [
             "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
             "Paladin - Gain Empowered or Warded at the start of Combat.",
-            "Fortified - Has +1 Shielding (for 3).",
+            "Fortified - Has +1 Shielding (for 2).",
             "Quick Release - You may lose all Shielding to gain +2 Speed."
         ],
         "tags": "armor, body 1",
@@ -367,7 +367,7 @@
     {
         "name": "light leather",
         "description": "",
-        "effect": "While worn gives +LEVEL Max Health and +1 Dodge.",
+        "effect": "While worn gives +LEVEL Max Strain and +1 Speed.",
         "upgrades": [
             "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
             "Warded - Gain Warded at the end of a Rest.",
@@ -381,7 +381,7 @@
     {
         "name": "medium chainmail",
         "description": "",
-        "effect": "While worn gain 1 Shielding and -1 Speed.",
+        "effect": "While worn gain +LEVEL Max Health and +1 Dodge.",
         "upgrades": [
             "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
             "Gilded - When you roll a 1 on a CHARM roll, you may re-roll it.",
@@ -392,6 +392,8 @@
         "cost": 0,
         "tier": 1
     },
+
+
     {
         "name": "shield",
         "description": "",
@@ -400,7 +402,7 @@
             "Tower - +1 Shielding",
             "Warded - Gain Warded at the end of a Rest."
         ],
-        "tags": "armor, side",
+        "tags": "shield, side",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1
