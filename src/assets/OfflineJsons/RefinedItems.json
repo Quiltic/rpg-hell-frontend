@@ -4,7 +4,7 @@
         "description": "",
         "effect": "On Hit: Do 1 damage. Bonus: If you hit, move the target 2 tiles in any direction.",
         "upgrades": [],
-        "tags": "weapon, side",
+        "tags": "weapon, side, versatile",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1
@@ -163,11 +163,11 @@
     {
         "name": "brass knuckles",
         "description": "",
-        "effect": "On Hit: Do 1+BODY damage. Bonus: If you or the target are Grappled, gain +2 damage.",
+        "effect": "On Hit: Do BODY damage. Bonus: If you or the target are Grappled, gain +2 damage.",
         "upgrades": [
             "Spiked - +1 Damage"
         ],
-        "tags": "weapon, two-handed, body 1",
+        "tags": "weapon, side, versatile, body 1",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1
@@ -245,12 +245,12 @@
     {
         "name": "hand wraps",
         "description": "",
-        "effect": "On Hit: Do 1+MIND damage. Bonus: If you hit, move the target 4 tiles in any direction.",
+        "effect": "On Hit: Do MIND damage. Bonus: If you hit, move the target 4 tiles in any direction.",
         "upgrades": [
-            "Boxer - Do 1+BODY+MIND damage instead of 1+MIND",
+            "Boxer - Do BODY+MIND damage instead of MIND",
             "Rough - Bonus: If you spent Marked on this Attack you may make the target go Prone."
         ],
-        "tags": "weapon, two-handed, mind 1",
+        "tags": "weapon, side, versatile, mind 1",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1
@@ -323,9 +323,9 @@
     {
         "name": "mage gauntlets",
         "description": "",
-        "effect": "On Hit: Do 1+SOUL damage. Bonus: If you hit, you may do 2 Knockback and may move 1 tile.",
+        "effect": "On Hit: Do SOUL damage. Bonus: If you hit, you may do 2 Knockback and may move 1 tile.",
         "upgrades": [],
-        "tags": "weapon, two-handed, glow, soul 1",
+        "tags": "weapon, side, versatile, glow, soul 1",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1
@@ -392,12 +392,10 @@
         "cost": 0,
         "tier": 1
     },
-
-
     {
         "name": "shield",
         "description": "",
-        "effect": "Uses 1 hand. While held you have +1 Shielding, and can Hunker Down even without some form of cover.",
+        "effect": "While held you have +1 Shielding, and can Hunker Down even without some form of cover.",
         "upgrades": [
             "Tower - +1 Shielding",
             "Warded - Gain Warded at the end of a Rest."

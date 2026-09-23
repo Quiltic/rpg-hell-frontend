@@ -2,7 +2,7 @@
 
 Fighter - Dps/Combat/Weps
     {"name":"twin strikes","req":"fighter 1","tags":"","effect":"Once per turn, when you do an Attack you may spend 2 Strain or Empowered to do another Attack with the same Attack Sum.","extra":""},
-    {"name":"defender","req":"fighter 1","tags":"","effect":"When you hit a target with Melee Attack you may spend 1 Strain or Empowered to have them be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.","extra":""},
+    {"name":"defender","req":"fighter 1","tags":"","effect":"When you hit a target with Melee Attack you may spend 1 Strain or Empowered to have the target be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.","extra":""},
     {"name":"vigilant","req":"fighter 1","tags":"","effect":"You cannot be surprised while you are keeping watch and may swap your Initiative value with another willing creature's.","extra":""},
     {"name":"battle ready","req":"fighter 1","tags":"","effect":"At the end of a Break or Rest you may perform a ritual. Then, choose one of the following benefits to gain at the beginning of your next combat:\n- You have +2 on Initiative.\n- Lock a 6.\n- You are Empowered for BODY turns.","extra":""},
     
@@ -200,15 +200,19 @@ Urchin - Cloaked/Damage/Illusion
     
   
 
+
+
+
 Craftsman - Improve items/shielding/burn/Followers
 
     {"name":"build them break them","req":"craftsman 1","tags":"","effect":"Followers or Art created structures (such as 'Deployable Wall') you create have a +1 Shielding.\nYou deal +[BODY or MIND] damage to objects and structures.","extra":""},
-    {"name":"blacksmith(???)","req":"craftsman 1","tags":"","effect":"When you take this Trait pick a Weapon or Armor you own to hone it. You may only ever have 1 honed item and can spend 1 full day to change what is honed. At the end of a Rest pick one of the following bonuses to give the honed item: Lightweight, Resilient, or Glowing.\n- Lightweight - A Weapon losses Two Handed (if it has it) or gains Side if it is one-handed. Armor grants +1 Speed.\n- Resilient - A Weapon gains 'Bonus: Refund 1 Strain'. Armor gains +1 Shielding.\n- Glowing - The item can be used to activate Arts that use Light, and the user can spend # to illuminate 2 tiles around it (no cost to disable).","extra":""},
+    {"name":"blacksmith","req":"craftsman 1","tags":"","effect":"When you take this Trait pick a Weapon or Armor you own to hone it. You may only ever have 1 honed item and can spend 1 full day to change what is honed. At the end of a Rest pick one of the following bonuses to give the honed item: Lightweight, Resilient, or Glowing.\n- Lightweight - A Weapon losses Two Handed (if it has it) or gains Side if it is one-handed. Armor grants +1 Speed.\n- Resilient - A Weapon gains 'Bonus: Refund 1 Strain'. Armor gains +1 Shielding.\n- Glowing - The item can be used to activate Arts that use Light, and the user can spend # to illuminate 2 tiles around it (no cost to disable).","extra":""},
     {"name":"slapdash solutions","req":"craftsman 1","tags":"","effect":"You can spend # and 1 Strain to quickly make or find any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp). It lasts until your next Break or Rest then breaks.","extra":""},
-    {"name":"creative innovations","req":"craftsman 1","tags":"","effect":"At the end of a Rest you may make one of the following: Golem Clay, a Remote Control, or a Power Glove. You may only ever have one of these at a time and making a new one destroys the old one.\n- *Golem Clay* - A handful of clay that can be formed into the shape of an animal. When the Art 'Awaken Item' is activated on it, it behaves as that animal and gains abilities that would relate to that animal and can't be changed while awakened. For example, a spider can climb walls and spin webs, while a bird can fly. The clay also has Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club') which best fits the animal that is made.\n- *Remote Control* - A handheld device that lets you activate or deactivate items or Arts you have activated, touched, or made. (There is no maximum distance for this.)\n- *Power Glove* - A 1 handed glove which does 1+CRAFTING damage On Hit. You may use this glove to lift targets using Crafting instead of Body.","extra":""},
+    
+    //{"name":"creative innovations","req":"craftsman 1","tags":"","effect":"At the end of a Rest you may make one of the following: Golem Clay, a Remote Control, or a Power Glove. You may only ever have one of these at a time and making a new one destroys the old one.\n- *Golem Clay* - A handful of clay that can be formed into the shape of an animal. When the Art 'Awaken Item' is activated on it, it behaves as that animal and gains abilities that would relate to that animal and can't be changed while awakened. For example, a spider can climb walls and spin webs, while a bird can fly. The clay also has Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club') which best fits the animal that is made.\n- *Remote Control* - A handheld device that lets you activate or deactivate items or Arts you have activated, touched, or made. (There is no maximum distance for this.)\n- *Power Glove* - A 1 handed glove which does 1+CRAFTING damage On Hit. You may use this glove to lift targets using Crafting instead of Body.","extra":""},
 
 
-    {"name":"field repair","req":"crafting 2","tags":"","effect":"When you give a target Bonus Shielding you may spend 1 extra Strain to repair that much Shielding (a creature cannot have more non-Bonus Shielding than what their normal armor would allow).\nAt the end of a Break or Rest give yourself and up to 8 targets Bonus Shielding equal to your CRAFTING or 1 Ward.","extra":""},
+    {"name":"field repair","req":"crafting 2","tags":"","effect":"When you give a target Shielding you may spend 1 extra Strain to repair that much Shielding (a creature cannot have more non-Bonus Shielding than what their normal armor would allow).\nAt the end of a Break or Rest give yourself and up to 8 targets Bonus Shielding equal to your CRAFTING or 1 Ward.","extra":""},
 
     {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.","extra":""},
 
@@ -223,15 +227,27 @@ Craftsman - Improve items/shielding/burn/Followers
 
 
 
+Elementalist - Elements
+- Fire - Burn/healing
+- Water - Healing/buffs
+- Air - Displacement/buffs
+- Earth - Shielding/displacement
 
 
 
 
+Puglist - Grapple / fists / debuffs
 
+{"name":"tavern brawler","req":"body 2","tags":"","effect":"Your Fist and improvised Weapon Attacks have +1 to their Bonus threshold (from 7 to 8).\nAdditionally, while you have a target Grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any Knockback damage.\n","extra":""},    
+{"name":"parkourist","req":"body 1","tags":"","effect":"When you do an Attack after moving or falling you gain Empowered until the end of your turn.\nYou can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.","extra":""},
+{"name":"bouncer","tags":"","effect":"When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nOnce per Turn, refund 1 Strain when you grapple a creature.","req":"body 2","extra":""},
+??? - 
 
+??? - When you take this Trait or when you level up pick Physical, Elemental, or Spiritual. You change the damage type of your Fist Weapons to the chosen type, or if you picked Physical they deal +1 damage.
+{"name":"smother","tags":"","effect":"When you first grapple a creature you may have them be Blinded or Silenced, while you have them Grappled.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.","req":"body 3","extra":""},
+{"name":"reflect projectile","req":"body 3","tags":"","effect":"While you are Hunkered Down if you Dodge a Ranged Physical Attack, you may spend 2 Strain to Throw it back with a 6 for the Attack Sum. The Attack keeps any Bonuses and/or Downsides and cant gain additional effects.","extra":""},
 
-
-
+{"name":"gang up","req":"crafting 4, thieving 4","tags":"","effect":"When you or a creature you have effected with an Art (such as a buff or Follower) damage a target, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally creature within 3 tiles of you.","extra":""},
 
 
 
@@ -256,7 +272,6 @@ Mysc Junk
 {"name":"artificer","tags":"","effect":"You may Bind to any number of magic items.\nArts you activate that target an item and have a duration have no maximum duration and do not require Focus. (You cannot apply the same Art on the same target multiple times.)\nArt created structures (such as Cube) you create have no duration.","req":"arcana 4, crafting 4","extra":""},
 {"name":"invert anima","tags":"","effect":"When you spend Strain on a Damaging Attack or Art you may heal any target(s) rather than do damage for the amount of damage they would take. If you activate a Focus Art this effect lasts for the entire duration.","req":"arcana 4, medicine 4","extra":""},
 {"name":"stolen knowledge","tags":"","effect":"After another creature activates an Art you may spend a Lock Slot (preventing you from Locking a dice) to steal the Art. The creature forgets the Art and you know the Art until your next Break or Rest. (Arts that last more than one turn do not end from this action, such as Focus or Summon Arts)","req":"arcana 4, thieving 4","extra":""},
-{"name":"gang up","req":"crafting 4, thieving 4","tags":"","effect":"When you or a creature you have effected with an Art (such as a buff or Follower) damage a target, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally creature within 3 tiles of you.","extra":""},
 {"name":"flourishing","tags":"","effect":"Once per turn, after you apply Charmed to a creature you may activate an Art that doesn't cost Strain without spending dice. Use an 6 for any sums needed.\nOnce per turn, after you apply Rooted to a creature you may do a Charm contest against them. If you win they gain Charmed for as long as they are Rooted.","req":"charm 4, nature 4","extra":""},
 {"name":"triage","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Charmed, Empowered, or Rallied; you or the target may refund 1 Strain.","req":"charm 4, medicine 4","extra":""},
 {"name":"charlatan","tags":"","effect":"You have +THIEVING on all checks or contests against creatures you have Charmed.\nWhen you would give Charmed to a creature you may instead give them Marked or Feared for the same duration.","req":"charm 4, thieving 4","extra":""},
@@ -267,14 +282,9 @@ Mysc Junk
 
 
 
-{"name":"reflect projectile","req":"body 3","tags":"","effect":"While you are Hunkered Down if you Dodge a Ranged Physical Attack, you may spend 2 Strain to Throw it back with a 6 for the Attack Sum. The Attack keeps any Bonuses and/or Downsides and cant gain additional effects.","extra":""},
-{"name":"parkourist","req":"body 1","tags":"","effect":"When you do an Attack after moving or falling you gain Empowered until the end of your turn.\nYou can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.","extra":""},
-    {"name":"tavern brawler","req":"body 2","tags":"","effect":"Your Fist and improvised Weapon Attacks have +1 to their Bonus threshold (from 7 to 8).\nAdditionally, while you have a target Grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any Knockback damage.\n","extra":""},
-    
+
     
 {"name":"frenzy","tags":"","effect":"When you take damage you may spend 1 Strain to become Empowered until the end of your next Turn.\nWhile you are Empowered after you do an Attack you may remove Empowered to do another Attack with the same sum.","req":"body 1","extra":""},
-{"name":"bouncer","tags":"","effect":"When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nOnce per Turn, refund 1 Strain when you grapple a creature.","req":"body 2","extra":""},
-{"name":"smother","tags":"","effect":"When you first grapple a creature you may have them be Blinded or Silenced, while you have them Grappled.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.","req":"body 3","extra":""},
 {"name":"armored resilience","req":"body 4","tags":"","effect":"Once per turn, when you take damage, if you were to lose all Shielding (including Bonus Shielding) any additional damage (to health) is reduced to 0 for that source of damage.","extra":""},
 
 ADD MORE - You can climb and swim without doing Body rolls.
