@@ -1,7 +1,7 @@
 [
 
 Fighter - Dps/Combat/Weps
-    {"name":"twin strikes","req":"fighter 1","tags":"","effect":"Once per turn, when you do an Attack you may spend 2 Strain or Empowered to do another Attack with the same Attack Sum.","extra":""},
+    {"name":"twin strikes","req":"fighter 1","tags":"","effect":"Once per turn, when you do an Attack you may spend 2 Strain or Empowered to do another Attack with the same Attack Sum. (This bonus Attack cannot be an Art and doesn't benefit from an Art.)","extra":""},
     {"name":"defender","req":"fighter 1","tags":"","effect":"When you hit a target with Melee Attack you may spend 1 Strain or Empowered to have the target be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.","extra":""},
     {"name":"vigilant","req":"fighter 1","tags":"","effect":"You cannot be surprised while you are keeping watch and may swap your Initiative value with another willing creature's.","extra":""},
     {"name":"battle ready","req":"fighter 1","tags":"","effect":"At the end of a Break or Rest you may perform a ritual. Then, choose one of the following benefits to gain at the beginning of your next combat:\n- You have +2 on Initiative.\n- Lock a 6.\n- You are Empowered for BODY turns.","extra":""},
@@ -30,7 +30,7 @@ Survivor - Healing/Buffs/Movement
     {"name":"medical professional","req":"survivor 3","tags":"","effect":"All of your healing effects heal for an additional +1. Additionally, once per Rest, when you heal a creature you may remove a stack of Death's Door from them. ","extra":""},
 
     {"name":"surgeon","req":"survivor 4","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Empowered or Warded: you or the target may refund 1 Strain. Additionally, your healing may reattach limbs or permanently modify the appearance of the creature.","extra":""},
-    Missing
+    Down but not out - When you next gain Death's Door instead you heal your LEVEL and don't gain Death's Door. After this triggers, you must gain 3 stacks of Death's Door before it returns (cumulative, not at once).
 
 
 
@@ -134,7 +134,8 @@ Face? - Control/OOC/Buffs/Debuffs
     
     {"name":"lead them along","req":"face 2","tags":"","effect":"When you win a CHARM contest against a creature you gain +1 on your next CHARM contest against them.","extra":""},
     {"name":"hidden in plain sight","req":"face 2","tags":"","effect":"You may use CHARM instead of THIEVING when doing stealth rolls as part of a crowd or to hide your identity.\nAdditionally, you get Advantage when looking for someone in a crowd.","extra":""},
-    
+    ??? - At the end of a Break or Rest give yourself and up to 8 targets Empowered or Warded (you may only pick 1 for all of them).
+
     {"name":"saving face","req":"face 3","tags":"","effect":"When you do a CHARM roll you may spend 2 Strain to gain +1d4 to the roll. This may be done after seeing the value but before results are announced.","extra":""},
     Missing
     
@@ -208,21 +209,22 @@ Craftsman - Improve items/shielding/burn/Followers
     {"name":"build them break them","req":"craftsman 1","tags":"","effect":"Followers or Art created structures (such as 'Deployable Wall') you create have a +1 Shielding.\nYou deal +[BODY or MIND] damage to objects and structures.","extra":""},
     {"name":"blacksmith","req":"craftsman 1","tags":"","effect":"When you take this Trait pick a Weapon or Armor you own to hone it. You may only ever have 1 honed item and can spend 1 full day to change what is honed. At the end of a Rest pick one of the following bonuses to give the honed item: Lightweight, Resilient, or Glowing.\n- Lightweight - A Weapon losses Two Handed (if it has it) or gains Side if it is one-handed. Armor grants +1 Speed.\n- Resilient - A Weapon gains 'Bonus: Refund 1 Strain'. Armor gains +1 Shielding.\n- Glowing - The item can be used to activate Arts that use Light, and the user can spend # to illuminate 2 tiles around it (no cost to disable).","extra":""},
     {"name":"slapdash solutions","req":"craftsman 1","tags":"","effect":"You can spend # and 1 Strain to quickly make or find any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp). It lasts until your next Break or Rest then breaks.","extra":""},
+    {"name":"alchemist","req":"craftsman 1","tags":"","effect":"When you make an Alchemical item you may use two Oils in the recipe. \nAdditionally, if you have the Trait 'Slapdash Solutions' you may make an Alchemical item with it, though they only last until the beginning of your next turn.\n","extra":""},
+
     
-    //{"name":"creative innovations","req":"craftsman 1","tags":"","effect":"At the end of a Rest you may make one of the following: Golem Clay, a Remote Control, or a Power Glove. You may only ever have one of these at a time and making a new one destroys the old one.\n- *Golem Clay* - A handful of clay that can be formed into the shape of an animal. When the Art 'Awaken Item' is activated on it, it behaves as that animal and gains abilities that would relate to that animal and can't be changed while awakened. For example, a spider can climb walls and spin webs, while a bird can fly. The clay also has Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club') which best fits the animal that is made.\n- *Remote Control* - A handheld device that lets you activate or deactivate items or Arts you have activated, touched, or made. (There is no maximum distance for this.)\n- *Power Glove* - A 1 handed glove which does 1+CRAFTING damage On Hit. You may use this glove to lift targets using Crafting instead of Body.","extra":""},
-
-
-    {"name":"field repair","req":"crafting 2","tags":"","effect":"When you give a target Shielding you may spend 1 extra Strain to repair that much Shielding (a creature cannot have more non-Bonus Shielding than what their normal armor would allow).\nAt the end of a Break or Rest give yourself and up to 8 targets Bonus Shielding equal to your CRAFTING or 1 Ward.","extra":""},
-
-    {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 2 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an additional 1 Speed.","extra":""},
-
-    {"name":"modular upgrade","req":"crafting 4","tags":"core","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may mod this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""},
+    {"name":"fast hands","req":"craftsman 2","tags":"","effect":"Using, picking up, equipping, or activating any item costs 1 less # (use a 3 for the missing value). This does not effect Attacks, or items that give Art Attacks.","extra":""},
+    {"name":"improved alchemy","req":"craftsman 2","tags":"","effect":"Alchemical items and Bandages you make may be used twice instead of once before they are spent.\nAdditionally, you may spend an hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.","extra":""},
+    {"name":"field repair","req":"crafting 2","tags":"","effect":"Additionally, your Construct Followers and Art created structures (such as 'Deployable Wall') can be healed by your Traits and Arts (Not by a Medkit or Bandage).","extra":""},
+    
+    {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 1 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an +1 Speed.","extra":""},
+    
+    {"name":"modular upgrade","req":"crafting 4","tags":"core","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may modify this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""},
 
     'Refund 1 Strain when you give two 6's (sum of 12) for a Weapon Attack.'
     Indestructible: Items with this tag cannot be broken, except by magic.
 
     {"id": 136,"name": "reforge","effect": "While holding a non-magical non-complex item, you can spend 1 Strain to instantly reforge it into another non-magical non-complex item of equivalent rarity. Any Runes or attributes applied to it from other Traits are retained.","req": [  "crafting 2",  "body 1"],"dice": 0,"is_passive": true
-    },
+},
 
 
 
@@ -238,18 +240,16 @@ Elementalist - Elements
 
 Puglist - Grapple / fists / debuffs
 
-{"name":"tavern brawler","req":"body 2","tags":"","effect":"Your Fist and improvised Weapon Attacks have +1 to their Bonus threshold (from 7 to 8).\nAdditionally, while you have a target Grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any Knockback damage.\n","extra":""},    
-{"name":"parkourist","req":"body 1","tags":"","effect":"When you do an Attack after moving or falling you gain Empowered until the end of your turn.\nYou can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.","extra":""},
-{"name":"bouncer","tags":"","effect":"When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nOnce per Turn, refund 1 Strain when you grapple a creature.","req":"body 2","extra":""},
-??? - 
+{"name":"tavern brawler","req":"pugilist 1","tags":"","effect":"Your Fist and improvised Weapon Attacks have +1 to their Bonus threshold (from 7 to 8).\nAdditionally, while you have a target Grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any Knockback damage.\n","extra":""},    
+{"name":"bouncer","req":"pugilist 1","tags":"","effect":"When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nOnce per Turn, refund 1 Strain when you grapple a creature.","extra":""},
+{"name":"body of iron","req":"pugilist 1","tags":"","effect":"While you are not wearing armor, you have +1 Shielding, +1 Speed, and +LEVEL Max Health.","extra":""},
+{"name":"parkourist","req":"pugilist 1","tags":"","effect":"When you do an Attack after moving or falling you gain Empowered until the end of your turn.\nYou can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.","extra":""},
 
-??? - When you take this Trait or when you level up pick Physical, Elemental, or Spiritual. You change the damage type of your Fist Weapons to the chosen type, or if you picked Physical they deal +1 damage.
-{"name":"smother","tags":"","effect":"When you first grapple a creature you may have them be Blinded or Silenced, while you have them Grappled.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.","req":"body 3","extra":""},
-{"name":"reflect projectile","req":"body 3","tags":"","effect":"While you are Hunkered Down if you Dodge a Ranged Physical Attack, you may spend 2 Strain to Throw it back with a 6 for the Attack Sum. The Attack keeps any Bonuses and/or Downsides and cant gain additional effects.","extra":""},
+{"name":"new techniques","req":"pugilist 2","tags":"","effect":"When you take this Trait or when you level up pick Physical, Elemental, or Spiritual. You change the damage type of your Fist Weapons to the chosen type, or if you picked Physical they deal +1 damage.","extra":""},
+{"name":"smother","req":"pugilist 2","tags":"","effect":"When you first grapple a creature you may have them be Blinded and gaged (cant make sounds/speak), while you have them Grappled.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.","extra":""},
+{"name":"reflect projectile","req":"pugilist 2","tags":"","effect":"While you are Hunkered Down if you Dodge a Ranged Physical Attack, you may spend 2 Strain to Throw it back with a 6 for the Attack Sum. The Attack keeps any Bonuses and/or Downsides and cant gain additional effects.","extra":""},
 
-{"name":"gang up","req":"crafting 4, thieving 4","tags":"","effect":"When you or a creature you have effected with an Art (such as a buff or Follower) damage a target, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally creature within 3 tiles of you.","extra":""},
-
-
+{"name":"gang up","req":"pugilist 3","tags":"","effect":"When you or a creature within 1 tile of you do damage, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally within 3 tiles of you.","extra":""},
 
 
 
@@ -261,7 +261,11 @@ Puglist - Grapple / fists / debuffs
 
 
 
-    
+
+
+
+
+
 
 
 
@@ -283,7 +287,7 @@ Mysc Junk
 
 
 
-    
+
 {"name":"frenzy","tags":"","effect":"When you take damage you may spend 1 Strain to become Empowered until the end of your next Turn.\nWhile you are Empowered after you do an Attack you may remove Empowered to do another Attack with the same sum.","req":"body 1","extra":""},
 {"name":"armored resilience","req":"body 4","tags":"","effect":"Once per turn, when you take damage, if you were to lose all Shielding (including Bonus Shielding) any additional damage (to health) is reduced to 0 for that source of damage.","extra":""},
 
@@ -300,23 +304,23 @@ mmm - You may Grapple 2 targets at the same time. While Grappling 2 targets you 
 
 
     
-    {"name":"summoners command","tags":"","effect":"At the start of your Follower's turn they may Move their Speed without spending a dice.","req":"soul 3","extra":""},
-    Fervor - When you spend Strain gain +1 to your next Check. This effect does not stack.
-    Wanderer's Call - When you roll less than a 6 on a Check you may Lock the dice. (You still fail the roll.)
+{"name":"summoners command","tags":"","effect":"At the start of your Follower's turn they may Move their Speed without spending a dice.","req":"soul 3","extra":""},
+Fervor - When you spend Strain gain +1 to your next Check. This effect does not stack.
+Wanderer's Call - When you roll less than a 6 on a Check you may Lock the dice. (You still fail the roll.)
     - 
-MORE - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.
-
-
-MAKE INTO ART/ITEM - Alternatively if you are within 1 large tile (2,160x2,160 tiles) of the Relic you may spend 3 Strain to teleport within 1 tile of the Relic.
-
-{"name":"sniper","tags":"","effect":"Your Weapon Attacks do an additional +1 damage if the target is 12 or more tiles away.\nYou are able to see things up to 1 large tile (2,160x2,160 tiles) away as clear as if it was near you and you are able to read lips if you know the language.","req":"mind 3","extra":""},
-{"name":"ranged weapon master","tags":"","effect":"Your Ranged Weapons have +2 Range.\nWhen using a Loading Weapon you may spend 2 ammo to gain the Weapon Bonus.\nWhen using a Bow, creatures you target do not gain +1 Dodge while Hunkered Down.","req":"mind 4","extra":""},
-
-- You may spend a Locked dice to gain an Attack's Bonus.
-- When you spend or unlock a Locked dice you may gain Rallied or Empowered.
-
-{"name":"split art","req":"arcana 2","tags":"","effect":"Once per turn, when you activate an Art that has a single target you may spend 2 Strain to duplicate it and pick a different target.","extra":""},
-{"name":"latent magics","req":"soul 1","tags":"","effect":"After you spend Strain to activate an Art, put a charge on this Trait. You may have up to 2+SOUL max charges. Later you may spend charges to do the below:\n- *Weapon* - Spend any number of Charges to gain bonus damage on a non-Art Attack equal to the charges spent.\n- *Discharge* - Spend charges instead of Strain for other Traits. (You cannot gain charges from Arts effected by this. Such as an Art effected by 'Art Manipulator')","extra":""},
+    MORE - Once per turn, you may spend a # to give all of your Followers the dice spent on their next roll.
+    
+    
+    MAKE INTO ART/ITEM - Alternatively if you are within 1 large tile (2,160x2,160 tiles) of the Relic you may spend 3 Strain to teleport within 1 tile of the Relic.
+    
+    {"name":"sniper","tags":"","effect":"Your Weapon Attacks do an additional +1 damage if the target is 12 or more tiles away.\nYou are able to see things up to 1 large tile (2,160x2,160 tiles) away as clear as if it was near you and you are able to read lips if you know the language.","req":"mind 3","extra":""},
+    {"name":"ranged weapon master","tags":"","effect":"Your Ranged Weapons have +2 Range.\nWhen using a Loading Weapon you may spend 2 ammo to gain the Weapon Bonus.\nWhen using a Bow, creatures you target do not gain +1 Dodge while Hunkered Down.","req":"mind 4","extra":""},
+    
+    - You may spend a Locked dice to gain an Attack's Bonus.
+    - When you spend or unlock a Locked dice you may gain Rallied or Empowered.
+    
+    {"name":"split art","req":"arcana 2","tags":"","effect":"Once per turn, when you activate an Art that has a single target you may spend 2 Strain to duplicate it and pick a different target.","extra":""},
+    {"name":"latent magics","req":"soul 1","tags":"","effect":"After you spend Strain to activate an Art, put a charge on this Trait. You may have up to 2+SOUL max charges. Later you may spend charges to do the below:\n- *Weapon* - Spend any number of Charges to gain bonus damage on a non-Art Attack equal to the charges spent.\n- *Discharge* - Spend charges instead of Strain for other Traits. (You cannot gain charges from Arts effected by this. Such as an Art effected by 'Art Manipulator')","extra":""},
 {"name":"compressed arts","req":"arcana 3","tags":"","effect":"When you activate an Art that covers an area, you may spend 3 additional Strain to compress it to a singular target within the Art's range. Effects from the Art happen three times on the singular target. (Targets that do a Dodge, Contest, or similar roll must do it three times.)","extra":""},
 {"name":"fine control","req":"arcana 2","tags":"","effect":"When you activate an Art that has an area effect, you may choose up to 2+ARCANA targets that are not affected by the Art.","extra":""},
 
@@ -330,7 +334,7 @@ Charmed {"name":"unshakable devotion","req":"charm 4","tags":"","effect":"Creatu
 {"name":"the show must go on","tags":"","effect":"When you activate a Focused Art on a creature that has been Charmed you may spend Charmed to double the duration of the Art.\nOnce per Rest, you may ignore the first time you would gain a stack of Death's Door.","req":"charm 4","extra":""},
 
 
- you have Charmed have -1 on all rolls that do not relate to you.
+you have Charmed have -1 on all rolls that do not relate to you.
 Keep but do something with - Once per turn, when you Attack a target that is Charmed you may remove Charmed to refund 3 Strain.
 Keep but do something with - You have +1 on Contests against creatures you have Charmed.
 
@@ -339,8 +343,8 @@ Keep but do something with - You have +1 on Contests against creatures you have 
 \n\nCharm 4 - Charmed creatures do not count against the number of chosen creatures.
 \nWhile you are Performing you cannot be interrupted by Charm effects. If you have an Aura active you cannot gain stacks of Blind, Stun, or Slow.
 
-  
-    
+
+
 {"name":"duelist","req":"thieving 2","tags":"","effect":"While in a contest you initiated you may spend Empowered or 1 Strain to gain +1 to your roll.\nAdditionally, while you are wielding a Weapon in one hand and nothing in the other, that weapon does 1 extra damage. Fists do not count towards this trait, both for damage or offhanded.","extra":""},
 {"name":"now you see me","req":"thieving 1","tags":"","effect":"When you Move while under the effects of a movement based Art or Trait you are Invisible. You are not Invisible during your turn, only when moving.\nAdditionally, while you are Hidden you may spend # (1 dice) and 1 Strain to turn Invisible until the end of your turn (10 seconds).","extra":""},
 {"name":"trained","tags":"","effect":"When you attack a target that has Marked you may change the Attack Sum to 5. Additionally, you get +1 on contests, or Thieving checks you initiate against a Marked target.","req":"thieving 4","extra":""},
@@ -363,7 +367,8 @@ Alchemist - When you Tinker you may create an alchemical mixture as a new option
 Logical Mind - Strain Self to tiker better - When you Tinker you may Lock one of the dice rolled without effecting the result.
 Medicine 3 - You may spend ### and 2 Strain or 1 hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.
 
-{"name":"fast hands","tags":"","effect":"At the beginning of your turn, you may reload up to 2 ammo into your Loading weapons without spending dice.\nYou may spend 2 Strain instead of dice to activate any Item (use a 6 for any sum). You cannot do Attacks with this action.","req":"crafting 3","extra":""},
+{"name":"creative innovations","req":"craftsman 1","tags":"","effect":"At the end of a Rest you may make one of the following: Golem Clay, a Remote Control, or a Power Glove. You may only ever have one of these at a time and making a new one destroys the old one.\n- *Golem Clay* - A handful of clay that can be formed into the shape of an animal. When the Art 'Awaken Item' is activated on it, it behaves as that animal and gains abilities that would relate to that animal and can't be changed while awakened. For example, a spider can climb walls and spin webs, while a bird can fly. The clay also has Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club') which best fits the animal that is made.\n- *Remote Control* - A handheld device that lets you activate or deactivate items or Arts you have activated, touched, or made. (There is no maximum distance for this.)\n- *Power Glove* - A 1 handed glove which does 1+CRAFTING damage On Hit. You may use this glove to lift targets using Crafting instead of Body.","extra":""},
+// {"name":"fast hands","tags":"","effect":"At the beginning of your turn, you may reload up to 2 ammo into your Loading weapons without spending dice.\nYou may spend 2 Strain instead of dice to activate any Item (use a 6 for any sum). You cannot do Attacks with this action.","req":"crafting 3","extra":""},
 
 
 

@@ -97,7 +97,7 @@
         "name":"craftsman",
         "source":"core2",
         "description": "",
-        "short":"",
+        "short":"Forge upgrades with the help of fire and friends.",
         "icon":"⚙️",
         "color":"crafting"
     },
@@ -105,7 +105,7 @@
         "name":"elementalist",
         "source":"core2",
         "description": "",
-        "short":"",
+        "short":"Harvest the elements for all kinds of power.",
         "icon":"⛅",
         "color":"nature"
     },
@@ -113,7 +113,7 @@
         "name":"pugilist",
         "source":"core2",
         "description": "",
-        "short":"",
+        "short":"Grab em. Cripple em. Beat em to a pulp.",
         "icon":"✊",
         "color":"body"
     }
