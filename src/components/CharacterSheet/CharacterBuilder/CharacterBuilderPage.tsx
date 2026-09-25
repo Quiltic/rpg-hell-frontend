@@ -7,6 +7,7 @@ import BuilderStep_Stats from "./BuilderStep_Stats";
 import BuilderStep_Paths from "./BuilderStep_Paths";
 import BuilderStep_Traits_Arts from "./BuilderStep_Traits_Arts";
 import BuilderStep_Items from "./BuilderStep_Items";
+import BuilderStep_Name_Stories from "./BuilderStep_Name_Stories";
 
 const playerCharacter: playerCharacterType = {
     name: "",
@@ -155,13 +156,24 @@ export default function CharacterBuilderPage() {
                 />
             )}
 
-            {stepnum == 7 && (
+            {stepnum == 5 && (
+                <BuilderStep_Name_Stories
+                    player={player}
+                    setPlayer={setPlayer}
+                    continueButton={() => {
+                        setStepnum(6);
+                    }} // We need to add them to the save data here (if they dont exist yet)
+                    backButton={() => setStepnum(4)}
+                />
+            )}
+
+            {stepnum == 6 && (
                 <>
                     <div className="center m-2 flex flex-row bg-dark-400 p-2">
                         <Button
                             variant="link-medicine"
                             className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"
-                            onClick={() => setStepnum(4)}
+                            onClick={() => setStepnum(5)}
                         >
                             Back
                         </Button>
