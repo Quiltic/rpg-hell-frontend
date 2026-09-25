@@ -63,7 +63,7 @@ export default function TraitCard({
                 </div>
                 {/* </div> */}
                 <div className="rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                    <div className={graid} />
+                    {/* <div className={graid} /> */}
                     {/* <div
                         dangerouslySetInnerHTML={{ __html: ee }}
                         className="whitespace-pre-wrap text-left m-5 indent-5 text-sm"

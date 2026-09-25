@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { playerCharacterType } from "../../types/playerCharacterType";
-import { capitalize } from "../../util/textFormatting";
+import { capitalize, toPillElement } from "../../util/textFormatting";
 import { Button } from "../ui/Button/Button";
 import RefinedCharacterSheet from "./InteractiveCharSheets/RefinedCharacterSheet";
 import Popup from "../ui/Popups/Popup";
+import Pill from "../ui/Pill";
 
 const blankPC: playerCharacterType = {
-    name: "YOUSHOULDENTSEEMEE!",
+    name: "all",
     level: 1,
     stats: {
         body: 0,
@@ -51,9 +52,14 @@ export default function CharacterPage() {
     useEffect(() => {
         // console.log(example);
         // setCurCharacter();
-        const pc = window.localStorage.getItem(`character-${character?.toLowerCase()}`);
+        const pc = window.localStorage.getItem(`${character?.toLowerCase()}`);
+        // console.log(JSON.parse(pc),`character-${character?.toLowerCase()}`);
 
-        if (pc) setCurCharacter(JSON.parse(pc));
+        if (pc) {
+            setCurCharacter(JSON.parse(pc));
+        } else {
+            setCurCharacter(blankPC);
+        }
     }, [character]);
 
     return (
@@ -91,15 +97,17 @@ export default function CharacterPage() {
                 setIsOpen={setAreYouSurePopup}
                 isSmol={true}
             ></Popup>
-            {curCharacter.name == "YOUSHOULDENTSEEMEE!" && (
+
+            {curCharacter.name == "all" && (
                 <div>
-                    <div className="grid grid-cols-4">
+                    <h1 className="center m-2 flex rounded-md bg-dark-400 p-2">Characters</h1>
+                    <div className="m-2 grid grid-cols-4 rounded-md bg-dark-400 p-2">
                         {/* New/Search/ */}
-                        <div className="cols-span-1 grid">
+                        <div className="cols-span-1 m-2 grid rounded-md bg-dark-300 p-2">
                             <div>Search</div>
                             <Link to={"/characters/new"}>
                                 <Button
-                                    className="border-2 border-solid border-nature"
+                                    className="m-2 border-2 border-solid border-nature p-2 pl-4 pr-4"
                                     variant={"link-nature"}
                                 >
                                     New
@@ -118,7 +126,17 @@ export default function CharacterPage() {
                                         // className={""}
                                         // aria-current={isActive ? "page" : undefined}
                                     >
-                                        {capitalize(character)}
+                                        <div className="m-2 rounded-md bg-dark-300 p-2">
+                                            <h3 className="mt-0">
+                                                {capitalize(character.replace("character-", "").replace("~", " "))}
+                                            </h3>
+                                            <div className="m-1 flex flex-row p-1">
+                                                {toPillElement("Path!", " ")}
+                                                {toPillElement("Path!", " ")}
+                                                {toPillElement("Path!", " ")}
+                                            </div>
+                                            Level: 1?
+                                        </div>
                                     </Link>
                                 );
                             })}
@@ -126,10 +144,10 @@ export default function CharacterPage() {
                     </div>
                 </div>
             )}
-            {curCharacter.name != "YOUSHOULDENTSEEMEE!" && (
-                <div>
+            {curCharacter.name != "all" && (
+                <>
                     <div className="m-2 flex flex-row items-center justify-end rounded-md bg-dark-400 p-2">
-                        <Link to={"/characters"}>
+                        <Link to={"/characters/all"}>
                             <Button
                                 className="border-2 border-solid border-medicine-400"
                                 variant={"link-medicine"}
@@ -154,7 +172,7 @@ export default function CharacterPage() {
                         player={curCharacter}
                         setPlayer={setCurCharacter}
                     />
-                </div>
+                </>
             )}
 
             {/*{curCharacter.name == "YOUSHOULDENTSEEMEE!" && (

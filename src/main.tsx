@@ -44,18 +44,12 @@ const router = createBrowserRouter(
                     element: <App />,
                 },
                 {
-                    path: "characters",
-
-                    children: [
-                        {
-                            path: "",
-                            element: <CharacterPage />,
-                        },
-                        {
-                            path: "new",
-                            element: <CharacterBuilderPage />,
-                        },
-                    ],
+                    path: "characters/new",
+                    element: <CharacterBuilderPage />,
+                },
+                {
+                    path: "characters/:character",
+                    element: <CharacterPage />,
                 },
                 {
                     path: "character-sheet",
