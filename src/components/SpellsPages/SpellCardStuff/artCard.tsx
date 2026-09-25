@@ -6,6 +6,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { cn } from "../../../styling/utilites";
 
+import pathJson from "../../../assets/OfflineJsons/paths.json";
+
 type Props = {
     _spell: Spell;
     moveSpell?: (spell: Spell) => void;
@@ -34,7 +36,13 @@ export default function SpellCard({
 
     const req = toPillElement(_spell.stat + " " + _spell.level.toString(), ",");
 
-    const bar = `bg-${_spell.stat.toLowerCase()} p-2`;
+    let bar = `bg-${_spell.stat.toLowerCase()} p-2`;
+    const path = pathJson.find((p) => {
+        return p.name == _spell.stat.toLowerCase();
+    });
+    if (path) {
+        bar = `bg-${path.color} p-2`;
+    }
 
     return (
         <GlossaryTooltipLayer>
@@ -51,18 +59,13 @@ export default function SpellCard({
                 <div className="flex flex-row items-center justify-between rounded-md bg-dark">
                     <div className="flex flex-row items-center capitalize">
                         <div
-                            className={cn(
-                                "p-2 text-lg font-bold capitalize",
-                                _spell.name.length > 15 ? "text-sm" : ""
-                            )}
+                            className={cn("p-2 text-lg font-bold capitalize", _spell.name.length > 15 ? "text-sm" : "")}
                         >
                             {_spell.name ?? ""}
                         </div>
                         - ({activatorHash[_spell.activators - 1]})
                     </div>
-                    <div className="m-2 flex flex-col items-center capitalize lg:flex-row">
-                        {req}
-                    </div>
+                    <div className="m-2 flex flex-col items-center capitalize lg:flex-row">{req}</div>
                 </div>
 
                 <div className={bar} />
@@ -79,10 +82,13 @@ export default function SpellCard({
                                 rehypePlugins={[rehypeRaw]}
                                 components={{
                                     ul: ({ node, ...props }) => (
-                                        <ul className="md_list" {...props} />
+                                        <ul
+                                            className="md_list"
+                                            {...props}
+                                        />
                                     ),
                                 }}
-                                className="text-left"
+                                className="p-2 text-left"
                             >
                                 {line}
                             </Markdown>

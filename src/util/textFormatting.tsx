@@ -1,4 +1,5 @@
 import Pill from "../components/ui/Pill";
+import pathJson from "../assets/OfflineJsons/paths.json";
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 // Class, rarity and path words mapped onto the palette; shared by the pills and the search index.
@@ -8,21 +9,6 @@ export const PILL_COLOR_WORDS: Record<string, string> = {
     uncommon: "nature",
     rare: "mind",
     legendary: "arcana",
-
-    fighter: "body",
-    survivor: "medicine",
-    analyst: "mind",
-    commander: "mind",
-    pious: "soul",
-    spirits: "soul",
-    arcanist: "arcana",
-    craftsman: "crafting",
-    druidic: "nature",
-    face: "charm",
-    ranger: "nature",
-    urchin: "thieving",
-
-    elementalist: "nature",
 };
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
@@ -42,6 +28,14 @@ export function toPillElement(_string: string, splitter: string) {
         if (parts[0] in PILL_COLOR_WORDS) {
             parts[0] = PILL_COLOR_WORDS[parts[0]];
         }
+
+        const path = pathJson.find((p) => {
+            return p.name == parts[0];
+        });
+        if (path) {
+            parts[0] = path.color;
+        }
+
         const isBroken: boolean = parts[0].toLowerCase() == "broken";
         return (
             <Pill
