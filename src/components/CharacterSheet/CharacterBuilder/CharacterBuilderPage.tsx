@@ -141,7 +141,7 @@ export default function CharacterBuilderPage() {
                     setChosenStats={setChosenStats}
                     player={player}
                     continueButton={() => setStepnum(4)}
-                    backButton={() => setStepnum(1)}
+                    backButton={() => setStepnum(2)}
                 />
             )}
 
@@ -162,6 +162,18 @@ export default function CharacterBuilderPage() {
                     setPlayer={setPlayer}
                     continueButton={() => {
                         setStepnum(6);
+                        let allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;");
+                        if (!allSavedCharacters) allSavedCharacters = [];
+
+                        if (!allSavedCharacters.includes(`character-${player.name}`)) {
+                            allSavedCharacters.push(`character-${player.name.toLowerCase().replace(" ", "~")}`);
+                            window.localStorage.setItem(`saved-characters`, allSavedCharacters.join(";|;"));
+                        }
+
+                        window.localStorage.setItem(
+                            `character-${player.name.toLowerCase().replace(" ", "~")}`,
+                            JSON.stringify(player)
+                        );
                     }} // We need to add them to the save data here (if they dont exist yet)
                     backButton={() => setStepnum(4)}
                 />

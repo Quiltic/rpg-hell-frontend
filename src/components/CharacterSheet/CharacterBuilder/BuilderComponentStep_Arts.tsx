@@ -140,7 +140,7 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
             />
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 5: Arts</h1>
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Pick your Arts</h1>
 
                 <div className="grid grid-cols-2 items-center justify-items-center">
                     {player.arts.map((spell, id) => {
@@ -169,7 +169,17 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                                             setIsOpen(true);
                                         }}
                                     >
-                                        <SpellCard _spell={chosenSpells[id]} />
+                                        {chosenSpells[id].name != "" && <SpellCard _spell={chosenSpells[id]} />}
+                                        {chosenSpells[id].name == "" && (
+                                            <SpellCard
+                                                _spell={
+                                                    // it probably found it
+                                                    allSpells.find((art) => {
+                                                        return player.arts[id] == art.name;
+                                                    })
+                                                }
+                                            />
+                                        )}
                                     </div>
                                 )}
                             </>

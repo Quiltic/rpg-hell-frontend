@@ -90,7 +90,7 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
             />
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 4: Traits</h1>
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Pick your Traits</h1>
 
                 <div className="grid grid-cols-2 items-center justify-items-center">
                     {player.traits[0] == "" && (
@@ -115,7 +115,14 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
                                 setIsOpen(true);
                             }}
                         >
-                            <TraitCard _trait={chosenTraits[0]} />
+                            {chosenTraits[0].name != "" && <TraitCard _trait={chosenTraits[0]} />}
+                            {chosenTraits[0].name == "" && (
+                                <TraitCard
+                                    _trait={allTraits.find((trait) => {
+                                        return trait.name == player.traits[0];
+                                    })}
+                                />
+                            )}
                         </div>
                     )}
 
@@ -141,7 +148,14 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
                                 setIsOpen(true);
                             }}
                         >
-                            <TraitCard _trait={chosenTraits[1]} />
+                            {chosenTraits[1].name != "" && <TraitCard _trait={chosenTraits[1]} />}
+                            {chosenTraits[1].name == "" && (
+                                <TraitCard
+                                    _trait={allTraits.find((trait) => {
+                                        return trait.name == player.traits[1];
+                                    })}
+                                />
+                            )}
                         </div>
                     )}
                 </div>

@@ -58,11 +58,9 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
     const [itemString, setItemString] = useState("");
     const [equItems, setEquItems] = useState<Array<string>>([]);
 
-    // useEffect( () => {
-
-    //     window.localStorage.setItem(`character-${player.name}`, JSON.stringify(player));
-
-    // },[player]);
+    useEffect(() => {
+        window.localStorage.setItem(`character-${player.name.toLowerCase().replace(" ", "~")}`, JSON.stringify(player));
+    }, [player]);
 
     // idk how to load this without a useEffect :)
     useEffect(() => {

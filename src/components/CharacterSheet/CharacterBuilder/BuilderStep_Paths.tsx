@@ -94,10 +94,11 @@ export default function BuilderStep_Paths({
                                 onClick={() => {
                                     // console.log(path.name in player.paths);
                                     const filledPaths = player.paths[0] == "" ? 0 : 1;
-                                    setPlayer({
-                                        ...player,
-                                        paths: changeItemInArray(player.paths, filledPaths, path.name),
-                                    });
+                                    if (!player.paths.includes(path.name))
+                                        setPlayer({
+                                            ...player,
+                                            paths: changeItemInArray(player.paths, filledPaths, path.name),
+                                        });
                                 }}
                             >
                                 <h3 className="mt-0 font-bold">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Switch } from "@headlessui/react";
 import { cn } from "../../../styling/utilites";
 import { Button } from "../../ui/Button/Button";
@@ -22,7 +22,12 @@ export default function BuilderStep_Stats({
     backButton: backButton,
     player: player,
 }: Props) {
-    const [useDeeperLearning, setUseDeeperLearning] = useState(false);
+    const [useDeeperLearning, setUseDeeperLearning] = useState(chosenStats[5] != "");
+
+    useEffect(() => {
+        const tempArray = changeItemInArray(chosenStats, 5, "");
+        setChosenStats(changeItemInArray(tempArray, 4, ""));
+    }, [useDeeperLearning]);
 
     return (
         <div className="grid grid-cols-2 justify-center">
@@ -556,7 +561,7 @@ export default function BuilderStep_Stats({
                             Back
                         </Button>
                         <Button
-                            disabled={chosenStats[3] == ""}
+                            disabled={(chosenStats[5] == "" && useDeeperLearning) || chosenStats[3] == ""}
                             variant="nature"
                             className="m-2 ml-4 flex items-center justify-center"
                             onClick={continueButton}
