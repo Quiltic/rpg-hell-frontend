@@ -30,7 +30,8 @@
     {"name":"medical professional","req":"survivor 3","tags":"","effect":"All of your healing effects heal for an additional +1. Additionally, once per Rest, when you heal a creature you may remove a stack of Death's Door from them. ","extra":""},
 
     {"name":"surgeon","req":"survivor 4","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Empowered or Warded: you or the target may refund 1 Strain. Additionally, your healing may reattach limbs or permanently modify the appearance of the creature.","extra":""},
-    
+    {"name":"down but not out","req":"survivor 4","tags":"","effect":"When you next gain Death's Door instead you heal your LEVEL, Refund your LEVEL Strain, gain +2 Speed until the end of your next turn, and don't gain Death's Door. After this triggers, you must gain 3 stacks of Death's Door before it returns (cumulative, not at once).","extra":""},
+
 
 
     

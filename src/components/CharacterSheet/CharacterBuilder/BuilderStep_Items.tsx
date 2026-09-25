@@ -19,7 +19,7 @@ type Props = {
 
 type statline = "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 
-export default function BuilderStep6({
+export default function BuilderStep_Items({
     player: player,
     // setPlayer: setPlayer,
     continueButton: continueButton,
@@ -152,7 +152,7 @@ export default function BuilderStep6({
             </div>
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 6: Gear & Items</h1>
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Gear & Items</h1>
 
                 <div className="grid grid-cols-3 items-center justify-items-center">
                     <PickerPart

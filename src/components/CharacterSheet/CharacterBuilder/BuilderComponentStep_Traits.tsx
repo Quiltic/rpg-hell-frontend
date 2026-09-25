@@ -12,10 +12,7 @@ type Props = {
     setPlayer: (player: playerCharacterType) => void;
 };
 
-export default function BuilderComponentStep4({
-    player: player,
-    setPlayer: setPlayer,
-}: Props) {
+export default function BuilderComponentStep_Traits({ player: player, setPlayer: setPlayer }: Props) {
     const [isOpen, setIsOpen] = useState(false);
     const [picking, setPicking] = useState(0);
 
@@ -38,8 +35,7 @@ export default function BuilderComponentStep4({
         displayedTraits.filter((s) => {
             var hasPath = false;
             player.paths.forEach((path) => {
-                hasPath =
-                    hasPath || s.req?.toString().includes(path.toLowerCase());
+                hasPath = hasPath || s.req?.toString().includes(path.toLowerCase());
             });
             return hasPath;
         })
@@ -61,16 +57,8 @@ export default function BuilderComponentStep4({
                                     player.paths.forEach((path) => {
                                         // Not already picked, and has the req path.
                                         hasPath =
-                                            !player.traits.includes(
-                                                trait.name.toLowerCase()
-                                            ) &&
-                                            (hasPath ||
-                                                trait.req
-                                                    ?.toString()
-                                                    .includes(
-                                                        path.toLowerCase() +
-                                                            " 1"
-                                                    ));
+                                            !player.traits.includes(trait.name.toLowerCase()) &&
+                                            (hasPath || trait.req?.toString().includes(path.toLowerCase() + " 1"));
                                     });
                                     return hasPath;
                                 })
@@ -80,20 +68,10 @@ export default function BuilderComponentStep4({
                                             <div
                                                 className="clickable"
                                                 onClick={() => {
-                                                    setChosenTraits(
-                                                        changeItemInArray(
-                                                            chosenTraits,
-                                                            picking,
-                                                            trait
-                                                        )
-                                                    );
+                                                    setChosenTraits(changeItemInArray(chosenTraits, picking, trait));
                                                     setPlayer({
                                                         ...player,
-                                                        traits: changeItemInArray(
-                                                            player.traits,
-                                                            picking,
-                                                            trait.name
-                                                        ),
+                                                        traits: changeItemInArray(player.traits, picking, trait.name),
                                                     });
                                                     setIsOpen(false);
                                                 }}
@@ -112,9 +90,7 @@ export default function BuilderComponentStep4({
             />
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                <h1 className="m-2 rounded-md bg-dark-300 p-2">
-                    Step 4: Traits
-                </h1>
+                <h1 className="m-2 rounded-md bg-dark-300 p-2">Step 4: Traits</h1>
 
                 <div className="grid grid-cols-2 items-center justify-items-center">
                     {player.traits[0] == "" && (

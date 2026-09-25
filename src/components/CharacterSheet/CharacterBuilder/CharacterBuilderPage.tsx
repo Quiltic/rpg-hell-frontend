@@ -3,10 +3,10 @@ import { playerCharacterType } from "../../../types/playerCharacterType";
 import { Item } from "../../../client";
 import { Button } from "../../ui/Button/Button";
 import RefinedCharacterSheet from "../InteractiveCharSheets/RefinedCharacterSheet";
-import BuilderStep1_2 from "./BuilderStep1_2";
-import BuilderStep3 from "./BuilderStep3";
-import BuilderStep4_5 from "./BuilderStep4_5";
-import BuilderStep6 from "./BuilderStep6";
+import BuilderStep_Stats from "./BuilderStep_Stats";
+import BuilderStep_Paths from "./BuilderStep_Paths";
+import BuilderStep_Traits_Arts from "./BuilderStep_Traits_Arts";
+import BuilderStep_Items from "./BuilderStep_Items";
 
 const playerCharacter: playerCharacterType = {
     name: "",
@@ -117,40 +117,41 @@ export default function CharacterBuilderPage() {
     return (
         <div className="">
             {stepnum == 1 && (
-                <BuilderStep1_2
-                    chosenStats={chosenStats}
-                    setChosenStats={setChosenStats}
+                <BuilderStep_Paths
                     player={player}
-                    setStepnum={() => setStepnum(3)}
+                    setPlayer={setPlayer}
+                    continueButton={() => setStepnum(2)}
+                    backButton={() => {}}
+                />
+            )}
+
+            {stepnum == 2 && (
+                <BuilderStep_Traits_Arts
+                    player={player}
+                    setPlayer={setPlayer}
+                    continueButton={() => setStepnum(3)}
+                    backButton={() => setStepnum(1)}
                 />
             )}
 
             {stepnum == 3 && (
-                <BuilderStep3
+                <BuilderStep_Stats
+                    chosenStats={chosenStats}
+                    setChosenStats={setChosenStats}
                     player={player}
-                    setPlayer={setPlayer}
                     continueButton={() => setStepnum(4)}
                     backButton={() => setStepnum(1)}
                 />
             )}
 
             {stepnum == 4 && (
-                <BuilderStep4_5
-                    player={player}
-                    setPlayer={setPlayer}
-                    continueButton={() => setStepnum(6)}
-                    backButton={() => setStepnum(3)}
-                />
-            )}
-
-            {stepnum == 6 && (
-                <BuilderStep6
+                <BuilderStep_Items
                     player={player}
                     // setPlayer={setPlayer}
                     chosenItems={chosenItems}
                     setChosenItems={setChosenItems}
-                    continueButton={() => setStepnum(7)}
-                    backButton={() => setStepnum(4)}
+                    continueButton={() => setStepnum(5)}
+                    backButton={() => setStepnum(3)}
                 />
             )}
 
@@ -160,7 +161,7 @@ export default function CharacterBuilderPage() {
                         <Button
                             variant="link-medicine"
                             className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"
-                            onClick={() => setStepnum(6)}
+                            onClick={() => setStepnum(4)}
                         >
                             Back
                         </Button>

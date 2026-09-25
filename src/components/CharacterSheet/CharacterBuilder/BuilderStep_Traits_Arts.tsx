@@ -1,9 +1,9 @@
 import { playerCharacterType } from "../../../types/playerCharacterType";
-import BuilderComponentStep4 from "./BuilderComponentStep4";
-import BuilderComponentStep5 from "./BuilderComponentStep5";
 import { Button } from "../../ui/Button/Button";
 import pathJson from "../../../assets/OfflineJsons/paths.json";
 import { capitalize } from "../../../util/textFormatting";
+import BuilderComponentStep_Traits from "./BuilderComponentStep_Traits";
+import BuilderComponentStep_Arts from "./BuilderComponentStep_Arts";
 
 type Props = {
     player: playerCharacterType;
@@ -12,7 +12,7 @@ type Props = {
     backButton: () => void;
 };
 
-export default function BuilderStep4({
+export default function BuilderStep_Traits_Arts({
     player: player,
     setPlayer: setPlayer,
     continueButton: continueButton,
@@ -49,11 +49,11 @@ export default function BuilderStep4({
                 </Button>
             </div>
 
-            <BuilderComponentStep4
+            <BuilderComponentStep_Traits
                 player={player}
                 setPlayer={setPlayer}
             />
-            <BuilderComponentStep5
+            <BuilderComponentStep_Arts
                 player={player}
                 setPlayer={setPlayer}
             />

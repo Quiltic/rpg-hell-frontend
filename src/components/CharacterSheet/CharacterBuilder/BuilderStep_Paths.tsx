@@ -14,7 +14,7 @@ type Props = {
     backButton: () => void;
 };
 
-export default function BuilderStep3({
+export default function BuilderStep_Paths({
     player: player,
     setPlayer: setPlayer,
     continueButton: continueButton,
@@ -26,7 +26,7 @@ export default function BuilderStep3({
         <div className="">
             {/* Top Bar */}
             <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400">
-                <h1 className="m-4 rounded-md bg-dark-300 p-4">Step 3: Pick 2 Paths</h1>
+                <h1 className="m-4 rounded-md bg-dark-300 p-4">Pick 2 Paths</h1>
 
                 {/* Buttons */}
                 <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">

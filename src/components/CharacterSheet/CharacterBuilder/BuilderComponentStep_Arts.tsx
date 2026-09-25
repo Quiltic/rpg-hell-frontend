@@ -12,7 +12,7 @@ type Props = {
     setPlayer: (player: playerCharacterType) => void;
 };
 
-export default function BuilderComponentStep5({ player: player, setPlayer: setPlayer }: Props) {
+export default function BuilderComponentStep_Arts({ player: player, setPlayer: setPlayer }: Props) {
     const [isOpen, setIsOpen] = useState(false);
     const [picking, setPicking] = useState(0);
 

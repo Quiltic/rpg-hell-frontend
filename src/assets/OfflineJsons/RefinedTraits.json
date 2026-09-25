@@ -30,7 +30,7 @@ Survivor - Healing/Buffs/Movement
     {"name":"medical professional","req":"survivor 3","tags":"","effect":"All of your healing effects heal for an additional +1. Additionally, once per Rest, when you heal a creature you may remove a stack of Death's Door from them. ","extra":""},
 
     {"name":"surgeon","req":"survivor 4","tags":"","effect":"When you heal a creature, activate a non-damaging Art, or give Empowered or Warded: you or the target may refund 1 Strain. Additionally, your healing may reattach limbs or permanently modify the appearance of the creature.","extra":""},
-    Down but not out - When you next gain Death's Door instead you heal your LEVEL and don't gain Death's Door. After this triggers, you must gain 3 stacks of Death's Door before it returns (cumulative, not at once).
+    {"name":"down but not out","req":"survivor 4","tags":"","effect":"When you next gain Death's Door instead you heal your LEVEL, Refund your LEVEL Strain, gain +2 Speed until the end of your next turn, and don't gain Death's Door. After this triggers, you must gain 3 stacks of Death's Door before it returns (cumulative, not at once).","extra":""},
 
 
 
@@ -236,6 +236,12 @@ Elementalist - Elements
 - Earth - Shielding/displacement
 
 
+Flow Freely - You are unaffected by rough terrain.
+{"name":"elemental affinity","req":"nature 2","tags":"elemental","effect":"Whenever you activate an Art that applies Burn, Wet, Slow, or does Knockback, you may spend 1 Strain to do actions based on statuses given. Multiple actions may be activated per Art.\n- **Burn** - Move half of the Burn stacks from a target to a new target within 3 tiles of them.\n- **Wet** - Remove another status.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - Make the target go Prone instead of applying Knockback.","extra":""},
+{"name":"elementalist","req":"nature 3","tags":"elemental","effect":"Whenever you activate an Art that applies Burn, Wet, Slow, or does Knockback, you may spend 1 Strain to do actions based on statuses given. Multiple actions may be activated per Art.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Rallied or do a Nature contest to make the target Prone.\n- **Slow** - Make all tiles within 1 tile of them into Rough Terrain until the beginning of your next turn.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.","extra":""},
+
+
+
 
 
 Puglist - Grapple / fists / debuffs
@@ -352,8 +358,6 @@ Keep but do something with - You have +1 on Contests against creatures you have 
 
 
 
-{"name":"elemental affinity","req":"nature 2","tags":"elemental","effect":"Whenever you activate an Art that applies Burn, Wet, Slow, or does Knockback, you may spend 1 Strain to do actions based on statuses given. Multiple actions may be activated per Art.\n- **Burn** - Move half of the Burn stacks from a target to a new target within 3 tiles of them.\n- **Wet** - Remove another status.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - Make the target go Prone instead of applying Knockback.","extra":""},
-{"name":"elementalist","req":"nature 3","tags":"elemental","effect":"Whenever you activate an Art that applies Burn, Wet, Slow, or does Knockback, you may spend 1 Strain to do actions based on statuses given. Multiple actions may be activated per Art.\n- **Burn** - Remove all stacks of Burn from a target, refund Strain equal to half the stacks removed (rounded up).\n- **Wet** - Also give Rallied or do a Nature contest to make the target Prone.\n- **Slow** - Make all tiles within 1 tile of them into Rough Terrain until the beginning of your next turn.\n- **Knockback** - You may move the target in any direction, rather than just away, the same distance they would have been knocked back.","extra":""},
 
 
 
