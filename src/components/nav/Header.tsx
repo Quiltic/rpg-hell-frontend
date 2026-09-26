@@ -26,8 +26,8 @@ const pages: HeaderPageLink[] = [
         color: "hover:text-soul-700 text-soul-600 hover:underline",
     },
     {
-        name: "Character Sheet",
-        href: "character-sheet",
+        name: "Characters",
+        href: "characters/all",
         color: "hover:text-mind-700 text-mind-600 hover:underline",
     },
     {

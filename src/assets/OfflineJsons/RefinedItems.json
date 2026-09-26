@@ -301,7 +301,7 @@
     {
         "name": "paladin hammer",
         "description": "",
-        "effect": "On Hit: Do 2 damage and if you are Blessed become Empowered until the end of your turn. Bonus: Spend 1 Strain then choose: +3 damage, if you hit do 5 Knockback, or heal your MEDICINE.",
+        "effect": "On Hit: Do 2 damage. Bonus: Spend 1 Strain then choose: +3 damage, if you hit do 5 Knockback, or heal BODY.",
         "upgrades": [],
         "tags": "weapon, soul 1",
         "rarity": "mundane",
@@ -338,7 +338,7 @@
     {
         "name": "clothing",
         "description": "",
-        "effect": "While worn gives +1 Speed and Dodge.",
+        "effect": "While worn gives +1 Speed and +1 Dodge.",
         "upgrades": [
             "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
             "Soul Weave - Gain Warded at the end of a Rest.",
