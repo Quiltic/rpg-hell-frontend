@@ -6,73 +6,59 @@ import { TicketIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { SparklesIcon } from "@heroicons/react/24/outline";
 import { BugAntIcon } from "@heroicons/react/24/outline";
+import { RulebookPageSlug, pageTitle } from "../../rulebook/pages";
 
-type RulebookPage = {
-    path: string;
-    name: string;
+type NavEntry = {
+    slug: RulebookPageSlug;
+    to?: string;
     icon?: React.ReactElement;
-    variant?:
-        | "body"
-        | "mind"
-        | "soul"
-        | "arcana"
-        | "charm"
-        | "crafting"
-        | "medicine"
-        | "nature"
-        | "thieving";
+    variant?: "body" | "mind" | "soul" | "arcana" | "charm" | "crafting" | "medicine" | "nature" | "thieving";
 };
 
-const rulebookPages: RulebookPage[] = [
+const rulebookPages: NavEntry[] = [
     {
-        path: "core-rules",
-        name: "Core Rules",
+        slug: "core-rules",
         icon: <>⚖️</>,
         variant: "nature",
     },
-    { path: "combat", name: "Combat", icon: <>⚔️</>, variant: "crafting" },
+    { slug: "combat", icon: <>⚔️</>, variant: "crafting" },
     {
-        path: "character-creation",
-        name: "Character Creation",
+        slug: "character-creation",
         icon: <>🥸</>,
         variant: "arcana",
     },
-    { path: "for-gms", name: "For GMs", icon: <>🐉</>, variant: "thieving" },
+    { slug: "for-gms", icon: <>🐉</>, variant: "thieving" },
 ];
 
-const additionalRulebookPages: RulebookPage[] = [
-    { path: "effects", name: "Effects", icon: <>🌀</> },
-    {
-        path: "character-examples/all",
-        name: "Character Examples",
-        icon: <>🧙🧌🧝</>,
-    },
-    { path: "misc-rules", name: "Miscellaneous Rules", icon: <>💡</> },
-    { path: "full-doc", name: "Printable", icon: <>🗎</> },
+const additionalRulebookPages: NavEntry[] = [
+    { slug: "effects", icon: <>🌀</> },
+    // {
+    //     slug: "character-examples",
+    //     to: "character-examples/all",
+    //     icon: <>🧙🧌🧝</>,
+    // },
+    { slug: "misc-rules", icon: <>💡</> },
+    { slug: "full-doc", icon: <>🗎</> },
 ];
 
-const directoryPages: RulebookPage[] = [
+const directoryPages: NavEntry[] = [
     {
-        path: "traits",
-        name: "Traits",
+        slug: "traits",
         icon: <TicketIcon className="h-6 w-6" />,
         variant: "body",
     },
     {
-        path: "items",
-        name: "Items",
+        slug: "items",
         icon: <ShoppingBagIcon className="h-6 w-6" />,
         variant: "mind",
     },
     {
-        path: "spells",
-        name: "Arts",
+        slug: "spells",
         icon: <SparklesIcon className="h-6 w-6" />,
         variant: "soul",
     },
     {
-        path: "creatures",
-        name: "Creatures",
+        slug: "creatures",
         icon: <BugAntIcon className="h-6 w-6" />,
         variant: "medicine",
     },
@@ -84,10 +70,10 @@ export default function RulebookNavigation() {
     return (
         <>
             <h2 className="print:hidden">Rulebook Pages</h2>
-            <nav className="m-4 mx-auto max-w-4xl rounded-md p-2 bg-dark-400 print:hidden">
+            <nav className="m-4 mx-auto max-w-4xl rounded-md bg-dark-400 p-2 print:hidden">
                 <div className="flex-column m-2 flex flex-wrap justify-center gap-4">
                     {directoryPages.map((page, id) => {
-                        const absolutePath = `${rulebookBasePath}${page.path}`;
+                        const absolutePath = `${rulebookBasePath}${page.to ?? page.slug}`;
                         const isActive = location.pathname === absolutePath;
                         return (
                             <Link
@@ -98,16 +84,10 @@ export default function RulebookNavigation() {
                             >
                                 <Button
                                     leftIcon={page.icon}
-                                    variant={
-                                        page.variant == undefined
-                                            ? undefined
-                                            : `${page.variant}`
-                                    }
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
+                                    variant={page.variant == undefined ? undefined : `${page.variant}`}
+                                    className={isActive ? "ring-2 ring-light/75" : ""}
                                 >
-                                    {page.name}
+                                    {pageTitle(page.slug)}
                                 </Button>
                             </Link>
                         );
@@ -115,7 +95,7 @@ export default function RulebookNavigation() {
                 </div>
                 <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
                     {rulebookPages.map((page, id) => {
-                        const absolutePath = `${rulebookBasePath}${page.path}`;
+                        const absolutePath = `${rulebookBasePath}${page.to ?? page.slug}`;
                         const isActive = location.pathname === absolutePath;
                         return (
                             <Link
@@ -127,11 +107,9 @@ export default function RulebookNavigation() {
                                 <Button
                                     leftIcon={page.icon}
                                     variant={page.variant}
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
+                                    className={isActive ? "ring-2 ring-light/75" : ""}
                                 >
-                                    {page.name}
+                                    {pageTitle(page.slug)}
                                 </Button>
                             </Link>
                         );
@@ -139,7 +117,7 @@ export default function RulebookNavigation() {
                 </div>
                 <div className="flex-column mb-2 flex flex-wrap justify-center gap-4">
                     {additionalRulebookPages.map((page, id) => {
-                        const absolutePath = `${rulebookBasePath}${page.path}`;
+                        const absolutePath = `${rulebookBasePath}${page.to ?? page.slug}`;
                         const isActive = location.pathname === absolutePath;
                         return (
                             <Link
@@ -152,11 +130,9 @@ export default function RulebookNavigation() {
                                     variant="dark"
                                     leftIcon={page.icon}
                                     size={"sm"}
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
+                                    className={isActive ? "ring-2 ring-light/75" : ""}
                                 >
-                                    {page.name}
+                                    {pageTitle(page.slug)}
                                 </Button>
                             </Link>
                         );

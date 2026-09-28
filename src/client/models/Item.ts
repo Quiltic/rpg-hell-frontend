@@ -11,4 +11,5 @@ export type Item = {
     tags: string;
     rarity: string;
     cost?: number;
+    tier:number;
 };

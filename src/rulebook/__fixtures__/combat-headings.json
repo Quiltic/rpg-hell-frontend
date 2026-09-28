@@ -1,0 +1,72 @@
+[
+    {
+        "level": 1,
+        "text": "Combat",
+        "slug": "combat"
+    },
+    {
+        "level": 2,
+        "text": "Initiative",
+        "slug": "initiative"
+    },
+    {
+        "level": 2,
+        "text": "Action Dice",
+        "slug": "action-dice"
+    },
+    {
+        "level": 3,
+        "text": "Attack Dice Values Matter",
+        "slug": "attack-dice-values-matter"
+    },
+    {
+        "level": 2,
+        "text": "Common Actions",
+        "slug": "common-actions"
+    },
+    {
+        "level": 2,
+        "text": "Damage and Armor",
+        "slug": "damage-and-armor"
+    },
+    {
+        "level": 3,
+        "text": "Going to 0 and Death's Door",
+        "slug": "going-to-0-and-deaths-door"
+    },
+    {
+        "level": 3,
+        "text": "Fall Damage",
+        "slug": "fall-damage"
+    },
+    {
+        "level": 3,
+        "text": "Knockback Damage",
+        "slug": "knockback-damage"
+    },
+    {
+        "level": 2,
+        "text": "Cover",
+        "slug": "cover"
+    },
+    {
+        "level": 2,
+        "text": "Optional Rules",
+        "slug": "optional-rules"
+    },
+    {
+        "level": 3,
+        "text": "Slower Healing/Rest",
+        "slug": "slower-healingrest"
+    },
+    {
+        "level": 3,
+        "text": "Popcorn Initiative",
+        "slug": "popcorn-initiative"
+    },
+    {
+        "level": 3,
+        "text": "Flanking",
+        "slug": "flanking"
+    }
+]

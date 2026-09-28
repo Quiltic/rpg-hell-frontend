@@ -1,14 +1,18 @@
 import Pill from "../components/ui/Pill";
+import pathJson from "../assets/OfflineJsons/paths.json";
+
+// const requirements = toPillElement(trait.req?.toString(), ",", "");
+// Class, rarity and path words mapped onto the palette; shared by the pills and the search index.
+export const PILL_COLOR_WORDS: Record<string, string> = {
+    mundane: "dark-300",
+    common: "thieving",
+    uncommon: "nature",
+    rare: "mind",
+    legendary: "arcana",
+};
 
 // const requirements = toPillElement(trait.req?.toString(), ",", "");
 export function toPillElement(_string: string, splitter: string) {
-    const rarityTiers = {
-        "mundane":"dark-300",
-        "common":"thieving",
-        "uncommon":"nature",
-        "rare":"mind",
-        "legendary":"arcana"
-    }
     if (!_string) {
         return "";
     }
@@ -21,17 +25,21 @@ export function toPillElement(_string: string, splitter: string) {
     // Try to make the names, requirements, tags, ect. uppercase
     const pills = _string.split(splitter).map((word, i) => {
         const parts = word.split(" ");
-        if (parts[0] in rarityTiers) {
-            parts[0] = rarityTiers[parts[0]];
+        if (parts[0] in PILL_COLOR_WORDS) {
+            parts[0] = PILL_COLOR_WORDS[parts[0]];
         }
+
+        const path = pathJson.find((p) => {
+            return p.name == parts[0];
+        });
+        if (path) {
+            parts[0] = path.color;
+        }
+
         const isBroken: boolean = parts[0].toLowerCase() == "broken";
         return (
             <Pill
-                colorClassName={
-                    "bg-" +
-                    parts[0].toLowerCase() +
-                    (isBroken ? " ring-2 ring-medicine-500" : "")
-                }
+                colorClassName={"bg-" + parts[0].toLowerCase() + (isBroken ? " ring-2 ring-medicine-500" : "")}
                 key={i}
             >
                 {word}
@@ -41,52 +49,14 @@ export function toPillElement(_string: string, splitter: string) {
     return pills;
 }
 
-export function formatEffectString(text: string): string {
-    text.replace(/(?:\r\n|\r|\n)/g, "<br />");
-    return highlightKeywords(text);
-}
-
-export function highlightKeywords(text: string): string {
-    const colors: string[] = [
-        "body",
-        "mind",
-        "soul",
-        "arcana",
-        "charm",
-        "crafting",
-        "nature",
-        "medicine",
-        "thieving",
-    ];
-    let updatedText: string = text;
-
-    for (const color of colors) {
-        updatedText = highlightWord(updatedText, color);
-    }
-    return updatedText;
-}
-
-function highlightWord(text: string, word: string): string {
-    const regex = new RegExp(`\\b(${word})\\b`, "gi");
-    return text.replace(
-        regex,
-        `<span class="text-${word}-700">$1</span>` //text-${word} dark:
-    );
-}
-
-export function sumNumbersAfterWord(
-    itemList: string[],
-    findWord: string
-): number {
+export function sumNumbersAfterWord(itemList: string[], findWord: string): number {
     /*
     This function takes in a processed itemlist (name-##-effects-tags) and returns a total sum of all "tags" (damage 6)
     */
     let sum = 0;
 
     for (const item of itemList) {
-        const wordsAndNumbers = item
-            .substring(item.indexOf("- ") + 2)
-            .split(","); // remove everything before  '- ' (name) so that the split will get all info
+        const wordsAndNumbers = item.substring(item.indexOf("- ") + 2).split(","); // remove everything before  '- ' (name) so that the split will get all info
 
         for (const wordAndNumber of wordsAndNumbers) {
             const [word, valueStr] = wordAndNumber.split(" "); // change THING # into [THING,#]
@@ -107,4 +77,8 @@ export function sumNumbersAfterWord(
 
 export function capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+// "death's door" -> "Death's Door". Only the first letter of each word changes.
+export function titleCase(str: string): string {
+    return str.split(" ").map(capitalize).join(" ");
 }

@@ -9,6 +9,7 @@ type Props = {
     resetFilter: () => void;
     filterClass: eApiClass;
     initialSearch?: string;
+    initialValue?: string;
 };
 
 function Search({
@@ -16,36 +17,35 @@ function Search({
     resetFilter: resetFilter,
     filterClass: filterClass,
     initialSearch: initialSearch,
+    initialValue,
 }: Props) {
-    const [clearButtonVisibility, setClearButtonVisibility] =
-        useState("hidden");
-    const [searchValue, setSearchValue] = useState(initialSearch ?? "");
-    const [realSearchValue, setRealSearchValue] = useState('');
+    const [clearButtonVisibility, setClearButtonVisibility] = useState("hidden");
+    const [searchValue, setSearchValue] = useState(initialValue ?? initialSearch ?? "");
+    const [realSearchValue, setRealSearchValue] = useState("");
 
     useEffect(() => {
-        
-        if (initialSearch != ""  && initialSearch != undefined){ // advanced filtering should overide normal filtering
+        if (initialSearch != "" && initialSearch != undefined) {
+            // advanced filtering should overide normal filtering
             setSearchValue("");
             // resetFilter();
             setClearButtonVisibility("hidden");
-            setRealSearchValue(initialSearch)
+            setRealSearchValue(initialSearch);
             return;
         }
-        
+
         if (searchValue == "") {
             resetFilter();
             setClearButtonVisibility("hidden");
             return;
         }
 
-        setRealSearchValue(searchValue)
+        setRealSearchValue(searchValue);
         setClearButtonVisibility("visible");
-    }), [filter, filterClass, resetFilter, searchValue, initialSearch]
-
-    
+    }),
+        [filter, filterClass, resetFilter, searchValue, initialSearch];
 
     useEffect(() => {
-        console.log("init",realSearchValue)
+        console.log("init", realSearchValue);
         // if (searchValue == ""  && initialSearch != undefined)
         //     setRealSearchValue(initialSearch)
         // else
@@ -57,59 +57,67 @@ function Search({
         //     return;
         // }
 
-        
-
         // setClearButtonVisibility("visible");
         switch (filterClass) {
             case eApiClass.Trait: {
                 filter(
                     (t) => {
                         try {
-                            const temp = [t.name.toLowerCase(),(t as Trait).effect?.toLowerCase().replace("\n","")," "].join(";|;");
-                            return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
+                            const temp = [
+                                t.name.toLowerCase(),
+                                (t as Trait).effect?.toLowerCase().replace("\n", ""),
+                                " ",
+                            ].join(";|;");
+                            return temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false;
                         } catch (error) {
-                            console.error('Bad regex:', error);
+                            console.error("Bad regex:", error);
                         }
-                        return (false)
+                        return false;
                     }
-                        // t.name.toLowerCase().includes(searchValue) ||
-                        // (t as Trait).effect?.toLowerCase().includes(searchValue)
+                    // t.name.toLowerCase().includes(searchValue) ||
+                    // (t as Trait).effect?.toLowerCase().includes(searchValue)
                 );
                 return;
             }
             case eApiClass.Item: {
                 filter(
-                    (i) =>
-                        {
-                            try {
-                                const temp = [i.name.toLowerCase(),(i as Item).effect?.toLowerCase().replace(/(\r\n|\n|\r)/gm, ""),(i as Item).tags?.toLowerCase()].join(";|;");
-                                // if (i.name.includes("silver"))
-                                //     console.log(temp,(temp.match(new RegExp(searchValue, "g"))?.length != undefined ? true : false))
-                                return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
-                            } catch (error) {
-                                console.error('Bad regex:', error);
-                            }
-                            return (false)
+                    (i) => {
+                        try {
+                            const temp = [
+                                i.name.toLowerCase(),
+                                (i as Item).effect?.toLowerCase().replace(/(\r\n|\n|\r)/gm, ""),
+                                (i as Item).tags?.toLowerCase(),
+                            ].join(";|;");
+                            // if (i.name.includes("silver"))
+                            //     console.log(temp,(temp.match(new RegExp(searchValue, "g"))?.length != undefined ? true : false))
+                            return temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false;
+                        } catch (error) {
+                            console.error("Bad regex:", error);
                         }
-                        // i.name.toLowerCase().includes(searchValue) ||
-                        // (i as Item).effect?.toLowerCase().includes(searchValue)
+                        return false;
+                    }
+                    // i.name.toLowerCase().includes(searchValue) ||
+                    // (i as Item).effect?.toLowerCase().includes(searchValue)
                 );
                 return;
             }
             case eApiClass.Spell: {
                 filter(
-                    (s) =>
-                        {
-                            try {
-                                const temp = [s.name.toLowerCase(),(s as Spell).effect?.toLowerCase().replace("\n",""),(s as Spell).tags?.toLowerCase()].join(";|;");
-                                return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
-                            } catch (error) {
-                                console.error('Bad regex:', error);
-                            }
-                            return (false)
+                    (s) => {
+                        try {
+                            const temp = [
+                                s.name.toLowerCase(),
+                                (s as Spell).effect?.toLowerCase().replace("\n", ""),
+                                (s as Spell).tags?.toLowerCase(),
+                            ].join(";|;");
+                            return temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false;
+                        } catch (error) {
+                            console.error("Bad regex:", error);
                         }
-                        // s.name.toLowerCase().includes(searchValue) ||
-                        // (s as Spell).effect?.toLowerCase().includes(searchValue)
+                        return false;
+                    }
+                    // s.name.toLowerCase().includes(searchValue) ||
+                    // (s as Spell).effect?.toLowerCase().includes(searchValue)
                 );
                 return;
             }
@@ -117,15 +125,19 @@ function Search({
                 filter(
                     (c) => {
                         try {
-                            const temp = [c.name.toLowerCase(),(c as Creature).how_act?.toLowerCase().replace("\n","")," "].join(";|;");
-                            return (temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false)
+                            const temp = [
+                                c.name.toLowerCase(),
+                                (c as Creature).how_act?.toLowerCase().replace("\n", ""),
+                                " ",
+                            ].join(";|;");
+                            return temp.match(new RegExp(realSearchValue, "g"))?.length != undefined ? true : false;
                         } catch (error) {
-                            console.error('Bad regex:', error);
+                            console.error("Bad regex:", error);
                         }
-                        return (false)
+                        return false;
                     }
-                        // t.name.toLowerCase().includes(searchValue) ||
-                        // (t as Trait).effect?.toLowerCase().includes(searchValue)
+                    // t.name.toLowerCase().includes(searchValue) ||
+                    // (t as Trait).effect?.toLowerCase().includes(searchValue)
                 );
                 return;
             }

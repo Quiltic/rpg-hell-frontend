@@ -2,16 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 // import { CancelablePromise, Item, Spell, Trait } from "../client";
 
 import traitJson from "../assets/OfflineJsons/traits.json";
-import itemJson from "../assets/OfflineJsons/items.json";
-// import spellJson from "../assets/OfflineJsons/spells.json";
-import spellJson from "../assets/OfflineJsons/Arts.json";
+// import itemJson from "../assets/OfflineJsons/items.json";
+import itemJson from "../assets/OfflineJsons/RefinedItems.json";
+import spellJson from "../assets/OfflineJsons/spells.json"; //"../assets/OfflineJsons/spells.json";
 import creatureJson from "../assets/OfflineJsons/creatures.json";
-import {
-    sortArrayByLevel,
-    sortArrayByReqs,
-    sortItems,
-    sortSpells,
-} from "../util/sortingTools";
+import { sortArrayByLevel, sortArrayByReqs, sortArrayByTags, sortItems, sortSpells } from "../util/sortingTools";
 import { getPersistentPinnedNames } from "../util/tableTools";
 
 import { ApiClassUnion, eApiClass } from "../types/ApiClassUnions";
@@ -46,8 +41,7 @@ export function useApiClass<T extends ApiClassUnion>(
     const [pinned, setPinned] = useState<Array<T>>([]);
     const [displayed, setDisplayed] = useState<Array<T>>([]);
 
-    const [hasInitializedPersistedTraits, setHasInitializedPersistedTraits] =
-        useState(false);
+    const [hasInitializedPersistedTraits, setHasInitializedPersistedTraits] = useState(false);
 
     // const { auth } = useContext(AuthContext);
 
@@ -73,9 +67,6 @@ export function useApiClass<T extends ApiClassUnion>(
                     t = Object.values(creatureJson) as T[];
                     break;
             }
-
-            // drop nameless entries because they cause problem.
-            t = t.filter((x) => x && x.name);
 
             // only auth people should be able to see broken stuff
             // if (!auth.isAuthenticated || !auth.admin) {
@@ -120,10 +111,7 @@ export function useApiClass<T extends ApiClassUnion>(
             setAll(t);
             setDisplayed(t);
 
-            const persistentPinned = getPersistentPinnedNames(
-                pinnedKey,
-                t
-            ) as T[];
+            const persistentPinned = getPersistentPinnedNames(pinnedKey, t) as T[];
             if (persistentPinned) {
                 setPinned(persistentPinned);
             }
