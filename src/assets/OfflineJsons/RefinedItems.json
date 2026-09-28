@@ -414,7 +414,7 @@
     {
         "name": "bandage",
         "description": "",
-        "effect": "Spend # and the Bandage; Heal a creature within 1 tile of you 1+1d4.",
+        "effect": "Spend ⚂ and the Bandage; Heal a creature within 1 tile of you 1+1d4.",
         "upgrades": [],
         "tags": "consumable, medicine",
         "rarity": "mundane",
@@ -424,7 +424,7 @@
     {
         "name": "frag grenade",
         "description": "",
-        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. Do a Thrown Attack against everything within 2 tiles of that point. \nOn Hit: Do 4 damage.\nBonus: Gain +2 damage.",
+        "effect": "Spend ⚂⚂; Throw the grenade to a point up to 6 tiles away. Do a Thrown Attack against everything within 2 tiles of that point. \nOn Hit: Do 4 damage.\nBonus: Gain +2 damage.",
         "upgrades": [],
         "tags": "consumable, throw range 6",
         "rarity": "common",
@@ -434,7 +434,7 @@
     {
         "name": "flash grenade",
         "description": "",
-        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. Everything within 2 tiles of that point is Blinded until the end of their turn. If a target is already Blinded they gain 3 Stun.",
+        "effect": "Spend ⚂⚂; Throw the grenade to a point up to 6 tiles away. Everything within 2 tiles of that point is Blinded until the end of their turn. If a target is already Blinded they gain 3 Stun.",
         "upgrades": [],
         "tags": "consumable, throw range 6",
         "rarity": "common",
@@ -444,7 +444,7 @@
     {
         "name": "smoke grenade",
         "description": "",
-        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. Everything within 2 tiles of that point is Obscured for 1 minute.",
+        "effect": "Spend ⚂⚂; Throw the grenade to a point up to 6 tiles away. Everything within 2 tiles of that point is Obscured for 1 minute.",
         "upgrades": [],
         "tags": "consumable, throw range 6",
         "rarity": "common",
@@ -454,7 +454,7 @@
     {
         "name": "molotov",
         "description": "",
-        "effect": "Spend ##; Throw the grenade to a point up to 6 tiles away. The grenade shatters on impact. Do a Thrown Attack against everything within 2 tiles of that point. Ground tiles ignite until the start of your next turn. Creatures which start their turn in this tile or move into it gain 2 Burn.\nOn Hit: Give 3 Burn.",
+        "effect": "Spend ⚂⚂; Throw the grenade to a point up to 6 tiles away. The grenade shatters on impact. Do a Thrown Attack against everything within 2 tiles of that point. Ground tiles ignite until the start of your next turn. Creatures which start their turn in this tile or move into it gain 2 Burn.\nOn Hit: Give 3 Burn.",
         "upgrades": [],
         "tags": "consumable, throw range 6",
         "rarity": "common",
@@ -470,7 +470,7 @@
     {
         "name": "medkit",
         "description": "",
-        "effect": "Spend # and 1 Strain; Heal a creature within 1 tile of you 2+[BODY or MIND].",
+        "effect": "Spend ⚂ and 1 Strain; Heal a creature within 1 tile of you 2+[BODY or MIND].",
         "upgrades": [],
         "tags": "tool, medicine",
         "rarity": "common",
@@ -490,7 +490,7 @@
     {
         "name": "grapple rope",
         "description": "",
-        "effect": "Spend #; Attach or throw the grapple up to 12 tiles away. Once attached creatures may climb the rope without rolling.",
+        "effect": "Spend ⚂; Attach or throw the grapple up to 12 tiles away. Once attached creatures may climb the rope without rolling.",
         "upgrades": [],
         "tags": "tool, throw range 12",
         "rarity": "common",
@@ -520,7 +520,7 @@
     {
         "name": "trapper's tools",
         "description": "",
-        "effect": " Spend ## and 2 Strain then pick Tripwire, Snare, or Popmine: Place a Trap within 1 tile of you. Creatures may spend # to do a Senses roll against you to detect Traps. Traps last until you deactivate them or they are triggered.\n- *Tripwire* - Trap an area up to 1x3 tiles. Targets that move into this area go Prone, and may trigger attached Items.\n- *Snare* - Trap an area up to 2x2 tiles. This must be attached to a ceiling. Targets that move into this area are Grappled and go up to 4 tiles into the air. The snare has 1 Health and +3 Dodge against targets it Grapples.\n- *Popmine* - Trap a tile. Targets that move into the tile are moved up to 4 tiles in a direction. Direction chosen on placement. (This movement counts as Knockback and can take Knockback damage.)",
+        "effect": " Spend ⚂⚂ and 2 Strain then pick Tripwire, Snare, or Popmine: Place a Trap within 1 tile of you. Creatures may spend ⚂ to do a Senses roll against you to detect Traps. Traps last until you deactivate them or they are triggered.\n- *Tripwire* - Trap an area up to 1x3 tiles. Targets that move into this area go Prone, and may trigger attached Items.\n- *Snare* - Trap an area up to 2x2 tiles. This must be attached to a ceiling. Targets that move into this area are Grappled and go up to 4 tiles into the air. The snare has 1 Health and +3 Dodge against targets it Grapples.\n- *Popmine* - Trap a tile. Targets that move into the tile are moved up to 4 tiles in a direction. Direction chosen on placement. (This movement counts as Knockback and can take Knockback damage.)",
         "upgrades": [],
         "tags": "tool",
         "rarity": "common",
@@ -540,7 +540,7 @@
     {
         "name": "throwing knife set",
         "description": "",
-        "effect": "Spend ##; Throw Attack a target up to 6 tiles away.\nOn Hit: Do 1 damage.\nBonus: Gain +2 damage.",
+        "effect": "Spend ⚂⚂; Throw Attack a target up to 6 tiles away.\nOn Hit: Do 1 damage.\nBonus: Gain +2 damage.",
         "upgrades": [],
         "tags": "tool, throw range 6",
         "rarity": "uncommon",

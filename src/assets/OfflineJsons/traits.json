@@ -1,20 +1,19 @@
+
 [
 
-    {"name":"twin strikes","req":"fighter 1","tags":"","effect":"Once per turn, when you do an Attack you may spend 2 Strain or Empowered to do another Attack with the same Attack Sum.","extra":""},
-    {"name":"defender","req":"fighter 1","tags":"","effect":"When you hit a target with Melee Attack you may spend 1 Strain or Empowered to have the target be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you lose all of your SHIELDING.","extra":""},
+    {"name":"twin strikes","req":"fighter 1","tags":"","effect":"Once per turn, when you do an Attack you may spend 2 Strain or Empowered to do another Attack with the same Attack Sum. (This bonus Attack cannot be an Art and doesn't benefit from an Art.)","extra":""},
+    {"name":"defender","req":"fighter 1","tags":"","effect":"When you hit a target with Melee Attack you may spend 1 Strain or Empowered to have the target be Rooted until the start of your next turn.\nAdditionally, once per Break or Rest, refund 3 Strain when you have half health or less.","extra":""},
     {"name":"vigilant","req":"fighter 1","tags":"","effect":"You cannot be surprised while you are keeping watch and may swap your Initiative value with another willing creature's.","extra":""},
     {"name":"battle ready","req":"fighter 1","tags":"","effect":"At the end of a Break or Rest you may perform a ritual. Then, choose one of the following benefits to gain at the beginning of your next combat:\n- You have +2 on Initiative.\n- Lock a 6.\n- You are Empowered for BODY turns.","extra":""},
     
     {"name":"whirlwind","req":"fighter 2","tags":"","effect":"You can move through dense crowds, or tiles that are occupied by creatures as if it was Rough Terrain.\nAdditionally, once per turn, refund 3 Strain when you do a Melee Attack against 2 or more creatures in a turn.","extra":""},
-    {"name":"braced for impact","req":"fighter 2","tags":"","effect":"When you Hunker Down you take 1 less damage from Attacks (to a minimum of 1).\nAt the start of your turn, if you took damage since your last turn, refund 2 Strain.","extra":""},
+    {"name":"braced for impact","req":"fighter 2","tags":"","effect":"While you are Hunkered Down you gain +1 Shielding.\nAt the start of your turn, if you took damage since your last turn, refund 2 Strain.","extra":""},
 
     {"name":"melee weapon master","req":"fighter 3","tags":"","effect":"When you wield a Melee Weapon you get a bonus based on its type:\n- **One Handed**: +1 to the Bonus threshold (from 7 to 8).\n- **Two Handed**: Attacks gain 2 Reaching (or +1 Reaching if it has Reaching\n- **Side**: You may give a 6 instead of ⚂⚂ for an Attack. This Attack gains +2 to its sum.\n- **Hammer**: You may have the target go Prone instead of applying Knockback.","extra":""},
     {"name":"guarding presence","req":"fighter 3","tags":"","effect":"While you are Hunkered Down your non-area Arts have +3 range.","extra":""},
     
     {"name":"true strikes","req":"fighter 4","tags":"","effect":"When you give a 12 on a Melee Attack you do not gain the Weapon Downside.\nWhen you give a 8 or less on a Melee Attack you are unaffected by Blind","extra":""},
     {"name":"total defence","req":"fighter 4","tags":"","effect":"You gain Resistance to Physical damage, and may spend Strain instead of loosing health or shielding.","extra":""},
-       
-    
     
     
     
@@ -34,9 +33,6 @@
 
 
 
-    
-    
-    
     {"name":"snake eyes","req":"analyst 1","tags":"","effect":"Once per turn, when you roll 2 ones (Snake Eyes), you refund 1 Strain and may spend 1 Strain to re-roll them.","extra":""},
     {"name":"patient","req":"analyst 1","tags":"","effect":" At the end of your turn (10 seconds) increase your Locked Dice by 1, to a maximum of 6. If you do not have a Locked dice Lock a 1.","extra":""},
     {"name":"acute memory","req":"analyst 1","tags":"","effect":"You can spend 1 minute to perfectly memorize something. You do not need to do a MIND roll when trying to recall this information. \nYou also always know the approximate time, what paths you took to get here, and have +1d4 against memory altering effects (such as from the Art 'Deja Vu').","extra":""},
@@ -52,8 +48,7 @@
 
 
 
-    
-    
+
     {"name":"covering fire","req":"commander 1","tags":"","effect":"When you make two or more Attacks against a target in a turn they have -1 Speed and -1 on Contests until the end of their next turn.","extra":""},
     {"name":"tag team","req":"commander 1","tags":"","effect":"At the end of your turn, Mark all targets you damaged this turn until the start of your next turn.\nOnce per round, if a Marked target dies or goes unconscious or the Marked is spent you refund 2 Strain.\nAdditionally, you may spend a Locked Dice to move Marked from one creature you can see to another you can see.","extra":""},
     {"name":"make a plan","req":"commander 1","tags":"","effect":"Spend an hour or more making a plan with others. For each creature who helped make the plan (including yourself) gain a Planned token. You may then spend a Planned token to give a creature Advantage on a Check or Contest. You lose all tokens at the end of your next Rest.","extra":""},
@@ -65,7 +60,7 @@
     {"name":"threat assessment","req":"commander 3","tags":"","effect":"When you Mark a target, Mark an additional target you can see for the same duration.","extra":""},
 
     {"name":"warning signs","req":"commander 4","tags":"","effect":"Spend 2 strain to Mark an Attacking target. When a Marked creature does an Attack you may remove Marked to reduce the Attack Sum by 1.","extra":""},
-    
+
 
 
 
@@ -86,7 +81,7 @@
 
 
     
-    
+
     {"name":"curse","req":"spirits 1","tags":"","effect":"At the end of a Break or Rest you may give a Curse to a creature that you have a part of (hair, nails, skin, etc.). This Curse gives -1 to a Stat (non-stacking), -1d6 on CHARM rolls against you, have a rain cloud above them constantly making them Wet, or you can create your own curse no stronger than these options. The curse ends when they are blessed, you die, they die, or by an effect that removes magic.","extra":""},
     {"name":"hex","req":"spirits 1","tags":"","effect":"When you activate a targeted non-Focus Art you may Focus on the Art for up to 1 minute, save any dice spent. At the beginning of your turn you may re-activate the Art on the same target with the same dice sum by spending half the Art's Strain cost (rounded up, to a minimum of 1).","extra":""},
     {"name":"death's eyes","req":"spirits 1","tags":"","effect":"While your eyes are closed or you are Blind you can see wisps of the dead. At the end of a Rest these wisps give you +1d4 on your choice of specific Check until your next Rest. (Some examples are, animal handling, religion, or deciphering text.)","extra":""},
@@ -98,16 +93,16 @@
     {"name":"faithful steed","req":"spirits 3","tags":"","effect":"At the end of a Rest you may create a Mount Follower. Describe your Mount and how you created it. This Mount has 3xSOUL Max Health, 9 Speed, 0 in all other stats, the Animal, Construct, Monstrosity, or Undead tag, and one of the following bonuses (this can be changed at the end of a Rest):\n- The Mount can Fly and Hover\n- The Mount can move through non-metal walls (taking its rider with it) but has 6 Speed (instead of 9).\n- The Mount is Resistant to Physical, and Elemental damage.","extra":""},
     
     {"name":"necromancer","req":"spirits 4","tags":"","effect":"Followers you create or summon have +1 damage while they are within 6 tiles of you, and your Undead Followers can be healed by your Traits and Arts (Not by a Medkit or Bandage).","extra":""},
-        
 
 
     
+
     {"name":"art token","req":"arcanist 1","tags":"","effect":"You may spend Strain to activate an Art you know, turning the activation into a Token of your choosing. Later a creature can spend ⚂⚂⚂ destroying the Token to activate the imbued Art without spending Strain. You may have up to ARCANA number of Tokens at a time.","extra":""},
     {"name":"art manipulator","req":"arcanist 1","tags":"","effect":"When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- The Arts effects happen at a later time based on a specific trigger.\n- An Art requires 1 less dice to cast. Use a 3 for the missing dice value.\n- An Art activates without any noticeable movement or sounds.","extra":""},
-    {"name":"flexible repertoire","req":"arcanist 1","tags":"","effect":"At the end of a Rest you may swap one of your Arts for a different Art.","extra":""},
+    {"name":"magical knowledge","req":"arcanist 1","tags":"","effect":"You learn 2 additional Arts of your choice that you meet the requirements for.","extra":""},
     {"name":"familiar","req":"arcanist 1","tags":"","effect":"At the end of a Rest create a Familiar Follower. The Familiar has 2xLEVEL Max Health and Strain, +1 Dodge, 7 Speed, 1 in a Main-Stat (Body, Mind, or Soul), 2 in one Sub-Stat of your choice, and 0 for all other Stats. They know the Art 'telepathy' and have a Spectral Attack ('Mage Gauntlets'), You may pick its type (Animal, Construct, Monstrosity, Planar, or Undead), two Tier 1 Arts of your choice (it needs the stat in order to take an Art), and appearance each time it is created.\n- When you gain a stat increase the Familiar gains +1 in a Sub-Stat of your choice. You may only ever have 1 Familiar at a time, if you were to create a Familiar while one already exists the first one morphs into the new one.\n\nThe familiar improves as you do gaining the following benefits when you hit certain Tiers.\n- *Tier 2* - You may pick one Tier 2 Art of your choice for the Familiar.\n- *Tier 3* - Choose one (you cannot change this choice later). The Familiar can Fly, gain 1 Art you know, or gain +1 to a Main Stat.\n- *Tier 4* - You may pick three Tier 1 Arts and two Tier 2 Arts of your choice for the Familiar.","extra":""},
-
-    {"name":"magical knowledge","req":"arcanist 2","tags":"","effect":"You learn 2 additional Arts of your choice that you meet the requirements for.","extra":""},
+    
+    {"name":"flexible repertoire","req":"arcanist 2","tags":"","effect":"At the end of a Rest you may change your Arts (you still must follow the tier rules).","extra":""},
     {"name":"art augmenter","req":"arcanist 2","tags":"","effect":"When you activate an Art you may spend 2 Strain then pick 1 of the following:\n- An Art with Range has its range doubled. Art's with a range of Touch have Reaching 2.\n- Change any Statuses given by an Art to either 2 Burn, Wet, Marked, Charmed, 1 Stun, Warded, or Empowered. It lasts for the same duration as the original Status (or until end of turn).\n- Arts that deal damage do an additional 2 damage.","extra":""},
     
     {"name":"signature art","req":"arcanist 3","tags":"","effect":"When you take this Trait choose an Art you know. You may activate that Art up to your SOUL times per Break or Rest without spending Strain.\nYou cannot change this chosen Art except through extremely powerful sources, and if you remove this Art from your known Arts you cannot use this Trait.","extra":""},
@@ -128,12 +123,13 @@
     
     {"name":"lead them along","req":"face 2","tags":"","effect":"When you win a CHARM contest against a creature you gain +1 on your next CHARM contest against them.","extra":""},
     {"name":"hidden in plain sight","req":"face 2","tags":"","effect":"You may use CHARM instead of THIEVING when doing stealth rolls as part of a crowd or to hide your identity.\nAdditionally, you get Advantage when looking for someone in a crowd.","extra":""},
-    
+    {"name":"rally(???)","req":"face 2","tags":"","effect":"Once per Break or Rest, spend 1 hour to give yourself and up to 8 targets Empowered or Warded until spent or their next Break or Rest.","extra":""},
+
     {"name":"saving face","req":"face 3","tags":"","effect":"When you do a CHARM roll you may spend 2 Strain to gain +1d4 to the roll. This may be done after seeing the value but before results are announced.","extra":""},
     
     {"name":"magnetic charm","req":"face 4","tags":"","effect":"When you win a CHARM Contest against a creature you may steal any Locked Dice they have. Locking it yourself if you have space or just removing it if you don't.","extra":""},
 
-    
+
 
 
 
@@ -151,9 +147,7 @@
     {"name":"natural energies","req":"druidic 3","tags":"","effect":"Once per turn, when you or your Followers target a creature give them Empowered, NATURE Bonus Shielding, 2 Stun, Slowed, or apply NATURE Knockback. These effects last until the beginning of your next turn (except Knockback).","extra":""},
     
     {"name":"laeline traveler","req":"druidic 4","tags":"","effect":"When you activate a Trait or Art that effects an area, you may spend 2 Strain to teleport into an unoccupied space you can see inside of that area. If the Art is instantaneous you may choose to teleport before or after any effects take place.","extra":""},
-
     
-
     
     {"name":"hunter","req":"ranger 1","tags":"","effect":"At the start of your turn, designate a creature you can see as your Prey. You may only have 1 creature as your Prey at a time. You and your Followers have +1 on Attack Sums and Contests against your Prey.","extra":""},
     {"name":"bloodhound","req":"ranger 1","tags":"","effect":"You have Advantage when tracking a damaged creature and gain +1 Speed when moving towards a creature that is damaged or has a Debuff applied to them (such as Burn, Slow, Rooted, Stun, or Marked).","extra":""},
@@ -162,15 +156,15 @@
     
     {"name":"hidewithme(???)","req":"ranger 2","tags":"","effect":"When you gain Cloaked your Followers may gain Cloaked as well.\nAdditionally, While in terrain you are familiar with you and your Followers may stop moving for a minute to become Invisible until you move.","extra":""},
     {"name":"attackbuff(???)(needs ooc)","req":"ranger 2","tags":"","effect":"When you or a Follower spend Marked or Cloaked on an Attack gain +Nature damage, remove 3 Shielding then do damage, or apply Slow until the end of the targets next turn.","extra":""},
-
-
+    
     
     {"name":"apex predator","req":"ranger 4","tags":"","effect":"You and your Followers get the following bonuses against Marked targets and your Prey (from the 'Hunter' Trait):\n- +1 damage\n- +1 Speed while moving towards the target.\n- When you incapacitate or kill the target become Empowered or Cloaked for 1 hour.","extra":""},
+    
 
 
 
 
-    {"name":"cat burglar","req":"urchin 1","tags":"","effect":"You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\nAdditionally, you make no noise while climbing or falling up to half your Speed, and you can climb using THIEVING instead of BODY.","extra":""},
+    {"name":"cat burglar","req":"urchin 1","tags":"","effect":"You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\nAdditionally, you make no noise while climbing or falling up to half your Speed, and you can climb using FINENESS instead of BODY.","extra":""},
     {"name":"assassin","req":"urchin 1","tags":"","effect":"When you spend Cloaked on an Attack you may increase the Attack's damage by a number of d4 equal to your FINENESS instead of +1d6. This must be announced before the target does a Dodge roll.\nAdditionally, If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.","extra":""},
     {"name":"spell thief","req":"urchin 1","tags":"","effect":"When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to SOUL+THIEVING+1 at a time.","extra":""},
     {"name":"illusionist","req":"urchin 1","tags":"","effect":"Your Arts that create illusions can be activated without gestures or sounds, can be activated with +3 range, and last for twice as long.","extra":""},
@@ -183,21 +177,25 @@
     {"name":"shadow shapes","req":"urchin 4","tags":"","effect":"Your illusions are so real that they have physical form. These illusions only feel real and cannot interact with the world aside from touch (they cannot do damage, activate Arts, use Traits, etc). Physical illusions have 1 health.","extra":""},
     {"name":"master thief","req":"urchin 4","tags":"","effect":"When you gain Cloaked you may spend 1 Strain to become Hidden as well.","extra":""},
     
+    
+  
+
 
 
 
     {"name":"build them break them","req":"craftsman 1","tags":"","effect":"Followers or Art created structures (such as 'Deployable Wall') you create have a +1 Shielding.\nYou deal +[BODY or MIND] damage to objects and structures.","extra":""},
-    {"name":"blacksmith","req":"craftsman 1","tags":"","effect":"When you take this Trait pick a Weapon or Armor you own to hone it. You may only ever have 1 honed item and can spend 1 full day to change what is honed. At the end of a Rest pick one of the following bonuses to give the honed item: Lightweight, Resilient, or Glowing.\n- Lightweight - A Weapon losses Two Handed (if it has it) or gains Side if it is one-handed. Armor grants +1 Speed.\n- Resilient - A Weapon gains 'Bonus: Refund 1 Strain'. Armor gains +1 Shielding.\n- Glowing - The item can be used to activate Arts that use Light, and the user can spend # to illuminate 2 tiles around it (no cost to disable).","extra":""},
-    {"name":"slapdash solutions","req":"craftsman 1","tags":"","effect":"You can spend # and 1 Strain to quickly make or find any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp). It lasts until your next Break or Rest then breaks.","extra":""},
-    {"name":"alchemist","req":"craftsman 1","tags":"","effect":"When you make an Alchemical item you may use two Oils in the recipe. \nAdditionally, if you have the Trait 'Slapdash Solutions' you may make an Alchemical item with it, though they only last until the beginning of your next turn.","extra":""},
+    {"name":"blacksmith","req":"craftsman 1","tags":"","effect":"When you take this Trait pick a Weapon or Armor you own to hone it. You may only ever have 1 honed item and can spend 1 full day to change what is honed. At the end of a Rest pick one of the following bonuses to give the honed item: Lightweight, Resilient, or Glowing.\n- Lightweight - A Weapon losses Two Handed (if it has it) or gains Side if it is one-handed. Armor grants +1 Speed.\n- Resilient - A Weapon gains 'Bonus: Refund 1 Strain'. Armor gains +1 Shielding.\n- Glowing - The item can be used to activate Arts that use Light, and the user can spend ⚂ to illuminate 2 tiles around it (no cost to disable).","extra":""},
+    {"name":"slapdash solutions","req":"craftsman 1","tags":"","effect":"You can spend ⚂ and 1 Strain to quickly make or find any simple small Mundane item (such as rope, nails, or a pouch) or basic contraption (such as a grenade, bandage, or a lamp). It lasts until your next Break or Rest then breaks.","extra":""},
+    {"name":"alchemist","req":"craftsman 1","tags":"","effect":"When you make an Alchemical item you may use two Oils in the recipe. \nAdditionally, if you have the Trait 'Slapdash Solutions' you may make an Alchemical item with it, though they only last until the beginning of your next turn.\n","extra":""},
     
-    {"name":"fast hands","req":"craftsman 2","tags":"","effect":"Using, picking up, equipping, or activating any item costs 1 less # (use a 3 for the missing value). This does not effect Attacks, or items that give Art Attacks.","extra":""},
+    {"name":"fast hands","req":"craftsman 2","tags":"","effect":"Using, picking up, equipping, or activating any item costs 1 less ⚂ (use a 3 for the missing value). This does not effect Attacks, or items that give Art Attacks.","extra":""},
     {"name":"improved alchemy","req":"craftsman 2","tags":"","effect":"Alchemical items and Bandages you make may be used twice instead of once before they are spent.\nAdditionally, you may spend an hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.","extra":""},
     {"name":"field repair","req":"crafting 2","tags":"","effect":"Additionally, your Construct Followers and Art created structures (such as 'Deployable Wall') can be healed by your Traits and Arts (Not by a Medkit or Bandage).","extra":""},
     
     {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 1 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an +1 Speed.","extra":""},
     
     {"name":"modular upgrade","req":"crafting 4","tags":"core","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may modify this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""},
+
 
 
 
@@ -212,5 +210,6 @@
 
     {"name":"gang up","req":"pugilist 3","tags":"","effect":"When you or a creature within 1 tile of you do damage, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally within 3 tiles of you.","extra":""}
 
-    
+
+
 ]
