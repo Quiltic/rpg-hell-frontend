@@ -12,16 +12,7 @@ type NavEntry = {
     slug: RulebookPageSlug;
     to?: string;
     icon?: React.ReactElement;
-    variant?:
-        | "body"
-        | "mind"
-        | "soul"
-        | "arcana"
-        | "charm"
-        | "crafting"
-        | "medicine"
-        | "nature"
-        | "thieving";
+    variant?: "body" | "mind" | "soul" | "arcana" | "charm" | "crafting" | "medicine" | "nature" | "thieving";
 };
 
 const rulebookPages: NavEntry[] = [
@@ -41,11 +32,11 @@ const rulebookPages: NavEntry[] = [
 
 const additionalRulebookPages: NavEntry[] = [
     { slug: "effects", icon: <>🌀</> },
-    {
-        slug: "character-examples",
-        to: "character-examples/all",
-        icon: <>🧙🧌🧝</>,
-    },
+    // {
+    //     slug: "character-examples",
+    //     to: "character-examples/all",
+    //     icon: <>🧙🧌🧝</>,
+    // },
     { slug: "misc-rules", icon: <>💡</> },
     { slug: "full-doc", icon: <>🗎</> },
 ];
@@ -93,14 +84,8 @@ export default function RulebookNavigation() {
                             >
                                 <Button
                                     leftIcon={page.icon}
-                                    variant={
-                                        page.variant == undefined
-                                            ? undefined
-                                            : `${page.variant}`
-                                    }
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
+                                    variant={page.variant == undefined ? undefined : `${page.variant}`}
+                                    className={isActive ? "ring-2 ring-light/75" : ""}
                                 >
                                     {pageTitle(page.slug)}
                                 </Button>
@@ -122,9 +107,7 @@ export default function RulebookNavigation() {
                                 <Button
                                     leftIcon={page.icon}
                                     variant={page.variant}
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
+                                    className={isActive ? "ring-2 ring-light/75" : ""}
                                 >
                                     {pageTitle(page.slug)}
                                 </Button>
@@ -147,9 +130,7 @@ export default function RulebookNavigation() {
                                     variant="dark"
                                     leftIcon={page.icon}
                                     size={"sm"}
-                                    className={
-                                        isActive ? "ring-2 ring-light/75" : ""
-                                    }
+                                    className={isActive ? "ring-2 ring-light/75" : ""}
                                 >
                                     {pageTitle(page.slug)}
                                 </Button>
