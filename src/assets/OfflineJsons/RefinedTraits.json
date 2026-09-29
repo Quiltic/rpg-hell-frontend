@@ -133,7 +133,7 @@ Face? - Control/OOC/Buffs/Debuffs
     {"name":"imitate","req":"face 1","tags":"","effect":"When an ally within 3 tiles of you gains Cloaked, Empowered, or Warded, you may also gain it until the end of your next turn (20 seconds).","extra":""},
     
     {"name":"lead them along","req":"face 2","tags":"","effect":"When you win a CHARM contest against a creature you gain +1 on your next CHARM contest against them.","extra":""},
-    {"name":"hidden in plain sight","req":"face 2","tags":"","effect":"You may use CHARM instead of THIEVING when doing stealth rolls as part of a crowd or to hide your identity.\nAdditionally, you get Advantage when looking for someone in a crowd.","extra":""},
+    {"name":"hidden in plain sight","req":"face 2","tags":"","effect":"You may use CHARM instead of FINESSE when doing stealth rolls as part of a crowd or to hide your identity.\nAdditionally, you get Advantage when looking for someone in a crowd.","extra":""},
     {"name":"rally(???)","req":"face 2","tags":"","effect":"Once per Break or Rest, spend 1 hour to give yourself and up to 8 targets Empowered or Warded until spent or their next Break or Rest.","extra":""},
 
     {"name":"saving face","req":"face 3","tags":"","effect":"When you do a CHARM roll you may spend 2 Strain to gain +1d4 to the roll. This may be done after seeing the value but before results are announced.","extra":""},
@@ -170,10 +170,10 @@ Ranger - Marked/Cloaked/Damage
     {"name":"hidden paths","req":"ranger 1","tags":"","effect":"While traveling through terrain you are familiar with you and allies spend half the time to get from one location to another, and gain +1d4 on Checks and Contests for any stealth or foraging rolls.","extra":""},
     {"name":"beastbound","req":"ranger 1","tags":"","effect":"You have bonded with a Beast Follower. The Beast has 2xNATURE+LEVEL Max Health, LEVEL Strain, 0 Dodge, 6 Speed, 1 Body or Mind (Your choice), 2 Nature, and 0 for all other Stats. The Beast has the Art 'track creature' and two Tier 1 Arts of your choice (it needs the stat in order to take an Art). It has the type Animal, can be ridden as a Mount, and a Bite ('Dagger'), Claws ('Mace'), or a Ram Attack ('Club').\n- When you gain a stat increase the Beast gains +1 in a Sub-Stat of your choice. If the Beast was to go to 0 health they go unconscious instead of dying.\n\nThe Beast improves as you do gaining the following benefits when you hit certain Tiers.\n- *Tier 2* - The Beast gains +1 Dodge and either a Spit Attack ('Short Bow') or +1 Speed.\n- *Tier 3* - The Beast does +1 damage and learns an additional Tier 2 Art.\n- *Tier 4* - The Beast rolls 4 Combat Dice (instead of 3).","extra":""},
     
-    {"name":"hidewithme(???)","req":"ranger 2","tags":"","effect":"When you gain Cloaked your Followers may gain Cloaked as well.\nAdditionally, While in terrain you are familiar with you and your Followers may stop moving for a minute to become Invisible until you move.","extra":""},
-    {"name":"attackbuff(???)(needs ooc)","req":"ranger 2","tags":"","effect":"When you or a Follower spend Marked or Cloaked on an Attack gain +Nature damage, remove 3 Shielding then do damage, or apply Slow until the end of the targets next turn.","extra":""},
-    
+    {"name":"hidewithme(???)","req":"ranger 2","tags":"","effect":"When you gain Cloaked, Empowered, or Warded your Followers may also gain it as well. (For the same duration.)\nAdditionally, While in terrain you are familiar with you and your Followers may stop moving for a minute to become Hidden until you move.","extra":""},
     Missing
+    
+    {"name":"attackbuff(???)","req":"ranger 3","tags":"","effect":"You and your Followers may spend Marked or Cloaked on an Attack to activate an Art without spending Strain.","extra":""},
     Missing
     
     {"name":"apex predator","req":"ranger 4","tags":"","effect":"You and your Followers get the following bonuses against Marked targets and your Prey (from the 'Hunter' Trait):\n- +1 damage\n- +1 Speed while moving towards the target.\n- When you incapacitate or kill the target become Empowered or Cloaked for 1 hour.","extra":""},
@@ -186,7 +186,7 @@ Ranger - Marked/Cloaked/Damage
 Urchin - Cloaked/Damage/Illusion
     {"name":"cat burglar","req":"urchin 1","tags":"","effect":"You do not need Thieves' Tools to lockpick, and may spend 10 minutes and 2 Strain to make a copy of any non-magical key you have seen or felt.\nAdditionally, you make no noise while climbing or falling up to half your Speed, and you can climb using FINENESS instead of BODY.","extra":""},
     {"name":"assassin","req":"urchin 1","tags":"","effect":"When you spend Cloaked on an Attack you may increase the Attack's damage by a number of d4 equal to your FINENESS instead of +1d6. This must be announced before the target does a Dodge roll.\nAdditionally, If you kill or incapacitate a creature while Hidden or Invisible you do not lose Hidden or Invisible.","extra":""},
-    {"name":"spell thief","req":"urchin 1","tags":"","effect":"When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to SOUL+THIEVING+1 at a time.","extra":""},
+    {"name":"spell thief","req":"urchin 1","tags":"","effect":"When you see a creature, other than yourself, activate an Art you may spend a Locked Dice to know it for 1 hour. You are able to know a number of Arts with this Trait up to MIND+SOUL+1 at a time.","extra":""},
     {"name":"illusionist","req":"urchin 1","tags":"","effect":"Your Arts that create illusions can be activated without gestures or sounds, can be activated with +3 range, and last for twice as long.","extra":""},
     
     {"name":"eyes of the night","req":"urchin 2","tags":"","effect":"You can see in poorly light areas as if they were illuminated up to 18 tiles away, and can see through Obscured or Darkened areas you created.","extra":""},
