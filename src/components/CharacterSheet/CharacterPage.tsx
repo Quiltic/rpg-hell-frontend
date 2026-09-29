@@ -73,22 +73,35 @@ export default function CharacterPage() {
                     <div>
                         Do you really want to Delete {curCharacter.name}?
                         <div className="m-4 flex flex-row items-center justify-between">
-                            <Button
-                                className="border-2 border-solid border-medicine-400"
-                                variant={"link-medicine"}
-                                onClick={() => {
-                                    window.localStorage.removeItem(
-                                        `character-${curCharacter.name?.toLowerCase().replace(" ", "~")}`
-                                    );
-                                    allSavedCharacters?.filter((character: string) => {
-                                        return character != curCharacter.name;
-                                    });
-                                    window.localStorage.setItem(`saved-characters`, allSavedCharacters.join(";|;"));
-                                    setAreYouSurePopup(false);
-                                }}
-                            >
-                                Yes
-                            </Button>
+                            <Link to={"/characters/all"}>
+                                <Button
+                                    className="border-2 border-solid border-medicine-400"
+                                    variant={"link-medicine"}
+                                    onClick={() => {
+                                        const charSaveName = `character-${curCharacter.name?.toLowerCase().replace(" ", "~")}`;
+                                        window.localStorage.removeItem(charSaveName);
+
+                                        console.log(
+                                            allSavedCharacters
+                                                ?.filter((character: string) => {
+                                                    return character != charSaveName;
+                                                })
+                                                .join(";|;")
+                                        );
+                                        window.localStorage.setItem(
+                                            `saved-characters`,
+                                            allSavedCharacters
+                                                ?.filter((character: string) => {
+                                                    return character != charSaveName;
+                                                })
+                                                .join(";|;")
+                                        );
+                                        setAreYouSurePopup(false);
+                                    }}
+                                >
+                                    Yes
+                                </Button>
+                            </Link>
                             <Button
                                 className=""
                                 variant={"nature"}
