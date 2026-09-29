@@ -142,7 +142,7 @@ export default function BuilderStep_Items({
                     Back
                 </Button>
                 <Button
-                    disabled={chosenItems.find((item) => item.name == "") ? true : false}
+                    disabled={chosenItems[0].name == "" && chosenItems[2].name == ""}
                     variant="nature"
                     className="m-2 ml-4 flex items-center justify-center"
                     onClick={continueButton}

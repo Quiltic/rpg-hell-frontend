@@ -99,7 +99,8 @@ export default function CharacterBuilderPage() {
 
         chosenItems.forEach((item, id) => {
             if (item.name != "") {
-                if (id <= 2) itemList.push(item.name + "(equ)");
+                if (chosenItems[0].tags.includes("two handed") && id == 1) itemList.push(item.name);
+                else if (id <= 2) itemList.push(item.name + "(equ)");
                 else itemList.push(item.name);
             }
         });
@@ -112,6 +113,19 @@ export default function CharacterBuilderPage() {
             if (player.arts.length <= 4) setPlayer({ ...player, arts: player.arts.concat(["", ""]) });
         } else {
             if (player.arts.length > 4) setPlayer({ ...player, arts: player.arts.slice(0, 4) });
+        }
+
+        if (player.traits.includes("body of iron")) {
+            chosenItems[2] = {
+                name: "body of iron",
+                description: "This is not an actual item, just a placeholder for the trait 'Body of Iron'.",
+                effect: "While you are not wearing armor, you have +1 Shielding, +1 Speed, and +LEVEL Max Health.",
+                upgrades: [],
+                tags: "armor, traitReq",
+                rarity: "trait",
+                cost: 0,
+                tier: 1,
+            }; // armor
         }
     }, [player.traits]);
 
