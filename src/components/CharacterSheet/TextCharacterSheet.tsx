@@ -71,14 +71,23 @@ Strain: ${player.calculatedStats.curStrain}/${player.calculatedStats.maxStrain} 
 
 Locked: [0], Combat Dice ${4 + Math.floor(player.level / 2)}
 
-# Traits
+# Paths
+${player.paths
+    .filter((p) => {
+        return p != "" && p != "Locked until Lvl 3";
+    })
+    .join(" | ")}
+
+## Traits
 ${traitLines}
 
-# Arts
+## Arts
 ${artLines}
 
-# Items
+## Items
 ${itemLines}
+
+
 
 # Stories
 ${player.stories}
