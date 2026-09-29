@@ -165,15 +165,14 @@ export default function CharacterBuilderPage() {
                         let allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;");
                         if (!allSavedCharacters) allSavedCharacters = [];
 
-                        if (!allSavedCharacters.includes(`character-${player.name}`)) {
-                            allSavedCharacters.push(`character-${player.name.toLowerCase().replace(" ", "~")}`);
+                        const saveName = `character-${player.name.toLowerCase().replace(" ", "~")}`;
+
+                        if (!allSavedCharacters.includes(saveName)) {
+                            allSavedCharacters.push(saveName);
                             window.localStorage.setItem(`saved-characters`, allSavedCharacters.join(";|;"));
                         }
 
-                        window.localStorage.setItem(
-                            `character-${player.name.toLowerCase().replace(" ", "~")}`,
-                            JSON.stringify(player)
-                        );
+                        window.localStorage.setItem(saveName, JSON.stringify(player));
                     }} // We need to add them to the save data here (if they dont exist yet)
                     backButton={() => setStepnum(4)}
                 />
