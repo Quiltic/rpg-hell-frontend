@@ -69,6 +69,7 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
         if (allItems.length != 0 && player.items.length != 0) {
             // console.log(player.items);
             getItemString(player.items);
+            // cleanupItems(); // just del all items
             // console.log(player.items);
         }
     }, [allItems]);
