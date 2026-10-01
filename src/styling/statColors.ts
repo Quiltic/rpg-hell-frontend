@@ -9,6 +9,7 @@ export const STAT_COLORS = [
     "nature",
     "medicine",
     "thieving",
+    "finesse",
 ] as const;
 
 export function statColorClass(word: string): string {
