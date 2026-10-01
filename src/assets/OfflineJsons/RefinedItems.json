@@ -220,7 +220,7 @@
     {
         "name": "stiletto dagger",
         "description": "",
-        "effect": "On Hit: Do 1 damage. Bonus: If you hit, the target spends 1 Strain.",
+        "effect": "On Hit: Do 1 damage. Bonus: If you spent Cloaked, gain Cloaked.",
         "upgrades": [
             "Pin - This weapon has +1d4 damage while you are Hidden or when you use Cloaked."
         ],
@@ -237,7 +237,7 @@
             "Spiked - +1 Damage",
             "Ribbon - Bonus: Do a Grapple contest against the target."
         ],
-        "tags": "weapon, reaching 2",
+        "tags": "weapon, reaching 2, mind 1",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1

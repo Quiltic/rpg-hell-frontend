@@ -230,11 +230,15 @@ Craftsman - Improve items/shielding/burn/Followers
 
 
 Elementalist - Elements
-- Fire - Burn/healing
+- Fire - Burn/tile effects
 - Water - Healing/buffs
-- Air - Displacement/buffs
 - Earth - Shielding/displacement
+- Air - Displacement/buffs
 
+{"name":"fire trait","req":"elementalist 1","tags":"","effect":"When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- Replace damage dealt with [Damage-1] Burn.\n- Apply Glowing until the end of your next turn, then refund 1 Strain.\n- Ignite the chosen point or tile an effected target is standing on until the start of your next turn. Creatures which start their turn in this tile or move into it gain the Art's effect (If possible) (For instance if you activate a Melee Art then move out of range it wont trigger). This has no effect on something that already effects tiles (like wall of fire).","extra":""},
+{"name":"wet trait","req":"elementalist 1","tags":"","effect":"When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- An Attack Art gains 'Bonus: +Nature Knockback'\n- Apply Wet until the beginning of your next turn, then refund 1 Strain.\n- At the beginning of targets turn they may heal 1 or remove a Bane. This does not effect Undead or Constructs.","extra":""},
+{"name":"earth trait","req":"elementalist 1","tags":"","effect":"When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- Any single target Attack gains 'Bonus: Attack ignores Shielding'.\n- Give the target(s) +1 Shielding this turn.\n- Until the beginning of your next turn, any effected area becomes Rough Terrain. (This effect lingers for Focus Arts.)","extra":""},
+{"name":"air trait","req":"elementalist 1","tags":"","effect":"When you activate an Art you may spend 1 Strain then pick 1 of the following:\n- Pick a new target within 3 tiles, they are also targeted by this Art. (Even if they would be out of range normally.)\n- Give the target(s) +1 Speed until the beginning of your next turn.\n- You may move 3 tiles before or after the Art's effect.","extra":""},
 
 Flow Freely - You are unaffected by rough terrain.
 {"name":"elemental affinity","req":"nature 2","tags":"elemental","effect":"Whenever you activate an Art that applies Burn, Wet, Slow, or does Knockback, you may spend 1 Strain to do actions based on statuses given. Multiple actions may be activated per Art.\n- **Burn** - Move half of the Burn stacks from a target to a new target within 3 tiles of them.\n- **Wet** - Remove another status.\n- **Slow** - Give the target 2 Stun instead of Slow.\n- **Knockback** - Make the target go Prone instead of applying Knockback.","extra":""},
