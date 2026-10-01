@@ -34,11 +34,19 @@ describe("glossaryDocuments", () => {
         const reaching = docs.find((d) => d.id === "glossary:keys:reaching-x");
         expect(reaching?.aliases.split(" ")).toContain("reaching");
         const grappled = docs.find((d) => d.id === "glossary:effects:grappled");
-        expect(grappled?.aliases.split(" ")).toContain("grapple");
+        expect(grappled?.aliases.split(" ")).toContain("grappling");
     });
 
     it("lists a definition placed on two pages once", () => {
         expect(docs.filter((d) => d.glossary?.name === "death's door")).toHaveLength(1);
+    });
+
+    it("strips markdown from the body", () => {
+        const move = docs.find((d) => d.id === "glossary:definitions:move")!;
+        expect(move.body).toMatch(/^Move - Spend #; .* check\.\nJumping: /);
+        expect(move.body).not.toMatch(/[*_]/);
+        const deathsDoor = docs.find((d) => d.id === "glossary:definitions:deaths-door")!;
+        expect(deathsDoor.body).toMatch(/^At 1 or more stacks/);
     });
 
     it("stores the record effect as the body and the source label as the context", () => {

@@ -10,6 +10,7 @@ export type Definition = {
     short: string;
     extra?: string;
     aliases?: string[];
+    tooltip?: boolean;
 };
 
 export const allDefinitions: Definition[] = definitionsJson as Definition[];

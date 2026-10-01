@@ -37,6 +37,7 @@ function buildIndex(records: readonly GlossaryRecord[]): Index {
     };
 
     for (const record of records) {
+        if (record.tooltip === false) continue;
         add(toPattern(record.name), record.name);
         for (const alias of record.aliases ?? []) {
             add(alias, record.name);

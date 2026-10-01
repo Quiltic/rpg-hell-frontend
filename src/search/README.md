@@ -25,7 +25,7 @@ every document has the same shape no matter where it came from (`types.ts`):
 -   `source` - `trait`, `art`, `item`, `creature`, `glossary` or `rulebook`
 -   `title` - heading text or record name, stored as it is in the source (mostly lowercase)
 -   `aliases` - extra spellings joined by spaces, only glossary records have any
--   `body` - the text a query matches against. raw, so `**bold**` and `⚀⚁⚂` stay in
+-   `body` - the text a query matches against. raw, so `**bold**` and `⚀⚁⚂` stay in. glossary bodies are the exception: the effect markdown goes through `extractSections` and comes out as plain text
 -   `pageTags` - rulebook only, the frontmatter `tags` joined by spaces
 -   `context` - the second line of a result row, e.g. `Rulebook > Combat` or `Item · mundane · weapon, side`
 -   `to` - the route the row navigates to
