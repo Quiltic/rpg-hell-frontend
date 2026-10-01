@@ -4,7 +4,7 @@
     {"name":"focus","category":"character-state","effect":"Lasts until you roll a 1 on a Dodge roll, the duration ends, you have 0 health, gain stacks of Stun, cast another Focus Spell, or drop the spell.","extra":""},
     {"name":"hidden","category":"character-state","effect":"You cannot be seen or targeted directly and a creature must spend ## to do a Senses Contest against your FINESSE to know of your presence. You lose Hidden if you activate an Art, do an Attack, or you are detected through a Senses roll.","extra":""},
     {"name":"unconscious","category":"character-state","effect":"You can't take actions, lose all contests, and fail all Dodge rolls.","extra":""},
-    {"name":"grappled","category":"character-state","effect":"You are Rooted and can't Attack anything other than the source of the grapple. You may spend ## to do a BODY Contest against the source of the grapple to remove this effect.","extra":"","aliases":["grapple","grapples","grappling"]},
+    {"name":"grappled","category":"character-state","effect":"You are Rooted and can't Attack anything other than the source of the grapple. You may spend ## to do a BODY Contest against the source of the grapple to remove this effect.","extra":"","aliases":["grapples","grappling"]},
     {"name":"exhaustion","category":"character-state","effect":"Stacks. You have -X on all Checks and Contests, and have -3*X Max Strain. At 4 or more, you gain 1 Death's Door every hour. Lose 1d4 Exhaustion at the end of a Rest.","extra":""},
     
 
