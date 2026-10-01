@@ -35,28 +35,16 @@ On Attacks when you give ## (2 dice) you take the sum of these dice, sometimes g
 
 _These are actions every creature has access to._
 
-**Move** \- Spend \#; Move your SPEED. If you need to climb something, do a Body check.  
-_Jumping: When you do a move you may do a standing jump up 1+(BODY/2) or long-jump 2+BODY horizontally._
-
-**Attack** \- Spend \#\#; Do a Weapon Attack within the weapons range. If a dice sum of 7 or less is given, gain the Attack Bonus. If a dice sum of 9 or higher is given, gain the Attack Downside.  
-_Dual Welding: You may dual wield weapons if both weapons are Side Weapons. When you do, you may combine the On Hit, Bonus, and Downside of both weapons into one Attack._
-
-**Grapple** \- Spend \#\#; Do a Body Contest against a target within 1 tile of you. If you win, the target becomes Grappled by you.
-
-**Push** \- Spend \#\#; Do a Body Contest against a target within 1 tile of you. If you win, the target is pushed back 1+BODY tiles away from you. (This counts as Knockback and can do Knockback damage.)
-
-**Stealth** \- Spend \#\#; Gain Cloaked if you are not seen.
-
-**Lock a Dice** \- Spend \#; Lock the dice spent. You may only ever have 1 Locked dice at a time. Locking a dice while having a Locked dice will replace the old dice with the new dice. You may later unlock that dice to spend on Arts or as a bonus dice in combat.  
-_You may only ever lock d6’s, and lose any unspent locked dice at the end of combat._
-
-**Activate an Art** \- Spend dice, time, and or Strain to activate the art. Art's have recommended casting requirements (See Activating Art's in the Core Rules). Your GM may be open to changing these or requiring them.
-
-**Hunker Down** \- Spend #; Gain +1 Dodge against Ranged Attacks made against you until the beginning of your next turn.
-
-**Overwatch** \- Reaction (Locked #); Melee Attack against a target that moves into/out of your Weapon Range. Use 3+# for sum.
-
-**Use a Non-Attack Item** \- Spend #; Use the item, such as drinking a potion, using a Bandage, or pulling a lever. Some items may cost more # to use depending on their complexity.
+-   **Move** \- ::definitions{name="move"}
+-   **Attack** \- ::definitions{name="attack"}
+-   **Grapple** \- ::definitions{name="grapple"}
+-   **Push** \- ::definitions{name="push"}
+-   **Stealth** \- ::definitions{name="stealth"}
+-   **Lock a Dice** \- ::definitions{name="lock a dice"}
+-   **Activate an Art** \- ::definitions{name="activate an art"}
+-   **Hunker Down** \- ::definitions{name="hunker down"}
+-   **Overwatch** \- ::definitions{name="overwatch"}
+-   **Use a Non-Attack Item** \-::definitions{name="use a non-attack item"}
 
 ## Damage and Armor
 
