@@ -5,6 +5,7 @@
     {"name":"hidden","category":"character-state","effect":"You cannot be seen or targeted directly and a creature must spend ## to do a Senses Contest against your FINESSE to know of your presence. You lose Hidden if you activate an Art, do an Attack, or you are detected through a Senses roll.","extra":""},
     {"name":"unconscious","category":"character-state","effect":"You can't take actions, lose all contests, and fail all Dodge rolls.","extra":""},
     {"name":"grappled","category":"character-state","effect":"You are Rooted and can't Attack anything other than the source of the grapple. You may spend ## to do a BODY Contest against the source of the grapple to remove this effect.","extra":"","aliases":["grapple","grapples","grappling"]},
+    {"name":"prone","category":"character-state","effect":"Spend # to enter or exit Prone which acts as a Move action. While you are Prone you are Slowed, you have -1 Dodge against Melee Attacks, and have +1 Dodge against Ranged Attacks.","extra":""},
     {"name":"exhaustion","category":"character-state","effect":"Stacks. You have -X on all Checks and Contests, and have -3*X Max Strain. At 4 or more, you gain 1 Death's Door every hour. Lose 1d4 Exhaustion at the end of a Rest.","extra":""},
     
 
@@ -22,7 +23,7 @@
 
     {"name":"cloaked","category":"boon","effect":"You may spend Cloaked to become Hidden or gain +1d6 damage on an Attack.","extra":""},
     {"name":"empowered","category":"boon","effect":"You may spend Empowered to gain Advantage on a Check, gain an Attack's Bonus, or not have an Attack's Downside.","extra":""},
-    {"name":"ward","category":"boon","effect":"You may spend Warded to re-roll a Dodge or Contest roll, or to remove a Bane.","extra":"","aliases":["warded"]},
+    {"name":"warded","category":"boon","effect":"You may spend Warded to re-roll a Dodge or Contest roll, or to remove a Bane.","extra":"","aliases":["ward"]},
     {"name":"invisible","category":"boon","effect":"You cannot be seen at all, have no shadow, and have Advantage on Hidden Contests.","extra":""},
     
 

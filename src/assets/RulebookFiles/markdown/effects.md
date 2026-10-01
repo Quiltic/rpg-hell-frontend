@@ -6,10 +6,9 @@ tags: []
 
 # States
 
-::definitions{name="death's door"}
-::definitions{name="bleeding out"}
-
-::effects{category="character-state"}
+-   **Death's Door** - ::definitions{name="death's door"}
+-   **Bleeding Out** - ::definitions{name="bleeding out"}
+    ::effects{category="character-state"}
 
 ## Statuses
 
