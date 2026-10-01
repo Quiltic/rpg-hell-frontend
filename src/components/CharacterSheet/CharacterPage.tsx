@@ -6,6 +6,8 @@ import { Button } from "../ui/Button/Button";
 import RefinedCharacterSheet from "./InteractiveCharSheets/RefinedCharacterSheet";
 import Popup from "../ui/Popups/Popup";
 import Pill from "../ui/Pill";
+import { Switch } from "@headlessui/react";
+import TextCharacterSheet from "./TextCharacterSheet";
 
 const blankPC: playerCharacterType = {
     name: "all",
@@ -43,9 +45,10 @@ const blankPC: playerCharacterType = {
 
 export default function CharacterPage() {
     const [areYouSurePopup, setAreYouSurePopup] = useState(false);
+    const [useTextVs, setUseTextVs] = useState(false);
 
     const [curCharacter, setCurCharacter] = useState<playerCharacterType>(blankPC);
-    const allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;");
+    const allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;") || [];
 
     // we do this as a failsafe in case something is given that doesent exist
     let { character } = useParams();
@@ -74,10 +77,13 @@ export default function CharacterPage() {
                                 className="border-2 border-solid border-medicine-400"
                                 variant={"link-medicine"}
                                 onClick={() => {
-                                    window.localStorage.removeItem(`character-${curCharacter.name?.toLowerCase()}`);
+                                    window.localStorage.removeItem(
+                                        `character-${curCharacter.name?.toLowerCase().replace(" ", "~")}`
+                                    );
                                     allSavedCharacters?.filter((character: string) => {
                                         return character != curCharacter.name;
                                     });
+                                    window.localStorage.setItem(`saved-characters`, allSavedCharacters.join(";|;"));
                                     setAreYouSurePopup(false);
                                 }}
                             >
@@ -156,9 +162,30 @@ export default function CharacterPage() {
                             </Button>
                         </Link>
 
-                        <div>Print</div>
+                        {/* switch */}
+                        <div className="flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
+                            {useTextVs && (
+                                <p className="m-2 flex flex-row items-center justify-center">Disable Text Vs</p>
+                            )}
+                            {!useTextVs && (
+                                <p className="m-2 flex flex-row items-center justify-center">Use Text Version</p>
+                            )}
 
-                        <div>TextVs</div>
+                            <Switch
+                                checked={useTextVs}
+                                onChange={setUseTextVs}
+                                className={`${
+                                    useTextVs ? "bg-mind" : "bg-dark-700"
+                                } relative inline-flex h-6 w-11 items-center rounded-full`}
+                            >
+                                <span className="sr-only">Switch Text Vs</span>
+                                <span
+                                    className={`${
+                                        useTextVs ? "translate-x-6" : "translate-x-1"
+                                    } inline-block h-4 w-4 transform rounded-full bg-light transition`}
+                                />
+                            </Switch>
+                        </div>
 
                         <Button
                             className=""
@@ -168,81 +195,20 @@ export default function CharacterPage() {
                             Delete
                         </Button>
                     </div>
-                    <RefinedCharacterSheet
-                        player={curCharacter}
-                        setPlayer={setCurCharacter}
-                    />
+                    {!useTextVs && (
+                        <RefinedCharacterSheet
+                            player={curCharacter}
+                            setPlayer={setCurCharacter}
+                        />
+                    )}
+                    {useTextVs && (
+                        <TextCharacterSheet
+                            player={curCharacter}
+                            setPlayer={setCurCharacter}
+                        />
+                    )}
                 </>
             )}
-
-            {/*{curCharacter.name == "YOUSHOULDENTSEEMEE!" && (
-                <>
-                     <div className="m-2 grid grid-cols-3 justify-between rounded-md bg-dark-400 p-2 print:hidden">
-                        {curCharacter.name == "all" &&
-                            exampleCharSheets.map((char, id) => {
-                                const absolutePath = `/rulebook/character-examples/${char.name.toLowerCase()}`;
-                                return (
-                                    <Link
-                                        to={absolutePath}
-                                        key={id}
-                                        // className={""}
-                                        // aria-current={isActive ? "page" : undefined}
-                                    >
-                                        <div
-                                            key={id}
-                                            className={cn("clickable m-2 rounded-md p-2", "bg-" + char.mainStat)}
-                                            onClick={() => {
-                                                setCurCharacter(char);
-                                            }}
-                                        >
-                                            <h3 className="mt-0 font-bold">{char.name}</h3>
-                                            <div
-                                                className={cn(
-                                                    "text-wrap m-2 rounded-md p-2 italic",
-                                                    "bg-" + char.mainStat + "-400"
-                                                )}
-                                            >
-                                                {char.quick_exp}
-                                            </div>
-                                        </div>
-                                    </Link>
-                                );
-                            })}
-                    </div> */}
-            {/* </> */}
-            {/* )} */}
-
-            {/* {curCharacter.name != "all" && (
-                <div className="flex flex-col">
-                    <Link
-                        to={"/rulebook/character-examples/all"}
-                        className="print:hidden"
-                    >
-                        <Button
-                            variant={"thieving"}
-                            onClick={() => {
-                                setCurCharacter(exampleDisplayedCreature);
-                            }}
-                            className="w-full print:hidden"
-                        >
-                            Back
-                        </Button>
-                    </Link>
-
-                    <ExampleCharSheet
-                        _displayedCreature={curCharacter}
-                        traits={displayedTraits.filter((t) => {
-                            return curCharacter.traits.join(". ").includes(t.name);
-                        })}
-                        arts={displayedSpells.filter((a) => {
-                            return curCharacter.arts.join(". ").includes(a.name);
-                        })}
-                        items={displayedItems.filter((i) => {
-                            return curCharacter.items.split(". ").includes(i.name);
-                        })}
-                    />
-                </div>
-            )} */}
         </div>
     );
 }
