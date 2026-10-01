@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.tsx";
 import RootLayout from "./components/layouts/RootLayout.tsx";
-import NotImplementedPage from "./components/NotImplementedPage/NotImplementedPage.tsx";
 import ErrorPage from "./components/ErrorPage/ErrorPage.tsx";
 import LoginCallbackPage from "./components/loginCallbackPage/LoginCallbackPage.tsx";
 import RickRoll from "./components/loginCallbackPage/RickRoll.tsx";
@@ -20,7 +19,6 @@ import UpdateDBTraitsPage from "./components/TraitsPages/UpdateDBTraitsPage.tsx"
 import UpdateDBSpellsPage from "./components/SpellsPages/UpdateArtsPage.tsx";
 import UpdateDBItemsPage from "./components/ItemPages/UpdateDBItemsPage.tsx";
 import ToolsPage from "./components/ToolsPages/ToolsPage.tsx";
-import CharacterSheetForm from "./components/CharacterSheet/CharacterSheetForm.tsx";
 import CreatureCreator from "./components/CreaturesPages/CreatureCreator.tsx";
 import WepCreatorPage from "./components/ItemPages/WepCreatorPage.tsx";
 import CharacterExamplesPage from "./components/RulebookPages/SubPages/CharacterExamplesPage.tsx";
@@ -56,11 +54,6 @@ const router = createBrowserRouter(
                 {
                     path: "character-sheet",
                     element: <CharacterSheetPage />,
-                    handle: { title: "Character Sheet" },
-                },
-                {
-                    path: "character-sheet2",
-                    element: <CharacterSheetForm />,
                     handle: { title: "Character Sheet" },
                 },
                 {
