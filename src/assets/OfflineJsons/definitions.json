@@ -18,6 +18,6 @@
     {"name":"activate an art","page":"common-actions","effect":"Spend dice, time, and or Strain to activate the art. Art's have recommended casting requirements (See Activating Art's in the Core Rules). Your GM may be open to changing these or requiring them.","short":""},
     {"name":"hunker down","page":"common-actions","effect":"Spend #; Gain +1 Dodge against Ranged Attacks made against you until the beginning of your next turn.","short":""},
     {"name":"overwatch","page":"common-actions","effect":"Reaction (Locked #); Melee Attack against a target that moves into/out of your Weapon Range. Use 3+# for sum.","short":""},
-    {"name":"use a non-attack item","page":"common-actions","effect":"Spend #; Use the item, such as drinking a potion, using a Bandage, or pulling a lever. Some items may cost more # to use depending on their complexity.","short":""},
+    {"name":"use a non-attack item","page":"common-actions","effect":"Spend #; Use the item, such as drinking a potion, using a Bandage, or pulling a lever. Some items may cost more # to use depending on their complexity.","short":""}
 
 ]

@@ -35,16 +35,45 @@ On Attacks when you give ## (2 dice) you take the sum of these dice, sometimes g
 
 _These are actions every creature has access to._
 
--   **Move** \- ::definitions{name="move"}
--   **Attack** \- ::definitions{name="attack"}
--   **Grapple** \- ::definitions{name="grapple"}
--   **Push** \- ::definitions{name="push"}
--   **Stealth** \- ::definitions{name="stealth"}
--   **Lock a Dice** \- ::definitions{name="lock a dice"}
--   **Activate an Art** \- ::definitions{name="activate an art"}
--   **Hunker Down** \- ::definitions{name="hunker down"}
--   **Overwatch** \- ::definitions{name="overwatch"}
--   **Use a Non-Attack Item** \-::definitions{name="use a non-attack item"}
+**Move**
+
+-   ::definitions{name="move"}
+
+**Attack**
+
+-   ::definitions{name="attack"}
+
+**Grapple**
+
+-   ::definitions{name="grapple"}
+
+**Push**
+
+-   ::definitions{name="push"}
+
+**Stealth**
+
+-   ::definitions{name="stealth"}
+
+**Lock a Dice**
+
+-   ::definitions{name="lock a dice"}
+
+**Activate an Art**
+
+-   ::definitions{name="activate an art"}
+
+**Hunker Down**
+
+-   ::definitions{name="hunker down"}
+
+**Overwatch**
+
+-   ::definitions{name="overwatch"}
+
+**Use a Non-Attack Item**
+
+-   ::definitions{name="use a non-attack item"}
 
 ## Damage and Armor
 
