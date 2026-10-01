@@ -32,10 +32,11 @@ export default function TraitCard({
     const req = toPillElement(_trait.req?.toString().replace(" 0", "") ?? "", ",");
 
     // gives automatic gradients for trait color bar
-    let graid = `bg-gradient-to-br from-${_trait.req.replace(/[0-9\s]/g, "") ?? ""}-400 to-${_trait.req.replace(/[0-9\s]/g, "") ?? ""}-400 p-2`;
-    if (_trait.req.split(", ").length > 1) {
-        graid = `bg-gradient-to-br from-${_trait.req.split(", ")[0].replace(/[0-9\s]/g, "") ?? ""}-400 to-${
-            _trait.req
+    const traitReq = _trait.req ?? "";
+    let graid = `bg-gradient-to-br from-${traitReq.replace(/[0-9\s]/g, "") ?? ""}-400 to-${traitReq.replace(/[0-9\s]/g, "") ?? ""}-400 p-2`;
+    if (traitReq.split(", ").length > 1) {
+        graid = `bg-gradient-to-br from-${traitReq.split(", ")[0].replace(/[0-9\s]/g, "") ?? ""}-400 to-${
+            traitReq
                 .split(", ")[1]
                 .toString()
                 .replace(/[0-9\s]/g, "") ?? ""
