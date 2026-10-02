@@ -4,11 +4,12 @@
 
 ## Sources
 
-`sources/source.ts` defines the record shape (`{name, effect, short?, extra?, aliases?, tooltip?}`) and the `GlossarySource<T>` contract: `kind` (also the directive name), `records`, `page(record)` (a `RulebookPageSlug`), `anchor(record)` (the DOM id in the rulebook), `label`, `pillColor`, `toLine` (one bullet of markdown), and optional `toBlock` (the record on its own as markdown blocks, used when a directive matches one record). Three sources exist:
+`sources/source.ts` defines the record shape (`{name, effect, short?, extra?, aliases?, tooltip?}`) and the `GlossarySource<T>` contract: `kind` (also the directive name), `records`, `page(record)` (a `RulebookPageSlug`), `anchor(record)` (the DOM id in the rulebook), `label`, `pillColor`, `toLine` (one bullet of markdown), and optional `toBlock` (the record on its own as markdown blocks, used when a directive matches one record). Four sources exist:
 
 -   `sources/effects.ts`: `effects.json`, `{name, category, effect, …}`, `category` one of `character-state | elemental-bane | bane | boon`. Exports `allEffects`, `getEffect`, `effectsInCategory`, `effectsSource`. Every record lives on the `effects` page under `effect-<slug>`.
 -   `sources/keys.ts`: `keys.json`, `{name, source, effect, …}`, `source` one of `spell | item`. Exports `allKeys`, `getKey` (scoped to a source on purpose), `keysFor`, `KEY_ANCHOR_PREFIXES`, `keysSource`. Spell keys live on the `spells` page, item keys on `items`, under `key-<source>-<slug>`.
 -   `sources/definitions.ts`: `definitions.json`, `{name, page, effect, short, …}`, `page` a `RulebookPageSlug`. Exports `allDefinitions`, `getDefinition`, `definitionsSource`. Each record is placed by hand with one `::definitions{name="…"}` on its `page` (checked by `rulebook/placements.test.ts`), under `definition-<slug>`. `short` is always present; empty means the tooltip shows `effect`.
+-   `sources/paths.ts`: `paths.json`, `{name, source, description, short, icon, color}`. `paths.json` has no `effect` field, so the source maps one in (`description`, falling back to `short`) and sets `tooltip: false` on every record because path names like `face` and `spirits` are ordinary words in effect text. Exports `allPaths`, `getPath`, `pathsSource`. Every record lives on the `character-creation` page under `path-<slug>`, placed by `::paths{source="…"}`.
 
 Record rules, enforced by `sources/sources.test.ts` for every registered source: names lowercase, unique within the source, straight apostrophes; array order is display order. Keys are per-table vocabulary, so the item `glow` and the bane `glow` are different records. Focus and Follower are deliberately in both `keys.json` and `effects.json`; `keys.test.ts` fails if the copies drift.
 
@@ -31,3 +32,7 @@ Tooltips are mounted only in the three tables and three card views, on purpose. 
 ## Dependencies
 
 `glossary` imports `util` and `styling`, and only the `RulebookPageSlug` type from `rulebook/pages.ts`. Nothing else from `rulebook` may be imported here; `rulebook` and `search` import `glossary`, not the other way round. `search` and `scripts/build-search-index.ts` import `sources/sources.ts`, `resolve.ts` and `scan.ts` directly rather than `index.ts`, to keep the tooltip components out of the bun script.
+
+## Adding content
+
+`ADDING_CONTENT.md` is the step-by-step guide for a new source or a new group in an existing json file: the source file, rulebook placement, tooltips and search.
