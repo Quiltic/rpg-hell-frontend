@@ -3,6 +3,7 @@ import { Outlet, useMatches } from "react-router-dom";
 import Header from "../nav/Header";
 import ScrollButton from "../ui/ScrollButton";
 import RootDicePopup from "../ui/Popups/rootDicePopup";
+import AppToaster from "../ui/Toast";
 import { SearchProvider } from "../../search";
 
 export default function RootLayout() {
@@ -28,6 +29,7 @@ export default function RootLayout() {
                 startingBonus={0}
                 startOpen={false}
             />
+            <AppToaster />
         </SearchProvider>
     );
 }
