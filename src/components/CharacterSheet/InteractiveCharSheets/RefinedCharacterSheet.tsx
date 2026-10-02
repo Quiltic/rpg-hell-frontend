@@ -4,7 +4,8 @@ import ItemCard from "../../ItemPages/ItemCardStuff/itemCard";
 import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
 import ArtCard from "../../SpellsPages/SpellCardStuff/artCard";
 import DicePopup from "../../ui/Popups/dicePopup";
-import { capitalize } from "../../../util/textFormatting";
+import { capitalize, titleCase } from "../../../util/textFormatting";
+import { toast } from "../../ui/Toast";
 import { playerCharacterType } from "../../../types/playerCharacterType";
 import { useItems } from "../../../hooks/useItems";
 import { useSpells } from "../../../hooks/useSpells";
@@ -514,9 +515,23 @@ There is a link above for what a Story is!"
                                                 moveSpell={() => {
                                                     const strainChange = player.calculatedStats.curStrain - art.strain;
                                                     const hpChange =
-                                                        strainChange < 0
+                                                        strainChange < 0 && art.strain > 0
                                                             ? player.calculatedStats.curHp + strainChange // negative strain = dmg
                                                             : player.calculatedStats.curHp;
+                                                    const hpLost = player.calculatedStats.curHp - hpChange;
+
+                                                    toast(
+                                                        <div className="text-center">
+                                                            Activated <b>{titleCase(art.name)}</b>
+                                                            {art.strain > 0 ? ` for ${art.strain} Strain!` : "!"}
+                                                            {hpLost > 0 && (
+                                                                <div className="italic">
+                                                                    Overstrained: took {hpLost} damage
+                                                                </div>
+                                                            )}
+                                                        </div>,
+                                                        { className: "ring-2 ring-soul-500" }
+                                                    );
 
                                                     setPlayer({
                                                         ...player,
