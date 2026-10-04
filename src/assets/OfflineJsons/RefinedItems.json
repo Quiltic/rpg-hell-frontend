@@ -563,9 +563,7 @@
         "name": "adventurer's pack",
         "description": "The most basic of gear every adventurer needs.",
         "effect": "A bag containing, 10 tiles of Rope, a Lantern, a Firestarter, a Bedroll, Travel Rations, a Waterskin, and a small Knife.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
@@ -575,9 +573,7 @@
         "name": "sailor's pack",
         "description": "For those traveling the seas.",
         "effect": "A bag containing, a Fishing Rod, a Waterproofing Kit, a Blanket, 2 Waterskins, and a small Knife.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
@@ -587,9 +583,7 @@
         "name": "diplomat's pack",
         "description": "For those traveling in escort.",
         "effect": "A bag containing, extra clean Clothes, a blank Notebook, a waterproof Lockbox (with code), a fine Ink Pen, Soap, and a Blanket.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
@@ -599,9 +593,7 @@
         "name": "entertainer's pack",
         "description": "For the always moving show.",
         "effect": "A bag containing, multiple Costumes, basic Makeup, a Mirror, an Instrument, a Lantern, a Firestarter, a Bedroll, and a Waterskin.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
@@ -611,9 +603,7 @@
         "name": "burglar's pack",
         "description": "For quick in and out jobs.",
         "effect": "A bag containing, extra Bags, 5 tiles of Wire, a small Notebook, a charcoal Pencil, a Bell, a Crowbar, and a small Knife.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
@@ -623,9 +613,7 @@
         "name": "scholar's pack",
         "description": "For those getting important works from one place to another.",
         "effect": "A Waterproof Bag containing, multiple Notebooks, Pens and Pencils, a Lantern, a Bedroll, and a Waterskin.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
@@ -635,9 +623,7 @@
         "name": "pilgrim's pack",
         "description": "For those on a pilgrimage.",
         "effect": "A bag containing a Holy Symbol, special Incense, a Firestarter, a Blanket, Travel Rations, and a Waterskin.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "pack",
         "rarity": "mundane",
         "cost": 0,
