@@ -39,10 +39,7 @@ describe("boundaries", () => {
 
     it("matches multi-word terms and survives trailing punctuation", () => {
         expect(terms("On Hit: Do 1 damage.")).toEqual(["On Hit=on hit"]);
-        expect(terms("You are Knocked Back, then Slowed.")).toEqual([
-            "Knocked Back=knockback",
-            "Slowed=slow",
-        ]);
+        expect(terms("You are Knocked Back, then Slowed.")).toEqual(["Knocked Back=knockback", "Slowed=slow"]);
     });
 });
 
@@ -62,46 +59,32 @@ describe("casing and apostrophes", () => {
 
 describe("aliases", () => {
     it("resolves an inflection to its canonical record", () => {
-        expect(terms("They are Slowed and Warded.")).toEqual([
-            "Slowed=slow",
-            "Warded=ward",
-        ]);
+        expect(terms("They are Slowed and Warded.")).toEqual(["Slowed=slow", "Warded=ward"]);
     });
 
     it("handles a multi-word alias", () => {
-        expect(terms("Targets are knocked back 2 tiles.")).toEqual([
-            "knocked back=knockback",
-        ]);
+        expect(terms("Targets are knocked back 2 tiles.")).toEqual(["knocked back=knockback"]);
     });
 
     it("resolves the parameterised keys from the bare word", () => {
-        expect(terms("Reaching 2 and +1 Reaching")).toEqual([
-            "Reaching=reaching x",
-        ]);
+        expect(terms("Reaching 2 and +1 Reaching")).toEqual(["Reaching=reaching x"]);
         expect(terms("Loading 3")).toEqual(["Loading=loading x"]);
     });
 });
 
 describe("first occurrence only", () => {
     it("decorates the first match of a term and leaves later ones plain", () => {
-        expect(
-            terms("Gain Stun. You cannot gain Stun again while Stun.")
-        ).toEqual(["Stun=stun"]);
+        expect(terms("Gain Stun. You cannot gain Stun again while Stun.")).toEqual(["Stun=stun"]);
     });
 
     it("still decorates a different term later in the string", () => {
-        expect(terms("Apply Burn, then Burn again, then Wet.")).toEqual([
-            "Burn=burn",
-            "Wet=wet",
-        ]);
+        expect(terms("Apply Burn, then Burn again, then Wet.")).toEqual(["Burn=burn", "Wet=wet"]);
     });
 });
 
 describe("stat colouring shares the pass", () => {
     it("colours stat words", () => {
-        expect(scan("Roll body.")).toBe(
-            'Roll <span class="text-body-700">body</span>.'
-        );
+        expect(scan("Roll body.")).toBe('Roll <span class="text-body-700">body</span>.');
     });
 
     it("never colours a stat word inside markup it just injected", () => {
@@ -127,15 +110,11 @@ describe("content that must pass through untouched", () => {
     });
 
     it("decorates definitions but not undefined core mechanics", () => {
-        expect(terms("Spend 2 Strain to make an Attack after a Rest.")).toEqual(
-            ["Rest=rest"]
-        );
+        expect(terms("Spend 2 Strain to make an Attack after a Rest.")).toEqual(["Rest=rest"]);
     });
 
     it("escapes markup in plain text, matched terms and attributes", () => {
-        expect(scan("a < b & <body>")).toBe(
-            'a &lt; b &amp; &lt;<span class="text-body-700">body</span>&gt;'
-        );
+        expect(scan("a < b & <body>")).toBe('a &lt; b &amp; &lt;<span class="text-body-700">body</span>&gt;');
         const fixture = createScanner([{ name: 'a"b', effect: "" }]);
         expect(fixture.scanText('a"b', spanEmit)).toBe(
             '<span class="kw" data-kw="a&quot;b" tabindex="0" role="button">a&quot;b</span>'
@@ -146,15 +125,24 @@ describe("content that must pass through untouched", () => {
 describe("empty record sets", () => {
     it("still colours stats and terminates with no keywords", () => {
         const fixture = createScanner([]);
-        expect(fixture.scanText("Roll body.", spanEmit)).toBe(
-            'Roll <span class="text-body-700">body</span>.'
-        );
+        expect(fixture.scanText("Roll body.", spanEmit)).toBe('Roll <span class="text-body-700">body</span>.');
         expect(fixture.keywordPatterns()).toEqual([]);
     });
 
     it("terminates when every name normalises away", () => {
         const fixture = createScanner([{ name: "   ", effect: "" }]);
         expect(fixture.scanText("plain text", spanEmit)).toBe("plain text");
+    });
+});
+
+describe("tooltip opt-out", () => {
+    it("leaves a record with tooltip false and its aliases plain", () => {
+        const fixture = createScanner([
+            { name: "attack", effect: "", aliases: ["attacks"], tooltip: false },
+            { name: "grapple", effect: "" },
+        ]);
+        expect(fixture.keywordPatterns()).toEqual(["grapple"]);
+        expect(fixture.scanText("Attacks then attack.", spanEmit)).toBe("Attacks then attack.");
     });
 });
 

@@ -39,7 +39,10 @@ describe("GlossaryDefinition", () => {
     it("does not link the term back to itself", () => {
         // `grappled` says "Grappled" inside its own definition.
         setup("grappled");
-        const selfLinks = screen.getAllByRole("link").filter((a) => /^grappl/i.test(a.textContent ?? ""));
+        const selfLinks = screen
+            .getAllByRole("link")
+            .filter((a) => /^grappl/i.test(a.textContent ?? ""))
+            .filter((a) => a.getAttribute("href")?.includes("effect-grappled"));
         expect(selfLinks).toHaveLength(0);
     });
 

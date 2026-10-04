@@ -1,14 +1,27 @@
+const thieving = {
+    DEFAULT: "#545140",
+    100: "#11100d",
+    200: "#222019",
+    300: "#333126",
+    400: "#434133",
+    500: "#545140",
+    600: "#7e795f",
+    700: "#a29d83",
+    800: "#c1beac",
+    900: "#e0ded6",
+};
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     safelist: [
         {
             pattern:
-                /(bg|ring|text|from|to)-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|dark|light|aabase)(-(1|2|3|4|5|6|7|8|9)00|)/,
+                /(bg|ring|text|from|to)-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|finesse|core|base|dark|light|aabase)(-(1|2|3|4|5|6|7|8|9)00|)/,
         },
         {
             pattern:
-                /^(bg-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|light)-500\/20|ring-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|core|base|light)-600)$/,
+                /^(bg-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|finesse|core|base|light)-500\/20|ring-(body|mind|soul|arcana|charm|crafting|nature|medicine|thieving|finesse|core|base|light)-600)$/,
             variants: ["hover", "group-focus-visible"],
         },
     ],
@@ -151,18 +164,8 @@ export default {
                 800: "#ecb2b2",
                 900: "#f5d9d9",
             },
-            thieving: {
-                DEFAULT: "#545140",
-                100: "#11100d",
-                200: "#222019",
-                300: "#333126",
-                400: "#434133",
-                500: "#545140",
-                600: "#7e795f",
-                700: "#a29d83",
-                800: "#c1beac",
-                900: "#e0ded6",
-            },
+            thieving,
+            finesse: thieving,
             blurple: {
                 DEFAULT: "#5865F2",
             },

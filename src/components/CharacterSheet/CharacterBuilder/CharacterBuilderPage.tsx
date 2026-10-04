@@ -34,7 +34,7 @@ const playerCharacter: playerCharacterType = {
     },
     items: ["$ - 1 bag", "bandage"], // any number of items, auto lookup if short, otherwise its "Name - description" as made by player
 
-    paths: ["", "", "Locked until Lvl 3"], // get two at lvl 1 then one more at lvl 3
+    paths: ["", "", "🔒 Locked until Lvl 3 🔒"], // get two at lvl 1 then one more at lvl 3
     traits: ["", ""], // # of traits per tier, 3,3,2,2,1
     arts: ["", "", "", ""], // # of Arts per tier, 5,3,2,2,1
 

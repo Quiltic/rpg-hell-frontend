@@ -1,10 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useMatches } from "react-router-dom";
 import Header from "../nav/Header";
 import ScrollButton from "../ui/ScrollButton";
 import RootDicePopup from "../ui/Popups/rootDicePopup";
+import AppToaster from "../ui/Toast";
 import { SearchProvider } from "../../search";
 
 export default function RootLayout() {
+    const title = useMatches()
+        .map((match) => (match.handle as { title?: string } | undefined)?.title)
+        .filter(Boolean)
+        .pop();
+
+    useEffect(() => {
+        document.title = title ? `${title} | RPG Hell` : "RPG Hell";
+    }, [title]);
+
     return (
         <SearchProvider>
             <Header />
@@ -18,6 +29,7 @@ export default function RootLayout() {
                 startingBonus={0}
                 startOpen={false}
             />
+            <AppToaster />
         </SearchProvider>
     );
 }

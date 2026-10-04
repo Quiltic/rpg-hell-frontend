@@ -4,7 +4,8 @@ import ItemCard from "../../ItemPages/ItemCardStuff/itemCard";
 import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
 import ArtCard from "../../SpellsPages/SpellCardStuff/artCard";
 import DicePopup from "../../ui/Popups/dicePopup";
-import { capitalize } from "../../../util/textFormatting";
+import { capitalize, titleCase } from "../../../util/textFormatting";
+import { toast } from "../../ui/Toast";
 import { playerCharacterType } from "../../../types/playerCharacterType";
 import { useItems } from "../../../hooks/useItems";
 import { useSpells } from "../../../hooks/useSpells";
@@ -23,40 +24,17 @@ type Props = {
 };
 
 export default function RefinedCharacterSheet({ player: player, setPlayer: setPlayer }: Props) {
-    const {
-        allTraits,
-        pinnedTraits,
-        displayedTraits,
-        addToPinnedTraits,
-        removeFromPinnedTraits,
-        filterTraits,
-        resetFilterTraits,
-    } = useTraits();
-    const {
-        allSpells,
-        pinnedSpells,
-        displayedSpells,
-        addToPinnedSpells,
-        removeFromPinnedSpells,
-        filterSpells,
-        resetFilterSpells,
-    } = useSpells();
-    const {
-        allItems,
-        pinnedItems,
-        displayedItems,
-        addToPinnedItems,
-        removeFromPinnedItems,
-        filterItems,
-        resetFilterItems,
-    } = useItems();
+    const { allTraits } = useTraits();
+    const { allSpells } = useSpells();
+    const { allItems } = useItems();
 
     const [openDice, setOpenDice] = useState(false);
     const [dice, setDice] = useState([1]);
     const [diceBonus, setDiceBonus] = useState(0);
 
-    const [itemString, setItemString] = useState("");
-    const [equItems, setEquItems] = useState<Array<string>>([]);
+    const [itemDraft, setItemDraft] = useState<string | null>(null);
+    const equItems = player.items.filter((item) => item.includes("(equ)"));
+    const itemString = itemDraft ?? getItemString(player.items);
 
     useEffect(() => {
         window.localStorage.setItem(`character-${player.name.toLowerCase().replace(" ", "~")}`, JSON.stringify(player));
@@ -76,7 +54,6 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
 
     function getItemString(items: Array<string>) {
         let theBigstring = "";
-        const equArray: Array<string> = [];
         // console.log(items);
         items.forEach((item: string) => {
             if (item != "") {
@@ -92,14 +69,10 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                 } else {
                     theBigstring = theBigstring + item + "\n\n";
                 }
-
-                if (item.includes("(equ)")) equArray.push(item);
             }
         });
-        setEquItems(equArray);
         // console.log(theBigstring);
-        setItemString(theBigstring);
-        // modifyPlayerStatsBasedOnItems();
+        return theBigstring;
     }
 
     function cleanupItems() {
@@ -122,11 +95,13 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
             } else itemArray.push(line);
         });
         // console.log(itemArray);
+        const newItems = itemArray.filter((item) => item != "" && item != "\n");
         setPlayer({
             ...player,
-            items: itemArray.filter((item) => item != "" && item != "\n"),
-            calculatedStats: modifyPlayerStatsBasedOnItems(),
+            items: newItems,
+            calculatedStats: modifyPlayerStatsBasedOnItems(newItems),
         });
+        setItemDraft(null);
     }
 
     // FINE ILL TEST OUT AN AI CODE.
@@ -147,7 +122,7 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
     }
 
     // Put this on the onBlur for items
-    function modifyPlayerStatsBasedOnItems() {
+    function modifyPlayerStatsBasedOnItems(items: Array<string>) {
         // longwindedNameButYouKnowItDoesSayWhatItIs
 
         const hp = 4 * player.stats.body + 3 * player.stats.mind + 2 * player.stats.soul + player.level;
@@ -165,27 +140,31 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
             curStrain: player.calculatedStats.curStrain,
         };
 
-        // console.log(equItems);
-        equItems.forEach((equItem: string) => {
-            const foundItem = allItems.find((item) => item.name == equItem.replace("(equ)", ""));
-            // console.log(foundItem);
-            let item = equItem.toLowerCase();
-            if (foundItem) item = foundItem.effect.toLowerCase();
+        items
+            .filter((item) => item.includes("(equ)"))
+            .forEach((equItem: string) => {
+                const foundItem = allItems.find((item) => item.name == equItem.replace("(equ)", ""));
+                // console.log(foundItem);
+                let item = equItem.toLowerCase();
+                if (foundItem) item = foundItem.effect.toLowerCase();
 
-            // console.log(item.replace("level",player.level.toString()),extractNumber(item.replace("level",player.level.toString()),
-            //     /\d max health/));
-            // console.log(item,extractNumber(item,/.\d dodge/))
+                // console.log(item.replace("level",player.level.toString()),extractNumber(item.replace("level",player.level.toString()),
+                //     /\d max health/));
+                // console.log(item,extractNumber(item,/.\d dodge/))
 
-            newCalculatedStats.speed += extractNumber(item, /.\d speed/);
-            newCalculatedStats.dodge += extractNumber(item, /.\d dodge/);
-            newCalculatedStats.shielding += extractNumber(item, /.\d shielding/);
+                newCalculatedStats.speed += extractNumber(item, /.\d speed/);
+                newCalculatedStats.dodge += extractNumber(item, /.\d dodge/);
+                newCalculatedStats.shielding += extractNumber(item, /.\d shielding/);
 
-            newCalculatedStats.maxHp += extractNumber(item.replace("level", player.level.toString()), /.\d max health/);
-            newCalculatedStats.maxStrain += extractNumber(
-                item.replace("level", player.level.toString()).toLowerCase(),
-                /.\d max strain/
-            );
-        });
+                newCalculatedStats.maxHp += extractNumber(
+                    item.replace("level", player.level.toString()),
+                    /.\d max health/
+                );
+                newCalculatedStats.maxStrain += extractNumber(
+                    item.replace("level", player.level.toString()).toLowerCase(),
+                    /.\d max strain/
+                );
+            });
 
         // console.log(newCalculatedStats)
         return newCalculatedStats;
@@ -312,9 +291,8 @@ There is a link above for what a Story is!"
                                     placeholder="You gots no Items!"
                                     className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
                                     value={itemString}
-                                    onChange={(text) => setItemString(text.target.value)}
+                                    onChange={(text) => setItemDraft(text.target.value)}
                                     onBlur={() => cleanupItems()}
-                                    onFocus={() => getItemString(player.items)}
                                 />
                             </Tab.Panel>
                             <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
@@ -414,9 +392,8 @@ There is a link above for what a Story is!"
                                 placeholder="You gots no Items!"
                                 className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
                                 value={itemString}
-                                onChange={(text) => setItemString(text.target.value)}
+                                onChange={(text) => setItemDraft(text.target.value)}
                                 onBlur={() => cleanupItems()}
-                                onFocus={() => getItemString(player.items)}
                             />
                         </Tab.Panel>
                         <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
@@ -550,9 +527,23 @@ There is a link above for what a Story is!"
                                                 moveSpell={() => {
                                                     const strainChange = player.calculatedStats.curStrain - art.strain;
                                                     const hpChange =
-                                                        strainChange < 0
+                                                        strainChange < 0 && art.strain > 0
                                                             ? player.calculatedStats.curHp + strainChange // negative strain = dmg
                                                             : player.calculatedStats.curHp;
+                                                    const hpLost = player.calculatedStats.curHp - hpChange;
+
+                                                    toast(
+                                                        <div className="text-center">
+                                                            Activated <b>{titleCase(art.name)}</b>
+                                                            {art.strain > 0 ? ` for ${art.strain} Strain!` : "!"}
+                                                            {hpLost > 0 && (
+                                                                <div className="italic">
+                                                                    Overstrained: took {hpLost} damage
+                                                                </div>
+                                                            )}
+                                                        </div>,
+                                                        { className: "ring-2 ring-soul-500" }
+                                                    );
 
                                                     setPlayer({
                                                         ...player,

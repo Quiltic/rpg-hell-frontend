@@ -1,5 +1,6 @@
 import { rulebookHref } from "../../glossary/resolve";
 import { toPattern } from "../../glossary/scan";
+import { extractSections } from "../../rulebook/sections";
 import type { GlossarySource } from "../../glossary/sources/source";
 import { generateSlug } from "../../util/slug";
 import type { SearchDocument } from "../types";
@@ -13,7 +14,7 @@ export function glossaryDocuments(sources: readonly GlossarySource[]): SearchDoc
                 source: "glossary" as const,
                 title: record.name,
                 aliases: [toPattern(record.name), ...(record.aliases ?? [])].join(" "),
-                body: record.effect,
+                body: extractSections(record.effect)[0].body,
                 pageTags: "",
                 context: source.label(record),
                 to: rulebookHref({ source, record }),

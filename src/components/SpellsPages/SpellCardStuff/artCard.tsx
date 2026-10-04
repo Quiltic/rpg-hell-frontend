@@ -34,11 +34,11 @@ export default function SpellCard({
     // console.log(ee) ⚄.replace(/\#/gi, "⚀") ?? ""
     // .replace('###', "⚀⚁⚂").replace('##', "⚀⚁").replace('#', "⚀")
 
-    const req = toPillElement(_spell.stat + " " + _spell.level.toString(), ",");
+    const req = toPillElement((_spell.stat ?? "") + " " + (_spell.level ?? ""), ",");
 
-    let bar = `bg-${_spell.stat.toLowerCase()} p-2`;
+    let bar = `bg-${_spell.stat?.toLowerCase()} p-2`;
     const path = pathJson.find((p) => {
-        return p.name == _spell.stat.toLowerCase();
+        return p.name == _spell.stat?.toLowerCase();
     });
     if (path) {
         bar = `bg-${path.color} p-2`;

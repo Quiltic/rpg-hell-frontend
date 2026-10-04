@@ -3,6 +3,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkDirective from "remark-directive";
 import remarkGfm from "remark-gfm";
 import { toString } from "mdast-util-to-string";
+import { visit } from "unist-util-visit";
 import type { RootContent } from "mdast";
 import { generateSlug } from "../util/slug";
 
@@ -48,6 +49,10 @@ function blockText(node: RootContent): string {
 
 export function extractSections(markdown: string): Section[] {
     const tree = remark().use(remarkFrontmatter).use(remarkGfm).use(remarkDirective).parse(markdown);
+    // toString drops hard breaks, which would run the two lines together
+    visit(tree, "break", (_node, index, parent) => {
+        if (parent && index !== undefined) parent.children[index] = { type: "text", value: "\n" };
+    });
     const stack: Heading[] = [];
     let current: Section = { level: 0, text: "", slug: "", path: [], body: "" };
     const bodyLines: string[] = [];

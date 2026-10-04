@@ -32,7 +32,7 @@ Two dependency quirks to leave alone:
 -   **vitest is pinned to 3.x on purpose.** vitest 5 requires vite >= 6.4 and this repo is on vite 5, so installing vitest 5 fails at startup with `Package subpath './module-runner' is not defined`. Bump vite first if you want a newer vitest.
 -   **Do not import `@testing-library/jest-dom/vitest`.** bun installs jest-dom's optional vitest peer as a nested copy, so that entry point resolves the wrong vitest and its type augmentation targets the wrong module. `src/test/setup.ts` calls `expect.extend(matchers)` and `src/test/vitest.d.ts` re-declares the augmentation against the root vitest instead.
 
-Tests sit next to the file they cover. The JSON content files are validated by tests too (`glossary/sources/*.test.ts`, `rulebook/pages.test.ts`), so a content edit can fail the suite; read the assertion message before touching code. One failure is currently expected: `glossary/sources/keys.test.ts` reports that the Follower text differs between `keys.json` and `effects.json`. That is a content decision, not a code bug.
+Tests sit next to the file they cover. The JSON content files are validated by tests too (`glossary/sources/*.test.ts`, `rulebook/pages.test.ts`), so a content edit can fail the suite; read the assertion message before touching code.
 
 `bunx tsc --noEmit` currently reports ~283 pre-existing errors across the app (mostly unused locals and loose `any`s), so it is only useful for checking whether _your_ files are clean, not as a pass/fail gate. Tests are not part of the deploy workflow (`.github/workflows/deploy.yml` runs install and build only).
 

@@ -25,6 +25,10 @@ The base game Paths are:
 
 ::paths{source="core"}
 
+These are the first expansion's paths:
+
+::paths{source="core2"}
+
 ---
 
 You create 3 [Stories](#stories) of your choice. These may help determine what you pick for your paths.

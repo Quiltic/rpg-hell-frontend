@@ -11,11 +11,7 @@ type Props = {
     moveIsAdd?: boolean;
 };
 
-export default function SpellsTable({
-    displayedSpells,
-    moveSpell,
-    moveIsAdd = true,
-}: Props) {
+export default function SpellsTable({ displayedSpells, moveSpell, moveIsAdd = true }: Props) {
     return (
         <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
@@ -27,9 +23,7 @@ export default function SpellsTable({
                         <th>Effect</th>
                         <th className="hidden md:table-cell">Tags</th>
                         {moveSpell != undefined && (
-                            <th className="hidden md:table-cell">
-                                {moveIsAdd ? "Save" : "Unsave"}
-                            </th>
+                            <th className="hidden md:table-cell">{moveIsAdd ? "Save" : "Unsave"}</th>
                         )}
                     </tr>
                 </thead>
@@ -38,25 +32,15 @@ export default function SpellsTable({
                         const ee = formatEffectString(spell.effect ?? "");
                         return (
                             <tr key={i}>
-                                <td className="hidden font-bold capitalize md:table-cell">
-                                    {spell.name}
-                                </td>
+                                <td className="hidden font-bold capitalize md:table-cell">{spell.name}</td>
                                 <td className="table-cell capitalize md:hidden">
-                                    <span className="font-bold underline">
-                                        {spell.name}
-                                    </span>
+                                    <span className="font-bold underline">{spell.name}</span>
                                     <br />
                                     Stat: {spell.stat} Tags: {spell.tags}{" "}
                                     {moveSpell != undefined && (
                                         <Button
-                                            variant={
-                                                moveIsAdd
-                                                    ? "subtle-nature"
-                                                    : "subtle-medicine"
-                                            }
-                                            leftIcon={
-                                                moveIsAdd ? PinIcon : RemoveIcon
-                                            }
+                                            variant={moveIsAdd ? "subtle-nature" : "subtle-medicine"}
+                                            leftIcon={moveIsAdd ? PinIcon : RemoveIcon}
                                             className="h-8 w-6 rounded-md"
                                             onClick={() => {
                                                 moveSpell(spell);
@@ -65,12 +49,7 @@ export default function SpellsTable({
                                     )}
                                 </td>
                                 <td className="hidden md:table-cell">
-                                    {toPillElement(
-                                        spell.stat +
-                                            " " +
-                                            spell.level.toString(),
-                                        ","
-                                    )}
+                                    {toPillElement((spell.stat ?? "") + " " + (spell.level ?? ""), ",")}
                                 </td>
 
                                 <td
@@ -86,14 +65,8 @@ export default function SpellsTable({
                                 {moveSpell != undefined && (
                                     <td className="hidden md:table-cell">
                                         <Button
-                                            variant={
-                                                moveIsAdd
-                                                    ? "subtle-nature"
-                                                    : "subtle-medicine"
-                                            }
-                                            leftIcon={
-                                                moveIsAdd ? PinIcon : RemoveIcon
-                                            }
+                                            variant={moveIsAdd ? "subtle-nature" : "subtle-medicine"}
+                                            leftIcon={moveIsAdd ? PinIcon : RemoveIcon}
                                             className="h-8 w-6 rounded-md"
                                             onClick={() => {
                                                 moveSpell(spell);

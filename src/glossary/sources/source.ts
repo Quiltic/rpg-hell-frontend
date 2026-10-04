@@ -11,6 +11,7 @@ export type GlossaryRecord = {
     short?: string;
     extra?: string;
     aliases?: string[];
+    tooltip?: boolean;
 };
 
 // Method syntax on purpose: it keeps a GlossarySource<Effect> assignable to
@@ -30,10 +31,7 @@ export function normalizeName(name: string): string {
     return name.trim().toLowerCase().replace(/’/g, "'");
 }
 
-export function findRecord<T extends GlossaryRecord>(
-    records: readonly T[],
-    name: string
-): T | undefined {
+export function findRecord<T extends GlossaryRecord>(records: readonly T[], name: string): T | undefined {
     const wanted = normalizeName(name);
     return records.find((r) => r.name === wanted);
 }

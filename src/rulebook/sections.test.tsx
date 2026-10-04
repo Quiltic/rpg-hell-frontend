@@ -40,6 +40,11 @@ describe("extractSections", () => {
         expect(sections[1].body).toBe("one\ntwo\nthree\nfour");
     });
 
+    it("keeps a hard line break as a newline", () => {
+        const sections = extractSections("# A\n\n**one**  \n_two_\n");
+        expect(sections[1].body).toBe("one\ntwo");
+    });
+
     it("separates table cells and rows", () => {
         const sections = extractSections("# A\n\n| x | y |\n| - | - |\n| 1 | 2 |\n");
         expect(sections[1].body).toBe("x y\n1 2");
