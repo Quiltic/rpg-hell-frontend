@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useBlocker } from "react-router-dom";
 import { playerCharacterType } from "../../../types/playerCharacterType";
 import { Item } from "../../../client";
 import { Button } from "../../ui/Button/Button";
+import Popup from "../../ui/Popups/Popup";
 import RefinedCharacterSheet from "../InteractiveCharSheets/RefinedCharacterSheet";
 import BuilderStep_Stats from "./BuilderStep_Stats";
 import BuilderStep_Paths from "./BuilderStep_Paths";
@@ -43,6 +45,8 @@ const playerCharacter: playerCharacterType = {
     notes: "",
 };
 
+const STEP_WHERE_CHARACTER_IS_SAVED = 6;
+
 type statline = "" | "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 
 export default function CharacterBuilderPage() {
@@ -58,6 +62,14 @@ export default function CharacterBuilderPage() {
     ]);
 
     const [stepnum, setStepnum] = useState(1);
+    const blocker = useBlocker(stepnum < STEP_WHERE_CHARACTER_IS_SAVED);
+
+    useEffect(() => {
+        if (stepnum >= STEP_WHERE_CHARACTER_IS_SAVED) return;
+        const warn = (e: BeforeUnloadEvent) => e.preventDefault();
+        window.addEventListener("beforeunload", warn);
+        return () => window.removeEventListener("beforeunload", warn);
+    }, [stepnum]);
 
     // update the stats based on what you chose
     useEffect(() => {
@@ -131,6 +143,31 @@ export default function CharacterBuilderPage() {
 
     return (
         <div className="">
+            <Popup
+                displayedContentName="Unsaved character"
+                isOpen={blocker.state === "blocked"}
+                setIsOpen={() => blocker.reset?.()}
+                isSmol={true}
+                displayedContent={
+                    <>
+                        <p>Your character has not been saved yet and will be lost if you leave.</p>
+                        <div className="mt-4 flex flex-row justify-end gap-2">
+                            <Button
+                                variant="dark"
+                                onClick={() => blocker.reset?.()}
+                            >
+                                Stay
+                            </Button>
+                            <Button
+                                variant="body"
+                                onClick={() => blocker.proceed?.()}
+                            >
+                                Leave
+                            </Button>
+                        </div>
+                    </>
+                }
+            />
             {stepnum == 1 && (
                 <BuilderStep_Paths
                     player={player}
@@ -175,7 +212,7 @@ export default function CharacterBuilderPage() {
                     player={player}
                     setPlayer={setPlayer}
                     continueButton={() => {
-                        setStepnum(6);
+                        setStepnum(STEP_WHERE_CHARACTER_IS_SAVED);
                         let allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;");
                         if (!allSavedCharacters) allSavedCharacters = [];
 
@@ -192,7 +229,7 @@ export default function CharacterBuilderPage() {
                 />
             )}
 
-            {stepnum == 6 && (
+            {stepnum == STEP_WHERE_CHARACTER_IS_SAVED && (
                 <>
                     <div className="center m-2 flex flex-row bg-dark-400 p-2">
                         <Button
