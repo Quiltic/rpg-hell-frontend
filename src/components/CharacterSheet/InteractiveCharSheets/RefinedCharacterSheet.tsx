@@ -426,7 +426,7 @@ There is a link above for what a Story is!"
                         );
                     })}
                 </div>
-                <div className="grid grid-cols-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
                     <div className="m-2 rounded-md bg-dark-400 p-2">
                         <div className="m-2 rounded-md bg-dark-300 p-2">
                             <h2 className="mt-0">Equipped Items</h2>
@@ -515,49 +515,56 @@ There is a link above for what a Story is!"
                             <div className="m-2 rounded-md bg-soul p-2 text-lg font-bold md:text-xl">
                                 Strain {player.calculatedStats.curStrain} / {player.calculatedStats.maxStrain}
                             </div>
-                            {allSpells
-                                .filter((a) => {
-                                    return player.arts.includes(a.name);
-                                })
-                                .map((art: Spell, id: number) => {
-                                    return (
-                                        <div key={id}>
+                            <div className="col-span-2 flex flex-col gap-2">
+                                {allSpells
+                                    .filter((a) => {
+                                        return player.arts.includes(a.name);
+                                    })
+                                    .map((art: Spell, id: number) => {
+                                        return (
                                             <ArtCard
+                                                key={id}
                                                 _spell={art}
-                                                moveSpell={() => {
-                                                    const strainChange = player.calculatedStats.curStrain - art.strain;
-                                                    const hpChange =
-                                                        strainChange < 0 && art.strain > 0
-                                                            ? player.calculatedStats.curHp + strainChange // negative strain = dmg
-                                                            : player.calculatedStats.curHp;
-                                                    const hpLost = player.calculatedStats.curHp - hpChange;
+                                                _className="m-0"
+                                                action={{
+                                                    label: "Activate",
+                                                    variant: "soul",
+                                                    onClick: () => {
+                                                        const strainChange =
+                                                            player.calculatedStats.curStrain - art.strain;
+                                                        const hpChange =
+                                                            strainChange < 0 && art.strain > 0
+                                                                ? player.calculatedStats.curHp + strainChange // negative strain = dmg
+                                                                : player.calculatedStats.curHp;
+                                                        const hpLost = player.calculatedStats.curHp - hpChange;
 
-                                                    toast(
-                                                        <div className="text-center">
-                                                            Activated <b>{titleCase(art.name)}</b>
-                                                            {art.strain > 0 ? ` for ${art.strain} Strain!` : "!"}
-                                                            {hpLost > 0 && (
-                                                                <div className="italic">
-                                                                    Overstrained: took {hpLost} damage
-                                                                </div>
-                                                            )}
-                                                        </div>,
-                                                        { className: "ring-2 ring-soul-500" }
-                                                    );
+                                                        toast(
+                                                            <div className="text-center">
+                                                                Activated <b>{titleCase(art.name)}</b>
+                                                                {art.strain > 0 ? ` for ${art.strain} Strain!` : "!"}
+                                                                {hpLost > 0 && (
+                                                                    <div className="italic">
+                                                                        Overstrained: took {hpLost} damage
+                                                                    </div>
+                                                                )}
+                                                            </div>,
+                                                            { className: "ring-2 ring-soul-500" }
+                                                        );
 
-                                                    setPlayer({
-                                                        ...player,
-                                                        calculatedStats: {
-                                                            ...player.calculatedStats,
-                                                            curStrain: strainChange,
-                                                            curHp: hpChange,
-                                                        },
-                                                    });
+                                                        setPlayer({
+                                                            ...player,
+                                                            calculatedStats: {
+                                                                ...player.calculatedStats,
+                                                                curStrain: strainChange,
+                                                                curHp: hpChange,
+                                                            },
+                                                        });
+                                                    },
                                                 }}
                                             />
-                                        </div>
-                                    );
-                                })}
+                                        );
+                                    })}
+                            </div>
                         </div>
                     </div>
                 </div>

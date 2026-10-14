@@ -79,15 +79,7 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
         },
     ]);
 
-    const {
-        allSpells,
-        pinnedSpells,
-        displayedSpells,
-        addToPinnedSpells,
-        removeFromPinnedSpells,
-        filterSpells,
-        resetFilterSpells,
-    } = useSpells();
+    const { allSpells, displayedSpells } = useSpells();
 
     return (
         <>
@@ -101,7 +93,7 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                         <div className="grid grid-cols-2">
                             {displayedSpells
                                 .filter((spell) => {
-                                    var hasPath = false;
+                                    let hasPath = false;
                                     player.paths.forEach((path) => {
                                         // Not already picked, and has the req path.
                                         hasPath =
@@ -117,6 +109,7 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                                         return (
                                             <div
                                                 className="clickable"
+                                                key={i}
                                                 onClick={() => {
                                                     setChosenSpells(changeItemInArray(chosenSpells, picking, spell));
                                                     setPlayer({
@@ -128,7 +121,7 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                                             >
                                                 <SpellCard
                                                     _spell={spell}
-                                                    key={i}
+                                                    static
                                                 />
                                             </div>
                                         );
@@ -143,7 +136,14 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                 <h1 className="m-2 rounded-md bg-dark-300 p-2">Pick your Arts</h1>
 
                 <div className="grid grid-cols-2 items-center justify-items-center">
-                    {player.arts.map((spell, id) => {
+                    {player.arts.map((_, id) => {
+                        const changeArt = {
+                            label: "Change",
+                            onClick: () => {
+                                setPicking(id);
+                                setIsOpen(true);
+                            },
+                        };
                         return (
                             <>
                                 {player.arts[id] == "" && (
@@ -162,22 +162,19 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                                 )}
 
                                 {player.arts[id] != "" && (
-                                    <div
-                                        className="clickable"
-                                        onClick={() => {
-                                            setPicking(id);
-                                            setIsOpen(true);
-                                        }}
-                                    >
-                                        {chosenSpells[id].name != "" && <SpellCard _spell={chosenSpells[id]} />}
+                                    <div>
+                                        {chosenSpells[id].name != "" && (
+                                            <SpellCard
+                                                _spell={chosenSpells[id]}
+                                                action={changeArt}
+                                            />
+                                        )}
                                         {chosenSpells[id].name == "" && (
                                             <SpellCard
-                                                _spell={
-                                                    // it probably found it
-                                                    allSpells.find((art) => {
-                                                        return player.arts[id] == art.name;
-                                                    })
-                                                }
+                                                _spell={allSpells.find((art) => {
+                                                    return player.arts[id] == art.name;
+                                                })}
+                                                action={changeArt}
                                             />
                                         )}
                                     </div>

@@ -193,8 +193,11 @@ export default function SpellsTablePage() {
                                         {enabled && (
                                             <SpellCardHolder
                                                 shownSpells={pinnedSpells}
-                                                moveSpell={(spell) => {
-                                                    removeFromPinnedSpells(spell);
+                                                action={{
+                                                    label: "Unpin",
+                                                    onClick: (spell) => {
+                                                        removeFromPinnedSpells(spell);
+                                                    },
                                                 }}
                                             />
                                         )}
@@ -280,8 +283,11 @@ export default function SpellsTablePage() {
                                 if (searchLvl) return s.level == searchLvl;
                                 return true;
                             })}
-                            moveSpell={(spell) => {
-                                addToPinnedSpells(spell);
+                            action={{
+                                label: "Pin",
+                                onClick: (spell) => {
+                                    addToPinnedSpells(spell);
+                                },
                             }}
                         />
                     )}
@@ -309,8 +315,11 @@ export default function SpellsTablePage() {
                                         return s.stat == n.toLowerCase();
                                     })}
                                     key={i}
-                                    moveSpell={(spell) => {
-                                        addToPinnedSpells(spell);
+                                    action={{
+                                        label: "Pin",
+                                        onClick: (spell) => {
+                                            addToPinnedSpells(spell);
+                                        },
                                     }}
                                 />
                             )}

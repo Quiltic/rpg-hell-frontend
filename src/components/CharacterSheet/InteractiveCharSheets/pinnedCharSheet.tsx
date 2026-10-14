@@ -1,6 +1,4 @@
-
-
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { Trait, Item, Spell } from "../../../client";
 import ItemCard from "../../ItemPages/ItemCardStuff/itemCard";
 import Tooltip from "../../ui/Tooltip";
@@ -18,35 +16,34 @@ import { capitalize } from "../../../util/textFormatting";
 import { isElementOfType } from "react-dom/test-utils";
 import { eApiClass } from "../../../types/ApiClassUnions";
 
-
 const blank_displayedCreature = {
-    "name":"",
-    "level":1,
-    "health":0,
-    "shielding":0,
-    "dodge":0,
-    "ward":0,
-    "strain":0,
-    "speed":6,
-    "stats": {
-       "body":0,
-        "mind":0,
-        "soul":0,
-        "arcana":0,
-        "crafting":0,
-        "charm":0,
-        "nature":0,
-        "medicine":0,
-        "thieving":0 
+    name: "",
+    level: 1,
+    health: 0,
+    shielding: 0,
+    dodge: 0,
+    ward: 0,
+    strain: 0,
+    speed: 6,
+    stats: {
+        body: 0,
+        mind: 0,
+        soul: 0,
+        arcana: 0,
+        crafting: 0,
+        charm: 0,
+        nature: 0,
+        medicine: 0,
+        thieving: 0,
     },
-    "traits":"",
-    "arts":"",
-    "items":"",
-    "items_unlisted":"",
-    "stories":"",
-    "description":"",
-    "notes":""
-}
+    traits: "",
+    arts: "",
+    items: "",
+    items_unlisted: "",
+    stories: "",
+    description: "",
+    notes: "",
+};
 
 type Props = {
     _displayedCreature?: any;
@@ -55,85 +52,59 @@ type Props = {
     // items: Item[];
 };
 
-export default function PinnedCharSheet(
-    {
+export default function PinnedCharSheet({
     _displayedCreature: _displayedCreature = blank_displayedCreature,
     // traits:traits,
     // arts:arts,
     // items:items,
-}: Props) {  
+}: Props) {
+    const { displayedSpells, pinnedSpells, removeFromPinnedSpells } = useSpells();
 
-    const {
-        displayedSpells,
-        pinnedSpells,
-        removeFromPinnedSpells
-    } = useSpells();
-    
-    const {
-        displayedItems,
-        pinnedItems,
-        removeFromPinnedItems
-    } = useItems();
+    const { displayedItems, pinnedItems, removeFromPinnedItems } = useItems();
 
-    const {
-        displayedTraits,
-        pinnedTraits,
-        removeFromPinnedTraits
-    } = useTraits();
+    const { displayedTraits, pinnedTraits, removeFromPinnedTraits } = useTraits();
 
+    const [edit, setEdit] = useState(true);
+    const [load, setLoad] = useState("");
+    const [openSave, setOpenSave] = useState(false);
 
-
-
-    const [edit, setEdit] = useState( true );
-    const [load, setLoad] = useState( "" );
-    const [openSave, setOpenSave] = useState( false );
-
-
-    const [curCreature, setCurCreature] = useState( _displayedCreature );
+    const [curCreature, setCurCreature] = useState(_displayedCreature);
     // window.localStorage.setItem("Temp Character Sheet", curCreature);
-
-
 
     const [maxMain, setMaxMain] = useState(2);
     const [maxSub, setMaxSub] = useState(2);
-    
-    
-    const [statList, setStatList] = useState(["2","1","1","0","-1","-1"]);
 
+    const [statList, setStatList] = useState(["2", "1", "1", "0", "-1", "-1"]);
 
-    const [openDice, setOpenDice] = useState( false );
-    const [dice, setDice] = useState( [1] );
-    const [diceBonus, setDiceBonus] = useState( 0 );
+    const [openDice, setOpenDice] = useState(false);
+    const [dice, setDice] = useState([1]);
+    const [diceBonus, setDiceBonus] = useState(0);
 
-    const [curMaxShield, setCurMaxShield] = useState( 0 );
+    const [curMaxShield, setCurMaxShield] = useState(0);
     // const [curShielding, setCurShielding] = useState( 0 );
 
-
-
-    const [curHP, setCurHP] = useState( 4*curCreature.stats.body+3*curCreature.stats.mind+2*curCreature.stats.soul+curCreature.level );
-    const [curStrain, setCurStrain] = useState( 2*curCreature.stats.body+3*curCreature.stats.mind+4*curCreature.stats.soul+curCreature.level );
+    const [curHP, setCurHP] = useState(
+        4 * curCreature.stats.body + 3 * curCreature.stats.mind + 2 * curCreature.stats.soul + curCreature.level
+    );
+    const [curStrain, setCurStrain] = useState(
+        2 * curCreature.stats.body + 3 * curCreature.stats.mind + 4 * curCreature.stats.soul + curCreature.level
+    );
 
     const [curTraits, setCurTraits] = useState<Trait[]>(pinnedTraits);
     const [curArts, setCurArts] = useState<Spell[]>(pinnedSpells);
     const [curItems, setCurItems] = useState<Item[]>(pinnedItems);
 
-
     // function modifyList(type:eApiClass, thing){
-
-        
 
     //     const idx = list.indexOf(thing);
     //     if (idx == -1)
     //         return (setList(list.concat(thing))); // doesent actually return anything but makes it break out of the function
-        
+
     //     const remaining = list; // copy the list
     //     remaining.splice(idx, 1); // remove the item
     //     // console.log(remaining);
     //     setList(remaining);
     // }
-
-
-
 
     // useEffect(() => {
     //     if (edit && (curCreature.traits != ""))
@@ -161,12 +132,10 @@ export default function PinnedCharSheet(
     //     // console.log(curCreature.items);
     // }, [pinnedItems]);
 
-
-
     // function addStatlist(s:string) {
     //     setStatList(statList.concat(s));
     // }
-    function removeStatlist(s:string) {
+    function removeStatlist(s: string) {
         const idx = statList.indexOf(s);
         const remaining = statList.slice();
         remaining.splice(idx, 1);
@@ -181,13 +150,25 @@ export default function PinnedCharSheet(
     useEffect(() => {
         console.log(curCreature);
 
-        let items = curCreature.items != "" ? pinnedItems.map((i) => {return(i.name)}).join(";|;") : curCreature.items;
+        let items =
+            curCreature.items != ""
+                ? pinnedItems
+                      .map((i) => {
+                          return i.name;
+                      })
+                      .join(";|;")
+                : curCreature.items;
         // console.log(items)
 
-        const maxShield = (items.includes("shield") ? curCreature.level : 0) + 
-        (items.includes("light leather") ? curCreature.level : 
-        items.includes("heavy plate") ? 4*curCreature.stats.body+3*curCreature.stats.mind+curCreature.level :
-        items.includes("medium chainmail") ? 2*curCreature.stats.body+2*curCreature.stats.mind+curCreature.level : 0);
+        const maxShield =
+            (items.includes("shield") ? curCreature.level : 0) +
+            (items.includes("light leather")
+                ? curCreature.level
+                : items.includes("heavy plate")
+                  ? 4 * curCreature.stats.body + 3 * curCreature.stats.mind + curCreature.level
+                  : items.includes("medium chainmail")
+                    ? 2 * curCreature.stats.body + 2 * curCreature.stats.mind + curCreature.level
+                    : 0);
         // setCurShielding(maxShield);
         setCurMaxShield(maxShield);
 
@@ -195,96 +176,88 @@ export default function PinnedCharSheet(
         if (curCreature != blank_displayedCreature) {
             window.localStorage.setItem("Temp Character Sheet", JSON.stringify(curCreature));
         } else {
-            const persistentTempSheet =
-                window.localStorage.getItem("Temp Character Sheet");
+            const persistentTempSheet = window.localStorage.getItem("Temp Character Sheet");
             if (persistentTempSheet) {
                 setCurCreature(JSON.parse(persistentTempSheet));
             }
         }
-        
     }, [curCreature]);
 
-    
-    
-    
-    
     useEffect(() => {
-        setMaxMain(2+Math.floor((curCreature.level-1)/2));
-        setMaxSub(2+2*(Math.floor((curCreature.level-1)/2)));
+        setMaxMain(2 + Math.floor((curCreature.level - 1) / 2));
+        setMaxSub(2 + 2 * Math.floor((curCreature.level - 1) / 2));
     }, [curCreature.level]);
 
     // useEffect(() => {
-    //     setCurCreature({...curCreature, 
+    //     setCurCreature({...curCreature,
     //         traits: curTraits.map((t) => {return(t.name)}).join(";|;"),
     //         arts: curArts.map((a) => {return(a.name)}).join(";|;"),
     //         items: curItems.map((i) => {return(i.name)}).join(";|;")
     //     });
     // }, [curArts,curItems,curTraits]);
-    
-    
-    // console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
-    
 
-    function LoadChar(name:string) {
+    // console.log(new Array((4+Math.floor(curLvl/2))).fill(0));
+
+    function LoadChar(name: string) {
         if (name == "default") {
             setCurCreature(blank_displayedCreature);
             window.localStorage.setItem("Temp Character Sheet", JSON.stringify(blank_displayedCreature));
-        }
-        else
-            setCurCreature(JSON.parse(window.localStorage.getItem(name))); // as per always it will always be found due to the checks made outside of this
+        } else setCurCreature(JSON.parse(window.localStorage.getItem(name))); // as per always it will always be found due to the checks made outside of this
     }
-    
+
     function SaveChar() {
         if (curCreature.name != "") {
             window.localStorage.setItem(curCreature.name, JSON.stringify(curCreature));
-            let curSaved = (window.localStorage.getItem("Saved Chars"));
-            window.localStorage.setItem("Saved Chars", curSaved+";|;"+curCreature.name);
-        } else
-            setOpenSave(true);
-    };
-
+            let curSaved = window.localStorage.getItem("Saved Chars");
+            window.localStorage.setItem("Saved Chars", curSaved + ";|;" + curCreature.name);
+        } else setOpenSave(true);
+    }
 
     return (
         <div className="flex flex-col">
-            <DicePopup 
-                startingDice={dice} 
-                startingBonus={diceBonus} 
-                isOpen={openDice} 
-                setIsOpen={setOpenDice} 
-                setDice={setDice} 
+            <DicePopup
+                startingDice={dice}
+                startingBonus={diceBonus}
+                isOpen={openDice}
+                setIsOpen={setOpenDice}
+                setDice={setDice}
                 setBonus={setDiceBonus}
             />
-            
-            
-            <Popup displayedContentName={""} 
+
+            <Popup
+                displayedContentName={""}
                 displayedContent={
                     <>
-                    {curCreature.name == "" &&
-                    <>
-                    <div> No Name. </div>
-                    <div> DID NOT SAVE! </div>
+                        {curCreature.name == "" && (
+                            <>
+                                <div> No Name. </div>
+                                <div> DID NOT SAVE! </div>
+                            </>
+                        )}
                     </>
-
-                    }
-                    </>
-                } 
-                isOpen={openSave} 
-                setIsOpen={setOpenSave} 
+                }
+                isOpen={openSave}
+                setIsOpen={setOpenSave}
                 isSmol={true}
             />
 
-            <div className="flex flex-row justify-center items-center bg-dark-400 rounded-md p-2 m-2">
-
+            <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-400 p-2">
                 <Button
                     title="Clear"
                     className="w-[20%]"
                     variant={"nature"}
-                    onClick={() => {SaveChar()}}
+                    onClick={() => {
+                        SaveChar();
+                    }}
                 >
                     Save Character
                 </Button>
                 <CleanCombobox
-                    items={(window.localStorage.getItem("Saved Chars")) != null ? (window.localStorage.getItem("Saved Chars"))?.split(";|;") : [""]}
+                    items={
+                        window.localStorage.getItem("Saved Chars") != null
+                            ? window.localStorage.getItem("Saved Chars")?.split(";|;")
+                            : [""]
+                    }
                     className="m-1 mb-2"
                     selected={load}
                     setSelected={(val) => {
@@ -295,7 +268,9 @@ export default function PinnedCharSheet(
                     title="Clear"
                     className="w-[20%]"
                     variant={"medicine"}
-                    onClick={() => {LoadChar("default")}}
+                    onClick={() => {
+                        LoadChar("default");
+                    }}
                 >
                     Reset Character
                 </Button>
@@ -308,54 +283,50 @@ export default function PinnedCharSheet(
                     Save Character
                 </Button> */}
 
-                <div className="flex flex-row justify-center items-center bg-dark-300 rounded-md p-2 m-2">
-                        {edit && <p className="flex flex-row justify-center items-center m-2">Disable Edit</p>}
-                        {!edit && <p className="flex flex-row justify-center items-center m-2">Enable Edit</p>}
-                        
-                        <Switch
-                            checked={edit}
-                            onChange={setEdit}
+                <div className="m-2 flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
+                    {edit && <p className="m-2 flex flex-row items-center justify-center">Disable Edit</p>}
+                    {!edit && <p className="m-2 flex flex-row items-center justify-center">Enable Edit</p>}
+
+                    <Switch
+                        checked={edit}
+                        onChange={setEdit}
+                        className={`${
+                            edit ? "bg-body" : "bg-dark-700"
+                        } relative inline-flex h-6 w-11 items-center rounded-full`}
+                    >
+                        <span className="sr-only">Switch Edit</span>
+                        <span
                             className={`${
-                                edit ? 'bg-body' : 'bg-dark-700'
-                            } relative inline-flex h-6 w-11 items-center rounded-full`}
-                            >
-                            <span className="sr-only">Switch Edit</span>
-                            <span
-                                className={`${
-                                edit ? 'translate-x-6' : 'translate-x-1'
-                                } inline-block h-4 w-4 transform rounded-full bg-light transition`}
-                            />
-                        </Switch>
-                    </div>
+                                edit ? "translate-x-6" : "translate-x-1"
+                            } inline-block h-4 w-4 transform rounded-full bg-light transition`}
+                        />
+                    </Switch>
+                </div>
             </div>
 
-
             {/* Main */}
-            <div className="flex flex-col bg-dark-400 rounded-md border-solid border-2 border-body-700/20 m-4" >
-                
+            <div className="m-4 flex flex-col rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
                 {/* Name/Level/Types */}
-                <div className="flex lg:flex-row items-center bg-dark rounded-md">
-                    
-                    <div className="w-[50%] rounded-lg bg-dark-400 p-2 m-2 ">
+                <div className="flex items-center rounded-md bg-dark lg:flex-row">
+                    <div className="m-2 w-[50%] rounded-lg bg-dark-400 p-2 ">
                         <input
                             type="text"
                             placeholder={"Name"}
-                            className="h-9 w-[100%] p-2 rounded-lg shadow-md"
+                            className="h-9 w-[100%] rounded-lg p-2 shadow-md"
                             value={curCreature.name}
-                            onChange={(e) => setCurCreature({...curCreature, name: e.target.value})}
+                            onChange={(e) => setCurCreature({ ...curCreature, name: e.target.value })}
                         />
                     </div>
-                    
-                
-                    <div className="lg:w-[17%] flex flex-row items-center rounded-md bg-dark-400 items-center capitalize p-2 m-2">
-                        Level: 
+
+                    <div className="m-2 flex flex-row items-center items-center rounded-md bg-dark-400 p-2 capitalize lg:w-[17%]">
+                        Level:
                         <input
                             type="number"
-                            className="h-9 w-[100%] rounded-lg p-2 mt-1 shadow-md justify-end m-1"
+                            className="m-1 mt-1 h-9 w-[100%] justify-end rounded-lg p-2 shadow-md"
                             value={curCreature.level}
                             min="1"
                             max="10"
-                            onChange={(e) => setCurCreature({...curCreature, level: parseFloat(e.target.value)})}
+                            onChange={(e) => setCurCreature({ ...curCreature, level: parseFloat(e.target.value) })}
                         />
                     </div>
                     {/* <div className="w-[33%] flex flex-row items-center capitalize rounded-md bg-dark-400 p-2 m-2">
@@ -380,380 +351,570 @@ export default function PinnedCharSheet(
                         />
                     </div> */}
                 </div>
-                <div className="lg:grid lg:grid-cols-2 lg:gap-1 bg-dark">
+                <div className="bg-dark lg:grid lg:grid-cols-2 lg:gap-1">
                     {/* Stats */}
-                    <div className="flex flex-col justify-between m-1 p-1">
-
+                    <div className="m-1 flex flex-col justify-between p-1">
                         {/* Scores */}
 
                         {/* Edit Version */}
-                        {edit && 
+                        {edit && (
+                            <>
+                                {maxMain - curCreature.stats.body - curCreature.stats.mind - curCreature.stats.soul >
+                                    0 && (
+                                    <div className="m-2 rounded bg-dark-400 p-2 font-bold">
+                                        Main Points Left:{" "}
+                                        {maxMain -
+                                            curCreature.stats.body -
+                                            curCreature.stats.mind -
+                                            curCreature.stats.soul}
+                                    </div>
+                                )}
 
-                        <>
-                        
-                        {(maxMain - curCreature.stats.body - curCreature.stats.mind - curCreature.stats.soul) > 0 && 
-                            <div className="rounded bg-dark-400 m-2 p-2 font-bold">Main Points Left: {
-                               (maxMain - curCreature.stats.body - curCreature.stats.mind - curCreature.stats.soul)
-                        }</div>}
+                                {maxSub -
+                                    curCreature.stats.arcana -
+                                    curCreature.stats.charm -
+                                    curCreature.stats.crafting -
+                                    curCreature.stats.medicine -
+                                    curCreature.stats.nature -
+                                    curCreature.stats.thieving >
+                                    0 &&
+                                    curCreature.level > 2 && (
+                                        <div className="m-2 rounded bg-dark-400 p-2 font-bold">
+                                            Sub Points Left:{" "}
+                                            {maxSub -
+                                                curCreature.stats.arcana -
+                                                curCreature.stats.charm -
+                                                curCreature.stats.crafting -
+                                                curCreature.stats.medicine -
+                                                curCreature.stats.nature -
+                                                curCreature.stats.thieving}
+                                        </div>
+                                    )}
 
-
-                        {(maxSub - curCreature.stats.arcana - curCreature.stats.charm - curCreature.stats.crafting
-                             - curCreature.stats.medicine - curCreature.stats.nature - curCreature.stats.thieving
-                            ) > 0 &&
-                            curCreature.level > 2 && 
-                            <div className="rounded bg-dark-400 m-2 p-2 font-bold">Sub Points Left: {
-                                (maxSub - curCreature.stats.arcana - curCreature.stats.charm - curCreature.stats.crafting
-                             - curCreature.stats.medicine - curCreature.stats.nature - curCreature.stats.thieving
-                        )}</div>}
-
-                        {/* Stats */}
-                        <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
-                            <div className="bg-body font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Body:
-                                <input
-                                    type="number"
-                                    className="bg-body h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.body}
-                                    min="0"
-                                    max={maxMain - (curCreature.stats.mind+curCreature.stats.soul)}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, body: parseFloat(e.target.value)}})}
-                                />
-                            </div>
-                            <div className="bg-mind font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Mind:
-                                <input
-                                    type="number"
-                                    className="bg-mind h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.mind}
-                                    min="0"
-                                    max={maxMain - (curCreature.stats.body+curCreature.stats.soul)}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, mind: parseFloat(e.target.value)}})}
-                                />
-                            </div>
-                            <div className="bg-soul font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Soul:
-                                <input
-                                    type="number"
-                                    className="bg-soul h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.soul}
-                                    min="0"
-                                    max={maxMain - (curCreature.stats.body+curCreature.stats.mind)}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, soul: parseFloat(e.target.value)}})}
-                                />
-                            </div>
-                            <div className="bg-arcana font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Arcana:
-                                {curCreature.level == 1 && 
-                                    <CleanCombobox
-                                        items={statList}
-                                        className="m-1 mb-2"
-                                        selected={curCreature.stats.arcana}
-                                        color={"arcana"}
-                                        setSelected={(val) => {
-                                            
-                                            statList.push((curCreature.stats.arcana).toString());
-                                            removeStatlist(val);
-                                            setCurCreature({...curCreature, stats: {...curCreature.stats, arcana: parseFloat(val)}})
-                                        }}
-                                    />
-                                }
-                                {curCreature.level > 1 &&
-                                <input
-                                    type="number"
-                                    className="bg-arcana h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.arcana}
-                                    min="-2"
-                                    max={Math.min(maxMain, maxSub - (
-                                                    curCreature.stats.charm +
-                                                    curCreature.stats.crafting +
-                                                    curCreature.stats.medicine +
-                                                    curCreature.stats.nature +
-                                                    curCreature.stats.thieving
-                                                  ))}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, arcana: parseFloat(e.target.value)}})}
-                                />
-                                }
-                            </div>
-                            <div className="bg-charm font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Charm:
-                                {curCreature.level == 1 && 
-                                    <CleanCombobox
-                                        items={statList}
-                                        className="m-1 mb-2"
-                                        selected={curCreature.stats.charm}
-                                        color={"charm"}
-                                        setSelected={(val) => {
-                                            
-                                            statList.push((curCreature.stats.charm).toString());
-                                            removeStatlist(val);
-                                            setCurCreature({...curCreature, stats: {...curCreature.stats, charm: parseFloat(val)}})
-                                        }}
-                                    />
-                                }
-                                {curCreature.level > 1 &&
-                                <input
-                                    type="number"
-                                    className="bg-charm h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.charm}
-                                    min="-2"
-                                    max={Math.min(maxMain, maxSub - (curCreature.stats.arcana +
-                                                    curCreature.stats.crafting +
-                                                    curCreature.stats.medicine +
-                                                    curCreature.stats.nature +
-                                                    curCreature.stats.thieving
-                                                  ))}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, charm: parseFloat(e.target.value)}})}
-                                />
-                                }
-                            </div>
-                            <div className="bg-crafting font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Crafting:
-                                {curCreature.level == 1 && 
-                                    <CleanCombobox
-                                        items={statList}
-                                        className="m-1 mb-2"
-                                        selected={curCreature.stats.crafting}
-                                        color={"crafting"}
-                                        setSelected={(val) => {
-                                            
-                                            statList.push((curCreature.stats.crafting).toString());
-                                            removeStatlist(val);
-                                            setCurCreature({...curCreature, stats: {...curCreature.stats, crafting: parseFloat(val)}})
-                                        }}
-                                    />
-                                }
-                                {curCreature.level > 1 &&
-                                <input
-                                    type="number"
-                                    className="bg-crafting h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.crafting}
-                                    min="-2"
-                                    max={Math.min(maxMain, maxSub - (curCreature.stats.arcana +
-                                                    curCreature.stats.charm +
-                                                    curCreature.stats.medicine +
-                                                    curCreature.stats.nature +
-                                                    curCreature.stats.thieving
-                                                  ))}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, crafting: parseFloat(e.target.value)}})}
-                                />
-                                }
-                            </div>
-                            <div className="bg-medicine font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Medicine:
-                                {curCreature.level == 1 && 
-                                    <CleanCombobox
-                                        items={statList}
-                                        className="m-1 mb-2"
-                                        selected={curCreature.stats.medicine}
-                                        color={"medicine"}
-                                        setSelected={(val) => {
-                                            
-                                            statList.push((curCreature.stats.medicine).toString());
-                                            removeStatlist(val);
-                                            setCurCreature({...curCreature, stats: {...curCreature.stats, medicine: parseFloat(val)}})
-                                        }}
-                                    />
-                                }
-                                {curCreature.level > 1 &&
-                                <input
-                                    type="number"
-                                    className="bg-medicine h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.medicine}
-                                    min="-2"
-                                    max={Math.min(maxMain, maxSub - (curCreature.stats.arcana +
-                                                    curCreature.stats.charm +
-                                                    curCreature.stats.crafting +
-                                                    curCreature.stats.nature +
-                                                    curCreature.stats.thieving
-                                                  ))}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, medicine: parseFloat(e.target.value)}})}
-                                />
-                                }
-                            </div>
-                            <div className="bg-nature font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Nature: 
-                                {curCreature.level == 1 && 
-                                    <CleanCombobox
-                                        items={statList}
-                                        className="m-1 mb-2"
-                                        selected={curCreature.stats.nature}
-                                        color={"nature"}
-                                        setSelected={(val) => {
-                                            
-                                            statList.push((curCreature.stats.nature).toString());
-                                            removeStatlist(val);
-                                            setCurCreature({...curCreature, stats: {...curCreature.stats, nature: parseFloat(val)}})
-                                        }}
-                                    />
-                                }
-                                {curCreature.level > 1 &&
-                                <input
-                                    type="number"
-                                    className="bg-nature h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.nature}
-                                    min="-2"
-                                    max={Math.min(maxMain, maxSub - (curCreature.stats.arcana +
-                                                    curCreature.stats.charm +
-                                                    curCreature.stats.crafting +
-                                                    curCreature.stats.medicine +
-                                                    curCreature.stats.thieving
-                                                  ))}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, nature: parseFloat(e.target.value)}})}
-                                />
-                                }
-                            </div>
-                            <div className="items-center bg-thieving font-bold rounded-xl p-1 m-1 pl-2 pr-2">
-                                Thieving:
-                                {curCreature.level == 1 && 
-                                    <CleanCombobox
-                                        items={statList}
-                                        className="m-1 mb-2"
-                                        selected={curCreature.stats.thieving}
-                                        color={"thieving"}
-                                        setSelected={(val) => {
-                                            
-                                            statList.push((curCreature.stats.thieving).toString());
-                                            removeStatlist(val);
-                                            setCurCreature({...curCreature, stats: {...curCreature.stats, thieving: parseFloat(val)}})
-                                        }}
-                                    />
-                                }
-                                {curCreature.level > 1 &&
-                                <input
-                                    type="number"
-                                    className="bg-thieving h-9 rounded-lg justify-end m-1 p-2 w-full"
-                                    value={curCreature.stats.thieving}
-                                    min="-2"
-                                    max={Math.min(maxMain, maxSub - (curCreature.stats.arcana +
-                                                    curCreature.stats.charm +
-                                                    curCreature.stats.crafting +
-                                                    curCreature.stats.medicine +
-                                                    curCreature.stats.nature
-                                                  ))}
-                                    onChange={(e) => setCurCreature({...curCreature, stats: {...curCreature.stats, thieving: parseFloat(e.target.value)}})}
-                                />
-                                }
-                            </div>
-                        </div>
-                        </>
-                        }
-                        
-                        {/* Diceroller version */}
-                        {!edit &&
-                        <div className="grid grid-cols-3 gap-1 justify-left bg-dark-400 p-3 rounded-md flex-wrap w-full m-2 mt-0">    
-                            <div className="bg-body text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.body); setDice([1]);}}>
-                                Body {curCreature.stats.body > 0 ? "+":""}{curCreature.stats.body}
-                            </div>
-                            <div className="bg-mind text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.mind); setDice([1]);}}>
-                                Mind {curCreature.stats.mind > 0 ? "+":""}{curCreature.stats.mind}
-                            </div>
-                            <div className="bg-soul text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.soul); setDice([1]);}}>
-                                Soul {curCreature.stats.soul > 0 ? "+":""}{curCreature.stats.soul}
-                            </div>
-                            <div className="bg-arcana text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.arcana); setDice([1]);}}>
-                                Arcana {curCreature.stats.arcana > 0 ? "+":""}{curCreature.stats.arcana}
-                            </div>
-                            <div className="bg-charm text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.charm); setDice([1]);}}>
-                                Charm {curCreature.stats.charm > 0 ? "+":""}{curCreature.stats.charm}
-                            </div>
-                            <div className="bg-crafting text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.crafting); setDice([1]);}}>
-                                Crafting {curCreature.stats.crafting > 0 ? "+":""}{curCreature.stats.crafting}
-                            </div>
-                            <div className="bg-medicine text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.medicine); setDice([1]);}}>
-                                Medicine {curCreature.stats.medicine > 0 ? "+":""}{curCreature.stats.medicine}
-                            </div>
-                            <div className="bg-nature text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.nature); setDice([1]);}}>
-                                Nature {curCreature.stats.nature > 0 ? "+":""}{curCreature.stats.nature}
-                            </div>
-                            <div className="bg-thieving text-sm lg:text-[1rem] lg:font-bold rounded-xl p-1 m-1 lg:pl-2 pr-2"
-                                onClick={() => {setOpenDice(true); setDiceBonus(curCreature.stats.thieving); setDice([1]);}}>
-                                Thieving {curCreature.stats.thieving > 0 ? "+":""}{curCreature.stats.thieving}
-                            </div>
-                        </div>
-                        }
-
-                        {/* HP/Shielding/Dodge/Ward/Strain/Speed/Combat Dice */}
-                        <div className="flex flex-col justify-between bg-dark-400 m-2 p-2 w-full rounded-md text-sm lg:text-bas">
-                            <div className="lg:flex lg:flex-row grid grid-cols-2 w-full justify-between">
-
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
-                                    HEALTH:
-                                    <div className="flex flex-row justify-center items-center">
+                                {/* Stats */}
+                                <div className="justify-left m-2 mt-0 grid w-full grid-cols-3 flex-wrap gap-1 rounded-md bg-dark-400 p-3">
+                                    <div className="m-1 rounded-xl bg-body p-1 pl-2 pr-2 font-bold">
+                                        Body:
                                         <input
                                             type="number"
-                                            className="h-9 w-16 rounded-lg p-2 mt-1 mr-1 justify-end bg-dark-300 border-solid border-2 border-dark-400"
+                                            className="m-1 h-9 w-full justify-end rounded-lg bg-body p-2"
+                                            value={curCreature.stats.body}
+                                            min="0"
+                                            max={maxMain - (curCreature.stats.mind + curCreature.stats.soul)}
+                                            onChange={(e) =>
+                                                setCurCreature({
+                                                    ...curCreature,
+                                                    stats: { ...curCreature.stats, body: parseFloat(e.target.value) },
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-mind p-1 pl-2 pr-2 font-bold">
+                                        Mind:
+                                        <input
+                                            type="number"
+                                            className="m-1 h-9 w-full justify-end rounded-lg bg-mind p-2"
+                                            value={curCreature.stats.mind}
+                                            min="0"
+                                            max={maxMain - (curCreature.stats.body + curCreature.stats.soul)}
+                                            onChange={(e) =>
+                                                setCurCreature({
+                                                    ...curCreature,
+                                                    stats: { ...curCreature.stats, mind: parseFloat(e.target.value) },
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-soul p-1 pl-2 pr-2 font-bold">
+                                        Soul:
+                                        <input
+                                            type="number"
+                                            className="m-1 h-9 w-full justify-end rounded-lg bg-soul p-2"
+                                            value={curCreature.stats.soul}
+                                            min="0"
+                                            max={maxMain - (curCreature.stats.body + curCreature.stats.mind)}
+                                            onChange={(e) =>
+                                                setCurCreature({
+                                                    ...curCreature,
+                                                    stats: { ...curCreature.stats, soul: parseFloat(e.target.value) },
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-arcana p-1 pl-2 pr-2 font-bold">
+                                        Arcana:
+                                        {curCreature.level == 1 && (
+                                            <CleanCombobox
+                                                items={statList}
+                                                className="m-1 mb-2"
+                                                selected={curCreature.stats.arcana}
+                                                color={"arcana"}
+                                                setSelected={(val) => {
+                                                    statList.push(curCreature.stats.arcana.toString());
+                                                    removeStatlist(val);
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: { ...curCreature.stats, arcana: parseFloat(val) },
+                                                    });
+                                                }}
+                                            />
+                                        )}
+                                        {curCreature.level > 1 && (
+                                            <input
+                                                type="number"
+                                                className="m-1 h-9 w-full justify-end rounded-lg bg-arcana p-2"
+                                                value={curCreature.stats.arcana}
+                                                min="-2"
+                                                max={Math.min(
+                                                    maxMain,
+                                                    maxSub -
+                                                        (curCreature.stats.charm +
+                                                            curCreature.stats.crafting +
+                                                            curCreature.stats.medicine +
+                                                            curCreature.stats.nature +
+                                                            curCreature.stats.thieving)
+                                                )}
+                                                onChange={(e) =>
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: {
+                                                            ...curCreature.stats,
+                                                            arcana: parseFloat(e.target.value),
+                                                        },
+                                                    })
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-charm p-1 pl-2 pr-2 font-bold">
+                                        Charm:
+                                        {curCreature.level == 1 && (
+                                            <CleanCombobox
+                                                items={statList}
+                                                className="m-1 mb-2"
+                                                selected={curCreature.stats.charm}
+                                                color={"charm"}
+                                                setSelected={(val) => {
+                                                    statList.push(curCreature.stats.charm.toString());
+                                                    removeStatlist(val);
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: { ...curCreature.stats, charm: parseFloat(val) },
+                                                    });
+                                                }}
+                                            />
+                                        )}
+                                        {curCreature.level > 1 && (
+                                            <input
+                                                type="number"
+                                                className="m-1 h-9 w-full justify-end rounded-lg bg-charm p-2"
+                                                value={curCreature.stats.charm}
+                                                min="-2"
+                                                max={Math.min(
+                                                    maxMain,
+                                                    maxSub -
+                                                        (curCreature.stats.arcana +
+                                                            curCreature.stats.crafting +
+                                                            curCreature.stats.medicine +
+                                                            curCreature.stats.nature +
+                                                            curCreature.stats.thieving)
+                                                )}
+                                                onChange={(e) =>
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: {
+                                                            ...curCreature.stats,
+                                                            charm: parseFloat(e.target.value),
+                                                        },
+                                                    })
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-crafting p-1 pl-2 pr-2 font-bold">
+                                        Crafting:
+                                        {curCreature.level == 1 && (
+                                            <CleanCombobox
+                                                items={statList}
+                                                className="m-1 mb-2"
+                                                selected={curCreature.stats.crafting}
+                                                color={"crafting"}
+                                                setSelected={(val) => {
+                                                    statList.push(curCreature.stats.crafting.toString());
+                                                    removeStatlist(val);
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: { ...curCreature.stats, crafting: parseFloat(val) },
+                                                    });
+                                                }}
+                                            />
+                                        )}
+                                        {curCreature.level > 1 && (
+                                            <input
+                                                type="number"
+                                                className="m-1 h-9 w-full justify-end rounded-lg bg-crafting p-2"
+                                                value={curCreature.stats.crafting}
+                                                min="-2"
+                                                max={Math.min(
+                                                    maxMain,
+                                                    maxSub -
+                                                        (curCreature.stats.arcana +
+                                                            curCreature.stats.charm +
+                                                            curCreature.stats.medicine +
+                                                            curCreature.stats.nature +
+                                                            curCreature.stats.thieving)
+                                                )}
+                                                onChange={(e) =>
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: {
+                                                            ...curCreature.stats,
+                                                            crafting: parseFloat(e.target.value),
+                                                        },
+                                                    })
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-medicine p-1 pl-2 pr-2 font-bold">
+                                        Medicine:
+                                        {curCreature.level == 1 && (
+                                            <CleanCombobox
+                                                items={statList}
+                                                className="m-1 mb-2"
+                                                selected={curCreature.stats.medicine}
+                                                color={"medicine"}
+                                                setSelected={(val) => {
+                                                    statList.push(curCreature.stats.medicine.toString());
+                                                    removeStatlist(val);
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: { ...curCreature.stats, medicine: parseFloat(val) },
+                                                    });
+                                                }}
+                                            />
+                                        )}
+                                        {curCreature.level > 1 && (
+                                            <input
+                                                type="number"
+                                                className="m-1 h-9 w-full justify-end rounded-lg bg-medicine p-2"
+                                                value={curCreature.stats.medicine}
+                                                min="-2"
+                                                max={Math.min(
+                                                    maxMain,
+                                                    maxSub -
+                                                        (curCreature.stats.arcana +
+                                                            curCreature.stats.charm +
+                                                            curCreature.stats.crafting +
+                                                            curCreature.stats.nature +
+                                                            curCreature.stats.thieving)
+                                                )}
+                                                onChange={(e) =>
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: {
+                                                            ...curCreature.stats,
+                                                            medicine: parseFloat(e.target.value),
+                                                        },
+                                                    })
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="m-1 rounded-xl bg-nature p-1 pl-2 pr-2 font-bold">
+                                        Nature:
+                                        {curCreature.level == 1 && (
+                                            <CleanCombobox
+                                                items={statList}
+                                                className="m-1 mb-2"
+                                                selected={curCreature.stats.nature}
+                                                color={"nature"}
+                                                setSelected={(val) => {
+                                                    statList.push(curCreature.stats.nature.toString());
+                                                    removeStatlist(val);
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: { ...curCreature.stats, nature: parseFloat(val) },
+                                                    });
+                                                }}
+                                            />
+                                        )}
+                                        {curCreature.level > 1 && (
+                                            <input
+                                                type="number"
+                                                className="m-1 h-9 w-full justify-end rounded-lg bg-nature p-2"
+                                                value={curCreature.stats.nature}
+                                                min="-2"
+                                                max={Math.min(
+                                                    maxMain,
+                                                    maxSub -
+                                                        (curCreature.stats.arcana +
+                                                            curCreature.stats.charm +
+                                                            curCreature.stats.crafting +
+                                                            curCreature.stats.medicine +
+                                                            curCreature.stats.thieving)
+                                                )}
+                                                onChange={(e) =>
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: {
+                                                            ...curCreature.stats,
+                                                            nature: parseFloat(e.target.value),
+                                                        },
+                                                    })
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="m-1 items-center rounded-xl bg-thieving p-1 pl-2 pr-2 font-bold">
+                                        Thieving:
+                                        {curCreature.level == 1 && (
+                                            <CleanCombobox
+                                                items={statList}
+                                                className="m-1 mb-2"
+                                                selected={curCreature.stats.thieving}
+                                                color={"thieving"}
+                                                setSelected={(val) => {
+                                                    statList.push(curCreature.stats.thieving.toString());
+                                                    removeStatlist(val);
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: { ...curCreature.stats, thieving: parseFloat(val) },
+                                                    });
+                                                }}
+                                            />
+                                        )}
+                                        {curCreature.level > 1 && (
+                                            <input
+                                                type="number"
+                                                className="m-1 h-9 w-full justify-end rounded-lg bg-thieving p-2"
+                                                value={curCreature.stats.thieving}
+                                                min="-2"
+                                                max={Math.min(
+                                                    maxMain,
+                                                    maxSub -
+                                                        (curCreature.stats.arcana +
+                                                            curCreature.stats.charm +
+                                                            curCreature.stats.crafting +
+                                                            curCreature.stats.medicine +
+                                                            curCreature.stats.nature)
+                                                )}
+                                                onChange={(e) =>
+                                                    setCurCreature({
+                                                        ...curCreature,
+                                                        stats: {
+                                                            ...curCreature.stats,
+                                                            thieving: parseFloat(e.target.value),
+                                                        },
+                                                    })
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                </div>
+                            </>
+                        )}
+
+                        {/* Diceroller version */}
+                        {!edit && (
+                            <div className="justify-left m-2 mt-0 grid w-full grid-cols-3 flex-wrap gap-1 rounded-md bg-dark-400 p-3">
+                                <div
+                                    className="m-1 rounded-xl bg-body p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.body);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Body {curCreature.stats.body > 0 ? "+" : ""}
+                                    {curCreature.stats.body}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-mind p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.mind);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Mind {curCreature.stats.mind > 0 ? "+" : ""}
+                                    {curCreature.stats.mind}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-soul p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.soul);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Soul {curCreature.stats.soul > 0 ? "+" : ""}
+                                    {curCreature.stats.soul}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-arcana p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.arcana);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Arcana {curCreature.stats.arcana > 0 ? "+" : ""}
+                                    {curCreature.stats.arcana}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-charm p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.charm);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Charm {curCreature.stats.charm > 0 ? "+" : ""}
+                                    {curCreature.stats.charm}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-crafting p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.crafting);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Crafting {curCreature.stats.crafting > 0 ? "+" : ""}
+                                    {curCreature.stats.crafting}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-medicine p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.medicine);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Medicine {curCreature.stats.medicine > 0 ? "+" : ""}
+                                    {curCreature.stats.medicine}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-nature p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.nature);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Nature {curCreature.stats.nature > 0 ? "+" : ""}
+                                    {curCreature.stats.nature}
+                                </div>
+                                <div
+                                    className="m-1 rounded-xl bg-thieving p-1 pr-2 text-sm lg:pl-2 lg:text-[1rem] lg:font-bold"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(curCreature.stats.thieving);
+                                        setDice([1]);
+                                    }}
+                                >
+                                    Thieving {curCreature.stats.thieving > 0 ? "+" : ""}
+                                    {curCreature.stats.thieving}
+                                </div>
+                            </div>
+                        )}
+
+                        {/* HP/Shielding/Dodge/Ward/Strain/Speed/Combat Dice */}
+                        <div className="lg:text-bas m-2 flex w-full flex-col justify-between rounded-md bg-dark-400 p-2 text-sm">
+                            <div className="grid w-full grid-cols-2 justify-between lg:flex lg:flex-row">
+                                <div className="m-2 flex flex-col rounded-md bg-dark-300 p-2">
+                                    HEALTH:
+                                    <div className="flex flex-row items-center justify-center">
+                                        <input
+                                            type="number"
+                                            className="mr-1 mt-1 h-9 w-16 justify-end rounded-lg border-2 border-solid border-dark-400 bg-dark-300 p-2"
                                             value={curHP}
                                             min="0"
                                             onChange={(e) => setCurHP(parseFloat(e.target.value))}
                                         />
-                                        / {4*curCreature.stats.body +
-                                           3*curCreature.stats.mind +
-                                           2*curCreature.stats.soul +
-                                           Math.ceil(curCreature.level)}
+                                        /{" "}
+                                        {4 * curCreature.stats.body +
+                                            3 * curCreature.stats.mind +
+                                            2 * curCreature.stats.soul +
+                                            Math.ceil(curCreature.level)}
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
+                                <div className="m-2 flex flex-col rounded-md bg-dark-300 p-2">
                                     SHIELDING:
-                                    <div className="flex flex-row justify-center items-center">
+                                    <div className="flex flex-row items-center justify-center">
                                         <input
                                             type="number"
-                                            className="h-9 w-16 rounded-lg p-2 mt-1 mr-1 justify-end bg-dark-300 border-solid border-2 border-dark-400"
+                                            className="mr-1 mt-1 h-9 w-16 justify-end rounded-lg border-2 border-solid border-dark-400 bg-dark-300 p-2"
                                             min="0"
                                             value={curCreature.shielding}
-                                            onChange={(e) => setCurCreature({...curCreature, shielding: parseFloat(e.target.value)})}
+                                            onChange={(e) =>
+                                                setCurCreature({
+                                                    ...curCreature,
+                                                    shielding: parseFloat(e.target.value),
+                                                })
+                                            }
                                         />
                                         / {curMaxShield}
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center">
+                                <div className="m-2 flex flex-col items-center justify-center rounded-md bg-dark-300 p-2">
                                     <div className="mb-2">
-                                    DODGE: {curCreature.items.includes("light leather") || curCreature.items.includes("clothing") ? "+1": curCreature.items.includes("heavy plate") ? "-1" : "0"}
+                                        DODGE:{" "}
+                                        {curCreature.items.includes("light leather") ||
+                                        curCreature.items.includes("clothing")
+                                            ? "+1"
+                                            : curCreature.items.includes("heavy plate")
+                                              ? "-1"
+                                              : "0"}
                                     </div>
-                                    
-                                    SPEED: {curCreature.items.includes("clothing") ? "7": curCreature.items.includes("heavy plate") || curCreature.items.includes("medium chainmail") ? "5" : "6"}
+                                    SPEED:{" "}
+                                    {curCreature.items.includes("clothing")
+                                        ? "7"
+                                        : curCreature.items.includes("heavy plate") ||
+                                            curCreature.items.includes("medium chainmail")
+                                          ? "5"
+                                          : "6"}
                                 </div>
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2 justify-center items-center"
-                                        onClick={() => {setOpenDice(true); setDiceBonus(0); setDice(new Array((4+Math.floor(curCreature.level/2))).fill(1));}}>
+                                <div
+                                    className="m-2 flex flex-col items-center justify-center rounded-md bg-dark-300 p-2"
+                                    onClick={() => {
+                                        setOpenDice(true);
+                                        setDiceBonus(0);
+                                        setDice(new Array(4 + Math.floor(curCreature.level / 2)).fill(1));
+                                    }}
+                                >
                                     CD:
-                                    <div className="flex flex-row justify-center items-center font-bold">
-                                        {4+Math.floor(curCreature.level/2)}
+                                    <div className="flex flex-row items-center justify-center font-bold">
+                                        {4 + Math.floor(curCreature.level / 2)}
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col bg-dark-300 p-2 rounded-md m-2">
+                                <div className="m-2 flex flex-col rounded-md bg-dark-300 p-2">
                                     STRAIN:
-                                    <div className="flex flex-row justify-center items-center">
+                                    <div className="flex flex-row items-center justify-center">
                                         <input
                                             type="number"
-                                            className="h-9 w-16 rounded-lg p-2 mt-1 mr-1 justify-end bg-dark-300 border-solid border-2 border-dark-400"
+                                            className="mr-1 mt-1 h-9 w-16 justify-end rounded-lg border-2 border-solid border-dark-400 bg-dark-300 p-2"
                                             value={curStrain}
                                             min="0"
                                             onChange={(e) => setCurStrain(parseFloat(e.target.value))}
                                         />
-                                        / {2*curCreature.stats.body +
-                                           3*curCreature.stats.mind + 
-                                           4*curCreature.stats.soul + 
-                                           Math.ceil(curCreature.level)}
+                                        /{" "}
+                                        {2 * curCreature.stats.body +
+                                            3 * curCreature.stats.mind +
+                                            4 * curCreature.stats.soul +
+                                            Math.ceil(curCreature.level)}
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                     {/* Stories */}
-                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2 break-inside-avoid">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1 underline">
+                    <div className="m-2 flex break-inside-avoid flex-col rounded-md bg-dark-400 p-1">
+                        <h3 className="m-1 rounded-md bg-dark-300 p-1 font-bold underline">
                             <a href="https://quiltic.github.io/rpg-hell-frontend/rulebook/character-creation#stories">
                                 Stories
                             </a>
@@ -761,61 +922,75 @@ export default function PinnedCharSheet(
                         <textarea
                             placeholder="Here is a spot for your Stories!
 There is a link above for what a Story is!"
-                            className="bg-dark-300 h-full rounded-lg p-1 m-1"
+                            className="m-1 h-full rounded-lg bg-dark-300 p-1"
                             value={curCreature.stories}
-                            onChange={(e) => setCurCreature({...curCreature, stories: e.target.value})}
+                            onChange={(e) => setCurCreature({ ...curCreature, stories: e.target.value })}
                         />
                     </div>
 
                     {/* Weps */}
-                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">WEAPONS</h3>
+                    <div className="m-2 flex flex-col rounded-md bg-dark-400 p-1">
+                        <h3 className="m-1 rounded-md bg-dark-300 p-1 font-bold">WEAPONS</h3>
 
                         <div className="lg:grid lg:grid-cols-2">
-                            {curItems.map( (i,id) => {return (
-                                <>
-                                {(i.tags.includes("weapon") || i.tags.includes("side")) && 
-                                    <ItemCard _item={{...i, upgrades:[]}} _className="m-1" key={"weps_"+id}
-                                    moveItem={() => {edit ? removeFromPinnedItems(i) : {}}}
-                                />}
-
-                                </>
-                            );})}
+                            {curItems.map((i, id) => {
+                                return (
+                                    <>
+                                        {(i.tags.includes("weapon") || i.tags.includes("side")) && (
+                                            <ItemCard
+                                                _item={{ ...i, upgrades: [] }}
+                                                _className="m-1"
+                                                key={"weps_" + id}
+                                                moveItem={() => {
+                                                    edit ? removeFromPinnedItems(i) : {};
+                                                }}
+                                            />
+                                        )}
+                                    </>
+                                );
+                            })}
                         </div>
                     </div>
 
                     {/* Items */}
-                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ITEMS</h3>
+                    <div className="m-2 flex flex-col rounded-md bg-dark-400 p-1">
+                        <h3 className="m-1 rounded-md bg-dark-300 p-1 font-bold">ITEMS</h3>
                         <div className="grid grid-cols-2">
-                            {displayedItems.filter((item) => {
-                                return (curCreature.items.includes(item.name));
-                            }).map( (i,id) => {return (
-                                <>
-                                {
-                                    (!i.tags.includes("weapon") && !i.tags.includes("side")) &&
-                                    <Tooltip text={i.name} key={"items_"+id}
-                                            display={
-                                                <ItemCard _item={{...i, upgrades:[]}} _className="m-1 w-96"
-                                                moveItem={() => {edit ? removeFromPinnedItems(i) : {}}}
+                            {displayedItems
+                                .filter((item) => {
+                                    return curCreature.items.includes(item.name);
+                                })
+                                .map((i, id) => {
+                                    return (
+                                        <>
+                                            {!i.tags.includes("weapon") && !i.tags.includes("side") && (
+                                                <Tooltip
+                                                    text={i.name}
+                                                    key={"items_" + id}
+                                                    display={
+                                                        <ItemCard
+                                                            _item={{ ...i, upgrades: [] }}
+                                                            _className="m-1 w-96"
+                                                            moveItem={() => {
+                                                                edit ? removeFromPinnedItems(i) : {};
+                                                            }}
+                                                        />
+                                                    }
+                                                    className="m-1 rounded-md bg-dark-300 p-1 capitalize"
                                                 />
-                                            } 
-                                            className="capitalize rounded-md bg-dark-300 p-1 m-1"
-                                    />
-                                }
-                                
-                                </>
-                            );})}
+                                            )}
+                                        </>
+                                    );
+                                })}
                         </div>
                         <textarea
                             placeholder="For any new items you pick up along the way."
-                            className="bg-dark-300 h-auto w-[100%] rounded-lg p-1 m-1 mt-3"
+                            className="m-1 mt-3 h-auto w-[100%] rounded-lg bg-dark-300 p-1"
                             value={curCreature.items_unlisted}
-                            onChange={(e) => setCurCreature({...curCreature, items_unlisted: e.target.value})}
+                            onChange={(e) => setCurCreature({ ...curCreature, items_unlisted: e.target.value })}
                         />
                     </div>
                 </div>
-                
 
                 {/* Descriptor/How Act */}
                 {/* <div className="flex flex-row italic bg-dark-400 m-2 ptlr-2">
@@ -835,114 +1010,168 @@ There is a link above for what a Story is!"
                     />
                 </div> */}
 
-
                 {/* Line */}
-                <div className="flex flex-row items-center bg-dark-400 border-2 border-body-700/20 m-2"></div>
+                <div className="m-2 flex flex-row items-center border-2 border-body-700/20 bg-dark-400"></div>
 
-                
-
-                <div className="lg:grid lg:grid-cols-2 items-center bg-dark rounded-md justify-between">
+                <div className="items-center justify-between rounded-md bg-dark lg:grid lg:grid-cols-2">
                     {/* Traits */}
-                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">TRAITS</h3>
+                    <div className="m-2 flex flex-col rounded-md bg-dark-400 p-1">
+                        <h3 className="m-1 rounded-md bg-dark-300 p-1 font-bold">TRAITS</h3>
 
-                        {edit && curCreature.traits.split(".").length <= curCreature.level+1 &&
-                        <div className="lg:grid lg:grid-cols-3">
-                            {displayedTraits.filter((trait) => {
-                                if (curCreature.traits.includes(trait.name)) // no need to show a pinned item here
-                                    return false;
-                                let stat = trait.req.split(" ");
-                                return(curCreature.stats[stat[0]] >= parseInt(stat[1].replace(",","")));
-                            }
-                            ).map((statFoundTrait:Trait, id:number) => {
-                                // const foundArt = arts.find((art) => {return (art.name == list)});
-                                return ( 
-                                <>
-                                    {
-
-                                    <div key={"trait_pick_"+id} className="flex flex-row justify-center items-center"
-                                    onClick={() => {setCurCreature({...curCreature, traits: curCreature.traits+"."+statFoundTrait.name})}}
-                                    >
-                                        <Tooltip text={capitalize(statFoundTrait.name)}
-                                                display={<>
-                                                {/* <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PIN ME</h3> */}
-                                                <TraitCard _trait={statFoundTrait} _className="m-1 w-96 clickable"/>
-                                                </>} 
-                                                className="rounded-md bg-dark-300 p-1 m-1"
-                                        />
-                                    </div>
-                                    
-                                    }
-                                </>
-                                )
-                            })}
-                        </div>}
+                        {edit && curCreature.traits.split(".").length <= curCreature.level + 1 && (
+                            <div className="lg:grid lg:grid-cols-3">
+                                {displayedTraits
+                                    .filter((trait) => {
+                                        if (curCreature.traits.includes(trait.name))
+                                            // no need to show a pinned item here
+                                            return false;
+                                        let stat = trait.req.split(" ");
+                                        return curCreature.stats[stat[0]] >= parseInt(stat[1].replace(",", ""));
+                                    })
+                                    .map((statFoundTrait: Trait, id: number) => {
+                                        // const foundArt = arts.find((art) => {return (art.name == list)});
+                                        return (
+                                            <>
+                                                {
+                                                    <div
+                                                        key={"trait_pick_" + id}
+                                                        className="flex flex-row items-center justify-center"
+                                                        onClick={() => {
+                                                            setCurCreature({
+                                                                ...curCreature,
+                                                                traits: curCreature.traits + "." + statFoundTrait.name,
+                                                            });
+                                                        }}
+                                                    >
+                                                        <Tooltip
+                                                            text={capitalize(statFoundTrait.name)}
+                                                            display={
+                                                                <>
+                                                                    {/* <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PIN ME</h3> */}
+                                                                    <TraitCard
+                                                                        _trait={statFoundTrait}
+                                                                        _className="m-1 w-96 clickable"
+                                                                    />
+                                                                </>
+                                                            }
+                                                            className="m-1 rounded-md bg-dark-300 p-1"
+                                                        />
+                                                    </div>
+                                                }
+                                            </>
+                                        );
+                                    })}
+                            </div>
+                        )}
 
                         <div className="lg:grid lg:grid-cols-2">
-
-                            {displayedTraits.filter((trait) => {
-                                return (curCreature.traits.includes(trait.name));
-                            }).map( (t:Trait, id:number) => { return (
-                                <TraitCard _trait={t} _className="m-1" moveTrait={
-                                () => edit ? setCurCreature({...curCreature, traits: curCreature.traits.replace("."+t.name,'')})
-                                 : {}} key={"traits_"+id}/>
-                            )})}
-
+                            {displayedTraits
+                                .filter((trait) => {
+                                    return curCreature.traits.includes(trait.name);
+                                })
+                                .map((t: Trait, id: number) => {
+                                    return (
+                                        <TraitCard
+                                            _trait={t}
+                                            _className="m-1"
+                                            moveTrait={() =>
+                                                edit
+                                                    ? setCurCreature({
+                                                          ...curCreature,
+                                                          traits: curCreature.traits.replace("." + t.name, ""),
+                                                      })
+                                                    : {}
+                                            }
+                                            key={"traits_" + id}
+                                        />
+                                    );
+                                })}
                         </div>
                     </div>
-                        
+
                     {/* Arts */}
-                    <div className="flex flex-col bg-dark-400 rounded-md p-1 m-2">
-                        <h3 className="font-bold bg-dark-300 rounded-md p-1 m-1">ARTS</h3>
+                    <div className="m-2 flex flex-col rounded-md bg-dark-400 p-1">
+                        <h3 className="m-1 rounded-md bg-dark-300 p-1 font-bold">ARTS</h3>
 
-                        {edit && curCreature.arts.split(".").length <= curCreature.level+1 &&
-                        <div className="lg:grid lg:grid-cols-3">
-                            {displayedSpells.filter((art) => {
-                                if (curCreature.arts.includes(art.name)) // no need to show a pinned item here
-                                    return false;
-                                return(
-                                    (curCreature.stats[art.stat] >= (1+Math.floor((curCreature.level-1)/2))) &&
-                                    (curCreature.level >= art.level)
-                                );
-                            }
-                            ).map((statFoundArt:Spell, id:number) => {
-                                // const foundArt = arts.find((art) => {return (art.name == list)});
-                                return ( 
-                                <>
-                                    {
-
-                                    <div key={"art_pick_"+id} className="flex flex-row justify-center items-center"
-                                    onClick={() => {setCurCreature({...curCreature, arts: curCreature.arts+"."+statFoundArt.name})}}
-                                    >
-                                        <Tooltip text={capitalize(statFoundArt.name)}
-                                                display={<>
-                                                {/* <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PIN ME</h3> */}
-                                                <ArtCard _spell={statFoundArt} _className="m-1 w-96 clickable"/>
-                                                </>} 
-                                                className="rounded-md bg-dark-300 p-1 m-1"
-                                        />
-                                    </div>
-                                    
-                                    }
-                                </>
-                                )
-                            })}
-                        </div>}
+                        {edit && curCreature.arts.split(".").length <= curCreature.level + 1 && (
+                            <div className="lg:grid lg:grid-cols-3">
+                                {displayedSpells
+                                    .filter((art) => {
+                                        if (curCreature.arts.includes(art.name))
+                                            // no need to show a pinned item here
+                                            return false;
+                                        return (
+                                            curCreature.stats[art.stat] >=
+                                                1 + Math.floor((curCreature.level - 1) / 2) &&
+                                            curCreature.level >= art.level
+                                        );
+                                    })
+                                    .map((statFoundArt: Spell, id: number) => {
+                                        // const foundArt = arts.find((art) => {return (art.name == list)});
+                                        return (
+                                            <>
+                                                {
+                                                    <div
+                                                        key={"art_pick_" + id}
+                                                        className="flex flex-row items-center justify-center"
+                                                        onClick={() => {
+                                                            setCurCreature({
+                                                                ...curCreature,
+                                                                arts: curCreature.arts + "." + statFoundArt.name,
+                                                            });
+                                                        }}
+                                                    >
+                                                        <Tooltip
+                                                            text={capitalize(statFoundArt.name)}
+                                                            display={
+                                                                <>
+                                                                    {/* <h3 className="rounded-md bg-dark-300 p-2 -mb-2 mt-1">CLICK TO PIN ME</h3> */}
+                                                                    <ArtCard
+                                                                        _spell={statFoundArt}
+                                                                        _className="m-1 w-96 clickable"
+                                                                        static
+                                                                    />
+                                                                </>
+                                                            }
+                                                            className="m-1 rounded-md bg-dark-300 p-1"
+                                                        />
+                                                    </div>
+                                                }
+                                            </>
+                                        );
+                                    })}
+                            </div>
+                        )}
 
                         <div className="lg:grid lg:grid-cols-2">
-
-                            {displayedSpells.filter((art) => {
-                                return (curCreature.arts.includes(art.name));
-                            }).map( (t:Spell, id:number) => { return (
-                                <ArtCard _spell={t} _className="m-1" moveSpell={
-                                () => edit ? setCurCreature({...curCreature, arts: curCreature.arts.replace("."+t.name,'')})
-                                 : {}} key={"arts_"+id}/>
-                            )})}
-
+                            {displayedSpells
+                                .filter((art) => {
+                                    return curCreature.arts.includes(art.name);
+                                })
+                                .map((t: Spell, id: number) => {
+                                    return (
+                                        <ArtCard
+                                            _spell={t}
+                                            _className="m-1"
+                                            action={
+                                                edit
+                                                    ? {
+                                                          label: "Remove",
+                                                          onClick: () =>
+                                                              setCurCreature({
+                                                                  ...curCreature,
+                                                                  arts: curCreature.arts.replace("." + t.name, ""),
+                                                              }),
+                                                      }
+                                                    : undefined
+                                            }
+                                            key={"arts_" + id}
+                                        />
+                                    );
+                                })}
                         </div>
                     </div>
                 </div>
-
             </div>
 
             {/* <textarea name="json" id="json" className="bg-dark-600 rounded-md border-solid border-2 border-body-700/20 h-44 m-4 p-2" value={JSON.stringify(curCreature).concat(",")}/>
@@ -960,5 +1189,3 @@ There is a link above for what a Story is!"
         </div>
     );
 }
-
-
