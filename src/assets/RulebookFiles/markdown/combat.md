@@ -55,6 +55,8 @@ _These are actions every creature has access to._
 
 ::definitions{name="use a non-attack item"}
 
+::definitions{name="help"}
+
 ## Damage and Armor
 
 Your Health is how much you can take before you are put on Death's Door, and is calculated by <span style="font-family: monospace; font-size: 1.3em">Health = Level + 4\*Body + 3\*Mind + 2\*Soul</span>

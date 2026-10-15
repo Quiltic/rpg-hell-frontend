@@ -117,6 +117,20 @@ Here are a simplified listing of when it would be best to use a specific stat wh
 
 ::definitions{name="rest"}
 
+## Basic Actions
+
+::definitions{name="attack"}
+
+::definitions{name="grapple"}
+
+::definitions{name="stealth"}
+
+::definitions{name="lock a dice"}
+
+::definitions{name="activate an art"}
+
+::definitions{name="help"}
+
 ## Exhaustion
 
 Certain activities or overexerting yourself may result in gaining Exhaustion. Some examples include not Resting, eating, or drinking for long periods of time.

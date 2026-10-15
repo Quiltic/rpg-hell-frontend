@@ -349,21 +349,7 @@
         "cost": 0,
         "tier": 1
     },
-    {
-        "name": "heavy plate",
-        "description": "",
-        "effect": "While worn gain 1 Shielding and -1 Dodge.",
-        "upgrades": [
-            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
-            "Paladin - Gain Empowered or Warded at the start of Combat.",
-            "Fortified - Has +1 Shielding (for 2).",
-            "Quick Release - You may lose all Shielding to gain +2 Speed."
-        ],
-        "tags": "armor, body 1",
-        "rarity": "mundane",
-        "cost": 0,
-        "tier": 1
-    },
+    
     {
         "name": "light leather",
         "description": "",
@@ -374,6 +360,21 @@
             "Stiffen - Gain +1 Shielding."
         ],
         "tags": "armor",
+        "rarity": "mundane",
+        "cost": 0,
+        "tier": 1
+    },
+    {
+        "name": "heavy half-plate",
+        "description": "",
+        "effect": "While worn gain 2xLEVEL Max Health and -1 Speed.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
+            "Paladin - Gain Empowered or Warded at the start of Combat.",
+            "Fortified - Has +1 Shielding.",
+            "Quick Release - You may lose all Shielding to gain +2 Speed."
+        ],
+        "tags": "armor, body 1",
         "rarity": "mundane",
         "cost": 0,
         "tier": 1
@@ -395,10 +396,9 @@
     {
         "name": "shield",
         "description": "",
-        "effect": "While held you have +1 Shielding, and can Hunker Down even without some form of cover.",
+        "effect": "While held, at the end of a Break or Rest gain Warded.\nAdditionally, you may Hunker Down even without some form of cover.",
         "upgrades": [
-            "Tower - +1 Shielding",
-            "Warded - Gain Warded at the end of a Rest."
+            "Tower - +1 Shielding"
         ],
         "tags": "shield, side",
         "rarity": "mundane",
@@ -681,6 +681,24 @@
         ],
         "tags": "weapon, range 6, loading 2, mind 1",
         "rarity": "mundane",
+        "cost": 0,
+        "tier": 2
+    },
+
+
+
+    {
+        "name": "heavy plate",
+        "description": "",
+        "effect": "While worn gain 1 Shielding and -1 Dodge.",
+        "upgrades": [
+            "Custom Made - Choose a Sub-Stat and gain +STAT Max Health.", 
+            "Paladin - Gain Empowered or Warded at the start of Combat.",
+            "Fortified - Has +1 Shielding.",
+            "Quick Release - You may lose all Shielding to gain +2 Speed."
+        ],
+        "tags": "armor, body 2",
+        "rarity": "uncommon",
         "cost": 0,
         "tier": 2
     }
