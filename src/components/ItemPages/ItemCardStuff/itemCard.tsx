@@ -58,7 +58,7 @@ export default function ItemCard({
                     if (moveItem != undefined) moveItem(_item);
                 }}
             >
-                <div className="flex flex-row items-center justify-between rounded-md bg-dark">
+                <div className="flex flex-row items-center justify-between bg-dark">
                     <div
                         className={cn("flex items-center capitalize", _item.tags.length > 20 ? "flex-col" : "flex-row")}
                     >

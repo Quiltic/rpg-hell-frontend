@@ -105,7 +105,7 @@ export default function ArtCard({
     );
 
     const panel = (
-        <div className="px-3 pb-3 pt-2 text-left">
+        <div className="flex flex-1 flex-col px-3 pb-3 pt-2 text-left">
             <div className="flex flex-wrap items-center gap-x-1 text-sm">
                 {req}
                 <span className="font-bold text-light-300">({activatorHash[_spell.activators - 1]})</span>
@@ -134,7 +134,7 @@ export default function ArtCard({
             })}
 
             {action && (
-                <div className="mt-3 flex justify-end">
+                <div className="mt-auto flex justify-end pt-3">
                     <Button
                         variant={action.variant ?? "dark"}
                         size="md"
@@ -157,7 +157,7 @@ export default function ArtCard({
                 )}
             >
                 <div className={cn("w-1 shrink-0", accent)} />
-                <div className="min-w-0 flex-1 overflow-auto">
+                <div className="flex min-w-0 flex-1 flex-col overflow-auto">
                     {isStatic ? (
                         <>
                             <div className={rowClass}>{row}</div>
@@ -172,7 +172,7 @@ export default function ArtCard({
                                     </Disclosure.Button>
                                     <Disclosure.Panel
                                         static
-                                        className={cn(!open && "hidden print:block")}
+                                        className={cn("flex flex-1 flex-col", !open && "hidden print:flex")}
                                     >
                                         {panel}
                                     </Disclosure.Panel>
