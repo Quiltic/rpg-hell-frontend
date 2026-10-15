@@ -29,7 +29,7 @@ const activatorHash = ["G", "V", "GV", "L", "GL", "VL", "GVL"];
 /**
  * A collapsible art row showing name, strain and dice costs; opens to the full description.
  * @param _spell - the art to show
- * @param action - optional button shown under the description
+ * @param action - optional button shown at the right end of the top row
  * @param static - keeps the card open with no toggle
  * @example
  * ```tsx
@@ -63,7 +63,7 @@ export default function ArtCard({
         accent = `bg-${path.color}`;
     }
 
-    const rowClass = "flex w-full items-center gap-3 bg-dark px-3 py-2 text-left";
+    const rowClass = "flex min-w-0 flex-1 items-center gap-3 px-3 py-2 text-left";
 
     const row = (
         <>
@@ -119,7 +119,7 @@ export default function ArtCard({
                         remarkPlugins={[remarkGfm]}
                         rehypePlugins={[rehypeRaw]}
                         components={{
-                            ul: ({ node, ...props }) => (
+                            ul: ({ ...props }) => (
                                 <ul
                                     className="md_list"
                                     {...props}
@@ -132,20 +132,21 @@ export default function ArtCard({
                     </Markdown>
                 );
             })}
-
-            {action && (
-                <div className="mt-auto flex justify-end pt-3">
-                    <Button
-                        variant={action.variant ?? "dark"}
-                        size="md"
-                        onClick={action.onClick}
-                    >
-                        {action.label}
-                    </Button>
-                </div>
-            )}
         </div>
     );
+
+    const actionButton = action && (
+        <Button
+            variant={action.variant ?? "dark"}
+            size="sm"
+            className="my-2 mr-3 shrink-0"
+            onClick={action.onClick}
+        >
+            {action.label}
+        </Button>
+    );
+
+    const topRowClass = cn("flex items-center bg-dark", !isStatic && "hover:bg-dark-300");
 
     return (
         <GlossaryTooltipLayer>
@@ -160,16 +161,20 @@ export default function ArtCard({
                 <div className="flex min-w-0 flex-1 flex-col overflow-auto">
                     {isStatic ? (
                         <>
-                            <div className={rowClass}>{row}</div>
+                            <div className={topRowClass}>
+                                <div className={rowClass}>{row}</div>
+                                {actionButton}
+                            </div>
                             {panel}
                         </>
                     ) : (
                         <Disclosure>
                             {({ open }) => (
                                 <>
-                                    <Disclosure.Button className={cn(rowClass, "hover:bg-dark-300")}>
-                                        {row}
-                                    </Disclosure.Button>
+                                    <div className={topRowClass}>
+                                        <Disclosure.Button className={rowClass}>{row}</Disclosure.Button>
+                                        {actionButton}
+                                    </div>
                                     <Disclosure.Panel
                                         static
                                         className={cn("flex flex-1 flex-col", !open && "hidden print:flex")}

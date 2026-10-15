@@ -137,13 +137,6 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
 
                 <div className="grid grid-cols-2 items-center justify-items-center">
                     {player.arts.map((_, id) => {
-                        const changeArt = {
-                            label: "Change",
-                            onClick: () => {
-                                setPicking(id);
-                                setIsOpen(true);
-                            },
-                        };
                         return (
                             <>
                                 {player.arts[id] == "" && (
@@ -162,11 +155,17 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                                 )}
 
                                 {player.arts[id] != "" && (
-                                    <div>
+                                    <div
+                                        className="clickable"
+                                        onClick={() => {
+                                            setPicking(id);
+                                            setIsOpen(true);
+                                        }}
+                                    >
                                         {chosenSpells[id].name != "" && (
                                             <SpellCard
                                                 _spell={chosenSpells[id]}
-                                                action={changeArt}
+                                                static
                                             />
                                         )}
                                         {chosenSpells[id].name == "" && (
@@ -174,7 +173,7 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
                                                 _spell={allSpells.find((art) => {
                                                     return player.arts[id] == art.name;
                                                 })}
-                                                action={changeArt}
+                                                static
                                             />
                                         )}
                                     </div>
