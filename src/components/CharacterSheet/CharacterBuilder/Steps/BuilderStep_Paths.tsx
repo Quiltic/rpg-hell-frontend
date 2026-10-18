@@ -1,11 +1,11 @@
-import pathJson from "../../../assets/OfflineJsons/paths.json";
+import pathJson from "../../../../assets/OfflineJsons/paths.json";
 
-import CleanCombobox from "../../joshhellscapePages/CleanCombobox";
-import { cn } from "../../../styling/utilites";
-import { changeItemInArray } from "../../../util/creatureHelpers";
-import { capitalize } from "../../../util/textFormatting";
-import { Button } from "../../ui/Button/Button";
-import { playerCharacterType } from "../../../types/playerCharacterType";
+import CleanCombobox from "../../../joshhellscapePages/CleanCombobox";
+import { cn } from "../../../../styling/utilites";
+import { changeItemInArray } from "../../../../util/creatureHelpers";
+import { capitalize } from "../../../../util/textFormatting";
+import { Button } from "../../../ui/Button/Button";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
 
 type Props = {
     player: playerCharacterType;

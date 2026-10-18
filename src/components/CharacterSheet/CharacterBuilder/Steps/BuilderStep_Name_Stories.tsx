@@ -1,6 +1,6 @@
-import { playerCharacterType } from "../../../types/playerCharacterType";
-import { Button } from "../../ui/Button/Button";
-import { capitalize } from "../../../util/textFormatting";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
+import { Button } from "../../../ui/Button/Button";
+import { capitalize } from "../../../../util/textFormatting";
 
 type Props = {
     player: playerCharacterType;

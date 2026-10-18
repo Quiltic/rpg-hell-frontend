@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import { useBlocker } from "react-router-dom";
+import { Link, useBlocker } from "react-router-dom";
 import { playerCharacterType } from "../../../types/playerCharacterType";
 import { Item } from "../../../client";
 import { Button } from "../../ui/Button/Button";
 import Popup from "../../ui/Popups/Popup";
 import RefinedCharacterSheet from "../InteractiveCharSheets/RefinedCharacterSheet";
-import BuilderStep_Stats from "./BuilderStep_Stats";
-import BuilderStep_Paths from "./BuilderStep_Paths";
-import BuilderStep_Traits_Arts from "./BuilderStep_Traits_Arts";
-import BuilderStep_Items from "./BuilderStep_Items";
-import BuilderStep_Name_Stories from "./BuilderStep_Name_Stories";
+import BuilderStep_Items from "./Steps/BuilderStep_Items";
+import BuilderStep_Name_Stories from "./Steps/BuilderStep_Name_Stories";
+import BuilderStep_Paths from "./Steps/BuilderStep_Paths";
+import BuilderStep_Stats from "./Steps/BuilderStep_Stats";
+import BuilderStep_Traits_Arts from "./Steps/BuilderStep_Traits_Arts";
 
 const playerCharacter: playerCharacterType = {
     name: "",
@@ -232,6 +232,14 @@ export default function CharacterBuilderPage() {
             {stepnum == STEP_WHERE_CHARACTER_IS_SAVED && (
                 <>
                     <div className="center m-2 flex flex-row bg-dark-400 p-2">
+                        <Link to={"/characters/all"}>
+                            <Button
+                                className="m-2 border-2 border-solid border-nature p-2 pl-4 pr-4"
+                                variant={"link-nature"}
+                            >
+                                Finish
+                            </Button>
+                        </Link>
                         <Button
                             variant="link-medicine"
                             className="m-2 flex items-center justify-center border-2 border-solid border-medicine-400"

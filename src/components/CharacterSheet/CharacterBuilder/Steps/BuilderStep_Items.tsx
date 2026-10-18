@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { Item } from "../../../client";
-import { useItems } from "../../../hooks/useItems";
-import { playerCharacterType } from "../../../types/playerCharacterType";
-import { Button } from "../../ui/Button/Button";
-import Popup from "../../ui/Popups/Popup";
-import { changeItemInArray } from "../../../util/creatureHelpers";
-import ItemCard from "../../ItemPages/ItemCardStuff/itemCard";
-import PickerPart from "./Parts/PickerPart";
+import { Item } from "../../../../client";
+import { useItems } from "../../../../hooks/useItems";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
+import { Button } from "../../../ui/Button/Button";
+import Popup from "../../../ui/Popups/Popup";
+import { changeItemInArray } from "../../../../util/creatureHelpers";
+import ItemCard from "../../../ItemPages/ItemCardStuff/itemCard";
+import PickerPart from ".././Parts/PickerPart";
 
 type Props = {
     player: playerCharacterType;

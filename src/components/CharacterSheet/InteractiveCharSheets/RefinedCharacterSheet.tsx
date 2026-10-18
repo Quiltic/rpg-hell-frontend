@@ -234,7 +234,15 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                         >
                             Rest
                         </Button>
-                        <div className="text-mg ml-2 mr-2 rounded-md bg-dark-300 p-2 md:text-lg">Print</div>
+                        <Button
+                            className="ml-2 mr-2 rounded-md p-2 md:text-lg"
+                            variant={"thieving"}
+                            onClick={() => {
+                                print();
+                            }}
+                        >
+                            Print
+                        </Button>
                     </div>
                 </div>
                 {/* Top Section -> Stats and Tabs */}

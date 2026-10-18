@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Switch } from "@headlessui/react";
-import { cn } from "../../../styling/utilites";
-import { Button } from "../../ui/Button/Button";
-import { changeItemInArray } from "../../../util/creatureHelpers";
-import { playerCharacterType } from "../../../types/playerCharacterType";
+import { cn } from "../../../../styling/utilites";
+import { Button } from "../../../ui/Button/Button";
+import { changeItemInArray } from "../../../../util/creatureHelpers";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
 
 type statline = "" | "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 

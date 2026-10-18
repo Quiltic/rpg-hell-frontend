@@ -1,11 +1,11 @@
-import { changeItemInArray } from "../../../util/creatureHelpers";
-import { playerCharacterType } from "../../../types/playerCharacterType";
+import { changeItemInArray } from "../../../../util/creatureHelpers";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import Popup from "../../ui/Popups/Popup";
+import Popup from "../../../ui/Popups/Popup";
 import { useState } from "react";
-import { useSpells } from "../../../hooks/useSpells";
-import { Spell } from "../../../client";
-import SpellCard from "../../SpellsPages/SpellCardStuff/artCard";
+import { useSpells } from "../../../../hooks/useSpells";
+import { Spell } from "../../../../client";
+import SpellCard from "../../../SpellsPages/SpellCardStuff/artCard";
 
 type Props = {
     player: playerCharacterType;

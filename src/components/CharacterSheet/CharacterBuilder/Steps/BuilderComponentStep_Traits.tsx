@@ -1,11 +1,11 @@
-import { changeItemInArray } from "../../../util/creatureHelpers";
-import { playerCharacterType } from "../../../types/playerCharacterType";
+import { changeItemInArray } from "../../../../util/creatureHelpers";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import Popup from "../../ui/Popups/Popup";
+import Popup from "../../../ui/Popups/Popup";
 import { useState } from "react";
-import { useTraits } from "../../../hooks/useTraits";
-import { Trait } from "../../../client";
-import TraitCard from "../../TraitsPages/TraitCardStuff/traitCard";
+import { useTraits } from "../../../../hooks/useTraits";
+import { Trait } from "../../../../client";
+import TraitCard from "../../../TraitsPages/TraitCardStuff/traitCard";
 
 type Props = {
     player: playerCharacterType;

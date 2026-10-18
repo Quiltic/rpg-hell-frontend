@@ -1,7 +1,7 @@
-import { playerCharacterType } from "../../../types/playerCharacterType";
-import { Button } from "../../ui/Button/Button";
-import pathJson from "../../../assets/OfflineJsons/paths.json";
-import { capitalize } from "../../../util/textFormatting";
+import { playerCharacterType } from "../../../../types/playerCharacterType";
+import { Button } from "../../../ui/Button/Button";
+import pathJson from "../../../../assets/OfflineJsons/paths.json";
+import { capitalize } from "../../../../util/textFormatting";
 import BuilderComponentStep_Traits from "./BuilderComponentStep_Traits";
 import BuilderComponentStep_Arts from "./BuilderComponentStep_Arts";
 
