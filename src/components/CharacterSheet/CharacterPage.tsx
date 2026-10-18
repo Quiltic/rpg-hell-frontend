@@ -45,7 +45,7 @@ const blankPC: playerCharacterType = {
 
 export default function CharacterPage() {
     const [areYouSurePopup, setAreYouSurePopup] = useState(false);
-    const [useTextVs, setUseTextVs] = useState(false);
+    const [txtPopup, setTxtPopup] = useState(false);
 
     const [curCharacter, setCurCharacter] = useState<playerCharacterType>(blankPC);
     const allSavedCharacters = window.localStorage.getItem(`saved-characters`)?.split(";|;") || [];
@@ -67,6 +67,7 @@ export default function CharacterPage() {
 
     return (
         <div className="flex flex-col">
+            {/* Del Popup */}
             <Popup
                 displayedContentName={"Are You Sure?"}
                 displayedContent={
@@ -115,6 +116,20 @@ export default function CharacterPage() {
                 isOpen={areYouSurePopup}
                 setIsOpen={setAreYouSurePopup}
                 isSmol={true}
+            ></Popup>
+
+            {/* Text Popup */}
+            <Popup
+                displayedContentName={"Text Version"}
+                displayedContent={
+                    <TextCharacterSheet
+                        player={curCharacter}
+                        setPlayer={setCurCharacter}
+                    />
+                }
+                isOpen={txtPopup}
+                setIsOpen={setTxtPopup}
+                isSmol={false}
             ></Popup>
 
             {curCharacter.name == "all" && (
@@ -168,58 +183,41 @@ export default function CharacterPage() {
                     <div className="m-2 flex flex-row items-center justify-end rounded-md bg-dark-400 p-2">
                         <Link to={"/characters/all"}>
                             <Button
-                                className="border-2 border-solid border-medicine-400"
+                                className="m-1 ml-3 border-2 border-solid border-nature-400"
+                                variant={"link-nature"}
+                            >
+                                Edit
+                            </Button>
+                        </Link>
+                        <Link to={"/characters/all"}>
+                            <Button
+                                className="m-1 ml-3 border-2 border-solid border-medicine-400"
                                 variant={"link-medicine"}
                             >
                                 Return
                             </Button>
                         </Link>
 
-                        {/* switch */}
-                        <div className="flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
-                            {useTextVs && (
-                                <p className="m-2 flex flex-row items-center justify-center">Disable Text Vs</p>
-                            )}
-                            {!useTextVs && (
-                                <p className="m-2 flex flex-row items-center justify-center">Use Text Version</p>
-                            )}
-
-                            <Switch
-                                checked={useTextVs}
-                                onChange={setUseTextVs}
-                                className={`${
-                                    useTextVs ? "bg-mind" : "bg-dark-700"
-                                } relative inline-flex h-6 w-11 items-center rounded-full`}
-                            >
-                                <span className="sr-only">Switch Text Vs</span>
-                                <span
-                                    className={`${
-                                        useTextVs ? "translate-x-6" : "translate-x-1"
-                                    } inline-block h-4 w-4 transform rounded-full bg-light transition`}
-                                />
-                            </Switch>
-                        </div>
+                        <Button
+                            className="m-1 ml-3"
+                            variant={"finesse"}
+                            onClick={() => setTxtPopup(true)}
+                        >
+                            Text Vs
+                        </Button>
 
                         <Button
-                            className=""
+                            className="m-1 ml-3"
                             variant={"medicine"}
                             onClick={() => setAreYouSurePopup(true)}
                         >
                             Delete
                         </Button>
                     </div>
-                    {!useTextVs && (
-                        <RefinedCharacterSheet
-                            player={curCharacter}
-                            setPlayer={setCurCharacter}
-                        />
-                    )}
-                    {useTextVs && (
-                        <TextCharacterSheet
-                            player={curCharacter}
-                            setPlayer={setCurCharacter}
-                        />
-                    )}
+                    <RefinedCharacterSheet
+                        player={curCharacter}
+                        setPlayer={setCurCharacter}
+                    />
                 </>
             )}
         </div>

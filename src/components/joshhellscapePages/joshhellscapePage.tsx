@@ -45,17 +45,11 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { BaseButton } from "../ui/Button/BaseButton";
 import { cn } from "../../styling/utilites";
 import Pill from "../ui/Pill";
-import BuilderStep1_2 from "../CharacterSheet/CharacterBuilder/BuilderStep1_2";
 import { changeItemInArray } from "../../util/creatureHelpers";
 import { capitalize } from "../../util/textFormatting";
-import BuilderStep3 from "../CharacterSheet/CharacterBuilder/BuilderStep3";
 
 import { PlusIcon } from "@heroicons/react/24/outline";
-import { useTraits } from "../../hooks/useTraits";
 import { playerCharacterType } from "../../types/playerCharacterType";
-import BuilderStep4 from "../CharacterSheet/CharacterBuilder/BuilderComponentStep4";
-import BuilderStep4_5 from "../CharacterSheet/CharacterBuilder/BuilderStep4_5";
-import BuilderStep6 from "../CharacterSheet/CharacterBuilder/BuilderStep6";
 import RefinedCharacterSheet from "../CharacterSheet/InteractiveCharSheets/RefinedCharacterSheet";
 import CharacterBuilderPage from "../CharacterSheet/CharacterBuilder/CharacterBuilderPage";
 
@@ -67,7 +61,6 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Link } from "react-router-dom";
-import TooltipSpell from "../SpellsPages/tooltipSpell";
 import Tooltip from "../ui/Tooltip";
 import TraitCard from "../TraitsPages/TraitCardStuff/traitCard";
 import ItemCard from "../ItemPages/ItemCardStuff/itemCard";
