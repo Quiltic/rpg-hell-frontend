@@ -17,6 +17,8 @@ import { cn } from "../../../styling/utilites";
 import DiceRoller from "../../ui/DiceRoller";
 
 import pathJson from "../../../assets/OfflineJsons/paths.json";
+import { Button } from "../../ui/Button/Button";
+import BreakOrRestPopup from "./Parts/BreakOrRestPopup";
 
 type Props = {
     player: playerCharacterType;
@@ -35,6 +37,9 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
     const [itemDraft, setItemDraft] = useState<string | null>(null);
     const equItems = player.items.filter((item) => item.includes("(equ)"));
     const itemString = itemDraft ?? getItemString(player.items);
+
+    const [breakOrRestPopup, setBreakOrRestPopup] = useState(false);
+    const [useBreak, setUseBreak] = useState(1);
 
     useEffect(() => {
         window.localStorage.setItem(`character-${player.name.toLowerCase().replace(" ", "~")}`, JSON.stringify(player));
@@ -183,6 +188,14 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                 setBonus={setDiceBonus}
             />
 
+            <BreakOrRestPopup
+                player={player}
+                setPlayer={setPlayer}
+                isOpen={breakOrRestPopup}
+                setIsOpen={setBreakOrRestPopup}
+                useBreak={useBreak}
+            />
+
             <div className="m-4 flex flex-col rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
                 {/* Name/Level/Types */}
                 <div className="grid grid-cols-2 rounded-md bg-dark-400">
@@ -201,8 +214,26 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                             Level: {player.level}
                         </div>
                         <div className="text-mg ml-2 mr-2 rounded-md bg-nature-300 p-2 md:text-lg">Lvl Up</div>
-                        <div className="text-mg ml-2 mr-2 rounded-md bg-body-300 p-2 md:text-lg">Break</div>
-                        <div className="text-mg ml-2 mr-2 rounded-md bg-medicine-300 p-2 md:text-lg">Rest</div>
+                        <Button
+                            className=" ml-2 mr-2 rounded-md p-2 md:text-lg"
+                            variant={"soul"}
+                            onClick={() => {
+                                setUseBreak(1);
+                                setBreakOrRestPopup(true);
+                            }}
+                        >
+                            Break
+                        </Button>
+                        <Button
+                            className="ml-2 mr-2 rounded-md p-2 md:text-lg"
+                            variant={"medicine"}
+                            onClick={() => {
+                                setUseBreak(2);
+                                setBreakOrRestPopup(true);
+                            }}
+                        >
+                            Rest
+                        </Button>
                         <div className="text-mg ml-2 mr-2 rounded-md bg-dark-300 p-2 md:text-lg">Print</div>
                     </div>
                 </div>
