@@ -30,4 +30,5 @@ export type playerCharacterType = {
     stories: string;
     description: string;
     notes: string;
+    choices: Array<string>; // We only care about the choices you made for stats. Items are changeable and Arts/Traits are just most recent.
 };
