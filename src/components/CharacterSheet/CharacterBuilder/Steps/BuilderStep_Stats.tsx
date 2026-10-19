@@ -104,6 +104,7 @@ export default function BuilderStep_Stats({
                             </>
                         }
                         startIndex={4}
+                        ignorePast={true}
                     />
 
                     {chosenStats[4] != "" && (
@@ -119,6 +120,7 @@ export default function BuilderStep_Stats({
                             }
                             startIndex={5}
                             doMinus={true}
+                            ignoreNext={true}
                         />
                     )}
                 </div>

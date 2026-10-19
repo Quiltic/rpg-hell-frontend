@@ -11,6 +11,8 @@ type Props = {
     headerLine: any;
     startIndex: number;
     doMinus?: boolean;
+    ignorePast?: boolean;
+    ignoreNext?: boolean;
 };
 
 function changeThenEmpty(
@@ -18,17 +20,19 @@ function changeThenEmpty(
     chosenStats: Array<string>,
     startIndex: number,
     word: string,
-    doMinus: boolean
+    doMinus: boolean,
+    ignoreNext: boolean
 ) {
     const modWord = doMinus ? "-" + word : word;
     setChosenStats(changeItemInArray(chosenStats, startIndex, modWord));
-    setChosenStats(
-        changeItemInArray(
-            chosenStats,
-            startIndex + 1,
-            chosenStats[startIndex + 1] != word ? chosenStats[startIndex + 1] : ""
-        )
-    );
+    if (!ignoreNext)
+        setChosenStats(
+            changeItemInArray(
+                chosenStats,
+                startIndex + 1,
+                chosenStats[startIndex + 1] != word ? chosenStats[startIndex + 1] : ""
+            )
+        );
 }
 
 export default function StatChoicePart({
@@ -38,6 +42,8 @@ export default function StatChoicePart({
     headerLine,
     startIndex,
     doMinus = false,
+    ignorePast = false,
+    ignoreNext = false,
 }: Props) {
     return (
         <>
@@ -118,13 +124,13 @@ export default function StatChoicePart({
                                       ? "arcana"
                                       : "link-arcana"
                             }
-                            disabled={chosenStats[startIndex - 1].includes("arcana")}
+                            disabled={!ignorePast && chosenStats[startIndex - 1].includes("arcana")}
                             className={cn(
                                 "m-1",
                                 chosenStats[startIndex].includes("arcana") ? "ring-2 ring-light/75" : ""
                             )}
                             onClick={() => {
-                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "arcana", doMinus);
+                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "arcana", doMinus, ignoreNext);
                             }}
                         >
                             Arcana
@@ -137,13 +143,13 @@ export default function StatChoicePart({
                                       ? "charm"
                                       : "link-charm"
                             }
-                            disabled={chosenStats[startIndex - 1].includes("charm")}
+                            disabled={!ignorePast && chosenStats[startIndex - 1].includes("charm")}
                             className={cn(
                                 "m-1",
                                 chosenStats[startIndex].includes("charm") ? "ring-2 ring-light/75" : ""
                             )}
                             onClick={() => {
-                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "charm", doMinus);
+                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "charm", doMinus, ignoreNext);
                             }}
                         >
                             Charm
@@ -156,13 +162,20 @@ export default function StatChoicePart({
                                       ? "thieving"
                                       : "link-thieving"
                             }
-                            disabled={chosenStats[startIndex - 1].includes("finesse")}
+                            disabled={!ignorePast && chosenStats[startIndex - 1].includes("finesse")}
                             className={cn(
                                 "m-1",
                                 chosenStats[startIndex].includes("finesse") ? "ring-2 ring-light/75" : ""
                             )}
                             onClick={() => {
-                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "finesse", doMinus);
+                                changeThenEmpty(
+                                    setChosenStats,
+                                    chosenStats,
+                                    startIndex,
+                                    "finesse",
+                                    doMinus,
+                                    ignoreNext
+                                );
                             }}
                         >
                             Finesse
@@ -175,13 +188,13 @@ export default function StatChoicePart({
                                       ? "nature"
                                       : "link-nature"
                             }
-                            disabled={chosenStats[startIndex - 1].includes("nature")}
+                            disabled={!ignorePast && chosenStats[startIndex - 1].includes("nature")}
                             className={cn(
                                 "m-1",
                                 chosenStats[startIndex].includes("nature") ? "ring-2 ring-light/75" : ""
                             )}
                             onClick={() => {
-                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "nature", doMinus);
+                                changeThenEmpty(setChosenStats, chosenStats, startIndex, "nature", doMinus, ignoreNext);
                             }}
                         >
                             Nature

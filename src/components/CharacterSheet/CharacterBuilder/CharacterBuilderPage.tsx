@@ -43,7 +43,7 @@ const playerCharacter: playerCharacterType = {
     stories: "",
     description: "",
     notes: "",
-    choices: [],
+    choices: ["", "", "", "", "", "", "", "", "", "", "", "", "", ""],
 };
 
 const STEP_WHERE_CHARACTER_IS_SAVED = 6;
@@ -53,7 +53,22 @@ type statline = "" | "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" |
 export default function CharacterBuilderPage() {
     // const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
     const [player, setPlayer] = useState(playerCharacter);
-    const [chosenStats, setChosenStats] = useState<Array<statline>>(["", "", "", "", "", "", ""]); // bms -> bms -> strength -> flaw
+    const [chosenStats, setChosenStats] = useState<Array<statline>>([
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    ]); // bms -> bms -> strength -> flaw
     const [chosenItems, setChosenItems] = useState<Array<Item>>([
         { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // wep 1
         { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // wep 2
@@ -97,6 +112,7 @@ export default function CharacterBuilderPage() {
             ...player,
             stats: tempStats,
             calculatedStats: { ...player.calculatedStats, curHp: hp, maxHp: hp, curStrain: strain, maxStrain: strain },
+            choices: chosenStats,
         });
     }, [chosenStats]);
 
