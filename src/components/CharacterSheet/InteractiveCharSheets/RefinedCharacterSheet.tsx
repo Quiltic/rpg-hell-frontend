@@ -509,53 +509,56 @@ There is a link above for what a Story is!"
                         {/* Traits */}
                         <div className="center m-2 flex flex-col rounded-md bg-dark-300 p-2">
                             <h2 className="mt-0">Traits</h2>
-                            {allTraits
-                                .filter((t) => {
-                                    return player.traits.includes(t.name);
-                                })
-                                .map((trait: Trait, id: number) => {
-                                    return (
-                                        <div key={id}>
-                                            {
-                                                trait.effect.toLowerCase().includes("refund") ? (
-                                                    <TraitCard
-                                                        _trait={trait}
-                                                        static={false}
-                                                        action={{
-                                                            label: "Activate",
-                                                            variant: "soul",
-                                                            onClick: () => {
-                                                                const ref = trait.effect
-                                                                    .toLowerCase()
-                                                                    .search(/refund \d/);
-                                                                const num = parseInt(
-                                                                    trait.effect.substring(ref + 7, ref + 8)
-                                                                );
-                                                                const strainChange = Math.min(
-                                                                    player.calculatedStats.curStrain + num,
-                                                                    player.calculatedStats.maxStrain // cant have more than max
-                                                                );
-                                                                setPlayer({
-                                                                    ...player,
-                                                                    calculatedStats: {
-                                                                        ...player.calculatedStats,
-                                                                        curStrain: strainChange,
-                                                                    },
-                                                                });
-                                                            },
-                                                        }}
-                                                    />
-                                                ) : (
-                                                    <TraitCard
-                                                        _trait={trait}
-                                                        _className="m-2"
-                                                        static={false}
-                                                    />
-                                                ) // no need to click if no refund
-                                            }
-                                        </div>
-                                    );
-                                })}
+                            <div className="flex w-full flex-col gap-2">
+                                {allTraits
+                                    .filter((t) => {
+                                        return player.traits.includes(t.name);
+                                    })
+                                    .map((trait: Trait, id: number) => {
+                                        return (
+                                            <div key={id}>
+                                                {
+                                                    trait.effect.toLowerCase().includes("refund") ? (
+                                                        <TraitCard
+                                                            _trait={trait}
+                                                            _className="m-0"
+                                                            static={false}
+                                                            action={{
+                                                                label: "Activate",
+                                                                variant: "soul",
+                                                                onClick: () => {
+                                                                    const ref = trait.effect
+                                                                        .toLowerCase()
+                                                                        .search(/refund \d/);
+                                                                    const num = parseInt(
+                                                                        trait.effect.substring(ref + 7, ref + 8)
+                                                                    );
+                                                                    const strainChange = Math.min(
+                                                                        player.calculatedStats.curStrain + num,
+                                                                        player.calculatedStats.maxStrain // cant have more than max
+                                                                    );
+                                                                    setPlayer({
+                                                                        ...player,
+                                                                        calculatedStats: {
+                                                                            ...player.calculatedStats,
+                                                                            curStrain: strainChange,
+                                                                        },
+                                                                    });
+                                                                },
+                                                            }}
+                                                        />
+                                                    ) : (
+                                                        <TraitCard
+                                                            _trait={trait}
+                                                            _className="m-0"
+                                                            static={false}
+                                                        />
+                                                    ) // no need to click if no refund
+                                                }
+                                            </div>
+                                        );
+                                    })}
+                            </div>
                         </div>
                     </div>
                     <div className="m-2 rounded-md bg-dark-400 p-2">
