@@ -520,26 +520,37 @@ There is a link above for what a Story is!"
                                                 trait.effect.toLowerCase().includes("refund") ? (
                                                     <TraitCard
                                                         _trait={trait}
-                                                        moveTrait={() => {
-                                                            const ref = trait.effect.toLowerCase().search(/refund \d/);
-                                                            const num = parseInt(
-                                                                trait.effect.substring(ref + 7, ref + 8)
-                                                            );
-                                                            const strainChange = Math.min(
-                                                                player.calculatedStats.curStrain + num,
-                                                                player.calculatedStats.maxStrain // cant have more than max
-                                                            );
-                                                            setPlayer({
-                                                                ...player,
-                                                                calculatedStats: {
-                                                                    ...player.calculatedStats,
-                                                                    curStrain: strainChange,
-                                                                },
-                                                            });
+                                                        static={false}
+                                                        action={{
+                                                            label: "Activate",
+                                                            variant: "soul",
+                                                            onClick: () => {
+                                                                const ref = trait.effect
+                                                                    .toLowerCase()
+                                                                    .search(/refund \d/);
+                                                                const num = parseInt(
+                                                                    trait.effect.substring(ref + 7, ref + 8)
+                                                                );
+                                                                const strainChange = Math.min(
+                                                                    player.calculatedStats.curStrain + num,
+                                                                    player.calculatedStats.maxStrain // cant have more than max
+                                                                );
+                                                                setPlayer({
+                                                                    ...player,
+                                                                    calculatedStats: {
+                                                                        ...player.calculatedStats,
+                                                                        curStrain: strainChange,
+                                                                    },
+                                                                });
+                                                            },
                                                         }}
                                                     />
                                                 ) : (
-                                                    <TraitCard _trait={trait} />
+                                                    <TraitCard
+                                                        _trait={trait}
+                                                        _className="m-2"
+                                                        static={false}
+                                                    />
                                                 ) // no need to click if no refund
                                             }
                                         </div>
