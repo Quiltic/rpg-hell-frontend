@@ -14,7 +14,7 @@ import pathJson from "../../../assets/OfflineJsons/paths.json";
 export type ArtAction = {
     label: string;
     onClick: () => void;
-    variant?: "soul" | "dark";
+    variant?: "body" | "mind" | "soul" | "arcana" | "charm" | "crafting" | "nature" | "finesse" | "medicine" | "dark";
 };
 
 type Props = {
@@ -38,7 +38,7 @@ const activatorHash = ["G", "V", "GV", "L", "GL", "VL", "GVL"];
  */
 export default function ArtCard({
     _spell: _spell = {
-        name: "LOADING TRAIT",
+        name: "LOADING ART",
         level: 1,
         stat: "body",
         tags: "loading",

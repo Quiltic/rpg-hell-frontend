@@ -260,7 +260,7 @@ export default function BuilderStep_Items({
                     />
 
                     <ItemCard
-                        _item={allItems.find((item) => item.name == "bandage")} // yeah so it should always find this
+                        _item={allItems.find((item) => item.name == "bandage") as Item} // yeah so it should always find this
                         showUpgrades={false}
                     />
                 </div>

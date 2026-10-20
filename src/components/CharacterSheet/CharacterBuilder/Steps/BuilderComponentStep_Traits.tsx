@@ -1,11 +1,10 @@
-import { changeItemInArray } from "../../../../util/creatureHelpers";
 import { playerCharacterType } from "../../../../types/playerCharacterType";
 import { PlusIcon } from "@heroicons/react/24/outline";
-import Popup from "../../../ui/Popups/Popup";
 import { useState } from "react";
 import { useTraits } from "../../../../hooks/useTraits";
 import { Trait } from "../../../../client";
 import TraitCard from "../../../TraitsPages/TraitCardStuff/traitCard";
+import SwapPopupPart from "../Parts/SwapPopupPart";
 
 type Props = {
     player: playerCharacterType;
@@ -32,7 +31,8 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
     } = useTraits();
 
     console.log(
-        displayedTraits.filter((s) => {
+        allTraits,
+        allTraits.filter((s) => {
             var hasPath = false;
             player.paths.forEach((path) => {
                 hasPath = hasPath || s.req?.toString().includes(path.toLowerCase());
@@ -43,50 +43,25 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
 
     return (
         <>
-            <Popup
-                displayedContentName="Pick a Trait"
+            <SwapPopupPart
+                player={player}
+                setPlayer={setPlayer}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                isSmol={false}
-                displayedContent={
-                    <>
-                        <div className="grid grid-cols-2">
-                            {displayedTraits
-                                .filter((trait) => {
-                                    var hasPath = false;
-                                    player.paths.forEach((path) => {
-                                        // Not already picked, and has the req path.
-                                        hasPath =
-                                            !player.traits.includes(trait.name.toLowerCase()) &&
-                                            (hasPath || trait.req?.toString().includes(path.toLowerCase() + " 1"));
-                                    });
-                                    return hasPath;
-                                })
-                                .map((trait, i) => {
-                                    if (trait.name != "Error") {
-                                        return (
-                                            <div
-                                                className="clickable"
-                                                onClick={() => {
-                                                    setChosenTraits(changeItemInArray(chosenTraits, picking, trait));
-                                                    setPlayer({
-                                                        ...player,
-                                                        traits: changeItemInArray(player.traits, picking, trait.name),
-                                                    });
-                                                    setIsOpen(false);
-                                                }}
-                                            >
-                                                <TraitCard
-                                                    _trait={trait}
-                                                    key={i}
-                                                />
-                                            </div>
-                                        );
-                                    }
-                                })}
-                        </div>
-                    </>
-                }
+                displayedList={allTraits.filter((trait) => {
+                    var hasPath = false;
+                    player.paths.forEach((path) => {
+                        // Not already picked, and has the req path.
+                        hasPath =
+                            !player.traits.includes(trait.name.toLowerCase()) &&
+                            (hasPath || trait.req?.toString().includes(path.toLowerCase() + " 1"));
+                    });
+                    return hasPath;
+                })}
+                chosenList={chosenTraits}
+                setChosenList={setChosenTraits}
+                type={"Trait"}
+                location={picking}
             />
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
@@ -118,9 +93,11 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
                             {chosenTraits[0].name != "" && <TraitCard _trait={chosenTraits[0]} />}
                             {chosenTraits[0].name == "" && (
                                 <TraitCard
-                                    _trait={allTraits.find((trait) => {
-                                        return trait.name == player.traits[0];
-                                    })}
+                                    _trait={
+                                        allTraits.find((trait) => {
+                                            return trait.name == player.traits[0];
+                                        }) as Trait
+                                    }
                                 />
                             )}
                         </div>
@@ -151,9 +128,11 @@ export default function BuilderComponentStep_Traits({ player: player, setPlayer:
                             {chosenTraits[1].name != "" && <TraitCard _trait={chosenTraits[1]} />}
                             {chosenTraits[1].name == "" && (
                                 <TraitCard
-                                    _trait={allTraits.find((trait) => {
-                                        return trait.name == player.traits[1];
-                                    })}
+                                    _trait={
+                                        allTraits.find((trait) => {
+                                            return trait.name == player.traits[1];
+                                        }) as Trait
+                                    }
                                 />
                             )}
                         </div>
