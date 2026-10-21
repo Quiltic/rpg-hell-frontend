@@ -143,30 +143,19 @@ export default function CharacterEditPage() {
 
     useEffect(() => {
         if (player.traits.includes("magical knowledge")) {
-            if (player.arts.length <= 4) setPlayer({ ...player, arts: player.arts.concat(["", ""]) });
+            if (player.arts.length <= 4)
+                setPlayer((prev) => {
+                    return { ...prev, arts: prev.arts.concat(["", ""]) };
+                });
         } else {
-            if (player.arts.length > 4) setPlayer({ ...player, arts: player.arts.slice(0, 4) });
+            if (player.arts.length > 4)
+                setPlayer((prev) => {
+                    return { ...prev, arts: prev.arts.slice(0, 4) };
+                });
         }
-
-        // if (player.traits.includes("body of iron")) {
-        //     chosenItems[2] = {
-        //         name: "body of iron",
-        //         description: "This is not an actual item, just a placeholder for the trait 'Body of Iron'.",
-        //         effect: "While you are not wearing armor, you have +1 Shielding, +1 Speed, and +LEVEL Max Health.",
-        //         upgrades: [],
-        //         tags: "armor, traitReq",
-        //         rarity: "trait",
-        //         cost: 0,
-        //         tier: 1,
-        //     }; // armor
-        // }
-
-        // setPlayer({
-        //     ...player,
-        //     traits: chosenTraits,
-        //     arts: chosenArts
-        // });
-    }, [player.traits]);
+        //sick josh here: this wont include the above code due to race condition
+        window.localStorage.setItem(`character-${player.name.toLowerCase().replace(" ", "~")}`, JSON.stringify(player));
+    }, [player]);
 
     return (
         <div className="">
@@ -221,7 +210,7 @@ export default function CharacterEditPage() {
                 setPlayer={setPlayer}
                 isOpen={showEditArts}
                 setIsOpen={setShowEditArts}
-                displayedList={[]}
+                displayedList={pickingLook}
                 chosenList={chosenArts}
                 setChosenList={setChosenArts}
                 type={"Art"}
@@ -230,11 +219,20 @@ export default function CharacterEditPage() {
 
             {player.name != "all" && (
                 <>
-                    <div className="flex">
+                    <div className="flex items-center justify-center">
                         <Statblock
                             player={player}
                             setPlayer={setPlayer}
                         />
+                        <Button
+                            className=" ml-2 mr-2 rounded-md p-2 md:text-lg"
+                            variant={"body"}
+                            onClick={() => {
+                                setShowEditStats(true);
+                            }}
+                        >
+                            Edit Stats
+                        </Button>
                     </div>
 
                     {/* Traits */}
@@ -242,53 +240,39 @@ export default function CharacterEditPage() {
                         <h2 className="mt-0">Traits</h2>
                         {allTraits
                             .filter((t) => {
-                                if (player.traits.includes(t.name)) console.log(t.name);
+                                // if (player.traits.includes(t.name)) console.log(t.name);
                                 return player.traits.includes(t.name);
                             })
                             .map((trait: Trait, id: number) => {
                                 return (
                                     <div key={id}>
-                                        {
-                                            trait.effect.toLowerCase().includes("refund") ? (
-                                                <TraitCard
-                                                    _trait={trait}
-                                                    static={false}
-                                                    action={{
-                                                        label: "Activate",
-                                                        variant: "arcana",
-                                                        onClick: () => {
-                                                            const lookingTraits = allTraits.filter((trait) => {
-                                                                let hasPath = false;
-                                                                const tier = Math.round(0.39 * id + 0.5).toString(); // (1,1,1,2,2,2,3,3,4,4,5)
-                                                                player.paths.forEach((path) => {
-                                                                    // Not already picked, and has the req path.
-                                                                    hasPath =
-                                                                        !player.traits.includes(
-                                                                            trait.name.toLowerCase()
-                                                                        ) &&
-                                                                        (hasPath ||
-                                                                            trait.req
-                                                                                ?.toString()
-                                                                                .includes(
-                                                                                    path.toLowerCase() + " " + tier
-                                                                                ));
-                                                                });
-                                                                return hasPath;
-                                                            });
-                                                            setPickingLook(lookingTraits);
-                                                            setPicking(id);
-                                                            setShowEditTraits(true);
-                                                        },
-                                                    }}
-                                                />
-                                            ) : (
-                                                <TraitCard
-                                                    _trait={trait}
-                                                    _className="m-2"
-                                                    static={false}
-                                                />
-                                            ) // no need to click if no refund
-                                        }
+                                        <TraitCard
+                                            _trait={trait}
+                                            static={false}
+                                            action={{
+                                                label: "Swap",
+                                                variant: "arcana",
+                                                onClick: () => {
+                                                    const lookingTraits = allTraits.filter((trait) => {
+                                                        let hasPath = false;
+                                                        const tier = Math.round(0.39 * id + 0.5).toString(); // (1,1,1,2,2,2,3,3,4,4,5)
+                                                        player.paths.forEach((path) => {
+                                                            // Not already picked, and has the req path.
+                                                            hasPath =
+                                                                !player.traits.includes(trait.name.toLowerCase()) &&
+                                                                (hasPath ||
+                                                                    trait.req
+                                                                        ?.toString()
+                                                                        .includes(path.toLowerCase() + " " + tier));
+                                                        });
+                                                        return hasPath;
+                                                    });
+                                                    setPickingLook(lookingTraits);
+                                                    setPicking(id);
+                                                    setShowEditTraits(true);
+                                                },
+                                            }}
+                                        />
                                     </div>
                                 );
                             })}
@@ -313,36 +297,27 @@ export default function CharacterEditPage() {
                                             _className="m-0"
                                             action={{
                                                 label: "Activate",
-                                                variant: "soul",
+                                                variant: "arcana",
                                                 onClick: () => {
-                                                    const strainChange = player.calculatedStats.curStrain - art.strain;
-                                                    const hpChange =
-                                                        strainChange < 0 && art.strain > 0
-                                                            ? player.calculatedStats.curHp + strainChange // negative strain = dmg
-                                                            : player.calculatedStats.curHp;
-                                                    const hpLost = player.calculatedStats.curHp - hpChange;
+                                                    const lookingArts = allSpells.filter((spell) => {
+                                                        let hasPath = false;
+                                                        const exses = player.traits.includes("magical knowledge")
+                                                            ? -5
+                                                            : -3;
+                                                        const tier = Math.max(1, Math.round(0.39 * (id + exses) + 0.5)); // (1,1,1,2,2,2,3,3,4,4,5)
 
-                                                    toast(
-                                                        <div className="text-center">
-                                                            Activated <b>{titleCase(art.name)}</b>
-                                                            {art.strain > 0 ? ` for ${art.strain} Strain!` : "!"}
-                                                            {hpLost > 0 && (
-                                                                <div className="italic">
-                                                                    Overstrained: took {hpLost} damage
-                                                                </div>
-                                                            )}
-                                                        </div>,
-                                                        { className: "ring-2 ring-soul-500" }
-                                                    );
+                                                        // Not already picked, and has the req path.
+                                                        hasPath = !player.arts.includes(spell.name.toLowerCase());
+                                                        hasPath = hasPath && spell.level <= tier;
+                                                        hasPath =
+                                                            hasPath && player.paths.includes(spell.stat.toLowerCase());
 
-                                                    setPlayer({
-                                                        ...player,
-                                                        calculatedStats: {
-                                                            ...player.calculatedStats,
-                                                            curStrain: strainChange,
-                                                            curHp: hpChange,
-                                                        },
+                                                        return hasPath;
                                                     });
+                                                    console.log(lookingArts);
+                                                    setPickingLook(lookingArts);
+                                                    setPicking(id);
+                                                    setShowEditArts(true);
                                                 },
                                             }}
                                         />
