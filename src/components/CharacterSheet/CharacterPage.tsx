@@ -41,6 +41,7 @@ const blankPC: playerCharacterType = {
     stories: "",
     description: "",
     notes: "",
+    choices: [],
 };
 
 export default function CharacterPage() {
@@ -181,7 +182,7 @@ export default function CharacterPage() {
             {curCharacter.name != "all" && (
                 <>
                     <div className="m-2 flex flex-row items-center justify-end rounded-md bg-dark-400 p-2">
-                        <Link to={"/characters/all"}>
+                        <Link to={`/characters/edit/${character}`}>
                             <Button
                                 className="m-1 ml-3 border-2 border-solid border-nature-400"
                                 variant={"link-nature"}

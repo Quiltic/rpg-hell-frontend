@@ -43,6 +43,7 @@ const playerCharacter: playerCharacterType = {
     stories: "",
     description: "",
     notes: "",
+    choices: ["", "", "", "", "", "", "", "", "", "", "", "", "", ""],
 };
 
 const STEP_WHERE_CHARACTER_IS_SAVED = 6;
@@ -52,7 +53,22 @@ type statline = "" | "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" |
 export default function CharacterBuilderPage() {
     // const [curCreature, setCurCreature] = useState<Creature>( displayedCreature );
     const [player, setPlayer] = useState(playerCharacter);
-    const [chosenStats, setChosenStats] = useState<Array<statline>>(["", "", "", "", "", ""]); // bms -> bms -> strength -> flaw
+    const [chosenStats, setChosenStats] = useState<Array<statline>>([
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+    ]); // bms -> bms -> strength -> flaw
     const [chosenItems, setChosenItems] = useState<Array<Item>>([
         { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // wep 1
         { name: "", description: "", effect: "", upgrades: [""], tags: "", rarity: "", cost: 0, tier: 0 }, // wep 2
@@ -84,17 +100,10 @@ export default function CharacterBuilderPage() {
             nature: 0,
         };
 
-        // main stats
-        tempStats[chosenStats[0]] += 1;
-        tempStats[chosenStats[1]] += 1;
-
-        // sub stats
-        tempStats[chosenStats[2]] += 1;
-        tempStats[chosenStats[3]] -= 1;
-
-        // deep learning
-        tempStats[chosenStats[4]] += 1;
-        tempStats[chosenStats[5]] -= 1;
+        chosenStats.forEach((stat) => {
+            const amount = stat.includes("-") ? -1 : 1;
+            tempStats[stat.replace("-", "") as statline] += amount;
+        });
 
         const hp = 4 * player.stats.body + 3 * player.stats.mind + 2 * player.stats.soul + player.level;
         const strain = 2 * player.stats.body + 3 * player.stats.mind + 4 * player.stats.soul + player.level;
@@ -103,6 +112,7 @@ export default function CharacterBuilderPage() {
             ...player,
             stats: tempStats,
             calculatedStats: { ...player.calculatedStats, curHp: hp, maxHp: hp, curStrain: strain, maxStrain: strain },
+            choices: chosenStats,
         });
     }, [chosenStats]);
 
@@ -232,7 +242,7 @@ export default function CharacterBuilderPage() {
             {stepnum == STEP_WHERE_CHARACTER_IS_SAVED && (
                 <>
                     <div className="center m-2 flex flex-row bg-dark-400 p-2">
-                        <Link to={"/characters/all"}>
+                        <Link to={`/characters/character-${player.name.toLowerCase().replace(" ", "~")}`}>
                             <Button
                                 className="m-2 border-2 border-solid border-nature p-2 pl-4 pr-4"
                                 variant={"link-nature"}

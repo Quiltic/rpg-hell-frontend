@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useSpells } from "../../../../hooks/useSpells";
 import { Spell } from "../../../../client";
 import SpellCard from "../../../SpellsPages/SpellCardStuff/artCard";
+import SwapPopupPart from "../Parts/SwapPopupPart";
 
 type Props = {
     player: playerCharacterType;
@@ -83,53 +84,25 @@ export default function BuilderComponentStep_Arts({ player: player, setPlayer: s
 
     return (
         <>
-            <Popup
-                displayedContentName="Pick a Art"
+            <SwapPopupPart
+                player={player}
+                setPlayer={setPlayer}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                isSmol={false}
-                displayedContent={
-                    <>
-                        <div className="grid grid-cols-2">
-                            {displayedSpells
-                                .filter((spell) => {
-                                    let hasPath = false;
-                                    player.paths.forEach((path) => {
-                                        // Not already picked, and has the req path.
-                                        hasPath =
-                                            !player.arts.includes(spell.name.toLowerCase()) &&
-                                            (hasPath ||
-                                                (spell.stat?.toString().includes(path.toLowerCase()) &&
-                                                    spell.level == 1));
-                                    });
-                                    return hasPath;
-                                })
-                                .map((spell, i) => {
-                                    if (spell.name != "Error") {
-                                        return (
-                                            <div
-                                                className="clickable"
-                                                key={i}
-                                                onClick={() => {
-                                                    setChosenSpells(changeItemInArray(chosenSpells, picking, spell));
-                                                    setPlayer({
-                                                        ...player,
-                                                        arts: changeItemInArray(player.arts, picking, spell.name),
-                                                    });
-                                                    setIsOpen(false);
-                                                }}
-                                            >
-                                                <SpellCard
-                                                    _spell={spell}
-                                                    static
-                                                />
-                                            </div>
-                                        );
-                                    }
-                                })}
-                        </div>
-                    </>
-                }
+                displayedList={displayedSpells.filter((spell) => {
+                    let hasPath = false;
+                    player.paths.forEach((path) => {
+                        // Not already picked, and has the req path.
+                        hasPath =
+                            !player.arts.includes(spell.name.toLowerCase()) &&
+                            (hasPath || (spell.stat?.toString().includes(path.toLowerCase()) && spell.level == 1));
+                    });
+                    return hasPath;
+                })}
+                chosenList={chosenSpells}
+                setChosenList={setChosenSpells}
+                type={"Art"}
+                location={picking}
             />
 
             <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
