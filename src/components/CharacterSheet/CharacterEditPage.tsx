@@ -86,7 +86,7 @@ export default function CharacterEditPage() {
     ]); // bms -> bms -> strength -> flaw
 
     // we do this as a failsafe in case something is given that doesent exist
-    let { character } = useParams();
+    const { character } = useParams();
     useEffect(() => {
         // console.log(example);
         // setCurCharacter();
@@ -94,7 +94,9 @@ export default function CharacterEditPage() {
         // console.log(JSON.parse(pc),`character-${character?.toLowerCase()}`);
 
         if (pc) {
-            setPlayer(JSON.parse(pc));
+            const parsed: playerCharacterType = JSON.parse(pc);
+            setPlayer(parsed);
+            if (parsed.choices?.length) setChosenStats(parsed.choices as Array<statline>);
             // console.log(JSON.parse(pc),`huh?`);
         } else {
             setPlayer(blankPC);
@@ -121,14 +123,21 @@ export default function CharacterEditPage() {
             tempStats[stat.replace("-", "") as statline] += amount;
         });
 
-        const hp = 4 * player.stats.body + 3 * player.stats.mind + 2 * player.stats.soul + player.level;
-        const strain = 2 * player.stats.body + 3 * player.stats.mind + 4 * player.stats.soul + player.level;
-
-        setPlayer({
-            ...player,
-            stats: tempStats,
-            calculatedStats: { ...player.calculatedStats, curHp: hp, maxHp: hp, curStrain: strain, maxStrain: strain },
-            choices: chosenStats,
+        setPlayer((prev) => {
+            const hp = 4 * tempStats.body + 3 * tempStats.mind + 2 * tempStats.soul + prev.level;
+            const strain = 2 * tempStats.body + 3 * tempStats.mind + 4 * tempStats.soul + prev.level;
+            return {
+                ...prev,
+                stats: tempStats,
+                calculatedStats: {
+                    ...prev.calculatedStats,
+                    curHp: hp,
+                    maxHp: hp,
+                    curStrain: strain,
+                    maxStrain: strain,
+                },
+                choices: chosenStats,
+            };
         });
     }, [chosenStats]);
 
@@ -249,7 +258,7 @@ export default function CharacterEditPage() {
                                                         variant: "arcana",
                                                         onClick: () => {
                                                             const lookingTraits = allTraits.filter((trait) => {
-                                                                var hasPath = false;
+                                                                let hasPath = false;
                                                                 const tier = Math.round(0.39 * id + 0.5).toString(); // (1,1,1,2,2,2,3,3,4,4,5)
                                                                 player.paths.forEach((path) => {
                                                                     // Not already picked, and has the req path.
