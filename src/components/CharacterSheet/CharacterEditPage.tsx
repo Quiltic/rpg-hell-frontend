@@ -217,6 +217,17 @@ export default function CharacterEditPage() {
                 location={picking}
             />
 
+            <div className="m-2 flex flex-row items-center justify-end rounded-md bg-dark-400 p-2">
+                <Link to={`/characters/${character}`}>
+                    <Button
+                        className="m-1 ml-3 border-2 border-solid border-medicine-400"
+                        variant={"link-medicine"}
+                    >
+                        Return
+                    </Button>
+                </Link>
+            </div>
+
             {player.name != "all" && (
                 <>
                     <div className="flex items-center justify-center">
@@ -227,6 +238,7 @@ export default function CharacterEditPage() {
                         <Button
                             className=" ml-2 mr-2 rounded-md p-2 md:text-lg"
                             variant={"body"}
+                            disabled={true}
                             onClick={() => {
                                 setShowEditStats(true);
                             }}
@@ -296,7 +308,7 @@ export default function CharacterEditPage() {
                                             _spell={art}
                                             _className="m-0"
                                             action={{
-                                                label: "Activate",
+                                                label: "Swap",
                                                 variant: "arcana",
                                                 onClick: () => {
                                                     const lookingArts = allSpells.filter((spell) => {
