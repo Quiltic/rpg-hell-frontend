@@ -25,6 +25,33 @@ type Props = {
     setPlayer: (player: playerCharacterType) => void;
 };
 
+let ctrl = false;
+
+// Source - https://stackoverflow.com/a/68072346
+// Posted by daddygames, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-10-22, License - CC BY-SA 4.0
+
+function handleKeydown(event: any) {
+    // console.log(event.key)
+    // if (event.key == "Control+Tab"){
+    //     ctrl = true
+    //     event.preventDefault();
+    // }
+    if (event.key == "Tab") {
+        if (!ctrl) {
+            event.preventDefault();
+            var start = event.target.selectionStart;
+            var end = event.target.selectionEnd;
+            event.target.value = event.target.value.substring(0, start) + "    " + event.target.value.substring(end);
+            event.target.selectionStart = event.target.selectionEnd = start + 4;
+        }
+    }
+}
+
+function handleKeyup(event: any) {
+    if (event.key == "Control") ctrl = false;
+}
+
 export default function RefinedCharacterSheet({ player: player, setPlayer: setPlayer }: Props) {
     const { allTraits } = useTraits();
     const { allSpells } = useSpells();
@@ -318,6 +345,8 @@ export default function RefinedCharacterSheet({ player: player, setPlayer: setPl
                         <Tab.Panels>
                             <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                                 <textarea
+                                    onKeyDown={handleKeydown}
+                                    onKeyUp={handleKeyup}
                                     placeholder="Here is a spot for your Stories!
 There is a link above for what a Story is!"
                                     className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
@@ -327,6 +356,8 @@ There is a link above for what a Story is!"
                             </Tab.Panel>
                             <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                                 <textarea
+                                    onKeyDown={handleKeydown}
+                                    onKeyUp={handleKeyup}
                                     placeholder="You gots no Items!"
                                     className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
                                     value={itemString}
@@ -336,6 +367,8 @@ There is a link above for what a Story is!"
                             </Tab.Panel>
                             <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                                 <textarea
+                                    onKeyDown={handleKeydown}
+                                    onKeyUp={handleKeyup}
                                     placeholder="Here lies Notes... May they rest in piece."
                                     className="m-1 h-64 w-full rounded-lg bg-dark-300 p-1"
                                     value={player.notes}
@@ -419,6 +452,7 @@ There is a link above for what a Story is!"
                         </Tab.Panel>
                         <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                             <textarea
+                                onKeyDown={handleKeydown}
                                 placeholder="Here is a spot for your Stories!
 There is a link above for what a Story is!"
                                 className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
@@ -428,6 +462,7 @@ There is a link above for what a Story is!"
                         </Tab.Panel>
                         <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                             <textarea
+                                onKeyDown={handleKeydown}
                                 placeholder="You gots no Items!"
                                 className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
                                 value={itemString}
@@ -437,6 +472,7 @@ There is a link above for what a Story is!"
                         </Tab.Panel>
                         <Tab.Panel className={"m-1 rounded-md p-2 ring-2 ring-aabase"}>
                             <textarea
+                                onKeyDown={handleKeydown}
                                 placeholder="Here lies Notes... May they rest in piece."
                                 className="m-1 h-32 w-full rounded-lg bg-dark-300 p-1"
                                 value={player.notes}
