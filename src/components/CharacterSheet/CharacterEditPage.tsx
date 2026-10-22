@@ -238,7 +238,7 @@ export default function CharacterEditPage() {
                         <Button
                             className=" ml-2 mr-2 rounded-md p-2 md:text-lg"
                             variant={"body"}
-                            disabled={true}
+                            // disabled={true}
                             onClick={() => {
                                 setShowEditStats(true);
                             }}
@@ -250,44 +250,45 @@ export default function CharacterEditPage() {
                     {/* Traits */}
                     <div className="center m-2 flex flex-col rounded-md bg-dark-300 p-2">
                         <h2 className="mt-0">Traits</h2>
-                        {allTraits
-                            .filter((t) => {
-                                // if (player.traits.includes(t.name)) console.log(t.name);
-                                return player.traits.includes(t.name);
-                            })
-                            .map((trait: Trait, id: number) => {
-                                return (
-                                    <div key={id}>
-                                        <TraitCard
-                                            _trait={trait}
-                                            static={false}
-                                            action={{
-                                                label: "Swap",
-                                                variant: "arcana",
-                                                onClick: () => {
-                                                    const lookingTraits = allTraits.filter((trait) => {
-                                                        let hasPath = false;
-                                                        const tier = Math.round(0.39 * id + 0.5).toString(); // (1,1,1,2,2,2,3,3,4,4,5)
-                                                        player.paths.forEach((path) => {
-                                                            // Not already picked, and has the req path.
-                                                            hasPath =
-                                                                !player.traits.includes(trait.name.toLowerCase()) &&
-                                                                (hasPath ||
-                                                                    trait.req
-                                                                        ?.toString()
-                                                                        .includes(path.toLowerCase() + " " + tier));
-                                                        });
-                                                        return hasPath;
+
+                        {player.traits.map((trait: string, id: number) => {
+                            return (
+                                <div key={id}>
+                                    <TraitCard
+                                        _trait={
+                                            allTraits.filter((t) => {
+                                                // if (player.traits.includes(t.name)) console.log(t.name);
+                                                return t.name == trait;
+                                            })[0]
+                                        }
+                                        static={false}
+                                        action={{
+                                            label: "Swap",
+                                            variant: "arcana",
+                                            onClick: () => {
+                                                const lookingTraits = allTraits.filter((trait) => {
+                                                    let hasPath = false;
+                                                    const tier = Math.round(0.39 * id + 0.5).toString(); // (1,1,1,2,2,2,3,3,4,4,5)
+                                                    player.paths.forEach((path) => {
+                                                        // Not already picked, and has the req path.
+                                                        hasPath =
+                                                            !player.traits.includes(trait.name.toLowerCase()) &&
+                                                            (hasPath ||
+                                                                trait.req
+                                                                    ?.toString()
+                                                                    .includes(path.toLowerCase() + " " + tier));
                                                     });
-                                                    setPickingLook(lookingTraits);
-                                                    setPicking(id);
-                                                    setShowEditTraits(true);
-                                                },
-                                            }}
-                                        />
-                                    </div>
-                                );
-                            })}
+                                                    return hasPath;
+                                                });
+                                                setPickingLook(lookingTraits);
+                                                setPicking(id);
+                                                setShowEditTraits(true);
+                                            },
+                                        }}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
 
                     {/* Arts */}
@@ -297,44 +298,42 @@ export default function CharacterEditPage() {
                             Strain {player.calculatedStats.curStrain} / {player.calculatedStats.maxStrain}
                         </div>
                         <div className="col-span-2 flex flex-col gap-2">
-                            {allSpells
-                                .filter((a) => {
-                                    return player.arts.includes(a.name);
-                                })
-                                .map((art: Spell, id: number) => {
-                                    return (
-                                        <ArtCard
-                                            key={id}
-                                            _spell={art}
-                                            _className="m-0"
-                                            action={{
-                                                label: "Swap",
-                                                variant: "arcana",
-                                                onClick: () => {
-                                                    const lookingArts = allSpells.filter((spell) => {
-                                                        let hasPath = false;
-                                                        const exses = player.traits.includes("magical knowledge")
-                                                            ? -5
-                                                            : -3;
-                                                        const tier = Math.max(1, Math.round(0.39 * (id + exses) + 0.5)); // (1,1,1,2,2,2,3,3,4,4,5)
+                            {player.arts.map((art: string, id: number) => {
+                                return (
+                                    <ArtCard
+                                        key={id}
+                                        _spell={
+                                            allSpells.filter((a) => {
+                                                return art == a.name;
+                                            })[0]
+                                        }
+                                        _className="m-0"
+                                        action={{
+                                            label: "Swap",
+                                            variant: "arcana",
+                                            onClick: () => {
+                                                const lookingArts = allSpells.filter((spell) => {
+                                                    let hasPath = false;
+                                                    const exses = player.traits.includes("magical knowledge") ? -5 : -3;
+                                                    const tier = Math.max(1, Math.round(0.39 * (id + exses) + 0.5)); // (1,1,1,2,2,2,3,3,4,4,5)
 
-                                                        // Not already picked, and has the req path.
-                                                        hasPath = !player.arts.includes(spell.name.toLowerCase());
-                                                        hasPath = hasPath && spell.level <= tier;
-                                                        hasPath =
-                                                            hasPath && player.paths.includes(spell.stat.toLowerCase());
+                                                    // Not already picked, and has the req path.
+                                                    hasPath = !player.arts.includes(spell.name.toLowerCase());
+                                                    hasPath = hasPath && spell.level <= tier;
+                                                    hasPath =
+                                                        hasPath && player.paths.includes(spell.stat.toLowerCase());
 
-                                                        return hasPath;
-                                                    });
-                                                    console.log(lookingArts);
-                                                    setPickingLook(lookingArts);
-                                                    setPicking(id);
-                                                    setShowEditArts(true);
-                                                },
-                                            }}
-                                        />
-                                    );
-                                })}
+                                                    return hasPath;
+                                                });
+                                                console.log(lookingArts);
+                                                setPickingLook(lookingArts);
+                                                setPicking(id);
+                                                setShowEditArts(true);
+                                            },
+                                        }}
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                 </>

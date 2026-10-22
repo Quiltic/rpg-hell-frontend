@@ -3,6 +3,7 @@ import StatChoicePart from "../Parts/StatChoicePart";
 import { changeItemInArray } from "../../../../util/creatureHelpers";
 import { useState, useEffect } from "react";
 import Popup from "../../../ui/Popups/Popup";
+import { Switch } from "@headlessui/react";
 
 type statline = "" | "body" | "mind" | "soul" | "arcana" | "charm" | "finesse" | "nature";
 
@@ -26,8 +27,10 @@ export default function EditStats({
     const [useDeeperLearning, setUseDeeperLearning] = useState(chosenStats[5] != "");
 
     useEffect(() => {
-        const tempArray: Array<statline> = changeItemInArray(chosenStats, 5, "");
-        setChosenStats(changeItemInArray(tempArray, 4, ""));
+        if (!useDeeperLearning) {
+            const tempArray: Array<statline> = changeItemInArray(chosenStats, 5, "");
+            setChosenStats(changeItemInArray(tempArray, 4, ""));
+        }
     }, [useDeeperLearning]);
 
     return (
@@ -99,46 +102,73 @@ export default function EditStats({
                             startIndex={3}
                             doMinus={true}
                         />
+                        <div className="rounded-md bg-dark-400">
+                            {/* switch */}
+                            <div className="flex flex-row items-center justify-center rounded-md bg-dark-300 p-2">
+                                {useDeeperLearning && (
+                                    <p className="m-2 flex flex-row items-center justify-center">
+                                        Disable Deeper Learning
+                                    </p>
+                                )}
+                                {!useDeeperLearning && (
+                                    <p className="m-2 flex flex-row items-center justify-center">Use Deeper Learning</p>
+                                )}
+
+                                <Switch
+                                    checked={useDeeperLearning || chosenStats[5] != ""}
+                                    onChange={setUseDeeperLearning}
+                                    className={`${
+                                        useDeeperLearning ? "bg-body" : "bg-dark-700"
+                                    } relative inline-flex h-6 w-11 items-center rounded-full`}
+                                >
+                                    <span className="sr-only">Switch Deeper Learning</span>
+                                    <span
+                                        className={`${
+                                            useDeeperLearning ? "translate-x-6" : "translate-x-1"
+                                        } inline-block h-4 w-4 transform rounded-full bg-light transition`}
+                                    />
+                                </Switch>
+                            </div>
+                        </div>
 
                         {/* Deeper Learning */}
-                        {chosenStats[4] != "" ||
-                            (useDeeperLearning && (
-                                <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
-                                    <h1 className="m-2 rounded-md bg-dark-300 p-2">Optional: Deeper Learning</h1>
-                                    {/* Deep Knowledge */}
+                        {(chosenStats[4] != "" || useDeeperLearning) && (
+                            <div className="m-4 items-center justify-center rounded-md border-2 border-solid border-body-700/20 bg-dark-400">
+                                <h1 className="m-2 rounded-md bg-dark-300 p-2">Optional: Deeper Learning</h1>
+                                {/* Deep Knowledge */}
+                                <StatChoicePart
+                                    chosenStats={chosenStats}
+                                    setChosenStats={setChosenStats}
+                                    mainOrSub={"sub"}
+                                    headerLine={
+                                        <>
+                                            Pick your character's <strong>Deep Knowledge</strong>. It will be increased
+                                            by 1.
+                                        </>
+                                    }
+                                    startIndex={4}
+                                    ignorePast={true}
+                                />
+
+                                {chosenStats[4] != "" && (
+                                    // Critical Flaw
                                     <StatChoicePart
                                         chosenStats={chosenStats}
                                         setChosenStats={setChosenStats}
                                         mainOrSub={"sub"}
                                         headerLine={
                                             <>
-                                                Pick your character's <strong>Deep Knowledge</strong>. It will be
-                                                increased by 1.
+                                                Pick your character's <strong>Critical Flaw</strong>. It will be reduced
+                                                by 1.
                                             </>
                                         }
-                                        startIndex={4}
-                                        ignorePast={true}
+                                        startIndex={5}
+                                        doMinus={true}
+                                        ignoreNext={true}
                                     />
-
-                                    {chosenStats[4] != "" && (
-                                        // Critical Flaw
-                                        <StatChoicePart
-                                            chosenStats={chosenStats}
-                                            setChosenStats={setChosenStats}
-                                            mainOrSub={"sub"}
-                                            headerLine={
-                                                <>
-                                                    Pick your character's <strong>Critical Flaw</strong>. It will be
-                                                    reduced by 1.
-                                                </>
-                                            }
-                                            startIndex={5}
-                                            doMinus={true}
-                                            ignoreNext={true}
-                                        />
-                                    )}
-                                </div>
-                            ))}
+                                )}
+                            </div>
+                        )}
 
                         {/* ,,23,,,7,9,11,13 */}
 
