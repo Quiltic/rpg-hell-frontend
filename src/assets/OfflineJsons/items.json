@@ -1606,9 +1606,7 @@
         "name": "enchantable candle",
         "description": "A plain candle of semi-enchanted wax.",
         "effect": "A creature may enchant this candle with a Focus Art they know. While lit the candle will activate the enchanted Focus Art targeting the creature that lit it. The creature does not need to Focus on this Art or spend dice or Strain.\nSpend # to light, and this candle lasts for up to 10 minutes before it runs out. Remove time in increments of 1 minute.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical, mysc",
         "rarity": "uncommon",
         "cost": 0
@@ -1628,9 +1626,7 @@
         "name": "feather of flight",
         "description": "A large white feather with hints of gold at the end.",
         "effect": "Once per Rest the wielder may activate the Art 'Wings' without spending Strain.",
-        "upgrades": [
-            ""
-        ],
+        "upgrades": [],
         "tags": "magical",
         "rarity": "rare",
         "cost": 0

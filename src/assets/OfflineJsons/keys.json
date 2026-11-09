@@ -13,5 +13,10 @@
     {"name":"glow","source":"item","effect":"Can be used to activate 'Spell' Arts instead of an open hand, and you may spend # to illuminate up to 2 tiles around the item. (Lasts until you dispel it.)","extra":""},
     {"name":"on hit","source":"item","effect":"Applied if the target fails a Dodge roll.","extra":""},
     {"name":"bonus","source":"item","effect":"Is applied when giving an 7 or less for an Attack Sum.","extra":"","aliases":["bonuses"]},
-    {"name":"downside","source":"item","effect":"Is applied when giving an 11 or higher for an Attack Sum.","extra":"","aliases":["downsides"]}
+    {"name":"downside","source":"item","effect":"Is applied when giving an 11 or higher for an Attack Sum.","extra":"","aliases":["downsides"]},
+
+
+    {"name":"large tile","source":"core-rules","effect":"2,160 by 2,160 normal tiles.","extra":"","aliases":[]},
+    {"name":"medium tile","source":"core-rules","effect":"36 by 36 normal tiles.","extra":"","aliases":[]}
+
 ]
