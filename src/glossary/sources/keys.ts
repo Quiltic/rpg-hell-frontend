@@ -3,7 +3,7 @@ import keysJson from "../../assets/OfflineJsons/keys.json";
 import { generateSlug } from "../../util/slug";
 import { GlossarySource, bullet, normalizeName } from "./source";
 
-export const KEY_SOURCES = ["spell", "item"] as const;
+export const KEY_SOURCES = ["spell", "item", "core-rules"] as const;
 
 export type KeySource = (typeof KEY_SOURCES)[number];
 
@@ -19,16 +19,19 @@ export type Key = {
 export const KEY_PAGES: Record<KeySource, RulebookPageSlug> = {
     spell: "spells",
     item: "items",
+    "core-rules": "core-rules",
 };
 
 export const KEY_ANCHOR_PREFIXES = {
     spell: "key-spell-",
     item: "key-item-",
+    "core-rules": "key-core-rules-",
 } as const;
 
 const PILL_COLORS: Record<KeySource, string> = {
     spell: "bg-soul",
     item: "bg-mind",
+    "core-rules": "bg-crafting",
 };
 
 // Static JSON, so a module constant. keys.test.ts and sources.test.ts

@@ -1,12 +1,7 @@
 import { describe, expect, it } from "vitest";
-import {
-    definitionHtml,
-    GlossaryHit,
-    resolveTerm,
-    rulebookHref,
-} from "./resolve";
+import { definitionHtml, GlossaryHit, resolveTerm, rulebookHref } from "./resolve";
 import { allEffects, effectsSource } from "./sources/effects";
-import { allKeys, keysSource } from "./sources/keys";
+import { KEY_PAGES, allKeys, keysSource } from "./sources/keys";
 import { GLOSSARY_SOURCES } from "./sources/sources";
 import { keywordPatterns } from "./scan";
 
@@ -69,9 +64,7 @@ describe("resolveTerm", () => {
     // Nothing the matcher can emit should fail to resolve, or the tooltip
     // would open on a word and have nothing to say.
     it("resolves every canonical name the matcher can emit", () => {
-        const canonical = new Set(
-            GLOSSARY_SOURCES.flatMap((s) => s.records.map((r) => r.name))
-        );
+        const canonical = new Set(GLOSSARY_SOURCES.flatMap((s) => s.records.map((r) => r.name)));
         expect(keywordPatterns().length).toBeGreaterThan(0);
         for (const name of canonical) {
             expect(resolveTerm(name), name).toBeDefined();
@@ -82,27 +75,17 @@ describe("resolveTerm", () => {
 describe("rulebookHref", () => {
     it("points at the page each source is written up on", () => {
         expect(rulebookHref(hit("burn"))).toBe("/rulebook/effects#effect-burn");
-        expect(rulebookHref(hit("on hit"))).toBe(
-            "/rulebook/items#key-item-on-hit"
-        );
-        expect(rulebookHref(hit("reaction"))).toBe(
-            "/rulebook/spells#key-spell-reaction"
-        );
+        expect(rulebookHref(hit("on hit"))).toBe("/rulebook/items#key-item-on-hit");
+        expect(rulebookHref(hit("reaction"))).toBe("/rulebook/spells#key-spell-reaction");
     });
 
     it("uses a definition's own page", () => {
-        expect(rulebookHref(hit("death's door"))).toBe(
-            "/rulebook/combat#definition-deaths-door"
-        );
-        expect(rulebookHref(hit("rest"))).toBe(
-            "/rulebook/core-rules#definition-rest"
-        );
+        expect(rulebookHref(hit("death's door"))).toBe("/rulebook/combat#definition-deaths-door");
+        expect(rulebookHref(hit("rest"))).toBe("/rulebook/core-rules#definition-rest");
     });
 
     it("strips apostrophes the same way the heading slugs do", () => {
-        expect(rulebookHref(hit("reaching x"))).toBe(
-            "/rulebook/items#key-item-reaching-x"
-        );
+        expect(rulebookHref(hit("reaching x"))).toBe("/rulebook/items#key-item-reaching-x");
         expect(
             rulebookHref({
                 source: effectsSource,
@@ -115,14 +98,13 @@ describe("rulebookHref", () => {
     // plugin renders, which come from the same `anchor` method.
     it("uses the source's anchor for every record", () => {
         for (const effect of allEffects) {
-            expect(
-                rulebookHref({ source: effectsSource, record: effect })
-            ).toBe(`/rulebook/effects#${effectsSource.anchor(effect)}`);
+            expect(rulebookHref({ source: effectsSource, record: effect })).toBe(
+                `/rulebook/effects#${effectsSource.anchor(effect)}`
+            );
         }
         for (const key of allKeys) {
-            const page = key.source === "item" ? "items" : "spells";
             expect(rulebookHref({ source: keysSource, record: key })).toBe(
-                `/rulebook/${page}#${keysSource.anchor(key)}`
+                `/rulebook/${KEY_PAGES[key.source]}#${keysSource.anchor(key)}`
             );
         }
     });
@@ -154,9 +136,7 @@ describe("definitionHtml", () => {
 
     it("prefers a non-empty short over the full effect", () => {
         const record = { ...allEffects[0], short: "Brief.", effect: "Long." };
-        expect(definitionHtml({ source: effectsSource, record })).toBe(
-            "Brief."
-        );
+        expect(definitionHtml({ source: effectsSource, record })).toBe("Brief.");
         expect(
             definitionHtml({
                 source: effectsSource,

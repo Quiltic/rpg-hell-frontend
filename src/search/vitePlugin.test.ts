@@ -11,12 +11,12 @@ describe("findBrokenJson", () => {
     writeFileSync(join(dir, "good.json"), '[\n    {"name":"a"},\n    {"name":"b"}\n]\n');
     writeFileSync(join(dir, "lines.json"), '[\n    {"name":"a"},\n    {"name":"b",\n    {"name":"c"}\n]\n');
     writeFileSync(join(dir, "multi.json"), '[\n    {\n        "name": "a"\n    ,\n]\n');
-    writeFileSync(join(dir, "notes.txt"), "{ not json");
+    writeFileSync(join(dir, "unlisted.json"), "{ not json");
 
-    const broken = findBrokenJson(dir);
+    const broken = findBrokenJson(dir, ["good.json", "lines.json", "multi.json"]);
 
-    it("skips files that parse and files that are not json", () => {
-        expect(broken.some((line) => line.includes("good.json") || line.includes("notes.txt"))).toBe(false);
+    it("skips files that parse and files that are not listed", () => {
+        expect(broken.some((line) => line.includes("good.json") || line.includes("unlisted.json"))).toBe(false);
     });
 
     it("reports the line of a broken single-line entry", () => {

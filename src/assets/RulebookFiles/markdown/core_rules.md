@@ -85,6 +85,14 @@ A core part of the game, Traits and Arts are the most common sources of spending
 
 ::definitions{name="refund"}
 
+## Areas
+
+_This is a piece of placeholder text to place these definitions for indexing -Ethan_
+
+::definitions{name="rough terrain"}
+
+::keys{source="core-rules"}
+
 ## Activating Arts
 
 Next to the names of Arts there are the tags Gesture, Vocal, and Spell. Arts may have more than one tag requiring you to follow through on all of them.

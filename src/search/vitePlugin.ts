@@ -1,25 +1,37 @@
 import { spawnSync } from "node:child_process";
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import type { Plugin } from "vite";
 
 const JSON_DIR = "src/assets/OfflineJsons";
+// the JSON the index reads, directly or through the glossary sources
+const INDEX_JSON = [
+    "traits.json",
+    "RefinedItems.json",
+    "spells.json",
+    "creatures.json",
+    "definitions.json",
+    "effects.json",
+    "keys.json",
+    "paths.json",
+];
 const WATCHED_DIRS = ["src/assets/RulebookFiles/markdown", JSON_DIR];
 const DEBOUNCE_MS = 200;
 
 /**
- * Finds the JSON files in a directory that fail to parse.
+ * Finds the listed JSON files in a directory that fail to parse.
  * The line is found by parsing each single-line `{...}` entry on its own, so multi-line files report the file only.
- * @param dir - the directory to scan
+ * @param dir - the directory holding the files
+ * @param names - the file names to check
  * @returns one `path:line: message` string per broken file
  * @example
  * ```typescript
- * findBrokenJson("src/assets/OfflineJsons") // ["src/assets/OfflineJsons/traits.json:42: JSON Parse error: Expected '}'"]
+ * findBrokenJson("src/assets/OfflineJsons", ["traits.json"]) // ["src/assets/OfflineJsons/traits.json:42: JSON Parse error: Expected '}'"]
  * ```
  */
-export function findBrokenJson(dir: string): string[] {
+export function findBrokenJson(dir: string, names: string[]): string[] {
     const broken: string[] = [];
-    for (const name of readdirSync(dir).filter((file) => file.endsWith(".json"))) {
+    for (const name of names) {
         const path = join(dir, name);
         const text = readFileSync(path, "utf8");
         try {
@@ -45,9 +57,10 @@ function runScript(): void {
     const result = spawnSync("bun", ["scripts/build-search-index.ts"], { stdio: "inherit" });
     if (result.status !== 0)
         throw new Error(
-            [`search index build failed (exit ${result.status ?? result.signal})`, ...findBrokenJson(JSON_DIR)].join(
-                "\n"
-            )
+            [
+                `search index build failed (exit ${result.status ?? result.signal})`,
+                ...findBrokenJson(JSON_DIR, INDEX_JSON),
+            ].join("\n")
         );
 }
 
