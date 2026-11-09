@@ -7,10 +7,7 @@ import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
 import SearchGroup from "../search/SearchGroup";
 import { useSearchParams } from "react-router-dom";
-
-function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-16" : "w-20";
-}
+import { colorFor } from "../../search/documents/palette";
 
 const tagList = [""];
 
@@ -123,11 +120,11 @@ export default function TraitsTablePage() {
                             return (
                                 <Tab
                                     key={i}
+                                    data-label={n}
                                     className={({ selected }) =>
                                         classNames(
-                                            "w-16 rounded-md bg-dark-600 px-1 py-1 ring-aabase hover:font-bold",
-                                            getTabWidth(n.length),
-                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`, //text-${n.toLowerCase()} dark:text-${n.toLowerCase()}-700
+                                            "whitespace-nowrap rounded-md bg-dark-600 px-1 py-1 ring-aabase after:invisible after:block after:h-0 after:overflow-hidden after:font-bold after:content-[attr(data-label)] hover:font-bold",
+                                            `text-${colorFor(n)}-700 ring-${colorFor(n)}-600`,
                                             selected ? "ring-2" : ""
                                         )
                                     }

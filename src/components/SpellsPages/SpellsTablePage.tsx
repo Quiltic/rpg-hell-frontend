@@ -14,6 +14,7 @@ import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
+import { colorFor } from "../../search/documents/palette";
 
 const tagList = [
     "elemental",
@@ -62,24 +63,6 @@ const statList = [
 
     "Elementalist",
 ];
-
-// [
-//     "body",
-//     "mind",
-//     "soul",
-//     "arcana",
-//     "charm",
-//     "crafting",
-//     "medicine",
-//     "nature",
-//     "thieving",
-//     // "Monster",
-// ];
-const IterativeSpellLevels = [1, 2, 3, 4, 5];
-
-function getTabWidth(lengthOfName: number) {
-    return lengthOfName < 5 ? "w-12" : lengthOfName < 7 ? "w-14" : "w-20";
-}
 
 export default function SpellsTablePage() {
     // Opens the Key panel below when linked to /rulebook/spells#key-spell-<slug>.
@@ -242,11 +225,11 @@ export default function SpellsTablePage() {
                             return (
                                 <Tab
                                     key={i}
+                                    data-label={n}
                                     className={({ selected }) =>
                                         classNames(
-                                            "rounded-md bg-dark-600 px-1 py-1 capitalize ring-aabase hover:font-bold",
-                                            getTabWidth(n.length),
-                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`, //text-${n.toLowerCase()} dark:
+                                            "whitespace-nowrap rounded-md bg-dark-600 px-3 py-1 capitalize ring-aabase after:invisible after:block after:h-0 after:overflow-hidden after:font-bold after:content-[attr(data-label)] hover:font-bold",
+                                            `text-${colorFor(n)}-700 ring-${colorFor(n)}-600`,
                                             selected ? "ring-2" : ""
                                         )
                                     }
