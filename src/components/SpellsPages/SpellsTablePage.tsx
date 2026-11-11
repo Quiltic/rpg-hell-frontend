@@ -61,6 +61,7 @@ const statList = [
     "Face",
     "Ranger",
     "Urchin",
+    "Pugilist",
 
     "Elementalist",
 ];
@@ -240,6 +241,7 @@ export default function SpellsTablePage() {
                 {enabled && (
                     <SpellCardHolder
                         shownSpells={shownSpells}
+                        showEmpty
                         action={{
                             label: "Pin",
                             onClick: (spell) => {
@@ -251,6 +253,7 @@ export default function SpellsTablePage() {
                 {!enabled && (
                     <SpellsTable
                         displayedSpells={shownSpells}
+                        showEmpty
                         moveSpell={(spell) => {
                             addToPinnedSpells(spell);
                         }}

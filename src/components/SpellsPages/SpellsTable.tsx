@@ -9,9 +9,10 @@ type Props = {
     displayedSpells: Spell[];
     moveSpell?: (spell: Spell) => void;
     moveIsAdd?: boolean;
+    showEmpty?: boolean;
 };
 
-export default function SpellsTable({ displayedSpells, moveSpell, moveIsAdd = true }: Props) {
+export default function SpellsTable({ displayedSpells, moveSpell, moveIsAdd = true, showEmpty }: Props) {
     return (
         <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
@@ -28,7 +29,7 @@ export default function SpellsTable({ displayedSpells, moveSpell, moveIsAdd = tr
                     </tr>
                 </thead>
                 <tbody>
-                    {displayedSpells.length == 0 && (
+                    {showEmpty && displayedSpells.length == 0 && (
                         <tr>
                             <td
                                 colSpan={99}

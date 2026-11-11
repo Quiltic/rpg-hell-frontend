@@ -7,12 +7,14 @@ type Props = {
     displayedCreatures: Creature[];
     moveCreature?: (creature: Creature) => void;
     moveIsAdd?: boolean;
+    showEmpty?: boolean;
 };
 
 export default function CreaturesTable({
     displayedCreatures: displayedCreatures,
     moveCreature,
     moveIsAdd = true,
+    showEmpty,
 }: Props) {
     // const
 
@@ -28,7 +30,7 @@ export default function CreaturesTable({
                 </tr>
             </thead>
             <tbody>
-                {displayedCreatures.length == 0 && (
+                {showEmpty && displayedCreatures.length == 0 && (
                     <tr>
                         <td
                             colSpan={99}

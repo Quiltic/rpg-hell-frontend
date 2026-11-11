@@ -23,6 +23,7 @@ const IterativeTraitLevels = [
     "Face",
     "Ranger",
     "Urchin",
+    "Pugilist",
 
     "Elementalist",
 ];
@@ -110,6 +111,7 @@ export default function TraitsTablePage() {
                     moveTrait={(trait) => {
                         addToPinnedTraits(trait);
                     }}
+                    showEmpty
                 />
             </div>
         </>

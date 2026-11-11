@@ -9,9 +9,15 @@ type Props = {
     displayedTraits: Trait[];
     moveTrait?: (trait: Trait) => void;
     moveIsAdd?: boolean;
+    showEmpty?: boolean;
 };
 
-export default function TraitsTable({ displayedTraits: displayedTraits, moveTrait, moveIsAdd = true }: Props) {
+export default function TraitsTable({
+    displayedTraits: displayedTraits,
+    moveTrait,
+    moveIsAdd = true,
+    showEmpty,
+}: Props) {
     return (
         // className="hidden md:table-cell"
         <GlossaryTooltipLayer>
@@ -29,7 +35,7 @@ export default function TraitsTable({ displayedTraits: displayedTraits, moveTrai
                     </tr>
                 </thead>
                 <tbody>
-                    {displayedTraits.length == 0 && (
+                    {showEmpty && displayedTraits.length == 0 && (
                         <tr>
                             <td
                                 colSpan={99}

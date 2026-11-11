@@ -8,9 +8,10 @@ type Props = {
     displayedItems: Item[];
     moveItem?: (spell: Item) => void;
     moveIsAdd?: boolean;
+    showEmpty?: boolean;
 };
 
-export default function ItemsTable({ displayedItems, moveItem, moveIsAdd = true }: Props) {
+export default function ItemsTable({ displayedItems, moveItem, moveIsAdd = true, showEmpty }: Props) {
     return (
         <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
@@ -30,7 +31,7 @@ export default function ItemsTable({ displayedItems, moveItem, moveIsAdd = true 
                     </tr>
                 </thead>
                 <tbody>
-                    {displayedItems.length == 0 && (
+                    {showEmpty && displayedItems.length == 0 && (
                         <tr>
                             <td
                                 colSpan={99}

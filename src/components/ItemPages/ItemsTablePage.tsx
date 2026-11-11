@@ -229,6 +229,7 @@ export default function ItemsTablePage() {
                 {enabled && (
                     <ItemCardHolder
                         shownItems={shownItems}
+                        showEmpty
                         moveItem={(item) => {
                             addToPinnedItems(item);
                         }}
@@ -237,6 +238,7 @@ export default function ItemsTablePage() {
                 {!enabled && (
                     <ItemsTable
                         displayedItems={shownItems}
+                        showEmpty
                         moveItem={(item) => {
                             addToPinnedItems(item);
                         }}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Search from "../search/Search";
 import { FunnelIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import Popup from "../ui/Popups/Popup";
-import { getAllCombinations } from "../../util/tableTools";
 import { ApiClassUnion, eApiClass } from "../../types/ApiClassUnions";
 import { Button } from "../ui/Button/Button";
 import { cn } from "../../styling/utilites";
@@ -35,7 +34,8 @@ export default function SearchGroup({
         .map((t) => t.trim())
         .filter(Boolean);
 
-    function toggleTag(tag: string) {
+    function toggleTag(rawTag: string) {
+        const tag = rawTag.toLowerCase();
         const next = selectedTags.includes(tag) ? selectedTags.filter((t) => t !== tag) : [...selectedTags, tag];
         setTags(next.join(", "));
     }
@@ -46,18 +46,14 @@ export default function SearchGroup({
             return;
         }
 
-        let tempname,
-            tempeffect,
-            temptags = ""; // here for cleanup and incase we need it for later
+        const temptags = tags
+            .split(",")
+            .map((t) => t.trim().replace(/_/g, "\\d+"))
+            .filter(Boolean)
+            .map((t) => `(?=.*${t})`)
+            .join("");
 
-        if (tags[0] == ",") setTags(tags.slice(1));
-
-        if (tags != "") {
-            const strings = tags.replace(/, | ,/g, ", ").split(", ");
-            temptags = getAllCombinations(strings);
-        }
-
-        setSearchString(`(^(.*${name}.*);\\|;(.*${effect}.*);\\|;(.*${temptags}.*))`);
+        setSearchString(`(^(.*${name}.*);\\|;(.*${effect}.*);\\|;(${temptags}.*))`);
     }, [name, effect, tags]);
 
     //(\bcommon\b).*(alchemical|grenade)|(alchemical|grenade).*common  <= gives common items that are alchemical or grenades
@@ -113,7 +109,7 @@ export default function SearchGroup({
                                 placeholder="Feather"
                                 className="h-9 w-full rounded-lg p-2 font-normal shadow-md"
                                 value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                onChange={(e) => setName(e.target.value.toLowerCase())}
                             />
                         </label>
                         <label className="flex flex-col gap-1 font-bold">
@@ -123,7 +119,7 @@ export default function SearchGroup({
                                 placeholder="Spend 2 Strain..."
                                 className="h-9 w-full rounded-lg p-2 font-normal shadow-md"
                                 value={effect}
-                                onChange={(e) => setEffect(e.target.value)}
+                                onChange={(e) => setEffect(e.target.value.toLowerCase())}
                             />
                         </label>
                         {tagOptions.length > 0 && (
@@ -135,12 +131,12 @@ export default function SearchGroup({
                                         placeholder="elemental, aura"
                                         className="h-9 w-full rounded-lg p-2 font-normal shadow-md"
                                         value={tags}
-                                        onChange={(e) => setTags(e.target.value)}
+                                        onChange={(e) => setTags(e.target.value.toLowerCase())}
                                     />
                                 </label>
                                 <div className="mt-2 flex flex-wrap gap-2">
                                     {tagOptions.map((tag) => {
-                                        const isSelected = selectedTags.includes(tag);
+                                        const isSelected = selectedTags.includes(tag.toLowerCase());
                                         return (
                                             <button
                                                 key={tag}

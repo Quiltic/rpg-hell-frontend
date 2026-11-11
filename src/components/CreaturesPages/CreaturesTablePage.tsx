@@ -117,6 +117,7 @@ export default function CreatureTablePage() {
                         if (selected.length == 0) return true;
                         return selected.some((n) => s.types.toLowerCase().includes(n.toLowerCase()));
                     })}
+                    showEmpty
                     moveCreature={(creature) => {
                         addToPinnedCreatures(creature);
                     }}
