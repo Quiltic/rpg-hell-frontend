@@ -190,11 +190,11 @@
     
     {"name":"fast hands","req":"craftsman 2","tags":"","effect":"Using, picking up, equipping, or activating any item costs 1 less ⚂ (use a 3 for the missing value). This does not effect Attacks, or items that give Art Attacks.","extra":""},
     {"name":"improved alchemy","req":"craftsman 2","tags":"","effect":"Alchemical items and Bandages you make may be used twice instead of once before they are spent.\nAdditionally, you may spend an hour, to combine 2 liquids together to make a Custom Brew. Custom Brews count as 1 Alchemical item and you cannot combine Custom Brews together.","extra":""},
-    {"name":"field repair","req":"crafting 2","tags":"","effect":"Additionally, your Construct Followers and Art created structures (such as 'Deployable Wall') can be healed by your Traits and Arts (Not by a Medkit or Bandage).","extra":""},
+    {"name":"field repair","req":"craftsman 2","tags":"","effect":"Additionally, your Construct Followers and Art created structures (such as 'Deployable Wall') can be healed by your Traits and Arts (Not by a Medkit or Bandage).","extra":""},
     
-    {"name":"master craftsman","req":"crafting 3","tags":"","effect":"When you give Shielding you give 1 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an +1 Speed.","extra":""},
+    {"name":"master craftsman","req":"craftsman 3","tags":"","effect":"When you give Shielding you give 1 additional Shielding.\nItems you make are worth twice their normal value.\nFollowers you create have an +1 Speed.","extra":""},
     
-    {"name":"modular upgrade","req":"crafting 4","tags":"core","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may modify this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""},
+    {"name":"modular upgrade","req":"craftsman 4","tags":"core","effect":"An upgrade for an item. At the end of a Break or Rest you may apply this upgrade to an Item. If another Item has this upgrade it loses it. You may modify this item with an Art that you know making it automatically cast this Art on itself at the end of a Break or Rest. This Art does not spend Strain, lasts until the end of your next Break or Rest, if it would give some sort of Buff (such as bonus max health or speed) it instead goes to the carrier, and does not require Focus if the Art requires it.","extra":""},
 
 
 

@@ -277,10 +277,10 @@
     {"name":"flex","level":1,"stat":"pugilist","tags":"buff","strain":0,"dice":1,"effect":"Spend ⚂; If a 5 or 6 is given, become Empowered until the end of your turn.","activators":1},    
 
     {"name": "headbutt", "level": 2, "stat": "pugilist", "tags": "debuff", "strain": 2, "dice": 2, "effect": "Spend ⚂⚂ and 2 Strain; Do a Fist Attack. If you hit, give the target 2 Stun, or if you are Grappling the target give them 4 Stun instead.\nDownside: Gain 1 Stun.", "activators": 1},
-    {"name":"play dirty","level":2,"stat":"body","tags":"debuff","strain":1,"dice":2,"effect":"Spend ⚂⚂ and 1 Strain; Give a target within 3 tiles of you Blinded until the beginning of their next turn.","activators":1},
-    {"name":"compression pin","level":2,"stat":"body","tags":"dice","strain":1,"dice":1,"effect":"Reaction (Locked ⚂) and 1 Strain; When a creature wins a grapple contest against you, you may re-roll, keeping the new value even if its worse.","activators":1},
+    {"name":"play dirty","level":2,"stat":"pugilist","tags":"debuff","strain":1,"dice":2,"effect":"Spend ⚂⚂ and 1 Strain; Give a target within 3 tiles of you Blinded until the beginning of their next turn.","activators":1},
+    {"name":"compression pin","level":2,"stat":"pugilist","tags":"dice","strain":1,"dice":1,"effect":"Reaction (Locked ⚂) and 1 Strain; When a creature wins a grapple contest against you, you may re-roll, keeping the new value even if its worse.","activators":1},
 
-    {"name":"meat shield","level":3,"stat":"body","tags":"protection, debuff","strain":2,"dice":1,"effect":"Reaction (Locked ⚂) and 2 Strain; When you are hit by a non-area Attack, instead any target you are Grappling take the hit for you.","activators":1},
+    {"name":"meat shield","level":3,"stat":"pugilist","tags":"protection, debuff","strain":2,"dice":1,"effect":"Reaction (Locked ⚂) and 2 Strain; When you are hit by a non-area Attack, instead any target you are Grappling take the hit for you.","activators":1},
 
 
 
