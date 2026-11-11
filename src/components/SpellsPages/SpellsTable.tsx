@@ -28,6 +28,16 @@ export default function SpellsTable({ displayedSpells, moveSpell, moveIsAdd = tr
                     </tr>
                 </thead>
                 <tbody>
+                    {displayedSpells.length == 0 && (
+                        <tr>
+                            <td
+                                colSpan={99}
+                                className="text-center text-light/50"
+                            >
+                                I activate nothing! No Arts Found
+                            </td>
+                        </tr>
+                    )}
                     {displayedSpells.map((spell, i) => {
                         const ee = formatEffectString(spell.effect ?? "");
                         return (

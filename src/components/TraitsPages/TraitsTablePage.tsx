@@ -1,15 +1,14 @@
-import { Tab, Disclosure } from "@headlessui/react";
+import { useState } from "react";
+import { Disclosure } from "@headlessui/react";
 import TraitsTable from "./TraitsTable";
 import { Button } from "../ui/Button/Button";
-import { classNames, download } from "../../util/tableTools";
+import { download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { eApiClass } from "../../types/ApiClassUnions";
 import { useTraits } from "../../hooks/useTraits";
 import SearchGroup from "../search/SearchGroup";
 import { useSearchParams } from "react-router-dom";
-import { colorFor } from "../../search/documents/palette";
-
-const tagList = [""];
+import FilterToggles from "../ui/FilterToggles";
 
 const IterativeTraitLevels = [
     "Fighter",
@@ -28,19 +27,6 @@ const IterativeTraitLevels = [
     "Elementalist",
 ];
 
-// [
-//     "Body",
-//     "Mind",
-//     "Soul",
-//     "Arcana",
-//     "Charm",
-//     "Crafting",
-//     "Medicine",
-//     "Nature",
-//     "Thieving",
-//     // "Monster",
-// ];
-
 export default function TraitsTablePage() {
     const {
         allTraits,
@@ -52,6 +38,7 @@ export default function TraitsTablePage() {
         resetFilterTraits,
     } = useTraits();
     const searchedName = useSearchParams()[0].get("q") ?? "";
+    const [selected, setSelected] = useState<string[]>([]);
 
     return (
         <>
@@ -100,74 +87,31 @@ export default function TraitsTablePage() {
                 </>
             )}
 
-            <Tab.Group
-                as="div"
-                className="w-full "
-            >
+            <div className="w-full ">
                 <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
-                    <Tab.List className="flex flex-wrap gap-2 p-1">
-                        <Tab
-                            className={({ selected }) =>
-                                classNames(
-                                    "w-10 rounded-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
-                                    selected ? "ring-2" : ""
-                                )
-                            }
-                        >
-                            All
-                        </Tab>
-                        {IterativeTraitLevels.map((n, i) => {
-                            return (
-                                <Tab
-                                    key={i}
-                                    data-label={n}
-                                    className={({ selected }) =>
-                                        classNames(
-                                            "whitespace-nowrap rounded-md bg-dark-600 px-1 py-1 ring-aabase after:invisible after:block after:h-0 after:overflow-hidden after:font-bold after:content-[attr(data-label)] hover:font-bold",
-                                            `text-${colorFor(n)}-700 ring-${colorFor(n)}-600`,
-                                            selected ? "ring-2" : ""
-                                        )
-                                    }
-                                >
-                                    {n}
-                                </Tab>
-                            );
-                        })}
-                    </Tab.List>
+                    <FilterToggles
+                        options={IterativeTraitLevels}
+                        selected={selected}
+                        onChange={setSelected}
+                    />
                     <SearchGroup
                         key={searchedName}
                         initialName={searchedName}
                         filter={filterTraits}
                         resetFilter={resetFilterTraits}
                         filterClass={eApiClass.Trait}
-                        tagList={tagList}
                     />
                 </div>
-                <Tab.Panels>
-                    <Tab.Panel>
-                        <TraitsTable
-                            displayedTraits={displayedTraits}
-                            moveTrait={(trait) => {
-                                addToPinnedTraits(trait);
-                            }}
-                        />
-                    </Tab.Panel>
-                    {IterativeTraitLevels.map((n, i) => {
-                        return (
-                            <Tab.Panel key={i}>
-                                <TraitsTable
-                                    displayedTraits={displayedTraits.filter((s) => {
-                                        return s.req?.toString().includes(n.toLowerCase());
-                                    })}
-                                    moveTrait={(trait) => {
-                                        addToPinnedTraits(trait);
-                                    }}
-                                />
-                            </Tab.Panel>
-                        );
+                <TraitsTable
+                    displayedTraits={displayedTraits.filter((s) => {
+                        if (selected.length == 0) return true;
+                        return selected.some((n) => s.req?.toString().includes(n.toLowerCase()));
                     })}
-                </Tab.Panels>
-            </Tab.Group>
+                    moveTrait={(trait) => {
+                        addToPinnedTraits(trait);
+                    }}
+                />
+            </div>
         </>
     );
 }

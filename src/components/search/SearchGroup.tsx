@@ -3,14 +3,15 @@ import Search from "../search/Search";
 import { FunnelIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import Popup from "../ui/Popups/Popup";
 import { getAllCombinations } from "../../util/tableTools";
-import CleanCombobox from "../joshhellscapePages/CleanCombobox";
 import { ApiClassUnion, eApiClass } from "../../types/ApiClassUnions";
+import { Button } from "../ui/Button/Button";
+import { cn } from "../../styling/utilites";
 
 type Props = {
     filter: (fn: (t: ApiClassUnion) => boolean) => void;
     resetFilter: () => void;
     filterClass: eApiClass;
-    tagList: string[];
+    tagList?: string[];
     initialName?: string;
 };
 
@@ -18,7 +19,7 @@ export default function SearchGroup({
     filter: _filter,
     resetFilter: _resetFilter,
     filterClass: _filterClass,
-    tagList: _tagList,
+    tagList: _tagList = [],
     initialName,
 }: Props) {
     const [searchString, setSearchString] = useState("");
@@ -27,6 +28,17 @@ export default function SearchGroup({
     const [tags, setTags] = useState("");
 
     const [popupOpen, setPopupOpen] = useState(false);
+
+    const tagOptions = _tagList.filter(Boolean);
+    const selectedTags = tags
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean);
+
+    function toggleTag(tag: string) {
+        const next = selectedTags.includes(tag) ? selectedTags.filter((t) => t !== tag) : [...selectedTags, tag];
+        setTags(next.join(", "));
+    }
 
     useEffect(() => {
         if (name == "" && effect == "" && tags == "") {
@@ -93,42 +105,74 @@ export default function SearchGroup({
                 isOpen={popupOpen}
                 setIsOpen={setPopupOpen}
                 displayedContent={
-                    <div className="m-4 mb-10 rounded-lg bg-dark-400 p-4">
-                        <div className="justify-center md:col-span-2 md:row-span-2">
-                            <h3 className="mt-1 flex flex-row capitalize">Name</h3>
+                    <div className="mt-4 grid gap-4 rounded-lg bg-dark-400 p-4 md:grid-cols-2">
+                        <label className="flex flex-col gap-1 font-bold">
+                            Name
                             <input
                                 type="text"
                                 placeholder="Feather"
-                                className="mt-1 flex h-9 w-[100%] flex-row rounded-lg p-2 shadow-md"
+                                className="h-9 w-full rounded-lg p-2 font-normal shadow-md"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
-                        </div>
-                        <div className="md:col-span-2">
-                            <h3 className="flex flex-row capitalize">Effect</h3>
+                        </label>
+                        <label className="flex flex-col gap-1 font-bold">
+                            Effect
                             <input
                                 type="text"
-                                className="mt-1 flex h-9 w-[100%] flex-row rounded-lg p-2 shadow-md"
+                                placeholder="Spend 2 Strain..."
+                                className="h-9 w-full rounded-lg p-2 font-normal shadow-md"
                                 value={effect}
                                 onChange={(e) => setEffect(e.target.value)}
                             />
-                        </div>
-                        <div className="md:col-span-2">
-                            <h3 className="flex flex-row capitalize">tags</h3>
-                            <input
-                                type="text"
-                                className="mt-1 flex h-9 w-[100%] flex-row rounded-lg p-2 shadow-md"
-                                value={tags}
-                                onChange={(e) => setTags(e.target.value)}
-                            />
-                            <CleanCombobox
-                                items={_tagList}
-                                className="flex flex-row"
-                                selected={""}
-                                setSelected={(val) => {
-                                    setTags(tags.concat(", ", val));
+                        </label>
+                        {tagOptions.length > 0 && (
+                            <div className="md:col-span-2">
+                                <label className="flex flex-col gap-1 font-bold">
+                                    Tags
+                                    <input
+                                        type="text"
+                                        placeholder="elemental, aura"
+                                        className="h-9 w-full rounded-lg p-2 font-normal shadow-md"
+                                        value={tags}
+                                        onChange={(e) => setTags(e.target.value)}
+                                    />
+                                </label>
+                                <div className="mt-2 flex flex-wrap gap-2">
+                                    {tagOptions.map((tag) => {
+                                        const isSelected = selectedTags.includes(tag);
+                                        return (
+                                            <button
+                                                key={tag}
+                                                type="button"
+                                                aria-pressed={isSelected}
+                                                onClick={() => toggleTag(tag)}
+                                                className={cn(
+                                                    "rounded-full px-3 py-1 text-sm capitalize",
+                                                    isSelected
+                                                        ? "bg-light text-dark"
+                                                        : "bg-dark-600 text-light hover:bg-dark-300"
+                                                )}
+                                            >
+                                                {tag.toLowerCase()}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                        <div className="flex justify-end md:col-span-2">
+                            <Button
+                                variant="link-medicine"
+                                size="sm"
+                                onClick={() => {
+                                    setName("");
+                                    setEffect("");
+                                    setTags("");
                                 }}
-                            />
+                            >
+                                Clear all
+                            </Button>
                         </div>
                     </div>
                 }

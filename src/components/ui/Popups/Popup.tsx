@@ -10,7 +10,7 @@ type Props = {
     displayedContent: ReactNode;
     isOpen: boolean;
     setIsOpen: (s: boolean) => void;
-    isSmol: boolean;
+    isSmol?: boolean;
 };
 
 export default function Popup({

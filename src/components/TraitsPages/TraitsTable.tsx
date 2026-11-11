@@ -11,11 +11,7 @@ type Props = {
     moveIsAdd?: boolean;
 };
 
-export default function TraitsTable({
-    displayedTraits: displayedTraits,
-    moveTrait,
-    moveIsAdd = true,
-}: Props) {
+export default function TraitsTable({ displayedTraits: displayedTraits, moveTrait, moveIsAdd = true }: Props) {
     return (
         // className="hidden md:table-cell"
         <GlossaryTooltipLayer>
@@ -28,46 +24,38 @@ export default function TraitsTable({
                         {/* <th className="hidden md:table-cell">Dice</th> */}
                         <th>Effect</th>
                         {moveTrait != undefined && (
-                            <th className="hidden md:table-cell">
-                                {moveIsAdd ? "Save" : "Unsave"}
-                            </th>
+                            <th className="hidden md:table-cell">{moveIsAdd ? "Save" : "Unsave"}</th>
                         )}
                     </tr>
                 </thead>
                 <tbody>
+                    {displayedTraits.length == 0 && (
+                        <tr>
+                            <td
+                                colSpan={99}
+                                className="text-center text-light/50"
+                            >
+                                I'm a... I don't know what I am... No Traits Found
+                            </td>
+                        </tr>
+                    )}
                     {displayedTraits.map((trait, i) => {
                         const ee = formatEffectString(trait.effect ?? "");
-                        const req = toPillElement(
-                            trait.req?.toString().replace(" 0", "") ?? "",
-                            ", "
-                        );
+                        const req = toPillElement(trait.req?.toString().replace(" 0", "") ?? "", ", ");
                         // console.log(req);
                         return (
                             <tr key={i}>
-                                <td className="hidden font-bold capitalize md:table-cell">
-                                    {trait.name}
-                                </td>
-                                <td className="table-cell min-w-24 capitalize md:hidden">
+                                <td className="hidden font-bold capitalize md:table-cell">{trait.name}</td>
+                                <td className="min-w-24 table-cell capitalize md:hidden">
                                     {" "}
-                                    <span className="font-bold underline">
-                                        {trait.name}
-                                    </span>{" "}
-                                    <br />
+                                    <span className="font-bold underline">{trait.name}</span> <br />
                                     {/* Dice:{" "} */}
                                     {/* {trait.dice ? "#".repeat(trait.dice ?? 1) : "P"} */}
-                                    <div className="flex flex-col items-center">
-                                        {req}
-                                    </div>{" "}
+                                    <div className="flex flex-col items-center">{req}</div>{" "}
                                     {moveTrait != undefined && (
                                         <Button
-                                            variant={
-                                                moveIsAdd
-                                                    ? "subtle-nature"
-                                                    : "subtle-medicine"
-                                            }
-                                            leftIcon={
-                                                moveIsAdd ? PinIcon : RemoveIcon
-                                            }
+                                            variant={moveIsAdd ? "subtle-nature" : "subtle-medicine"}
+                                            leftIcon={moveIsAdd ? PinIcon : RemoveIcon}
                                             className="h-8 w-6 rounded-md"
                                             onClick={() => {
                                                 moveTrait(trait);
@@ -91,14 +79,8 @@ export default function TraitsTable({
                                 {moveTrait != undefined && (
                                     <td className="hidden md:table-cell">
                                         <Button
-                                            variant={
-                                                moveIsAdd
-                                                    ? "subtle-nature"
-                                                    : "subtle-medicine"
-                                            }
-                                            leftIcon={
-                                                moveIsAdd ? PinIcon : RemoveIcon
-                                            }
+                                            variant={moveIsAdd ? "subtle-nature" : "subtle-medicine"}
+                                            leftIcon={moveIsAdd ? PinIcon : RemoveIcon}
                                             className="h-8 w-6 rounded-md"
                                             onClick={() => {
                                                 moveTrait(trait);

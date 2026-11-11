@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/20/solid";
 
-import { Tab, Disclosure } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 
 import CreatureTable from "./CreaturesTable";
 
@@ -10,9 +10,9 @@ import { Button } from "../ui/Button/Button";
 
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useCreatures } from "../../hooks/useCreatures";
-import { cn } from "../../styling/utilites";
 import { eApiClass } from "../../types/ApiClassUnions";
 import Search from "../search/Search";
+import FilterToggles from "../ui/FilterToggles";
 import { useSearchParams } from "react-router-dom";
 
 const IterativeTraitLevels = ["Humanoid", "Animal", "Construct", "Monstrosity", "Planar", "Undead", "Mythic"];
@@ -28,6 +28,7 @@ export default function CreatureTablePage() {
         resetFilterCreatures,
     } = useCreatures();
     const searchedName = useSearchParams()[0].get("q") ?? "";
+    const [selected, setSelected] = useState<string[]>([]);
 
     // const { TraitsService } = useApi();
 
@@ -73,39 +74,13 @@ export default function CreatureTablePage() {
                 </>
             )}
 
-            <Tab.Group
-                as="div"
-                className="w-full "
-            >
+            <div className="w-full ">
                 <div className="flex-column flex w-full justify-between py-1 align-middle">
-                    <Tab.List className="flex gap-1 space-x-1 p-1">
-                        <Tab
-                            className={({ selected }) =>
-                                cn(
-                                    "w-10 rounded-md bg-dark-600 px-2 py-1 ring-light hover:font-bold",
-                                    selected ? "ring-2" : ""
-                                )
-                            }
-                        >
-                            All
-                        </Tab>
-                        {IterativeTraitLevels.map((n, i) => {
-                            return (
-                                <Tab
-                                    key={i}
-                                    className={({ selected }) =>
-                                        cn(
-                                            "w-16 w-auto rounded-md bg-dark-600 px-1 py-1 ring-light hover:font-bold",
-                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`,
-                                            selected ? "ring-2" : ""
-                                        )
-                                    }
-                                >
-                                    {n}
-                                </Tab>
-                            );
-                        })}
-                    </Tab.List>
+                    <FilterToggles
+                        options={IterativeTraitLevels}
+                        selected={selected}
+                        onChange={setSelected}
+                    />
                     <div className="flex-column flex items-center rounded-full bg-dark-700 px-2 py-1">
                         <Search
                             key={searchedName}
@@ -137,31 +112,16 @@ export default function CreatureTablePage() {
                         /> */}
                     </div>
                 </div>
-                <Tab.Panels>
-                    <Tab.Panel>
-                        <CreatureTable
-                            displayedCreatures={displayedCreatures}
-                            moveCreature={(creature) => {
-                                addToPinnedCreatures(creature);
-                            }}
-                        />
-                    </Tab.Panel>
-                    {IterativeTraitLevels.map((n, i) => {
-                        return (
-                            <Tab.Panel key={i}>
-                                <CreatureTable
-                                    displayedCreatures={displayedCreatures.filter((s) => {
-                                        return s.types.toLowerCase().includes(n.toLowerCase());
-                                    })}
-                                    moveCreature={(creature) => {
-                                        addToPinnedCreatures(creature);
-                                    }}
-                                />
-                            </Tab.Panel>
-                        );
+                <CreatureTable
+                    displayedCreatures={displayedCreatures.filter((s) => {
+                        if (selected.length == 0) return true;
+                        return selected.some((n) => s.types.toLowerCase().includes(n.toLowerCase()));
                     })}
-                </Tab.Panels>
-            </Tab.Group>
+                    moveCreature={(creature) => {
+                        addToPinnedCreatures(creature);
+                    }}
+                />
+            </div>
         </>
     );
 }

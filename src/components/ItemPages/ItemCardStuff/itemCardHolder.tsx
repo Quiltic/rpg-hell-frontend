@@ -8,27 +8,23 @@ type Props = {
     // subNotes: string[];
 };
 
-export default function ItemCardHolder({
-    shownItems: _shownItems,
-    moveItem,
-}: Props)  {
-
+export default function ItemCardHolder({ shownItems: _shownItems, moveItem }: Props) {
+    if (_shownItems.length == 0)
+        return <p className="text-center text-light/50">Theres nothing here... No Items found</p>;
 
     return (
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 print:grid-cols-2 -m-4">
+        <div className="-m-4 grid grid-cols-1 print:grid-cols-2 md:grid-cols-3">
             {_shownItems.map((item, i) => {
-                if (item.name != 'Error') {
+                if (item.name != "Error") {
                     return (
-                        <ItemCard _item={item} key={i}
-                        moveItem={moveItem}
+                        <ItemCard
+                            _item={item}
+                            key={i}
+                            moveItem={moveItem}
                         />
                     );
                 }
             })}
         </div>
-                                
     );
 }
-
-

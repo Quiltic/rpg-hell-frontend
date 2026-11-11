@@ -1,7 +1,7 @@
-import { Tab, Disclosure, Switch } from "@headlessui/react";
+import { Disclosure, Switch } from "@headlessui/react";
 import ItemsTable from "./ItemsTable";
 import { Button } from "../ui/Button/Button";
-import { classNames, download } from "../../util/tableTools";
+import { download } from "../../util/tableTools";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import { useItems } from "../../hooks/useItems";
 import { eApiClass } from "../../types/ApiClassUnions";
@@ -13,6 +13,7 @@ import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
 import CleanCombobox from "../joshhellscapePages/CleanCombobox";
+import FilterToggles from "../ui/FilterToggles";
 
 const tagList = [
     "weapon",
@@ -75,6 +76,13 @@ export default function ItemsTablePage() {
 
     const [enabled, setEnabled] = useState(false);
     const [searchRarity, setSearchRarity] = useState("any");
+    const [selected, setSelected] = useState<string[]>([]);
+
+    const shownItems = displayedItems.filter((i) => {
+        if (searchRarity != "any" && i.rarity != searchRarity) return false;
+        if (selected.length == 0) return true;
+        return selected.some((n) => i.tags.includes(n));
+    });
 
     return (
         <>
@@ -196,39 +204,13 @@ export default function ItemsTablePage() {
                 </>
             )}
 
-            <Tab.Group
-                as="div"
-                className="w-full "
-            >
+            <div className="w-full ">
                 <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
-                    <Tab.List className="flex flex-wrap gap-2 p-1">
-                        <Tab
-                            className={({ selected }) =>
-                                classNames(
-                                    "w-10 rounded-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
-                                    selected ? "ring-2" : ""
-                                )
-                            }
-                        >
-                            All
-                        </Tab>
-                        {IterativeItemLevels.map((n, i) => {
-                            return (
-                                <Tab
-                                    key={i}
-                                    className={({ selected }) =>
-                                        classNames(
-                                            "w-16 w-auto rounded-md bg-dark-600 p-2 px-1 py-1 capitalize ring-aabase hover:font-bold",
-                                            `text-${n.toLowerCase()}-700 ring-${n.toLowerCase()}-600`, //text-${n.toLowerCase()} dark:
-                                            selected ? "ring-2" : ""
-                                        )
-                                    }
-                                >
-                                    {n}
-                                </Tab>
-                            );
-                        })}
-                    </Tab.List>
+                    <FilterToggles
+                        options={IterativeItemLevels}
+                        selected={selected}
+                        onChange={setSelected}
+                    />
                     <div className="m-1 flex flex-row items-center justify-center rounded-md bg-dark-600">
                         <div className="m-1 ml-2 capitalize">Rarity</div>
                         <CleanCombobox
@@ -249,66 +231,23 @@ export default function ItemsTablePage() {
                         tagList={tagList}
                     />
                 </div>
-                <Tab.Panels>
-                    <Tab.Panel>
-                        {enabled && (
-                            <ItemCardHolder
-                                shownItems={displayedItems.filter((i) => {
-                                    if (searchRarity != "any") return i.rarity == searchRarity;
-                                    return true;
-                                })}
-                                moveItem={(item) => {
-                                    addToPinnedItems(item);
-                                }}
-                            />
-                        )}
-                        {!enabled && (
-                            <ItemsTable
-                                displayedItems={displayedItems.filter((i) => {
-                                    if (searchRarity != "any") return i.rarity == searchRarity;
-                                    return true;
-                                })}
-                                moveItem={(item) => {
-                                    addToPinnedItems(item);
-                                }}
-                            />
-                        )}
-                    </Tab.Panel>
-                    {IterativeItemLevels.map((n, i) => {
-                        return (
-                            <Tab.Panel key={i}>
-                                {enabled && (
-                                    <ItemCardHolder
-                                        shownItems={displayedItems.filter((i) => {
-                                            if (searchRarity != "any") {
-                                                return i.tags.includes(n) && i.rarity == searchRarity;
-                                            }
-                                            return i.tags.includes(n);
-                                        })}
-                                        key={i}
-                                        moveItem={(item) => {
-                                            addToPinnedItems(item);
-                                        }}
-                                    />
-                                )}
-                                {!enabled && (
-                                    <ItemsTable
-                                        displayedItems={displayedItems.filter((i) => {
-                                            if (searchRarity != "any") {
-                                                return i.tags.includes(n) && i.rarity == searchRarity;
-                                            }
-                                            return i.tags.includes(n);
-                                        })}
-                                        moveItem={(item) => {
-                                            addToPinnedItems(item);
-                                        }}
-                                    />
-                                )}
-                            </Tab.Panel>
-                        );
-                    })}
-                </Tab.Panels>
-            </Tab.Group>
+                {enabled && (
+                    <ItemCardHolder
+                        shownItems={shownItems}
+                        moveItem={(item) => {
+                            addToPinnedItems(item);
+                        }}
+                    />
+                )}
+                {!enabled && (
+                    <ItemsTable
+                        displayedItems={shownItems}
+                        moveItem={(item) => {
+                            addToPinnedItems(item);
+                        }}
+                    />
+                )}
+            </div>
         </>
     );
 }

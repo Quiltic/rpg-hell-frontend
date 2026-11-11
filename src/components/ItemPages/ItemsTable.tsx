@@ -10,11 +10,7 @@ type Props = {
     moveIsAdd?: boolean;
 };
 
-export default function ItemsTable({
-    displayedItems,
-    moveItem,
-    moveIsAdd = true,
-}: Props) {
+export default function ItemsTable({ displayedItems, moveItem, moveIsAdd = true }: Props) {
     return (
         <GlossaryTooltipLayer>
             <table className="table-fixed border-collapse rounded-md text-light md:table-auto">
@@ -29,13 +25,21 @@ export default function ItemsTable({
                         <th className="hidden md:table-cell">Cost</th>
                         {/* <th className="hidden md:table-cell">Craft</th> */}
                         {moveItem != undefined && (
-                            <th className="hidden md:table-cell">
-                                {moveIsAdd ? "Save" : "Unsave"}
-                            </th>
+                            <th className="hidden md:table-cell">{moveIsAdd ? "Save" : "Unsave"}</th>
                         )}
                     </tr>
                 </thead>
                 <tbody>
+                    {displayedItems.length == 0 && (
+                        <tr>
+                            <td
+                                colSpan={99}
+                                className="text-center text-light/50"
+                            >
+                                Theres nothing here... No Items found
+                            </td>
+                        </tr>
+                    )}
                     {displayedItems.map((item, i) => {
                         const ee = formatEffectString(item.effect ?? "");
 
@@ -53,33 +57,19 @@ export default function ItemsTable({
                                     reqlist = reqlist.concat(",", tag);
                                 }
                             });
-                        const req = toPillElement(
-                            reqlist.substring(1).replace(" 0", "") ?? "",
-                            ","
-                        );
+                        const req = toPillElement(reqlist.substring(1).replace(" 0", "") ?? "", ",");
 
                         return (
                             <tr key={i}>
-                                <td className="hidden font-bold capitalize md:table-cell">
-                                    {item.name}
-                                </td>
-                                <td className="table-cell min-w-24 capitalize md:hidden">
-                                    <span className="font-bold underline">
-                                        {item.name}
-                                    </span>
+                                <td className="hidden font-bold capitalize md:table-cell">{item.name}</td>
+                                <td className="min-w-24 table-cell capitalize md:hidden">
+                                    <span className="font-bold underline">{item.name}</span>
                                     <br />
-                                    Cost: {item.cost} {item.rarity} Tags:{" "}
-                                    {item.tags?.replace(/ 0/gi, "")}{" "}
+                                    Cost: {item.cost} {item.rarity} Tags: {item.tags?.replace(/ 0/gi, "")}{" "}
                                     {moveItem != undefined && (
                                         <Button
-                                            variant={
-                                                moveIsAdd
-                                                    ? "subtle-nature"
-                                                    : "subtle-medicine"
-                                            }
-                                            leftIcon={
-                                                moveIsAdd ? PinIcon : RemoveIcon
-                                            }
+                                            variant={moveIsAdd ? "subtle-nature" : "subtle-medicine"}
+                                            leftIcon={moveIsAdd ? PinIcon : RemoveIcon}
                                             className="h-8 w-6 rounded-md"
                                             onClick={() => {
                                                 moveItem(item);
@@ -103,13 +93,8 @@ export default function ItemsTable({
                                     dangerouslySetInnerHTML={{ __html: ee }}
                                     className="whitespace-pre-wrap"
                                 ></td>
-                                <td className="hidden capitalize md:table-cell">
-                                    {item.tags?.replace(/ 0/gi, "")}
-                                </td>
-                                <td className="hidden md:table-cell">
-                                    {" "}
-                                    {item.cost}{" "}
-                                </td>
+                                <td className="hidden capitalize md:table-cell">{item.tags?.replace(/ 0/gi, "")}</td>
+                                <td className="hidden md:table-cell"> {item.cost} </td>
                                 {/* <td className="hidden md:table-cell">
                                     {" "}
                                     {item.craft}{" "}
@@ -117,14 +102,8 @@ export default function ItemsTable({
                                 {moveItem != undefined && (
                                     <td className="hidden md:table-cell">
                                         <Button
-                                            variant={
-                                                moveIsAdd
-                                                    ? "subtle-nature"
-                                                    : "subtle-medicine"
-                                            }
-                                            leftIcon={
-                                                moveIsAdd ? PinIcon : RemoveIcon
-                                            }
+                                            variant={moveIsAdd ? "subtle-nature" : "subtle-medicine"}
+                                            leftIcon={moveIsAdd ? PinIcon : RemoveIcon}
                                             className="h-8 w-6 rounded-md"
                                             onClick={() => {
                                                 moveItem(item);

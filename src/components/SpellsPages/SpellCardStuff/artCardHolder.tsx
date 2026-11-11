@@ -9,6 +9,7 @@ type Props = {
 };
 
 export default function SpellCardHolder({ shownSpells: _shownSpells, action }: Props) {
+    if (_shownSpells.length == 0) return <p className="text-center text-light/50">I activate nothing! No Arts Found</p>;
     return (
         <div className="-m-4 grid grid-cols-1 print:grid-cols-2 md:grid-cols-3">
             {_shownSpells.map((spell, i) => {

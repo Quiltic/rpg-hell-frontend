@@ -3,18 +3,18 @@ import { useSpells } from "../../hooks/useSpells";
 
 import { useState } from "react";
 // import { Spell} from "../../client";
-import { classNames, download } from "../../util/tableTools";
+import { download } from "../../util/tableTools";
 import { eApiClass } from "../../types/ApiClassUnions";
 import SearchGroup from "../search/SearchGroup";
 import { useSearchParams } from "react-router-dom";
-import { Disclosure, Switch, Tab } from "@headlessui/react";
+import { Disclosure, Switch } from "@headlessui/react";
 import SpellsTable from "../SpellsPages/SpellsTable";
 import SpellCardHolder from "../SpellsPages/SpellCardStuff/artCardHolder";
 import { ChevronIcon } from "../../assets/IconSVGs/heroiconsSVG";
 import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
-import { colorFor } from "../../search/documents/palette";
+import FilterToggles from "../ui/FilterToggles";
 
 const tagList = [
     "elemental",
@@ -81,6 +81,13 @@ export default function SpellsTablePage() {
 
     const [enabled, setEnabled] = useState(false);
     const [searchLvl, setSearchLvl] = useState(0);
+    const [selected, setSelected] = useState<string[]>([]);
+
+    const shownSpells = displayedSpells.filter((s) => {
+        if (searchLvl && s.level != searchLvl) return false;
+        if (selected.length == 0) return true;
+        return selected.some((n) => s.stat == n.toLowerCase());
+    });
 
     return (
         <>
@@ -205,40 +212,13 @@ export default function SpellsTablePage() {
                 </>
             )}
 
-            <Tab.Group
-                as="div"
-                className="w-full "
-            >
+            <div className="w-full ">
                 <div className="md:flex-column w-full py-1 align-middle md:flex md:justify-between">
-                    <Tab.List className="flex flex-wrap gap-2 p-1">
-                        <Tab
-                            className={({ selected }) =>
-                                classNames(
-                                    "w-10 rounded-md bg-dark-600 px-2 py-1 ring-aabase hover:font-bold",
-                                    selected ? "ring-2" : ""
-                                )
-                            }
-                        >
-                            All
-                        </Tab>
-                        {statList.map((n, i) => {
-                            return (
-                                <Tab
-                                    key={i}
-                                    data-label={n}
-                                    className={({ selected }) =>
-                                        classNames(
-                                            "whitespace-nowrap rounded-md bg-dark-600 px-3 py-1 capitalize ring-aabase after:invisible after:block after:h-0 after:overflow-hidden after:font-bold after:content-[attr(data-label)] hover:font-bold",
-                                            `text-${colorFor(n)}-700 ring-${colorFor(n)}-600`,
-                                            selected ? "ring-2" : ""
-                                        )
-                                    }
-                                >
-                                    {n}
-                                </Tab>
-                            );
-                        })}
-                    </Tab.List>
+                    <FilterToggles
+                        options={statList}
+                        selected={selected}
+                        onChange={setSelected}
+                    />
                     {/* Level */}
                     <div className="m-1 flex flex-row items-center justify-center rounded-md bg-dark-600">
                         <div className="m-1 ml-2 capitalize">Level</div>
@@ -259,70 +239,26 @@ export default function SpellsTablePage() {
                         tagList={tagList}
                     />
                 </div>
-                <Tab.Panel>
-                    {enabled && (
-                        <SpellCardHolder
-                            shownSpells={displayedSpells.filter((s) => {
-                                if (searchLvl) return s.level == searchLvl;
-                                return true;
-                            })}
-                            action={{
-                                label: "Pin",
-                                onClick: (spell) => {
-                                    addToPinnedSpells(spell);
-                                },
-                            }}
-                        />
-                    )}
-                    {!enabled && (
-                        <SpellsTable
-                            displayedSpells={displayedSpells.filter((s) => {
-                                if (searchLvl) return s.level == searchLvl;
-                                return true;
-                            })}
-                            moveSpell={(spell) => {
+                {enabled && (
+                    <SpellCardHolder
+                        shownSpells={shownSpells}
+                        action={{
+                            label: "Pin",
+                            onClick: (spell) => {
                                 addToPinnedSpells(spell);
-                            }}
-                        />
-                    )}
-                </Tab.Panel>
-                {statList.map((n, i) => {
-                    return (
-                        <Tab.Panel key={i}>
-                            {enabled && (
-                                <SpellCardHolder
-                                    shownSpells={displayedSpells.filter((s) => {
-                                        if (searchLvl) {
-                                            return s.stat == n.toLowerCase() && s.level == searchLvl;
-                                        }
-                                        return s.stat == n.toLowerCase();
-                                    })}
-                                    key={i}
-                                    action={{
-                                        label: "Pin",
-                                        onClick: (spell) => {
-                                            addToPinnedSpells(spell);
-                                        },
-                                    }}
-                                />
-                            )}
-                            {!enabled && (
-                                <SpellsTable
-                                    displayedSpells={displayedSpells.filter((s) => {
-                                        if (searchLvl) {
-                                            return s.stat == n.toLowerCase() && s.level == searchLvl;
-                                        }
-                                        return s.stat == n.toLowerCase();
-                                    })}
-                                    moveSpell={(spell) => {
-                                        addToPinnedSpells(spell);
-                                    }}
-                                />
-                            )}
-                        </Tab.Panel>
-                    );
-                })}
-            </Tab.Group>
+                            },
+                        }}
+                    />
+                )}
+                {!enabled && (
+                    <SpellsTable
+                        displayedSpells={shownSpells}
+                        moveSpell={(spell) => {
+                            addToPinnedSpells(spell);
+                        }}
+                    />
+                )}
+            </div>
         </>
     );
 }
