@@ -201,12 +201,12 @@
 
     {"name":"tavern brawler","req":"pugilist 1","tags":"","effect":"Your Fist and improvised Weapon Attacks have +1 to their Bonus threshold (from 7 to 8).\nAdditionally, while you have a target Grappled you can spend 2 Strain to Throw them 6 tiles. If they land on an object or creature both targets take any Knockback damage.\n","extra":""},    
     {"name":"bouncer","req":"pugilist 1","tags":"","effect":"When a target moves within 1 tile of you, you may do a Grapple Contest against them without spending Dice.\nOnce per Turn, refund 1 Strain when you grapple a creature.","extra":""},
-    {"name":"body of iron","req":"pugilist 1","tags":"","effect":"While you are not wearing armor, you have +1 Shielding, +1 Speed, and +LEVEL Max Health.","extra":""},
     {"name":"parkourist","req":"pugilist 1","tags":"","effect":"When you do an Attack after moving or falling you gain Empowered until the end of your turn.\nYou can run along walls as if it was normal terrain. You cannot stop while on a wall otherwise you will fall to the ground.\nAdditionally, when you Jump add 2 to the distance jumped.","extra":""},
-
+    {"name":"reflect projectile","req":"pugilist 1","tags":"","effect":"While you are Hunkered Down if you Dodge a Ranged Physical Attack, you may spend 2 Strain to Throw it back with a 6 for the Attack Sum. The Attack keeps any Bonuses and/or Downsides and cant gain additional effects.","extra":""},
+    
     {"name":"new techniques","req":"pugilist 2","tags":"","effect":"When you take this Trait or when you level up pick Physical, Elemental, or Spiritual. You change the damage type of your Fist Weapons to the chosen type, or if you picked Physical they deal +1 damage.","extra":""},
     {"name":"smother","req":"pugilist 2","tags":"","effect":"When you first grapple a creature you may have them be Blinded and gaged (cant make sounds/speak), while you have them Grappled.\nWhile you have a target Grappled, you may spend 1 Strain to do 1 damage to the target. You may do this any number of times in a turn.","extra":""},
-    {"name":"reflect projectile","req":"pugilist 2","tags":"","effect":"While you are Hunkered Down if you Dodge a Ranged Physical Attack, you may spend 2 Strain to Throw it back with a 6 for the Attack Sum. The Attack keeps any Bonuses and/or Downsides and cant gain additional effects.","extra":""},
+    {"name":"body of iron","req":"pugilist 2","tags":"","effect":"While you are not wearing armor, you have +1 Shielding, +1 Speed, and +LEVEL Max Health.","extra":""},
 
     {"name":"gang up","req":"pugilist 3","tags":"","effect":"When you or a creature within 1 tile of you do damage, they deal +1 damage for every ally creature within 1 tile of the target.\nWhen you do a Check or Contest you gain +1 for every non-Follower ally within 3 tiles of you.","extra":""},
 
