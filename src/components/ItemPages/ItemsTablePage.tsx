@@ -12,7 +12,7 @@ import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 import ItemCardHolder from "./ItemCardStuff/itemCardHolder";
-import CleanCombobox from "../joshhellscapePages/CleanCombobox";
+import FilterListbox from "../ui/FilterListbox";
 import FilterToggles from "../ui/FilterToggles";
 
 const tagList = [
@@ -211,17 +211,12 @@ export default function ItemsTablePage() {
                         selected={selected}
                         onChange={setSelected}
                     />
-                    <div className="m-1 flex flex-row items-center justify-center rounded-md bg-dark-600">
-                        <div className="m-1 ml-2 capitalize">Rarity</div>
-                        <CleanCombobox
-                            items={rarityTiers}
-                            className="m-1 -mt-4 h-6 w-auto capitalize"
-                            selected={searchRarity}
-                            setSelected={(val) => {
-                                setSearchRarity(val);
-                            }}
-                        />
-                    </div>
+                    <FilterListbox
+                        label="Rarity"
+                        options={rarityTiers}
+                        value={searchRarity}
+                        onChange={setSearchRarity}
+                    />
                     <SearchGroup
                         key={searchedName}
                         initialName={searchedName}

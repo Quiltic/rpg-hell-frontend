@@ -15,6 +15,7 @@ import MarkdownRenderer from "../../rulebook/render/MarkdownRenderer";
 import { markdownFile } from "../../rulebook/pages";
 import { useKeyAnchor } from "../../glossary";
 import FilterToggles from "../ui/FilterToggles";
+import FilterListbox from "../ui/FilterListbox";
 
 const tagList = [
     "elemental",
@@ -64,6 +65,8 @@ const statList = [
     "Elementalist",
 ];
 
+const levels = ["any", "1", "2", "3", "4", "5"];
+
 export default function SpellsTablePage() {
     // Opens the Key panel below when linked to /rulebook/spells#key-spell-<slug>.
     const keyAnchor = useKeyAnchor("key-spell-");
@@ -80,11 +83,11 @@ export default function SpellsTablePage() {
     const searchedName = useSearchParams()[0].get("q") ?? "";
 
     const [enabled, setEnabled] = useState(false);
-    const [searchLvl, setSearchLvl] = useState(0);
+    const [searchLvl, setSearchLvl] = useState("any");
     const [selected, setSelected] = useState<string[]>([]);
 
     const shownSpells = displayedSpells.filter((s) => {
-        if (searchLvl && s.level != searchLvl) return false;
+        if (searchLvl != "any" && String(s.level) != searchLvl) return false;
         if (selected.length == 0) return true;
         return selected.some((n) => s.stat == n.toLowerCase());
     });
@@ -219,17 +222,12 @@ export default function SpellsTablePage() {
                         selected={selected}
                         onChange={setSelected}
                     />
-                    {/* Level */}
-                    <div className="m-1 flex flex-row items-center justify-center rounded-md bg-dark-600">
-                        <div className="m-1 ml-2 capitalize">Level</div>
-                        <input
-                            type="number"
-                            className="m-1 flex h-6 w-16 flex-row rounded-lg p-2 shadow-md"
-                            value={searchLvl}
-                            min="0"
-                            onChange={(e) => setSearchLvl(parseInt(e.target.value))}
-                        />
-                    </div>
+                    <FilterListbox
+                        label="Level"
+                        options={levels}
+                        value={searchLvl}
+                        onChange={setSearchLvl}
+                    />
                     <SearchGroup
                         key={searchedName}
                         initialName={searchedName}
